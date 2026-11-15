@@ -1,0 +1,191 @@
+{
+ "fps": 30,
+ "audio": {"voice": "audio/voice.mp3", "music": "audio/music.mp3", "musicDb": -17},
+ "words": "audio/words.json",
+ "captions": {"wordsPer": 1},
+ "font": "fonts/Montserrat-ExtraBold.ttf",
+ "contactShadow": 0.6,
+
+ "moods": {
+  "day": {
+   "sun": {"azimuth": 35, "elevation": 50, "color": "#ffe0b5", "intensity": 2.4},
+   "sky": {"top": "#5f86d8", "horizon": "#f2b98a"},
+   "fill": {"sky": "#8ea2ff", "ground": "#6a3b6e", "intensity": 1.1}
+  },
+  "night": {
+   "sun": {"azimuth": -40, "elevation": 38, "color": "#a9bcff", "intensity": 1.8},
+   "sky": {"top": "#1d2a6e", "horizon": "#6268b4"},
+   "fill": {"sky": "#7686ee", "ground": "#4c3f8c", "intensity": 1.6},
+   "exposure": 1.2
+  },
+  "dusk": {
+   "sun": {"azimuth": -20, "elevation": 42, "color": "#ffb27a", "intensity": 2.1},
+   "sky": {"top": "#3f4f9e", "horizon": "#f0926a"},
+   "fill": {"sky": "#7d7ee0", "ground": "#5a3464", "intensity": 1.3},
+   "exposure": 1.05
+  }
+ },
+ "lighting": [
+  {"t": 0, "mood": "day"},
+  {"t": "say:You see", "mood": "night", "fade": 0.8},
+  {"t": "say:The bounty", "mood": "dusk", "fade": 0.8},
+  {"t": "say:And that's why", "mood": "day", "fade": 0.6}
+ ],
+
+ "ground": {"texture": "textures/cobble.jpg", "repeat": [150, 150]},
+ "backdrop": {"image": "bg/hanoi.jpg", "blur": 5},
+ "ink": {"set": 4},
+
+ "characters": [
+  {"id": "official", "puppet": "puppets/official", "pos": [0, 0, 0], "height": 1.8, "face": "neutral"},
+  {"id": "inspector", "puppet": "puppets/inspector", "pos": [-9.5, 0, 1.6], "height": 1.8, "face": "neutral"},
+  {"id": "r1", "puppet": "puppets/rat", "pos": [1.1, 0, 0.7], "height": 0.42, "face": "happy", "flip": true},
+  {"id": "r2", "puppet": "puppets/rat", "pos": [-1.0, 0, 1.0], "height": 0.42, "face": "neutral"},
+  {"id": "r3", "puppet": "puppets/rat", "pos": [4.4, 0, -2.0], "height": 0.42, "face": "happy"},
+  {"id": "r4", "puppet": "puppets/rat", "pos": [5.3, 0, -1.4], "height": 0.42, "face": "neutral", "flip": true},
+  {"id": "n1", "puppet": "puppets/ratnt", "pos": [-2.6, 0, 1.4], "height": 0.42, "face": "happy"},
+  {"id": "n2", "puppet": "puppets/ratnt", "pos": [-3.6, 0, 0.6], "height": 0.42, "face": "happy", "flip": true},
+
+  {"id": "boss", "puppet": "puppets/official", "pos": [69.8, 0, 0], "height": 1.8, "face": "neutral"},
+  {"id": "hunter", "puppet": "puppets/hunter", "pos": [71.8, 0, 0.4], "height": 1.8, "face": "neutral", "flip": true},
+  {"id": "b1", "puppet": "puppets/rat", "pos": [76.5, 0, 2.0], "height": 0.42, "face": "neutral", "flip": true},
+  {"id": "b2", "puppet": "puppets/rat", "pos": [63.5, 0, 2.2], "height": 0.42, "face": "neutral"},
+  {"id": "b3", "puppet": "puppets/ratnt", "pos": [77.5, 0, -0.5], "height": 0.42, "face": "happy", "flip": true},
+
+  {"id": "farmer", "puppet": "puppets/hunter", "pos": [140, 0.06, 0], "height": 1.8, "face": "neutral"},
+  {"id": "rc", "puppet": "puppets/rat", "pos": [139.1, 0.06, 0.35], "height": 0.42, "face": "shocked"},
+  {"id": "f1", "puppet": "puppets/ratnt", "pos": [143.6, 0.06, -1.2], "height": 0.42, "face": "happy", "flip": true},
+  {"id": "f2", "puppet": "puppets/ratnt", "pos": [136.2, 0.06, -2.4], "height": 0.42, "face": "happy"},
+  {"id": "f3", "puppet": "puppets/ratnt", "pos": [142.2, 0.06, -4.0], "height": 0.42, "face": "neutral"},
+  {"id": "f4", "puppet": "puppets/ratnt", "pos": [138.0, 0.06, -5.2], "height": 0.42, "face": "happy", "flip": true},
+  {"id": "f5", "puppet": "puppets/ratnt", "pos": [145.0, 0.06, -6.0], "height": 0.42, "face": "sneaky"},
+  {"id": "k1", "puppet": "puppets/rat", "pos": [141.0, 0.06, 0.9], "height": 0.22, "face": "happy"},
+  {"id": "k2", "puppet": "puppets/rat", "pos": [141.7, 0.06, 1.3], "height": 0.22, "face": "happy", "flip": true},
+  {"id": "k3", "puppet": "puppets/rat", "pos": [142.3, 0.06, 0.7], "height": 0.22, "face": "happy"},
+  {"id": "k4", "puppet": "puppets/rat", "pos": [141.3, 0.06, 1.8], "height": 0.22, "face": "neutral", "flip": true}
+ ],
+
+ "props": [
+  {"type": "house", "pos": [-7, 0, -8], "size": [6, 4.4, 5], "wall": "textures/plaster.jpg", "roof": "#b5553a"},
+  {"type": "house", "pos": [0.5, 0, -8.5], "size": [7, 5, 5], "wall": "textures/plaster.jpg", "roof": "#a94d36"},
+  {"type": "house", "pos": [8, 0, -8], "size": [6, 4.4, 5], "wall": "textures/plaster.jpg", "roof": "#b5553a"},
+  {"type": "tree", "pos": [-10.5, 0, -4.5], "scale": 1.6, "color": "#5f9a4c"},
+  {"type": "tree", "pos": [11.5, 0, -5], "scale": 1.4, "color": "#4f8f4a"},
+  {"type": "wall", "pos": [4.6, 0, -2.6], "size": [3.4, 2.3, 0.5], "texture": "textures/brick.jpg", "repeat": [3, 2]},
+  {"type": "plane", "image": "props/sewer.png", "pos": [4.6, 0, -2.33], "size": [1.7, 1.7]},
+  {"type": "model", "file": "models/cart.glb", "pos": [-3.4, 0, -3.0], "height": 1.25, "rotY": 25},
+  {"type": "crate", "pos": [-5.4, 0, -3.6], "size": 0.75, "texture": "textures/wood.jpg"},
+  {"type": "crate", "pos": [-5.25, 0.75, -3.65], "size": 0.55, "rotY": 20, "texture": "textures/wood.jpg"},
+  {"type": "barrel", "pos": [7.2, 0, -2.0]},
+  {"type": "post", "pos": [2.4, 0, 1.2], "h": 2.6, "color": "#4a3a3f"},
+  {"type": "post", "pos": [-6.0, 0, 0.6], "h": 2.6, "color": "#4a3a3f"},
+
+  {"type": "house", "pos": [70, 0, -9.5], "size": [10, 6, 6], "wall": "textures/plaster.jpg", "roof": "#8a4a3a"},
+  {"type": "house", "pos": [60, 0, -8], "size": [5, 4, 5], "wall": "textures/plaster.jpg", "roof": "#b5553a"},
+  {"type": "house", "pos": [80, 0, -8], "size": [5, 4, 5], "wall": "textures/plaster.jpg", "roof": "#b5553a"},
+  {"type": "post", "pos": [67.8, 0, -1.5], "h": 2.7, "color": "#4a3a3f"},
+  {"type": "plane", "image": "props/poster.png", "pos": [67.8, 1.1, -1.42], "size": [1.0, 1.33]},
+  {"type": "plane", "image": "props/tails.png", "pos": [71.2, 0, -1.2], "size": [1.5, 1.05]},
+  {"type": "crate", "pos": [72.9, 0, -1.9], "size": 0.75, "texture": "textures/wood.jpg"},
+  {"type": "crate", "pos": [68.6, 0, -2.4], "size": 0.7, "texture": "textures/wood.jpg"},
+  {"type": "barrel", "pos": [73.8, 0, -1.3]},
+  {"type": "tree", "pos": [63, 0, -4.5], "scale": 1.5, "color": "#5f9a4c"},
+  {"type": "tree", "pos": [77.5, 0, -4.8], "scale": 1.4, "color": "#4f8f4a"},
+
+  {"type": "box", "pos": [140, 0, -4], "size": [36, 0.06, 30], "texture": "textures/dirt.jpg", "repeat": [8, 7]},
+  {"type": "wall", "pos": [140, 0.06, -9], "size": [14, 1.1, 0.25], "texture": "textures/wood.jpg", "repeat": [8, 1]},
+  {"type": "wall", "pos": [133, 0.06, -4.5], "size": [0.25, 1.1, 9], "texture": "textures/wood.jpg", "repeat": [5, 1]},
+  {"type": "wall", "pos": [147, 0.06, -4.5], "size": [0.25, 1.1, 9], "texture": "textures/wood.jpg", "repeat": [5, 1]},
+  {"type": "tree", "pos": [128, 0, -12], "scale": 1.8, "color": "#5f9a4c"},
+  {"type": "tree", "pos": [152, 0, -13], "scale": 1.7, "color": "#4f8f4a"},
+  {"type": "tree", "pos": [138, 0, -17], "scale": 2.0, "color": "#5a944a"},
+  {"type": "tree", "pos": [146, 0, -15], "scale": 1.5, "color": "#4f8f4a"},
+  {"type": "model", "file": "models/cart.glb", "pos": [146.2, 0.06, -1.6], "height": 1.25, "rotY": -40},
+  {"type": "crate", "pos": [134.6, 0.06, -3.0], "size": 0.75, "texture": "textures/wood.jpg"},
+  {"type": "crate", "pos": [134.75, 0.81, -3.05], "size": 0.55, "rotY": 15, "texture": "textures/wood.jpg"},
+  {"type": "crate", "pos": [144.8, 0.06, -7.2], "size": 0.7, "texture": "textures/wood.jpg"},
+  {"type": "barrel", "pos": [135.8, 0.06, -6.5]}
+ ],
+
+ "shots": [
+  {"start": 0, "target": "official", "headWidth": 0.2, "yaw": 14, "pitch": 4, "zoom": 6, "pan": [-22, 8],
+   "actions": [{"at": 0.2, "who": "official", "face": "confused", "pose": {"head": -6, "armR": -40}},
+               {"at": 0.1, "who": "r1", "to": [-1.6, 0, 0.9], "walk": true, "over": 2.2},
+               {"at": 0.6, "who": "r2", "to": [1.8, 0, 1.2], "walk": true, "over": 2.0, "flip": true}]},
+
+  {"start": "say:It's 1902", "target": "official", "headWidth": 0.085, "yaw": 32, "pitch": 12, "frameY": 0.0, "zoom": 4, "pan": [16, 0],
+   "actions": [{"at": 0.0, "who": "official", "face": "neutral", "pose": {"head": 0, "armR": 0}}]},
+
+  {"start": "say:The French", "target": "official", "headWidth": 0.17, "yaw": -18, "pitch": 6, "zoom": 5, "pan": [-14, 6],
+   "actions": [{"at": 0.1, "who": "official", "face": "happy", "pose": {"armR": -105, "armL": 15}}]},
+
+  {"start": "say:Rats love", "anchor": [4.6, 0.75, -2.3], "distance": 4.2, "yaw": -20, "pitch": 8, "frameY": 0.05, "zoom": 8, "pan": [0, -10],
+   "actions": [{"at": 0.1, "who": "r3", "hop": 0.3}, {"at": 0.15, "who": "r3", "to": [3.0, 0, -0.5], "walk": true, "over": 1.3},
+               {"at": 0.5, "who": "r4", "hop": 0.25}, {"at": 0.55, "who": "r4", "to": [6.4, 0, -0.2], "walk": true, "over": 1.3}]},
+
+  {"start": "say:They climb", "anchor": [0.6, 2.2, -6.0], "distance": 7.5, "yaw": 10, "pitch": 16, "frameY": 0.0, "zoom": 5, "pan": [-10, -14],
+   "actions": [{"at": 0.0, "who": "r1", "to": [-0.8, 0, -5.85], "walk": true, "over": 0.9}, {"at": 0.9, "who": "r1", "to": [-0.8, 3.3, -5.85], "walk": true, "over": 1.4},
+               {"at": 0.3, "who": "r2", "to": [2.2, 0, -5.85], "walk": true, "over": 0.8}, {"at": 1.1, "who": "r2", "to": [2.2, 2.7, -5.85], "walk": true, "over": 1.3}]},
+
+  {"start": "say:So the government", "target": "boss", "headWidth": 0.2, "yaw": -12, "pitch": 4, "zoom": 5, "pan": [18, 6],
+   "actions": [{"at": 0.3, "who": "boss", "face": "smug", "pose": {"head": 4}}]},
+
+  {"start": "say:One cent", "anchor": [67.8, 1.75, -1.42], "distance": 2.6, "yaw": 12, "pitch": 2, "frameY": 0.02, "zoom": 9, "pan": [0, -8],
+   "actions": [{"at": 0.0, "who": "boss", "pose": {"armL": 110}, "face": "happy"}, {"at": 0.6, "who": "hunter", "face": "happy", "pose": {"armR": -70}}]},
+
+  {"start": "say:Hunters go", "target": "hunter", "headWidth": 0.11, "yaw": 28, "pitch": 12, "frameY": 0.0, "zoom": -4, "pan": [24, 0],
+   "actions": [{"at": 0.0, "who": "hunter", "face": "happy", "pose": {"armR": 0}}, {"at": 0.1, "who": "hunter", "to": [74.5, 0, 1.6], "walk": true, "over": 1.4, "flip": true},
+               {"at": 0.2, "who": "b1", "to": [73.2, 0, 2.4], "walk": true, "over": 1.2}, {"at": 0.3, "who": "b2", "to": [67, 0, 2.6], "walk": true, "over": 1.2, "flip": true},
+               {"at": 0.9, "who": "boss", "face": "happy", "pose": {"armL": 0, "armR": -100}}]},
+
+  {"start": "say:20,112", "anchor": [71.2, 0.55, -1.2], "distance": 2.4, "yaw": -16, "pitch": 12, "frameY": 0.0, "zoom": 10, "pan": [0, -6],
+   "actions": [{"at": 0.2, "who": "boss", "face": "shocked", "pose": {"armR": -60, "armL": 60}}]},
+
+  {"start": "say:Victory", "target": "boss", "headWidth": 0.22, "yaw": 6, "pitch": 4, "zoom": 4, "pan": [-10, 10],
+   "actions": [{"at": 0.0, "who": "boss", "face": "happy", "pose": {"armL": 150, "armR": -150, "head": -5}}, {"at": 0.25, "who": "boss", "hop": 0.22},
+               {"at": 0.8, "who": "hunter", "to": [71.8, 0, 0.4], "walk": true, "over": 1.0, "flip": false}]},
+
+  {"start": "say:Then inspectors", "target": "inspector", "headWidth": 0.18, "yaw": -24, "pitch": 6, "zoom": 5, "pan": [14, 4],
+   "actions": [{"at": 0.0, "who": "inspector", "to": [-6.6, 0, 1.2], "walk": true, "over": 1.3}, {"at": 0.9, "who": "inspector", "face": "confused", "pose": {"head": 8, "armR": -40}}]},
+
+  {"start": "say:Rats. Alive", "anchor": [-3.0, 0.25, 1.0], "distance": 2.6, "yaw": -8, "pitch": 18, "frameY": 0.0, "zoom": 8, "pan": [-18, 0],
+   "actions": [{"at": 0.0, "who": "n1", "to": [-4.4, 0, 1.6], "walk": true, "over": 1.6}, {"at": 0.2, "who": "n2", "to": [-1.4, 0, 0.9], "walk": true, "over": 1.6},
+               {"at": 0.7, "who": "n1", "hop": 0.18}, {"at": 1.1, "who": "n2", "hop": 0.18}]},
+
+  {"start": "say:with no tails", "target": "inspector", "headWidth": 0.25, "yaw": 12, "pitch": 2, "zoom": 7, "pan": [0, -8],
+   "actions": [{"at": 0.0, "who": "inspector", "face": "shocked", "shake": 0.7, "pose": {"armL": 70, "armR": -70, "head": 0}}]},
+
+  {"start": "say:You see", "target": "farmer", "headWidth": 0.2, "yaw": -14, "pitch": 5, "zoom": 5, "pan": [12, 6],
+   "actions": [{"at": 0.2, "who": "farmer", "face": "sneaky", "pose": {"head": 5, "armR": -30}}]},
+
+  {"start": "say:A rat without", "anchor": [141.4, 0.3, 0.9], "distance": 2.8, "yaw": 18, "pitch": 16, "frameY": 0.02, "zoom": 6, "pan": [-10, 0],
+   "actions": [{"at": 0.3, "who": "k1", "hop": 0.14}, {"at": 0.6, "who": "k2", "hop": 0.14}, {"at": 0.9, "who": "k3", "hop": 0.14}, {"at": 1.2, "who": "k4", "hop": 0.14},
+               {"at": 0.0, "who": "k1", "to": [142.4, 0.06, 1.4], "walk": true, "over": 1.6}, {"at": 0.4, "who": "k3", "to": [140.6, 0.06, 1.5], "walk": true, "over": 1.4}]},
+
+  {"start": "say:So hunters cut", "target": "farmer", "headWidth": 0.17, "yaw": 8, "pitch": 8, "zoom": 6, "pan": [0, 8],
+   "actions": [{"at": 0.0, "who": "farmer", "face": "sneaky", "pose": {"armR": -95, "armL": 20}}, {"at": 0.9, "who": "farmer", "pose": {"armR": -20, "armL": 0}, "face": "happy"},
+               {"at": 0.6, "who": "rc", "face": "happy"}, {"at": 1.0, "who": "rc", "hop": 0.3}, {"at": 1.05, "who": "rc", "to": [136.5, 0.06, 1.2], "walk": true, "over": 1.4}]},
+
+  {"start": "say:Outside the city", "target": "farmer", "headWidth": 0.08, "yaw": 36, "pitch": 14, "frameY": -0.02, "zoom": -5, "pan": [20, 0],
+   "actions": [{"at": 0.0, "who": "farmer", "face": "neutral", "pose": {"armR": 0, "armL": 0}}, {"at": 0.2, "who": "f1", "to": [143, 0.06, -2.2], "walk": true, "over": 1.6},
+               {"at": 0.4, "who": "f2", "to": [137.2, 0.06, -3.4], "walk": true, "over": 1.6}, {"at": 0.6, "who": "f4", "to": [139.5, 0.06, -4.6], "walk": true, "over": 1.4}]},
+
+  {"start": "say:The bounty", "target": "boss", "headWidth": 0.21, "yaw": -10, "pitch": 4, "zoom": 6, "pan": [-12, 6],
+   "actions": [{"at": 0.0, "who": "boss", "face": "shouting", "pose": {"armL": 120, "armR": -120, "head": 0}, "shake": 0.8}, {"at": 0.9, "who": "boss", "face": "nervous", "pose": {"armL": 0, "armR": 0, "head": 6}},
+               {"at": 0.3, "who": "b1", "to": [70.8, 0, 1.1], "walk": true, "over": 1.4, "flip": true}, {"at": 0.5, "who": "b2", "to": [68.8, 0, 1.3], "walk": true, "over": 1.4},
+               {"at": 0.7, "who": "b3", "to": [71.6, 0, -0.4], "walk": true, "over": 1.4, "flip": true}]},
+
+  {"start": "say:The rats stayed", "target": "boss", "headWidth": 0.1, "yaw": 20, "pitch": 14, "frameY": -0.04, "zoom": 3, "pan": [0, -10],
+   "actions": [{"at": 0.0, "who": "boss", "pose": {"head": 8}}, {"at": 0.2, "who": "b1", "hop": 0.16}, {"at": 0.5, "who": "b3", "hop": 0.16}, {"at": 0.8, "who": "b2", "hop": 0.16}]},
+
+  {"start": "say:Because the city", "target": "boss", "headWidth": 0.24, "yaw": -6, "pitch": 2, "zoom": 5, "pan": [8, 0],
+   "actions": [{"at": 0.1, "who": "boss", "face": "confused", "pose": {"head": -7, "armR": -50, "armL": 0}}]},
+
+  {"start": "say:It counted", "anchor": [71.2, 0.5, -1.2], "distance": 2.0, "yaw": 8, "pitch": 14, "frameY": 0.0, "zoom": 10, "pan": [0, -6]},
+
+  {"start": "say:And that's why", "target": "official", "headWidth": 0.2, "yaw": 14, "pitch": 4, "zoom": 6, "pan": [-22, 8],
+   "actions": [{"at": 0.0, "who": "official", "face": "confused", "pose": {"head": -6, "armR": -40, "armL": 0}},
+               {"at": 0.1, "who": "n1", "to": [1.6, 0, 1.1], "walk": true, "over": 2.0, "flip": true}, {"at": 0.3, "who": "n2", "to": [-1.8, 0, 0.8], "walk": true, "over": 2.0, "flip": false}]}
+ ],
+ "end": "audio"
+}
