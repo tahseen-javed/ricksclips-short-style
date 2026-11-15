@@ -210,11 +210,11 @@ rat("mom", "ratmom", pos("C", 2.7, 0.06, 0.0), h=0.85)
 for cid, x, z in (("ba1", 3.6, 0.9), ("ba2", 4.2, 1.3), ("ba3", 4.8, 0.2)): rat(cid, "rat", pos("C", x, 0.06, z), h=0.32)
 rat("cr", "rat", pos("C", 2.9, 0.06, 0.5), h=0.85)
 rat("hn2", "ratnt", PARK, h=0.85, face="shocked")
-PEN = [("p1", -1.8, -6.5), ("p2", -0.9, -4.8), ("p3", 0.2, -7.2), ("p4", 1.2, -5.2), ("p5", 1.9, -7.0), ("p6", -0.5, -3.6), ("p7", 1.6, -3.8), ("p8", -1.8, -8.2), ("p9", 0.8, -8.4)]
+PEN = [("p1", -1.4, -6.5), ("p2", -0.8, -4.8), ("p3", 0.2, -7.2), ("p4", 1.0, -5.2), ("p5", 1.5, -7.0), ("p6", -0.4, -3.6), ("p7", 1.3, -3.8), ("p8", -1.5, -8.2), ("p9", 0.7, -8.4)]
 for i, (cid, x, z) in enumerate(PEN):
     left = i % 2 == 0
-    rat(cid, "ratnt" if i % 3 else "rat", pos("C", -11 if left else 11, 0.08, z), flip=left)
-for i in range(4): rat("s%d" % (i + 1), "ratnt" if i % 2 else "rat", pos("C", 7.5 + i * 1.1, 0.06, -2.4))
+    rat(cid, "ratnt" if i % 3 else "rat", pos("C", -11 if left else 11, 0.08, z), h=0.7, flip=left)
+for i in range(4): rat("s%d" % (i + 1), "ratnt" if i % 2 else "rat", pos("C", 7.5 + i * 1.1, 0.06, -2.4), h=0.7)
 # E rats: already standing around the yard, just outside the tight shot of the poster
 E_REST = [(-1.3, 3.0), (1.4, 3.2), (-2.0, 2.4), (2.1, 2.6), (-1.1, 4.0), (1.2, 4.2), (-2.8, 1.6), (2.9, 1.8)]
 for i, (x, z) in enumerate(E_REST): rat("e%d" % (i + 1), "ratnt" if i % 2 else "rat", pos("E", x, 0, z), flip=(x < 0))
@@ -339,7 +339,7 @@ hide(s, 1.5, "snip"); hide(s, 1.5, "poof"); hide(s, 1.5, "scis")
 act(s, 1.65, "hn2", face="happy", hop=0.25); act(s, 1.65, "h1", face="happy", pose=dict(armR=0))
 go(s, 1.9, "hn2", pos("C", 9, 0.06, 1.0), 1.2, flip=True)
 
-s = shot("Outside the city", anchor=pos("C", 0, 0.8, -6.0), dist=10, yaw=10, pitch=6, zoom=4, pan=(8, 0), fy=0.03)
+s = shot("Outside the city", anchor=pos("C", 0, 0.8, -6.0), dist=9, yaw=10, pitch=6, zoom=4, pan=(8, 0), fy=0.03)
 show(s, 0.0, "ratsign", pos("C", 0, 0.08, -8.95), hop=0.25)
 act(s, 0.0, "h2", to=pos("C", 6.0, 0.06, -2.4), over=0.02, walk=False, face="sneaky", pose=dict(armL=0, armR=0, head=4))
 go(s, 0.0, "h1", pos("C", -3.0, 0.06, -2.0), 0.8); act(s, 0.4, "h1", face="smug", pose=dict(armL=25, armR=-25))
