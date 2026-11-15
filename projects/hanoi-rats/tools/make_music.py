@@ -42,12 +42,12 @@ for b in range(bars):
     # pizzicato chord stabs on the off-beats
     for beat in (1, 3):
         for k, n in enumerate(chord): put(pluck(midi(n), 0.35, 0.985, 0.6), t0 + beat * BEAT + 0.012 * k, 0.17)
-    # curious melody: staccato 8ths with rests, stepwise random walk, higher after bar 8 (tension)
+    # curious melody: staccato 8ths with rests; only notes that agree with the chord (no clashes)
+    allowed = {0: [67, 69, 71, 72, 74, 76], 1: [65, 67, 69, 72, 74], 2: [62, 65, 67, 69, 72, 74], 3: [64, 68, 71, 74, 76]}[b % 4]
     for e in range(8):
         if random.random() < 0.38: continue
-        step = random.choice([-2, -1, -1, 1, 1, 2, 3])
-        i = min(len(scale) - 1, max(0, scale.index(mel) + step)) if mel in scale else 6
-        mel = scale[i]
+        near = sorted(allowed, key=lambda n: abs(n - mel) + random.random() * 2.5)
+        mel = near[0]
         lift = 12 if (b >= 8 and random.random() < 0.5) else 0
         put(pluck(midi(mel + lift), 0.28, 0.986, 0.7), t0 + e * BEAT / 2, 0.22 + 0.02 * min(b, 10))
     # tension: a quiet tremolo string note from bar 10 on

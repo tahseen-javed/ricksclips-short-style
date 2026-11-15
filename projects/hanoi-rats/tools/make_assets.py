@@ -70,6 +70,7 @@ HUMANS = {
     'official':  dict(base=(244, 240, 230, 255), shade=(214, 208, 196, 255), sash=(74, 104, 196, 255)),
     'hunter':    dict(base=(140, 92, 60, 255), shade=(108, 68, 44, 255), belt=(92, 58, 36, 255)),
     'inspector': dict(base=(66, 76, 146, 255), shade=(48, 56, 114, 255)),
+    'hunter2':   dict(base=(86, 140, 98, 255), shade=(60, 104, 72, 255), belt=(92, 58, 36, 255)),
 }
 
 def cel_shadow(d, cx, cy, r, shade, skin, off=(-48, -26)):
@@ -84,7 +85,7 @@ def hat(d, char):
         d.ellipse(cx, cy - 170, 166, 100, fill=(242, 236, 220, 255)); d.clip(band, dome)
         d.ellipse(cx, cy - 170, 166, 100, outline=LINE, width=lw)
         d.ellipse(cx, cy - 132, 226, 38, fill=(242, 236, 220, 255), outline=LINE, width=lw)
-    elif char == 'hunter':                                   # conical straw hat
+    elif char.startswith('hunter'):                          # conical straw hat
         tan, dark = (226, 188, 118, 255), (178, 138, 72, 255)
         apex, bl, br = (cx, 10), (cx - 222, 150), (cx + 222, 150)
         d.poly([apex, bl, br], fill=tan); d.chord(cx, 150, 222, 32, 0, 180, fill=tan)
@@ -178,7 +179,7 @@ def human_body(char):
         for y in (560, 640, 720): det.dot(230, y, 11, (217, 164, 65, 255)); det.ellipse(230, y, 11, 11, outline=LINE, width=4)
         det.dot(x0 + 70, 600, 16, (217, 164, 65, 255)); det.ellipse(x0 + 70, 600, 16, 16, outline=LINE, width=4)
         det.stroke([(x0 + 70, 570), (x0 + 70, 586)], (196, 60, 70, 255), 12)
-    elif char == 'hunter':
+    elif char.startswith('hunter'):
         det.rect(x0, 696, x1, 724, c['belt']); det.stroke([(x0, 696), (x1, 696)], LINE, 5); det.stroke([(x0, 724), (x1, 724)], LINE, 5)
         det.stroke([(230, 480), (230, 690)], c['shade'], 8)
     else:
@@ -230,7 +231,7 @@ def build_human(char):
 RW, RH = 520, 300
 R_HEAD = ((150, 160), 150); R_NECK = (205, 200); R_HEADBOX = (55, 45, 245, 245); R_LW = 9
 
-def rat_head(expr):
+def rat_head(expr, bow=False):
     d = Draw(RW, RH); (cx, cy), D = R_HEAD; R = D / 2
     for ex in (105, 195):
         d.ellipse(ex, 95, 38, 38, fill=GREY, outline=LINE, width=R_LW); d.ellipse(ex, 97, 22, 22, fill=PINK)
@@ -244,13 +245,19 @@ def rat_head(expr):
         for x, y in (L, Rr): d.ellipse(x, y, 17, 18, fill=WHITE, outline=LINE, width=4); d.dot(x, y + 3, 6, LINE)
     elif expr == 'sneaky':
         for x, y in (L, Rr): d.dot(x, y, 12, LINE); d.dot(x - 4, y - 4, 4, WHITE); d.rect(x - 14, y - 14, x + 14, y + 1, GREY); d.stroke([(x - 13, y + 1), (x + 13, y + 1)], LINE, 5)
+    elif expr == 'dead':
+        for x, y in (L, Rr): d.stroke([(x - 11, y - 11), (x + 11, y + 11)], LINE, 6); d.stroke([(x - 11, y + 11), (x + 11, y - 11)], LINE, 6)
     else:
         for x, y in (L, Rr): d.dot(x, y, 12, LINE); d.dot(x - 4, y - 4, 4, WHITE)
     d.dot(86, 188, 10, PINK); d.ellipse(86, 188, 10, 10, outline=LINE, width=4)
     for y1 in (176, 194, 212): d.stroke([(96, 192), (58, y1)], LINE, 3)
     if expr == 'shocked': d.ellipse(118, 208, 9, 12, fill=LINE)
     elif expr == 'happy': d.chord(118, 204, 16, 13, 0, 180, fill=LINE); d.chord(118, 204, 11, 8, 0, 180, fill=MOUTH)
+    elif expr == 'dead': d.arc(118, 202, 14, 9, 20, 160, LINE, 5); d.chord(124, 212, 8, 10, 0, 180, fill=TONGUE); d.arc(124, 212, 8, 10, 0, 180, LINE, 3)
     else: d.arc(118, 198, 14, 10, 20, 160, LINE, 5)
+    if bow:
+        for sx in (-1, 1): d.poly([(150, 74), (150 + sx * 44, 52), (150 + sx * 44, 96)], fill=(240, 110, 150, 255), outline=LINE, width=5)
+        d.dot(150, 74, 11, (240, 110, 150, 255)); d.ellipse(150, 74, 11, 11, outline=LINE, width=5)
     return d.out()
 
 def rat_body(tail):
@@ -273,14 +280,14 @@ def rat_body(tail):
 def rat_limb(p0, p1):
     d = Draw(RW, RH); d.stroke([p0, p1], LINE, 11); d.dot(p1[0], p1[1], 9, LINE); return d.out()
 
-def build_rat(name, tail):
+def build_rat(name, tail, bow=False):
     folder = os.path.join(ROOT, 'puppets', name)
     piv = {'head': R_NECK, 'body': (300, 280), 'armL': (170, 262), 'armR': (215, 268), 'legL': (335, 270), 'legR': (385, 266)}
-    layers = {'head': rat_head('neutral'), 'body': rat_body(tail),
+    layers = {'head': rat_head('neutral', bow), 'body': rat_body(tail),
               'armL': rat_limb(piv['armL'], (164, 290)), 'armR': rat_limb(piv['armR'], (216, 292)),
               'legL': rat_limb(piv['legL'], (330, 292)), 'legR': rat_limb(piv['legR'], (392, 292))}
     eyes_ = [{"c": [125, 158], "r": 20}, {"c": [175, 158], "r": 20}]
-    faces = {e: rat_head(e) for e in ('neutral', 'happy', 'shocked', 'sneaky')}
+    faces = {e: rat_head(e, bow) for e in ('neutral', 'happy', 'shocked', 'sneaky', 'dead')}
     write_rig(folder, name, (RW, RH), 296, R_HEAD, hexc(GREY), layers, piv, eyes_, faces, R_HEADBOX)
     return layers, faces
 
@@ -400,6 +407,127 @@ def sewer(path):
     for x in (230, 300, 370): d.stroke(bez((x, 500), (x - 5, 540), (x + 5, 560), (x, 585)), (120, 148, 100, 255), 10)
     d.out().save(path)
 
+# ------------------------------------------------------------------ cards and stickers
+GOLD = (236, 184, 64, 255)
+RED = (212, 62, 70, 255)
+WOOD = (176, 124, 76, 255)
+WOOD_D = (128, 86, 52, 255)
+
+def tail_bunting(d, y0, x0, x1, n):
+    cols = [(212, 62, 70, 255), (74, 104, 196, 255), GOLD, (96, 170, 110, 255)]
+    step = (x1 - x0) / n
+    for i in range(n):
+        xa = x0 + i * step; d.poly([(xa + 8, y0), (xa + step - 8, y0), (xa + step / 2, y0 + 70)], fill=cols[i % 4], outline=LINE, width=6)
+
+def banner(path):
+    d = Draw(1800, 340); d.stroke([(20, 40), (1780, 40)], LINE, 8)
+    pts = [(60, 40), (1740, 40), (1700, 140), (1740, 240), (60, 240), (100, 140)]
+    d.poly(pts, fill=(246, 238, 214, 255), outline=LINE, width=14)
+    d.rrect(130, 62, 1670, 218, 18, outline=(190, 150, 110, 255), width=5)
+    d.text(900, 146, "HANOI  ·  1902", 150, LINE)
+    tail_bunting(d, 246, 90, 1710, 14)
+    d.out().save(path)
+
+def window(path):
+    d = Draw(380, 560)
+    for x0 in (10, 300):                                       # shutters
+        d.rrect(x0, 120, x0 + 70, 440, 10, fill=(70, 150, 150, 255), outline=LINE, width=7)
+        for y in range(150, 430, 36): d.stroke([(x0 + 12, y), (x0 + 58, y)], (44, 112, 118, 255), 5)
+    d.rect(78, 150, 302, 440, (252, 244, 226, 255)); d.chord(190, 150, 112, 96, 180, 360, fill=(252, 244, 226, 255))
+    d.rect(100, 160, 280, 430, (150, 196, 232, 255)); d.chord(190, 160, 90, 80, 180, 360, fill=(150, 196, 232, 255))
+    d.stroke([(190, 78), (190, 430)], (252, 244, 226, 255), 12); d.stroke([(100, 270), (280, 270)], (252, 244, 226, 255), 12)
+    d.stroke([(100, 430), (100, 160), (110, 130), (190, 78), (270, 130), (280, 160), (280, 430)], LINE, 8)
+    d.stroke([(78, 440), (78, 150)], LINE, 7); d.stroke([(302, 440), (302, 150)], LINE, 7)
+    d.poly([(100, 160), (182, 160), (150, 270), (100, 250)], fill=(222, 80, 96, 255), outline=LINE, width=6)   # curtains
+    d.poly([(280, 160), (198, 160), (230, 270), (280, 250)], fill=(222, 80, 96, 255), outline=LINE, width=6)
+    d.rrect(56, 440, 324, 508, 12, fill=(168, 112, 70, 255), outline=LINE, width=8)                            # flower box
+    for i, x in enumerate(range(84, 310, 36)):
+        d.dot(x, 428 - (i % 2) * 12, 17, ((240, 110, 150, 255), (250, 214, 90, 255))[i % 2]); d.ellipse(x, 428 - (i % 2) * 12, 17, 17, outline=LINE, width=4)
+        d.stroke([(x, 440), (x, 452)], (84, 150, 90, 255), 6)
+    d.out().save(path)
+
+def sign_ratfarm(path):
+    d = Draw(1100, 440)
+    for x in (170, 930): d.rrect(x - 26, 220, x + 26, 436, 10, fill=WOOD_D, outline=LINE, width=8)
+    d.rrect(30, 40, 1070, 300, 34, fill=WOOD, outline=LINE, width=14)
+    for y in (120, 200): d.stroke([(50, y), (1050, y)], WOOD_D, 6)
+    for x, y in ((80, 80), (1020, 80), (80, 260), (1020, 260)): d.dot(x, y, 12, (120, 84, 60, 255)); d.ellipse(x, y, 12, 12, outline=LINE, width=4)
+    d.text(550, 170, "RAT FARM", 170, (252, 240, 214, 255), stroke=12, stroke_fill=LINE)
+    d.out().save(path)
+
+def sign_count(path):
+    d = Draw(900, 640)
+    for x in (200, 700): d.rrect(x - 24, 440, x + 24, 636, 10, fill=WOOD_D, outline=LINE, width=8)
+    d.rrect(20, 20, 880, 480, 42, fill=WOOD, outline=LINE, width=14)
+    d.rrect(48, 48, 852, 452, 28, outline=WOOD_D, width=6)
+    d.text(450, 112, "TAILS TURNED IN", 66, (252, 240, 214, 255), stroke=6, stroke_fill=LINE)
+    d.text(450, 270, "20,112", 230, GOLD, stroke=14, stroke_fill=LINE)
+    d.text(450, 406, "IN ONE DAY", 70, (252, 240, 214, 255), stroke=6, stroke_fill=LINE)
+    d.out().save(path)
+
+def calendar(path):
+    d = Draw(500, 580)
+    d.rrect(20, 40, 480, 560, 34, fill=(252, 248, 238, 255), outline=LINE, width=14)
+    d.rrect(20, 40, 480, 190, 34, fill=RED, outline=LINE, width=14); d.rect(34, 120, 466, 190, RED)
+    d.stroke([(20, 190), (480, 190)], LINE, 10)
+    for x in (130, 370): d.rrect(x - 18, 4, x + 18, 84, 16, fill=(220, 220, 230, 255), outline=LINE, width=7)
+    d.text(250, 118, "JUNE", 100, WHITE, stroke=8, stroke_fill=LINE)
+    d.text(250, 360, "21", 250, LINE)
+    d.text(250, 504, "1902", 64, (130, 110, 120, 255))
+    d.out().save(path)
+
+def poster_stamped(path):
+    base = Image.open(os.path.join(ROOT, 'props', 'poster.png')).convert('RGBA')
+    t = Draw(600, 800); t.rrect(40, 300, 560, 500, 20, outline=RED, width=18); t.text(300, 400, "SCRAPPED", 108, RED)
+    rot = t.out().rotate(-18, resample=Image.BICUBIC); base.alpha_composite(rot); base.save(path)
+
+def sparkle(path):
+    d = Draw(256, 256)
+    pts = [(128, 8), (152, 104), (248, 128), (152, 152), (128, 248), (104, 152), (8, 128), (104, 104)]
+    d.poly(pts, fill=(255, 246, 176, 255), outline=LINE, width=7); d.dot(128, 128, 14, WHITE)
+    d.out().save(path)
+
+def sticker_burst(txt, fill=(255, 214, 64, 255), tc=RED):
+    d = Draw(460, 360); cx, cy = 230, 180; pts = []
+    for k in range(28):
+        a = math.pi * 2 * k / 28; r = 172 if k % 2 == 0 else 112; pts.append((cx + r * math.cos(a) * 1.18, cy + r * math.sin(a) * 0.9))
+    d.poly(pts, fill=fill, outline=LINE, width=10); d.text(cx, cy + 4, txt, 112, tc, stroke=10, stroke_fill=LINE)
+    return d.out()
+
+def sticker_poof():
+    d = Draw(420, 340)
+    for x, y, r in ((120, 210, 82), (210, 150, 104), (306, 206, 86), (210, 240, 96), (150, 130, 62), (280, 120, 56)):
+        d.dot(x, y, r, LINE)
+    for x, y, r in ((120, 210, 72), (210, 150, 94), (306, 206, 76), (210, 240, 86), (150, 130, 52), (280, 120, 46)):
+        d.dot(x, y, r, (250, 248, 255, 255))
+    d.dot(190, 120, 20, (226, 226, 242, 255)); d.dot(300, 200, 26, (226, 226, 242, 255))
+    return d.out()
+
+def sticker_mark(ch, col):
+    d = Draw(230, 320); d.text(115, 170, ch, 300, col, stroke=16, stroke_fill=LINE); return d.out()
+
+def sticker_scissors():
+    d = Draw(420, 300)
+    d.poly([(130, 150), (370, 70), (380, 100), (150, 170)], fill=(214, 220, 232, 255), outline=LINE, width=7)
+    d.poly([(130, 150), (370, 230), (380, 200), (150, 130)], fill=(190, 198, 214, 255), outline=LINE, width=7)
+    for cy in (96, 204): d.ellipse(84, cy, 46, 40, outline=LINE, width=26); d.ellipse(84, cy, 46, 40, outline=RED, width=14)
+    d.dot(146, 150, 12, GOLD); d.ellipse(146, 150, 12, 12, outline=LINE, width=4)
+    return d.out()
+
+def sticker_coin():
+    d = Draw(240, 240); d.dot(120, 120, 108, LINE); d.dot(120, 120, 98, GOLD); d.ellipse(120, 120, 78, 78, outline=(204, 148, 40, 255), width=8)
+    d.text(120, 124, "1¢", 100, LINE); d.dot(80, 70, 14, (255, 238, 170, 255))
+    return d.out()
+
+def build_sticker(name, img):
+    folder = os.path.join(ROOT, 'puppets', name); os.makedirs(folder, exist_ok=True)
+    w, h = img.size; Image.new('RGBA', (4, 4), (0, 0, 0, 0)).save(os.path.join(folder, 'body.png')); img.save(os.path.join(folder, 'head.png'))
+    rig = {"version": 2, "name": name, "size": [w, h], "feetY": h, "head": {"center": [w / 2, h / 2], "diameter": w}, "skin": "#ffffff",
+           "layers": {"body": {"file": "body.png", "box": [w // 2 - 2, h - 4, 4, 4], "pivot": [w / 2, h - 2]},
+                      "head": {"file": "head.png", "box": [0, 0, w, h], "pivot": [w / 2, h / 2]}},
+           "order": ["body", "head"], "eyes": [], "faces": {}}
+    with open(os.path.join(folder, 'rig.json'), 'w') as fh: json.dump(rig, fh, indent=1)
+
 # ------------------------------------------------------------------ run
 def sheet(items, path, cell=(300, 330)):
     cols = 6; rows = (len(items) + cols - 1) // cols
@@ -415,12 +543,17 @@ if __name__ == '__main__':
     items = []
     for char in HUMANS:
         layers, faces = build_human(char); items += [(char + ' ' + e, f) for e, f in faces.items()]
-    for name, tail in (('rat', True), ('ratnt', False)):
-        layers, faces = build_rat(name, tail); items += [(name + ' ' + e, f) for e, f in faces.items()]; items.append((name + ' body', layers['body']))
+    layers, faces = build_human('hunter2'); items += [('hunter2 ' + e, f) for e, f in faces.items()]
+    for name, tail, bow in (('rat', True, False), ('ratnt', False, False), ('ratmom', False, True)):
+        layers, faces = build_rat(name, tail, bow); items += [(name + ' ' + e, f) for e, f in faces.items()]; items.append((name + ' body', layers['body']))
     tex_brick(os.path.join(ROOT, 'textures', 'brick.jpg')); tex_wood(os.path.join(ROOT, 'textures', 'wood.jpg')); tex_dirt(os.path.join(ROOT, 'textures', 'dirt.jpg'))
     backdrop(os.path.join(ROOT, 'bg', 'hanoi.jpg'))
     poster(os.path.join(ROOT, 'props', 'poster.png')); tails(os.path.join(ROOT, 'props', 'tails.png')); sewer(os.path.join(ROOT, 'props', 'sewer.png'))
-    for n in ('poster', 'tails', 'sewer'): items.append((n, Image.open(os.path.join(ROOT, 'props', n + '.png'))))
+    banner(os.path.join(ROOT, 'props', 'banner.png')); window(os.path.join(ROOT, 'props', 'window.png')); sign_ratfarm(os.path.join(ROOT, 'props', 'sign_ratfarm.png'))
+    sign_count(os.path.join(ROOT, 'props', 'sign_count.png')); calendar(os.path.join(ROOT, 'props', 'calendar.png')); poster_stamped(os.path.join(ROOT, 'props', 'poster_x.png')); sparkle(os.path.join(ROOT, 'props', 'sparkle.png'))
+    for nm, im in (('snip', sticker_burst('SNIP!')), ('poof', sticker_poof()), ('excl', sticker_mark('!', RED)), ('ques', sticker_mark('?', GOLD)), ('scis', sticker_scissors()), ('coin', sticker_coin()), ('ratsign', Image.open(os.path.join(ROOT, 'props', 'sign_ratfarm.png')).convert('RGBA'))):
+        build_sticker(nm, im); items.append(('sticker ' + nm, im))
+    for n in ('poster', 'tails', 'sewer', 'banner', 'window', 'sign_ratfarm', 'sign_count', 'calendar', 'poster_x', 'sparkle'): items.append((n, Image.open(os.path.join(ROOT, 'props', n + '.png'))))
     for n in ('brick', 'wood', 'dirt'): items.append((n, Image.open(os.path.join(ROOT, 'textures', n + '.jpg'))))
     items.append(('backdrop', Image.open(os.path.join(ROOT, 'bg', 'hanoi.jpg'))))
     sheet(items, os.path.join(ROOT, 'assets_preview.jpg'))

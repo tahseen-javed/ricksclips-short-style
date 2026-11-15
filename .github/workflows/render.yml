@@ -6,19 +6,29 @@ on:
         description: Project folder (holds short.json)
         default: projects/hanoi-rats
       mode:
-        description: stills (stop-frame check) | preview (half-size 8 s) | full
+        description: "stills = check + contact sheets | frames = sheet of a time range | preview = half-size clip | full = final video"
         type: choice
-        options: [stills, preview, full]
+        options: [stills, frames, preview, full]
         default: stills
       voice_target:
-        description: Target voice length in seconds (speeds the TTS up to reach it)
-        default: "36"
+        description: Target voice length in seconds
+        default: "38"
+      redo_voice:
+        description: Regenerate voice, music and word timings
+        type: boolean
+        default: false
+      t_from:
+        description: Start second (frames / preview)
+        default: "0"
+      t_to:
+        description: End second (frames / preview)
+        default: "8"
 permissions:
   contents: write
 jobs:
   render:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 240
     env:
       P: ${{ inputs.project }}
       S: ricksclips-short-style/scripts/stage
@@ -31,71 +41,84 @@ jobs:
         with: { python-version: '3.12' }
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng > /dev/null
       - run: cd $S && npm install --silent && npx playwright install --with-deps chromium > /dev/null
-      - run: pip install -q numpy pillow scipy opencv-python-headless soundfile faster-whisper kokoro
-      - name: Library (fonts, demo textures and cart, drawn assets)
+      - run: pip install -q numpy pillow scipy opencv-python-headless soundfile
+
+      - name: Library (font, demo textures and cart, drawn assets)
         run: |
           mkdir -p $P/fonts $P/textures $P/models $P/audio
           [ -f $P/fonts/Montserrat-ExtraBold.ttf ] || curl -sL -o $P/fonts/Montserrat-ExtraBold.ttf https://github.com/JulietaUla/Montserrat/raw/master/fonts/ttf/Montserrat-ExtraBold.ttf
-          cp -n $D/textures/cobble.jpg $D/textures/plaster.jpg $P/textures/ ; cp -n $D/models/cart.glb $P/models/
+          for f in cobble.jpg plaster.jpg; do [ -f $P/textures/$f ] || cp $D/textures/$f $P/textures/; done
+          [ -f $P/models/cart.glb ] || cp $D/models/cart.glb $P/models/
           python $P/tools/make_assets.py $P $P/fonts/Montserrat-ExtraBold.ttf
-      - name: Music (synthesised in code) if missing
+
+      - name: Music (synthesised in code)
         run: |
-          if [ ! -f $P/audio/music.mp3 ]; then
+          if [ "${{ inputs.redo_voice }}" = "true" ] || [ ! -f $P/audio/music.mp3 ]; then
             python $P/tools/make_music.py $P/audio/music.wav 44
             ffmpeg -loglevel error -y -i $P/audio/music.wav -b:a 192k $P/audio/music.mp3 && rm $P/audio/music.wav
           fi
-      - name: Voice (Kokoro TTS, free, local) if missing
-        env: { VOICE_TARGET: "${{ inputs.voice_target }}" }
+
+      - name: Voice (Kokoro TTS, free and local) and word timings (Whisper)
         run: |
-          if [ ! -f $P/audio/voice.mp3 ]; then
-            python - <<'PY'
-          import os, numpy as np, soundfile as sf
-          from kokoro import KPipeline
-          d = os.environ["P"] + "/audio/"; SR = 24000
-          text = open(d + ("tts.txt" if os.path.exists(d + "tts.txt") else "script.txt"), encoding="utf-8").read()
-          pipe = KPipeline(lang_code="a", repo_id="hexgrad/Kokoro-82M")
-          def gen(speed):
-              parts = []
-              for _, _, a in pipe(text, voice="af_heart", speed=speed, split_pattern=r"\n+"):
-                  a = np.asarray(a, dtype=np.float32); idx = np.where(np.abs(a) > 0.012)[0]
-                  if len(idx): a = a[max(0, idx[0] - int(0.04 * SR)): min(len(a), idx[-1] + int(0.16 * SR))]
-                  parts += [a, np.zeros(int(0.05 * SR), np.float32)]
-              return np.concatenate(parts)
-          a = gen(1.0); dur = len(a) / SR; print("speed 1.00 -> %.1f s" % dur)
-          target = float(os.environ.get("VOICE_TARGET", "36")); sp = min(1.3, max(1.0, dur / target))
-          if sp > 1.03: a = gen(round(sp, 2)); print("speed %.2f -> %.1f s" % (sp, len(a) / SR))
-          sf.write(d + "voice.wav", a / max(1e-6, np.abs(a).max()) * 0.9, SR)
-          PY
-            ffmpeg -loglevel error -y -i $P/audio/voice.wav -b:a 192k $P/audio/voice.mp3 && rm $P/audio/voice.wav
-            rm -f $P/audio/words.json
+          if [ "${{ inputs.redo_voice }}" = "true" ] || [ ! -f $P/audio/voice.mp3 ] || [ ! -f $P/audio/words.json ]; then
+            pip install -q kokoro openai-whisper
+            rm -f $P/audio/voice.mp3 $P/audio/words.json
+            python $P/tools/make_voice.py $P/audio ${{ inputs.voice_target }} | tee $P/voice_report.txt
+            SHORTKIT_WHISPER_MODEL=small python $S/shortkit.py words $P/audio/voice.mp3 $P/audio/script.txt -o $P/audio/words.json | tee -a $P/voice_report.txt
+            SHORTKIT_WHISPER_MODEL=small python $P/tools/check_voice.py $P/audio/voice.mp3 $P/audio/tts.txt | tee -a $P/voice_report.txt || true
           fi
-      - name: Word timings (faster-whisper) if missing
-        run: |
-          [ -f $P/audio/words.json ] || SHORTKIT_WHISPER_MODEL=small python $S/shortkit.py words $P/audio/voice.mp3 $P/audio/script.txt -o $P/audio/words.json
-          python -c "import json;w=json.load(open('$P/audio/words.json'));print('voice %.2f s, %d words, %s'%(w['duration'],len(w['words']),w['method']))"
+          python -c "import json;w=json.load(open('$P/audio/words.json'));print('voice %.2f s, %d words, timings: %s'%(w['duration'],len(w['words']),w['method']))"
+
+      - name: Scene (short.json from the shot list)
+        run: python $P/tools/build_short.py $P | tee $P/scene_report.txt
+
       - name: Stop-frame check
         run: |
           set -o pipefail
           node $S/render.mjs $P/short.json $P/render.mp4 --stills 2>&1 | tee $P/stills_report.txt || true
-          ls $P/render_stills 2>/dev/null | head -3; find $P -name sheet.jpg
-      - name: Render
-        if: inputs.mode != 'stills'
+          python $P/tools/montage.py stills $P/render_stills $P/sheets
+          grep -E "flagged|problems" $P/stills_report.txt || echo "stills: no flags"
+
+      - name: Frames (contact sheet of a time range)
+        if: inputs.mode == 'frames'
         run: |
-          if [ "${{ inputs.mode }}" = "preview" ]; then node $S/render.mjs $P/short.json $P/preview.mp4 --scale 0.5 --from 0 --to 8; else node $S/render.mjs $P/short.json $P/render.mp4; fi
-          [ "${{ inputs.mode }}" = "full" ] && python $S/shortkit.py check $P/render.mp4 | tee $P/check_report.txt || true
+          node $S/render.mjs $P/short.json $P/range.mp4 --scale 0.5 --from ${{ inputs.t_from }} --to ${{ inputs.t_to }}
+          mkdir -p $P/rframes && ffmpeg -loglevel error -y -i $P/range.mp4 -vf "fps=5" $P/rframes/f%03d.png
+          python $P/tools/montage.py frames $P/rframes $P/sheets_range.jpg ${{ inputs.t_from }} 5
+
+      - name: Preview clip
+        if: inputs.mode == 'preview'
+        run: node $S/render.mjs $P/short.json $P/preview.mp4 --scale 0.5 --from ${{ inputs.t_from }} --to ${{ inputs.t_to }}
+
+      - name: Full render (only if the stop-frame check is clean)
+        if: inputs.mode == 'full'
+        run: |
+          if grep -q "flagged" $P/stills_report.txt; then echo "stop-frame check has flags - fix before the full render"; exit 1; fi
+          node $S/render.mjs $P/short.json $P/render.mp4
+          python $S/shortkit.py check $P/render.mp4 | tee $P/check_report.txt || true
+          ffprobe -v error -show_entries stream=width,height,r_frame_rate,duration -of default=nw=1 $P/render.mp4 | tee -a $P/check_report.txt
+
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: output
           path: |
+            ${{ inputs.project }}/sheets
+            ${{ inputs.project }}/sheets_range.jpg
+            ${{ inputs.project }}/render_stills
             ${{ inputs.project }}/stills_report.txt
+            ${{ inputs.project }}/scene_report.txt
+            ${{ inputs.project }}/voice_report.txt
             ${{ inputs.project }}/check_report.txt
             ${{ inputs.project }}/assets_preview.jpg
-            ${{ inputs.project }}/**/sheet.jpg
             ${{ inputs.project }}/preview.mp4
             ${{ inputs.project }}/render.mp4
           if-no-files-found: ignore
-      - name: Commit library, audio and video to the repo
+
+      - name: Save audio, scene and final video to the repo
+        if: always()
         run: |
           git config user.name "github-actions[bot]"; git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
-          rm -rf $P/*_stills
-          git add -A $P && git commit -qm "Build $P (${{ inputs.mode }})" && git push -q || echo "nothing to commit"
+          git add -f $P/short.json $P/audio $P/voice_report.txt $P/scene_report.txt $P/stills_report.txt 2>/dev/null || true
+          [ "${{ inputs.mode }}" = "full" ] && [ -f $P/render.mp4 ] && git add -f $P/render.mp4 $P/check_report.txt || true
+          git commit -qm "Build $P (${{ inputs.mode }})" && { git pull --rebase -q; git push -q; } || echo "nothing to commit"
