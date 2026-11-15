@@ -58,13 +58,25 @@ jobs:
             ffmpeg -loglevel error -y -i $P/audio/music.wav -b:a 192k $P/audio/music.mp3 && rm $P/audio/music.wav
           fi
 
-      - name: Voice (Kokoro TTS, free and local) and word timings (Whisper)
+      - name: Voice (Kokoro TTS, free and local) and word timings (CTC forced alignment)
         run: |
-          if [ "${{ inputs.redo_voice }}" = "true" ] || [ ! -f $P/audio/voice.mp3 ] || [ ! -f $P/audio/words.json ]; then
+          set -o pipefail
+          need_tts=0; need_align=0
+          if [ "${{ inputs.redo_voice }}" = "true" ] || [ ! -f $P/audio/voice.mp3 ]; then need_tts=1; fi
+          if [ $need_tts = 1 ] || [ ! -f $P/audio/words.json ] || ! grep -q '"method": "ctc"' $P/audio/words.json; then need_align=1; fi
+          if [ $need_tts = 1 ] || [ $need_align = 1 ]; then
+            pip install -q torch==2.5.1 torchaudio==2.5.1 --extra-index-url https://download.pytorch.org/whl/cpu
             pip install -q kokoro openai-whisper
+          fi
+          if [ $need_tts = 1 ]; then
             rm -f $P/audio/voice.mp3 $P/audio/words.json
             python $P/tools/make_voice.py $P/audio ${{ inputs.voice_target }} | tee $P/voice_report.txt
-            SHORTKIT_WHISPER_MODEL=small python $S/shortkit.py words $P/audio/voice.mp3 $P/audio/script.txt -o $P/audio/words.json | tee -a $P/voice_report.txt
+          fi
+          if [ $need_align = 1 ]; then
+            if ! python $P/tools/align_words.py $P/audio/voice.mp3 $P/audio/script.txt $P/audio/spoken.json $P/audio/words.json 2>&1 | tee -a $P/voice_report.txt; then
+              echo "CTC alignment failed - falling back to Whisper timings" | tee -a $P/voice_report.txt
+              SHORTKIT_WHISPER_MODEL=small python $S/shortkit.py words $P/audio/voice.mp3 $P/audio/script.txt -o $P/audio/words.json | tee -a $P/voice_report.txt
+            fi
             SHORTKIT_WHISPER_MODEL=small python $P/tools/check_voice.py $P/audio/voice.mp3 $P/audio/tts.txt | tee -a $P/voice_report.txt || true
           fi
           python -c "import json;w=json.load(open('$P/audio/words.json'));print('voice %.2f s, %d words, timings: %s'%(w['duration'],len(w['words']),w['method']))"

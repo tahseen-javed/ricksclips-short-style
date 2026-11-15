@@ -329,6 +329,18 @@ def tex_dirt(path, n=512):
             for dy in (-n, 0, n): d.dot(x + dx, y + dy, random.randint(2, 4), (120, 84, 66, 255))
     d.out().convert('RGB').save(path, quality=92)
 
+def tex_grass(path, n=512):
+    d = Draw(n, n, (116, 172, 88, 255)); random.seed(9)
+    for _ in range(200):
+        x, y, r = random.randint(0, n), random.randint(0, n), random.randint(10, 34); v = random.randint(-16, 14)
+        for dx in (-n, 0, n):
+            for dy in (-n, 0, n): d.ellipse(x + dx, y + dy, r, r * 0.7, fill=(116 + v, 172 + v, 88 + v // 2, 255))
+    for _ in range(320):
+        x, y = random.randint(0, n), random.randint(0, n); c = random.choice([(70, 128, 74, 255), (58, 112, 66, 255), (150, 200, 100, 255)])
+        for dx in (-n, 0, n):
+            for dy in (-n, 0, n): d.stroke([(x + dx - 7, y + dy), (x + dx, y + dy - 14), (x + dx + 7, y + dy)], c, 3)
+    d.out().convert('RGB').save(path, quality=92)
+
 # ------------------------------------------------------------------ backdrop
 def backdrop(path, W=2520, Hh=1080):
     im = Image.new('RGB', (W, Hh)); px = im.load()
@@ -478,7 +490,7 @@ def calendar(path):
 
 def poster_stamped(path):
     base = Image.open(os.path.join(ROOT, 'props', 'poster.png')).convert('RGBA')
-    t = Draw(600, 800); t.rrect(40, 300, 560, 500, 20, outline=RED, width=18); t.text(300, 400, "SCRAPPED", 108, RED)
+    t = Draw(600, 800); t.rrect(30, 280, 570, 520, 22, fill=(248, 238, 218, 244), outline=RED, width=16); t.text(300, 400, "SCRAPPED", 112, RED)
     rot = t.out().rotate(-18, resample=Image.BICUBIC); base.alpha_composite(rot); base.save(path)
 
 def sparkle(path):
@@ -546,7 +558,7 @@ if __name__ == '__main__':
     layers, faces = build_human('hunter2'); items += [('hunter2 ' + e, f) for e, f in faces.items()]
     for name, tail, bow in (('rat', True, False), ('ratnt', False, False), ('ratmom', False, True)):
         layers, faces = build_rat(name, tail, bow); items += [(name + ' ' + e, f) for e, f in faces.items()]; items.append((name + ' body', layers['body']))
-    tex_brick(os.path.join(ROOT, 'textures', 'brick.jpg')); tex_wood(os.path.join(ROOT, 'textures', 'wood.jpg')); tex_dirt(os.path.join(ROOT, 'textures', 'dirt.jpg'))
+    tex_brick(os.path.join(ROOT, 'textures', 'brick.jpg')); tex_wood(os.path.join(ROOT, 'textures', 'wood.jpg')); tex_dirt(os.path.join(ROOT, 'textures', 'dirt.jpg')); tex_grass(os.path.join(ROOT, 'textures', 'grass.jpg'))
     backdrop(os.path.join(ROOT, 'bg', 'hanoi.jpg'))
     poster(os.path.join(ROOT, 'props', 'poster.png')); tails(os.path.join(ROOT, 'props', 'tails.png')); sewer(os.path.join(ROOT, 'props', 'sewer.png'))
     banner(os.path.join(ROOT, 'props', 'banner.png')); window(os.path.join(ROOT, 'props', 'window.png')); sign_ratfarm(os.path.join(ROOT, 'props', 'sign_ratfarm.png'))

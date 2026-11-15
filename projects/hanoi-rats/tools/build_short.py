@@ -4,7 +4,7 @@ usage: build_short.py <project folder>   (reads audio/words.json, writes short.j
 
 Six sets 70 units apart in one world: H hook plaza, A story plaza (sewer + mansion),
 B bounty office, D tail counter, C farm, E scrapped-bounty yard.  Every rat lives in one
-set; only the few humans that change sets are teleported while the camera is elsewhere.
+set; only the few humans that change sets are moved while the camera is elsewhere.
 """
 import json, os, sys, re
 
@@ -35,8 +35,11 @@ def sticker(cid, name, h):
 
 
 # ------------------------------------------------------------------ props
-def house(loc, x, z, size, roof, wall="plaster.jpg"):
-    props.append(dict(type="house", pos=pos(loc, x, 0, z), size=size, wall=TEX + wall, roof=roof))
+def house(loc, x, z, size, roof, wall="plaster.jpg", color=None):
+    p = dict(type="house", pos=pos(loc, x, 0, z), size=size, roof=roof, door="#7a5890")
+    if color: p["color"] = color
+    else: p["wall"] = TEX + wall
+    props.append(p)
 
 
 def plane(loc, img, x, y, z, w, h):
@@ -97,7 +100,7 @@ def say(phrase):
 
 # ------------------------------------------------------------------ shot helpers
 def shot(start, out=None, target=None, anchor=None, hw=None, dist=None, yaw=0, pitch=6, zoom=6, pan=(0, 0), fy=None, fx=None):
-    s = {"start": "say:" + start if isinstance(start, str) and start != "0" else 0}
+    s = {"start": "say:" + start if start != "0" else 0}
     if target: s["target"] = target
     if anchor: s["anchor"] = anchor
     if hw: s["headWidth"] = hw
@@ -140,20 +143,20 @@ windows("A", -5.5, [-10, -7], 2.2); windows("A", -6.0, [-1.0, 2.0], 2.6); window
 box("A", 0.5, 0, -4.6, [1.5, 0.02, 2.0], color="#a8283c")
 box("A", 0.5, 0, -5.5, [3.2, 0.2, 0.9], color="#d8d0c4"); box("A", 0.5, 0.2, -5.75, [2.6, 0.2, 0.5], color="#cfc6b8")
 tree("A", -1.9, -5.1, 0.7, "#3f8f4a"); tree("A", 2.9, -5.1, 0.7, "#3f8f4a")
-post("A", -4.6, -3.1, 4.6, "#5a3a2a"); post("A", 4.6, -3.1, 4.6, "#5a3a2a"); plane("A", "banner.png", 0, 3.0, -3.05, 8.6, 1.62)
+post("A", -4.6, -3.1, 6.9, "#5a3a2a"); post("A", 4.6, -3.1, 6.9, "#5a3a2a"); plane("A", "banner.png", 0, 5.2, -3.05, 8.6, 1.62)
 wall("A", 3.6, 0, -2.6, [3.4, 2.3, 0.5], "brick.jpg", [3, 2]); plane("A", "sewer.png", 3.6, 0, -2.33, 1.7, 1.7)
 for x, y, s_ in ((2.1, 1.7, 0.5), (5.0, 2.0, 0.4), (4.7, 0.4, 0.35), (2.6, 0.5, 0.3)): plane("A", "sparkle.png", x, y, -2.3, s_, s_)
 cart("A", -6.4, 0, -3.4, 25); crate("A", -8.2, 0, -3.8); barrel("A", 7.4, -2.2); post("A", -2.4, -1.8); post("A", 6.4, -0.6)
 tree("A", -12.5, -4.5, 1.6); tree("A", 12.5, -5, 1.4, "#4f8f4a")
 
-# ---- B: bounty office
-house("B", 0, -12.5, [9, 6, 6], "#8a4a3a"); house("B", -10.5, -10, [5, 4, 5], "#b5553a"); house("B", 10.5, -10, [5, 4, 5], "#c0643a")
-windows("B", -9.5, [-3.2, 3.2], 2.8)
+# ---- B: bounty office (square footprint: the roof overhang stays small, so the front wall is lit)
+house("B", 0, -13.5, [8, 6, 8], "#8a4a3a"); house("B", -10.5, -10, [5, 4, 5], "#b5553a"); house("B", 10.5, -10, [5, 4, 5], "#c0643a")
+windows("B", -9.5, [-3.0, 3.0], 2.8)
 post("B", -1.9, -0.6, 2.8); plane("B", "poster.png", -1.9, 1.15, -0.52, 1.0, 1.33)
 crate("B", 3.4, 0, -2.0); crate("B", 3.55, 0.75, -2.05, 0.55, 15); barrel("B", 4.4, -1.4); tree("B", -8, -5, 1.5); tree("B", 8.5, -5, 1.4, "#4f8f4a"); post("B", 6.0, -0.8)
 
 # ---- D: tail counter
-house("D", 0, -11, [9, 5, 5], "#8a4a3a")
+house("D", 0, -12, [8, 5, 8], "#8a4a3a"); windows("D", -8.0, [-3.0, 3.0], 2.4)
 box("D", 0, 0, -2.2, [5.2, 0.75, 0.9], texture="wood.jpg", repeat=[4, 1])
 for x in (-1.7, 0, 1.7): plane("D", "tails.png", x, 0.75, -1.6, 1.5, 1.05)
 for x in (-0.85, 0.85): plane("D", "tails.png", x, 1.3, -1.62, 1.5, 1.05)
@@ -162,36 +165,38 @@ plane("D", "sign_count.png", 0, 3.1, -1.7, 2.4, 1.7)
 post("D", -3.9, -1.2, 1.7); plane("D", "calendar.png", -3.9, 1.7, -1.12, 1.2, 1.39)
 crate("D", -5.5, 0, -2.8); barrel("D", 5.4, -2.0); tree("D", -9, -6, 1.5); tree("D", 9.5, -6, 1.4, "#4f8f4a")
 
-# ---- C: farm
-box("C", 0, 0, -6, [44, 0.06, 36], texture="dirt.jpg", repeat=[11, 9])
-house("C", 0, -20, [10, 6, 6], "#8a4a3a", wall="wood.jpg")
-wall("C", 0, 0.06, -12, [16, 1.1, 0.25], "wood.jpg", [8, 1]); wall("C", -8, 0.06, -6.5, [0.25, 1.1, 11], "wood.jpg", [5, 1]); wall("C", 8, 0.06, -6.5, [0.25, 1.1, 11], "wood.jpg", [5, 1])
+# ---- C: farm (grass yard, dirt pen z -12..-3, red barn)
+box("C", 0, 0, -8, [70, 0.06, 56], texture="grass.jpg", repeat=[18, 14])
+box("C", 0, 0, -7.5, [16, 0.08, 9], texture="dirt.jpg", repeat=[4, 2])
+house("C", 0, -21, [8, 6, 8], "#5a3a3a", color="#b8473a")
+wall("C", 0, 0.06, -12, [16, 1.1, 0.25], "wood.jpg", [8, 1]); wall("C", -8, 0.06, -7.5, [0.25, 1.1, 9], "wood.jpg", [4, 1]); wall("C", 8, 0.06, -7.5, [0.25, 1.1, 9], "wood.jpg", [4, 1])
 tree("C", -14, -10, 1.9); tree("C", 15, -12, 1.8, "#4f8f4a"); tree("C", -9, -16, 2.0, "#5a944a"); tree("C", 10, -17, 1.5, "#4f8f4a")
-cart("C", 5.8, 0.06, -4.2, -40); crate("C", -5, 0.06, -2.4); crate("C", -4.85, 0.81, -2.45, 0.55, 18); barrel("C", 6.9, -1.6, 0.06)
+cart("C", 5.8, 0.08, -4.8, -40); crate("C", -5, 0.06, -1.4); crate("C", -4.85, 0.81, -1.45, 0.55, 18); barrel("C", 6.9, -1.0, 0.06)
 
 # ---- E: scrapped bounty yard
-house("E", 0, -13, [9, 6, 6], "#8a4a3a"); windows("E", -10, [-3.2, 3.2], 2.8)
-post("E", -0.5, -0.6, 2.8); plane("E", "poster_x.png", -0.5, 1.15, -0.52, 1.0, 1.33)
-tree("E", -8, -5, 1.5); tree("E", 8.5, -5, 1.4, "#4f8f4a"); crate("E", 3.6, 0, -2.0); barrel("E", 4.6, -1.5); post("E", 6, -0.8)
+house("E", 0, -13.5, [8, 6, 8], "#8a4a3a"); windows("E", -9.5, [-3.0, 3.0], 2.8)
+post("E", -0.7, -0.6, 2.8); plane("E", "poster_x.png", -0.7, 1.15, -0.52, 1.0, 1.33)
+tree("E", -8, -5, 1.5); tree("E", 8.5, -5, 1.4, "#4f8f4a"); crate("E", 4.6, 0, -2.0); barrel("E", 5.6, -1.5); post("E", 7, -0.8)
 
 # ================================================================== CHARACTERS
 human("offH", "official", pos("H", 0, 0, 0), face="smug")
 human("fr", "official", pos("A", -2.8, 0, 0.6))
 human("boss", "official", pos("B", -0.4, 0, 0), face="smug")
-human("bossE", "official", pos("E", 0.9, 0, 0), face="nervous")
+human("bossE", "official", pos("E", 0.7, 0, 0), face="nervous")
 human("insp", "inspector", pos("A", -12, 0, 1.6))
 human("h1", "hunter", pos("B", -9, 0, 1.8), face="happy")
 human("h2", "hunter2", pos("B", -10, 0, 0.9), face="happy")
 human("h3", "hunter", pos("B", -11, 0, 2.6), face="happy")
 
-# hook rats (H): hk1/hk2 stand at the edges in the first shot, the rest flood in
-HK = [("hk1", "rat", (-1.25, 0.7), False), ("hk2", "rat", (1.3, 0.9), True),
-      ("hk3", "ratnt", (-6.5, 1.6), True), ("hk4", "rat", (6.5, 1.8), False), ("hk5", "ratnt", (-6.5, 2.0), True),
-      ("hk6", "rat", (6.5, 2.3), False), ("hk7", "ratnt", (-6.5, 0.2), True), ("hk8", "rat", (6.5, 0.3), False),
-      ("hk9", "ratnt", (-6.5, 2.6), True), ("hk10", "rat", (6.5, 2.7), False)]
+# hook rats (H): hk1/hk2 stand beside the official in the first shot, the rest flood in from the sides
+HK = [("hk1", "rat", (-1.0, 1.0), True), ("hk2", "rat", (1.0, 1.1), False),
+      ("hk3", "ratnt", (-6.5, 1.8), True), ("hk4", "rat", (6.5, 1.9), False), ("hk5", "ratnt", (-6.5, 2.5), True),
+      ("hk6", "rat", (6.5, 2.6), False), ("hk7", "ratnt", (-6.5, 0.4), True), ("hk8", "rat", (6.5, 0.5), False),
+      ("hk9", "ratnt", (-6.5, 3.1), True), ("hk10", "rat", (6.5, 3.2), False)]
+HK_END = {"hk3": -1.6, "hk4": 1.6, "hk5": -0.55, "hk6": 0.65, "hk7": -1.9, "hk8": 1.9, "hk9": -1.25, "hk10": 1.2}
 for cid, kind, (x, z), fl in HK: rat(cid, kind, pos("H", x, 0, z), flip=fl)
-for cid, kind, (x, z), fl in (("hk11", "ratnt", (-7.5, 2.2), True), ("hk12", "rat", (7.5, 2.4), False), ("hk13", "ratnt", (-8, 1.0), True), ("hk14", "rat", (8, 1.1), False)):
-    rat(cid, kind, pos("H", x, 0, z), flip=fl)
+HK2 = [("hk11", "ratnt", (-7.5, 2.6), True, -2.3), ("hk12", "rat", (7.5, 2.7), False, 2.2), ("hk13", "ratnt", (-8, 3.8), True, -0.1), ("hk14", "rat", (8, 1.5), False, 0.5)]
+for cid, kind, (x, z), fl, xe in HK2: rat(cid, kind, pos("H", x, 0, z), flip=fl)
 
 # A rats: r1-r3 hide behind the sewer wall, r4 waits inside the mansion, n1-n5 wait far away, hn is the hero
 for cid, x in (("r1", 3.1), ("r2", 3.8), ("r3", 4.4)): rat(cid, "rat", pos("A", x, 0, -3.4))
@@ -201,37 +206,36 @@ rat("hn", "ratnt", pos("A", -40, 0, 3.0), h=0.85)
 rat("nx", "ratnt", pos("D", 7.0, 0, 0.3), face="sneaky")
 
 # C rats
-rat("mom", "ratmom", pos("C", 2.7, 0.06, 0.0), h=0.95)
+rat("mom", "ratmom", pos("C", 2.7, 0.06, 0.0), h=0.85)
 for cid, x, z in (("ba1", 3.6, 0.9), ("ba2", 4.2, 1.3), ("ba3", 4.8, 0.2)): rat(cid, "rat", pos("C", x, 0.06, z), h=0.32)
 rat("cr", "rat", pos("C", 3.6, 0.06, 0.5), h=0.85)
 rat("hn2", "ratnt", PARK, h=0.85, face="shocked")
-PEN = [("p1", -2.4, -6.5), ("p2", -1.2, -4.8), ("p3", 0.2, -7.2), ("p4", 1.4, -5.2), ("p5", 2.5, -7.0), ("p6", -0.6, -3.4), ("p7", 1.9, -3.6), ("p8", -2.2, -8.2), ("p9", 0.9, -8.4)]
+PEN = [("p1", -2.4, -6.5), ("p2", -1.2, -4.8), ("p3", 0.2, -7.2), ("p4", 1.4, -5.2), ("p5", 2.5, -7.0), ("p6", -0.6, -3.6), ("p7", 1.9, -3.8), ("p8", -2.2, -8.2), ("p9", 0.9, -8.4)]
 for i, (cid, x, z) in enumerate(PEN):
     left = i % 2 == 0
-    rat(cid, "ratnt" if i % 3 else "rat", pos("C", -11 if left else 11, 0.06, z), flip=left)
-for i in range(4): rat("s%d" % (i + 1), "ratnt" if i % 2 else "rat", pos("C", 7.5 + i * 1.1, 0.06, -3.0))
-# E rats
-E_REST = [(-1.2, 1.0), (2.8, 1.1), (0.3, 1.8), (1.9, 2.0), (-0.4, 0.4), (3.2, 0.2), (-1.8, 2.2), (2.4, 2.7)]
-for i in range(8): rat("e%d" % (i + 1), "ratnt" if i % 2 else "rat", pos("E", (-8 - i) if i % 2 == 0 else (8 + i), 0, E_REST[i][1]), flip=(i % 2 == 0))
+    rat(cid, "ratnt" if i % 3 else "rat", pos("C", -11 if left else 11, 0.08, z), flip=left)
+for i in range(4): rat("s%d" % (i + 1), "ratnt" if i % 2 else "rat", pos("C", 7.5 + i * 1.1, 0.06, -2.4))
+# E rats: already standing around the yard, just outside the tight shot of the poster
+E_REST = [(-2.2, 3.4), (2.2, 3.6), (-3.0, 2.0), (3.1, 2.2), (-1.5, 4.4), (1.6, 4.5), (-3.8, 1.0), (3.8, 1.2)]
+for i, (x, z) in enumerate(E_REST): rat("e%d" % (i + 1), "ratnt" if i % 2 else "rat", pos("E", x, 0, z), flip=(x < 0))
 
 # stickers (parked under the ground until needed)
 sticker("excl", "excl", 0.7); sticker("coin", "coin", 0.34); sticker("scis", "scis", 0.4); sticker("snip", "snip", 0.8); sticker("poof", "poof", 0.8)
 sticker("ratsign", "ratsign", 1.28)
 
 # ================================================================== SHOTS
-# ---- 0  hook
-s = shot("0", target="offH", hw=0.27, yaw=12, pitch=3, zoom=7, pan=(-16, 6), fy=0.1)
+# ---- 0-1  hook: the official proudly "wins", then the rats flood in
+s = shot("0", target="offH", hw=0.24, yaw=12, pitch=3, zoom=7, pan=(-16, 6), fy=0.1)
 act(s, 0.0, "offH", face="smug", pose=dict(armR=-100, armL=8, head=0, body=0))
-act(s, 0.8, "offH", pose=dict(armR=-150), hop=0.1)
+act(s, 0.7, "offH", pose=dict(armR=-150), hop=0.1)
 
-s = shot("the more rats Hanoi#2", out="dissolve", target="offH", hw=0.12, yaw=-8, pitch=6, zoom=-6, pan=(10, 0), fy=0.05)
+s = shot("the more rats Hanoi#2", out="dissolve", target="offH", hw=0.16, yaw=-8, pitch=6, zoom=-6, pan=(10, 0), fy=0.05)
 act(s, 0.0, "offH", face="shocked", pose=dict(armR=0, armL=0, head=0)); act(s, 0.05, "offH", shake=0.9)
 show(s, 0.12, "excl", pos("H", 0.55, 2.0, 0.2), hop=0.1)
 for (cid, kind, (x, z), fl), t_, ov in zip(HK[2:], (0.0, 0.0, 0.15, 0.2, 0.3, 0.35, 0.5, 0.55), (0.8, 0.8, 0.9, 0.9, 0.85, 0.85, 0.8, 0.8)):
-    fx = {"hk3": -2.2, "hk4": 2.3, "hk5": -0.5, "hk6": 0.9, "hk7": -2.6, "hk8": 2.7, "hk9": -1.6, "hk10": 1.9}[cid]
-    go(s, t_, cid, pos("H", fx, 0, z), ov)
+    go(s, t_, cid, pos("H", HK_END[cid], 0, z), ov)
 
-# ---- 2  1902 establishing, 3 shiny sewer
+# ---- 2-3  1902 establishing, shiny new sewer
 s = shot("It's 1902", anchor=pos("A", 0.5, 1.9, -2.0), dist=22, yaw=14, pitch=9, zoom=4, pan=(12, 0), fy=0.02)
 hide(s, 0.3, "excl"); go(s, 0.3, "fr", pos("A", 1.4, 0, 0.5), 1.6)
 
@@ -246,19 +250,20 @@ go(s, 0.15, "r2", pos("A", 3.9, 0, -1.4), 0.5, hop=0.2)
 go(s, 0.3, "r3", pos("A", 4.5, 0, -1.5), 0.5, hop=0.2)
 
 # ---- 5  they climb into the fancy homes (front steps, through the door)
-s = shot("They climb", out="dissolve", anchor=pos("A", 0.5, 1.5, -5.6), dist=10, yaw=-10, pitch=4, zoom=6, pan=(-10, -6), fy=0.0)
+s = shot("They climb", out="dissolve", anchor=pos("A", 0.5, 1.9, -5.6), dist=12, yaw=-10, pitch=4, zoom=6, pan=(-10, -6), fy=0.0)
 go(s, 0.0, "r1", pos("A", 1.0, 0, -4.6), 0.6); go(s, 0.65, "r1", pos("A", 0.9, 0.2, -5.3), 0.28, hop=0.08)
 go(s, 0.95, "r1", pos("A", 0.9, 0.4, -5.75), 0.28, hop=0.08); go(s, 1.25, "r1", pos("A", 0.9, 0.4, -6.5), 0.22)
 go(s, 0.1, "r2", pos("A", 1.9, 0, -4.5), 0.8); go(s, 0.95, "r2", pos("A", 0.2, 0.2, -5.3), 0.3, hop=0.08)
 go(s, 1.28, "r2", pos("A", 0.2, 0.4, -5.75), 0.28, hop=0.08); go(s, 1.58, "r2", pos("A", 0.2, 0.4, -6.5), 0.22)
 go(s, 0.2, "r3", pos("A", 2.3, 0, -4.4), 0.9); go(s, 1.15, "r3", pos("A", 1.5, 0.2, -5.3), 0.3, hop=0.08)
 go(s, 1.48, "r3", pos("A", 1.5, 0.4, -5.75), 0.28, hop=0.08); go(s, 1.8, "r3", pos("A", 1.5, 0.4, -6.5), 0.22)
-show(s, 1.1, "r4", pos("A", -1.0, 2.55, -5.9), hop=0.18)
+show(s, 1.0, "r4", pos("A", -1.0, 2.55, -5.9), hop=0.18)
 
 # ---- 6-9  the offer (B)
-s = shot("So the government", target="boss", hw=0.22, yaw=-12, pitch=4, zoom=5, pan=(14, 6), fy=0.12)
+s = shot("So the government", anchor=pos("B", -1.15, 1.2, -0.2), dist=8.0, yaw=-8, pitch=4, zoom=5, pan=(10, 4), fy=0.1)
 act(s, 0.0, "boss", face="smug", pose=dict(armL=20, armR=0, head=4))
-for i in range(5): act(s, 0.0, "n%d" % (i + 1), to=pos("A", (-0.5, 0.4, 1.4, 2.2, 3.0)[i], 0, (2.5, 2.9, 2.2, 3.1, 2.6)[i]), over=0.02, walk=False)   # A is off camera now
+hide(s, 0.0, "fr")                                                  # the French official has left A
+for i in range(5): act(s, 0.0, "n%d" % (i + 1), to=pos("A", (-1.5, -1.0, -0.5, -2.0, 0.5)[i], 0, (2.2, 3.0, 2.4, 3.2, 2.8)[i]), over=0.02, walk=False)   # A is off camera now
 
 s = shot("One cent", anchor=pos("B", -1.2, 1.55, -0.5), dist=5.6, yaw=10, pitch=3, zoom=8, pan=(0, -6), fy=0.18)
 act(s, 0.0, "boss", face="happy", pose=dict(armL=95, armR=0, head=-3))
@@ -268,45 +273,45 @@ act(s, 0.0, "boss", face="smug", pose=dict(armL=0, armR=-70, head=5))
 
 s = shot("Hunters go", out="dissolve", anchor=pos("B", 0.5, 1.0, 0.5), dist=14, yaw=14, pitch=5, zoom=-5, pan=(14, 0), fy=0.05)
 act(s, 0.0, "boss", face="shocked", pose=dict(armL=40, armR=-40, head=0))
-for cid, t_, z, x0, x1 in (("h1", 0.0, 1.8, -9, 9), ("h2", 0.25, 0.9, -10, 10), ("h3", 0.5, 2.6, -11, 11)):
-    act(s, t_, cid, face="shouting", pose=dict(armL=120, armR=-120)); go(s, t_, cid, pos("B", x1, 0, z), 1.4)
-    for k in (0.25, 0.65, 1.05): act(s, t_ + k, cid, hop=0.12)
+for cid, t_, z, x1 in (("h1", 0.0, 1.8, 9), ("h2", 0.25, 0.9, 10), ("h3", 0.5, 2.6, 11)):
+    act(s, t_, cid, face="shouting", pose=dict(armL=120, armR=-120)); go(s, t_, cid, pos("B", x1, 0, z), 1.0)
+    for k in (0.2, 0.5): act(s, t_ + k, cid, hop=0.12)
 
 # ---- 10-13  turn-in day (D)
 s = shot("On June", anchor=pos("D", -3.9, 2.4, -1.1), dist=4.4, yaw=6, pitch=2, zoom=10, pan=(0, -6), fy=0.05)
 act(s, 0.15, "boss", to=pos("D", 2.6, 0, -0.8), over=0.02, walk=False, face="happy", pose=dict(armL=0, armR=0, head=0))
 for cid, z in (("h1", 0.6), ("h2", 1.2), ("h3", 1.9)): act(s, 0.15, cid, to=pos("D", -6.5, 0, z), over=0.02, walk=False, face="happy", pose=dict(armL=0, armR=0))
-act(s, 0.15, "nx", to=pos("D", 7.0, 0, 0.3), over=0.02, walk=False)
 
 s = shot("they turn in", anchor=pos("D", 0, 2.5, -1.5), dist=8.5, yaw=8, pitch=2, zoom=7, pan=(0, -8), fy=0.0)
 
-s = shot("In one single day", anchor=pos("D", 0, 1.5, -1.2), dist=15, yaw=-10, pitch=5, zoom=-4, pan=(12, 0), fy=0.03)
+s = shot("In one single day", anchor=pos("D", 0, 1.5, -1.2), dist=13, yaw=-10, pitch=5, zoom=-4, pan=(12, 0), fy=0.03)
 act(s, 0.0, "boss", face="happy", pose=dict(armL=130, armR=-130, head=0))
-for cid, t_, x, z in (("h1", 0.0, -2.4, 0.6), ("h2", 0.2, -1.4, 1.2), ("h3", 0.4, -2.9, 1.9)):
-    act(s, t_, cid, face="happy", pose=dict(armL=125, armR=-125)); go(s, t_, cid, pos("D", x, 0, z), 0.7)
-    for k in (0.8, 1.15): act(s, t_ + k, cid, hop=0.18)
+for cid, t_, x, z in (("h1", 0.0, -2.2, 0.6), ("h2", 0.15, -1.3, 1.2), ("h3", 0.3, -2.7, 1.9)):
+    act(s, t_, cid, face="happy", pose=dict(armL=125, armR=-125)); go(s, t_, cid, pos("D", x, 0, z), 0.6)
+    for k in (0.7, 1.0): act(s, t_ + k, cid, hop=0.18)
 
 s = shot("Victory", out="dissolve", target="boss", hw=0.27, yaw=6, pitch=3, zoom=6, pan=(-6, 4), fy=0.1)
-act(s, 0.0, "boss", face="happy", pose=dict(armL=150, armR=-150, head=-5)); act(s, 0.12, "boss", hop=0.2)
-go(s, 0.2, "nx", pos("D", 3.5, 0, 0.3), 0.6, flip=False)
+act(s, 0.0, "boss", face="happy", pose=dict(armL=150, armR=-150, head=-5)); act(s, 0.1, "boss", hop=0.2)
+go(s, 0.1, "nx", pos("D", 3.5, 0, 0.3), 0.5, flip=False)
 
 # ---- 14-17  inspectors (A)
 s = shot("Then inspectors", target="insp", hw=0.2, yaw=-14, pitch=5, zoom=5, pan=(12, 4), fy=0.12)
-go(s, 0.0, "insp", pos("A", -5.4, 0, 1.2), 1.3)
-act(s, 1.1, "insp", face="confused", pose=dict(head=8, armR=-40)); show(s, 1.2, "excl", pos("A", -5.4, 2.05, 1.2), hop=0.1)
+go(s, 0.0, "insp", pos("A", -5.6, 0, 1.2), 1.3)
+act(s, 1.1, "insp", face="confused", pose=dict(head=8, armR=-40)); show(s, 1.2, "excl", pos("A", -5.6, 2.05, 1.2), hop=0.1)
 
-s = shot("Rats. Alive", anchor=pos("A", -4.4, 0.7, 1.5), dist=10, yaw=-6, pitch=8, zoom=6, pan=(-10, 0), fy=0.05)
-for cid, t_, xe, z in (("n1", 0.0, -9, 2.5), ("n2", 0.2, -9.5, 2.9), ("n3", 0.4, -8.5, 2.2), ("n4", 0.55, -9, 3.1)):
-    act(s, t_, cid, face="happy"); go(s, t_, cid, pos("A", xe, 0, z), 1.9)
+s = shot("Rats. Alive", anchor=pos("A", -4.5, 0.55, 2.4), dist=6.5, yaw=-6, pitch=6, zoom=6, pan=(-8, 0), fy=0.05)
+for cid, t_, xe, z, ov in (("n1", 0.0, -4.6, 2.2, 0.7), ("n2", 0.1, -3.8, 3.0, 0.8), ("n3", 0.2, -3.2, 2.4, 0.8), ("n4", 0.3, -5.1, 3.2, 0.7)):
+    act(s, t_, cid, face="happy"); go(s, t_, cid, pos("A", xe, 0, z), ov)
+for cid, t_ in (("n1", 0.85), ("n3", 1.0), ("n2", 1.15), ("n4", 1.3)): act(s, t_, cid, hop=0.16)
 act(s, 0.0, "insp", face="confused", pose=dict(head=8, armR=-40))
 
-s = shot("Running through", anchor=pos("A", -3.0, 0.35, 2.4), dist=6.0, yaw=-8, pitch=-1.5, zoom=8, pan=(0, 0), fy=0.0)
+s = shot("Running through", anchor=pos("A", -8.0, 0.4, 3.0), dist=5.0, yaw=-8, pitch=-1.5, zoom=8, pan=(0, 0), fy=0.0)
 hide(s, 0.0, "excl")
-for cid, t_, x0, z in (("n1", 0.0, -8.0, 2.0), ("n2", 0.15, -8.5, 2.6), ("n3", 0.3, -9.0, 1.6), ("n4", 0.45, -8.0, 3.0)):
-    act(s, t_, cid, to=pos("A", x0, 0, z), over=0.02, walk=False, flip=True); go(s, t_ + 0.05, cid, pos("A", 2.0, 0, z), 1.3)
-act(s, 0.0, "hn", to=pos("A", -8.5, 0, 3.0), over=0.02, walk=False, face="happy")
+for cid, t_ in (("n1", 0.0), ("n2", 0.05), ("n3", 0.1), ("n4", 0.15)):          # the pack bolts left, the camera chases it
+    z = {"n1": 2.2, "n2": 3.0, "n3": 2.4, "n4": 3.2}[cid]; go(s, t_, cid, pos("A", -13.5, 0, z), 1.1)
+act(s, 0.0, "hn", to=pos("A", -1.5, 0, 3.2), over=0.02, walk=False, face="happy")
 
-s = shot("with no tails", out="dissolve", anchor=pos("A", -8.5, 0.55, 3.0), dist=4.6, yaw=-4, pitch=4, zoom=8, pan=(0, -6), fy=0.05)
+s = shot("with no tails", out="dissolve", anchor=pos("A", -1.5, 0.55, 3.2), dist=4.6, yaw=-4, pitch=4, zoom=8, pan=(0, -6), fy=0.05)
 act(s, 0.2, "hn", hop=0.15); act(s, 0.55, "hn", face="sneaky")
 act(s, 0.0, "h1", to=pos("C", 0, 0.06, 0), over=0.02, walk=False, face="sneaky", pose=dict(armR=-130, armL=0, head=5))
 
@@ -315,14 +320,14 @@ s = shot("You see", target="h1", hw=0.22, yaw=-14, pitch=5, zoom=5, pan=(12, 6),
 show(s, 0.7, "coin", pos("C", 0.62, 1.24, 0.1), hop=0.15)
 hide(s, 1.55, "coin"); go(s, 1.5, "h1", pos("C", -2.8, 0.06, -0.2), 0.6)
 
-s = shot("A rat without", anchor=pos("C", 0.2, 0.55, 0.4), dist=7.5, yaw=10, pitch=8, zoom=6, pan=(-10, 0), fy=0.03)
-act(s, 0.0, "mom", face="happy"); go(s, 0.0, "mom", pos("C", 0.3, 0.06, 0.0), 0.9)
-for cid, t_, x, z in (("ba1", 0.2, 1.3, 0.9), ("ba2", 0.35, 0.7, 1.3), ("ba3", 0.5, 1.5, 0.2)): go(s, t_, cid, pos("C", x, 0.06, z), 0.8)
-for cid, t_ in (("ba1", 1.2), ("ba2", 1.45), ("ba3", 1.7)): act(s, t_, cid, hop=0.14)
+s = shot("A rat without", anchor=pos("C", 0.3, 0.5, 0.5), dist=6.2, yaw=10, pitch=8, zoom=6, pan=(-8, 0), fy=0.03)
+act(s, 0.0, "mom", face="happy"); go(s, 0.0, "mom", pos("C", -0.15, 0.06, 0.0), 0.9)
+for cid, t_, x, z in (("ba1", 0.2, 0.85, 0.9), ("ba2", 0.35, 1.3, 0.6), ("ba3", 0.5, 1.05, 1.3)): go(s, t_, cid, pos("C", x, 0.06, z), 0.7)
+for cid, t_ in (("ba1", 1.1), ("ba2", 1.3), ("ba3", 1.5)): act(s, t_, cid, hop=0.14)
 
-s = shot("and every baby", anchor=pos("C", 0.95, 0.35, 0.8), dist=3.8, yaw=14, pitch=6, zoom=10, pan=(-6, 0), fy=0.05)
+s = shot("and every baby", anchor=pos("C", 0.95, 0.35, 0.9), dist=3.8, yaw=14, pitch=6, zoom=10, pan=(-6, 0), fy=0.05)
 for cid, t_ in (("ba1", 0.0), ("ba2", 0.3), ("ba3", 0.6)): act(s, t_, cid, hop=0.22)
-for cid, t_, x in (("ba1", 1.0, 4.5), ("ba3", 1.1, 4.8), ("ba2", 1.25, 4.2)): go(s, t_, cid, pos("C", x, 0.06, 0.8), 0.9, flip=True)
+for cid, t_, x in (("ba1", 1.0, 4.5), ("ba3", 1.1, 4.8), ("ba2", 1.25, 4.2)): go(s, t_, cid, pos("C", x, 0.06, 0.9), 0.9, flip=True)
 go(s, 0.9, "mom", pos("C", 4.6, 0.06, 0.0), 1.1, flip=True)
 
 s = shot("So hunters cut", anchor=pos("C", 0.4, 0.9, 0.4), dist=7.5, yaw=-10, pitch=5, zoom=5, pan=(6, 0), fy=0.05)
@@ -333,44 +338,39 @@ show(s, 1.15, "snip", pos("C", 0.55, 1.25, 0.35), hop=0.12); show(s, 1.15, "poof
 act(s, 1.15, "cr", to=PARK, over=0.02, walk=False); act(s, 1.15, "hn2", to=pos("C", 1.15, 0.06, 0.5), over=0.02, walk=False, face="shocked")
 hide(s, 1.5, "snip"); hide(s, 1.5, "poof"); hide(s, 1.5, "scis")
 act(s, 1.65, "hn2", face="happy", hop=0.25); act(s, 1.65, "h1", face="happy", pose=dict(armR=0))
-go(s, 2.0, "hn2", pos("C", 9, 0.06, 1.0), 1.2, flip=True)
+go(s, 1.9, "hn2", pos("C", 9, 0.06, 1.0), 1.2, flip=True)
 
-s = shot("Outside the city", anchor=pos("C", 0, 1.0, -6.0), dist=15, yaw=10, pitch=6, zoom=4, pan=(8, 0), fy=0.03)
-show(s, 0.0, "ratsign", pos("C", 0, 0.06, -8.95), hop=0.25)
-act(s, 0.0, "h2", to=pos("C", 6.0, 0.06, -3.0), over=0.02, walk=False, face="sneaky", pose=dict(armL=0, armR=0, head=4))
-go(s, 0.0, "h1", pos("C", -2.8, 0.06, -2.4), 0.8); act(s, 0.4, "h1", face="smug", pose=dict(armL=25, armR=-25))
+s = shot("Outside the city", anchor=pos("C", 0, 0.9, -6.0), dist=11, yaw=10, pitch=6, zoom=4, pan=(8, 0), fy=0.03)
+show(s, 0.0, "ratsign", pos("C", 0, 0.08, -8.95), hop=0.25)
+act(s, 0.0, "h2", to=pos("C", 6.0, 0.06, -2.4), over=0.02, walk=False, face="sneaky", pose=dict(armL=0, armR=0, head=4))
+go(s, 0.0, "h1", pos("C", -3.0, 0.06, -2.0), 0.8); act(s, 0.4, "h1", face="smug", pose=dict(armL=25, armR=-25))
 for i, (cid, x, z) in enumerate(PEN):
-    t_ = 0.1 + i * 0.1; go(s, t_, cid, pos("C", x, 0.06, z), 1.1)
+    t_ = 0.1 + i * 0.1; go(s, t_, cid, pos("C", x, 0.08, z), 1.1)
     act(s, 1.5 + (i % 4) * 0.15, cid, hop=0.14)
 
-s = shot("Others smuggled", out="dissolve", anchor=pos("C", 2.0, 0.9, -3.2), dist=10.5, yaw=-16, pitch=5, zoom=6, pan=(-12, 0), fy=0.03)
-go(s, 0.0, "h2", pos("C", 0.6, 0.06, -3.0), 2.0)
-for cid, t_, x, ov in (("s1", 0.3, 1.6, 1.9), ("s2", 0.5, 2.5, 1.8), ("s3", 0.7, 3.4, 1.7), ("s4", 0.9, 4.0, 1.5)): go(s, t_, cid, pos("C", x, 0.06, -3.0), ov)
+s = shot("Others smuggled", out="dissolve", anchor=pos("C", 2.0, 0.8, -2.4), dist=7.5, yaw=-16, pitch=5, zoom=6, pan=(-12, 0), fy=0.03)
+go(s, 0.0, "h2", pos("C", 0.9, 0.06, -2.4), 2.0)
+for cid, t_, x, ov in (("s1", 0.3, 1.8, 1.9), ("s2", 0.5, 2.6, 1.8), ("s3", 0.7, 3.3, 1.7), ("s4", 0.9, 3.9, 1.5)): go(s, t_, cid, pos("C", x, 0.06, -2.4), ov)
 
 # ---- 24-25  scrapped (E)
-s = shot("The bounty", anchor=pos("E", -0.1, 1.5, -0.5), dist=5.8, yaw=-8, pitch=3, zoom=7, pan=(8, 0), fy=0.12)
+s = shot("The bounty", anchor=pos("E", 0.0, 1.5, -0.5), dist=6.5, yaw=-8, pitch=3, zoom=7, pan=(8, 0), fy=0.12)
 act(s, 0.0, "bossE", face="nervous", pose=dict(armL=40, armR=-40, head=6))
-for i in range(8):
-    act(s, 0.0, "e%d" % (i + 1), to=pos("E", (-7 - i * 0.4) if i % 2 == 0 else (7 + i * 0.4), 0, E_REST[i][1]), over=0.02, walk=False)
 
-s = shot("The rats stayed", out="dissolve", anchor=pos("E", 0.8, 0.8, 0.6), dist=12, yaw=12, pitch=6, zoom=4, pan=(-6, 0), fy=0.03)
+s = shot("The rats stayed", out="dissolve", anchor=pos("E", 0.0, 0.9, 1.2), dist=13, yaw=10, pitch=6, zoom=-3, pan=(-4, 0), fy=0.03)
 act(s, 0.0, "bossE", face="nervous", pose=dict(armL=0, armR=0, head=8)); act(s, 0.1, "bossE", shake=0.8)
-for i in range(8):
-    go(s, 0.05 + i * 0.1, "e%d" % (i + 1), pos("E", E_REST[i][0], 0, E_REST[i][1]), 0.7)
-    act(s, 0.9 + (i % 3) * 0.12, "e%d" % (i + 1), hop=0.14)
+for i in range(8): act(s, 0.05 + i * 0.09, "e%d" % (i + 1), hop=0.16)
 
 # ---- 26-27  counted tails (D)
 s = shot("Because the city", target="boss", hw=0.2, yaw=-6, pitch=3, zoom=5, pan=(8, 0), fy=0.12)
 act(s, 0.0, "boss", face="confused", pose=dict(armL=0, armR=-50, head=-7))
-act(s, 0.0, "nx", to=pos("D", 7.0, 0, 0.3), over=0.02, walk=False)
 
 s = shot("It counted tails", out="dissolve", anchor=pos("D", 0, 2.5, -1.5), dist=7.0, yaw=6, pitch=3, zoom=10, pan=(0, -6), fy=0.05)
 
 # ---- 28  the loop: more rats than ever (H)
-s = shot("And that's why", target="offH", hw=0.16, yaw=12, pitch=3, zoom=-5, pan=(-16, 6), fy=0.1)
+s = shot("And that's why", target="offH", hw=0.2, yaw=12, pitch=3, zoom=-5, pan=(-16, 6), fy=0.1)
 act(s, 0.0, "offH", face="shocked", pose=dict(armR=0, armL=0, head=0)); act(s, 0.1, "offH", shake=1.4)
 for i, cid in enumerate(("hk1", "hk2", "hk3", "hk4", "hk5", "hk6", "hk7", "hk8", "hk9", "hk10")): act(s, 0.15 + i * 0.12, cid, hop=0.14)
-for cid, t_, x, z in (("hk11", 0.3, -3.0, 2.2), ("hk12", 0.5, 3.0, 2.4), ("hk13", 0.7, -3.4, 1.0), ("hk14", 0.9, 3.4, 1.1)): go(s, t_, cid, pos("H", x, 0, z), 0.7)
+for (cid, kind, (x, z), fl, xe), t_ in zip(HK2, (0.3, 0.5, 0.7, 0.9)): go(s, t_, cid, pos("H", xe, 0, z), 0.7)
 
 # ================================================================== SPEC
 spec = {
