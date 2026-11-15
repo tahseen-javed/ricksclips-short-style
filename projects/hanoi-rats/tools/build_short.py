@@ -139,7 +139,7 @@ post("H", -2.6, -1.6); post("H", 3.0, -1.4)
 
 # ---- A: story plaza, sewer, fancy mansion
 house("A", -8.5, -8, [6, 4.4, 5], "#b5553a"); house("A", 9, -8, [6, 4.4, 5], "#c0643a"); house("A", 0.5, -8.5, [7, 5, 5], "#d4a53c")
-windows("A", -5.5, [-10, -7], 2.2); windows("A", -6.0, [-1.0, 2.0], 2.6); windows("A", -5.5, [7.5, 10.5], 2.2)
+windows("A", -5.5, [-10, -7], 2.2); windows("A", -6.0, [-0.8, 1.8], 2.6); windows("A", -5.5, [7.5, 10.5], 2.2)
 box("A", 0.5, 0, -4.6, [1.5, 0.02, 2.0], color="#a8283c")
 box("A", 0.5, 0, -5.5, [3.2, 0.2, 0.9], color="#d8d0c4"); box("A", 0.5, 0.2, -5.75, [2.6, 0.2, 0.5], color="#cfc6b8")
 tree("A", -1.9, -5.1, 0.7, "#3f8f4a"); tree("A", 2.9, -5.1, 0.7, "#3f8f4a")
@@ -200,7 +200,7 @@ for cid, kind, (x, z), fl, xe in HK2: rat(cid, kind, pos("H", x, 0, z), h=0.7, f
 
 # A rats: r1-r3 hide behind the sewer wall, r4 waits inside the mansion, n1-n5 wait far away, hn is the hero
 for cid, x in (("r1", 3.1), ("r2", 3.8), ("r3", 4.4)): rat(cid, "rat", pos("A", x, 0, -3.4))
-rat("r4", "rat", pos("A", -1.0, 2.55, -7.0))
+rat("r4", "rat", pos("A", -0.8, 2.55, -7.0))
 for i in range(5): rat("n%d" % (i + 1), "ratnt", pos("A", 60 + i, 0, 2.5), h=0.7)
 rat("hn", "ratnt", pos("A", -40, 0, 3.0), h=0.85)
 rat("nx", "ratnt", pos("D", 7.0, 0, 0.3), face="sneaky")
@@ -250,14 +250,14 @@ go(s, 0.15, "r2", pos("A", 3.9, 0, -1.4), 0.5, hop=0.2)
 go(s, 0.3, "r3", pos("A", 4.5, 0, -1.5), 0.5, hop=0.2)
 
 # ---- 5  they climb into the fancy homes (front steps, through the door)
-s = shot("They climb", out="dissolve", anchor=pos("A", 0.5, 1.2, -5.6), dist=8.0, yaw=-10, pitch=4, zoom=6, pan=(-10, -6), fy=0.0)
+s = shot("They climb", out="dissolve", anchor=pos("A", 0.5, 1.3, -5.6), dist=9.0, yaw=-10, pitch=4, zoom=6, pan=(-10, -6), fy=0.0)
 go(s, 0.0, "r1", pos("A", 1.0, 0, -4.6), 0.6); go(s, 0.65, "r1", pos("A", 0.9, 0.2, -5.3), 0.28, hop=0.08)
 go(s, 0.95, "r1", pos("A", 0.9, 0.4, -5.75), 0.28, hop=0.08); go(s, 1.25, "r1", pos("A", 0.9, 0.4, -6.5), 0.22)
 go(s, 0.1, "r2", pos("A", 1.9, 0, -4.5), 0.8); go(s, 0.95, "r2", pos("A", 0.2, 0.2, -5.3), 0.3, hop=0.08)
 go(s, 1.28, "r2", pos("A", 0.2, 0.4, -5.75), 0.28, hop=0.08); go(s, 1.58, "r2", pos("A", 0.2, 0.4, -6.5), 0.22)
 go(s, 0.2, "r3", pos("A", 2.3, 0, -4.4), 0.9); go(s, 1.15, "r3", pos("A", 1.5, 0.2, -5.3), 0.3, hop=0.08)
 go(s, 1.48, "r3", pos("A", 1.5, 0.4, -5.75), 0.28, hop=0.08); go(s, 1.8, "r3", pos("A", 1.5, 0.4, -6.5), 0.22)
-show(s, 1.0, "r4", pos("A", -1.0, 2.55, -5.9), hop=0.18)
+show(s, 1.0, "r4", pos("A", -0.8, 2.55, -5.9), hop=0.18)
 
 # ---- 6-9  the offer (B)
 s = shot("So the government", anchor=pos("B", -1.15, 1.2, -0.2), dist=8.0, yaw=-8, pitch=4, zoom=5, pan=(10, 4), fy=0.1)
@@ -279,7 +279,7 @@ for cid, t_, z, x1 in (("h1", 0.0, 1.8, 9), ("h2", 0.25, 0.9, 10), ("h3", 0.5, 2
 
 # ---- 10-13  turn-in day (D)
 s = shot("On June", anchor=pos("D", -3.9, 2.4, -1.1), dist=4.4, yaw=6, pitch=2, zoom=10, pan=(0, -6), fy=0.05)
-act(s, 0.15, "boss", to=pos("D", 2.2, 0, -0.8), over=0.02, walk=False, face="happy", pose=dict(armL=0, armR=0, head=0))
+act(s, 0.15, "boss", to=pos("D", 1.7, 0, -0.6), over=0.02, walk=False, face="happy", pose=dict(armL=0, armR=0, head=0))
 for cid, z in (("h1", 0.6), ("h2", 1.2), ("h3", 1.9)): act(s, 0.15, cid, to=pos("D", -6.5, 0, z), over=0.02, walk=False, face="happy", pose=dict(armL=0, armR=0))
 
 s = shot("they turn in", anchor=pos("D", 0, 2.5, -1.5), dist=8.5, yaw=8, pitch=2, zoom=7, pan=(0, -8), fy=0.0)
