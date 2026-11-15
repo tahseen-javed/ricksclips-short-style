@@ -1,6 +1,6 @@
 ---
 name: ricksclips-short-style
-description: The channel skill for @ricksclips3000-style animated Shorts - flat 2D doodle characters living in a sunlit 3D world, built entirely in code. Use it whenever the user wants to make, plan, render or check a vertical Short in this style, mentions "the channel skill", or asks for any step of it - generate the main character, an emotion sheet, slice a character into layers or rig a puppet, hand-painted textures, a 3D model of a prop, a background, the voiceover or music, "build the full 3D scene in code", a stop-frame check, a numbers comparison with a reference frame, or pastes a script and asks for the video. Uses assets the user supplies (Higgsfield is NOT available) and assembles, checks and renders the video with the bundled three.js stage.
+description: The channel skill for @ricksclips3000-style animated Shorts - flat 2D doodle characters living in a sunlit 3D world, built entirely in code. Use it whenever the user wants to make, plan, render or check a vertical Short in this style, mentions "the channel skill", or asks for any step of it - generate the main character, an emotion sheet, slice a character into layers or rig a puppet, hand-painted textures, a 3D model of a prop, a background, the voiceover or music, "build the full 3D scene in code", a stop-frame check, a numbers comparison with a reference frame, or pastes a script and asks for the video. Uses user-supplied assets or draws them in code (Higgsfield is NOT used) and assembles, checks and renders the video with the bundled three.js stage.
 ---
 
 # @ricksclips3000 Short style
@@ -32,7 +32,7 @@ pip install numpy pillow scipy opencv-python-headless
 # ffmpeg and ffprobe must be on PATH
 ```
 
-Higgsfield is NOT used. The user supplies the assets (character, faces, textures, models, background, voice, music). Never stop for a missing connector: ask for the missing asset, use `references/prompts.md` only as a guide for the user's own generator, and keep the file names and folders below.
+Higgsfield is NOT used. If the user supplies assets, use them. If the user supplies no assets, create them yourself in code: draw the puppet layers, faces, textures and background as SVG/PIL, write rig.json per references/formats.md, and ask the user only for a voice file if no local TTS works. Keep the file names and folders below.
 
 ## Project folder
 
