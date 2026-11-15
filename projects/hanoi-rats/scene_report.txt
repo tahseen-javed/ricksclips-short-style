@@ -12,25 +12,22 @@ S08   10.00  0.98  Just bring us
 S09   10.98  0.98  Hunters go
 S10   11.96  0.92  On June
 S11   12.88  2.59  they turn in
-S12   15.47  0.94  In one single day
-S13   16.41  0.40  Victory
-   ! very short shot (mostly glide)
-S14   16.81  1.68  Then inspectors
-S15   18.49  1.12  Rats. Alive
-S16   19.61  0.96  Running through
-S17   20.57  0.84  with no tails
-S18   21.41  1.72  You see
-S19   23.13  1.50  A rat without
-S20   24.63  1.60  and every baby
-S21   26.23  1.88  So hunters cut
-S22   28.11  2.08  Outside the city
-S23   30.19  1.82  Others smuggled
-S24   32.01  0.98  The bounty
-S25   32.99  0.76  The rats stayed
-S26   33.75  1.72  Because the city
-S27   35.47  0.88  It counted tails
-S28   36.35  2.14  And that's why
-   ! S12 action at 1.30 s runs past the shot (0.94 s): h3 ['hop']
+S12   15.47  1.34  In one single day
+S13   16.81  1.68  Then inspectors
+S14   18.49  1.12  Rats. Alive
+S15   19.61  0.96  Running through
+S16   20.57  0.84  with no tails
+S17   21.41  1.72  You see
+S18   23.13  1.50  A rat without
+S19   24.63  1.60  and every baby
+S20   26.23  1.88  So hunters cut
+S21   28.11  2.08  Outside the city
+S22   30.19  1.82  Others smuggled
+S23   32.01  0.98  The bounty
+S24   32.99  0.76  The rats stayed
+S25   33.75  1.72  Because the city
+S26   35.47  0.88  It counted tails
+S27   36.35  2.14  And that's why
    ! h2: move from S09 (11.23+1.00 s) overlaps next move in S10 at 12.11 s
    ! h3: move from S09 (11.48+1.00 s) overlaps next move in S10 at 12.11 s
-wrote short.json: 29 shots, 66 characters, 103 props, voice 38.49 s
+wrote short.json: 28 shots, 66 characters, 103 props, voice 38.49 s

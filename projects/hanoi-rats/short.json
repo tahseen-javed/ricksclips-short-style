@@ -521,7 +521,7 @@
    "id": "cr",
    "puppet": "puppets/rat",
    "pos": [
-    213.6,
+    212.9,
     0.06,
     0.5
    ],
@@ -2172,7 +2172,7 @@
     10,
     0
    ],
-   "frameY": 0.05,
+   "frameY": 0.2,
    "out": "dissolve",
    "actions": [
     {
@@ -2441,10 +2441,10 @@
    "start": "say:They climb",
    "anchor": [
     0.5,
-    1.5,
+    1.2,
     -5.6
    ],
-   "distance": 10.5,
+   "distance": 8.0,
    "yaw": -10,
    "pitch": 4,
    "zoom": 6,
@@ -2994,6 +2994,7 @@
     0
    ],
    "frameY": 0.03,
+   "out": "dissolve",
    "actions": [
     {
      "at": 0.0,
@@ -3094,49 +3095,28 @@
      "at": 1.3,
      "who": "h3",
      "hop": 0.18
-    }
-   ]
-  },
-  {
-   "start": "say:Victory",
-   "target": "boss",
-   "headWidth": 0.27,
-   "yaw": 6,
-   "pitch": 3,
-   "zoom": 6,
-   "pan": [
-    -6,
-    4
-   ],
-   "frameY": 0.1,
-   "out": "dissolve",
-   "actions": [
+    },
     {
-     "at": 0.0,
+     "at": 0.95,
      "who": "boss",
      "face": "happy",
      "pose": {
       "armL": 150,
       "armR": -150,
       "head": -5
-     }
-    },
-    {
-     "at": 0.1,
-     "who": "boss",
+     },
      "hop": 0.2
     },
     {
-     "at": 0.1,
+     "at": 0.9,
      "who": "nx",
      "to": [
-      143.5,
+      143.6,
       0,
       0.3
      ],
      "over": 0.5,
-     "walk": true,
-     "flip": false
+     "walk": true
     }
    ]
   },
@@ -3643,6 +3623,17 @@
      "over": 1.1,
      "walk": true,
      "flip": true
+    },
+    {
+     "at": 0.4,
+     "who": "h1",
+     "to": [
+      209.6,
+      0.06,
+      0.0
+     ],
+     "over": 0.8,
+     "walk": true
     }
    ]
   },
@@ -3666,17 +3657,6 @@
     {
      "at": 0.0,
      "who": "h1",
-     "to": [
-      209.6,
-      0.06,
-      0.0
-     ],
-     "over": 0.6,
-     "walk": true
-    },
-    {
-     "at": 0.5,
-     "who": "h1",
      "face": "sneaky",
      "pose": {
       "armR": -105,
@@ -3685,14 +3665,14 @@
      }
     },
     {
-     "at": 0.1,
+     "at": 0.0,
      "who": "cr",
      "to": [
       211.15,
       0.06,
       0.5
      ],
-     "over": 0.7,
+     "over": 0.8,
      "walk": true
     },
     {
