@@ -17,8 +17,11 @@ on:
         description: Regenerate voice, music and word timings
         type: boolean
         default: false
+      ranges:
+        description: "frames mode: time ranges in seconds, e.g. 1-3,6-8"
+        default: "1-3,6-8,19.5-21,26-28.5"
       t_from:
-        description: Start second (frames / preview)
+        description: Start second (preview)
         default: "0"
       t_to:
         description: End second (frames / preview)
@@ -91,12 +94,16 @@ jobs:
           python $P/tools/montage.py stills $P/render_stills $P/sheets
           grep -E "flagged|problems" $P/stills_report.txt || echo "stills: no flags"
 
-      - name: Frames (contact sheet of a time range)
+      - name: Frames (contact sheets of time ranges)
         if: inputs.mode == 'frames'
         run: |
-          node $S/render.mjs $P/short.json $P/range.mp4 --scale 0.5 --from ${{ inputs.t_from }} --to ${{ inputs.t_to }}
-          mkdir -p $P/rframes && ffmpeg -loglevel error -y -i $P/range.mp4 -vf "fps=5" $P/rframes/f%03d.png
-          python $P/tools/montage.py frames $P/rframes $P/sheets_range.jpg ${{ inputs.t_from }} 5
+          i=0
+          for r in $(echo "${{ inputs.ranges }}" | tr ',' ' '); do
+            a=${r%-*}; b=${r#*-}; i=$((i+1))
+            node $S/render.mjs $P/short.json $P/range$i.mp4 --scale 0.5 --from $a --to $b
+            mkdir -p $P/rframes$i && ffmpeg -loglevel error -y -i $P/range$i.mp4 -vf "fps=5" $P/rframes$i/f%03d.png
+            python $P/tools/montage.py frames $P/rframes$i $P/sheets_range_$i.jpg $a 5
+          done
 
       - name: Preview clip
         if: inputs.mode == 'preview'
@@ -116,7 +123,7 @@ jobs:
           name: output
           path: |
             ${{ inputs.project }}/sheets
-            ${{ inputs.project }}/sheets_range.jpg
+            ${{ inputs.project }}/sheets_range_*.jpg
             ${{ inputs.project }}/render_stills
             ${{ inputs.project }}/stills_report.txt
             ${{ inputs.project }}/scene_report.txt

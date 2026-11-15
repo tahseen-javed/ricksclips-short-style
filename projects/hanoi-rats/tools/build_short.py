@@ -168,21 +168,21 @@ crate("D", -5.5, 0, -2.8); barrel("D", 5.4, -2.0); tree("D", -9, -6, 1.5); tree(
 # ---- C: farm (grass yard, dirt pen z -12..-3, red barn)
 box("C", 0, 0, -8, [70, 0.06, 56], texture="grass.jpg", repeat=[18, 14])
 box("C", 0, 0, -7.5, [16, 0.08, 9], texture="dirt.jpg", repeat=[4, 2])
-house("C", 0, -21, [8, 6, 8], "#5a3a3a", color="#b8473a")
+house("C", 0, -21, [8, 6, 8], "#5a3a3a", color="#b8473a"); windows("C", -17.0, [-2.4, 2.4], 2.6)
 wall("C", 0, 0.06, -12, [16, 1.1, 0.25], "wood.jpg", [8, 1]); wall("C", -8, 0.06, -7.5, [0.25, 1.1, 9], "wood.jpg", [4, 1]); wall("C", 8, 0.06, -7.5, [0.25, 1.1, 9], "wood.jpg", [4, 1])
 tree("C", -14, -10, 1.9); tree("C", 15, -12, 1.8, "#4f8f4a"); tree("C", -9, -16, 2.0, "#5a944a"); tree("C", 10, -17, 1.5, "#4f8f4a")
 cart("C", 5.8, 0.08, -4.8, -40); crate("C", -5, 0.06, -1.4); crate("C", -4.85, 0.81, -1.45, 0.55, 18); barrel("C", 6.9, -1.0, 0.06)
 
 # ---- E: scrapped bounty yard
 house("E", 0, -13.5, [8, 6, 8], "#8a4a3a"); windows("E", -9.5, [-3.0, 3.0], 2.8)
-post("E", -0.7, -0.6, 2.8); plane("E", "poster_x.png", -0.7, 1.15, -0.52, 1.0, 1.33)
+post("E", -0.5, -0.6, 2.8); plane("E", "poster_x.png", -0.5, 1.15, -0.52, 1.0, 1.33)
 tree("E", -8, -5, 1.5); tree("E", 8.5, -5, 1.4, "#4f8f4a"); crate("E", 4.6, 0, -2.0); barrel("E", 5.6, -1.5); post("E", 7, -0.8)
 
 # ================================================================== CHARACTERS
 human("offH", "official", pos("H", 0, 0, 0), face="smug")
 human("fr", "official", pos("A", -2.8, 0, 0.6))
 human("boss", "official", pos("B", -0.4, 0, 0), face="smug")
-human("bossE", "official", pos("E", 0.7, 0, 0), face="nervous")
+human("bossE", "official", pos("E", 0.55, 0, 0), face="nervous")
 human("insp", "inspector", pos("A", -12, 0, 1.6))
 human("h1", "hunter", pos("B", -9, 0, 1.8), face="happy")
 human("h2", "hunter2", pos("B", -10, 0, 0.9), face="happy")
@@ -194,14 +194,14 @@ HK = [("hk1", "rat", (-1.0, 1.0), True), ("hk2", "rat", (1.0, 1.1), False),
       ("hk6", "rat", (6.5, 2.6), False), ("hk7", "ratnt", (-6.5, 0.4), True), ("hk8", "rat", (6.5, 0.5), False),
       ("hk9", "ratnt", (-6.5, 3.1), True), ("hk10", "rat", (6.5, 3.2), False)]
 HK_END = {"hk3": -1.6, "hk4": 1.6, "hk5": -0.55, "hk6": 0.65, "hk7": -1.9, "hk8": 1.9, "hk9": -1.25, "hk10": 1.2}
-for cid, kind, (x, z), fl in HK: rat(cid, kind, pos("H", x, 0, z), flip=fl)
+for cid, kind, (x, z), fl in HK: rat(cid, kind, pos("H", x, 0, z), h=0.7, flip=fl)
 HK2 = [("hk11", "ratnt", (-7.5, 2.6), True, -2.3), ("hk12", "rat", (7.5, 2.7), False, 2.2), ("hk13", "ratnt", (-8, 3.8), True, -0.1), ("hk14", "rat", (8, 1.5), False, 0.5)]
-for cid, kind, (x, z), fl, xe in HK2: rat(cid, kind, pos("H", x, 0, z), flip=fl)
+for cid, kind, (x, z), fl, xe in HK2: rat(cid, kind, pos("H", x, 0, z), h=0.7, flip=fl)
 
 # A rats: r1-r3 hide behind the sewer wall, r4 waits inside the mansion, n1-n5 wait far away, hn is the hero
 for cid, x in (("r1", 3.1), ("r2", 3.8), ("r3", 4.4)): rat(cid, "rat", pos("A", x, 0, -3.4))
 rat("r4", "rat", pos("A", -1.0, 2.55, -7.0))
-for i in range(5): rat("n%d" % (i + 1), "ratnt", pos("A", 60 + i, 0, 2.5))
+for i in range(5): rat("n%d" % (i + 1), "ratnt", pos("A", 60 + i, 0, 2.5), h=0.7)
 rat("hn", "ratnt", pos("A", -40, 0, 3.0), h=0.85)
 rat("nx", "ratnt", pos("D", 7.0, 0, 0.3), face="sneaky")
 
@@ -210,13 +210,13 @@ rat("mom", "ratmom", pos("C", 2.7, 0.06, 0.0), h=0.85)
 for cid, x, z in (("ba1", 3.6, 0.9), ("ba2", 4.2, 1.3), ("ba3", 4.8, 0.2)): rat(cid, "rat", pos("C", x, 0.06, z), h=0.32)
 rat("cr", "rat", pos("C", 3.6, 0.06, 0.5), h=0.85)
 rat("hn2", "ratnt", PARK, h=0.85, face="shocked")
-PEN = [("p1", -2.4, -6.5), ("p2", -1.2, -4.8), ("p3", 0.2, -7.2), ("p4", 1.4, -5.2), ("p5", 2.5, -7.0), ("p6", -0.6, -3.6), ("p7", 1.9, -3.8), ("p8", -2.2, -8.2), ("p9", 0.9, -8.4)]
+PEN = [("p1", -1.8, -6.5), ("p2", -0.9, -4.8), ("p3", 0.2, -7.2), ("p4", 1.2, -5.2), ("p5", 1.9, -7.0), ("p6", -0.5, -3.6), ("p7", 1.6, -3.8), ("p8", -1.8, -8.2), ("p9", 0.8, -8.4)]
 for i, (cid, x, z) in enumerate(PEN):
     left = i % 2 == 0
     rat(cid, "ratnt" if i % 3 else "rat", pos("C", -11 if left else 11, 0.08, z), flip=left)
 for i in range(4): rat("s%d" % (i + 1), "ratnt" if i % 2 else "rat", pos("C", 7.5 + i * 1.1, 0.06, -2.4))
 # E rats: already standing around the yard, just outside the tight shot of the poster
-E_REST = [(-2.2, 3.4), (2.2, 3.6), (-3.0, 2.0), (3.1, 2.2), (-1.5, 4.4), (1.6, 4.5), (-3.8, 1.0), (3.8, 1.2)]
+E_REST = [(-1.3, 3.0), (1.4, 3.2), (-2.0, 2.4), (2.1, 2.6), (-1.1, 4.0), (1.2, 4.2), (-2.8, 1.6), (2.9, 1.8)]
 for i, (x, z) in enumerate(E_REST): rat("e%d" % (i + 1), "ratnt" if i % 2 else "rat", pos("E", x, 0, z), flip=(x < 0))
 
 # stickers (parked under the ground until needed)
@@ -250,7 +250,7 @@ go(s, 0.15, "r2", pos("A", 3.9, 0, -1.4), 0.5, hop=0.2)
 go(s, 0.3, "r3", pos("A", 4.5, 0, -1.5), 0.5, hop=0.2)
 
 # ---- 5  they climb into the fancy homes (front steps, through the door)
-s = shot("They climb", out="dissolve", anchor=pos("A", 0.5, 1.9, -5.6), dist=12, yaw=-10, pitch=4, zoom=6, pan=(-10, -6), fy=0.0)
+s = shot("They climb", out="dissolve", anchor=pos("A", 0.5, 1.5, -5.6), dist=10.5, yaw=-10, pitch=4, zoom=6, pan=(-10, -6), fy=0.0)
 go(s, 0.0, "r1", pos("A", 1.0, 0, -4.6), 0.6); go(s, 0.65, "r1", pos("A", 0.9, 0.2, -5.3), 0.28, hop=0.08)
 go(s, 0.95, "r1", pos("A", 0.9, 0.4, -5.75), 0.28, hop=0.08); go(s, 1.25, "r1", pos("A", 0.9, 0.4, -6.5), 0.22)
 go(s, 0.1, "r2", pos("A", 1.9, 0, -4.5), 0.8); go(s, 0.95, "r2", pos("A", 0.2, 0.2, -5.3), 0.3, hop=0.08)
@@ -279,7 +279,7 @@ for cid, t_, z, x1 in (("h1", 0.0, 1.8, 9), ("h2", 0.25, 0.9, 10), ("h3", 0.5, 2
 
 # ---- 10-13  turn-in day (D)
 s = shot("On June", anchor=pos("D", -3.9, 2.4, -1.1), dist=4.4, yaw=6, pitch=2, zoom=10, pan=(0, -6), fy=0.05)
-act(s, 0.15, "boss", to=pos("D", 2.6, 0, -0.8), over=0.02, walk=False, face="happy", pose=dict(armL=0, armR=0, head=0))
+act(s, 0.15, "boss", to=pos("D", 2.2, 0, -0.8), over=0.02, walk=False, face="happy", pose=dict(armL=0, armR=0, head=0))
 for cid, z in (("h1", 0.6), ("h2", 1.2), ("h3", 1.9)): act(s, 0.15, cid, to=pos("D", -6.5, 0, z), over=0.02, walk=False, face="happy", pose=dict(armL=0, armR=0))
 
 s = shot("they turn in", anchor=pos("D", 0, 2.5, -1.5), dist=8.5, yaw=8, pitch=2, zoom=7, pan=(0, -8), fy=0.0)
@@ -340,7 +340,7 @@ hide(s, 1.5, "snip"); hide(s, 1.5, "poof"); hide(s, 1.5, "scis")
 act(s, 1.65, "hn2", face="happy", hop=0.25); act(s, 1.65, "h1", face="happy", pose=dict(armR=0))
 go(s, 1.9, "hn2", pos("C", 9, 0.06, 1.0), 1.2, flip=True)
 
-s = shot("Outside the city", anchor=pos("C", 0, 0.9, -6.0), dist=11, yaw=10, pitch=6, zoom=4, pan=(8, 0), fy=0.03)
+s = shot("Outside the city", anchor=pos("C", 0, 0.8, -6.0), dist=10, yaw=10, pitch=6, zoom=4, pan=(8, 0), fy=0.03)
 show(s, 0.0, "ratsign", pos("C", 0, 0.08, -8.95), hop=0.25)
 act(s, 0.0, "h2", to=pos("C", 6.0, 0.06, -2.4), over=0.02, walk=False, face="sneaky", pose=dict(armL=0, armR=0, head=4))
 go(s, 0.0, "h1", pos("C", -3.0, 0.06, -2.0), 0.8); act(s, 0.4, "h1", face="smug", pose=dict(armL=25, armR=-25))
@@ -353,10 +353,10 @@ go(s, 0.0, "h2", pos("C", 0.9, 0.06, -2.4), 2.0)
 for cid, t_, x, ov in (("s1", 0.3, 1.8, 1.9), ("s2", 0.5, 2.6, 1.8), ("s3", 0.7, 3.3, 1.7), ("s4", 0.9, 3.9, 1.5)): go(s, t_, cid, pos("C", x, 0.06, -2.4), ov)
 
 # ---- 24-25  scrapped (E)
-s = shot("The bounty", anchor=pos("E", 0.0, 1.5, -0.5), dist=6.5, yaw=-8, pitch=3, zoom=7, pan=(8, 0), fy=0.12)
+s = shot("The bounty", anchor=pos("E", 0.0, 1.5, -0.5), dist=5.0, yaw=-6, pitch=3, zoom=6, pan=(6, 0), fy=0.12)
 act(s, 0.0, "bossE", face="nervous", pose=dict(armL=40, armR=-40, head=6))
 
-s = shot("The rats stayed", out="dissolve", anchor=pos("E", 0.0, 0.9, 1.2), dist=13, yaw=10, pitch=6, zoom=-3, pan=(-4, 0), fy=0.03)
+s = shot("The rats stayed", out="dissolve", anchor=pos("E", 0.3, 0.9, 1.5), dist=11, yaw=6, pitch=6, zoom=-3, pan=(-4, 0), fy=0.03)
 act(s, 0.0, "bossE", face="nervous", pose=dict(armL=0, armR=0, head=8)); act(s, 0.1, "bossE", shake=0.8)
 for i in range(8): act(s, 0.05 + i * 0.09, "e%d" % (i + 1), hop=0.16)
 

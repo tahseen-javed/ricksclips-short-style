@@ -336,9 +336,9 @@ def tex_grass(path, n=512):
         for dx in (-n, 0, n):
             for dy in (-n, 0, n): d.ellipse(x + dx, y + dy, r, r * 0.7, fill=(116 + v, 172 + v, 88 + v // 2, 255))
     for _ in range(320):
-        x, y = random.randint(0, n), random.randint(0, n); c = random.choice([(70, 128, 74, 255), (58, 112, 66, 255), (150, 200, 100, 255)])
+        x, y = random.randint(0, n), random.randint(0, n); c = random.choice([(100, 154, 78, 255), (94, 148, 74, 255), (134, 188, 96, 255)])
         for dx in (-n, 0, n):
-            for dy in (-n, 0, n): d.stroke([(x + dx - 7, y + dy), (x + dx, y + dy - 14), (x + dx + 7, y + dy)], c, 3)
+            for dy in (-n, 0, n): d.stroke([(x + dx - 4, y + dy), (x + dx, y + dy - 8), (x + dx + 4, y + dy)], c, 2)
     d.out().convert('RGB').save(path, quality=92)
 
 # ------------------------------------------------------------------ backdrop
@@ -490,7 +490,7 @@ def calendar(path):
 
 def poster_stamped(path):
     base = Image.open(os.path.join(ROOT, 'props', 'poster.png')).convert('RGBA')
-    t = Draw(600, 800); t.rrect(30, 280, 570, 520, 22, fill=(248, 238, 218, 244), outline=RED, width=16); t.text(300, 400, "SCRAPPED", 112, RED)
+    t = Draw(600, 800); t.rrect(30, 280, 570, 520, 22, fill=(248, 238, 218, 244), outline=RED, width=16); t.text(300, 400, "SCRAPPED", 80, RED)
     rot = t.out().rotate(-18, resample=Image.BICUBIC); base.alpha_composite(rot); base.save(path)
 
 def sparkle(path):
