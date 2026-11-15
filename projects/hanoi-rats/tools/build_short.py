@@ -208,7 +208,7 @@ rat("nx", "ratnt", pos("D", 7.0, 0, 0.3), face="sneaky")
 # C rats
 rat("mom", "ratmom", pos("C", 2.7, 0.06, 0.0), h=0.85)
 for cid, x, z in (("ba1", 3.6, 0.9), ("ba2", 4.2, 1.3), ("ba3", 4.8, 0.2)): rat(cid, "rat", pos("C", x, 0.06, z), h=0.32)
-rat("cr", "rat", pos("C", 3.6, 0.06, 0.5), h=0.85)
+rat("cr", "rat", pos("C", 2.9, 0.06, 0.5), h=0.85)
 rat("hn2", "ratnt", PARK, h=0.85, face="shocked")
 PEN = [("p1", -1.8, -6.5), ("p2", -0.9, -4.8), ("p3", 0.2, -7.2), ("p4", 1.2, -5.2), ("p5", 1.9, -7.0), ("p6", -0.5, -3.6), ("p7", 1.6, -3.8), ("p8", -1.8, -8.2), ("p9", 0.8, -8.4)]
 for i, (cid, x, z) in enumerate(PEN):
@@ -229,7 +229,7 @@ s = shot("0", target="offH", hw=0.24, yaw=12, pitch=3, zoom=7, pan=(-16, 6), fy=
 act(s, 0.0, "offH", face="smug", pose=dict(armR=-100, armL=8, head=0, body=0))
 act(s, 0.7, "offH", pose=dict(armR=-150), hop=0.1)
 
-s = shot("the more rats Hanoi#2", out="dissolve", target="offH", hw=0.16, yaw=-8, pitch=6, zoom=-6, pan=(10, 0), fy=0.05)
+s = shot("the more rats Hanoi#2", out="dissolve", target="offH", hw=0.16, yaw=-8, pitch=6, zoom=-6, pan=(10, 0), fy=0.2)
 act(s, 0.0, "offH", face="shocked", pose=dict(armR=0, armL=0, head=0)); act(s, 0.05, "offH", shake=0.9)
 show(s, 0.12, "excl", pos("H", 0.55, 2.0, 0.2), hop=0.1)
 for (cid, kind, (x, z), fl), t_, ov in zip(HK[2:], (0.0, 0.0, 0.15, 0.2, 0.3, 0.35, 0.5, 0.55), (0.8, 0.8, 0.9, 0.9, 0.85, 0.85, 0.8, 0.8)):
@@ -250,7 +250,7 @@ go(s, 0.15, "r2", pos("A", 3.9, 0, -1.4), 0.5, hop=0.2)
 go(s, 0.3, "r3", pos("A", 4.5, 0, -1.5), 0.5, hop=0.2)
 
 # ---- 5  they climb into the fancy homes (front steps, through the door)
-s = shot("They climb", out="dissolve", anchor=pos("A", 0.5, 1.5, -5.6), dist=10.5, yaw=-10, pitch=4, zoom=6, pan=(-10, -6), fy=0.0)
+s = shot("They climb", out="dissolve", anchor=pos("A", 0.5, 1.2, -5.6), dist=8.0, yaw=-10, pitch=4, zoom=6, pan=(-10, -6), fy=0.0)
 go(s, 0.0, "r1", pos("A", 1.0, 0, -4.6), 0.6); go(s, 0.65, "r1", pos("A", 0.9, 0.2, -5.3), 0.28, hop=0.08)
 go(s, 0.95, "r1", pos("A", 0.9, 0.4, -5.75), 0.28, hop=0.08); go(s, 1.25, "r1", pos("A", 0.9, 0.4, -6.5), 0.22)
 go(s, 0.1, "r2", pos("A", 1.9, 0, -4.5), 0.8); go(s, 0.95, "r2", pos("A", 0.2, 0.2, -5.3), 0.3, hop=0.08)
@@ -284,15 +284,13 @@ for cid, z in (("h1", 0.6), ("h2", 1.2), ("h3", 1.9)): act(s, 0.15, cid, to=pos(
 
 s = shot("they turn in", anchor=pos("D", 0, 2.5, -1.5), dist=8.5, yaw=8, pitch=2, zoom=7, pan=(0, -8), fy=0.0)
 
-s = shot("In one single day", anchor=pos("D", 0, 1.5, -1.2), dist=13, yaw=-10, pitch=5, zoom=-4, pan=(12, 0), fy=0.03)
+s = shot("In one single day", out="dissolve", anchor=pos("D", 0, 1.5, -1.2), dist=13, yaw=-10, pitch=5, zoom=-4, pan=(12, 0), fy=0.03)
 act(s, 0.0, "boss", face="happy", pose=dict(armL=130, armR=-130, head=0))
 for cid, t_, x, z in (("h1", 0.0, -2.2, 0.6), ("h2", 0.15, -1.3, 1.2), ("h3", 0.3, -2.7, 1.9)):
     act(s, t_, cid, face="happy", pose=dict(armL=125, armR=-125)); go(s, t_, cid, pos("D", x, 0, z), 0.6)
     for k in (0.7, 1.0): act(s, t_ + k, cid, hop=0.18)
-
-s = shot("Victory", out="dissolve", target="boss", hw=0.27, yaw=6, pitch=3, zoom=6, pan=(-6, 4), fy=0.1)
-act(s, 0.0, "boss", face="happy", pose=dict(armL=150, armR=-150, head=-5)); act(s, 0.1, "boss", hop=0.2)
-go(s, 0.1, "nx", pos("D", 3.5, 0, 0.3), 0.5, flip=False)
+act(s, 0.95, "boss", face="happy", pose=dict(armL=150, armR=-150, head=-5), hop=0.2)          # "Victory?"
+go(s, 0.9, "nx", pos("D", 3.6, 0, 0.3), 0.5)
 
 # ---- 14-17  inspectors (A)
 s = shot("Then inspectors", target="insp", hw=0.2, yaw=-14, pitch=5, zoom=5, pan=(12, 4), fy=0.12)
@@ -329,10 +327,11 @@ s = shot("and every baby", anchor=pos("C", 0.95, 0.35, 0.9), dist=3.8, yaw=14, p
 for cid, t_ in (("ba1", 0.0), ("ba2", 0.3), ("ba3", 0.6)): act(s, t_, cid, hop=0.22)
 for cid, t_, x in (("ba1", 1.0, 4.5), ("ba3", 1.1, 4.8), ("ba2", 1.25, 4.2)): go(s, t_, cid, pos("C", x, 0.06, 0.9), 0.9, flip=True)
 go(s, 0.9, "mom", pos("C", 4.6, 0.06, 0.0), 1.1, flip=True)
+go(s, 0.4, "h1", pos("C", -0.4, 0.06, 0.0), 0.8)
 
 s = shot("So hunters cut", anchor=pos("C", 0.4, 0.9, 0.4), dist=7.5, yaw=-10, pitch=5, zoom=5, pan=(6, 0), fy=0.05)
-go(s, 0.0, "h1", pos("C", -0.4, 0.06, 0.0), 0.6); act(s, 0.5, "h1", face="sneaky", pose=dict(armR=-105, armL=0, head=0))
-go(s, 0.1, "cr", pos("C", 1.15, 0.06, 0.5), 0.7)
+act(s, 0.0, "h1", face="sneaky", pose=dict(armR=-105, armL=0, head=0))
+go(s, 0.0, "cr", pos("C", 1.15, 0.06, 0.5), 0.8)
 show(s, 0.75, "scis", pos("C", 0.37, 0.92, 0.15), hop=0.06)
 show(s, 1.15, "snip", pos("C", 0.55, 1.25, 0.35), hop=0.12); show(s, 1.15, "poof", pos("C", 1.15, 0.1, 0.6), hop=0.05)
 act(s, 1.15, "cr", to=PARK, over=0.02, walk=False); act(s, 1.15, "hn2", to=pos("C", 1.15, 0.06, 0.5), over=0.02, walk=False, face="shocked")

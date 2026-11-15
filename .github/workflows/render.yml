@@ -116,6 +116,7 @@ jobs:
           node $S/render.mjs $P/short.json $P/render.mp4
           python $S/shortkit.py check $P/render.mp4 | tee $P/check_report.txt || true
           ffprobe -v error -show_entries stream=width,height,r_frame_rate,duration -of default=nw=1 $P/render.mp4 | tee -a $P/check_report.txt
+          ffmpeg -hide_banner -nostats -i $P/render.mp4 -af ebur128=peak=true -f null - 2>&1 | tail -14 | tee -a $P/check_report.txt
 
       - uses: actions/upload-artifact@v4
         if: always()
