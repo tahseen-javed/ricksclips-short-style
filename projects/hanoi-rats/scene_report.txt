@@ -1,48 +1,36 @@
 shot  start   dur  phrase
 S00    0.00  1.14  0
-S01    1.14  1.12  the more rats Hanoi#2
-S02    2.26  1.54  It's 1902
-S03    3.80  1.60  a shiny new sewer
-S04    5.40  0.66  Rats love it
+S01    1.14  1.08  the more rats Hanoi#2
+S02    2.22  1.68  It's 1902
+S03    3.90  1.48  a shiny new sewer
+S04    5.38  0.66  Rats love it
    ! very short shot (mostly glide)
-S05    6.06  1.84  They climb
-S06    7.90  1.22  So the government
-S07    9.12  0.88  One cent
-S08   10.00  1.02  Just bring us
-S09   11.02  0.90  Hunters go
-S10   11.92  0.96  On June
-S11   12.88  2.20  they turn in
-S12   15.08  1.34  In one single day
-S13   16.42  0.16  Victory
+S05    6.04  1.82  They climb
+S06    7.86  1.32  So the government
+S07    9.18  0.82  One cent
+S08   10.00  0.98  Just bring us
+S09   10.98  0.98  Hunters go
+S10   11.96  0.92  On June
+S11   12.88  2.59  they turn in
+S12   15.47  0.94  In one single day
+S13   16.41  0.40  Victory
    ! very short shot (mostly glide)
-S14   16.58  1.90  Then inspectors
-S15   18.48  1.08  Rats. Alive
-S16   19.56  0.74  Running through
-S17   20.30  1.10  with no tails
-S18   21.40  1.70  You see
-S19   23.10  1.50  A rat without
-S20   24.60  1.66  and every baby
-S21   26.26  1.62  So hunters cut
-S22   27.88  2.28  Outside the city
-S23   30.16  1.88  Others smuggled
-S24   32.04  0.98  The bounty
-S25   33.02  0.76  The rats stayed
-S26   33.78  1.66  Because the city
-S27   35.44  0.90  It counted tails
-S28   36.34  2.15  And that's why
-   ! S09 action at 1.30 s runs past the shot (0.90 s): h2 ['hop']
-   ! S09 action at 1.55 s runs past the shot (0.90 s): h3 ['hop']
-   ! S21 action at 2.00 s runs past the shot (1.62 s): hn2 ['to', 'over', 'walk', 'flip']
-   ! S25 action at 1.02 s runs past the shot (0.76 s): e2 ['hop']
-   ! S25 action at 1.14 s runs past the shot (0.76 s): e3 ['hop']
-   ! S25 action at 1.02 s runs past the shot (0.76 s): e5 ['hop']
-   ! S25 action at 1.14 s runs past the shot (0.76 s): e6 ['hop']
-   ! S25 action at 1.02 s runs past the shot (0.76 s): e8 ['hop']
-   ! n1: move from S15 (18.48+1.90 s) overlaps next move in S16 at 19.56 s
-   ! n2: move from S15 (18.68+1.90 s) overlaps next move in S16 at 19.71 s
-   ! n3: move from S15 (18.88+1.90 s) overlaps next move in S16 at 19.86 s
-   ! n4: move from S15 (19.03+1.90 s) overlaps next move in S16 at 20.01 s
-   ! h1: move from S09 (11.02+1.40 s) overlaps next move in S10 at 12.07 s
-   ! h2: move from S09 (11.27+1.40 s) overlaps next move in S10 at 12.07 s
-   ! h3: move from S09 (11.52+1.40 s) overlaps next move in S10 at 12.07 s
-wrote short.json: 29 shots, 66 characters, 98 props, voice 38.49 s
+S14   16.81  1.68  Then inspectors
+S15   18.49  1.12  Rats. Alive
+S16   19.61  0.96  Running through
+S17   20.57  0.84  with no tails
+S18   21.41  1.72  You see
+S19   23.13  1.50  A rat without
+S20   24.63  1.60  and every baby
+S21   26.23  1.88  So hunters cut
+S22   28.11  2.08  Outside the city
+S23   30.19  1.82  Others smuggled
+S24   32.01  0.98  The bounty
+S25   32.99  0.76  The rats stayed
+S26   33.75  1.72  Because the city
+S27   35.47  0.88  It counted tails
+S28   36.35  2.14  And that's why
+   ! S12 action at 1.30 s runs past the shot (0.94 s): h3 ['hop']
+   ! h2: move from S09 (11.23+1.00 s) overlaps next move in S10 at 12.11 s
+   ! h3: move from S09 (11.48+1.00 s) overlaps next move in S10 at 12.11 s
+wrote short.json: 29 shots, 66 characters, 101 props, voice 38.49 s
