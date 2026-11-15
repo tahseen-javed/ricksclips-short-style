@@ -332,7 +332,7 @@ def backdrop(path, W=2520, Hh=1080):
         else: a = (t - 0.72) / 0.28; c = tuple(int(mid[i] + (hor[i] - mid[i]) * a) for i in range(3))
         for x in range(W): px[x, y] = c
     glow = Image.new('RGB', (W, Hh), (0, 0, 0)); g = ImageDraw.Draw(glow)
-    for r, a in ((520, 40), (380, 60), (240, 90)): g.ellipse([1700 - r, 760 - r * 0.6, 1700 + r, 760 + r * 0.6], fill=(a, a * 0.8, a * 0.5))
+    for r, a in ((520, 40), (380, 60), (240, 90)): g.ellipse([1700 - r, 760 - r * 0.6, 1700 + r, 760 + r * 0.6], fill=(a, int(a * 0.8), int(a * 0.5)))
     im = ImageChops.add(im, glow.filter(ImageFilter.GaussianBlur(90)))
     d = ImageDraw.Draw(im, 'RGBA')
     for ridge, col, base, amp in (((150, 140, 185, 255), None, 800, 60), ((122, 110, 162, 255), None, 850, 40)):
