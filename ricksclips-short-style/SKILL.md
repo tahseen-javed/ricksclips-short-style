@@ -173,6 +173,17 @@ It writes one reference sheet per two seconds of video and `measured.json` with 
 
 If you split the work across agents, give each one its own files: one owns `short.json` lighting and moods, one owns shots and camera, one owns asset generation and the library folders. Two agents writing the same file at the same time overwrite each other, and parts of the scene vanish.
 
+## Cloud pipeline and worked example
+
+Everything can run on GitHub Actions, nothing on the user's machine: `.github/workflows/render.yml` installs Node, ffmpeg and Chromium, builds the assets and the scene from code, makes the voice (Kokoro TTS) and the word timings, runs the stop-frame check, writes contact sheets, and renders. Modes: `stills` (check + sheets), `frames` (sheets of time ranges, to check motion), `preview`, `full` (refuses to render while the check has flags). `projects/hanoi-rats/` is the worked example: `tools/make_assets.py` (puppets, faces, cards, textures, stickers drawn with PIL), `tools/build_short.py` (one shot list in Python, writes `short.json` and prints a timing report), `tools/align_words.py`, `tools/make_voice.py`, `LEARNINGS.md`.
+
+Techniques worth reusing:
+- **Word timings**: CTC forced alignment (wav2vec2) is accurate to about 20 ms; Whisper timings can be 0.3 s off on short words at sentence ends, which desyncs one-word captions. Map digits to spoken words in `audio/spoken.json`.
+- **Sets**: one location per set, 70 units apart; glide inside a set, `dissolve` between sets. Keep actors out of shots they do not belong to (move them while the camera is elsewhere). A shot's glide is centred on its start, so a shot under 0.7 s is all transition: merge it.
+- **Stickers**: a timed overlay (SNIP!, poof, scissors, coin, a sign) is a one-layer puppet parked at y=-60 and moved in with a 0.02 s move, so it appears exactly on the word.
+- **Houses**: use square footprints (w = d); a wide, shallow house gets a roof overhang that shades its whole front wall. The `CAMERA_INSIDE_PROP` flag can be a false alarm because the roof's axis-aligned box is large: keep the camera z beyond house z + 1.1 x max(w, d).
+- **Rats and other small characters** read better at 0.7 m than 0.55 m next to a 1.8 m figure; frame width is 0.41 x the camera distance for the default lens.
+
 ## The four rules
 
 1. **Characters** are flat 2D cutouts with big round heads, about a fifth of the frame wide in a close-up, standing in real 3D space: light tints them and they cast real shadows.
