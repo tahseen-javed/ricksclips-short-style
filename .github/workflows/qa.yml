@@ -1,0 +1,31 @@
+name: QA final video
+on:
+  workflow_dispatch:
+    inputs:
+      video:
+        description: Video in the repo to inspect
+        default: projects/hanoi-rats/render.mp4
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && pip install -q pillow
+      - name: Inspect the finished video
+        run: |
+          V="${{ inputs.video }}"
+          ls -l "$V"
+          ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,pix_fmt,sample_rate,channels,duration -of default=nw=1 "$V" | tee qa.txt
+          ffmpeg -hide_banner -nostats -i "$V" -af ebur128=peak=true -f null - 2>&1 | tail -12 | tee -a qa.txt
+          ffmpeg -hide_banner -nostats -i "$V" -af volumedetect -f null - 2>&1 | grep -E "mean_volume|max_volume" | tee -a qa.txt
+          mkdir -p qf && ffmpeg -loglevel error -y -i "$V" -vf "fps=0.7,scale=270:-1" qf/f%03d.png
+          python projects/hanoi-rats/tools/montage.py frames qf qa_frames.jpg 0 0.7
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qa
+          path: |
+            qa.txt
+            qa_frames.jpg
