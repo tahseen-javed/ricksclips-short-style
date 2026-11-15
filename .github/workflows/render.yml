@@ -1,0 +1,53 @@
+name: Render Short
+on:
+  workflow_dispatch:
+    inputs:
+      project:
+        description: Folder with short.json (relative to repo root)
+        default: ricksclips-short-style/examples/demo
+      preview:
+        description: Fast half-size 8s preview instead of full render
+        type: boolean
+        default: false
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      P: ${{ inputs.project }}
+      S: ricksclips-short-style/scripts/stage
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg espeak-ng
+      - run: cd $S && npm install && npx playwright install --with-deps chromium
+      - run: pip install numpy pillow scipy opencv-python-headless
+      - name: Voiceover (Kokoro TTS) if voice.mp3 missing
+        run: |
+          if [ ! -f "$P/audio/voice.mp3" ] && [ -f "$P/audio/script.txt" ]; then
+            pip install kokoro soundfile
+            python - <<'PY'
+          import os, numpy as np, soundfile as sf
+          from kokoro import KPipeline
+          d = os.environ["P"] + "/audio/"
+          a = np.concatenate([x for _, _, x in KPipeline(lang_code="a")(open(d + "script.txt").read(), voice="af_heart")])
+          sf.write(d + "voice.wav", a, 24000)
+          PY
+            ffmpeg -y -i "$P/audio/voice.wav" -b:a 192k "$P/audio/voice.mp3" && rm "$P/audio/voice.wav"
+          fi
+      - name: Render
+        run: |
+          if [ "${{ inputs.preview }}" = "true" ]; then O="$P/preview.mp4"; X="--scale 0.5 --from 0 --to 8"; else O="$P/render.mp4"; X=""; fi
+          node $S/render.mjs "$P/short.json" "$O" $X
+          echo "OUT=$O" >> $GITHUB_ENV
+      - uses: actions/upload-artifact@v4
+        with: { name: short-video, path: "${{ env.OUT }}" }
+      - name: Commit video to repo
+        run: |
+          git config user.name "github-actions[bot]"; git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          git add -f "$OUT" "$P/audio" && git commit -m "Render $P" && git push || echo "nothing to commit"
