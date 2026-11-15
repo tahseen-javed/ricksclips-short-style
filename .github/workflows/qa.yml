@@ -22,7 +22,7 @@ jobs:
           ffmpeg -hide_banner -nostats -i "$V" -af ebur128=peak=true -f null - 2>&1 | tail -12 | tee -a qa.txt
           ffmpeg -hide_banner -nostats -i "$V" -af volumedetect -f null - 2>&1 | grep -E "mean_volume|max_volume" | tee -a qa.txt
           mkdir -p qf && ffmpeg -loglevel error -y -i "$V" -vf "fps=0.7,scale=270:-1" qf/f%03d.png
-          python projects/hanoi-rats/tools/montage.py frames qf qa_frames.jpg 0 0.7
+          python projects/hanoi-rats/tools/montage.py frames qf qa_frames.jpg 0.714 0.7
       - uses: actions/upload-artifact@v4
         with:
           name: qa
