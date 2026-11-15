@@ -140,7 +140,7 @@
    "id": "bossE",
    "puppet": "puppets/official",
    "pos": [
-    280.7,
+    280.55,
     0,
     0
    ],
@@ -199,7 +199,7 @@
     0,
     1.0
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy",
    "flip": true
   },
@@ -211,7 +211,7 @@
     0,
     1.1
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy"
   },
   {
@@ -222,7 +222,7 @@
     0,
     1.8
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy",
    "flip": true
   },
@@ -234,7 +234,7 @@
     0,
     1.9
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy"
   },
   {
@@ -245,7 +245,7 @@
     0,
     2.5
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy",
    "flip": true
   },
@@ -257,7 +257,7 @@
     0,
     2.6
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy"
   },
   {
@@ -268,7 +268,7 @@
     0,
     0.4
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy",
    "flip": true
   },
@@ -280,7 +280,7 @@
     0,
     0.5
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy"
   },
   {
@@ -291,7 +291,7 @@
     0,
     3.1
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy",
    "flip": true
   },
@@ -303,7 +303,7 @@
     0,
     3.2
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy"
   },
   {
@@ -314,7 +314,7 @@
     0,
     2.6
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy",
    "flip": true
   },
@@ -326,7 +326,7 @@
     0,
     2.7
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy"
   },
   {
@@ -337,7 +337,7 @@
     0,
     3.8
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy",
    "flip": true
   },
@@ -349,7 +349,7 @@
     0,
     1.5
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy"
   },
   {
@@ -404,7 +404,7 @@
     0,
     2.5
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy"
   },
   {
@@ -415,7 +415,7 @@
     0,
     2.5
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy"
   },
   {
@@ -426,7 +426,7 @@
     0,
     2.5
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy"
   },
   {
@@ -437,7 +437,7 @@
     0,
     2.5
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy"
   },
   {
@@ -448,7 +448,7 @@
     0,
     2.5
    ],
-   "height": 0.55,
+   "height": 0.7,
    "face": "happy"
   },
   {
@@ -691,9 +691,9 @@
    "id": "e1",
    "puppet": "puppets/rat",
    "pos": [
-    277.8,
+    278.7,
     0,
-    3.4
+    3.0
    ],
    "height": 0.55,
    "face": "happy",
@@ -703,9 +703,9 @@
    "id": "e2",
    "puppet": "puppets/ratnt",
    "pos": [
-    282.2,
+    281.4,
     0,
-    3.6
+    3.2
    ],
    "height": 0.55,
    "face": "happy"
@@ -714,9 +714,9 @@
    "id": "e3",
    "puppet": "puppets/rat",
    "pos": [
-    277.0,
+    278.0,
     0,
-    2.0
+    2.4
    ],
    "height": 0.55,
    "face": "happy",
@@ -726,9 +726,9 @@
    "id": "e4",
    "puppet": "puppets/ratnt",
    "pos": [
-    283.1,
+    282.1,
     0,
-    2.2
+    2.6
    ],
    "height": 0.55,
    "face": "happy"
@@ -737,9 +737,9 @@
    "id": "e5",
    "puppet": "puppets/rat",
    "pos": [
-    278.5,
+    278.9,
     0,
-    4.4
+    4.0
    ],
    "height": 0.55,
    "face": "happy",
@@ -749,9 +749,9 @@
    "id": "e6",
    "puppet": "puppets/ratnt",
    "pos": [
-    281.6,
+    281.2,
     0,
-    4.5
+    4.2
    ],
    "height": 0.55,
    "face": "happy"
@@ -760,9 +760,9 @@
    "id": "e7",
    "puppet": "puppets/rat",
    "pos": [
-    276.2,
+    277.2,
     0,
-    1.0
+    1.6
    ],
    "height": 0.55,
    "face": "happy",
@@ -772,9 +772,9 @@
    "id": "e8",
    "puppet": "puppets/ratnt",
    "pos": [
-    283.8,
+    282.9,
     0,
-    1.2
+    1.8
    ],
    "height": 0.55,
    "face": "happy"
@@ -1851,6 +1851,32 @@
    "color": "#b8473a"
   },
   {
+   "type": "plane",
+   "image": "props/window.png",
+   "pos": [
+    207.6,
+    2.6,
+    -16.96
+   ],
+   "size": [
+    1.1,
+    1.62
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/window.png",
+   "pos": [
+    212.4,
+    2.6,
+    -16.96
+   ],
+   "size": [
+    1.1,
+    1.62
+   ]
+  },
+  {
    "type": "wall",
    "pos": [
     210,
@@ -2030,7 +2056,7 @@
   {
    "type": "post",
    "pos": [
-    279.3,
+    279.5,
     0,
     -0.6
    ],
@@ -2041,7 +2067,7 @@
    "type": "plane",
    "image": "props/poster_x.png",
    "pos": [
-    279.3,
+    279.5,
     1.15,
     -0.52
    ],
@@ -2415,10 +2441,10 @@
    "start": "say:They climb",
    "anchor": [
     0.5,
-    1.9,
+    1.5,
     -5.6
    ],
-   "distance": 12,
+   "distance": 10.5,
    "yaw": -10,
    "pitch": 4,
    "zoom": 6,
@@ -2871,7 +2897,7 @@
      "at": 0.15,
      "who": "boss",
      "to": [
-      142.6,
+      142.2,
       0,
       -0.8
      ],
@@ -3793,10 +3819,10 @@
    "start": "say:Outside the city",
    "anchor": [
     210,
-    0.9,
+    0.8,
     -6.0
    ],
-   "distance": 11,
+   "distance": 10,
    "yaw": 10,
    "pitch": 6,
    "zoom": 4,
@@ -3859,7 +3885,7 @@
      "at": 0.1,
      "who": "p1",
      "to": [
-      207.6,
+      208.2,
       0.08,
       -6.5
      ],
@@ -3875,7 +3901,7 @@
      "at": 0.2,
      "who": "p2",
      "to": [
-      208.8,
+      209.1,
       0.08,
       -4.8
      ],
@@ -3907,7 +3933,7 @@
      "at": 0.4,
      "who": "p4",
      "to": [
-      211.4,
+      211.2,
       0.08,
       -5.2
      ],
@@ -3923,7 +3949,7 @@
      "at": 0.5,
      "who": "p5",
      "to": [
-      212.5,
+      211.9,
       0.08,
       -7.0
      ],
@@ -3939,7 +3965,7 @@
      "at": 0.6,
      "who": "p6",
      "to": [
-      209.4,
+      209.5,
       0.08,
       -3.6
      ],
@@ -3955,7 +3981,7 @@
      "at": 0.7,
      "who": "p7",
      "to": [
-      211.9,
+      211.6,
       0.08,
       -3.8
      ],
@@ -3971,7 +3997,7 @@
      "at": 0.8,
      "who": "p8",
      "to": [
-      207.8,
+      208.2,
       0.08,
       -8.2
      ],
@@ -3987,7 +4013,7 @@
      "at": 0.9,
      "who": "p9",
      "to": [
-      210.9,
+      210.8,
       0.08,
       -8.4
      ],
@@ -4083,12 +4109,12 @@
     1.5,
     -0.5
    ],
-   "distance": 6.5,
-   "yaw": -8,
+   "distance": 5.0,
+   "yaw": -6,
    "pitch": 3,
-   "zoom": 7,
+   "zoom": 6,
    "pan": [
-    8,
+    6,
     0
    ],
    "frameY": 0.12,
@@ -4108,12 +4134,12 @@
   {
    "start": "say:The rats stayed",
    "anchor": [
-    280.0,
+    280.3,
     0.9,
-    1.2
+    1.5
    ],
-   "distance": 13,
-   "yaw": 10,
+   "distance": 11,
+   "yaw": 6,
    "pitch": 6,
    "zoom": -3,
    "pan": [

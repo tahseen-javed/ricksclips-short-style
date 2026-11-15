@@ -33,4 +33,4 @@ S28   36.35  2.14  And that's why
    ! S12 action at 1.30 s runs past the shot (0.94 s): h3 ['hop']
    ! h2: move from S09 (11.23+1.00 s) overlaps next move in S10 at 12.11 s
    ! h3: move from S09 (11.48+1.00 s) overlaps next move in S10 at 12.11 s
-wrote short.json: 29 shots, 66 characters, 101 props, voice 38.49 s
+wrote short.json: 29 shots, 66 characters, 103 props, voice 38.49 s
