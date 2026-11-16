@@ -23,3 +23,11 @@ frame width in close-ups, cute characters (big round heads, shiny eyes, blush).
 - Music is synthesised inside build_short.py from word cues (engine spool-downs, true silence, boom, fire, resolve) because the Scene step runs after alignment.
 - Interiors in dusk light were TOO_DARK: switch mood per set (cockpit in day).
 - Camera-motion check failed (56 % static frames): wide sky/hangar shots with flat textures read as static. Next time: bigger pan/zoom (pan +-14, zoom +-8), more target close-ups, fewer flat walls.
+
+## Video 03 — Viking horns myth -> projects/viking-horns
+- Unique sets/shots every video (user rule); only characters may be reused (mom, dad, tech came back identical via gimli_assets.py).
+- Retention hook that worked: character already roaring in frame 1 + boom + fast push-in, a "FAKE?" stamp on the reveal word, last shot = first shot for the loop.
+- Music must be full energy from frame 1 (user rule): drums/bass from 0 s, Wagner-style brass for the opera, a short mysterious drop, SFX on words (stamp, pops, scratch, ding, bonk, applause, dig, whooshes).
+- Voice (am_fenrir, energetic): trimming each TTS line 0.03 s before the first loud sample clipped soft onsets ("made" -> "aid"); use 0.08 s. Proper nouns (Nibelung, Doepler) cap Whisper scores near 0.96, so a 0.965 threshold can fail: the fallback picks the clearest take.
+- Red velvet stage + dark carpet were TOO_DARK: keep interior colours light (velvet (224,92,104), floor #b07a66).
+- Cards near frame edges got cut: place pop-up cards within +-0.35 x frame width of the anchor; hide a card at the first shot where it would be cut.
