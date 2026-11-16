@@ -1,29 +1,29 @@
 {
- "frames": 1201,
+ "frames": 1468,
  "step": 1,
- "pan_speed_med_px_s": 12.8,
- "zoom_med_pct_s": 3.95,
- "static_frames_pct": 53.0,
+ "pan_speed_med_px_s": 11.6,
+ "zoom_med_pct_s": 3.88,
+ "static_frames_pct": 56.0,
  "pan_speed_ok": false,
  "zoom_ok": true
 }
 width=1080
 height=1920
 r_frame_rate=30/1
-duration=40.033333
+duration=48.933333
 r_frame_rate=0/0
-duration=40.032993
+duration=48.932993
   Integrated loudness:
-    I:         -16.5 LUFS
-    Threshold: -26.6 LUFS
+    I:         -16.4 LUFS
+    Threshold: -26.5 LUFS
 
   Loudness range:
     LRA:         1.2 LU
-    Threshold: -36.6 LUFS
+    Threshold: -36.5 LUFS
     LRA low:   -17.1 LUFS
     LRA high:  -15.9 LUFS
 
   True peak:
     Peak:       -0.4 dBFS
-[out#0/null @ 0x62c9a5fa0040] video:488KiB audio:3450KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
-frame= 1201 fps=673 q=-0.0 Lsize=N/A time=00:00:40.03 bitrate=N/A speed=22.4x elapsed=0:00:01.78    
+[out#0/null @ 0x55bf91835380] video:596KiB audio:4216KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame= 1468 fps=450 q=-0.0 Lsize=N/A time=00:00:48.93 bitrate=N/A speed=  15x elapsed=0:00:03.26    

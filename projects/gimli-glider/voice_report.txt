@@ -1,33 +1,25 @@
 Collecting en-core-web-sm==3.8.0
   Downloading en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 77.6 MB/s  0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 171.3 MB/s  0:00:00
 Installing collected packages: en-core-web-sm
 Successfully installed en-core-web-sm-3.8.0
 [38;5;2m✔ Download and installation successful[0m
 You can now load the package via spacy.load('en_core_web_sm')
-am_michael                      43.7 s  pitch 103.4 Hz  understood 0.825
-am_fenrir                       39.5 s  pitch 115.9 Hz  understood 0.837
-am_puck                         37.8 s  pitch 110.1 Hz  understood 0.775
-chose am_fenrir (pitch 116 Hz, understood 0.837): tempo 1.000 -> about 39.5 s
+am_michael @1.20    57.1 s  understood 0.983
+am_michael @1.28    53.8 s  understood 0.989
+am_michael @1.36    45.6 s  understood 0.949
+am_fenrir @1.20     53.9 s  understood 0.989
+am_fenrir @1.28     50.9 s  understood 0.980
+am_fenrir @1.36     41.6 s  understood 0.931
+chose am_fenrir @1.28 (understood 0.980): tempo 1.050 -> about 48.5 s
 Downloading: "https://download.pytorch.org/torchaudio/models/wav2vec2_fairseq_base_ls960_asr_ls960.pth" to /home/runner/.cache/torch/hub/checkpoints/wav2vec2_fairseq_base_ls960_asr_ls960.pth
-  0%|          | 0.00/360M [00:00<?, ?B/s]  5%|▌         | 19.4M/360M [00:00<00:01, 203MB/s] 16%|█▌        | 56.1M/360M [00:00<00:01, 310MB/s] 25%|██▌       | 90.6M/360M [00:00<00:00, 332MB/s] 34%|███▍      | 122M/360M [00:00<00:00, 329MB/s]  48%|████▊     | 172M/360M [00:00<00:00, 397MB/s] 61%|██████    | 219M/360M [00:00<00:00, 428MB/s] 74%|███████▍  | 267M/360M [00:00<00:00, 452MB/s] 88%|████████▊ | 317M/360M [00:00<00:00, 477MB/s]100%|██████████| 360M/360M [00:00<00:00, 425MB/s]
-aligned 170 words over 40.03 s, mean confidence 0.88, shortest word 0.04 s
-heard: When wrong number turned a brand new jet into glider. By 23rd 1983, Air Canada Flight 143. It's to one passengers, eight crew, cruising at 41,000 feet over Ontario. One engine quits, then the other. Total silence. Fuel gauges broken since before takeoff. But we knew the tanks were almost empty. How does the jet just run dry? You see, Canada was switching to metric, and the Boeing 767 was its first metric plane. But the fuel was worked out with the old number, 1.77 pounds per liter instead of 0.8 kilograms. But they took off with less than half the fuel they needed. But luck was on board, the captain flew gliders for fun. And the co-pilot once served at an old airbase nearby, Gimli. One problem that runway was now racetrack. And today was family day, go-karts everywhere. Plane drops in silently, the nose slams down, fire bursts out. And everyone lives, that same jet kept flying until 2008. I'll be as a crew trusted when wrong number.
-intelligibility 0.827 (1.0 = every word understood)
-  replace: said ['one'] -> heard ['when']
-  delete: said ['a'] -> heard []
-  replace: said ['july', 'twenty', 'third', 'nineteen', 'eighty', 'three'] -> heard ['by', '23rd', '1983']
-  replace: said ['one', 'forty', 'three', 'sixty'] -> heard ['143', "it's", 'to']
-  replace: said ['forty', 'one', 'thousand'] -> heard ['41', '000']
-  delete: said ['the'] -> heard []
-  replace: said ['nobody'] -> heard ['but', 'we']
-  replace: said ['a'] -> heard ['the']
-  replace: said ['seven', 'sixty', 'seven'] -> heard ['767']
-  replace: said ['one', 'point', 'seven', 'seven'] -> heard ['1', '77']
-  replace: said ['zero', 'point', 'eight'] -> heard ['0', '8']
+  0%|          | 0.00/360M [00:00<?, ?B/s]  0%|          | 1.00M/360M [00:00<00:35, 10.5MB/s]  6%|▋         | 22.8M/360M [00:00<00:02, 138MB/s]  16%|█▋        | 59.1M/360M [00:00<00:01, 249MB/s] 26%|██▋       | 95.1M/360M [00:00<00:00, 300MB/s] 37%|███▋      | 132M/360M [00:00<00:00, 332MB/s]  48%|████▊     | 174M/360M [00:00<00:00, 366MB/s] 59%|█████▉    | 213M/360M [00:00<00:00, 382MB/s] 71%|███████   | 256M/360M [00:00<00:00, 404MB/s] 83%|████████▎ | 300M/360M [00:00<00:00, 420MB/s] 96%|█████████▌| 345M/360M [00:01<00:00, 437MB/s]100%|██████████| 360M/360M [00:01<00:00, 360MB/s]
+aligned 170 words over 48.94 s, mean confidence 0.96, shortest word 0.04 s
+heard: One wrong number turned a brand new jet into a glider. July 23, 1983, Air Canada Flight 143. 61 passengers, 8 crew, cruising at 41,000 feet over Ontario. One engine quits, then the other. Total silence. The fuel gauges broken since before takeoff. Nobody knew the tanks were almost empty. How does a jet just run dry? You see, Canada was switching to metric, and the Boeing 767 was its first metric plane. But the fuel was worked out with the old number, 1.77 pounds per liter instead of 0.8 kilograms. But they took off with less than half the fuel they needed. But luck was on board, the captain flew gliders for fun. And the co-pilot once served at an old airbase nearby, Gimli. One problem that runway was now a racetrack. Today was family day, go-karts everywhere. The plane drops in silently, the nose slams down, fire bursts out. And everyone lives. That same jet kept flying until 2008. All because a crew trusted one wrong number.
+intelligibility 0.963 (1.0 = every word understood)
+  replace: said ['23rd'] -> heard ['23']
+  replace: said ['sixty', 'one'] -> heard ['61']
+  replace: said ['eight'] -> heard ['8']
   replace: said ['so'] -> heard ['but']
   replace: said ['air', 'base'] -> heard ['airbase']
-  delete: said ['a'] -> heard []
-  delete: said ['the'] -> heard []
-  replace: said ['two', 'thousand', 'eight', 'all', 'because'] -> heard ['2008', "i'll", 'be', 'as']
-  replace: said ['one'] -> heard ['when']
+  delete: said ['and'] -> heard []

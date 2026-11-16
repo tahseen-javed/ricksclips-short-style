@@ -1,41 +1,32 @@
-music projects/gimli-glider/audio/music.wav 40.6 s, cues {'quit1': 8.38, 'quit2': 9.04, 'sil': 9.58, 'explain': 14.56, 'luck': 25.15, 'drop': 32.89, 'slam': 34.44, 'fire': 35.01, 'lives': 35.73}
+music projects/gimli-glider/audio/music.wav 49.5 s, cues {'quit1': 10.02, 'quit2': 10.83, 'sil': 11.45, 'explain': 17.71, 'luck': 30.67, 'drop': 40.3, 'slam': 42.05, 'fire': 42.76, 'lives': 43.7}
 shot  start   dur  phrase
-S00    0.00  0.54  0
-   ! very short shot (mostly glide)
-S01    0.54  1.40  turned
-S02    1.94  1.58  July
-S03    3.52  1.34  Air Canada
-S04    4.86  1.48  Sixtyone
-S05    6.34  2.04  cruising
-S06    8.38  1.20  One engine
-S07    9.58  0.50  Total silence
-   ! very short shot (mostly glide)
-S08   10.08  1.86  The fuel gauges
-S09   11.94  1.40  Nobody knew
-S10   13.34  1.22  How does
-S11   14.56  1.52  You see
-S12   16.08  2.36  and the Boeing
-S13   18.44  2.64  But the fuel
-S14   21.08  0.72  pounds per
-S15   21.80  1.56  instead of
-S16   23.36  1.79  So they took
-S17   25.15  0.84  But luck
-S18   25.99  1.18  The captain
-S19   27.17  2.60  And the copilot
-S20   29.77  1.56  One problem
-S21   31.33  0.92  And today
-S22   32.25  0.64  Gokarts
-   ! very short shot (mostly glide)
-S23   32.89  1.20  The plane drops
-S24   34.09  0.92  The nose
-S25   35.01  0.72  Fire bursts
-S26   35.73  0.72  And everyone
-S27   36.45  1.66  That same jet
-S28   38.11  1.92  All because
-   ! k1: move from S20 (29.77+2.30 s) overlaps next move in S21 at 31.43 s
-   ! k1: move from S21 (31.43+1.00 s) overlaps next move in S22 at 32.25 s
-   ! k2: move from S20 (29.87+2.20 s) overlaps next move in S21 at 31.43 s
-   ! k2: move from S21 (31.43+1.00 s) overlaps next move in S22 at 32.25 s
-   ! k3: move from S20 (29.97+2.10 s) overlaps next move in S21 at 31.43 s
-   ! k3: move from S21 (31.43+1.00 s) overlaps next move in S22 at 32.25 s
-wrote short.json: 29 shots, 37 characters, 105 props, voice 40.03 s
+S00    0.00  0.70  0
+S01    0.70  1.72  turned
+S02    2.42  1.86  July
+S03    4.28  1.60  Air Canada
+S04    5.88  1.78  Sixtyone
+S05    7.66  2.36  cruising
+S06   10.02  1.43  One engine
+S07   11.45  1.10  Total silence
+S08   12.55  2.06  The fuel gauges
+S09   14.61  1.60  Nobody knew
+S10   16.21  1.50  How does
+S11   17.71  1.88  You see
+S12   19.59  3.00  and the Boeing
+S13   22.59  3.20  But the fuel
+S14   25.79  0.84  pounds per
+S15   26.63  1.88  instead of
+S16   28.51  2.16  So they took
+S17   30.67  1.00  But luck
+S18   31.67  1.59  The captain
+S19   33.26  3.00  And the copilot
+S20   36.26  1.84  One problem
+S21   38.10  1.24  And today
+S22   39.34  0.96  Gokarts
+S23   40.30  1.40  The plane drops
+S24   41.70  1.06  The nose
+S25   42.76  0.94  Fire bursts
+S26   43.70  0.90  And everyone
+S27   44.60  2.08  That same jet
+S28   46.68  2.26  All because
+wrote short.json: 29 shots, 37 characters, 105 props, voice 48.94 s
