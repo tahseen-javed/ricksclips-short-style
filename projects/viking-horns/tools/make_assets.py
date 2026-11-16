@@ -227,7 +227,7 @@ if __name__ == '__main__':
                  ring=ring_card(), grab=B.sticker_burst('GRAB!'), poof=B.sticker_poof(), excl=B.sticker_mark('!', RED), ques=B.sticker_mark('?', GOLD), hearts=G.hearts())
     for nm, im in cards.items(): G.build_card(nm, {'default': im}); items.append((nm, im))
     T = lambda n: os.path.join(ROOT, 'textures', n)
-    B.tex_grass(T('grass.jpg')); B.tex_wood(T('wood.jpg')); tex_peat(T('peat.jpg')); tex_stripes(T('velvet.jpg'), (176, 40, 58), (96, 16, 34), 8)
+    B.tex_grass(T('grass.jpg')); B.tex_wood(T('wood.jpg')); tex_peat(T('peat.jpg')); tex_stripes(T('velvet.jpg'), (224, 92, 104), (156, 48, 66), 8)
     fjord(os.path.join(ROOT, 'bg', 'fjord.jpg'))
     Pp = lambda n: os.path.join(ROOT, 'props', n)
     prosc(Pp('prosc.png')); ship(Pp('ship.png')); B.sparkle(Pp('sparkle.png'))

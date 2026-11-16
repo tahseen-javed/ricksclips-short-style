@@ -36,9 +36,9 @@ for x in range(-9, 10, 2): post("FM", x, -5, 1.0, "#8a6a4a")
 box("FM", 0.1, 0, 0.9, [2.6, 0.02, 1.8], color="#6b4a32"); tree("FM", -7, -7, 1.6, "#3f7a4c"); tree("FM", 10, -8, 1.7)
 
 box("OP", 0, 0, -1.6, [12, 0.6, 6], texture="wood.jpg", repeat=[4, 2]); wall("OP", 0, 0, -4.7, [32, 7.5, 0.3], "velvet.jpg", [6, 1])
-box("OP", 0, 0, 6, [32, 0.02, 12], color="#6a3040"); plane("OP", "prosc.png", 0, 0, 1.6, 9.0, 6.5)
+box("OP", 0, 0, 6, [32, 0.02, 12], color="#b07a66"); plane("OP", "prosc.png", 0, 0, 1.6, 9.0, 6.5)
 for x in range(-4, 5): box("OP", x, 0.6, 1.25, [0.3, 0.12, 0.12], color="#ffe08a")
-box("OP", 8.0, 0, 4.75, [4.6, 0.95, 0.22], color="#8a2a3a")
+box("OP", 8.0, 0, 4.75, [4.6, 0.95, 0.22], color="#c85a64")
 
 box("BG", 0, 0, -3, [30, 0.02, 20], texture="peat.jpg", repeat=[6, 4])
 for x, z, w in ((-3.4, -2.2, 2.2), (3.6, -3.4, 2.8), (-0.4, -6, 3.2)): box("BG", x, 0.021, z, [w, 0.01, w * 0.5], color="#5c7f9e")
@@ -52,14 +52,14 @@ human("dopK", "dop", PARK, face="smug"); human("singv", "sing", PARK, face="happ
 human("farm", "farm", pos("FM", -1.4, 0, 0.6)); human("wag", "wag", pos("OP", -2.9, 0, 2.7), face="happy")
 human("sing", "sing", pos("OP", 0.6, 0.6, -1.2), face="happy"); human("singh", "singh", PARK, face="happy"); human("dop", "dop", PARK, face="smug")
 for c_, x_ in (("mom", 6.8), ("dad", 8.0), ("tech", 9.2)): human(c_, c_, pos("OP", x_, 0, 4.25), face="happy")
-human("cut1", "cut1", pos("BG", -1.4, 0, 0.6)); human("cut2", "cut2", pos("BG", 1.4, 0, 0.5))
+human("cut1", "cut1", pos("BG", -0.95, 0, 0.6)); human("cut2", "cut2", pos("BG", 1.15, 0, 0.5))
 put("axe", "axe", pos("VK", 0.12, 1.0, 0.55), 0.9); put("spadeF", "spade", pos("FM", -0.95, 0, 0.7), 1.3)
-put("spade1", "spade", pos("BG", -0.95, 0, 0.7), 1.3); put("spade2", "spade", pos("BG", 1.85, 0, 0.6), 1.3)
+put("spade1", "spade", pos("BG", -0.5, 0, 0.7), 1.3); put("spade2", "spade", pos("BG", 1.6, 0, 0.6), 1.3)
 put("helmr", "helmr", pos("FM", 0.1, -1.2, 1.0), 0.8); put("helmb1", "helmb", pos("BG", -0.45, -1.4, 1.0), 0.8); put("helmb2", "helmb", pos("BG", 0.65, -1.4, 0.9), 0.8)
 for cid, name, h in (("excl", "excl", 0.5), ("fake", "fake", 0.45), ("hornsK", "horns", 0.5), ("poofK", "poof", 0.9), ("cal43", "cal43", 1.3), ("only", "only", 0.4),
                      ("round", "round", 0.32), ("iron", "iron", 0.32), ("zero", "zero", 0.4), ("ques", "ques", 0.55), ("grab", "grab", 0.8), ("cal76", "cal76", 1.4),
                      ("notes", "notes", 0.6), ("ring", "ring", 1.0), ("hornsO", "horns", 0.5), ("poofO", "poof", 0.9), ("hearts", "hearts", 0.9), ("y150", "y150", 1.1),
-                     ("cal42", "cal42", 1.2), ("poofB", "poof", 0.9), ("y3000", "y3000", 0.55), ("ritual", "ritual", 0.55), ("timeline", "timeline", 0.5),
+                     ("cal42", "cal42", 1.0), ("poofB", "poof", 0.9), ("y3000", "y3000", 0.55), ("ritual", "ritual", 0.55), ("timeline", "timeline", 0.5),
                      ("hornsV", "horns", 0.5), ("poofV", "poof", 0.9), ("notesV", "notes", 0.55)):
     sticker(cid, name, h)
 
@@ -84,15 +84,16 @@ act(s, 0.0, "vik", face="happy")
 
 # ---- 6-9 the real thing (FM): 1943 farm, the only complete helmet rises: ROUND, IRON, 0 HORNS
 s = shot("Now look", anchor=pos("FM", 0, 1.4, -1.0), dist=11, yaw=-12, pitch=6, zoom=8, pan=(-12, 0), fy=0.05)
-show(s, rel(s, "1943"), "cal43", pos("FM", -2.7, 1.5, 0.5), hop=0.15)
+show(s, rel(s, "1943"), "cal43", pos("FM", -1.2, 2.4, 0.5), hop=0.15)
 s = shot("a farm in Norway", target="farm", hw=0.28, yaw=10, pitch=3, zoom=8, pan=(10, 4), fy=0.1)
+hide(s, 0.0, "cal43")
 for k in range(3): act(s, 0.1 + k * 0.45, "farm", pose=dict(armR=-70 if k % 2 == 0 else -20)); act(s, 0.2 + k * 0.45, "spadeF", shake=0.4)
 s = shot("the only complete", anchor=pos("FM", 0.1, 0.6, 1.0), dist=4.2, yaw=-8, pitch=4, zoom=10, pan=(-6, 6), fy=0.0)
 hide(s, 0.0, "cal43"); go(s, 0.0, "helmr", pos("FM", 0.1, 0.05, 1.0), 0.5, walk=False, hop=0.2); act(s, 0.2, "farm", face="shocked")
 show(s, rel(s, "ever found"), "only", pos("FM", 0.1, 1.2, 1.15), hop=0.12)
 s = shot("Round", out="dissolve", anchor=pos("FM", 0.1, 0.55, 1.0), dist=4.4, yaw=10, pitch=3, zoom=10, pan=(8, 0), fy=0.05)
-hide(s, 0.0, "only"); show(s, 0.0, "round", pos("FM", -0.4, 1.05, 1.15), hop=0.1); show(s, rel(s, "Iron"), "iron", pos("FM", 0.55, 1.05, 1.15), hop=0.1)
-z = rel(s, "Zero horns"); show(s, z, "zero", pos("FM", 0.1, 1.45, 1.2), hop=0.15); act(s, z, "helmr", shake=0.6)
+hide(s, 0.0, "only"); show(s, 0.0, "round", pos("FM", -0.4, 0.95, 1.15), hop=0.1); show(s, rel(s, "Iron"), "iron", pos("FM", 0.55, 0.95, 1.15), hop=0.1)
+z = rel(s, "Zero horns"); show(s, z, "zero", pos("FM", 0.1, 1.3, 1.2), hop=0.15); act(s, z, "helmr", shake=0.6)
 
 # ---- 10-13 the fight (VK): horns are a handle
 s = shot("Think about it", anchor=pos("VK", 0.35, 1.3, 0.5), dist=7, yaw=10, pitch=4, zoom=8, pan=(10, 0), fy=0.08)
@@ -105,9 +106,10 @@ s = shot("So where did", out="dissolve", target="vik", hw=0.3, yaw=-10, pitch=3,
 hide(s, 0.0, "grab"); act(s, 0.0, "foe", pose=dict(armL=0)); act(s, 0.05, "vik", face="confused", pose=dict(head=8)); show(s, 0.2, "ques", pos("VK", 0.25, 1.9, 0.6), hop=0.1)
 
 # ---- 14-20 the opera (OP): 1876, Wagner, the Ring, the designer adds horns, the audience loves it
-s = shot("You see", anchor=pos("OP", 0, 2.2, -1.0), dist=13, yaw=12, pitch=4, zoom=8, pan=(12, 0), fy=0.05)
-show(s, rel(s, "1876"), "cal76", pos("OP", -2.6, 3.0, 1.0), hop=0.15)
+s = shot("You see", anchor=pos("OP", -0.8, 2.0, -0.5), dist=10, yaw=12, pitch=4, zoom=8, pan=(12, 0), fy=0.05)
+show(s, rel(s, "1876"), "cal76", pos("OP", -1.6, 2.4, 1.0), hop=0.15)
 s = shot("Richard Wagner", target="wag", hw=0.28, yaw=-10, pitch=3, zoom=8, pan=(-10, 4), fy=0.1)
+hide(s, 0.0, "cal76")
 for k in range(4): act(s, k * 0.35, "wag", pose=dict(armR=-150 if k % 2 == 0 else -100, armL=60 if k % 2 == 0 else 20))
 show(s, 0.2, "notes", pos("OP", -2.3, 1.9, 2.9), hop=0.12)
 s = shot("The Ring", anchor=pos("OP", 0.0, 3.3, 1.0), dist=6, yaw=8, pitch=3, zoom=8, pan=(8, 0), fy=0.0)
@@ -115,14 +117,14 @@ hide(s, 0.0, "cal76"); show(s, 0.05, "ring", pos("OP", 0.0, 2.9, 1.0), hop=0.15)
 s = shot("He needed", target="sing", hw=0.3, yaw=-8, pitch=3, zoom=8, pan=(-8, 4), fy=0.1)
 hide(s, 0.0, "ring"); hide(s, 0.0, "notes"); act(s, 0.1, "sing", pose=dict(armR=-120))
 s = shot("So his costume", anchor=pos("OP", -0.2, 1.9, -1.1), dist=6.5, yaw=10, pitch=3, zoom=8, pan=(10, 0), fy=0.05)
-show(s, 0.1, "dop", pos("OP", -1.0, 0.6, -1.0), hop=0.15); show(s, 0.2, "hornsO", pos("OP", -0.9, 2.45, -0.85), hop=0.1)
+show(s, 0.1, "dop", pos("OP", -1.0, 0.6, -1.0), hop=0.15); show(s, 0.2, "hornsO", pos("OP", -0.75, 1.95, -0.85), hop=0.1)
 g = rel(s, "gave them horns"); show(s, g, "poofO", pos("OP", 0.6, 1.5, -0.9), hop=0.1); swap(s, g + 0.05, "sing", "singh", pos("OP", 0.6, 0.6, -1.2), "happy")
 hide(s, g, "hornsO"); act(s, g, "dop", face="happy", pose=dict(armR=-150)); hide(s, g + 0.5, "poofO")
 s = shot("Audiences loved", anchor=pos("OP", 8.0, 1.3, 4.3), dist=7, yaw=-10, pitch=4, zoom=8, pan=(-10, 4), fy=0.08)
 for c_, t_ in (("mom", 0.1), ("dad", 0.2), ("tech", 0.3)): act(s, t_, c_, pose=dict(armR=-150, armL=150))
 show(s, 0.3, "hearts", pos("OP", 8.0, 2.3, 4.6), hop=0.15)
 s = shot("And it stuck", out="dissolve", anchor=pos("OP", 1.0, 1.9, -1.1), dist=6.5, yaw=8, pitch=3, zoom=8, pan=(8, 4), fy=0.05)
-act(s, 0.1, "singh", pose=dict(armR=-150)); show(s, rel(s, "For"), "y150", pos("OP", 1.9, 2.1, -0.7), hop=0.15)
+act(s, 0.1, "singh", pose=dict(armR=-150)); show(s, rel(s, "For"), "y150", pos("OP", 1.45, 2.4, -0.7), hop=0.15)
 
 # ---- 21-26 the bog (BG): 1942, two horned helmets rise, 3,000 years old, rituals, a thousand years before Vikings
 s = shot("But here's", anchor=pos("BG", 0, 1.3, -1.0), dist=12, yaw=-14, pitch=6, zoom=6, pan=(-12, 0), fy=0.05)
@@ -131,7 +133,7 @@ s = shot("Horned helmets", anchor=pos("BG", 0.2, 1.2, 0.5), dist=6.5, yaw=10, pi
 for k in range(3):
     for c_, sp_ in (("cut1", "spade1"), ("cut2", "spade2")): act(s, 0.1 + k * 0.4, c_, pose=dict(armR=-70 if k % 2 == 0 else -20)); act(s, 0.15 + k * 0.4, sp_, shake=0.4)
 s = shot("In 1942", anchor=pos("BG", 0.1, 0.9, 0.9), dist=5.5, yaw=-8, pitch=4, zoom=10, pan=(-8, 6), fy=0.04)
-show(s, 0.05, "cal42", pos("BG", -1.9, 1.4, 0.8), hop=0.15); p2 = rel(s, "pulled two")
+show(s, 0.05, "cal42", pos("BG", 0.1, 1.85, 0.8), hop=0.15); p2 = rel(s, "pulled two")
 go(s, p2, "helmb1", pos("BG", -0.45, 0.05, 1.0), 0.45, walk=False, hop=0.2); go(s, p2 + 0.15, "helmb2", pos("BG", 0.65, 0.05, 0.9), 0.45, walk=False, hop=0.2)
 show(s, p2, "poofB", pos("BG", 0.1, 0.0, 1.25), hop=0.1); act(s, p2 + 0.2, "cut1", face="shocked"); act(s, p2 + 0.25, "cut2", face="shocked")
 s = shot("They're almost", anchor=pos("BG", 0.1, 0.55, 0.95), dist=4.2, yaw=8, pitch=3, zoom=10, pan=(8, 0), fy=0.0)

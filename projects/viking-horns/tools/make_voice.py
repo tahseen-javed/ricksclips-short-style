@@ -34,7 +34,7 @@ def gen(voice, speed):
     for line in LINES:
         a = np.concatenate([np.asarray(x, dtype=np.float32) for _, _, x in pipe(line.lstrip("~").strip(), voice=voice, speed=speed)])
         idx = np.where(np.abs(a) > 0.012)[0]
-        if len(idx): a = a[max(0, idx[0] - int(0.03 * SR)): min(len(a), idx[-1] + int(0.12 * SR))]
+        if len(idx): a = a[max(0, idx[0] - int(0.08 * SR)): min(len(a), idx[-1] + int(0.12 * SR))]
         parts += [squeeze(a), np.zeros(int((0.33 if line.startswith("~") else 0.04) * SR), np.float32)]
     return np.concatenate(parts)
 
