@@ -68,7 +68,7 @@ jobs:
           if [ "${{ inputs.redo_voice }}" = "true" ] || [ ! -f $P/audio/voice.mp3 ]; then need_tts=1; fi
           if [ $need_tts = 1 ] || [ ! -f $P/audio/words.json ] || ! grep -q '"method": "ctc"' $P/audio/words.json; then need_align=1; fi
           if [ $need_tts = 1 ] || [ $need_align = 1 ]; then
-            pip install -q torch==2.5.1 torchaudio==2.5.1 --extra-index-url https://download.pytorch.org/whl/cpu
+            pip install -q torch==2.7.1 torchaudio==2.7.1 --extra-index-url https://download.pytorch.org/whl/cpu
             pip install -q kokoro openai-whisper
           fi
           if [ $need_tts = 1 ]; then
