@@ -1,0 +1,37 @@
+music projects/viking-horns/audio/music.wav 50.9 s
+shot  start   dur  phrase
+S00    0.00  1.56  0
+S01    1.56  2.04  invented
+S02    3.60  0.72  Picture
+S03    4.32  0.48  Big beard
+   ! very short shot (mostly glide)
+S04    4.80  0.56  Big axe
+   ! very short shot (mostly glide)
+S05    5.36  1.72  And two horns
+S06    7.08  2.28  Now look
+S07    9.36  1.14  a farm in Norway
+S08   10.50  2.26  the only complete
+S09   12.76  1.16  Round
+S10   13.92  0.51  Think about it
+   ! very short shot (mostly glide)
+S11   14.43  1.04  Horns in a sword
+S12   15.47  1.30  Your enemy
+S13   16.77  1.36  So where did
+S14   18.13  1.68  You see
+S15   19.81  2.00  Richard Wagner
+S16   21.81  1.04  The Ring
+S17   22.85  2.52  He needed
+S18   25.37  3.14  So his costume
+S19   28.51  1.04  Audiences loved
+S20   29.55  2.08  And it stuck
+S21   31.63  1.40  But here's
+S22   33.03  1.22  Horned helmets
+S23   34.25  3.40  In 1942
+S24   37.65  1.64  They're almost
+S25   39.29  1.46  Built for
+S26   40.75  3.01  Made more
+S27   43.76  2.50  So the horns
+S28   46.26  1.14  The Vikings never
+S29   47.40  0.82  An opera did
+S30   48.22  2.26  And that's why
+wrote short.json: 31 shots, 49 characters, 50 props, voice 50.48 s

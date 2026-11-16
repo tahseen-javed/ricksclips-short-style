@@ -1,0 +1,2915 @@
+{
+ "fps": 30,
+ "audio": {
+  "voice": "audio/voice.mp3",
+  "music": "audio/music.mp3",
+  "musicDb": -11
+ },
+ "words": "audio/words.json",
+ "captions": {
+  "wordsPer": 1
+ },
+ "font": "fonts/Montserrat-ExtraBold.ttf",
+ "contactShadow": 0.6,
+ "moods": {
+  "day": {
+   "sun": {
+    "azimuth": 35,
+    "elevation": 50,
+    "color": "#ffe0b5",
+    "intensity": 2.4
+   },
+   "sky": {
+    "top": "#5f86d8",
+    "horizon": "#f2b98a"
+   },
+   "fill": {
+    "sky": "#8ea2ff",
+    "ground": "#6a3b6e",
+    "intensity": 1.15
+   }
+  }
+ },
+ "lighting": [
+  {
+   "t": 0,
+   "mood": "day"
+  }
+ ],
+ "ground": {
+  "texture": "textures/grass.jpg",
+  "repeat": [
+   525,
+   525
+  ],
+  "size": 1400
+ },
+ "backdrop": {
+  "image": "bg/fjord.jpg",
+  "blur": 5
+ },
+ "ink": {
+  "set": 4
+ },
+ "characters": [
+  {
+   "id": "vik",
+   "puppet": "puppets/vik",
+   "pos": [
+    -0.3,
+    0,
+    0.5
+   ],
+   "height": 1.8,
+   "face": "shouting"
+  },
+  {
+   "id": "vikr",
+   "puppet": "puppets/vikr",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.8,
+   "face": "neutral"
+  },
+  {
+   "id": "foe",
+   "puppet": "puppets/foe",
+   "pos": [
+    7,
+    0,
+    0.3
+   ],
+   "height": 1.8,
+   "face": "neutral"
+  },
+  {
+   "id": "dopK",
+   "puppet": "puppets/dop",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.8,
+   "face": "smug"
+  },
+  {
+   "id": "singv",
+   "puppet": "puppets/sing",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "singvh",
+   "puppet": "puppets/singh",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "farm",
+   "puppet": "puppets/farm",
+   "pos": [
+    68.6,
+    0,
+    0.6
+   ],
+   "height": 1.8,
+   "face": "neutral"
+  },
+  {
+   "id": "wag",
+   "puppet": "puppets/wag",
+   "pos": [
+    137.1,
+    0,
+    2.7
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "sing",
+   "puppet": "puppets/sing",
+   "pos": [
+    140.6,
+    0.6,
+    -1.2
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "singh",
+   "puppet": "puppets/singh",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "dop",
+   "puppet": "puppets/dop",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.8,
+   "face": "smug"
+  },
+  {
+   "id": "mom",
+   "puppet": "puppets/mom",
+   "pos": [
+    146.8,
+    0,
+    4.25
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "dad",
+   "puppet": "puppets/dad",
+   "pos": [
+    148.0,
+    0,
+    4.25
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "tech",
+   "puppet": "puppets/tech",
+   "pos": [
+    149.2,
+    0,
+    4.25
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "cut1",
+   "puppet": "puppets/cut1",
+   "pos": [
+    208.6,
+    0,
+    0.6
+   ],
+   "height": 1.8,
+   "face": "neutral"
+  },
+  {
+   "id": "cut2",
+   "puppet": "puppets/cut2",
+   "pos": [
+    211.4,
+    0,
+    0.5
+   ],
+   "height": 1.8,
+   "face": "neutral"
+  },
+  {
+   "id": "axe",
+   "puppet": "puppets/axe",
+   "pos": [
+    0.12,
+    1.0,
+    0.55
+   ],
+   "height": 0.9,
+   "face": "default"
+  },
+  {
+   "id": "spadeF",
+   "puppet": "puppets/spade",
+   "pos": [
+    69.05,
+    0,
+    0.7
+   ],
+   "height": 1.3,
+   "face": "default"
+  },
+  {
+   "id": "spade1",
+   "puppet": "puppets/spade",
+   "pos": [
+    209.05,
+    0,
+    0.7
+   ],
+   "height": 1.3,
+   "face": "default"
+  },
+  {
+   "id": "spade2",
+   "puppet": "puppets/spade",
+   "pos": [
+    211.85,
+    0,
+    0.6
+   ],
+   "height": 1.3,
+   "face": "default"
+  },
+  {
+   "id": "helmr",
+   "puppet": "puppets/helmr",
+   "pos": [
+    70.1,
+    -1.2,
+    1.0
+   ],
+   "height": 0.8,
+   "face": "default"
+  },
+  {
+   "id": "helmb1",
+   "puppet": "puppets/helmb",
+   "pos": [
+    209.55,
+    -1.4,
+    1.0
+   ],
+   "height": 0.8,
+   "face": "default"
+  },
+  {
+   "id": "helmb2",
+   "puppet": "puppets/helmb",
+   "pos": [
+    210.65,
+    -1.4,
+    0.9
+   ],
+   "height": 0.8,
+   "face": "default"
+  },
+  {
+   "id": "excl",
+   "puppet": "puppets/excl",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.5,
+   "face": "default"
+  },
+  {
+   "id": "fake",
+   "puppet": "puppets/fake",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.45,
+   "face": "default"
+  },
+  {
+   "id": "hornsK",
+   "puppet": "puppets/horns",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.5,
+   "face": "default"
+  },
+  {
+   "id": "poofK",
+   "puppet": "puppets/poof",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.9,
+   "face": "default"
+  },
+  {
+   "id": "cal43",
+   "puppet": "puppets/cal43",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.3,
+   "face": "default"
+  },
+  {
+   "id": "only",
+   "puppet": "puppets/only",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.4,
+   "face": "default"
+  },
+  {
+   "id": "round",
+   "puppet": "puppets/round",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.32,
+   "face": "default"
+  },
+  {
+   "id": "iron",
+   "puppet": "puppets/iron",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.32,
+   "face": "default"
+  },
+  {
+   "id": "zero",
+   "puppet": "puppets/zero",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.4,
+   "face": "default"
+  },
+  {
+   "id": "ques",
+   "puppet": "puppets/ques",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.55,
+   "face": "default"
+  },
+  {
+   "id": "grab",
+   "puppet": "puppets/grab",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.8,
+   "face": "default"
+  },
+  {
+   "id": "cal76",
+   "puppet": "puppets/cal76",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.4,
+   "face": "default"
+  },
+  {
+   "id": "notes",
+   "puppet": "puppets/notes",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.6,
+   "face": "default"
+  },
+  {
+   "id": "ring",
+   "puppet": "puppets/ring",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.0,
+   "face": "default"
+  },
+  {
+   "id": "hornsO",
+   "puppet": "puppets/horns",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.5,
+   "face": "default"
+  },
+  {
+   "id": "poofO",
+   "puppet": "puppets/poof",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.9,
+   "face": "default"
+  },
+  {
+   "id": "hearts",
+   "puppet": "puppets/hearts",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.9,
+   "face": "default"
+  },
+  {
+   "id": "y150",
+   "puppet": "puppets/y150",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.1,
+   "face": "default"
+  },
+  {
+   "id": "cal42",
+   "puppet": "puppets/cal42",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.2,
+   "face": "default"
+  },
+  {
+   "id": "poofB",
+   "puppet": "puppets/poof",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.9,
+   "face": "default"
+  },
+  {
+   "id": "y3000",
+   "puppet": "puppets/y3000",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.55,
+   "face": "default"
+  },
+  {
+   "id": "ritual",
+   "puppet": "puppets/ritual",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.55,
+   "face": "default"
+  },
+  {
+   "id": "timeline",
+   "puppet": "puppets/timeline",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.5,
+   "face": "default"
+  },
+  {
+   "id": "hornsV",
+   "puppet": "puppets/horns",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.5,
+   "face": "default"
+  },
+  {
+   "id": "poofV",
+   "puppet": "puppets/poof",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.9,
+   "face": "default"
+  },
+  {
+   "id": "notesV",
+   "puppet": "puppets/notes",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.55,
+   "face": "default"
+  }
+ ],
+ "props": [
+  {
+   "type": "box",
+   "pos": [
+    0,
+    0,
+    -2
+   ],
+   "size": [
+    40,
+    0.02,
+    20
+   ],
+   "color": "#e6cf9c"
+  },
+  {
+   "type": "box",
+   "pos": [
+    0,
+    0,
+    -21
+   ],
+   "size": [
+    60,
+    0.03,
+    18
+   ],
+   "color": "#4f86c0"
+  },
+  {
+   "type": "plane",
+   "image": "props/ship.png",
+   "pos": [
+    4.5,
+    0.0,
+    -14
+   ],
+   "size": [
+    10,
+    5.4
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    -4.6,
+    0,
+    -2.6
+   ],
+   "size": [
+    1.2,
+    0.8,
+    1.0
+   ],
+   "color": "#8a8e9a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    5.2,
+    0,
+    -3.6
+   ],
+   "size": [
+    1.6,
+    1.1,
+    1.2
+   ],
+   "color": "#7b808e"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    -9,
+    0,
+    -6
+   ],
+   "scale": 1.6,
+   "color": "#3f7a4c"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    10,
+    0,
+    -7
+   ],
+   "scale": 1.8,
+   "color": "#356b42"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    -13,
+    0,
+    -9
+   ],
+   "scale": 1.9,
+   "color": "#356b42"
+  },
+  {
+   "type": "house",
+   "pos": [
+    74.6,
+    0,
+    -9
+   ],
+   "size": [
+    5,
+    4,
+    5
+   ],
+   "roof": "#7a3a30",
+   "door": "#7a5890",
+   "color": "#c9573f"
+  },
+  {
+   "type": "post",
+   "pos": [
+    61,
+    0,
+    -5
+   ],
+   "h": 1.0,
+   "color": "#8a6a4a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    63,
+    0,
+    -5
+   ],
+   "h": 1.0,
+   "color": "#8a6a4a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    65,
+    0,
+    -5
+   ],
+   "h": 1.0,
+   "color": "#8a6a4a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    67,
+    0,
+    -5
+   ],
+   "h": 1.0,
+   "color": "#8a6a4a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    69,
+    0,
+    -5
+   ],
+   "h": 1.0,
+   "color": "#8a6a4a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    71,
+    0,
+    -5
+   ],
+   "h": 1.0,
+   "color": "#8a6a4a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    73,
+    0,
+    -5
+   ],
+   "h": 1.0,
+   "color": "#8a6a4a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    75,
+    0,
+    -5
+   ],
+   "h": 1.0,
+   "color": "#8a6a4a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    77,
+    0,
+    -5
+   ],
+   "h": 1.0,
+   "color": "#8a6a4a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    79,
+    0,
+    -5
+   ],
+   "h": 1.0,
+   "color": "#8a6a4a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    70.1,
+    0,
+    0.9
+   ],
+   "size": [
+    2.6,
+    0.02,
+    1.8
+   ],
+   "color": "#6b4a32"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    63,
+    0,
+    -7
+   ],
+   "scale": 1.6,
+   "color": "#3f7a4c"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    80,
+    0,
+    -8
+   ],
+   "scale": 1.7,
+   "color": "#5f9a4c"
+  },
+  {
+   "type": "box",
+   "pos": [
+    140,
+    0,
+    -1.6
+   ],
+   "size": [
+    12,
+    0.6,
+    6
+   ],
+   "texture": "textures/wood.jpg",
+   "repeat": [
+    4,
+    2
+   ]
+  },
+  {
+   "type": "wall",
+   "pos": [
+    140,
+    0,
+    -4.7
+   ],
+   "size": [
+    32,
+    7.5,
+    0.3
+   ],
+   "texture": "textures/velvet.jpg",
+   "repeat": [
+    6,
+    1
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    140,
+    0,
+    6
+   ],
+   "size": [
+    32,
+    0.02,
+    12
+   ],
+   "color": "#6a3040"
+  },
+  {
+   "type": "plane",
+   "image": "props/prosc.png",
+   "pos": [
+    140,
+    0,
+    1.6
+   ],
+   "size": [
+    9.0,
+    6.5
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    136,
+    0.6,
+    1.25
+   ],
+   "size": [
+    0.3,
+    0.12,
+    0.12
+   ],
+   "color": "#ffe08a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    137,
+    0.6,
+    1.25
+   ],
+   "size": [
+    0.3,
+    0.12,
+    0.12
+   ],
+   "color": "#ffe08a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    138,
+    0.6,
+    1.25
+   ],
+   "size": [
+    0.3,
+    0.12,
+    0.12
+   ],
+   "color": "#ffe08a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    139,
+    0.6,
+    1.25
+   ],
+   "size": [
+    0.3,
+    0.12,
+    0.12
+   ],
+   "color": "#ffe08a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    140,
+    0.6,
+    1.25
+   ],
+   "size": [
+    0.3,
+    0.12,
+    0.12
+   ],
+   "color": "#ffe08a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    141,
+    0.6,
+    1.25
+   ],
+   "size": [
+    0.3,
+    0.12,
+    0.12
+   ],
+   "color": "#ffe08a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    142,
+    0.6,
+    1.25
+   ],
+   "size": [
+    0.3,
+    0.12,
+    0.12
+   ],
+   "color": "#ffe08a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    143,
+    0.6,
+    1.25
+   ],
+   "size": [
+    0.3,
+    0.12,
+    0.12
+   ],
+   "color": "#ffe08a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    144,
+    0.6,
+    1.25
+   ],
+   "size": [
+    0.3,
+    0.12,
+    0.12
+   ],
+   "color": "#ffe08a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    148.0,
+    0,
+    4.75
+   ],
+   "size": [
+    4.6,
+    0.95,
+    0.22
+   ],
+   "color": "#8a2a3a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    210,
+    0,
+    -3
+   ],
+   "size": [
+    30,
+    0.02,
+    20
+   ],
+   "texture": "textures/peat.jpg",
+   "repeat": [
+    6,
+    4
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    206.6,
+    0.021,
+    -2.2
+   ],
+   "size": [
+    2.2,
+    0.01,
+    1.1
+   ],
+   "color": "#5c7f9e"
+  },
+  {
+   "type": "box",
+   "pos": [
+    213.6,
+    0.021,
+    -3.4
+   ],
+   "size": [
+    2.8,
+    0.01,
+    1.4
+   ],
+   "color": "#5c7f9e"
+  },
+  {
+   "type": "box",
+   "pos": [
+    209.6,
+    0.021,
+    -6
+   ],
+   "size": [
+    3.2,
+    0.01,
+    1.6
+   ],
+   "color": "#5c7f9e"
+  },
+  {
+   "type": "post",
+   "pos": [
+    205,
+    0,
+    -1
+   ],
+   "h": 0.9,
+   "color": "#8a9a3c"
+  },
+  {
+   "type": "post",
+   "pos": [
+    205.6,
+    0,
+    -1.6
+   ],
+   "h": 0.9,
+   "color": "#8a9a3c"
+  },
+  {
+   "type": "post",
+   "pos": [
+    214.8,
+    0,
+    -1.2
+   ],
+   "h": 0.9,
+   "color": "#8a9a3c"
+  },
+  {
+   "type": "post",
+   "pos": [
+    215.4,
+    0,
+    -2
+   ],
+   "h": 0.9,
+   "color": "#8a9a3c"
+  },
+  {
+   "type": "post",
+   "pos": [
+    207.8,
+    0,
+    -5
+   ],
+   "h": 0.9,
+   "color": "#8a9a3c"
+  },
+  {
+   "type": "post",
+   "pos": [
+    212.6,
+    0,
+    -6
+   ],
+   "h": 0.9,
+   "color": "#8a9a3c"
+  },
+  {
+   "type": "post",
+   "pos": [
+    216.5,
+    0,
+    -4.5
+   ],
+   "h": 0.9,
+   "color": "#8a9a3c"
+  },
+  {
+   "type": "post",
+   "pos": [
+    203.2,
+    0,
+    -3.8
+   ],
+   "h": 0.9,
+   "color": "#8a9a3c"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    200,
+    0,
+    -9
+   ],
+   "scale": 1.7,
+   "color": "#4f6f3a"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    219,
+    0,
+    -10
+   ],
+   "scale": 1.6,
+   "color": "#4f6f3a"
+  }
+ ],
+ "shots": [
+  {
+   "start": 0,
+   "target": "vik",
+   "headWidth": 0.34,
+   "yaw": 10,
+   "pitch": 4,
+   "zoom": 12,
+   "pan": [
+    -10,
+    6
+   ],
+   "frameY": 0.0,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "vik",
+     "face": "shouting",
+     "pose": {
+      "armR": -150
+     },
+     "shake": 0.6
+    },
+    {
+     "at": 0.12,
+     "who": "excl",
+     "to": [
+      0.55,
+      1.75,
+      0.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    }
+   ]
+  },
+  {
+   "start": "say:invented",
+   "anchor": [
+    0.4,
+    1.3,
+    0.6
+   ],
+   "distance": 8,
+   "yaw": -10,
+   "pitch": 3,
+   "zoom": 8,
+   "pan": [
+    12,
+    0
+   ],
+   "frameY": 0.06,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "excl",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "fake",
+     "to": [
+      -0.3,
+      1.55,
+      0.75
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 0.0,
+     "who": "vik",
+     "face": "shocked",
+     "shake": 0.8
+    },
+    {
+     "at": 0.82,
+     "who": "dopK",
+     "to": [
+      1.15,
+      0,
+      0.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    },
+    {
+     "at": 0.87,
+     "who": "dopK",
+     "pose": {
+      "armR": -140
+     }
+    },
+    {
+     "at": 0.92,
+     "who": "hornsK",
+     "to": [
+      1.45,
+      1.55,
+      0.75
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    }
+   ]
+  },
+  {
+   "start": "say:Picture",
+   "anchor": [
+    0.3,
+    1.5,
+    -1.0
+   ],
+   "distance": 11,
+   "yaw": 14,
+   "pitch": 6,
+   "zoom": 8,
+   "pan": [
+    14,
+    0
+   ],
+   "frameY": 0.05,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "poofK",
+     "to": [
+      1.1,
+      0.4,
+      0.8
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 0.05,
+     "who": "dopK",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "hornsK",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "fake",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.1,
+     "who": "vik",
+     "face": "happy",
+     "pose": {
+      "armR": -150
+     }
+    },
+    {
+     "at": 0.5,
+     "who": "poofK",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:Big beard",
+   "target": "vik",
+   "headWidth": 0.5,
+   "yaw": 6,
+   "pitch": 2,
+   "zoom": 10,
+   "pan": [
+    0,
+    -8
+   ],
+   "frameY": -0.15,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "vik",
+     "face": "smug"
+    }
+   ]
+  },
+  {
+   "start": "say:Big axe",
+   "anchor": [
+    0.12,
+    1.45,
+    0.55
+   ],
+   "distance": 3.2,
+   "yaw": -8,
+   "pitch": 3,
+   "zoom": 10,
+   "pan": [
+    8,
+    4
+   ],
+   "frameY": 0.0,
+   "actions": [
+    {
+     "at": 0.05,
+     "who": "axe",
+     "shake": 0.6
+    }
+   ]
+  },
+  {
+   "start": "say:And two horns",
+   "target": "vik",
+   "headWidth": 0.42,
+   "yaw": 8,
+   "pitch": 6,
+   "zoom": 10,
+   "pan": [
+    -6,
+    -6
+   ],
+   "frameY": -0.25,
+   "out": "dissolve",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "vik",
+     "face": "happy"
+    }
+   ]
+  },
+  {
+   "start": "say:Now look",
+   "anchor": [
+    70,
+    1.4,
+    -1.0
+   ],
+   "distance": 11,
+   "yaw": -12,
+   "pitch": 6,
+   "zoom": 8,
+   "pan": [
+    -12,
+    0
+   ],
+   "frameY": 0.05,
+   "actions": [
+    {
+     "at": 1.2,
+     "who": "cal43",
+     "to": [
+      67.3,
+      1.5,
+      0.5
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    }
+   ]
+  },
+  {
+   "start": "say:a farm in Norway",
+   "target": "farm",
+   "headWidth": 0.28,
+   "yaw": 10,
+   "pitch": 3,
+   "zoom": 8,
+   "pan": [
+    10,
+    4
+   ],
+   "frameY": 0.1,
+   "actions": [
+    {
+     "at": 0.1,
+     "who": "farm",
+     "pose": {
+      "armR": -70
+     }
+    },
+    {
+     "at": 0.2,
+     "who": "spadeF",
+     "shake": 0.4
+    },
+    {
+     "at": 0.55,
+     "who": "farm",
+     "pose": {
+      "armR": -20
+     }
+    },
+    {
+     "at": 0.65,
+     "who": "spadeF",
+     "shake": 0.4
+    },
+    {
+     "at": 1.0,
+     "who": "farm",
+     "pose": {
+      "armR": -70
+     }
+    },
+    {
+     "at": 1.1,
+     "who": "spadeF",
+     "shake": 0.4
+    }
+   ]
+  },
+  {
+   "start": "say:the only complete",
+   "anchor": [
+    70.1,
+    0.6,
+    1.0
+   ],
+   "distance": 4.2,
+   "yaw": -8,
+   "pitch": 4,
+   "zoom": 10,
+   "pan": [
+    -6,
+    6
+   ],
+   "frameY": 0.0,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "cal43",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "helmr",
+     "to": [
+      70.1,
+      0.05,
+      1.0
+     ],
+     "over": 0.5,
+     "walk": false,
+     "hop": 0.2
+    },
+    {
+     "at": 0.2,
+     "who": "farm",
+     "face": "shocked"
+    },
+    {
+     "at": 1.56,
+     "who": "only",
+     "to": [
+      70.1,
+      1.2,
+      1.15
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  },
+  {
+   "start": "say:Round",
+   "anchor": [
+    70.1,
+    0.55,
+    1.0
+   ],
+   "distance": 4.4,
+   "yaw": 10,
+   "pitch": 3,
+   "zoom": 10,
+   "pan": [
+    8,
+    0
+   ],
+   "frameY": 0.05,
+   "out": "dissolve",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "only",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "round",
+     "to": [
+      69.6,
+      1.05,
+      1.15
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 0.24,
+     "who": "iron",
+     "to": [
+      70.55,
+      1.05,
+      1.15
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 0.44,
+     "who": "zero",
+     "to": [
+      70.1,
+      1.45,
+      1.2
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    },
+    {
+     "at": 0.44,
+     "who": "helmr",
+     "shake": 0.6
+    }
+   ]
+  },
+  {
+   "start": "say:Think about it",
+   "anchor": [
+    0.35,
+    1.3,
+    0.5
+   ],
+   "distance": 7,
+   "yaw": 10,
+   "pitch": 4,
+   "zoom": 8,
+   "pan": [
+    10,
+    0
+   ],
+   "frameY": 0.08,
+   "actions": [
+    {
+     "at": 0.3,
+     "who": "vik",
+     "face": "neutral",
+     "pose": {
+      "armR": -150
+     }
+    },
+    {
+     "at": 0.3,
+     "who": "foe",
+     "to": [
+      1.0,
+      0,
+      0.4
+     ],
+     "over": 0.8,
+     "walk": true
+    },
+    {
+     "at": 0.5,
+     "who": "ques",
+     "to": [
+      0.35,
+      2.0,
+      0.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    }
+   ]
+  },
+  {
+   "start": "say:Horns in a sword",
+   "anchor": [
+    0.35,
+    1.3,
+    0.5
+   ],
+   "distance": 5.2,
+   "yaw": -8,
+   "pitch": 3,
+   "zoom": 10,
+   "pan": [
+    -8,
+    4
+   ],
+   "frameY": 0.06,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "ques",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "foe",
+     "face": "sneaky"
+    },
+    {
+     "at": 0.1,
+     "who": "vik",
+     "face": "smug"
+    }
+   ]
+  },
+  {
+   "start": "say:Your enemy",
+   "anchor": [
+    0.2,
+    1.4,
+    0.5
+   ],
+   "distance": 4.6,
+   "yaw": 6,
+   "pitch": 3,
+   "zoom": 12,
+   "pan": [
+    6,
+    -6
+   ],
+   "frameY": 0.04,
+   "actions": [
+    {
+     "at": 0.56,
+     "who": "foe",
+     "pose": {
+      "armL": 130
+     }
+    },
+    {
+     "at": 0.66,
+     "who": "grab",
+     "to": [
+      -0.3,
+      1.7,
+      0.8
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    },
+    {
+     "at": 0.66,
+     "who": "vik",
+     "face": "shocked",
+     "shake": 1.0
+    }
+   ]
+  },
+  {
+   "start": "say:So where did",
+   "target": "vik",
+   "headWidth": 0.3,
+   "yaw": -10,
+   "pitch": 3,
+   "zoom": 8,
+   "pan": [
+    -8,
+    4
+   ],
+   "frameY": 0.1,
+   "out": "dissolve",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "grab",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "foe",
+     "pose": {
+      "armL": 0
+     }
+    },
+    {
+     "at": 0.05,
+     "who": "vik",
+     "face": "confused",
+     "pose": {
+      "head": 8
+     }
+    },
+    {
+     "at": 0.2,
+     "who": "ques",
+     "to": [
+      0.25,
+      1.9,
+      0.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    }
+   ]
+  },
+  {
+   "start": "say:You see",
+   "anchor": [
+    140,
+    2.2,
+    -1.0
+   ],
+   "distance": 13,
+   "yaw": 12,
+   "pitch": 4,
+   "zoom": 8,
+   "pan": [
+    12,
+    0
+   ],
+   "frameY": 0.05,
+   "actions": [
+    {
+     "at": 0.6,
+     "who": "cal76",
+     "to": [
+      137.4,
+      3.0,
+      1.0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    }
+   ]
+  },
+  {
+   "start": "say:Richard Wagner",
+   "target": "wag",
+   "headWidth": 0.28,
+   "yaw": -10,
+   "pitch": 3,
+   "zoom": 8,
+   "pan": [
+    -10,
+    4
+   ],
+   "frameY": 0.1,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "wag",
+     "pose": {
+      "armR": -150,
+      "armL": 60
+     }
+    },
+    {
+     "at": 0.35,
+     "who": "wag",
+     "pose": {
+      "armR": -100,
+      "armL": 20
+     }
+    },
+    {
+     "at": 0.7,
+     "who": "wag",
+     "pose": {
+      "armR": -150,
+      "armL": 60
+     }
+    },
+    {
+     "at": 1.05,
+     "who": "wag",
+     "pose": {
+      "armR": -100,
+      "armL": 20
+     }
+    },
+    {
+     "at": 0.2,
+     "who": "notes",
+     "to": [
+      137.7,
+      1.9,
+      2.9
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  },
+  {
+   "start": "say:The Ring",
+   "anchor": [
+    140.0,
+    3.3,
+    1.0
+   ],
+   "distance": 6,
+   "yaw": 8,
+   "pitch": 3,
+   "zoom": 8,
+   "pan": [
+    8,
+    0
+   ],
+   "frameY": 0.0,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "cal76",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "ring",
+     "to": [
+      140.0,
+      2.9,
+      1.0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    }
+   ]
+  },
+  {
+   "start": "say:He needed",
+   "target": "sing",
+   "headWidth": 0.3,
+   "yaw": -8,
+   "pitch": 3,
+   "zoom": 8,
+   "pan": [
+    -8,
+    4
+   ],
+   "frameY": 0.1,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "ring",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "notes",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.1,
+     "who": "sing",
+     "pose": {
+      "armR": -120
+     }
+    }
+   ]
+  },
+  {
+   "start": "say:So his costume",
+   "anchor": [
+    139.8,
+    1.9,
+    -1.1
+   ],
+   "distance": 6.5,
+   "yaw": 10,
+   "pitch": 3,
+   "zoom": 8,
+   "pan": [
+    10,
+    0
+   ],
+   "frameY": 0.05,
+   "actions": [
+    {
+     "at": 0.1,
+     "who": "dop",
+     "to": [
+      139.0,
+      0.6,
+      -1.0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    },
+    {
+     "at": 0.2,
+     "who": "hornsO",
+     "to": [
+      139.1,
+      2.45,
+      -0.85
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 2.18,
+     "who": "poofO",
+     "to": [
+      140.6,
+      1.5,
+      -0.9
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 2.23,
+     "who": "sing",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 2.23,
+     "who": "singh",
+     "to": [
+      140.6,
+      0.6,
+      -1.2
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 2.23,
+     "who": "singh",
+     "face": "happy"
+    },
+    {
+     "at": 2.18,
+     "who": "hornsO",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 2.18,
+     "who": "dop",
+     "face": "happy",
+     "pose": {
+      "armR": -150
+     }
+    },
+    {
+     "at": 2.68,
+     "who": "poofO",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:Audiences loved",
+   "anchor": [
+    148.0,
+    1.3,
+    4.3
+   ],
+   "distance": 7,
+   "yaw": -10,
+   "pitch": 4,
+   "zoom": 8,
+   "pan": [
+    -10,
+    4
+   ],
+   "frameY": 0.08,
+   "actions": [
+    {
+     "at": 0.1,
+     "who": "mom",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     }
+    },
+    {
+     "at": 0.2,
+     "who": "dad",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     }
+    },
+    {
+     "at": 0.3,
+     "who": "tech",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     }
+    },
+    {
+     "at": 0.3,
+     "who": "hearts",
+     "to": [
+      148.0,
+      2.3,
+      4.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    }
+   ]
+  },
+  {
+   "start": "say:And it stuck",
+   "anchor": [
+    141.0,
+    1.9,
+    -1.1
+   ],
+   "distance": 6.5,
+   "yaw": 8,
+   "pitch": 3,
+   "zoom": 8,
+   "pan": [
+    8,
+    4
+   ],
+   "frameY": 0.05,
+   "out": "dissolve",
+   "actions": [
+    {
+     "at": 0.1,
+     "who": "singh",
+     "pose": {
+      "armR": -150
+     }
+    },
+    {
+     "at": 0.62,
+     "who": "y150",
+     "to": [
+      141.9,
+      2.1,
+      -0.7
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    }
+   ]
+  },
+  {
+   "start": "say:But here's",
+   "anchor": [
+    210,
+    1.3,
+    -1.0
+   ],
+   "distance": 12,
+   "yaw": -14,
+   "pitch": 6,
+   "zoom": 6,
+   "pan": [
+    -12,
+    0
+   ],
+   "frameY": 0.05,
+   "actions": [
+    {
+     "at": 0.3,
+     "who": "foe",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "singv",
+     "to": [
+      1.2,
+      0,
+      0.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.3,
+     "who": "vik",
+     "face": "happy",
+     "pose": {
+      "armR": -150,
+      "head": 0
+     }
+    },
+    {
+     "at": 0.3,
+     "who": "ques",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:Horned helmets",
+   "anchor": [
+    210.2,
+    1.2,
+    0.5
+   ],
+   "distance": 6.5,
+   "yaw": 10,
+   "pitch": 4,
+   "zoom": 8,
+   "pan": [
+    10,
+    4
+   ],
+   "frameY": 0.06,
+   "actions": [
+    {
+     "at": 0.1,
+     "who": "cut1",
+     "pose": {
+      "armR": -70
+     }
+    },
+    {
+     "at": 0.15,
+     "who": "spade1",
+     "shake": 0.4
+    },
+    {
+     "at": 0.1,
+     "who": "cut2",
+     "pose": {
+      "armR": -70
+     }
+    },
+    {
+     "at": 0.15,
+     "who": "spade2",
+     "shake": 0.4
+    },
+    {
+     "at": 0.5,
+     "who": "cut1",
+     "pose": {
+      "armR": -20
+     }
+    },
+    {
+     "at": 0.55,
+     "who": "spade1",
+     "shake": 0.4
+    },
+    {
+     "at": 0.5,
+     "who": "cut2",
+     "pose": {
+      "armR": -20
+     }
+    },
+    {
+     "at": 0.55,
+     "who": "spade2",
+     "shake": 0.4
+    },
+    {
+     "at": 0.9,
+     "who": "cut1",
+     "pose": {
+      "armR": -70
+     }
+    },
+    {
+     "at": 0.95,
+     "who": "spade1",
+     "shake": 0.4
+    },
+    {
+     "at": 0.9,
+     "who": "cut2",
+     "pose": {
+      "armR": -70
+     }
+    },
+    {
+     "at": 0.95,
+     "who": "spade2",
+     "shake": 0.4
+    }
+   ]
+  },
+  {
+   "start": "say:In 1942",
+   "anchor": [
+    210.1,
+    0.9,
+    0.9
+   ],
+   "distance": 5.5,
+   "yaw": -8,
+   "pitch": 4,
+   "zoom": 10,
+   "pan": [
+    -8,
+    6
+   ],
+   "frameY": 0.04,
+   "actions": [
+    {
+     "at": 0.05,
+     "who": "cal42",
+     "to": [
+      208.1,
+      1.4,
+      0.8
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    },
+    {
+     "at": 2.22,
+     "who": "helmb1",
+     "to": [
+      209.55,
+      0.05,
+      1.0
+     ],
+     "over": 0.45,
+     "walk": false,
+     "hop": 0.2
+    },
+    {
+     "at": 2.37,
+     "who": "helmb2",
+     "to": [
+      210.65,
+      0.05,
+      0.9
+     ],
+     "over": 0.45,
+     "walk": false,
+     "hop": 0.2
+    },
+    {
+     "at": 2.22,
+     "who": "poofB",
+     "to": [
+      210.1,
+      0.0,
+      1.25
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 2.42,
+     "who": "cut1",
+     "face": "shocked"
+    },
+    {
+     "at": 2.47,
+     "who": "cut2",
+     "face": "shocked"
+    }
+   ]
+  },
+  {
+   "start": "say:They're almost",
+   "anchor": [
+    210.1,
+    0.55,
+    0.95
+   ],
+   "distance": 4.2,
+   "yaw": 8,
+   "pitch": 3,
+   "zoom": 10,
+   "pan": [
+    8,
+    0
+   ],
+   "frameY": 0.0,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "cal42",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "poofB",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.1,
+     "who": "y3000",
+     "to": [
+      210.1,
+      1.2,
+      1.15
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  },
+  {
+   "start": "say:Built for",
+   "anchor": [
+    210.1,
+    0.8,
+    0.95
+   ],
+   "distance": 4.4,
+   "yaw": -8,
+   "pitch": 3,
+   "zoom": 8,
+   "pan": [
+    -8,
+    4
+   ],
+   "frameY": 0.02,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "y3000",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "ritual",
+     "to": [
+      210.1,
+      1.15,
+      1.15
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  },
+  {
+   "start": "say:Made more",
+   "anchor": [
+    210.1,
+    1.1,
+    1.0
+   ],
+   "distance": 4.8,
+   "yaw": 10,
+   "pitch": 3,
+   "zoom": 8,
+   "pan": [
+    10,
+    0
+   ],
+   "frameY": 0.02,
+   "out": "dissolve",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "ritual",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "timeline",
+     "to": [
+      210.1,
+      1.2,
+      1.15
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  },
+  {
+   "start": "say:So the horns",
+   "anchor": [
+    0.45,
+    1.3,
+    0.5
+   ],
+   "distance": 7,
+   "yaw": -10,
+   "pitch": 4,
+   "zoom": 8,
+   "pan": [
+    -10,
+    4
+   ],
+   "frameY": 0.08,
+   "actions": [
+    {
+     "at": 1.38,
+     "who": "hornsV",
+     "to": [
+      -0.3,
+      1.6,
+      0.65
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 1.4,
+     "who": "hornsV",
+     "to": [
+      1.2,
+      1.6,
+      0.65
+     ],
+     "over": 0.5,
+     "walk": false,
+     "hop": 0.3
+    },
+    {
+     "at": 1.38,
+     "who": "vik",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.38,
+     "who": "vikr",
+     "to": [
+      -0.3,
+      0,
+      0.5
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 1.38,
+     "who": "vikr",
+     "face": "confused"
+    },
+    {
+     "at": 1.38,
+     "who": "axe",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.38,
+     "who": "poofV",
+     "to": [
+      -0.3,
+      1.3,
+      0.7
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 1.93,
+     "who": "hornsV",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.93,
+     "who": "singv",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.93,
+     "who": "singvh",
+     "to": [
+      1.2,
+      0,
+      0.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 1.93,
+     "who": "singvh",
+     "face": "happy"
+    },
+    {
+     "at": 1.98,
+     "who": "poofV",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:The Vikings never",
+   "target": "vikr",
+   "headWidth": 0.3,
+   "yaw": 8,
+   "pitch": 3,
+   "zoom": 8,
+   "pan": [
+    8,
+    4
+   ],
+   "frameY": 0.1,
+   "actions": [
+    {
+     "at": 0.05,
+     "who": "vikr",
+     "face": "confused",
+     "pose": {
+      "armR": -40,
+      "armL": 40,
+      "head": -8
+     }
+    }
+   ]
+  },
+  {
+   "start": "say:An opera did",
+   "target": "singvh",
+   "headWidth": 0.3,
+   "yaw": -8,
+   "pitch": 3,
+   "zoom": 10,
+   "pan": [
+    -8,
+    4
+   ],
+   "frameY": 0.1,
+   "out": "dissolve",
+   "actions": [
+    {
+     "at": 0.05,
+     "who": "singvh",
+     "pose": {
+      "armR": -150
+     }
+    },
+    {
+     "at": 0.15,
+     "who": "notesV",
+     "to": [
+      1.75,
+      2.0,
+      0.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  },
+  {
+   "start": "say:And that's why",
+   "target": "vik",
+   "headWidth": 0.34,
+   "yaw": 10,
+   "pitch": 4,
+   "zoom": 12,
+   "pan": [
+    -10,
+    6
+   ],
+   "frameY": 0.0,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "vikr",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "vik",
+     "to": [
+      -0.3,
+      0,
+      0.5
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 0.0,
+     "who": "vik",
+     "face": "shouting"
+    },
+    {
+     "at": 0.0,
+     "who": "vik",
+     "pose": {
+      "armR": -150
+     }
+    },
+    {
+     "at": 0.0,
+     "who": "axe",
+     "to": [
+      0.12,
+      1.0,
+      0.55
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "singvh",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "notesV",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  }
+ ],
+ "end": "audio"
+}
