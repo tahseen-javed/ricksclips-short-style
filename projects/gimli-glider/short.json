@@ -59,6 +59,11 @@
    "fade": 0.6
   },
   {
+   "t": "say:The fuel gauges",
+   "mood": "day",
+   "fade": 0.5
+  },
+  {
    "t": "say:You see",
    "mood": "day",
    "fade": 0.8
@@ -127,8 +132,8 @@
    "id": "jetG",
    "puppet": "puppets/jet",
    "pos": [
-    250,
-    13,
+    264,
+    7,
     -3
    ],
    "height": 2.0,
@@ -138,7 +143,7 @@
    "id": "cap",
    "puppet": "puppets/cap",
    "pos": [
-    69.38,
+    69.5,
     0,
     0.1
    ],
@@ -149,7 +154,7 @@
    "id": "fo",
    "puppet": "puppets/fo",
    "pos": [
-    70.62,
+    70.5,
     0,
     0.1
    ],
@@ -275,7 +280,7 @@
     -60,
     0
    ],
-   "height": 1.2,
+   "height": 1.6,
    "face": "default"
   },
   {
@@ -738,7 +743,7 @@
     0.02,
     12
    ],
-   "color": "#3b3f55"
+   "color": "#5d6482"
   },
   {
    "type": "wall",
@@ -796,7 +801,7 @@
     0.95,
     0.7
    ],
-   "color": "#454b63"
+   "color": "#66708f"
   },
   {
    "type": "box",
@@ -810,7 +815,7 @@
     0.08,
     0.78
    ],
-   "color": "#2f3346"
+   "color": "#424a66"
   },
   {
    "type": "plane",
@@ -870,6 +875,45 @@
    "size": [
     2.4,
     3.2
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/porthole.png",
+   "pos": [
+    135.5,
+    4.6,
+    -4.93
+   ],
+   "size": [
+    1.4,
+    1.4
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/porthole.png",
+   "pos": [
+    140,
+    4.6,
+    -4.93
+   ],
+   "size": [
+    1.4,
+    1.4
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/porthole.png",
+   "pos": [
+    144.5,
+    4.6,
+    -4.93
+   ],
+   "size": [
+    1.4,
+    1.4
    ]
   },
   {
@@ -1940,7 +1984,7 @@
      "hop": 0.12
     },
     {
-     "at": 1.14,
+     "at": 0.8,
      "who": "jetK",
      "face": "glide",
      "pose": {
@@ -1948,7 +1992,7 @@
      }
     },
     {
-     "at": 1.14,
+     "at": 0.8,
      "who": "jetK",
      "to": [
       -17.2,
@@ -1959,7 +2003,7 @@
      "walk": false
     },
     {
-     "at": 1.24,
+     "at": 0.9,
      "who": "n177big",
      "to": [
       0,
@@ -1970,7 +2014,7 @@
      "walk": false
     },
     {
-     "at": 1.34,
+     "at": 1.0,
      "who": "poofK1",
      "to": [
       0,
@@ -1981,7 +2025,7 @@
      "walk": false
     },
     {
-     "at": 1.44,
+     "at": 1.1,
      "who": "poofK2",
      "to": [
       0,
@@ -2177,13 +2221,13 @@
      "hop": 0.12
     },
     {
-     "at": 1.03,
+     "at": 0.66,
      "who": "jetA",
      "face": "dead",
      "shake": 0.9
     },
     {
-     "at": 1.08,
+     "at": 0.71,
      "who": "poof2A",
      "to": [
       0.2,
@@ -2272,10 +2316,10 @@
    "start": "say:The fuel gauges",
    "anchor": [
     70,
-    0.75,
+    1.0,
     1.12
    ],
-   "distance": 5.2,
+   "distance": 4.6,
    "yaw": 8,
    "pitch": 4,
    "zoom": 5,
@@ -2307,7 +2351,7 @@
      "face": "nervous"
     },
     {
-     "at": 0.98,
+     "at": 0.78,
      "who": "broken",
      "to": [
       69.55,
@@ -2319,7 +2363,7 @@
      "hop": 0.12
     },
     {
-     "at": 1.08,
+     "at": 0.88,
      "who": "cap",
      "face": "confused",
      "pose": {
@@ -2374,8 +2418,8 @@
      "at": 0.25,
      "who": "ques",
      "to": [
-      69.92,
-      1.7,
+      70.0,
+      1.72,
       0.35
      ],
      "over": 0.02,
@@ -2473,7 +2517,7 @@
   {
    "start": "say:and the Boeing",
    "target": "jetH",
-   "headWidth": 0.7,
+   "headWidth": 0.85,
    "yaw": -10,
    "pitch": 4,
    "zoom": 6,
@@ -2481,10 +2525,10 @@
     -8,
     0
    ],
-   "frameY": 0.04,
+   "frameY": 0.15,
    "actions": [
     {
-     "at": 1.9,
+     "at": 1.48,
      "who": "badge",
      "to": [
       144.6,
@@ -2520,7 +2564,7 @@
      }
     },
     {
-     "at": 2.1,
+     "at": 1.78,
      "who": "n177",
      "to": [
       138.45,
@@ -2532,7 +2576,7 @@
      "hop": 0.12
     },
     {
-     "at": 2.1,
+     "at": 1.78,
      "who": "tech",
      "face": "smug"
     }
@@ -2570,7 +2614,7 @@
    "frameY": 0.05,
    "actions": [
     {
-     "at": 0.42,
+     "at": 0.34,
      "who": "n08",
      "to": [
       139.65,
@@ -2582,13 +2626,13 @@
      "hop": 0.12
     },
     {
-     "at": 0.42,
+     "at": 0.34,
      "who": "n177",
      "face": "x",
      "shake": 0.6
     },
     {
-     "at": 0.42,
+     "at": 0.34,
      "who": "tech",
      "face": "shocked"
     }
@@ -2597,11 +2641,11 @@
   {
    "start": "say:So they took",
    "anchor": [
-    141.6,
-    1.7,
-    -0.5
+    140.4,
+    1.8,
+    -0.3
    ],
-   "distance": 16,
+   "distance": 11,
    "yaw": -8,
    "pitch": 6,
    "zoom": -4,
@@ -2650,8 +2694,8 @@
      "who": "cmp",
      "to": [
       139.4,
-      0.7,
-      0.8
+      0.8,
+      0.9
      ],
      "over": 0.02,
      "walk": false,
@@ -2726,11 +2770,11 @@
    "start": "say:The captain",
    "target": "cap",
    "headWidth": 0.28,
-   "yaw": -8,
+   "yaw": 8,
    "pitch": 3,
    "zoom": 6,
    "pan": [
-    -8,
+    8,
     4
    ],
    "frameY": 0.1,
@@ -2770,7 +2814,7 @@
   {
    "start": "say:And the copilot",
    "anchor": [
-    212.6,
+    212.2,
     2.3,
     -3.0
    ],
@@ -2812,7 +2856,7 @@
      }
     },
     {
-     "at": 2.58,
+     "at": 2.16,
      "who": "gimli",
      "to": [
       211.6,
@@ -2824,7 +2868,7 @@
      "hop": 0.15
     },
     {
-     "at": 2.58,
+     "at": 2.16,
      "who": "fo",
      "face": "happy"
     }
@@ -2833,11 +2877,11 @@
   {
    "start": "say:One problem",
    "anchor": [
-    280,
+    279.2,
     1.5,
     -2.5
    ],
-   "distance": 18,
+   "distance": 15,
    "yaw": 14,
    "pitch": 9,
    "zoom": 4,
@@ -2987,9 +3031,9 @@
   {
    "start": "say:Gokarts",
    "anchor": [
-    280,
-    0.6,
-    0.5
+    284.0,
+    0.5,
+    0.3
    ],
    "distance": 6,
    "yaw": 0,
@@ -3075,11 +3119,11 @@
   {
    "start": "say:The plane drops",
    "anchor": [
-    278.0,
-    3.5,
+    277.0,
+    3.0,
     -2.0
    ],
-   "distance": 20,
+   "distance": 16,
    "yaw": -12,
    "pitch": 3,
    "zoom": 3,
@@ -3093,11 +3137,11 @@
      "at": 0.0,
      "who": "jetG",
      "to": [
-      277.0,
-      1.6,
+      277.5,
+      1.4,
       -3.0
      ],
-     "over": 1.46,
+     "over": 1.2,
      "walk": false
     },
     {
@@ -3177,8 +3221,8 @@
      "at": 0.35,
      "who": "slam",
      "to": [
-      283.4,
-      1.0,
+      282.6,
+      1.4,
       -2.4
      ],
      "over": 0.02,
@@ -3454,7 +3498,7 @@
    "frameY": 0.02,
    "actions": [
     {
-     "at": 0.74,
+     "at": 0.54,
      "who": "n177big",
      "to": [
       -17.7,
@@ -3466,13 +3510,13 @@
      "hop": 0.15
     },
     {
-     "at": 1.34,
+     "at": 0.9,
      "who": "n177big",
      "face": "x",
      "shake": 0.6
     },
     {
-     "at": 1.34,
+     "at": 0.9,
      "who": "jetK",
      "face": "eng1"
     }

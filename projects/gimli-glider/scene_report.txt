@@ -1,32 +1,41 @@
-music projects/gimli-glider/audio/music.wav 52.4 s, cues {'quit1': 10.42, 'quit2': 11.45, 'sil': 12.13, 'explain': 18.79, 'luck': 32.07, 'drop': 42.6, 'slam': 44.41, 'fire': 45.2, 'lives': 46.1}
+music projects/gimli-glider/audio/music.wav 40.6 s, cues {'quit1': 8.38, 'quit2': 9.04, 'sil': 9.58, 'explain': 14.56, 'luck': 25.15, 'drop': 32.89, 'slam': 34.44, 'fire': 35.01, 'lives': 35.73}
 shot  start   dur  phrase
-S00    0.00  0.86  0
-S01    0.86  1.82  turned
-S02    2.68  1.92  July
-S03    4.60  1.66  Air Canada
-S04    6.26  1.74  Sixtyone
-S05    8.00  2.42  cruising
-S06   10.42  1.71  One engine
-S07   12.13  0.88  Total silence
-S08   13.01  2.38  The fuel gauges
-S09   15.39  1.84  Nobody knew
-S10   17.23  1.56  How does
-S11   18.79  1.84  You see
-S12   20.63  2.94  and the Boeing
-S13   23.57  3.28  But the fuel
-S14   26.85  0.92  pounds per
-S15   27.77  1.92  instead of
-S16   29.69  2.38  So they took
-S17   32.07  1.15  But luck
-S18   33.22  1.62  The captain
-S19   34.84  3.08  And the copilot
-S20   37.92  2.34  One problem
-S21   40.26  1.34  And today
-S22   41.60  1.00  Gokarts
-S23   42.60  1.46  The plane drops
-S24   44.06  1.14  The nose
-S25   45.20  0.90  Fire bursts
-S26   46.10  1.08  And everyone
-S27   47.18  2.20  That same jet
-S28   49.38  2.46  All because
-wrote short.json: 29 shots, 37 characters, 102 props, voice 51.84 s
+S00    0.00  0.54  0
+   ! very short shot (mostly glide)
+S01    0.54  1.40  turned
+S02    1.94  1.58  July
+S03    3.52  1.34  Air Canada
+S04    4.86  1.48  Sixtyone
+S05    6.34  2.04  cruising
+S06    8.38  1.20  One engine
+S07    9.58  0.50  Total silence
+   ! very short shot (mostly glide)
+S08   10.08  1.86  The fuel gauges
+S09   11.94  1.40  Nobody knew
+S10   13.34  1.22  How does
+S11   14.56  1.52  You see
+S12   16.08  2.36  and the Boeing
+S13   18.44  2.64  But the fuel
+S14   21.08  0.72  pounds per
+S15   21.80  1.56  instead of
+S16   23.36  1.79  So they took
+S17   25.15  0.84  But luck
+S18   25.99  1.18  The captain
+S19   27.17  2.60  And the copilot
+S20   29.77  1.56  One problem
+S21   31.33  0.92  And today
+S22   32.25  0.64  Gokarts
+   ! very short shot (mostly glide)
+S23   32.89  1.20  The plane drops
+S24   34.09  0.92  The nose
+S25   35.01  0.72  Fire bursts
+S26   35.73  0.72  And everyone
+S27   36.45  1.66  That same jet
+S28   38.11  1.92  All because
+   ! k1: move from S20 (29.77+2.30 s) overlaps next move in S21 at 31.43 s
+   ! k1: move from S21 (31.43+1.00 s) overlaps next move in S22 at 32.25 s
+   ! k2: move from S20 (29.87+2.20 s) overlaps next move in S21 at 31.43 s
+   ! k2: move from S21 (31.43+1.00 s) overlaps next move in S22 at 32.25 s
+   ! k3: move from S20 (29.97+2.10 s) overlaps next move in S21 at 31.43 s
+   ! k3: move from S21 (31.43+1.00 s) overlaps next move in S22 at 32.25 s
+wrote short.json: 29 shots, 37 characters, 105 props, voice 40.03 s
