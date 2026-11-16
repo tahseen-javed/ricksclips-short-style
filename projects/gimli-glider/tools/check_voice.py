@@ -5,6 +5,8 @@ import os, re, sys, difflib
 import whisper
 
 audio, ref_path = sys.argv[1], sys.argv[2]
+sp = os.path.join(os.path.dirname(ref_path), "script.txt")   # digits on both sides: only real mishearings count
+if os.path.exists(sp): ref_path = sp
 norm = lambda s: re.sub(r"[^a-z0-9' ]+", " ", s.lower().replace("’", "'")).split()
 ref = norm(open(ref_path, encoding="utf-8").read())
 r = whisper.load_model(os.environ.get("SHORTKIT_WHISPER_MODEL", "small")).transcribe(audio, language="en")

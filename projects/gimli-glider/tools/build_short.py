@@ -147,10 +147,10 @@ gi = rel(s, "Gimli"); show(s, gi, "gimli", pos("LK", 1.6, 0, -1.6), hop=0.15); a
 # ---- 20-26 Gimli (GM): racetrack, family day, karts, the silent landing, the slam, fire, everyone lives
 s = shot("One problem", anchor=pos("GM", -0.8, 1.5, -2.5), dist=15, yaw=14, pitch=9, zoom=4, pan=(10, 0), fy=0.0)
 hide(s, 0.3, "glider"); hide(s, 0.3, "gimli")
-go(s, 0.0, "k1", pos("GM", 6, 0, -1.2), 2.3, walk=False); go(s, 0.1, "k2", pos("GM", -7, 0, -4.6), 2.2, walk=False); go(s, 0.2, "k3", pos("GM", 9, 0, -2.6), 2.1, walk=False)
+go(s, 0.0, "k1", pos("GM", 6, 0, -1.2), 1.6, walk=False); go(s, 0.1, "k2", pos("GM", -7, 0, -4.6), 1.5, walk=False); go(s, 0.2, "k3", pos("GM", 9, 0, -2.6), 1.4, walk=False)
 s = shot("And today", anchor=pos("GM", -0.9, 1.8, 1.0), dist=9, yaw=-10, pitch=4, zoom=6, pan=(-8, 2), fy=0.08)
 act(s, 0.1, "mom", pose=dict(armR=-150)); act(s, 0.25, "dad", pose=dict(armL=150)); act(s, 0.75, "mom", pose=dict(armR=-115)); act(s, 0.9, "dad", pose=dict(armL=115))
-for c_, x_, z_ in (("k1", 22, -1.2), ("k3", 24, -2.6), ("k2", -22, -4.6)): go(s, 0.1, c_, pos("GM", x_, 0, z_), 1.0, walk=False)
+for c_, x_, z_ in (("k1", 22, -1.2), ("k3", 24, -2.6), ("k2", -22, -4.6)): go(s, 0.05, c_, pos("GM", x_, 0, z_), 0.6, walk=False)
 s = shot("Gokarts", anchor=pos("GM", 4.0, 0.5, 0.3), dist=6, yaw=0, pitch=2, zoom=8, pan=(-14, 0), fy=0.05)
 show(s, 0.0, "k1", pos("GM", -6, 0, 0.6), hop=0); go(s, 0.03, "k1", pos("GM", 5.0, 0, 0.6), 1.0, walk=False)
 show(s, 0.0, "k3", pos("GM", -8, 0, -0.4), hop=0); go(s, 0.2, "k3", pos("GM", 7.0, 0, -0.4), 1.2, walk=False)

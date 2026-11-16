@@ -1,26 +1,19 @@
 #!/usr/bin/env python3
 """Normal, clear American male voiceover with Kokoro TTS (free, runs on the runner).
-Renders the script with the best male voices, keeps the one Whisper understands best (ties go to
-the first, most natural voice), no pitch change, light presence for clarity, gentle compression.
-Pauses squeezed to <= 0.16 s, tempo for the target, -15 LUFS.
+Renders every line with am_michael and am_fenrir at three speeds, scores each take with Whisper
+against the script (numbers stay digits on both sides, so only real mishearings count) and keeps the
+fastest take that is still understood almost perfectly (>= 0.965). Pauses inside a line are squeezed
+to <= 0.16 s; a line starting with "~" is followed by a short dramatic pause (0.45 s in total).
+Light presence EQ, gentle compression, -15 LUFS.
 usage: make_voice.py <audio folder> <target seconds>"""
 import os, re, sys, difflib, subprocess
-import numpy as np, soundfile as sf, torch, torchaudio, whisper
+import numpy as np, soundfile as sf, whisper
 from kokoro import KPipeline
 
-d = sys.argv[1].rstrip("/") + "/"; target = float(sys.argv[2]); SR = 24000; SPEED = 1.4
-text = open(d + "tts.txt", encoding="utf-8").read()
+d = sys.argv[1].rstrip("/") + "/"; target = float(sys.argv[2]); SR = 24000
+LINES = [l.strip() for l in open(d + "tts.txt", encoding="utf-8") if l.strip()]
 pipe = KPipeline(lang_code="a", repo_id="hexgrad/Kokoro-82M")
-CANDS = ["am_michael", "am_fenrir", "am_puck"]          # natural American male voices (Kokoro's best-graded)
-
-
-def gen(voice, speed):
-    parts = []
-    for _, _, a in pipe(text, voice=voice, speed=speed, split_pattern=r"\n+"):
-        a = np.asarray(a, dtype=np.float32); idx = np.where(np.abs(a) > 0.012)[0]
-        if len(idx): a = a[max(0, idx[0] - int(0.03 * SR)): min(len(a), idx[-1] + int(0.12 * SR))]
-        parts += [a, np.zeros(int(0.04 * SR), np.float32)]
-    return np.concatenate(parts)
+VOICES, SPEEDS = ["am_michael", "am_fenrir"], [1.2, 1.28, 1.36]
 
 
 def squeeze(a, keep=0.16, thr=0.012):
@@ -36,15 +29,19 @@ def squeeze(a, keep=0.16, thr=0.012):
     out.append(a[n * hop:]); return np.concatenate(out)
 
 
-def pitch_hz(a):
-    f = torchaudio.functional.detect_pitch_frequency(torch.from_numpy(a).float(), SR, freq_low=60, freq_high=300).numpy()
-    f = f[(f > 60) & (f < 300)]
-    return float(np.median(f)) if len(f) else 999.0
+def gen(voice, speed):
+    parts = []
+    for line in LINES:
+        a = np.concatenate([np.asarray(x, dtype=np.float32) for _, _, x in pipe(line.lstrip("~").strip(), voice=voice, speed=speed)])
+        idx = np.where(np.abs(a) > 0.012)[0]
+        if len(idx): a = a[max(0, idx[0] - int(0.03 * SR)): min(len(a), idx[-1] + int(0.12 * SR))]
+        parts += [squeeze(a), np.zeros(int((0.33 if line.startswith("~") else 0.04) * SR), np.float32)]
+    return np.concatenate(parts)
 
 
 asr = whisper.load_model("base.en")
 norm = lambda s: re.sub(r"[^a-z0-9' ]+", " ", s.lower().replace("’", "'")).split()
-ref = norm(text)
+ref = norm(open(d + "script.txt", encoding="utf-8").read())
 
 
 def understood(a):
@@ -54,16 +51,17 @@ def understood(a):
 
 
 rows = []
-for v in CANDS:
-    try: a = squeeze(gen(v, SPEED))
-    except Exception as e: print("skip %s: %s" % (v, e)); continue
-    rows.append((v, a, pitch_hz(a), understood(a)))
-    print("%-30s %5.1f s  pitch %5.1f Hz  understood %.3f" % (v, len(a) / SR, rows[-1][2], rows[-1][3]))
+for v in VOICES:
+    for sp in SPEEDS:
+        try: a = gen(v, sp)
+        except Exception as e: print("skip %s: %s" % (v, e)); break
+        rows.append(("%s @%.2f" % (v, sp), a, understood(a)))
+        print("%-18s %5.1f s  understood %.3f" % (rows[-1][0], len(a) / SR, rows[-1][2]))
 if os.path.exists(d + "_cand.wav"): os.remove(d + "_cand.wav")
-best = max(r[3] for r in rows)
-v, a, hz, sco = next(r for r in rows if r[3] >= best - 0.01)   # the clearest; ties go to the first (most natural) voice
-dur = len(a) / SR; tempo = min(1.12, max(1.0, dur / target))
-print("chose %s (pitch %.0f Hz, understood %.3f): tempo %.3f -> about %.1f s" % (v, hz, sco, tempo, dur / tempo))
+good = [r for r in rows if r[2] >= 0.965]
+name, a, sco = min(good, key=lambda r: len(r[1])) if good else max(rows, key=lambda r: r[2])
+dur = len(a) / SR; tempo = min(1.05, max(1.0, dur / target))
+print("chose %s (understood %.3f): tempo %.3f -> about %.1f s" % (name, sco, tempo, dur / tempo))
 sf.write(d + "voice_raw.wav", a / max(1e-6, np.abs(a).max()) * 0.9, SR)
 af = ("atempo=%.4f,highpass=f=70,equalizer=f=3000:t=q:w=1.2:g=1.5,"
       "acompressor=threshold=0.125:ratio=2:attack=10:release=120:makeup=1.3,loudnorm=I=-15:TP=-1.5:LRA=9,apad=pad_dur=0.5") % tempo
