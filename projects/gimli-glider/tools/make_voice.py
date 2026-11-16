@@ -8,7 +8,7 @@ import os, re, sys, difflib, subprocess
 import numpy as np, soundfile as sf, torch, torchaudio, whisper
 from kokoro import KPipeline
 
-d = sys.argv[1].rstrip("/") + "/"; target = float(sys.argv[2]); SR = 24000; SPEED = 1.2
+d = sys.argv[1].rstrip("/") + "/"; target = float(sys.argv[2]); SR = 24000; SPEED = 1.4
 text = open(d + "tts.txt", encoding="utf-8").read()
 pipe = KPipeline(lang_code="a", repo_id="hexgrad/Kokoro-82M")
 CANDS = ["am_michael", "am_fenrir", "am_puck"]          # natural American male voices (Kokoro's best-graded)
@@ -62,7 +62,7 @@ for v in CANDS:
 if os.path.exists(d + "_cand.wav"): os.remove(d + "_cand.wav")
 best = max(r[3] for r in rows)
 v, a, hz, sco = next(r for r in rows if r[3] >= best - 0.01)   # the clearest; ties go to the first (most natural) voice
-dur = len(a) / SR; tempo = min(1.1, max(1.0, dur / target))
+dur = len(a) / SR; tempo = min(1.12, max(1.0, dur / target))
 print("chose %s (pitch %.0f Hz, understood %.3f): tempo %.3f -> about %.1f s" % (v, hz, sco, tempo, dur / tempo))
 sf.write(d + "voice_raw.wav", a / max(1e-6, np.abs(a).max()) * 0.9, SR)
 af = ("atempo=%.4f,highpass=f=70,equalizer=f=3000:t=q:w=1.2:g=1.5,"

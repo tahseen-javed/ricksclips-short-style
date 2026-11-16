@@ -461,8 +461,8 @@ def tex_concrete(path, n=512):
 
 
 def tex_panel(path, n=512):
-    a = np.zeros((n, n, 3)) + [92, 100, 130]; a += (periodic(n, 6, 3)[..., None] - 0.5) * 10
-    for k in (0, 128, 256, 384): a[k:k + 4, :] = [52, 56, 76]; a[:, k:k + 4] = [52, 56, 76]
+    a = np.zeros((n, n, 3)) + [128, 136, 168]; a += (periodic(n, 6, 3)[..., None] - 0.5) * 10
+    for k in (0, 128, 256, 384): a[k:k + 4, :] = [84, 90, 116]; a[:, k:k + 4] = [84, 90, 116]
     im = Image.fromarray(np.clip(a, 0, 255).astype(np.uint8)); dr = ImageDraw.Draw(im)
     for cx in range(0, n, 128):
         for cy in range(0, n, 128):

@@ -35,16 +35,17 @@ for x, y, z, w in ((-24, 2.6, -16, 8), (-9, 5.6, -24, 10), (-30, 8.5, -28, 9), (
 for x, z, w in ((-22, 5, 5), (-14.5, 6.5, 6), (-3.5, 5.5, 5), (4.5, 7, 6)): plane("SKY", "cloud.png", x, 0.4, z, w, w * 0.51)
 
 # ---- CK: cockpit (dark floor, panel wall with portholes, console whose gauges face the camera)
-box("CK", 0, 0, -1, [16, 0.02, 12], color="#3b3f55")
+box("CK", 0, 0, -1, [16, 0.02, 12], color="#5d6482")
 wall("CK", 0, 0, -1.6, [16, 4.4, 0.3], "panel.jpg", [6, 2])
 for x in (-2.7, 2.7): plane("CK", "porthole.png", x, 1.5, -1.43, 1.0, 1.0)
-box("CK", 0, 0, 0.75, [4.4, 0.95, 0.7], color="#454b63"); box("CK", 0, 0.95, 0.75, [4.5, 0.08, 0.78], color="#2f3346")
+box("CK", 0, 0, 0.75, [4.4, 0.95, 0.7], color="#66708f"); box("CK", 0, 0.95, 0.75, [4.5, 0.08, 0.78], color="#424a66")
 plane("CK", "gauges.png", 0, 0.06, 1.115, 3.2, 0.87)
 
 # ---- HG: hangar apron (square hangar so the roof never shades its front), METRIC poster
 box("HG", 0, 0, -3, [34, 0.02, 26], texture="concrete.jpg", repeat=[10, 8])
 house("HG", 0, -12, [14, 8, 14], "#7d8799", color="#c9cfda")
 plane("HG", "metric.png", -3.6, 1.0, -4.93, 2.4, 3.2)
+for x in (-4.5, 0, 4.5): plane("HG", "porthole.png", x, 4.6, -4.93, 1.4, 1.4)
 crate("HG", -7.0, 0, -2.6); crate("HG", -6.85, 0.75, -2.65, 0.55, 15); barrel("HG", 7.4, -1.6); barrel("HG", 8.1, -2.3)
 tree("HG", -13, -6, 1.5); tree("HG", 13, -6, 1.4, "#4f8f4a")
 
@@ -64,12 +65,12 @@ tree("GM", -16, -10, 1.6); tree("GM", -21, -6, 1.4, "#4f8f4a"); tree("GM", 20, -
 
 # ================================================================== CHARACTERS
 put("jetK", "jet", pos("SKY", -18, 4.2, 0), 2.0); put("jetA", "jet", pos("SKY", 0, 4.2, 0), 2.0)
-put("jetH", "jet", pos("HG", 2.6, 0, -1.5), 2.0, face="park"); put("jetG", "jet", pos("GM", -30, 13, -3), 2.0, face="glide")
-human("cap", "cap", pos("CK", -0.62, 0, 0.1)); human("fo", "fo", pos("CK", 0.62, 0, 0.1)); human("tech", "tech", pos("HG", -2.2, 0, 0.6), face="happy")
+put("jetH", "jet", pos("HG", 2.6, 0, -1.5), 2.0, face="park"); put("jetG", "jet", pos("GM", -16, 7, -3), 2.0, face="glide")
+human("cap", "cap", pos("CK", -0.5, 0, 0.1)); human("fo", "fo", pos("CK", 0.5, 0, 0.1)); human("tech", "tech", pos("HG", -2.2, 0, 0.6), face="happy")
 human("mom", "mom", pos("GM", -1.5, 0, 2.6), face="happy"); human("dad", "dad", pos("GM", -0.3, 0, 2.8), face="happy")
 put("tank", "tank", pos("CK", 4.3, 0, 0.2), 1.5)
 put("k1", "kart1", pos("GM", -9, 0, -1.2), 0.9); put("k2", "kart2", pos("GM", 8, 0, -4.6), 0.9, flip=True); put("k3", "kart3", pos("GM", -4, 0, -2.6), 0.9)
-for cid, name, h in (("n177big", "n177", 1.4), ("n177", "n177", 0.75), ("n08", "n08", 0.75), ("cmp", "cmp", 1.2), ("crew", "crew", 1.1), ("alt", "alt", 1.3),
+for cid, name, h in (("n177big", "n177", 1.4), ("n177", "n177", 0.75), ("n08", "n08", 0.75), ("cmp", "cmp", 1.6), ("crew", "crew", 1.1), ("alt", "alt", 1.3),
                      ("cal83", "cal83", 1.6), ("cal08", "cal08", 1.5), ("flt", "flt", 0.8), ("broken", "broken", 0.45), ("badge", "badge", 0.9),
                      ("gimli", "gimli", 1.7), ("dots", "dots", 1.0), ("flame1", "flame", 1.1), ("flame2", "flame", 0.85), ("hearts", "hearts", 1.1),
                      ("slam", "slam", 1.1), ("poofK1", "poof", 0.9), ("poofK2", "poof", 0.9), ("poof1A", "poof", 0.8), ("poof2A", "poof", 0.8),
@@ -106,20 +107,20 @@ hide(s, 0.2, "poof1A"); hide(s, 0.3, "poof2A"); show(s, 0.25, "dots", pos("SKY",
 act(s, 0.1, "jetA", pose=dict(head=4)); go(s, 0.1, "jetA", pos("SKY", 0.8, 3.4, 0), 1.4, walk=False)
 
 # ---- 8-10 cockpit (CK): blank fuel gauges, the nearly empty tank, the big question
-s = shot("The fuel gauges", anchor=pos("CK", 0, 0.75, 1.12), dist=5.2, yaw=8, pitch=4, zoom=5, pan=(-6, 0), fy=0.0)
+s = shot("The fuel gauges", anchor=pos("CK", 0, 1.0, 1.12), dist=4.6, yaw=8, pitch=4, zoom=5, pan=(-6, 0), fy=0.0)
 hide(s, 0.3, "dots"); act(s, 0.0, "cap", face="shocked"); act(s, 0.1, "fo", face="nervous")
 b = rel(s, "Broken"); show(s, b, "broken", pos("CK", -0.45, 0.28, 1.2), hop=0.12); act(s, b + 0.1, "cap", face="confused", pose=dict(head=6))
 s = shot("Nobody knew", target="tank", hw=0.55, yaw=-8, pitch=4, zoom=6, pan=(8, 0), fy=0.05)
 act(s, 0.4, "tank", shake=0.5)
 s = shot("How does", out="dissolve", target="cap", hw=0.3, yaw=6, pitch=3, zoom=7, pan=(-6, 4), fy=0.1)
-act(s, 0.0, "cap", face="confused", pose=dict(head=8)); show(s, 0.25, "ques", pos("CK", -0.08, 1.7, 0.35))
+act(s, 0.0, "cap", face="confused", pose=dict(head=8)); show(s, 0.25, "ques", pos("CK", 0.0, 1.72, 0.35))
 
 # ---- 11-16 hangar (HG): Canada goes metric, the first metric jet, the wrong number, half the fuel
 s = shot("You see", anchor=pos("HG", -1.0, 2.0, -2.0), dist=16, yaw=10, pitch=6, zoom=4, pan=(8, 0), fy=0.04)
 show(s, 0.3, "cap", pos("LK", -1.2, 0, 0.5), hop=0); show(s, 0.3, "fo", pos("LK", 1.4, 0, 0.6), hop=0)
 act(s, 0.32, "cap", face="happy", pose=dict(head=0)); act(s, 0.32, "fo", face="happy")
 hide(s, 0.3, "broken"); hide(s, 0.3, "ques"); act(s, 0.2, "tech", face="happy", pose=dict(armL=110))
-s = shot("and the Boeing", target="jetH", hw=0.7, yaw=-10, pitch=4, zoom=6, pan=(-8, 0), fy=0.04)
+s = shot("and the Boeing", target="jetH", hw=0.85, yaw=-10, pitch=4, zoom=6, pan=(-8, 0), fy=0.15)
 show(s, rel(s, "first"), "badge", pos("HG", 4.6, 1.5, -1.0), hop=0.15)
 s = shot("But the fuel", target="tech", hw=0.26, yaw=8, pitch=3, zoom=6, pan=(-6, 2), fy=0.08)
 act(s, 0.0, "tech", face="confused", pose=dict(armL=0, armR=-60))
@@ -128,39 +129,39 @@ s = shot("pounds per", target="n177", hw=0.8, yaw=-6, pitch=2, zoom=5, pan=(4, 0
 s = shot("instead of", anchor=pos("HG", -0.95, 0.55, 0.8), dist=6.4, yaw=6, pitch=3, zoom=4, pan=(-6, 0), fy=0.05)
 k = rel(s, "08", tok=True); show(s, k, "n08", pos("HG", -0.35, 0.12, 0.8), hop=0.12)
 act(s, k, "n177", face="x", shake=0.6); act(s, k, "tech", face="shocked")
-s = shot("So they took", out="dissolve", anchor=pos("HG", 1.6, 1.7, -0.5), dist=16, yaw=-8, pitch=6, zoom=-4, pan=(10, 4), fy=0.05)
-hide(s, 0.0, "n177"); hide(s, 0.0, "n08"); hide(s, 0.2, "badge"); show(s, 0.25, "cmp", pos("HG", -0.6, 0.7, 0.8), hop=0.15)
+s = shot("So they took", out="dissolve", anchor=pos("HG", 0.4, 1.8, -0.3), dist=11, yaw=-8, pitch=6, zoom=-4, pan=(10, 4), fy=0.05)
+hide(s, 0.0, "n177"); hide(s, 0.0, "n08"); hide(s, 0.2, "badge"); show(s, 0.25, "cmp", pos("HG", -0.6, 0.8, 0.9), hop=0.15)
 act(s, 0.2, "jetH", face="default", pose=dict(head=-6)); go(s, 0.2, "jetH", pos("HG", 14, 6.5, -1.5), 2.2, walk=False)
 
 # ---- 17-19 luck (LK): the captain's glider, the co-pilot's old air base, Gimli
 s = shot("But luck", anchor=pos("LK", 0.1, 1.2, 0.5), dist=8.5, yaw=10, pitch=5, zoom=5, pan=(8, 0), fy=0.1)
 hide(s, 0.3, "cmp"); act(s, 0.1, "cap", pose=dict(armR=-30)); act(s, 0.2, "fo", pose=dict(armL=30))
-s = shot("The captain", target="cap", hw=0.28, yaw=-8, pitch=3, zoom=6, pan=(-8, 4), fy=0.1)
+s = shot("The captain", target="cap", hw=0.28, yaw=8, pitch=3, zoom=6, pan=(8, 4), fy=0.1)
 show(s, 0.0, "glider", pos("LK", -4.2, 2.0, 0.3), hop=0); go(s, 0.05, "glider", pos("LK", -0.3, 2.25, 0.3), 1.3, walk=False)
 act(s, 0.2, "cap", pose=dict(armR=-150))
-s = shot("And the copilot", out="dissolve", anchor=pos("LK", 2.6, 2.3, -3.0), dist=12, yaw=12, pitch=4, zoom=4, pan=(-8, 0), fy=0.05)
+s = shot("And the copilot", out="dissolve", anchor=pos("LK", 2.2, 2.3, -3.0), dist=12, yaw=12, pitch=4, zoom=4, pan=(-8, 0), fy=0.05)
 act(s, 0.0, "cap", pose=dict(armR=0)); go(s, 0.05, "fo", pos("LK", 3.4, 0, -2.0), 1.2)
 act(s, 1.3, "fo", face="smug", pose=dict(armR=-135))
 gi = rel(s, "Gimli"); show(s, gi, "gimli", pos("LK", 1.6, 0, -1.6), hop=0.15); act(s, gi, "fo", face="happy")
 
 # ---- 20-26 Gimli (GM): racetrack, family day, karts, the silent landing, the slam, fire, everyone lives
-s = shot("One problem", anchor=pos("GM", 0, 1.5, -2.5), dist=18, yaw=14, pitch=9, zoom=4, pan=(10, 0), fy=0.0)
+s = shot("One problem", anchor=pos("GM", -0.8, 1.5, -2.5), dist=15, yaw=14, pitch=9, zoom=4, pan=(10, 0), fy=0.0)
 hide(s, 0.3, "glider"); hide(s, 0.3, "gimli")
 go(s, 0.0, "k1", pos("GM", 6, 0, -1.2), 2.3, walk=False); go(s, 0.1, "k2", pos("GM", -7, 0, -4.6), 2.2, walk=False); go(s, 0.2, "k3", pos("GM", 9, 0, -2.6), 2.1, walk=False)
 s = shot("And today", anchor=pos("GM", -0.9, 1.8, 1.0), dist=9, yaw=-10, pitch=4, zoom=6, pan=(-8, 2), fy=0.08)
 act(s, 0.1, "mom", pose=dict(armR=-150)); act(s, 0.25, "dad", pose=dict(armL=150)); act(s, 0.75, "mom", pose=dict(armR=-115)); act(s, 0.9, "dad", pose=dict(armL=115))
 for c_, x_, z_ in (("k1", 22, -1.2), ("k3", 24, -2.6), ("k2", -22, -4.6)): go(s, 0.1, c_, pos("GM", x_, 0, z_), 1.0, walk=False)
-s = shot("Gokarts", anchor=pos("GM", 0, 0.6, 0.5), dist=6, yaw=0, pitch=2, zoom=8, pan=(-14, 0), fy=0.05)
+s = shot("Gokarts", anchor=pos("GM", 4.0, 0.5, 0.3), dist=6, yaw=0, pitch=2, zoom=8, pan=(-14, 0), fy=0.05)
 show(s, 0.0, "k1", pos("GM", -6, 0, 0.6), hop=0); go(s, 0.03, "k1", pos("GM", 5.0, 0, 0.6), 1.0, walk=False)
 show(s, 0.0, "k3", pos("GM", -8, 0, -0.4), hop=0); go(s, 0.2, "k3", pos("GM", 7.0, 0, -0.4), 1.2, walk=False)
 show(s, 0.0, "k2", pos("GM", 7, 0, -1.4), hop=0); go(s, 0.1, "k2", pos("GM", -6.0, 0, -1.4), 1.1, walk=False)
-s = shot("The plane drops", anchor=pos("GM", -2.0, 3.5, -2.0), dist=20, yaw=-12, pitch=3, zoom=3, pan=(-6, 6), fy=0.05)
-go(s, 0.0, "jetG", pos("GM", -3.0, 1.6, -3.0), rel(s, "The nose"), walk=False); act(s, 0.0, "jetG", pose=dict(head=6))
+s = shot("The plane drops", anchor=pos("GM", -3.0, 3.0, -2.0), dist=16, yaw=-12, pitch=3, zoom=3, pan=(-6, 6), fy=0.05)
+go(s, 0.0, "jetG", pos("GM", -2.5, 1.4, -3.0), rel(s, "The nose"), walk=False); act(s, 0.0, "jetG", pose=dict(head=6))
 act(s, 0.4, "mom", face="shocked", pose=dict(armR=0)); act(s, 0.5, "dad", face="shocked", pose=dict(armL=0))
 for c_, t_ in (("k1", 0.3), ("k3", 0.35), ("k2", 0.4)): act(s, t_, c_, face="shocked")
 s = shot("The nose", target="jetG", hw=0.6, yaw=8, pitch=5, zoom=8, pan=(0, -8), fy=0.0)
 go(s, 0.0, "jetG", pos("GM", 0.5, 0, -3.0), 0.35, walk=False); act(s, 0.35, "jetG", face="slam", pose=dict(head=7), shake=1.0)
-show(s, 0.35, "slam", pos("GM", 3.4, 1.0, -2.4), hop=0.15); show(s, 0.38, "poof3", pos("GM", -1.6, 0, -2.6), hop=0.1)
+show(s, 0.35, "slam", pos("GM", 2.6, 1.4, -2.4), hop=0.15); show(s, 0.38, "poof3", pos("GM", -1.6, 0, -2.6), hop=0.1)
 s = shot("Fire bursts", target="jetG", hw=0.75, yaw=-6, pitch=3, zoom=6, pan=(6, 0), fy=0.05)
 hide(s, 0.05, "slam"); show(s, 0.1, "flame1", pos("GM", 2.5, 0, -2.5), hop=0.2); show(s, 0.22, "flame2", pos("GM", 3.2, 0, -2.35), hop=0.2)
 act(s, 0.2, "jetG", face="dead")
@@ -195,7 +196,7 @@ spec = {
                  "sky": {"top": "#3f4f9e", "horizon": "#f0926a"},
                  "fill": {"sky": "#7d7ee0", "ground": "#5e3668", "intensity": 1.35}, "exposure": 1.12},
     },
-    "lighting": [{"t": 0, "mood": "day"}, {"t": "say:One engine", "mood": "dusk", "fade": 0.6}, {"t": "say:You see", "mood": "day", "fade": 0.8},
+    "lighting": [{"t": 0, "mood": "day"}, {"t": "say:One engine", "mood": "dusk", "fade": 0.6}, {"t": "say:The fuel gauges", "mood": "day", "fade": 0.5}, {"t": "say:You see", "mood": "day", "fade": 0.8},
                  {"t": "say:One problem", "mood": "dusk", "fade": 0.8}, {"t": "say:That same jet", "mood": "day", "fade": 0.6}],
     "ground": {"texture": TEX + "grass.jpg", "repeat": [525, 525], "size": 1400},
     "backdrop": {"image": "bg/sky.jpg", "blur": 5},
