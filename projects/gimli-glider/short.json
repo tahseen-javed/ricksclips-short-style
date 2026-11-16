@@ -1,0 +1,3483 @@
+{
+ "fps": 30,
+ "audio": {
+  "voice": "audio/voice.mp3",
+  "music": "audio/music.mp3",
+  "musicDb": -11
+ },
+ "words": "audio/words.json",
+ "captions": {
+  "wordsPer": 1
+ },
+ "font": "fonts/Montserrat-ExtraBold.ttf",
+ "contactShadow": 0.6,
+ "moods": {
+  "day": {
+   "sun": {
+    "azimuth": 35,
+    "elevation": 50,
+    "color": "#ffe0b5",
+    "intensity": 2.4
+   },
+   "sky": {
+    "top": "#5f86d8",
+    "horizon": "#f2b98a"
+   },
+   "fill": {
+    "sky": "#8ea2ff",
+    "ground": "#6a3b6e",
+    "intensity": 1.1
+   }
+  },
+  "dusk": {
+   "sun": {
+    "azimuth": -20,
+    "elevation": 38,
+    "color": "#ffa66e",
+    "intensity": 2.3
+   },
+   "sky": {
+    "top": "#3f4f9e",
+    "horizon": "#f0926a"
+   },
+   "fill": {
+    "sky": "#7d7ee0",
+    "ground": "#5e3668",
+    "intensity": 1.35
+   },
+   "exposure": 1.12
+  }
+ },
+ "lighting": [
+  {
+   "t": 0,
+   "mood": "day"
+  },
+  {
+   "t": "say:One engine",
+   "mood": "dusk",
+   "fade": 0.6
+  },
+  {
+   "t": "say:You see",
+   "mood": "day",
+   "fade": 0.8
+  },
+  {
+   "t": "say:One problem",
+   "mood": "dusk",
+   "fade": 0.8
+  },
+  {
+   "t": "say:That same jet",
+   "mood": "day",
+   "fade": 0.6
+  }
+ ],
+ "ground": {
+  "texture": "textures/grass.jpg",
+  "repeat": [
+   525,
+   525
+  ],
+  "size": 1400
+ },
+ "backdrop": {
+  "image": "bg/sky.jpg",
+  "blur": 5
+ },
+ "ink": {
+  "set": 4
+ },
+ "characters": [
+  {
+   "id": "jetK",
+   "puppet": "puppets/jet",
+   "pos": [
+    -18,
+    4.2,
+    0
+   ],
+   "height": 2.0,
+   "face": "default"
+  },
+  {
+   "id": "jetA",
+   "puppet": "puppets/jet",
+   "pos": [
+    0,
+    4.2,
+    0
+   ],
+   "height": 2.0,
+   "face": "default"
+  },
+  {
+   "id": "jetH",
+   "puppet": "puppets/jet",
+   "pos": [
+    142.6,
+    0,
+    -1.5
+   ],
+   "height": 2.0,
+   "face": "park"
+  },
+  {
+   "id": "jetG",
+   "puppet": "puppets/jet",
+   "pos": [
+    250,
+    13,
+    -3
+   ],
+   "height": 2.0,
+   "face": "glide"
+  },
+  {
+   "id": "cap",
+   "puppet": "puppets/cap",
+   "pos": [
+    69.38,
+    0,
+    0.1
+   ],
+   "height": 1.8,
+   "face": "neutral"
+  },
+  {
+   "id": "fo",
+   "puppet": "puppets/fo",
+   "pos": [
+    70.62,
+    0,
+    0.1
+   ],
+   "height": 1.8,
+   "face": "neutral"
+  },
+  {
+   "id": "tech",
+   "puppet": "puppets/tech",
+   "pos": [
+    137.8,
+    0,
+    0.6
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "mom",
+   "puppet": "puppets/mom",
+   "pos": [
+    278.5,
+    0,
+    2.6
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "dad",
+   "puppet": "puppets/dad",
+   "pos": [
+    279.7,
+    0,
+    2.8
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "tank",
+   "puppet": "puppets/tank",
+   "pos": [
+    74.3,
+    0,
+    0.2
+   ],
+   "height": 1.5,
+   "face": "default"
+  },
+  {
+   "id": "k1",
+   "puppet": "puppets/kart1",
+   "pos": [
+    271,
+    0,
+    -1.2
+   ],
+   "height": 0.9,
+   "face": "default"
+  },
+  {
+   "id": "k2",
+   "puppet": "puppets/kart2",
+   "pos": [
+    288,
+    0,
+    -4.6
+   ],
+   "height": 0.9,
+   "face": "default",
+   "flip": true
+  },
+  {
+   "id": "k3",
+   "puppet": "puppets/kart3",
+   "pos": [
+    276,
+    0,
+    -2.6
+   ],
+   "height": 0.9,
+   "face": "default"
+  },
+  {
+   "id": "n177big",
+   "puppet": "puppets/n177",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.4,
+   "face": "default"
+  },
+  {
+   "id": "n177",
+   "puppet": "puppets/n177",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.75,
+   "face": "default"
+  },
+  {
+   "id": "n08",
+   "puppet": "puppets/n08",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.75,
+   "face": "default"
+  },
+  {
+   "id": "cmp",
+   "puppet": "puppets/cmp",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.2,
+   "face": "default"
+  },
+  {
+   "id": "crew",
+   "puppet": "puppets/crew",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.1,
+   "face": "default"
+  },
+  {
+   "id": "alt",
+   "puppet": "puppets/alt",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.3,
+   "face": "default"
+  },
+  {
+   "id": "cal83",
+   "puppet": "puppets/cal83",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.6,
+   "face": "default"
+  },
+  {
+   "id": "cal08",
+   "puppet": "puppets/cal08",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.5,
+   "face": "default"
+  },
+  {
+   "id": "flt",
+   "puppet": "puppets/flt",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.8,
+   "face": "default"
+  },
+  {
+   "id": "broken",
+   "puppet": "puppets/broken",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.45,
+   "face": "default"
+  },
+  {
+   "id": "badge",
+   "puppet": "puppets/badge",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.9,
+   "face": "default"
+  },
+  {
+   "id": "gimli",
+   "puppet": "puppets/gimli",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.7,
+   "face": "default"
+  },
+  {
+   "id": "dots",
+   "puppet": "puppets/dots",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.0,
+   "face": "default"
+  },
+  {
+   "id": "flame1",
+   "puppet": "puppets/flame",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.1,
+   "face": "default"
+  },
+  {
+   "id": "flame2",
+   "puppet": "puppets/flame",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.85,
+   "face": "default"
+  },
+  {
+   "id": "hearts",
+   "puppet": "puppets/hearts",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.1,
+   "face": "default"
+  },
+  {
+   "id": "slam",
+   "puppet": "puppets/slam",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.1,
+   "face": "default"
+  },
+  {
+   "id": "poofK1",
+   "puppet": "puppets/poof",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.9,
+   "face": "default"
+  },
+  {
+   "id": "poofK2",
+   "puppet": "puppets/poof",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.9,
+   "face": "default"
+  },
+  {
+   "id": "poof1A",
+   "puppet": "puppets/poof",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.8,
+   "face": "default"
+  },
+  {
+   "id": "poof2A",
+   "puppet": "puppets/poof",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.8,
+   "face": "default"
+  },
+  {
+   "id": "poof3",
+   "puppet": "puppets/poof",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.2,
+   "face": "default"
+  },
+  {
+   "id": "ques",
+   "puppet": "puppets/ques",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.6,
+   "face": "default"
+  },
+  {
+   "id": "glider",
+   "puppet": "puppets/glider",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.9,
+   "face": "default"
+  }
+ ],
+ "props": [
+  {
+   "type": "box",
+   "pos": [
+    0,
+    0,
+    -10
+   ],
+   "size": [
+    68,
+    1.5,
+    60
+   ],
+   "texture": "textures/cloud.jpg",
+   "repeat": [
+    9,
+    8
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/cloud.png",
+   "pos": [
+    -27,
+    0.6,
+    -38
+   ],
+   "size": [
+    15,
+    7.7
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/cloud.png",
+   "pos": [
+    -13,
+    0.6,
+    -38
+   ],
+   "size": [
+    15,
+    7.7
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/cloud.png",
+   "pos": [
+    1,
+    0.6,
+    -38
+   ],
+   "size": [
+    15,
+    7.7
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/cloud.png",
+   "pos": [
+    15,
+    0.6,
+    -38
+   ],
+   "size": [
+    15,
+    7.7
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/cloud.png",
+   "pos": [
+    28,
+    0.6,
+    -38
+   ],
+   "size": [
+    15,
+    7.7
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/cloud.png",
+   "pos": [
+    -24,
+    2.6,
+    -16
+   ],
+   "size": [
+    8,
+    4.08
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/cloud.png",
+   "pos": [
+    -9,
+    5.6,
+    -24
+   ],
+   "size": [
+    10,
+    5.1
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/cloud.png",
+   "pos": [
+    -30,
+    8.5,
+    -28
+   ],
+   "size": [
+    9,
+    4.59
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/cloud.png",
+   "pos": [
+    9,
+    3.0,
+    -15
+   ],
+   "size": [
+    8,
+    4.08
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/cloud.png",
+   "pos": [
+    15,
+    7.8,
+    -27
+   ],
+   "size": [
+    11,
+    5.61
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/cloud.png",
+   "pos": [
+    1,
+    10,
+    -32
+   ],
+   "size": [
+    12,
+    6.12
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/cloud.png",
+   "pos": [
+    -17,
+    9.5,
+    -22
+   ],
+   "size": [
+    7,
+    3.5700000000000003
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/cloud.png",
+   "pos": [
+    -22,
+    0.4,
+    5
+   ],
+   "size": [
+    5,
+    2.55
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/cloud.png",
+   "pos": [
+    -14.5,
+    0.4,
+    6.5
+   ],
+   "size": [
+    6,
+    3.06
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/cloud.png",
+   "pos": [
+    -3.5,
+    0.4,
+    5.5
+   ],
+   "size": [
+    5,
+    2.55
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/cloud.png",
+   "pos": [
+    4.5,
+    0.4,
+    7
+   ],
+   "size": [
+    6,
+    3.06
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    70,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.02,
+    12
+   ],
+   "color": "#3b3f55"
+  },
+  {
+   "type": "wall",
+   "pos": [
+    70,
+    0,
+    -1.6
+   ],
+   "size": [
+    16,
+    4.4,
+    0.3
+   ],
+   "texture": "textures/panel.jpg",
+   "repeat": [
+    6,
+    2
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/porthole.png",
+   "pos": [
+    67.3,
+    1.5,
+    -1.43
+   ],
+   "size": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/porthole.png",
+   "pos": [
+    72.7,
+    1.5,
+    -1.43
+   ],
+   "size": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    70,
+    0,
+    0.75
+   ],
+   "size": [
+    4.4,
+    0.95,
+    0.7
+   ],
+   "color": "#454b63"
+  },
+  {
+   "type": "box",
+   "pos": [
+    70,
+    0.95,
+    0.75
+   ],
+   "size": [
+    4.5,
+    0.08,
+    0.78
+   ],
+   "color": "#2f3346"
+  },
+  {
+   "type": "plane",
+   "image": "props/gauges.png",
+   "pos": [
+    70,
+    0.06,
+    1.115
+   ],
+   "size": [
+    3.2,
+    0.87
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    140,
+    0,
+    -3
+   ],
+   "size": [
+    34,
+    0.02,
+    26
+   ],
+   "texture": "textures/concrete.jpg",
+   "repeat": [
+    10,
+    8
+   ]
+  },
+  {
+   "type": "house",
+   "pos": [
+    140,
+    0,
+    -12
+   ],
+   "size": [
+    14,
+    8,
+    14
+   ],
+   "roof": "#7d8799",
+   "door": "#7a5890",
+   "color": "#c9cfda"
+  },
+  {
+   "type": "plane",
+   "image": "props/metric.png",
+   "pos": [
+    136.4,
+    1.0,
+    -4.93
+   ],
+   "size": [
+    2.4,
+    3.2
+   ]
+  },
+  {
+   "type": "crate",
+   "pos": [
+    133.0,
+    0,
+    -2.6
+   ],
+   "size": 0.75,
+   "rotY": 0,
+   "texture": "textures/wood.jpg"
+  },
+  {
+   "type": "crate",
+   "pos": [
+    133.15,
+    0.75,
+    -2.65
+   ],
+   "size": 0.55,
+   "rotY": 15,
+   "texture": "textures/wood.jpg"
+  },
+  {
+   "type": "barrel",
+   "pos": [
+    147.4,
+    0,
+    -1.6
+   ]
+  },
+  {
+   "type": "barrel",
+   "pos": [
+    148.1,
+    0,
+    -2.3
+   ]
+  },
+  {
+   "type": "tree",
+   "pos": [
+    127,
+    0,
+    -6
+   ],
+   "scale": 1.5,
+   "color": "#5f9a4c"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    153,
+    0,
+    -6
+   ],
+   "scale": 1.4,
+   "color": "#4f8f4a"
+  },
+  {
+   "type": "house",
+   "pos": [
+    214.8,
+    0,
+    -9
+   ],
+   "size": [
+    3.2,
+    6.5,
+    3.2
+   ],
+   "roof": "#56606f",
+   "door": "#7a5890",
+   "color": "#e2d9c6"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    203,
+    0,
+    -6
+   ],
+   "scale": 1.4,
+   "color": "#5f9a4c"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    199,
+    0,
+    -9
+   ],
+   "scale": 1.7,
+   "color": "#4f8f4a"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    220.5,
+    0,
+    -7
+   ],
+   "scale": 1.5,
+   "color": "#5f9a4c"
+  },
+  {
+   "type": "post",
+   "pos": [
+    218.0,
+    0,
+    -4.5
+   ],
+   "h": 4.2,
+   "color": "#d8d8d8"
+  },
+  {
+   "type": "plane",
+   "image": "props/sparkle.png",
+   "pos": [
+    207.5,
+    1.9,
+    0.2
+   ],
+   "size": [
+    0.45,
+    0.45
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/sparkle.png",
+   "pos": [
+    209.8,
+    2.35,
+    0.2
+   ],
+   "size": [
+    0.35,
+    0.35
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/sparkle.png",
+   "pos": [
+    211.1,
+    1.55,
+    0.2
+   ],
+   "size": [
+    0.4,
+    0.4
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/sparkle.png",
+   "pos": [
+    208.3,
+    0.6,
+    0.2
+   ],
+   "size": [
+    0.3,
+    0.3
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/sparkle.png",
+   "pos": [
+    212.3,
+    2.6,
+    0.2
+   ],
+   "size": [
+    0.3,
+    0.3
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    280,
+    0,
+    -3
+   ],
+   "size": [
+    64,
+    0.03,
+    9
+   ],
+   "texture": "textures/asphalt.jpg",
+   "repeat": [
+    24,
+    4
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    250,
+    0.03,
+    -3
+   ],
+   "size": [
+    2.0,
+    0.012,
+    0.22
+   ],
+   "color": "#f2efe6"
+  },
+  {
+   "type": "box",
+   "pos": [
+    254,
+    0.03,
+    -3
+   ],
+   "size": [
+    2.0,
+    0.012,
+    0.22
+   ],
+   "color": "#f2efe6"
+  },
+  {
+   "type": "box",
+   "pos": [
+    258,
+    0.03,
+    -3
+   ],
+   "size": [
+    2.0,
+    0.012,
+    0.22
+   ],
+   "color": "#f2efe6"
+  },
+  {
+   "type": "box",
+   "pos": [
+    262,
+    0.03,
+    -3
+   ],
+   "size": [
+    2.0,
+    0.012,
+    0.22
+   ],
+   "color": "#f2efe6"
+  },
+  {
+   "type": "box",
+   "pos": [
+    266,
+    0.03,
+    -3
+   ],
+   "size": [
+    2.0,
+    0.012,
+    0.22
+   ],
+   "color": "#f2efe6"
+  },
+  {
+   "type": "box",
+   "pos": [
+    270,
+    0.03,
+    -3
+   ],
+   "size": [
+    2.0,
+    0.012,
+    0.22
+   ],
+   "color": "#f2efe6"
+  },
+  {
+   "type": "box",
+   "pos": [
+    274,
+    0.03,
+    -3
+   ],
+   "size": [
+    2.0,
+    0.012,
+    0.22
+   ],
+   "color": "#f2efe6"
+  },
+  {
+   "type": "box",
+   "pos": [
+    278,
+    0.03,
+    -3
+   ],
+   "size": [
+    2.0,
+    0.012,
+    0.22
+   ],
+   "color": "#f2efe6"
+  },
+  {
+   "type": "box",
+   "pos": [
+    282,
+    0.03,
+    -3
+   ],
+   "size": [
+    2.0,
+    0.012,
+    0.22
+   ],
+   "color": "#f2efe6"
+  },
+  {
+   "type": "box",
+   "pos": [
+    286,
+    0.03,
+    -3
+   ],
+   "size": [
+    2.0,
+    0.012,
+    0.22
+   ],
+   "color": "#f2efe6"
+  },
+  {
+   "type": "box",
+   "pos": [
+    290,
+    0.03,
+    -3
+   ],
+   "size": [
+    2.0,
+    0.012,
+    0.22
+   ],
+   "color": "#f2efe6"
+  },
+  {
+   "type": "box",
+   "pos": [
+    294,
+    0.03,
+    -3
+   ],
+   "size": [
+    2.0,
+    0.012,
+    0.22
+   ],
+   "color": "#f2efe6"
+  },
+  {
+   "type": "box",
+   "pos": [
+    298,
+    0.03,
+    -3
+   ],
+   "size": [
+    2.0,
+    0.012,
+    0.22
+   ],
+   "color": "#f2efe6"
+  },
+  {
+   "type": "box",
+   "pos": [
+    302,
+    0.03,
+    -3
+   ],
+   "size": [
+    2.0,
+    0.012,
+    0.22
+   ],
+   "color": "#f2efe6"
+  },
+  {
+   "type": "box",
+   "pos": [
+    306,
+    0.03,
+    -3
+   ],
+   "size": [
+    2.0,
+    0.012,
+    0.22
+   ],
+   "color": "#f2efe6"
+  },
+  {
+   "type": "box",
+   "pos": [
+    310,
+    0.03,
+    -3
+   ],
+   "size": [
+    2.0,
+    0.012,
+    0.22
+   ],
+   "color": "#f2efe6"
+  },
+  {
+   "type": "box",
+   "pos": [
+    264,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#f4f1ea"
+  },
+  {
+   "type": "box",
+   "pos": [
+    265,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#e04848"
+  },
+  {
+   "type": "box",
+   "pos": [
+    266,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#f4f1ea"
+  },
+  {
+   "type": "box",
+   "pos": [
+    267,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#e04848"
+  },
+  {
+   "type": "box",
+   "pos": [
+    268,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#f4f1ea"
+  },
+  {
+   "type": "box",
+   "pos": [
+    269,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#e04848"
+  },
+  {
+   "type": "box",
+   "pos": [
+    270,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#f4f1ea"
+  },
+  {
+   "type": "box",
+   "pos": [
+    271,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#e04848"
+  },
+  {
+   "type": "box",
+   "pos": [
+    272,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#f4f1ea"
+  },
+  {
+   "type": "box",
+   "pos": [
+    273,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#e04848"
+  },
+  {
+   "type": "box",
+   "pos": [
+    274,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#f4f1ea"
+  },
+  {
+   "type": "box",
+   "pos": [
+    275,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#e04848"
+  },
+  {
+   "type": "box",
+   "pos": [
+    276,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#f4f1ea"
+  },
+  {
+   "type": "box",
+   "pos": [
+    277,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#e04848"
+  },
+  {
+   "type": "box",
+   "pos": [
+    278,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#f4f1ea"
+  },
+  {
+   "type": "box",
+   "pos": [
+    279,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#e04848"
+  },
+  {
+   "type": "box",
+   "pos": [
+    280,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#f4f1ea"
+  },
+  {
+   "type": "box",
+   "pos": [
+    281,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#e04848"
+  },
+  {
+   "type": "box",
+   "pos": [
+    282,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#f4f1ea"
+  },
+  {
+   "type": "box",
+   "pos": [
+    283,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#e04848"
+  },
+  {
+   "type": "box",
+   "pos": [
+    284,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#f4f1ea"
+  },
+  {
+   "type": "box",
+   "pos": [
+    285,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#e04848"
+  },
+  {
+   "type": "box",
+   "pos": [
+    286,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#f4f1ea"
+  },
+  {
+   "type": "box",
+   "pos": [
+    287,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#e04848"
+  },
+  {
+   "type": "box",
+   "pos": [
+    288,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#f4f1ea"
+  },
+  {
+   "type": "box",
+   "pos": [
+    289,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#e04848"
+  },
+  {
+   "type": "box",
+   "pos": [
+    290,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#f4f1ea"
+  },
+  {
+   "type": "box",
+   "pos": [
+    291,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#e04848"
+  },
+  {
+   "type": "box",
+   "pos": [
+    292,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#f4f1ea"
+  },
+  {
+   "type": "box",
+   "pos": [
+    293,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#e04848"
+  },
+  {
+   "type": "box",
+   "pos": [
+    294,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#f4f1ea"
+  },
+  {
+   "type": "box",
+   "pos": [
+    295,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#e04848"
+  },
+  {
+   "type": "box",
+   "pos": [
+    296,
+    0.03,
+    1.75
+   ],
+   "size": [
+    1.0,
+    0.14,
+    0.4
+   ],
+   "color": "#f4f1ea"
+  },
+  {
+   "type": "post",
+   "pos": [
+    276.4,
+    0,
+    -8.6
+   ],
+   "h": 4.4,
+   "color": "#4a3a3f"
+  },
+  {
+   "type": "post",
+   "pos": [
+    283.6,
+    0,
+    -8.6
+   ],
+   "h": 4.4,
+   "color": "#4a3a3f"
+  },
+  {
+   "type": "plane",
+   "image": "props/famday.png",
+   "pos": [
+    280,
+    2.9,
+    -8.55
+   ],
+   "size": [
+    7.0,
+    1.4
+   ]
+  },
+  {
+   "type": "house",
+   "pos": [
+    271,
+    0,
+    -12
+   ],
+   "size": [
+    3.4,
+    2.6,
+    3.4
+   ],
+   "roof": "#d8453c",
+   "door": "#7a5890",
+   "color": "#f4efe6"
+  },
+  {
+   "type": "house",
+   "pos": [
+    289,
+    0,
+    -12.5
+   ],
+   "size": [
+    3.4,
+    2.6,
+    3.4
+   ],
+   "roof": "#e8b23a",
+   "door": "#7a5890",
+   "color": "#f4efe6"
+  },
+  {
+   "type": "house",
+   "pos": [
+    295,
+    0,
+    -11
+   ],
+   "size": [
+    3.4,
+    2.6,
+    3.4
+   ],
+   "roof": "#3f7fd0",
+   "door": "#7a5890",
+   "color": "#f4efe6"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    264,
+    0,
+    -10
+   ],
+   "scale": 1.6,
+   "color": "#5f9a4c"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    259,
+    0,
+    -6
+   ],
+   "scale": 1.4,
+   "color": "#4f8f4a"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    300,
+    0,
+    -8
+   ],
+   "scale": 1.5,
+   "color": "#5f9a4c"
+  }
+ ],
+ "shots": [
+  {
+   "start": 0,
+   "target": "jetK",
+   "headWidth": 0.78,
+   "yaw": 10,
+   "pitch": 4,
+   "zoom": 7,
+   "pan": [
+    -8,
+    4
+   ],
+   "frameY": 0.02,
+   "actions": [
+    {
+     "at": 0.25,
+     "who": "n177big",
+     "to": [
+      -17.7,
+      6.55,
+      0.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    }
+   ]
+  },
+  {
+   "start": "say:turned",
+   "target": "jetK",
+   "headWidth": 0.62,
+   "yaw": -8,
+   "pitch": 6,
+   "zoom": -5,
+   "pan": [
+    8,
+    -2
+   ],
+   "frameY": 0.04,
+   "out": "dissolve",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "jetK",
+     "face": "dead",
+     "shake": 0.7
+    },
+    {
+     "at": 0.05,
+     "who": "poofK1",
+     "to": [
+      -19.0,
+      3.95,
+      0.35
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.15,
+     "who": "poofK2",
+     "to": [
+      -18.0,
+      4.15,
+      0.3
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 1.14,
+     "who": "jetK",
+     "face": "glide",
+     "pose": {
+      "head": 6
+     }
+    },
+    {
+     "at": 1.14,
+     "who": "jetK",
+     "to": [
+      -17.2,
+      3.5,
+      0
+     ],
+     "over": 1.2,
+     "walk": false
+    },
+    {
+     "at": 1.24,
+     "who": "n177big",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.34,
+     "who": "poofK1",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.44,
+     "who": "poofK2",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:July",
+   "target": "jetA",
+   "headWidth": 0.5,
+   "yaw": 12,
+   "pitch": 5,
+   "zoom": 6,
+   "pan": [
+    10,
+    2
+   ],
+   "frameY": 0.06,
+   "actions": [
+    {
+     "at": 0.2,
+     "who": "cal83",
+     "to": [
+      2.7,
+      6.3,
+      0.5
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    }
+   ]
+  },
+  {
+   "start": "say:Air Canada",
+   "target": "jetA",
+   "headWidth": 0.95,
+   "yaw": -10,
+   "pitch": 3,
+   "zoom": 6,
+   "pan": [
+    -8,
+    0
+   ],
+   "frameY": 0.02,
+   "actions": [
+    {
+     "at": 0.05,
+     "who": "cal83",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.15,
+     "who": "flt",
+     "to": [
+      -1.0,
+      6.45,
+      0.45
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  },
+  {
+   "start": "say:Sixtyone",
+   "target": "jetA",
+   "headWidth": 1.5,
+   "yaw": 8,
+   "pitch": 2,
+   "zoom": 5,
+   "pan": [
+    -12,
+    0
+   ],
+   "frameY": 0.0,
+   "actions": [
+    {
+     "at": 0.05,
+     "who": "flt",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.12,
+     "who": "crew",
+     "to": [
+      -0.4,
+      6.3,
+      0.5
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  },
+  {
+   "start": "say:cruising",
+   "target": "jetA",
+   "headWidth": 0.7,
+   "yaw": -12,
+   "pitch": 6,
+   "zoom": 4,
+   "pan": [
+    10,
+    0
+   ],
+   "frameY": 0.04,
+   "actions": [
+    {
+     "at": 0.05,
+     "who": "crew",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.15,
+     "who": "alt",
+     "to": [
+      -2.4,
+      6.2,
+      0.5
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  },
+  {
+   "start": "say:One engine",
+   "target": "jetA",
+   "headWidth": 0.85,
+   "yaw": 6,
+   "pitch": 4,
+   "zoom": 7,
+   "pan": [
+    0,
+    -6
+   ],
+   "frameY": 0.02,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "alt",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "jetA",
+     "face": "eng1",
+     "shake": 0.7
+    },
+    {
+     "at": 0.1,
+     "who": "poof1A",
+     "to": [
+      -1.0,
+      3.95,
+      0.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 1.03,
+     "who": "jetA",
+     "face": "dead",
+     "shake": 0.9
+    },
+    {
+     "at": 1.08,
+     "who": "poof2A",
+     "to": [
+      0.2,
+      4.2,
+      0.3
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  },
+  {
+   "start": "say:Total silence",
+   "anchor": [
+    0.4,
+    5.6,
+    0
+   ],
+   "distance": 24,
+   "yaw": -6,
+   "pitch": 8,
+   "zoom": -3,
+   "pan": [
+    4,
+    0
+   ],
+   "frameY": 0.1,
+   "out": "dissolve",
+   "actions": [
+    {
+     "at": 0.2,
+     "who": "poof1A",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "poof2A",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.25,
+     "who": "dots",
+     "to": [
+      2.6,
+      6.3,
+      0.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.1,
+     "who": "jetA",
+     "pose": {
+      "head": 4
+     }
+    },
+    {
+     "at": 0.1,
+     "who": "jetA",
+     "to": [
+      0.8,
+      3.4,
+      0
+     ],
+     "over": 1.4,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:The fuel gauges",
+   "anchor": [
+    70,
+    0.75,
+    1.12
+   ],
+   "distance": 5.2,
+   "yaw": 8,
+   "pitch": 4,
+   "zoom": 5,
+   "pan": [
+    -6,
+    0
+   ],
+   "frameY": 0.0,
+   "actions": [
+    {
+     "at": 0.3,
+     "who": "dots",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "cap",
+     "face": "shocked"
+    },
+    {
+     "at": 0.1,
+     "who": "fo",
+     "face": "nervous"
+    },
+    {
+     "at": 0.98,
+     "who": "broken",
+     "to": [
+      69.55,
+      0.28,
+      1.2
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 1.08,
+     "who": "cap",
+     "face": "confused",
+     "pose": {
+      "head": 6
+     }
+    }
+   ]
+  },
+  {
+   "start": "say:Nobody knew",
+   "target": "tank",
+   "headWidth": 0.55,
+   "yaw": -8,
+   "pitch": 4,
+   "zoom": 6,
+   "pan": [
+    8,
+    0
+   ],
+   "frameY": 0.05,
+   "actions": [
+    {
+     "at": 0.4,
+     "who": "tank",
+     "shake": 0.5
+    }
+   ]
+  },
+  {
+   "start": "say:How does",
+   "target": "cap",
+   "headWidth": 0.3,
+   "yaw": 6,
+   "pitch": 3,
+   "zoom": 7,
+   "pan": [
+    -6,
+    4
+   ],
+   "frameY": 0.1,
+   "out": "dissolve",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "cap",
+     "face": "confused",
+     "pose": {
+      "head": 8
+     }
+    },
+    {
+     "at": 0.25,
+     "who": "ques",
+     "to": [
+      69.92,
+      1.7,
+      0.35
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  },
+  {
+   "start": "say:You see",
+   "anchor": [
+    139.0,
+    2.0,
+    -2.0
+   ],
+   "distance": 16,
+   "yaw": 10,
+   "pitch": 6,
+   "zoom": 4,
+   "pan": [
+    8,
+    0
+   ],
+   "frameY": 0.04,
+   "actions": [
+    {
+     "at": 0.3,
+     "who": "cap",
+     "to": [
+      208.8,
+      0,
+      0.5
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.3,
+     "who": "fo",
+     "to": [
+      211.4,
+      0,
+      0.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.32,
+     "who": "cap",
+     "face": "happy",
+     "pose": {
+      "head": 0
+     }
+    },
+    {
+     "at": 0.32,
+     "who": "fo",
+     "face": "happy"
+    },
+    {
+     "at": 0.3,
+     "who": "broken",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "ques",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.2,
+     "who": "tech",
+     "face": "happy",
+     "pose": {
+      "armL": 110
+     }
+    }
+   ]
+  },
+  {
+   "start": "say:and the Boeing",
+   "target": "jetH",
+   "headWidth": 0.7,
+   "yaw": -10,
+   "pitch": 4,
+   "zoom": 6,
+   "pan": [
+    -8,
+    0
+   ],
+   "frameY": 0.04,
+   "actions": [
+    {
+     "at": 1.9,
+     "who": "badge",
+     "to": [
+      144.6,
+      1.5,
+      -1.0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    }
+   ]
+  },
+  {
+   "start": "say:But the fuel",
+   "target": "tech",
+   "headWidth": 0.26,
+   "yaw": 8,
+   "pitch": 3,
+   "zoom": 6,
+   "pan": [
+    -6,
+    2
+   ],
+   "frameY": 0.08,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "tech",
+     "face": "confused",
+     "pose": {
+      "armL": 0,
+      "armR": -60
+     }
+    },
+    {
+     "at": 2.1,
+     "who": "n177",
+     "to": [
+      138.45,
+      0.12,
+      0.8
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 2.1,
+     "who": "tech",
+     "face": "smug"
+    }
+   ]
+  },
+  {
+   "start": "say:pounds per",
+   "target": "n177",
+   "headWidth": 0.8,
+   "yaw": -6,
+   "pitch": 2,
+   "zoom": 5,
+   "pan": [
+    4,
+    0
+   ],
+   "frameY": 0.0,
+   "actions": []
+  },
+  {
+   "start": "say:instead of",
+   "anchor": [
+    139.05,
+    0.55,
+    0.8
+   ],
+   "distance": 6.4,
+   "yaw": 6,
+   "pitch": 3,
+   "zoom": 4,
+   "pan": [
+    -6,
+    0
+   ],
+   "frameY": 0.05,
+   "actions": [
+    {
+     "at": 0.42,
+     "who": "n08",
+     "to": [
+      139.65,
+      0.12,
+      0.8
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.42,
+     "who": "n177",
+     "face": "x",
+     "shake": 0.6
+    },
+    {
+     "at": 0.42,
+     "who": "tech",
+     "face": "shocked"
+    }
+   ]
+  },
+  {
+   "start": "say:So they took",
+   "anchor": [
+    141.6,
+    1.7,
+    -0.5
+   ],
+   "distance": 16,
+   "yaw": -8,
+   "pitch": 6,
+   "zoom": -4,
+   "pan": [
+    10,
+    4
+   ],
+   "frameY": 0.05,
+   "out": "dissolve",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "n177",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "n08",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.2,
+     "who": "badge",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.25,
+     "who": "cmp",
+     "to": [
+      139.4,
+      0.7,
+      0.8
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    },
+    {
+     "at": 0.2,
+     "who": "jetH",
+     "face": "default",
+     "pose": {
+      "head": -6
+     }
+    },
+    {
+     "at": 0.2,
+     "who": "jetH",
+     "to": [
+      154,
+      6.5,
+      -1.5
+     ],
+     "over": 2.2,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:But luck",
+   "anchor": [
+    210.1,
+    1.2,
+    0.5
+   ],
+   "distance": 8.5,
+   "yaw": 10,
+   "pitch": 5,
+   "zoom": 5,
+   "pan": [
+    8,
+    0
+   ],
+   "frameY": 0.1,
+   "actions": [
+    {
+     "at": 0.3,
+     "who": "cmp",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.1,
+     "who": "cap",
+     "pose": {
+      "armR": -30
+     }
+    },
+    {
+     "at": 0.2,
+     "who": "fo",
+     "pose": {
+      "armL": 30
+     }
+    }
+   ]
+  },
+  {
+   "start": "say:The captain",
+   "target": "cap",
+   "headWidth": 0.28,
+   "yaw": -8,
+   "pitch": 3,
+   "zoom": 6,
+   "pan": [
+    -8,
+    4
+   ],
+   "frameY": 0.1,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "glider",
+     "to": [
+      205.8,
+      2.0,
+      0.3
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.05,
+     "who": "glider",
+     "to": [
+      209.7,
+      2.25,
+      0.3
+     ],
+     "over": 1.3,
+     "walk": false
+    },
+    {
+     "at": 0.2,
+     "who": "cap",
+     "pose": {
+      "armR": -150
+     }
+    }
+   ]
+  },
+  {
+   "start": "say:And the copilot",
+   "anchor": [
+    212.6,
+    2.3,
+    -3.0
+   ],
+   "distance": 12,
+   "yaw": 12,
+   "pitch": 4,
+   "zoom": 4,
+   "pan": [
+    -8,
+    0
+   ],
+   "frameY": 0.05,
+   "out": "dissolve",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "cap",
+     "pose": {
+      "armR": 0
+     }
+    },
+    {
+     "at": 0.05,
+     "who": "fo",
+     "to": [
+      213.4,
+      0,
+      -2.0
+     ],
+     "over": 1.2,
+     "walk": true
+    },
+    {
+     "at": 1.3,
+     "who": "fo",
+     "face": "smug",
+     "pose": {
+      "armR": -135
+     }
+    },
+    {
+     "at": 2.58,
+     "who": "gimli",
+     "to": [
+      211.6,
+      0,
+      -1.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    },
+    {
+     "at": 2.58,
+     "who": "fo",
+     "face": "happy"
+    }
+   ]
+  },
+  {
+   "start": "say:One problem",
+   "anchor": [
+    280,
+    1.5,
+    -2.5
+   ],
+   "distance": 18,
+   "yaw": 14,
+   "pitch": 9,
+   "zoom": 4,
+   "pan": [
+    10,
+    0
+   ],
+   "frameY": 0.0,
+   "actions": [
+    {
+     "at": 0.3,
+     "who": "glider",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "gimli",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "k1",
+     "to": [
+      286,
+      0,
+      -1.2
+     ],
+     "over": 2.3,
+     "walk": false
+    },
+    {
+     "at": 0.1,
+     "who": "k2",
+     "to": [
+      273,
+      0,
+      -4.6
+     ],
+     "over": 2.2,
+     "walk": false
+    },
+    {
+     "at": 0.2,
+     "who": "k3",
+     "to": [
+      289,
+      0,
+      -2.6
+     ],
+     "over": 2.1,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:And today",
+   "anchor": [
+    279.1,
+    1.8,
+    1.0
+   ],
+   "distance": 9,
+   "yaw": -10,
+   "pitch": 4,
+   "zoom": 6,
+   "pan": [
+    -8,
+    2
+   ],
+   "frameY": 0.08,
+   "actions": [
+    {
+     "at": 0.1,
+     "who": "mom",
+     "pose": {
+      "armR": -150
+     }
+    },
+    {
+     "at": 0.25,
+     "who": "dad",
+     "pose": {
+      "armL": 150
+     }
+    },
+    {
+     "at": 0.75,
+     "who": "mom",
+     "pose": {
+      "armR": -115
+     }
+    },
+    {
+     "at": 0.9,
+     "who": "dad",
+     "pose": {
+      "armL": 115
+     }
+    },
+    {
+     "at": 0.1,
+     "who": "k1",
+     "to": [
+      302,
+      0,
+      -1.2
+     ],
+     "over": 1.0,
+     "walk": false
+    },
+    {
+     "at": 0.1,
+     "who": "k3",
+     "to": [
+      304,
+      0,
+      -2.6
+     ],
+     "over": 1.0,
+     "walk": false
+    },
+    {
+     "at": 0.1,
+     "who": "k2",
+     "to": [
+      258,
+      0,
+      -4.6
+     ],
+     "over": 1.0,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:Gokarts",
+   "anchor": [
+    280,
+    0.6,
+    0.5
+   ],
+   "distance": 6,
+   "yaw": 0,
+   "pitch": 2,
+   "zoom": 8,
+   "pan": [
+    -14,
+    0
+   ],
+   "frameY": 0.05,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "k1",
+     "to": [
+      274,
+      0,
+      0.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.03,
+     "who": "k1",
+     "to": [
+      285.0,
+      0,
+      0.6
+     ],
+     "over": 1.0,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "k3",
+     "to": [
+      272,
+      0,
+      -0.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.2,
+     "who": "k3",
+     "to": [
+      287.0,
+      0,
+      -0.4
+     ],
+     "over": 1.2,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "k2",
+     "to": [
+      287,
+      0,
+      -1.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.1,
+     "who": "k2",
+     "to": [
+      274.0,
+      0,
+      -1.4
+     ],
+     "over": 1.1,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:The plane drops",
+   "anchor": [
+    278.0,
+    3.5,
+    -2.0
+   ],
+   "distance": 20,
+   "yaw": -12,
+   "pitch": 3,
+   "zoom": 3,
+   "pan": [
+    -6,
+    6
+   ],
+   "frameY": 0.05,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "jetG",
+     "to": [
+      277.0,
+      1.6,
+      -3.0
+     ],
+     "over": 1.46,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "jetG",
+     "pose": {
+      "head": 6
+     }
+    },
+    {
+     "at": 0.4,
+     "who": "mom",
+     "face": "shocked",
+     "pose": {
+      "armR": 0
+     }
+    },
+    {
+     "at": 0.5,
+     "who": "dad",
+     "face": "shocked",
+     "pose": {
+      "armL": 0
+     }
+    },
+    {
+     "at": 0.3,
+     "who": "k1",
+     "face": "shocked"
+    },
+    {
+     "at": 0.35,
+     "who": "k3",
+     "face": "shocked"
+    },
+    {
+     "at": 0.4,
+     "who": "k2",
+     "face": "shocked"
+    }
+   ]
+  },
+  {
+   "start": "say:The nose",
+   "target": "jetG",
+   "headWidth": 0.6,
+   "yaw": 8,
+   "pitch": 5,
+   "zoom": 8,
+   "pan": [
+    0,
+    -8
+   ],
+   "frameY": 0.0,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "jetG",
+     "to": [
+      280.5,
+      0,
+      -3.0
+     ],
+     "over": 0.35,
+     "walk": false
+    },
+    {
+     "at": 0.35,
+     "who": "jetG",
+     "face": "slam",
+     "pose": {
+      "head": 7
+     },
+     "shake": 1.0
+    },
+    {
+     "at": 0.35,
+     "who": "slam",
+     "to": [
+      283.4,
+      1.0,
+      -2.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    },
+    {
+     "at": 0.38,
+     "who": "poof3",
+     "to": [
+      278.4,
+      0,
+      -2.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    }
+   ]
+  },
+  {
+   "start": "say:Fire bursts",
+   "target": "jetG",
+   "headWidth": 0.75,
+   "yaw": -6,
+   "pitch": 3,
+   "zoom": 6,
+   "pan": [
+    6,
+    0
+   ],
+   "frameY": 0.05,
+   "actions": [
+    {
+     "at": 0.05,
+     "who": "slam",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.1,
+     "who": "flame1",
+     "to": [
+      282.5,
+      0,
+      -2.5
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.2
+    },
+    {
+     "at": 0.22,
+     "who": "flame2",
+     "to": [
+      283.2,
+      0,
+      -2.35
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.2
+    },
+    {
+     "at": 0.2,
+     "who": "jetG",
+     "face": "dead"
+    }
+   ]
+  },
+  {
+   "start": "say:And everyone",
+   "anchor": [
+    280.3,
+    1.6,
+    -1.0
+   ],
+   "distance": 14,
+   "yaw": 10,
+   "pitch": 5,
+   "zoom": -4,
+   "pan": [
+    8,
+    2
+   ],
+   "frameY": 0.08,
+   "out": "dissolve",
+   "actions": [
+    {
+     "at": 0.05,
+     "who": "flame1",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.1,
+     "who": "flame2",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "poof3",
+     "to": [
+      282.6,
+      0.1,
+      -2.3
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 0.1,
+     "who": "jetG",
+     "face": "saved",
+     "pose": {
+      "head": 4
+     }
+    },
+    {
+     "at": 0.3,
+     "who": "hearts",
+     "to": [
+      280.6,
+      2.5,
+      -2.2
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.2
+    },
+    {
+     "at": 0.15,
+     "who": "mom",
+     "face": "happy",
+     "pose": {
+      "armR": -160,
+      "armL": 160
+     }
+    },
+    {
+     "at": 0.2,
+     "who": "dad",
+     "face": "happy",
+     "pose": {
+      "armR": -160,
+      "armL": 160
+     }
+    },
+    {
+     "at": 0.25,
+     "who": "k1",
+     "face": "default"
+    },
+    {
+     "at": 0.25,
+     "who": "k2",
+     "face": "default"
+    },
+    {
+     "at": 0.25,
+     "who": "k3",
+     "face": "default"
+    },
+    {
+     "at": 0.0,
+     "who": "jetA",
+     "to": [
+      -1.0,
+      4.4,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "jetA",
+     "face": "default",
+     "pose": {
+      "head": 0
+     }
+    },
+    {
+     "at": 0.0,
+     "who": "jetK",
+     "to": [
+      -18,
+      4.2,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "jetK",
+     "face": "default",
+     "pose": {
+      "head": 0
+     }
+    }
+   ]
+  },
+  {
+   "start": "say:That same jet",
+   "target": "jetA",
+   "headWidth": 0.7,
+   "yaw": 10,
+   "pitch": 4,
+   "zoom": 5,
+   "pan": [
+    -8,
+    0
+   ],
+   "frameY": 0.02,
+   "out": "dissolve",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "jetA",
+     "to": [
+      0.6,
+      4.6,
+      0
+     ],
+     "over": 2.0,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "cal08",
+     "to": [
+      2.4,
+      6.5,
+      0.5
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    }
+   ]
+  },
+  {
+   "start": "say:All because",
+   "target": "jetK",
+   "headWidth": 0.78,
+   "yaw": 10,
+   "pitch": 4,
+   "zoom": 7,
+   "pan": [
+    -8,
+    4
+   ],
+   "frameY": 0.02,
+   "actions": [
+    {
+     "at": 0.74,
+     "who": "n177big",
+     "to": [
+      -17.7,
+      6.55,
+      0.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    },
+    {
+     "at": 1.34,
+     "who": "n177big",
+     "face": "x",
+     "shake": 0.6
+    },
+    {
+     "at": 1.34,
+     "who": "jetK",
+     "face": "eng1"
+    }
+   ]
+  }
+ ],
+ "end": "audio"
+}

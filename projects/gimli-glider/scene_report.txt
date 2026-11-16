@@ -1,0 +1,32 @@
+music projects/gimli-glider/audio/music.wav 52.4 s, cues {'quit1': 10.42, 'quit2': 11.45, 'sil': 12.13, 'explain': 18.79, 'luck': 32.07, 'drop': 42.6, 'slam': 44.41, 'fire': 45.2, 'lives': 46.1}
+shot  start   dur  phrase
+S00    0.00  0.86  0
+S01    0.86  1.82  turned
+S02    2.68  1.92  July
+S03    4.60  1.66  Air Canada
+S04    6.26  1.74  Sixtyone
+S05    8.00  2.42  cruising
+S06   10.42  1.71  One engine
+S07   12.13  0.88  Total silence
+S08   13.01  2.38  The fuel gauges
+S09   15.39  1.84  Nobody knew
+S10   17.23  1.56  How does
+S11   18.79  1.84  You see
+S12   20.63  2.94  and the Boeing
+S13   23.57  3.28  But the fuel
+S14   26.85  0.92  pounds per
+S15   27.77  1.92  instead of
+S16   29.69  2.38  So they took
+S17   32.07  1.15  But luck
+S18   33.22  1.62  The captain
+S19   34.84  3.08  And the copilot
+S20   37.92  2.34  One problem
+S21   40.26  1.34  And today
+S22   41.60  1.00  Gokarts
+S23   42.60  1.46  The plane drops
+S24   44.06  1.14  The nose
+S25   45.20  0.90  Fire bursts
+S26   46.10  1.08  And everyone
+S27   47.18  2.20  That same jet
+S28   49.38  2.46  All because
+wrote short.json: 29 shots, 37 characters, 102 props, voice 51.84 s
