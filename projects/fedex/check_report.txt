@@ -1,9 +1,9 @@
 {
  "frames": 1645,
  "step": 1,
- "pan_speed_med_px_s": 43.5,
- "zoom_med_pct_s": 8.55,
- "static_frames_pct": 1.6,
+ "pan_speed_med_px_s": 43.4,
+ "zoom_med_pct_s": 8.39,
+ "static_frames_pct": 1.7,
  "pan_speed_ok": true,
  "zoom_ok": true
 }
@@ -25,5 +25,5 @@ duration=54.832993
 
   True peak:
     Peak:       -2.3 dBFS
-[out#0/null @ 0x5a7687c03e40] video:668KiB audio:9448KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
-frame= 1645 fps=678 q=-0.0 Lsize=N/A time=00:00:54.83 bitrate=N/A speed=22.6x elapsed=0:00:02.42    
+[out#0/null @ 0x5d37e52e5100] video:668KiB audio:9448KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame= 1645 fps=616 q=-0.0 Lsize=N/A time=00:00:54.83 bitrate=N/A speed=20.5x elapsed=0:00:02.67    
