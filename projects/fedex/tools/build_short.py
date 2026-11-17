@@ -121,7 +121,7 @@ def hook_state(s):
     for cid, p in CARDS.items(): show(s, 0.0, cid, p, hop=0); act(s, 0.0, cid, face="up")
     show(s, 0.0, "chips", pos("VG", -0.78, 0.91, -1.0), hop=0); act(s, 0.0, "chips", face="big")
     show(s, 0.0, "fredV", pos("VG", -1.25, 0.06, -0.45), hop=0); act(s, 0.0, "fredV", face="shocked", pose=dict(armR=-150, armL=150))
-    act(s, 0.0, "dealer", face="shocked"); tag(s, 0.0, "bj", 0.02, 0.24, 0.5); tag(s, 0.0, "num1", 0.29, 0.0, 0.4, wf=0.22)
+    show(s, 0.0, "dealer", pos("VG", 0.3, 0.06, -3.0), hop=0); act(s, 0.0, "dealer", face="shocked"); tag(s, 0.0, "bj", 0.02, 0.24, 0.5); tag(s, 0.0, "num1", 0.29, 0.0, 0.4, wf=0.22)
 
 
 HOOK = dict(anchor=pos("VG", -0.3, 1.3, -1.1), dist=4.6, yaw=-16, pitch=8, zoom=8, pan=(9, 0))
@@ -140,7 +140,7 @@ act(s, 0.0, "fredV", face="happy", pose=dict(armR=0)); act(s, rel(s, "blackjack"
 # ---- 4-9 Memphis, April 1973: fourteen Falcon jets, the first night, 186 packages, 25 cities
 s = S("In April", anchor=pos("MP", -3.0, 1.5, 0.4), dist=6.5, yaw=14, pitch=4, zoom=10, pan=(-9, 0))
 act(s, 0.1, "fredM", pose=dict(armR=-150), face="happy"); tag(s, rel(s, "April"), "cal", 0.18, 0.2)
-s = S("Federal Express launched", anchor=pos("MP", 0, 1.6, -4.6), dist=15, yaw=-20, pitch=12, zoom=7, pan=(10, 0))
+s = S("Federal Express launched", out="cut", anchor=pos("MP", 0, 1.6, -4.6), dist=15, yaw=-20, pitch=12, zoom=7, pan=(10, 0))
 act(s, 0.0, "fredM", pose=dict(armR=0)); tag(s, rel(s, "fourteen small"), "jets14", 0.28)
 s = S("out of Memphis", out="cut", anchor=pos("MP", -8, 4.2, -6), dist=13, yaw=26, pitch=-5, zoom=10, pan=(-9, 2)); tag(s, rel(s, "Memphis"), "mem", 0.26)
 s = S("On that first night", out="cut", anchor=pos("MP", 2.4, 0.9, 1.0), dist=6, yaw=-10, pitch=6, zoom=10, pan=(9, 0))
@@ -158,20 +158,20 @@ temp(s, *PK[:3]); tag(s, 0.1, "cmp", 0.24, 0.1)
 
 # ---- 10-13 money trouble: fuel costs, the vanishing cash, $5,000 left, the jets can't fly
 s = S("Fuel costs", out="cut", anchor=pos("OF", -0.4, 1.6, -2.2), dist=5.5, yaw=-14, pitch=4, zoom=12, pan=(9, 0))
-tag(s, rel(s, "Fuel"), "fuel", 0.18, 0.2); act(s, rel(s, "climbing"), "fredO", face="nervous")
+tag(s, rel(s, "Fuel"), "fuel", 0.2, 0.08); act(s, rel(s, "climbing"), "fredO", face="nervous")
 s = S("and the money", anchor=pos("OF", 0.4, 1.25, -1.4), dist=3.6, yaw=16, pitch=10, zoom=10, pan=(-9, 0))
 v_ = rel(s, "vanishing"); act(s, 0.0, "jar", face="default"); act(s, v_, "jar", face="empty", shake=0.4); temp(s, *BILLS)
 for k, cid in enumerate(BILLS):
     show(s, v_ - 0.1, cid, pos("OF", 0.6, 1.1, -1.25), hop=0); go(s, v_ - 0.05 + 0.05 * k, cid, pos("OF", 0.6 + (k - 2) * 0.45, 2.7 + 0.15 * k, -1.2), 0.5, walk=False)
-s = S("Then the company's", out="cut", anchor=pos("OF", -0.4, 1.5, -2.3), dist=4.2, yaw=-6, pitch=2, zoom=14, pan=(7, 2))
-f_ = rel(s, "fell"); act(s, f_, "fredO", face="shocked", shake=0.4); tag(s, f_, "cash5", 0.27, 0.0, tilt=-8)
+s = S("Then the company's", out="cut", anchor=pos("OF", -0.4, 1.5, -2.3), dist=4.2, yaw=-6, pitch=2, zoom=9, pan=(7, 2))
+f_ = rel(s, "fell"); act(s, f_, "fredO", face="shocked", shake=0.4); tag(s, f_, "cash5", 0.27, 0.0, wf=0.2, tilt=-8)
 s = S("Nowhere near", out="cut", anchor=pos("MP", -2, 1.0, -3.2), dist=7, yaw=-24, pitch=6, zoom=9, pan=(10, 0))
 for cid, *_ in JETS: act(s, 0.0, cid, face="sad")
 tag(s, 0.15, "notenough", 0.27)
 
 # ---- 14-19 Fred Smith goes to Las Vegas: $5,000 becomes $27,000
 s = S("You see", out="cut", anchor=pos("OF", -0.4, 1.4, -2.3), dist=5, yaw=20, pitch=0, zoom=10, pan=(-10, 0))
-act(s, 0.0, "fredO", face="smug", pose=dict(armR=-150)); tag(s, rel(s, "founder"), "founder", 0.29); tag(s, rel(s, "Fred"), "fredtag", 0.17)
+act(s, 0.0, "fredO", face="smug", pose=dict(armR=-150)); tag(s, rel(s, "founder#2"), "founder", 0.29); tag(s, rel(s, "Fred"), "fredtag", 0.17)
 s = S("did something", out="cut", anchor=pos("OF", -0.4, 1.6, -2.0), dist=5, yaw=-18, pitch=6, zoom=-8, pan=(9, 0))
 act(s, 0.0, "fredO", face="sneaky", pose=dict(armR=0)); tag(s, 0.05, "book", 0.1, 0.2); tag(s, rel(s, "teach"), "never", 0.08, 0.18, 0.5, tilt=-10)
 s = S("He flew to", out="cut", anchor=pos("OP", -1.0, 3.3, -4.8), dist=7.5, yaw=-10, pitch=0, zoom=10, pan=(9, 0))
@@ -185,7 +185,7 @@ for k, (cid, p) in enumerate(CARDS.items()):
     act(s, 0.0, cid, face="default"); show(s, dl + 0.15 * k, cid, pos("VG", 0.3, 0.91, -2.2), hop=0); go(s, dl + 0.02 + 0.15 * k, cid, p, 0.3, walk=False)
 act(s, dl, "dealer", pose=dict(armR=-70), face="happy")
 s = S("and turned that", anchor=pos("VG", 0.15, 1.15, -1.1), dist=3.0, yaw=-8, pitch=18, zoom=10, pan=(9, 0))
-t_ = rel(s, "turned"); act(s, 0.0, "dealer", pose=dict(armR=0), face="neutral")
+t_ = rel(s, "turned"); act(s, 0.0, "dealer", pose=dict(armR=0), face="neutral"); show(s, 0.0, "dealer", pos("VG", 1.0, 0.06, -3.0), hop=0)
 act(s, t_ + 0.1, "cardA", face="up", shake=0.3); act(s, t_ + 0.4, "cardK", face="up", shake=0.3); tag(s, rel(s, "five thousand#3"), "money", 0.28)
 s = S("twentyseven", out="cut", anchor=pos("VG", -0.6, 1.3, -1.0), dist=4.4, yaw=20, pitch=6, zoom=14, pan=(-8, 2))
 act(s, 0.0, "chips", face="big", shake=0.5); act(s, 0.0, "fredV", face="shocked", pose=dict(armR=-150, armL=150)); act(s, 0.5, "fredV", face="happy")
