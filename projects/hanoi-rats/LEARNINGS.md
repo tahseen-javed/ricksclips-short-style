@@ -51,3 +51,15 @@ frame width in close-ups, cute characters (big round heads, shiny eyes, blush).
 - Motion check: static_frames 70% and pan_speed_ok false (vasa 53%). Too many held shots. Next video: every shot gets a visible camera move (dolly in or out, or an orbit of 8 degrees or more), target static under 55%.
 - The same cloud render took 37 min once and about 60 min the next time: runner speed varies.
 - Tokens: about 490K new tokens against a 200K cap. Causes: three cloud render rounds (stills flags, then a voice fix), 70 hand-drawn assets, context compactions. Next time: copy projects/corrigan/tools, write tts.txt with merged lines from the start, keep line 1 short, check stills locally before the first cloud run, one render.
+
+## Video 06 (FedEx blackjack) -> projects/fedex
+- `pan` is px/s (not degrees). Videos 01-05 used 6-12 px/s = a held frame (static 70%). Now every shot uses glide "dolly" (parallax) and pan x5 (about 45 px/s) with zoom 7-14 %/s: static frames 1.6%, pan_speed_ok and zoom_ok true. The S() helper in fedex/build_short.py does this for every shot.
+- Puppet folder names are global: a card named "fred" overwrote the human puppet "fred" (every Fred became a giant sign). Card names must never equal a cast name.
+- rel(s, word) takes the FIRST match in the whole script. A word that also appears earlier ("founder" in line 1) puts the action at a negative time, so the card shows up in earlier shots. Use "word#2" and check that no action time is negative (dry run below).
+- Cards placed toward the camera (dz) drift sideways when the shot has yaw. card() now places along the camera's right/forward axes (cos/sin yaw). Size each card from the shot distance: tag() keeps width <= 24% of distance (about 58% of the frame); tilted stamps 20%; zoom <= 10 when a wide card shows.
+- A shot without out="cut" glides into the next one for 0.8 s. A shot under 1 s that follows a glide never settles, and its card gets cut. Cut into short shots, and always cut between sets.
+- At dusk (sun azimuth 250) a hangar front faces away from the sun: TOO_DARK. Use light walls (#ddd6ee) and frame some sky.
+- Wood texture on small boxes (desks, tables) reads as crates. Use solid colours plus a lighter top slab.
+- Whisper writes numbers as digits, so the "understood" score drops (0.92) even when every word is right. Read the replace lines, not the score.
+- Local dry run before any cloud run (python only, no install): make_assets into D:/Claude projects/_tmp/fx with the Montserrat font, then build_short with a fake words.json (NO_MUSIC=1). It caught two crashes for free.
+- Funk score (112 bpm E minor) synth: fedex/tools/make_music.py. Next video: change the style again.
