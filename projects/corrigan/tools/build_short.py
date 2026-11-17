@@ -59,7 +59,7 @@ for x in (-28, -20):
     for z in (-0.8, 3.8): post("NY", x, z, 1.1, "#5a4636")
 
 # ================================================================== CHARACTERS
-put("sock", "windsock", pos("AF", 3.2, 0.06, -3.5), 2.4); put("sign", "signpost", pos("AF", -0.9, 0.06, 3.2), 2.0)
+put("sock", "windsock", pos("AF", 3.2, 0.06, -3.5), 2.4); put("sign", "signpost", pos("AF", -0.7, 0.06, 4.2), 2.5)
 put("robinA", "robin", pos("AF", -6, 0.09, 1.0), 2.0, "fly"); put("sun", "sun", pos("AF", 7, 0.5, -16), 3.2)
 human("dougA", "doug", PARK, face="happy"); human("insp1A", "insp1", PARK, face="neutral")
 put("robinS", "robin", pos("SK", 0, 6.0, 0), 2.2, "fly")
@@ -81,7 +81,7 @@ for cid in TAPES: sticker(cid, "tape", 1.4)
 for cid, name, h in (("banned", "banned", 1.0), ("robtag", "robtag", 1.6), ("price", "price", 0.85), ("unsound", "unsound", 0.72), ("noview", "noview", 0.32),
                      ("gasb", "gas", 0.6), ("punch", "punch", 0.5), ("screw", "screwdriver", 0.9), ("kept", "kept", 0.75), ("name", "name", 1.0), ("cal38", "cal38", 1.4),
                      ("plan", "plan", 1.3), ("clock", "clock", 1.8), ("dublin", "dublin", 0.8), ("compass", "compass", 1.0), ("needle", "needle", 0.49),
-                     ("wrong", "wrong", 0.5), ("badvis", "badvis", 0.55), ("licence", "licence", 0.95), ("parade", "parade", 1.2), ("lindy", "lindy", 1.4),
+                     ("wrong", "wrong", 0.5), ("badvis", "badvis", 0.55), ("licence", "licence", 0.95), ("parade", "parade", 0.85), ("lindy", "lindy", 1.4),
                      ("wwc", "wwc", 0.95), ("purpose", "purpose", 0.38), ("plan2", "plan", 1.05), ("hearts", "hearts", 0.8), ("spark", "sparkle", 0.6)):
     sticker(cid, name, h)
 for cid, name, h, tilt in (("d1", "denied", 0.6, -10), ("d2", "denied", 0.6, 8), ("d3", "denied", 0.6, -4), ("susp", "susp", 0.5, -12), ("official", "official", 0.42, -10)):
@@ -126,7 +126,7 @@ card(s, rel(s, "Dublin"), "dublin", 0.27)
 s = shot("His plane was", anchor=pos("HG", -0.6, 2.0, -2.6), dist=15, yaw=10, pitch=6, zoom=6, pan=(-8, 0))
 hide(s, 0.3, "dublin"); card(s, max(0.05, rel(s, "1929") - 0.1), "robtag", 0.27); cut(s, "that cost", "robtag")
 s = shot("that cost him", anchor=pos("HG", -1.8, 1.45, -0.6), dist=5.5, yaw=-18, pitch=3, zoom=10, pan=(6, 2))
-act(s, 0.0, "dougH", face="smug"); card(s, rel(s, "900"), "price", 0.22, 0.0); cut(s, "Inspectors", "price")
+act(s, 0.0, "dougH", face="smug"); card(s, rel(s, "900"), "price", 0.22, -0.08); cut(s, "Inspectors", "price")
 s = shot("Inspectors called it", out="whip", anchor=pos("HG", 0.2, 1.7, -1.4), dist=11, yaw=16, pitch=5, zoom=8, pan=(-6, 0))
 go(s, 0.0, "insp1", pos("HG", -0.6, 0.06, 0.2), 1.0); go(s, 0.1, "insp2", pos("HG", 2.4, 0.06, 0.6), 1.0)
 u_ = rel(s, "unsound"); act(s, u_, "insp1", face="shocked"); act(s, u_, "insp2", face="confused"); act(s, u_, "robinH", shake=0.6)
@@ -142,13 +142,13 @@ go(s, rel(s, "blocked"), "dougC", pos("CK", -0.62, 0.06, 0), 0.35); act(s, rel(s
 card(s, rel(s, "whole view"), "noview", 0.3); cut(s, "Over the open", "noview")
 s = shot("Over the open sea", out="cut", anchor=pos("SK", 0, 5.0, 0), dist=18, yaw=24, pitch=14, zoom=6, pan=(-8, 0))
 drift(s, "the cockpit floor", 1.3); act(s, 0.0, "robinS", face="fly")
-s = shot("the cockpit floor", anchor=pos("CK", -0.4, 0.75, 0.1), dist=4.2, yaw=-90, pitch=18, zoom=10, pan=(6, 2))
+s = shot("the cockpit floor", anchor=pos("CK", -0.5, 0.6, 0.1), dist=4.6, yaw=-90, pitch=20, zoom=10, pan=(6, 2))
 show(s, 0.0, "gas", pos("CK", -1.2, -0.75, 0.1), hop=0)
-f_ = rel(s, "flooded"); go(s, max(0.05, f_ - 0.1), "gas", pos("CK", -1.2, -0.32, 0.1), 1.2, walk=False); act(s, f_, "dougC", face="shocked", shake=0.4)
-card(s, rel(s, "gasoline"), "gasb", 0.24, 0.15)
-s = shot("He punched a hole", out="cut", anchor=pos("CK", -0.7, 0.5, 0.15), dist=3.4, yaw=-70, pitch=24, zoom=10, pan=(6, 2))
+f_ = rel(s, "flooded"); go(s, max(0.05, f_ - 0.1), "gas", pos("CK", -1.2, -0.2, 0.1), 1.2, walk=False); act(s, f_, "dougC", face="shocked", shake=0.4)
+card(s, rel(s, "gasoline"), "gasb", 0.24, 0.0)
+s = shot("He punched a hole", out="cut", anchor=pos("CK", -0.7, 0.45, 0.15), dist=3.4, yaw=-70, pitch=24, zoom=10, pan=(6, 2))
 hide(s, 0.3, "gasb"); p_ = rel(s, "punched"); show(s, 0.0, "screw", pos("CK", -1.0, 0.75, 0.3), hop=0.1)
-go(s, p_ + 0.05, "screw", pos("CK", -1.0, -0.1, 0.3), 0.12, walk=False); card(s, p_ + 0.17, "punch", 0.02, 0.2, 0.5)
+go(s, p_ + 0.05, "screw", pos("CK", -1.0, -0.1, 0.3), 0.12, walk=False); card(s, p_ + 0.17, "punch", 0.08, 0.1, 0.5)
 act(s, p_ + 0.17, "dougC", face="nervous"); go(s, rel(s, "screwdriver"), "gas", pos("CK", -1.2, -0.95, 0.1), 0.9, walk=False)
 act(s, rel(s, "screwdriver") + 0.4, "dougC", face="smug"); cut(s, "and kept", "punch", "screw")
 s = shot("and kept flying", out="cut", anchor=pos("SK", 0.8, 6.6, 0), dist=9, yaw=-24, pitch=-4, zoom=12, pan=(10, 0))
@@ -181,10 +181,10 @@ s = shot("Clouds", anchor=pos("DB", 2.4, 1.5, 1.1), dist=7.5, yaw=14, pitch=4, z
 o_ = max(0.4, min(1.6, rel(s, "Officials suspended") - 0.35))
 show(s, 0.0, "cf1", pos("DB", 0.6, 1.4, 1.9), hop=0.15); go(s, 0.1, "cf1", pos("DB", 1.5, 1.5, 1.9), o_, walk=False)
 show(s, 0.1, "cf2", pos("DB", 4.6, 2.4, 1.5), hop=0.15); go(s, 0.2, "cf2", pos("DB", 3.4, 2.3, 1.5), o_ - 0.1, walk=False)
-act(s, 0.1, "dougD", pose=dict(armR=-150)); card(s, rel(s, "Bad visibility"), "badvis", 0.28, 0.08); cut(s, "Officials suspended", "cf1", "cf2", "badvis")
+act(s, 0.1, "dougD", pose=dict(armR=-150)); card(s, rel(s, "Bad visibility"), "badvis", 0.28, -0.06); cut(s, "Officials suspended", "cf1", "cf2", "badvis")
 s = shot("Officials suspended", out="cut", anchor=pos("DB", 2.2, 1.5, 1.1), dist=6.5, yaw=-16, pitch=2, zoom=10, pan=(6, 0))
-act(s, 0.0, "dougD", pose=dict(armR=0), face="happy"); card(s, 0.05, "licence", 0.2, 0.04)
-x_ = rel(s, "suspended"); card(s, x_, "susp", 0.2, 0.04, 0.45); act(s, x_, "dougD", face="shocked", shake=0.4)
+act(s, 0.0, "dougD", pose=dict(armR=0), face="happy"); card(s, 0.05, "licence", 0.2, -0.02)
+x_ = rel(s, "suspended"); card(s, x_, "susp", 0.2, -0.02, 0.45); act(s, x_, "dougD", face="shocked", shake=0.4)
 
 # ---- 20-25 home: the ship docks, the ticker-tape parade, bigger than Lindbergh's, Wrong Way Corrigan, never admitted
 s = shot("but only until", anchor=pos("NY", -27, 2.2, -3), dist=20, yaw=20, pitch=6, zoom=8, pan=(-10, 0))
@@ -203,7 +203,7 @@ act(s, 0.0, "dougP", pose=dict(armR=-150, armL=150), face="happy"); card(s, rel(
 show(s, rel(s, "Corrigan#2"), "spark", pos("NY", -1.7, 2.9, 1.0), hop=0.1); cut(s, "He never once", "wwc", "spark")
 s = shot("He never once", anchor=pos("NY", -2.8, 1.5, 0.4), dist=4.6, yaw=16, pitch=2, zoom=12, pan=(-6, 0))
 act(s, 0.0, "dougP", pose=dict(armR=0, armL=0), face="sneaky"); p_ = rel(s, "purpose")
-act(s, p_, "dougP", pose=dict(armR=-100, armL=100)); card(s, p_, "purpose", 0.27); cut(s, "Because officially", "purpose")
+act(s, p_, "dougP", pose=dict(armR=-100, armL=100)); card(s, p_, "purpose", 0.27, 0.06); cut(s, "Because officially", "purpose")
 s = shot("Because officially", out="cut", anchor=pos("NY", -2.8, 1.5, 0.4), dist=6.2, yaw=-18, pitch=3, zoom=8, pan=(8, 0))
 act(s, 0.0, "dougP", pose=dict(armR=0, armL=0), face="smug"); card(s, 0.05, "plan2", 0.16, 0.06)
 card(s, rel(s, "officially"), "official", 0.16, 0.06, 0.45)
