@@ -1,30 +1,30 @@
-music projects/corrigan/audio/music.wav 46.2 s
+music projects/corrigan/audio/music.wav 48.2 s
 shot  start   dur  phrase
-S00    0.00  1.86  0
-S01    1.86  1.34  So he took off
-S02    3.20  1.08  and landed in Dublin
-S03    4.28  2.66  His plane was
-S04    6.94  2.10  that cost him
-S05    9.04  2.50  Inspectors called it
-S06   11.54  1.70  and turned him
-S07   13.24  2.08  Extra fuel tanks
-S08   15.32  0.90  Over the open sea
-S09   16.22  1.77  the cockpit floor
-S10   17.99  1.86  He punched a hole
-S11   19.85  0.92  and kept flying
-S12   20.77  1.18  You see
-S13   21.95  3.08  left New York
-S14   25.03  1.40  His flight plan
-S15   26.43  1.92  twentyeight
-S16   28.35  1.32  he climbed out
-S17   29.67  2.36  and said he had
-S18   32.03  1.70  Clouds
-S19   33.73  1.42  Officials suspended
-S20   35.15  1.96  but only until
-S21   37.11  1.86  Then New York
-S22   38.97  1.04  bigger than
-S23   40.01  1.40  They called him
-S24   41.41  1.84  He never once
-S25   43.25  0.94  Because officially
-S26   44.19  1.66  never flying
-wrote short.json: 27 shots, 75 characters, 86 props, voice 45.85 s
+S00    0.00  1.98  0
+S01    1.98  1.38  So he took off
+S02    3.36  1.14  and landed in Dublin
+S03    4.50  2.92  His plane was
+S04    7.42  2.16  that cost him
+S05    9.58  2.58  Inspectors called it
+S06   12.16  1.72  and turned him
+S07   13.88  2.32  Extra fuel tanks
+S08   16.20  0.92  Over the open sea
+S09   17.12  1.80  the cockpit floor
+S10   18.92  1.94  He punched a hole
+S11   20.86  0.94  and kept flying
+S12   21.80  1.20  You see
+S13   23.00  3.18  left New York
+S14   26.18  1.52  His flight plan
+S15   27.70  2.02  twentyeight
+S16   29.72  1.30  he climbed out
+S17   31.02  2.40  and said he had
+S18   33.42  1.70  Clouds
+S19   35.12  1.52  Officials suspended
+S20   36.64  2.07  but only until
+S21   38.71  1.94  Then New York
+S22   40.65  1.08  bigger than
+S23   41.73  1.40  They called him
+S24   43.13  1.96  He never once
+S25   45.09  1.02  Because officially
+S26   46.11  1.72  never flying
+wrote short.json: 27 shots, 75 characters, 87 props, voice 47.83 s
