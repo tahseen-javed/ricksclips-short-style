@@ -41,3 +41,13 @@ frame width in close-ups, cute characters (big round heads, shiny eyes, blush).
 - Sticker pose head rotates the whole card around its centre, positive is clockwise.
 - Bash tool: an unbalanced apostrophe inside a heredoc breaks the command. Write such files with the Write tool.
 - Tokens: about 589K new tokens, far over the cap. The cause was very long planning in my reasoning plus two extra render rounds. Next time: reuse projects/vasa/tools/build_short.py structure (card, cut helpers, cuts at set changes), plan briefly, one render.
+
+## Video 05 (Wrong Way Corrigan) -> projects/corrigan
+- Kokoro under-articulates the FIRST word of every separately generated line: So, Clouds, Then, They were heard as nothing or as "louds". Merging tts lines so those words fall mid-line fixed all of them (0.938 -> 0.962). But a longer line 1 made the very first word ("Officials") soft. Keep line 1 short (hook sentence only) and merge only the later lines.
+- Stop-frame PURE_BLACK = more than 3% of pixels with RGB under 10. Dark boxes close to the camera trigger it. In close interiors use mid-tone colours (#9a6a48 or lighter), a wood texture floor and a window.
+- A card must be narrower than 0.41 x camera distance (frame height is 0.728 x distance) or it is cut at the frame edge.
+- Props box, plane, crate and wall are placed by their BOTTOM.
+- Hyphenated script words become one token: "Twenty-eight" is say("twentyeight").
+- Motion check: static_frames 70% and pan_speed_ok false (vasa 53%). Too many held shots. Next video: every shot gets a visible camera move (dolly in or out, or an orbit of 8 degrees or more), target static under 55%.
+- The same cloud render took 37 min once and about 60 min the next time: runner speed varies.
+- Tokens: about 490K new tokens against a 200K cap. Causes: three cloud render rounds (stills flags, then a voice fix), 70 hand-drawn assets, context compactions. Next time: copy projects/corrigan/tools, write tts.txt with merged lines from the start, keep line 1 short, check stills locally before the first cloud run, one render.
