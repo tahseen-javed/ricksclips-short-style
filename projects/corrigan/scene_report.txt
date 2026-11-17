@@ -1,0 +1,30 @@
+music projects/corrigan/audio/music.wav 46.2 s
+shot  start   dur  phrase
+S00    0.00  1.86  0
+S01    1.86  1.34  So he took off
+S02    3.20  1.08  and landed in Dublin
+S03    4.28  2.66  His plane was
+S04    6.94  2.10  that cost him
+S05    9.04  2.50  Inspectors called it
+S06   11.54  1.70  and turned him
+S07   13.24  2.08  Extra fuel tanks
+S08   15.32  0.90  Over the open sea
+S09   16.22  1.77  the cockpit floor
+S10   17.99  1.86  He punched a hole
+S11   19.85  0.92  and kept flying
+S12   20.77  1.18  You see
+S13   21.95  3.08  left New York
+S14   25.03  1.40  His flight plan
+S15   26.43  1.92  twentyeight
+S16   28.35  1.32  he climbed out
+S17   29.67  2.36  and said he had
+S18   32.03  1.70  Clouds
+S19   33.73  1.42  Officials suspended
+S20   35.15  1.96  but only until
+S21   37.11  1.86  Then New York
+S22   38.97  1.04  bigger than
+S23   40.01  1.40  They called him
+S24   41.41  1.84  He never once
+S25   43.25  0.94  Because officially
+S26   44.19  1.66  never flying
+wrote short.json: 27 shots, 75 characters, 86 props, voice 45.85 s
