@@ -5,7 +5,7 @@ Six sets 70 units apart: VG the Las Vegas casino (the hook), MP Memphis airport 
 OF the Federal Express office, OP the operations room with the hub-and-spoke wall map, YL a Yale classroom, TD the
 giant cargo hub of today.  Every shot has a camera move (dolly + orbit).  Cards are sized from the shot distance and
 leave one frame before the next shot; the last shot repeats the first for the loop."""
-import json, os, sys, subprocess
+import json, os, sys, subprocess, math
 import scene_base as base
 from scene_base import *
 
@@ -28,22 +28,22 @@ for sg in (-1, 1): box("VG", sg * 10.8, 0, -3, [0.4, 7.5, 16], color="#9a6a7e");
 plane("VG", "neon.png", 0, 3.4, -8.75, 6.4, 2.56)
 for x in (-8.6, -6.8, 6.8, 8.6): plane("VG", "slot.png", x, 0.06, -8.7, 1.5, 2.5)
 for x in (-5, 0, 5): box("VG", x, 6.6, -4, [1.0, 0.3, 1.0], color="#ffe08a")
-box("VG", 0, 0, -1.6, [4.2, 0.86, 1.9], texture="wood.jpg", repeat=[2, 1]); box("VG", 0, 0.86, -1.6, [3.9, 0.05, 1.6], color="#2e8c58")
-box("VG", -6, 0, -5, [3, 0.86, 1.5], texture="wood.jpg", repeat=[2, 1]); box("VG", -6, 0.86, -5, [2.7, 0.05, 1.2], color="#2e8c58")
-box("VG", 6, 0, -5, [3, 0.86, 1.5], texture="wood.jpg", repeat=[2, 1]); box("VG", 6, 0.86, -5, [2.7, 0.05, 1.2], color="#a23a4a")
+box("VG", 0, 0, -1.6, [4.2, 0.86, 1.9], color="#8a3e2e"); box("VG", 0, 0.7, -0.62, [4.2, 0.08, 0.06], color="#e0b050"); box("VG", 0, 0.86, -1.6, [3.9, 0.05, 1.6], color="#2e8c58")
+box("VG", -6, 0, -5, [3, 0.86, 1.5], color="#8a3e2e"); box("VG", -6, 0.86, -5, [2.7, 0.05, 1.2], color="#2e8c58")
+box("VG", 6, 0, -5, [3, 0.86, 1.5], color="#8a3e2e"); box("VG", 6, 0.86, -5, [2.7, 0.05, 1.2], color="#a23a4a")
 # MP Memphis 1973 at dusk: taxi line, runway lights, hangar, tower, crates
 plane("MP", "skymem.png", 0, -1, -26, 96, 42)
 for x in range(-20, 21, 4): box("MP", x, 0.07, 1.6, [1.4, 0.02, 0.16], color="#f2c230")
 for x in range(-18, 19, 3): post("MP", x, 2.6, 0.35, "#ffd166")
-house("MP", -10, -12, [12, 6.5, 9], "#5e4f86", color="#b9b2c9"); house("MP", 11, -14, [8, 4.6, 7], "#7a5f52", color="#d8cfc0")
+house("MP", -10, -12, [12, 6.5, 9], "#8a76b8", color="#ddd6ee"); house("MP", 11, -14, [8, 4.6, 7], "#7a5f52", color="#d8cfc0")
 box("MP", 9, 0, -10, [1.6, 5, 1.6], color="#d8d2c4"); box("MP", 9, 5, -10, [2.6, 1.2, 2.6], color="#8fb3cc"); box("MP", 9, 6.2, -10, [3, 0.2, 3], color="#5e4f86")
 crate("MP", -4.5, 0, -7.5); crate("MP", -3.8, 0.75, -7.7, 0.6); barrel("MP", 5.5, -8); barrel("MP", 6.2, -8.4)
 # OF office: wood floor, warm walls, bills board, window, desk, cabinet
 box("OF", 0, 0, -1, [10, 0.06, 9], texture="wood.jpg", repeat=[3, 3]); box("OF", 0, 0, -4.5, [10, 4.2, 0.3], color="#d8b48a")
 for sg in (-1, 1): box("OF", sg * 4.85, 0, -1, [0.3, 4.2, 9], color="#c9a27a")
 plane("OF", "bills.png", -1.7, 1.3, -4.32, 2.4, 1.6); plane("OF", "window.png", 2.4, 0.9, -4.32, 1.4, 2.06)
-box("OF", -0.4, 0, -1.6, [2.6, 0.8, 1.1], texture="wood.jpg", repeat=[2, 1]); box("OF", -3.6, 0, -3.7, [0.9, 1.4, 0.7], color="#9aa6b6")
-box("OF", 3.6, 0, -3.8, [1.2, 2.2, 0.5], texture="wood.jpg", repeat=[1, 2])
+box("OF", -0.4, 0, -1.6, [2.6, 0.74, 1.1], color="#a8724a"); box("OF", -0.4, 0.74, -1.6, [2.7, 0.06, 1.2], color="#c98f5e"); box("OF", -3.6, 0, -3.7, [0.9, 1.4, 0.7], color="#9aa6b6")
+box("OF", 3.6, 0, -3.8, [1.2, 2.2, 0.5], color="#b07a4e")
 # OP operations room: the hub-and-spoke wall map
 box("OP", 0, 0, -1, [14, 0.06, 10], color="#8a93a3"); box("OP", 0, 0, -5, [14, 6.4, 0.3], color="#6f7d96")
 for sg in (-1, 1): box("OP", sg * 6.85, 0, -1, [0.3, 6.4, 10], color="#7d8aa2"); box("OP", sg * 5.0, 0, -3.6, [1.6, 0.9, 0.7], color="#5a6478")
@@ -52,8 +52,8 @@ plane("OP", "map.png", 0, 0.7, -4.82, 8.4, 5.13)
 box("YL", 0, 0, -1, [12, 0.06, 10], texture="wood.jpg", repeat=[3, 3]); box("YL", 0, 0, -5, [12, 5, 0.3], color="#b8c6dc")
 for sg in (-1, 1): box("YL", sg * 5.85, 0, -1, [0.3, 5, 10], color="#a8b8d0")
 plane("YL", "chalk.png", 0.8, 1.0, -4.82, 5.0, 2.5); plane("YL", "pennant.png", -3.4, 2.6, -4.82, 2.0, 0.88); plane("YL", "window.png", 4.4, 0.9, -4.82, 1.3, 1.9)
-box("YL", -0.6, 0, -0.6, [1.3, 0.75, 0.75], texture="wood.jpg", repeat=[1, 1])
-for x, z in ((-3.0, -1.6), (2.6, -0.4), (-3.4, 1.2), (3.2, 1.4)): box("YL", x, 0, z, [1.2, 0.75, 0.7], texture="wood.jpg", repeat=[1, 1])
+box("YL", -0.6, 0, -0.6, [1.3, 0.69, 0.75], color="#b07a4e"); box("YL", -0.6, 0.69, -0.6, [1.4, 0.06, 0.85], color="#d09a64")
+for x, z in ((-3.0, -1.6), (2.6, -0.4), (-3.4, 1.2), (3.2, 1.4)): box("YL", x, 0, z, [1.2, 0.75, 0.7], color="#b07a4e")
 box("YL", 2.2, 0, -3.4, [1.8, 0.95, 0.8], color="#9a6a48")
 # TD the cargo hub today: day sky, giant hangars, tower
 plane("TD", "skyday.png", 0, -1, -26, 96, 42)
@@ -91,15 +91,15 @@ human("fredT", "fred", pos("TD", 0.0, 0.06, 0.6), face="happy")
 
 # ================================================================== SHOTS
 SH = {c["id"]: c["height"] for c in chars}
-ASP = dict(num1=5.64, last=3.73, bj=1.1, cal=0.92, jets14=4.36, mem=2.9, n186=1.67, n25=1.52, cash5=3.28, notenough=3.55, fred=3.45, founder=2.36,
+ASP = dict(num1=5.64, last=3.73, bj=1.1, cal=0.92, jets14=4.36, mem=2.9, n186=1.67, n25=1.52, cash5=3.28, notenough=3.55, fredtag=3.45, founder=2.36,
            never=3.6, vegas=3.18, paid=2.08, nostrat=3.76, flying=3.73, yale=2.09, avg=2.9, saved=5.36, back=5.27, ques=1.0, bag=0.93, book=0.89,
            fuel=1.36, cmp=1.57, alive=3.0, crown=1.6, money=2.2, hearts=1.3, sparkle=1.0, poof=1.0)
 N_ = [0]
 
 
 def card(s, at, who, dy=0.25, dx=0.0, dz=0.3):               # a card at a safe spot of the frame, never near an edge
-    (ax, ay, az), d = s["anchor"], s["distance"]
-    show(s, at, who, [round(ax + dx * 0.41 * d, 3), round(ay + dy * 0.728 * d - SH[who] / 2, 3), round(az + dz, 3)], hop=0.12)
+    (ax, ay, az), d = s["anchor"], s["distance"]; y = math.radians(s["yaw"]); w = dx * 0.41 * d    # along the camera's own right / forward axes
+    show(s, at, who, [round(ax + w * math.cos(y) + dz * math.sin(y), 3), round(ay + dy * 0.728 * d - SH[who] / 2, 3), round(az - w * math.sin(y) + dz * math.cos(y), 3)], hop=0.12)
 
 
 def tag(s, at, name, dy=0.25, dx=0.0, dz=0.3, wf=0.24, hf=0.2, tilt=0, face="default"):
@@ -121,7 +121,7 @@ def hook_state(s):
     for cid, p in CARDS.items(): show(s, 0.0, cid, p, hop=0); act(s, 0.0, cid, face="up")
     show(s, 0.0, "chips", pos("VG", -0.78, 0.91, -1.0), hop=0); act(s, 0.0, "chips", face="big")
     show(s, 0.0, "fredV", pos("VG", -1.25, 0.06, -0.45), hop=0); act(s, 0.0, "fredV", face="shocked", pose=dict(armR=-150, armL=150))
-    act(s, 0.0, "dealer", face="shocked"); tag(s, 0.0, "bj", 0.02, 0.24, 0.5); tag(s, 0.0, "num1", 0.29, 0.0, 0.6, wf=0.28)
+    act(s, 0.0, "dealer", face="shocked"); tag(s, 0.0, "bj", 0.02, 0.24, 0.5); tag(s, 0.0, "num1", 0.29, 0.0, 0.4, wf=0.22)
 
 
 HOOK = dict(anchor=pos("VG", -0.3, 1.3, -1.1), dist=4.6, yaw=-16, pitch=8, zoom=8, pan=(9, 0))
@@ -142,7 +142,7 @@ s = S("In April", anchor=pos("MP", -3.0, 1.5, 0.4), dist=6.5, yaw=14, pitch=4, z
 act(s, 0.1, "fredM", pose=dict(armR=-150), face="happy"); tag(s, rel(s, "April"), "cal", 0.18, 0.2)
 s = S("Federal Express launched", anchor=pos("MP", 0, 1.6, -4.6), dist=15, yaw=-20, pitch=12, zoom=7, pan=(10, 0))
 act(s, 0.0, "fredM", pose=dict(armR=0)); tag(s, rel(s, "fourteen small"), "jets14", 0.28)
-s = S("out of Memphis", out="cut", anchor=pos("MP", -9, 3.2, -7), dist=13, yaw=18, pitch=4, zoom=10, pan=(-9, 2)); tag(s, rel(s, "Memphis"), "mem", 0.26)
+s = S("out of Memphis", out="cut", anchor=pos("MP", -8, 4.2, -6), dist=13, yaw=26, pitch=-5, zoom=10, pan=(-9, 2)); tag(s, rel(s, "Memphis"), "mem", 0.26)
 s = S("On that first night", out="cut", anchor=pos("MP", 2.4, 0.9, 1.0), dist=6, yaw=-10, pitch=6, zoom=10, pan=(9, 0))
 show(s, 0.0, "jetH", pos("MP", 3.6, 0.06, 0.6), hop=0); act(s, 0.0, "jetH", face="default"); temp(s, "jetH", *PK)
 n_ = rel(s, "186")
@@ -171,7 +171,7 @@ tag(s, 0.15, "notenough", 0.27)
 
 # ---- 14-19 Fred Smith goes to Las Vegas: $5,000 becomes $27,000
 s = S("You see", out="cut", anchor=pos("OF", -0.4, 1.4, -2.3), dist=5, yaw=20, pitch=0, zoom=10, pan=(-10, 0))
-act(s, 0.0, "fredO", face="smug", pose=dict(armR=-150)); tag(s, rel(s, "founder"), "founder", 0.29); tag(s, rel(s, "Fred"), "fred", 0.17)
+act(s, 0.0, "fredO", face="smug", pose=dict(armR=-150)); tag(s, rel(s, "founder"), "founder", 0.29); tag(s, rel(s, "Fred"), "fredtag", 0.17)
 s = S("did something", out="cut", anchor=pos("OF", -0.4, 1.6, -2.0), dist=5, yaw=-18, pitch=6, zoom=-8, pan=(9, 0))
 act(s, 0.0, "fredO", face="sneaky", pose=dict(armR=0)); tag(s, 0.05, "book", 0.1, 0.2); tag(s, rel(s, "teach"), "never", 0.08, 0.18, 0.5, tilt=-10)
 s = S("He flew to", out="cut", anchor=pos("OP", -1.0, 3.3, -4.8), dist=7.5, yaw=-10, pitch=0, zoom=10, pan=(9, 0))

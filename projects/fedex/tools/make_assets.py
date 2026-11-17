@@ -361,7 +361,7 @@ if __name__ == '__main__':
                  num1=V.wtag("WORLD'S #1 CARGO AIRLINE", 1240, PURP, 70), last=V.wtag('LAST $5,000!', 820, RED, 88), bj=B.sticker_burst('21!'),
                  cal=G.cal_card('APRIL', '1973', ''), jets14=V.wtag('14 FALCON JETS', 960, PURP, 80), mem=V.wtag('MEMPHIS', 640, ORNG, 92),
                  n186=V.big_card('186', 'PACKAGES', ORNG, 700), n25=V.big_card('25', 'CITIES', BLUE, 640), cash5=CA.stamp('$5,000 LEFT', 820, 104),
-                 notenough=V.wtag('NOT ENOUGH!', 780, RED, 84), fred=V.wtag('FRED SMITH', 760, BLUE, 84), founder=V.wtag('FOUNDER', 520, ORNG, 70),
+                 notenough=V.wtag('NOT ENOUGH!', 780, RED, 84), fredtag=V.wtag('FRED SMITH', 760, BLUE, 84), founder=V.wtag('FOUNDER', 520, ORNG, 70),
                  never=CA.stamp('NEVER TAUGHT!', 900, 96), vegas=V.wtag('LAS VEGAS!', 700, (214, 60, 160, 255), 88), paid=CA.stamp('PAID!', 520, 120),
                  nostrat=CA.stamp('NOT A STRATEGY', 940, 88), flying=V.wtag('JETS FLYING!', 820, GREEN, 82), yale=V.wtag('YALE', 460, (20, 60, 140, 255), 96),
                  avg=V.wtag('AVERAGE!', 640, (130, 136, 150, 255), 92), saved=V.wtag('SAVED BY A CARD GAME', 1180, RED, 72), back=V.wtag('INVESTORS ARE BACK!', 1160, GREEN, 70),
