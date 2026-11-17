@@ -34,4 +34,4 @@ S30   50.90  1.10  saved by
 S31   52.00  1.46  and today
 S32   53.46  1.38  cargo airline#2
    ! b4: move from S11 (20.48+0.50 s) overlaps next move in S11 at 20.89 s
-wrote short.json: 33 shots, 91 characters, 100 props, voice 54.84 s
+wrote short.json: 33 shots, 91 characters, 103 props, voice 54.84 s
