@@ -23,8 +23,9 @@ def squeeze(a, keep=0.12, thr=0.012):
         if env[i] >= thr: out.append(a[i * hop:(i + 1) * hop]); i += 1; continue
         j = i
         while j < n and env[j] < thr: j += 1
-        seg = a[i * hop:i * hop + min((j - i) * hop, int(keep * SR))].copy(); f = min(len(seg), int(0.01 * SR))
-        if f: seg[-f:] *= np.linspace(1, 0, f)
+        seg = a[i * hop:j * hop].copy(); h, tl, f = int(0.04 * SR), int((keep - 0.04) * SR), int(0.01 * SR)
+        if len(seg) > h + tl:                                 # keep the tail of the last sound AND the soft onset of the next word
+            s1, s2 = seg[:h].copy(), seg[-tl:].copy(); s1[-f:] *= np.linspace(1, 0, f); s2[:f] *= np.linspace(0, 1, f); seg = np.concatenate([s1, s2])
         out.append(seg); i = j
     out.append(a[n * hop:]); return np.concatenate(out)
 
@@ -33,8 +34,8 @@ def gen(voice, speed):
     parts = []
     for line in LINES:
         a = np.concatenate([np.asarray(x, dtype=np.float32) for _, _, x in pipe(line.lstrip("~").strip(), voice=voice, speed=speed)])
-        idx = np.where(np.abs(a) > 0.012)[0]
-        if len(idx): a = a[max(0, idx[0] - int(0.08 * SR)): min(len(a), idx[-1] + int(0.12 * SR))]
+        idx, on = np.where(np.abs(a) > 0.012)[0], np.where(np.abs(a) > 0.004)[0]      # low threshold finds the start of a soft s/t/th
+        if len(idx): a = a[max(0, on[0] - int(0.06 * SR)): min(len(a), idx[-1] + int(0.12 * SR))]
         parts += [squeeze(a), np.zeros(int((0.33 if line.startswith("~") else 0.04) * SR), np.float32)]
     return np.concatenate(parts)
 
