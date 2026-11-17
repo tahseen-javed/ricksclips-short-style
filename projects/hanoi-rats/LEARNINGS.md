@@ -31,3 +31,13 @@ frame width in close-ups, cute characters (big round heads, shiny eyes, blush).
 - Voice (am_fenrir, energetic): trimming each TTS line 0.03 s before the first loud sample clipped soft onsets ("made" -> "aid"); use 0.08 s. Proper nouns (Nibelung, Doepler) cap Whisper scores near 0.96, so a 0.965 threshold can fail: the fallback picks the clearest take.
 - Red velvet stage + dark carpet were TOO_DARK: keep interior colours light (velvet (224,92,104), floor #b07a66).
 - Cards near frame edges got cut: place pop-up cards within +-0.35 x frame width of the anchor; hide a card at the first shot where it would be cut.
+
+## Video 04 (Vasa warship) - what changed and what to keep
+- Every set change needs out="cut" (or "dissolve"). The default out is "glide", which flies the camera across the whole world between sets and gives empty, broken frames.
+- The stage puts an anchor 12 % above frame centre by default (frameY 0.12). Set frameY 0 for anchor shots and place cards with a card() helper: y = anchor + dy * 0.728 * dist, x = anchor + dx * 0.41 * dist, dy about 0.22-0.25. No more cards cut at the top.
+- make_voice squeeze kept the START of every quiet gap and cut the soft onset of the next word (s, t, th, b): "Sinking" was heard as "thinking". Now it keeps 0.04 s of the gap head plus 0.08 s of its tail, and the line trim starts at a 0.004 threshold. Intelligibility 0.954 -> 0.980.
+- make_music.py is also called once before the voice exists (placeholder step) with no cues file: handle that case.
+- Ground texture can be water: sea sets come for free, anything below y 0 is hidden under the surface (sinking and rising ships are just moves in y).
+- Sticker pose head rotates the whole card around its centre, positive is clockwise.
+- Bash tool: an unbalanced apostrophe inside a heredoc breaks the command. Write such files with the Write tool.
+- Tokens: about 589K new tokens, far over the cap. The cause was very long planning in my reasoning plus two extra render rounds. Next time: reuse projects/vasa/tools/build_short.py structure (card, cut helpers, cuts at set changes), plan briefly, one render.
