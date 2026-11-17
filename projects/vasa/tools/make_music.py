@@ -9,7 +9,10 @@ import sys, json
 import numpy as np, soundfile as sf
 from scipy.signal import butter, sosfilt
 
-SR = 44100; OUT, LEN = sys.argv[1], float(sys.argv[2]); C = json.load(open(sys.argv[3]))
+SR = 44100; OUT, LEN = sys.argv[1], float(sys.argv[2])
+if len(sys.argv) < 4:                                                   # pre-voice placeholder; build_short.py makes the real cue-timed track
+    sf.write(OUT, np.zeros(int(SR * LEN), np.float32), SR); sys.exit(0)
+C = json.load(open(sys.argv[3]))
 N = int(SR * LEN); bed = np.zeros(N); fx = np.zeros(N); R = np.random.RandomState(4); E8 = 0.19      # eighth note: a 6/8 bar is 1.14 s
 
 
