@@ -16,7 +16,7 @@ pipe = KPipeline(lang_code="a", repo_id="hexgrad/Kokoro-82M")
 VOICES, SPEEDS = ["am_fenrir"], [1.28, 1.32, 1.36]       # the channel voice, energetic
 
 
-def squeeze(a, keep=0.12, thr=0.012):
+def squeeze(a, keep=0.14, thr=0.012):
     hop = int(0.01 * SR); n = len(a) // hop; out = []; i = 0
     env = np.array([np.abs(a[k * hop:(k + 1) * hop]).max() for k in range(n)])
     while i < n:
@@ -24,7 +24,7 @@ def squeeze(a, keep=0.12, thr=0.012):
         j = i
         while j < n and env[j] < thr: j += 1
         seg = a[i * hop:j * hop].copy(); h, tl, f = int(0.04 * SR), int((keep - 0.04) * SR), int(0.01 * SR)
-        if len(seg) > h + tl:                                 # keep the tail of the last sound AND the soft onset of the next word
+        if i > 0 and len(seg) > h + tl:                       # never the line onset (already trimmed); keep the tail of the last sound AND the soft onset of the next word
             s1, s2 = seg[:h].copy(), seg[-tl:].copy(); s1[-f:] *= np.linspace(1, 0, f); s2[:f] *= np.linspace(0, 1, f); seg = np.concatenate([s1, s2])
         out.append(seg); i = j
     out.append(a[n * hop:]); return np.concatenate(out)
