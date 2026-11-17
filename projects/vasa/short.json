@@ -1,0 +1,4379 @@
+{
+ "fps": 30,
+ "audio": {
+  "voice": "audio/voice.mp3",
+  "music": "audio/music.mp3",
+  "musicDb": -11
+ },
+ "words": "audio/words.json",
+ "captions": {
+  "wordsPer": 1
+ },
+ "font": "fonts/Montserrat-ExtraBold.ttf",
+ "contactShadow": 0.6,
+ "moods": {
+  "day": {
+   "sun": {
+    "azimuth": 35,
+    "elevation": 50,
+    "color": "#ffe0b5",
+    "intensity": 2.4
+   },
+   "sky": {
+    "top": "#5f86d8",
+    "horizon": "#f2b98a"
+   },
+   "fill": {
+    "sky": "#8ea2ff",
+    "ground": "#6a3b6e",
+    "intensity": 1.15
+   }
+  }
+ },
+ "lighting": [
+  {
+   "t": 0,
+   "mood": "day"
+  }
+ ],
+ "ground": {
+  "texture": "textures/water.jpg",
+  "repeat": [
+   175,
+   175
+  ],
+  "size": 1400
+ },
+ "backdrop": {
+  "image": "bg/stockholm.jpg",
+  "blur": 5
+ },
+ "ink": {
+  "set": 4
+ },
+ "characters": [
+  {
+   "id": "vasaK",
+   "puppet": "puppets/vasa",
+   "pos": [
+    -30,
+    -2.6,
+    -4
+   ],
+   "height": 6.5,
+   "face": "flood",
+   "pose": {
+    "head": 22
+   }
+  },
+  {
+   "id": "splashK",
+   "puppet": "puppets/splash",
+   "pos": [
+    -27.4,
+    -0.35,
+    -3.4
+   ],
+   "height": 1.5,
+   "face": "default"
+  },
+  {
+   "id": "bubK",
+   "puppet": "puppets/bubbles",
+   "pos": [
+    -31.6,
+    -0.15,
+    -3.4
+   ],
+   "height": 1.2,
+   "face": "default"
+  },
+  {
+   "id": "vasaH",
+   "puppet": "puppets/vasa",
+   "pos": [
+    0,
+    -1.6,
+    -4
+   ],
+   "height": 6.5,
+   "face": "default"
+  },
+  {
+   "id": "vasaS",
+   "puppet": "puppets/vasa",
+   "pos": [
+    140,
+    7,
+    -4
+   ],
+   "height": 5.5,
+   "face": "wreck",
+   "pose": {
+    "head": -6
+   }
+  },
+  {
+   "id": "vasaW",
+   "puppet": "puppets/vasa",
+   "pos": [
+    350,
+    -1.6,
+    -4
+   ],
+   "height": 6.5,
+   "face": "default"
+  },
+  {
+   "id": "vasaM",
+   "puppet": "puppets/vasa",
+   "pos": [
+    420,
+    0.38,
+    -5
+   ],
+   "height": 7.2,
+   "face": "museum"
+  },
+  {
+   "id": "sA",
+   "puppet": "puppets/sailA",
+   "pos": [
+    67.0,
+    0.04,
+    0.9
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "sB",
+   "puppet": "puppets/sailB",
+   "pos": [
+    67.4,
+    0.04,
+    -0.5
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "sC",
+   "puppet": "puppets/sailC",
+   "pos": [
+    67.8,
+    0.04,
+    1.2
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "sD",
+   "puppet": "puppets/sailD",
+   "pos": [
+    68.2,
+    0.04,
+    -0.2
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "sE",
+   "puppet": "puppets/sailE",
+   "pos": [
+    68.6,
+    0.04,
+    0.6
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "sF",
+   "puppet": "puppets/sailF",
+   "pos": [
+    69.0,
+    0.04,
+    -0.9
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "capt",
+   "puppet": "puppets/capt",
+   "pos": [
+    70.3,
+    0.04,
+    -3.0
+   ],
+   "height": 1.8,
+   "face": "smug"
+  },
+  {
+   "id": "diver",
+   "puppet": "puppets/diver",
+   "pos": [
+    145.5,
+    0.05,
+    0.6
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "mom",
+   "puppet": "puppets/mom",
+   "pos": [
+    418.5,
+    0.05,
+    0.3
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "dad",
+   "puppet": "puppets/dad",
+   "pos": [
+    419.5,
+    0.05,
+    0.3
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "tech",
+   "puppet": "puppets/tech",
+   "pos": [
+    420.5,
+    0.05,
+    0.3
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "vik",
+   "puppet": "puppets/vik",
+   "pos": [
+    421.5,
+    0.05,
+    0.3
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "f1",
+   "puppet": "puppets/fish",
+   "pos": [
+    133,
+    2.6,
+    -1
+   ],
+   "height": 0.7,
+   "face": "default"
+  },
+  {
+   "id": "f2",
+   "puppet": "puppets/fish",
+   "pos": [
+    147,
+    3.6,
+    -2
+   ],
+   "height": 0.6,
+   "face": "default",
+   "flip": true
+  },
+  {
+   "id": "boat",
+   "puppet": "puppets/boat",
+   "pos": [
+    210.4,
+    0.14,
+    -0.2
+   ],
+   "height": 1.3,
+   "face": "default"
+  },
+  {
+   "id": "sun",
+   "puppet": "puppets/sun",
+   "pos": [
+    212.0,
+    4.0,
+    -1.0
+   ],
+   "height": 1.3,
+   "face": "default"
+  },
+  {
+   "id": "w1",
+   "puppet": "puppets/worm",
+   "pos": [
+    209.1,
+    -1.0,
+    0.3
+   ],
+   "height": 0.85,
+   "face": "default"
+  },
+  {
+   "id": "w2",
+   "puppet": "puppets/worm",
+   "pos": [
+    210.6,
+    -1.0,
+    0.7
+   ],
+   "height": 0.85,
+   "face": "default"
+  },
+  {
+   "id": "w3",
+   "puppet": "puppets/worm",
+   "pos": [
+    211.8,
+    -1.0,
+    0.2
+   ],
+   "height": 0.85,
+   "face": "default"
+  },
+  {
+   "id": "wormC",
+   "puppet": "puppets/worm",
+   "pos": [
+    280,
+    0.2,
+    0.5
+   ],
+   "height": 0.9,
+   "face": "cold"
+  },
+  {
+   "id": "sank",
+   "puppet": "puppets/sank",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.95,
+   "face": "default"
+  },
+  {
+   "id": "cal28",
+   "puppet": "puppets/cal28",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 2.4,
+   "face": "default"
+  },
+  {
+   "id": "vtag",
+   "puppet": "puppets/vtag",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.9,
+   "face": "default"
+  },
+  {
+   "id": "decks",
+   "puppet": "puppets/decks",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.1,
+   "face": "default"
+  },
+  {
+   "id": "one",
+   "puppet": "puppets/one",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.55,
+   "face": "default"
+  },
+  {
+   "id": "smoke1",
+   "puppet": "puppets/poof",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.8,
+   "face": "default"
+  },
+  {
+   "id": "smoke2",
+   "puppet": "puppets/poof",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.8,
+   "face": "default"
+  },
+  {
+   "id": "x30",
+   "puppet": "puppets/x30",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.9,
+   "face": "default"
+  },
+  {
+   "id": "test",
+   "puppet": "puppets/test",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.5,
+   "face": "default"
+  },
+  {
+   "id": "stop",
+   "puppet": "puppets/stop",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.75,
+   "face": "default"
+  },
+  {
+   "id": "anyway",
+   "puppet": "puppets/anyway",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.8,
+   "face": "default"
+  },
+  {
+   "id": "mile",
+   "puppet": "puppets/mile",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.9,
+   "face": "default"
+  },
+  {
+   "id": "gust",
+   "puppet": "puppets/gust",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.6,
+   "face": "default"
+  },
+  {
+   "id": "splash2",
+   "puppet": "puppets/splash",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.3,
+   "face": "default"
+  },
+  {
+   "id": "bub2",
+   "puppet": "puppets/bubbles",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.2,
+   "face": "default"
+  },
+  {
+   "id": "g1",
+   "puppet": "puppets/gull",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.9,
+   "face": "default"
+  },
+  {
+   "id": "g2",
+   "puppet": "puppets/gull",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.75,
+   "face": "default"
+  },
+  {
+   "id": "poofS",
+   "puppet": "puppets/poof",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.6,
+   "face": "default"
+  },
+  {
+   "id": "cal61",
+   "puppet": "puppets/cal61",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.8,
+   "face": "default"
+  },
+  {
+   "id": "splashU",
+   "puppet": "puppets/splash",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.8,
+   "face": "default"
+  },
+  {
+   "id": "whole",
+   "puppet": "puppets/whole",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.75,
+   "face": "default"
+  },
+  {
+   "id": "spark1",
+   "puppet": "puppets/sparkle",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.7,
+   "face": "default"
+  },
+  {
+   "id": "ques",
+   "puppet": "puppets/ques",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.3,
+   "face": "default"
+  },
+  {
+   "id": "warm",
+   "puppet": "puppets/warm",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.7,
+   "face": "default"
+  },
+  {
+   "id": "clams",
+   "puppet": "puppets/clams",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.42,
+   "face": "default"
+  },
+  {
+   "id": "nom",
+   "puppet": "puppets/nom",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.5,
+   "face": "default"
+  },
+  {
+   "id": "med",
+   "puppet": "puppets/med",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.55,
+   "face": "default"
+  },
+  {
+   "id": "poofB",
+   "puppet": "puppets/poof",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.4,
+   "face": "default"
+  },
+  {
+   "id": "y30",
+   "puppet": "puppets/y30",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.9,
+   "face": "default"
+  },
+  {
+   "id": "snow1",
+   "puppet": "puppets/snow",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.4,
+   "face": "default"
+  },
+  {
+   "id": "snow2",
+   "puppet": "puppets/snow",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.2,
+   "face": "default"
+  },
+  {
+   "id": "baltic",
+   "puppet": "puppets/baltic",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.55,
+   "face": "default"
+  },
+  {
+   "id": "coldsalt",
+   "puppet": "puppets/coldsalt",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.62,
+   "face": "default"
+  },
+  {
+   "id": "nope",
+   "puppet": "puppets/nope",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.6,
+   "face": "default"
+  },
+  {
+   "id": "y333",
+   "puppet": "puppets/y333",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.3,
+   "face": "default"
+  },
+  {
+   "id": "untouched",
+   "puppet": "puppets/untouched",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.65,
+   "face": "default"
+  },
+  {
+   "id": "spark2",
+   "puppet": "puppets/sparkle",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.6,
+   "face": "default"
+  },
+  {
+   "id": "p98",
+   "puppet": "puppets/p98",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.4,
+   "face": "default"
+  },
+  {
+   "id": "whatif",
+   "puppet": "puppets/whatif",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.8,
+   "face": "default"
+  },
+  {
+   "id": "poofW",
+   "puppet": "puppets/poof",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 2.0,
+   "face": "default"
+  },
+  {
+   "id": "million",
+   "puppet": "puppets/million",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.75,
+   "face": "default"
+  },
+  {
+   "id": "hearts",
+   "puppet": "puppets/hearts",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.8,
+   "face": "default"
+  },
+  {
+   "id": "worst",
+   "puppet": "puppets/worst",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.8,
+   "face": "default"
+  },
+  {
+   "id": "hidden",
+   "puppet": "puppets/hidden",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.7,
+   "face": "default"
+  }
+ ],
+ "props": [
+  {
+   "type": "box",
+   "pos": [
+    0,
+    0,
+    -37
+   ],
+   "size": [
+    130,
+    0.5,
+    12
+   ],
+   "color": "#86986e"
+  },
+  {
+   "type": "house",
+   "pos": [
+    -50,
+    0,
+    -32.5
+   ],
+   "size": [
+    4.4,
+    3.0,
+    3.6
+   ],
+   "roof": "#6b3a32",
+   "door": "#7a5890",
+   "color": "#d9a441"
+  },
+  {
+   "type": "house",
+   "pos": [
+    -44,
+    0,
+    -32.5
+   ],
+   "size": [
+    4.4,
+    3.9,
+    3.6
+   ],
+   "roof": "#4a4f63",
+   "door": "#7a5890",
+   "color": "#b5533c"
+  },
+  {
+   "type": "house",
+   "pos": [
+    -38,
+    0,
+    -32.5
+   ],
+   "size": [
+    4.4,
+    4.8,
+    3.6
+   ],
+   "roof": "#6b3a32",
+   "door": "#7a5890",
+   "color": "#e8c35a"
+  },
+  {
+   "type": "house",
+   "pos": [
+    -32,
+    0,
+    -32.5
+   ],
+   "size": [
+    4.4,
+    3.0,
+    3.6
+   ],
+   "roof": "#4a4f63",
+   "door": "#7a5890",
+   "color": "#d97b3c"
+  },
+  {
+   "type": "house",
+   "pos": [
+    -26,
+    0,
+    -32.5
+   ],
+   "size": [
+    4.4,
+    3.9,
+    3.6
+   ],
+   "roof": "#6b3a32",
+   "door": "#7a5890",
+   "color": "#c9b48a"
+  },
+  {
+   "type": "house",
+   "pos": [
+    -20,
+    0,
+    -32.5
+   ],
+   "size": [
+    4.4,
+    4.8,
+    3.6
+   ],
+   "roof": "#4a4f63",
+   "door": "#7a5890",
+   "color": "#9fbf8f"
+  },
+  {
+   "type": "house",
+   "pos": [
+    -14,
+    0,
+    -32.5
+   ],
+   "size": [
+    4.4,
+    3.0,
+    3.6
+   ],
+   "roof": "#6b3a32",
+   "door": "#7a5890",
+   "color": "#d9a441"
+  },
+  {
+   "type": "house",
+   "pos": [
+    -8,
+    0,
+    -32.5
+   ],
+   "size": [
+    4.4,
+    3.9,
+    3.6
+   ],
+   "roof": "#4a4f63",
+   "door": "#7a5890",
+   "color": "#b5533c"
+  },
+  {
+   "type": "house",
+   "pos": [
+    -2,
+    0,
+    -32.5
+   ],
+   "size": [
+    4.4,
+    4.8,
+    3.6
+   ],
+   "roof": "#6b3a32",
+   "door": "#7a5890",
+   "color": "#e8c35a"
+  },
+  {
+   "type": "house",
+   "pos": [
+    4,
+    0,
+    -32.5
+   ],
+   "size": [
+    4.4,
+    3.0,
+    3.6
+   ],
+   "roof": "#4a4f63",
+   "door": "#7a5890",
+   "color": "#d97b3c"
+  },
+  {
+   "type": "house",
+   "pos": [
+    10,
+    0,
+    -32.5
+   ],
+   "size": [
+    4.4,
+    3.9,
+    3.6
+   ],
+   "roof": "#6b3a32",
+   "door": "#7a5890",
+   "color": "#c9b48a"
+  },
+  {
+   "type": "house",
+   "pos": [
+    16,
+    0,
+    -32.5
+   ],
+   "size": [
+    4.4,
+    4.8,
+    3.6
+   ],
+   "roof": "#4a4f63",
+   "door": "#7a5890",
+   "color": "#9fbf8f"
+  },
+  {
+   "type": "house",
+   "pos": [
+    22,
+    0,
+    -32.5
+   ],
+   "size": [
+    4.4,
+    3.0,
+    3.6
+   ],
+   "roof": "#6b3a32",
+   "door": "#7a5890",
+   "color": "#d9a441"
+  },
+  {
+   "type": "house",
+   "pos": [
+    28,
+    0,
+    -32.5
+   ],
+   "size": [
+    4.4,
+    3.9,
+    3.6
+   ],
+   "roof": "#4a4f63",
+   "door": "#7a5890",
+   "color": "#b5533c"
+  },
+  {
+   "type": "house",
+   "pos": [
+    34,
+    0,
+    -32.5
+   ],
+   "size": [
+    4.4,
+    4.8,
+    3.6
+   ],
+   "roof": "#6b3a32",
+   "door": "#7a5890",
+   "color": "#e8c35a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    -9.2,
+    0,
+    -32.5
+   ],
+   "h": 10,
+   "color": "#3d4a52"
+  },
+  {
+   "type": "post",
+   "pos": [
+    21,
+    0,
+    -32.5
+   ],
+   "h": 8,
+   "color": "#3d4a52"
+  },
+  {
+   "type": "box",
+   "pos": [
+    -3,
+    0,
+    4.6
+   ],
+   "size": [
+    15,
+    0.5,
+    2.6
+   ],
+   "texture": "textures/wood.jpg",
+   "repeat": [
+    7,
+    1
+   ]
+  },
+  {
+   "type": "post",
+   "pos": [
+    -8,
+    0,
+    3.6
+   ],
+   "h": 1.0,
+   "color": "#4a3a3f"
+  },
+  {
+   "type": "post",
+   "pos": [
+    -4,
+    0,
+    3.6
+   ],
+   "h": 1.0,
+   "color": "#4a3a3f"
+  },
+  {
+   "type": "post",
+   "pos": [
+    0,
+    0,
+    3.6
+   ],
+   "h": 1.0,
+   "color": "#4a3a3f"
+  },
+  {
+   "type": "barrel",
+   "pos": [
+    -6.2,
+    0.5,
+    4.8
+   ]
+  },
+  {
+   "type": "barrel",
+   "pos": [
+    -5.4,
+    0.5,
+    5.2
+   ]
+  },
+  {
+   "type": "crate",
+   "pos": [
+    2.2,
+    0.5,
+    4.9
+   ],
+   "size": 0.75,
+   "rotY": 0,
+   "texture": "textures/wood.jpg"
+  },
+  {
+   "type": "box",
+   "pos": [
+    70,
+    0,
+    -2
+   ],
+   "size": [
+    9,
+    0.04,
+    36
+   ],
+   "texture": "textures/wood.jpg",
+   "repeat": [
+    3,
+    12
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    65.4,
+    0,
+    -2
+   ],
+   "size": [
+    0.35,
+    0.9,
+    36
+   ],
+   "color": "#7a4a2e"
+  },
+  {
+   "type": "box",
+   "pos": [
+    66.1,
+    0,
+    -12
+   ],
+   "size": [
+    0.9,
+    0.42,
+    0.42
+   ],
+   "color": "#3c3c46"
+  },
+  {
+   "type": "box",
+   "pos": [
+    66.1,
+    0,
+    -7
+   ],
+   "size": [
+    0.9,
+    0.42,
+    0.42
+   ],
+   "color": "#3c3c46"
+  },
+  {
+   "type": "box",
+   "pos": [
+    74.6,
+    0,
+    -2
+   ],
+   "size": [
+    0.35,
+    0.9,
+    36
+   ],
+   "color": "#7a4a2e"
+  },
+  {
+   "type": "box",
+   "pos": [
+    73.9,
+    0,
+    -12
+   ],
+   "size": [
+    0.9,
+    0.42,
+    0.42
+   ],
+   "color": "#3c3c46"
+  },
+  {
+   "type": "box",
+   "pos": [
+    73.9,
+    0,
+    -7
+   ],
+   "size": [
+    0.9,
+    0.42,
+    0.42
+   ],
+   "color": "#3c3c46"
+  },
+  {
+   "type": "post",
+   "pos": [
+    70,
+    0,
+    -5
+   ],
+   "h": 12,
+   "color": "#6b4228"
+  },
+  {
+   "type": "plane",
+   "image": "props/sail.png",
+   "pos": [
+    70,
+    3.6,
+    -4.85
+   ],
+   "size": [
+    7.6,
+    5.8
+   ]
+  },
+  {
+   "type": "post",
+   "pos": [
+    70,
+    0,
+    -14
+   ],
+   "h": 10,
+   "color": "#6b4228"
+  },
+  {
+   "type": "plane",
+   "image": "props/sail.png",
+   "pos": [
+    70,
+    3.2,
+    -13.85
+   ],
+   "size": [
+    6.6,
+    5.0
+   ]
+  },
+  {
+   "type": "crate",
+   "pos": [
+    66.7,
+    0,
+    -8.5
+   ],
+   "size": 0.75,
+   "rotY": 0,
+   "texture": "textures/wood.jpg"
+  },
+  {
+   "type": "barrel",
+   "pos": [
+    73.3,
+    0,
+    -9.5
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    140,
+    0,
+    -4
+   ],
+   "size": [
+    46,
+    0.05,
+    30
+   ],
+   "color": "#dcc896"
+  },
+  {
+   "type": "plane",
+   "image": "props/under.png",
+   "pos": [
+    140,
+    -0.5,
+    -15
+   ],
+   "size": [
+    50,
+    25
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    133.5,
+    0,
+    -6
+   ],
+   "size": [
+    2.2,
+    0.9,
+    1.6
+   ],
+   "color": "#8f8a84"
+  },
+  {
+   "type": "box",
+   "pos": [
+    146.8,
+    0,
+    -7
+   ],
+   "size": [
+    2.8,
+    1.2,
+    1.8
+   ],
+   "color": "#7f7a76"
+  },
+  {
+   "type": "box",
+   "pos": [
+    136.4,
+    0,
+    1.6
+   ],
+   "size": [
+    1.0,
+    0.45,
+    0.8
+   ],
+   "color": "#9a948c"
+  },
+  {
+   "type": "box",
+   "pos": [
+    144.2,
+    0,
+    1.2
+   ],
+   "size": [
+    0.8,
+    0.35,
+    0.7
+   ],
+   "color": "#a39c92"
+  },
+  {
+   "type": "post",
+   "pos": [
+    135,
+    0,
+    -3
+   ],
+   "h": 2.2,
+   "color": "#4f9a5a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    135.6,
+    0,
+    -3.6
+   ],
+   "h": 1.6,
+   "color": "#4f9a5a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    145,
+    0,
+    -2.5
+   ],
+   "h": 2.6,
+   "color": "#4f9a5a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    145.6,
+    0,
+    -3.4
+   ],
+   "h": 1.8,
+   "color": "#4f9a5a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    132.5,
+    0,
+    -1
+   ],
+   "h": 1.4,
+   "color": "#4f9a5a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    147.4,
+    0,
+    -1.5
+   ],
+   "h": 1.6,
+   "color": "#4f9a5a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    137.4,
+    0,
+    -8
+   ],
+   "h": 2.4,
+   "color": "#4f9a5a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    142.8,
+    0,
+    -8.5
+   ],
+   "h": 2.0,
+   "color": "#4f9a5a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    210,
+    0,
+    -9
+   ],
+   "size": [
+    46,
+    0.03,
+    24
+   ],
+   "color": "#46c6cf"
+  },
+  {
+   "type": "box",
+   "pos": [
+    210,
+    0,
+    1.5
+   ],
+   "size": [
+    46,
+    0.14,
+    7
+   ],
+   "color": "#f1dba2"
+  },
+  {
+   "type": "plane",
+   "image": "props/palm.png",
+   "pos": [
+    207.4,
+    0.12,
+    -1.5
+   ],
+   "size": [
+    3.2,
+    4.4
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/palm.png",
+   "pos": [
+    213.4,
+    0.12,
+    -2.0
+   ],
+   "size": [
+    3.5,
+    4.8
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/skyws.png",
+   "pos": [
+    210,
+    -1,
+    -26
+   ],
+   "size": [
+    96,
+    42
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    280,
+    0,
+    -8
+   ],
+   "size": [
+    46,
+    0.03,
+    30
+   ],
+   "color": "#6f95b6"
+  },
+  {
+   "type": "plane",
+   "image": "props/skycb.png",
+   "pos": [
+    280,
+    -1,
+    -26
+   ],
+   "size": [
+    96,
+    42
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    280,
+    0,
+    0.4
+   ],
+   "size": [
+    2.6,
+    0.2,
+    1.8
+   ],
+   "color": "#eef5fb"
+  },
+  {
+   "type": "box",
+   "pos": [
+    275.5,
+    0,
+    -3
+   ],
+   "size": [
+    3,
+    0.2,
+    2
+   ],
+   "color": "#eef5fb"
+  },
+  {
+   "type": "box",
+   "pos": [
+    284.8,
+    0,
+    -2.4
+   ],
+   "size": [
+    2.4,
+    0.2,
+    1.6
+   ],
+   "color": "#eef5fb"
+  },
+  {
+   "type": "box",
+   "pos": [
+    277.6,
+    0,
+    -7
+   ],
+   "size": [
+    3.4,
+    0.2,
+    2.2
+   ],
+   "color": "#eef5fb"
+  },
+  {
+   "type": "box",
+   "pos": [
+    286.2,
+    0,
+    -8
+   ],
+   "size": [
+    3,
+    0.2,
+    2
+   ],
+   "color": "#eef5fb"
+  },
+  {
+   "type": "box",
+   "pos": [
+    273,
+    0,
+    0.5
+   ],
+   "size": [
+    2,
+    0.2,
+    1.4
+   ],
+   "color": "#eef5fb"
+  },
+  {
+   "type": "box",
+   "pos": [
+    283,
+    0,
+    2.6
+   ],
+   "size": [
+    1.4,
+    0.2,
+    1
+   ],
+   "color": "#eef5fb"
+  },
+  {
+   "type": "plane",
+   "image": "props/skywr.png",
+   "pos": [
+    350,
+    -1,
+    -26
+   ],
+   "size": [
+    96,
+    42
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    343,
+    0,
+    -9
+   ],
+   "size": [
+    2.4,
+    1.6,
+    2
+   ],
+   "color": "#6f6a72"
+  },
+  {
+   "type": "box",
+   "pos": [
+    358,
+    0,
+    -10
+   ],
+   "size": [
+    3,
+    2.2,
+    2.4
+   ],
+   "color": "#6f6a72"
+  },
+  {
+   "type": "box",
+   "pos": [
+    420,
+    0,
+    -3
+   ],
+   "size": [
+    28,
+    0.05,
+    22
+   ],
+   "color": "#c9ae8c"
+  },
+  {
+   "type": "box",
+   "pos": [
+    420,
+    0,
+    -13
+   ],
+   "size": [
+    30,
+    13,
+    0.4
+   ],
+   "color": "#dfe4ea"
+  },
+  {
+   "type": "box",
+   "pos": [
+    406.5,
+    0,
+    -3
+   ],
+   "size": [
+    0.4,
+    13,
+    22
+   ],
+   "color": "#d2d9e1"
+  },
+  {
+   "type": "box",
+   "pos": [
+    433.5,
+    0,
+    -3
+   ],
+   "size": [
+    0.4,
+    13,
+    22
+   ],
+   "color": "#d2d9e1"
+  },
+  {
+   "type": "box",
+   "pos": [
+    420,
+    0,
+    -5
+   ],
+   "size": [
+    7.5,
+    0.5,
+    1.4
+   ],
+   "color": "#5d4c44"
+  },
+  {
+   "type": "box",
+   "pos": [
+    420,
+    0,
+    -1.4
+   ],
+   "size": [
+    12,
+    0.95,
+    0.12
+   ],
+   "color": "#8b6b4a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    408,
+    9.5,
+    -12.7
+   ],
+   "size": [
+    1.2,
+    0.3,
+    0.3
+   ],
+   "color": "#ffe08a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    412,
+    9.5,
+    -12.7
+   ],
+   "size": [
+    1.2,
+    0.3,
+    0.3
+   ],
+   "color": "#ffe08a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    416,
+    9.5,
+    -12.7
+   ],
+   "size": [
+    1.2,
+    0.3,
+    0.3
+   ],
+   "color": "#ffe08a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    420,
+    9.5,
+    -12.7
+   ],
+   "size": [
+    1.2,
+    0.3,
+    0.3
+   ],
+   "color": "#ffe08a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    424,
+    9.5,
+    -12.7
+   ],
+   "size": [
+    1.2,
+    0.3,
+    0.3
+   ],
+   "color": "#ffe08a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    428,
+    9.5,
+    -12.7
+   ],
+   "size": [
+    1.2,
+    0.3,
+    0.3
+   ],
+   "color": "#ffe08a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    432,
+    9.5,
+    -12.7
+   ],
+   "size": [
+    1.2,
+    0.3,
+    0.3
+   ],
+   "color": "#ffe08a"
+  }
+ ],
+ "shots": [
+  {
+   "start": 0,
+   "anchor": [
+    -29.5,
+    1.6,
+    -4
+   ],
+   "distance": 14,
+   "yaw": 8,
+   "pitch": 3,
+   "zoom": 14,
+   "pan": [
+    -6,
+    3
+   ],
+   "frameY": 0.0,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "vasaK",
+     "pose": {
+      "head": 28
+     },
+     "ease": 2.4,
+     "shake": 0.5
+    },
+    {
+     "at": 0.66,
+     "who": "sank",
+     "to": [
+      -29.5,
+      4.3,
+      -2.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  },
+  {
+   "start": "say:Stockholm",
+   "anchor": [
+    1.0,
+    2.4,
+    -4
+   ],
+   "distance": 24,
+   "yaw": -10,
+   "pitch": 4,
+   "zoom": 6,
+   "pan": [
+    10,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "sank",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "g1",
+     "to": [
+      -5,
+      6.6,
+      -2
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.05,
+     "who": "g1",
+     "to": [
+      6,
+      7.2,
+      -2
+     ],
+     "over": 2.1,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "g2",
+     "to": [
+      -3,
+      7.8,
+      -3
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.05,
+     "who": "g2",
+     "to": [
+      8,
+      7.2,
+      -3
+     ],
+     "over": 2.1,
+     "walk": false
+    },
+    {
+     "at": 0.94,
+     "who": "cal28",
+     "to": [
+      -2.4,
+      4.6,
+      -1.5
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    },
+    {
+     "at": 1.82,
+     "who": "cal28",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:The Vasa",
+   "anchor": [
+    0.6,
+    2.2,
+    -4
+   ],
+   "distance": 12,
+   "yaw": 18,
+   "pitch": 2,
+   "zoom": 10,
+   "pan": [
+    -8,
+    2
+   ],
+   "actions": [
+    {
+     "at": 0.1,
+     "who": "vtag",
+     "to": [
+      0.6,
+      5.0,
+      -2.2
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  },
+  {
+   "start": "say:Two full",
+   "anchor": [
+    0.8,
+    0.9,
+    -4
+   ],
+   "distance": 7,
+   "yaw": -14,
+   "pitch": 3,
+   "zoom": 10,
+   "pan": [
+    8,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "vtag",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "smoke1",
+     "to": [
+      1.5,
+      0.45,
+      -3.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 0.36,
+     "who": "smoke2",
+     "to": [
+      0.1,
+      -0.05,
+      -3.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 0.15,
+     "who": "decks",
+     "to": [
+      0.8,
+      1.9,
+      -2.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.9,
+     "who": "decks",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.84,
+     "who": "one",
+     "to": [
+      0.8,
+      2.0,
+      -2.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  },
+  {
+   "start": "say:But before launch",
+   "anchor": [
+    70,
+    1.4,
+    -1
+   ],
+   "distance": 16,
+   "yaw": 12,
+   "pitch": 9,
+   "zoom": 6,
+   "pan": [
+    -10,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.3,
+     "who": "smoke1",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "smoke2",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "one",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "g1",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "g2",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:thirty sailors",
+   "anchor": [
+    70,
+    1.0,
+    0
+   ],
+   "distance": 13,
+   "yaw": -8,
+   "pitch": 7,
+   "zoom": 8,
+   "pan": [
+    8,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.1,
+     "who": "x30",
+     "to": [
+      70,
+      2.6,
+      1.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 2.22,
+     "who": "x30",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "sA",
+     "to": [
+      71.0,
+      0.04,
+      0.9
+     ],
+     "over": 0.75,
+     "walk": true
+    },
+    {
+     "at": 0.04,
+     "who": "sB",
+     "to": [
+      71.4,
+      0.04,
+      -0.5
+     ],
+     "over": 0.75,
+     "walk": true
+    },
+    {
+     "at": 0.08,
+     "who": "sC",
+     "to": [
+      71.8,
+      0.04,
+      1.2
+     ],
+     "over": 0.75,
+     "walk": true
+    },
+    {
+     "at": 0.12,
+     "who": "sD",
+     "to": [
+      72.2,
+      0.04,
+      -0.2
+     ],
+     "over": 0.75,
+     "walk": true
+    },
+    {
+     "at": 0.16,
+     "who": "sE",
+     "to": [
+      72.6,
+      0.04,
+      0.6
+     ],
+     "over": 0.75,
+     "walk": true
+    },
+    {
+     "at": 0.2,
+     "who": "sF",
+     "to": [
+      73.0,
+      0.04,
+      -0.9
+     ],
+     "over": 0.75,
+     "walk": true
+    },
+    {
+     "at": 0.85,
+     "who": "sA",
+     "to": [
+      67.0,
+      0.04,
+      0.9
+     ],
+     "over": 0.75,
+     "walk": true
+    },
+    {
+     "at": 0.89,
+     "who": "sB",
+     "to": [
+      67.4,
+      0.04,
+      -0.5
+     ],
+     "over": 0.75,
+     "walk": true
+    },
+    {
+     "at": 0.93,
+     "who": "sC",
+     "to": [
+      67.8,
+      0.04,
+      1.2
+     ],
+     "over": 0.75,
+     "walk": true
+    },
+    {
+     "at": 0.97,
+     "who": "sD",
+     "to": [
+      68.2,
+      0.04,
+      -0.2
+     ],
+     "over": 0.75,
+     "walk": true
+    },
+    {
+     "at": 1.01,
+     "who": "sE",
+     "to": [
+      68.6,
+      0.04,
+      0.6
+     ],
+     "over": 0.75,
+     "walk": true
+    },
+    {
+     "at": 1.05,
+     "who": "sF",
+     "to": [
+      69.0,
+      0.04,
+      -0.9
+     ],
+     "over": 0.75,
+     "walk": true
+    },
+    {
+     "at": 1.7,
+     "who": "sA",
+     "to": [
+      71.0,
+      0.04,
+      0.9
+     ],
+     "over": 0.75,
+     "walk": true
+    },
+    {
+     "at": 1.74,
+     "who": "sB",
+     "to": [
+      71.4,
+      0.04,
+      -0.5
+     ],
+     "over": 0.75,
+     "walk": true
+    },
+    {
+     "at": 1.78,
+     "who": "sC",
+     "to": [
+      71.8,
+      0.04,
+      1.2
+     ],
+     "over": 0.75,
+     "walk": true
+    },
+    {
+     "at": 1.82,
+     "who": "sD",
+     "to": [
+      72.2,
+      0.04,
+      -0.2
+     ],
+     "over": 0.75,
+     "walk": true
+    },
+    {
+     "at": 1.86,
+     "who": "sE",
+     "to": [
+      72.6,
+      0.04,
+      0.6
+     ],
+     "over": 0.75,
+     "walk": true
+    },
+    {
+     "at": 1.9,
+     "who": "sF",
+     "to": [
+      73.0,
+      0.04,
+      -0.9
+     ],
+     "over": 0.75,
+     "walk": true
+    }
+   ]
+  },
+  {
+   "start": "say:A stability test",
+   "target": "capt",
+   "headWidth": 0.3,
+   "yaw": 10,
+   "pitch": 3,
+   "zoom": 8,
+   "pan": [
+    -6,
+    2
+   ],
+   "frameY": 0.1,
+   "actions": [
+    {
+     "at": 0.15,
+     "who": "test",
+     "to": [
+      70.3,
+      2.35,
+      -2.5
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.4,
+     "who": "capt",
+     "face": "nervous"
+    }
+   ]
+  },
+  {
+   "start": "say:She rocked",
+   "anchor": [
+    0.4,
+    2.0,
+    -4
+   ],
+   "distance": 14,
+   "yaw": -6,
+   "pitch": 4,
+   "zoom": 10,
+   "pan": [
+    6,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.3,
+     "who": "test",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "vasaH",
+     "shake": 0.4
+    },
+    {
+     "at": 0.0,
+     "who": "vasaH",
+     "pose": {
+      "head": 13
+     },
+     "ease": 0.28
+    },
+    {
+     "at": 0.3,
+     "who": "vasaH",
+     "pose": {
+      "head": -13
+     },
+     "ease": 0.28
+    },
+    {
+     "at": 0.6,
+     "who": "vasaH",
+     "pose": {
+      "head": 13
+     },
+     "ease": 0.28
+    },
+    {
+     "at": 0.9,
+     "who": "vasaH",
+     "pose": {
+      "head": -13
+     },
+     "ease": 0.28
+    },
+    {
+     "at": 1.2,
+     "who": "vasaH",
+     "pose": {
+      "head": 13
+     },
+     "ease": 0.28
+    }
+   ]
+  },
+  {
+   "start": "say:they stopped",
+   "target": "capt",
+   "headWidth": 0.26,
+   "yaw": -12,
+   "pitch": 3,
+   "zoom": 12,
+   "pan": [
+    8,
+    0
+   ],
+   "frameY": 0.12,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "capt",
+     "face": "shouting",
+     "pose": {
+      "armR": -150
+     }
+    },
+    {
+     "at": 0.05,
+     "who": "stop",
+     "to": [
+      71.0,
+      1.9,
+      -2.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    },
+    {
+     "at": 0.05,
+     "who": "sA",
+     "face": "shocked"
+    },
+    {
+     "at": 0.05,
+     "who": "sB",
+     "face": "shocked"
+    },
+    {
+     "at": 0.05,
+     "who": "sC",
+     "face": "shocked"
+    },
+    {
+     "at": 0.05,
+     "who": "sD",
+     "face": "shocked"
+    },
+    {
+     "at": 0.05,
+     "who": "sE",
+     "face": "shocked"
+    },
+    {
+     "at": 0.05,
+     "who": "sF",
+     "face": "shocked"
+    },
+    {
+     "at": 0.8,
+     "who": "vasaH",
+     "pose": {
+      "head": 0
+     },
+     "ease": 0.3
+    }
+   ]
+  },
+  {
+   "start": "say:She sailed anyway",
+   "anchor": [
+    3.0,
+    2.2,
+    -5
+   ],
+   "distance": 18,
+   "yaw": -10,
+   "pitch": 4,
+   "zoom": 6,
+   "pan": [
+    12,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.3,
+     "who": "stop",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "vasaH",
+     "to": [
+      8,
+      -1.6,
+      -6
+     ],
+     "over": 2.6,
+     "walk": false
+    },
+    {
+     "at": 0.36,
+     "who": "anyway",
+     "to": [
+      2.0,
+      5.8,
+      -3
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.82,
+     "who": "anyway",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:Less than a mile",
+   "anchor": [
+    7,
+    2.2,
+    -6
+   ],
+   "distance": 22,
+   "yaw": 22,
+   "pitch": 5,
+   "zoom": 6,
+   "pan": [
+    -8,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.2,
+     "who": "mile",
+     "to": [
+      7,
+      6.4,
+      -4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.74,
+     "who": "mile",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:a gust",
+   "anchor": [
+    6.6,
+    3.0,
+    -6
+   ],
+   "distance": 13,
+   "yaw": 10,
+   "pitch": 3,
+   "zoom": 10,
+   "pan": [
+    6,
+    2
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "gust",
+     "to": [
+      3.2,
+      4.3,
+      -4.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.03,
+     "who": "gust",
+     "to": [
+      5.0,
+      4.5,
+      -4.4
+     ],
+     "over": 0.7,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "vasaH",
+     "shake": 0.6
+    },
+    {
+     "at": 0.94,
+     "who": "gust",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:She leans",
+   "anchor": [
+    8.4,
+    2.0,
+    -6
+   ],
+   "distance": 12,
+   "yaw": -10,
+   "pitch": 3,
+   "zoom": 12,
+   "pan": [
+    -6,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "vasaH",
+     "pose": {
+      "head": 18
+     },
+     "ease": 0.45
+    }
+   ]
+  },
+  {
+   "start": "say:Water pours",
+   "anchor": [
+    8.9,
+    0.6,
+    -6
+   ],
+   "distance": 7,
+   "yaw": 10,
+   "pitch": 3,
+   "zoom": 10,
+   "pan": [
+    4,
+    2
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "vasaH",
+     "face": "flood",
+     "pose": {
+      "head": 22
+     },
+     "ease": 1.2
+    },
+    {
+     "at": 0.1,
+     "who": "splash2",
+     "to": [
+      9.2,
+      -0.3,
+      -5.2
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 1.62,
+     "who": "splash2",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:Within minutes",
+   "anchor": [
+    8.4,
+    2.0,
+    -6
+   ],
+   "distance": 18,
+   "yaw": -14,
+   "pitch": 5,
+   "zoom": 8,
+   "pan": [
+    8,
+    -2
+   ],
+   "out": "dissolve",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "vasaH",
+     "pose": {
+      "head": 32
+     },
+     "ease": 2.0
+    },
+    {
+     "at": 0.25,
+     "who": "vasaH",
+     "to": [
+      8,
+      -9,
+      -6
+     ],
+     "over": 2.4,
+     "walk": false
+    },
+    {
+     "at": 1.3,
+     "who": "bub2",
+     "to": [
+      8.3,
+      -0.2,
+      -5.2
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    }
+   ]
+  },
+  {
+   "start": "say:on the seabed",
+   "anchor": [
+    140,
+    2.0,
+    -4
+   ],
+   "distance": 14,
+   "yaw": 8,
+   "pitch": 3,
+   "zoom": 10,
+   "pan": [
+    -6,
+    2
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "vasaS",
+     "to": [
+      140,
+      0.05,
+      -4
+     ],
+     "over": 0.45,
+     "walk": false
+    },
+    {
+     "at": 0.42,
+     "who": "poofS",
+     "to": [
+      140,
+      0.05,
+      -2.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 0.3,
+     "who": "vasaH",
+     "face": "raise",
+     "pose": {
+      "head": 0
+     },
+     "ease": 0.2
+    },
+    {
+     "at": 0.3,
+     "who": "bub2",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.62,
+     "who": "poofS",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:Then in 1961",
+   "anchor": [
+    141.2,
+    1.6,
+    -2
+   ],
+   "distance": 11,
+   "yaw": -10,
+   "pitch": 3,
+   "zoom": 8,
+   "pan": [
+    8,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "diver",
+     "to": [
+      142.4,
+      0.05,
+      0.6
+     ],
+     "over": 0.9,
+     "walk": true
+    },
+    {
+     "at": 1.0,
+     "who": "diver",
+     "pose": {
+      "armR": -150
+     }
+    },
+    {
+     "at": 0.25,
+     "who": "cal61",
+     "to": [
+      140.1,
+      2.6,
+      -0.8
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    }
+   ]
+  },
+  {
+   "start": "say:she comes back up",
+   "anchor": [
+    8,
+    2.0,
+    -6
+   ],
+   "distance": 15,
+   "yaw": 14,
+   "pitch": 3,
+   "zoom": 10,
+   "pan": [
+    -6,
+    4
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "vasaH",
+     "to": [
+      8,
+      -1.6,
+      -6
+     ],
+     "over": 1.4,
+     "walk": false
+    },
+    {
+     "at": 0.45,
+     "who": "splashU",
+     "to": [
+      8.2,
+      -0.35,
+      -4.8
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 0.3,
+     "who": "diver",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "cal61",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.8,
+     "who": "splashU",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:Almost whole",
+   "anchor": [
+    8,
+    2.2,
+    -6
+   ],
+   "distance": 10,
+   "yaw": -8,
+   "pitch": 3,
+   "zoom": 10,
+   "pan": [
+    6,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.1,
+     "who": "whole",
+     "to": [
+      8,
+      4.4,
+      -4.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.25,
+     "who": "spark1",
+     "to": [
+      9.5,
+      3.3,
+      -4.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 0.76,
+     "who": "whole",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.76,
+     "who": "spark1",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:How",
+   "anchor": [
+    8,
+    2.6,
+    -6
+   ],
+   "distance": 7.5,
+   "yaw": 2,
+   "pitch": 2,
+   "zoom": 18,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.05,
+     "who": "ques",
+     "to": [
+      8,
+      3.2,
+      -4.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    }
+   ]
+  },
+  {
+   "start": "say:You see",
+   "anchor": [
+    210.4,
+    1.4,
+    -0.5
+   ],
+   "distance": 11,
+   "yaw": 10,
+   "pitch": 7,
+   "zoom": 8,
+   "pan": [
+    -8,
+    2
+   ],
+   "actions": [
+    {
+     "at": 0.3,
+     "who": "ques",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.34,
+     "who": "w1",
+     "to": [
+      209.1,
+      0.14,
+      0.3
+     ],
+     "over": 0.3,
+     "walk": false,
+     "hop": 0.25
+    },
+    {
+     "at": 1.46,
+     "who": "w2",
+     "to": [
+      210.6,
+      0.14,
+      0.7
+     ],
+     "over": 0.3,
+     "walk": false,
+     "hop": 0.25
+    },
+    {
+     "at": 1.58,
+     "who": "w3",
+     "to": [
+      211.8,
+      0.14,
+      0.2
+     ],
+     "over": 0.3,
+     "walk": false,
+     "hop": 0.25
+    },
+    {
+     "at": 0.34,
+     "who": "warm",
+     "to": [
+      210.4,
+      3.0,
+      0.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  },
+  {
+   "start": "say:Tiny clams",
+   "anchor": [
+    210.6,
+    0.75,
+    0.6
+   ],
+   "distance": 4.2,
+   "yaw": -10,
+   "pitch": 4,
+   "zoom": 10,
+   "pan": [
+    6,
+    2
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "warm",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "w2",
+     "face": "munch",
+     "shake": 0.6
+    },
+    {
+     "at": 0.1,
+     "who": "clams",
+     "to": [
+      210.6,
+      1.5,
+      1.0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.74,
+     "who": "nom",
+     "to": [
+      211.25,
+      0.9,
+      1.1
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 1.5,
+     "who": "clams",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.5,
+     "who": "nom",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:In the Mediterranean",
+   "anchor": [
+    210.4,
+    1.2,
+    -0.3
+   ],
+   "distance": 8,
+   "yaw": 14,
+   "pitch": 6,
+   "zoom": 8,
+   "pan": [
+    -10,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "w2",
+     "face": "default"
+    },
+    {
+     "at": 0.05,
+     "who": "med",
+     "to": [
+      210.4,
+      2.3,
+      0.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.2,
+     "who": "w1",
+     "face": "munch"
+    },
+    {
+     "at": 0.3,
+     "who": "w3",
+     "face": "munch"
+    },
+    {
+     "at": 1.55,
+     "who": "med",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:would be eaten",
+   "anchor": [
+    210.4,
+    0.8,
+    -0.2
+   ],
+   "distance": 5.5,
+   "yaw": -12,
+   "pitch": 5,
+   "zoom": 10,
+   "pan": [
+    6,
+    2
+   ],
+   "actions": [
+    {
+     "at": 0.28,
+     "who": "boat",
+     "face": "eaten",
+     "shake": 0.5
+    },
+    {
+     "at": 0.28,
+     "who": "w2",
+     "face": "munch"
+    },
+    {
+     "at": 0.74,
+     "who": "poofB",
+     "to": [
+      210.4,
+      0.1,
+      0.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    },
+    {
+     "at": 0.84,
+     "who": "boat",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.84,
+     "who": "w1",
+     "face": "default"
+    },
+    {
+     "at": 0.84,
+     "who": "w2",
+     "face": "default"
+    },
+    {
+     "at": 0.84,
+     "who": "w3",
+     "face": "default"
+    },
+    {
+     "at": 0.89,
+     "who": "y30",
+     "to": [
+      210.4,
+      1.55,
+      0.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  },
+  {
+   "start": "say:But the Baltic",
+   "anchor": [
+    280,
+    1.2,
+    0.2
+   ],
+   "distance": 8,
+   "yaw": 10,
+   "pitch": 7,
+   "zoom": 8,
+   "pan": [
+    -8,
+    2
+   ],
+   "actions": [
+    {
+     "at": 0.3,
+     "who": "poofB",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "y30",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "wormC",
+     "shake": 1.0
+    },
+    {
+     "at": 0.0,
+     "who": "snow1",
+     "to": [
+      279.4,
+      3.4,
+      1.2
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.05,
+     "who": "snow1",
+     "to": [
+      279.4,
+      1.8,
+      1.2
+     ],
+     "over": 2.6,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "snow2",
+     "to": [
+      281.0,
+      3.8,
+      -0.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.05,
+     "who": "snow2",
+     "to": [
+      281.0,
+      2.2,
+      -0.6
+     ],
+     "over": 2.6,
+     "walk": false
+    },
+    {
+     "at": 0.15,
+     "who": "baltic",
+     "to": [
+      280,
+      2.6,
+      0.9
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.66,
+     "who": "baltic",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:cold and barely",
+   "anchor": [
+    280,
+    0.9,
+    0.5
+   ],
+   "distance": 5,
+   "yaw": -8,
+   "pitch": 5,
+   "zoom": 10,
+   "pan": [
+    6,
+    2
+   ],
+   "actions": [
+    {
+     "at": 0.05,
+     "who": "coldsalt",
+     "to": [
+      280,
+      1.6,
+      0.95
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.1,
+     "who": "wormC",
+     "shake": 1.0
+    },
+    {
+     "at": 1.24,
+     "who": "coldsalt",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:and shipworms can't",
+   "anchor": [
+    280.2,
+    0.9,
+    0.4
+   ],
+   "distance": 6,
+   "yaw": 12,
+   "pitch": 5,
+   "zoom": 10,
+   "pan": [
+    -6,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "wormC",
+     "face": "sad"
+    },
+    {
+     "at": 0.54,
+     "who": "nope",
+     "to": [
+      280.3,
+      1.55,
+      0.95
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    },
+    {
+     "at": 1.06,
+     "who": "wormC",
+     "to": [
+      280,
+      -1.2,
+      0.5
+     ],
+     "over": 0.5,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:So for 333",
+   "anchor": [
+    140,
+    2.2,
+    -4
+   ],
+   "distance": 18,
+   "yaw": -14,
+   "pitch": 3,
+   "zoom": 6,
+   "pan": [
+    12,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.3,
+     "who": "nope",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "snow1",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "snow2",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "f1",
+     "to": [
+      147,
+      2.9,
+      -1
+     ],
+     "over": 3.6,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "f2",
+     "to": [
+      133,
+      3.2,
+      -2
+     ],
+     "over": 4.0,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "y333",
+     "to": [
+      140,
+      4.6,
+      -2.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    },
+    {
+     "at": 3.74,
+     "who": "y333",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:Untouched",
+   "anchor": [
+    140.4,
+    1.8,
+    -4
+   ],
+   "distance": 9,
+   "yaw": 12,
+   "pitch": 3,
+   "zoom": 10,
+   "pan": [
+    -6,
+    2
+   ],
+   "out": "dissolve",
+   "actions": [
+    {
+     "at": 0.05,
+     "who": "untouched",
+     "to": [
+      140.4,
+      3.6,
+      -2.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.25,
+     "who": "spark2",
+     "to": [
+      141.8,
+      2.5,
+      -2.8
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    }
+   ]
+  },
+  {
+   "start": "say:Today she",
+   "anchor": [
+    420,
+    3.4,
+    -5
+   ],
+   "distance": 17,
+   "yaw": -8,
+   "pitch": 4,
+   "zoom": 8,
+   "pan": [
+    8,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.6,
+     "who": "untouched",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.6,
+     "who": "spark2",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.76,
+     "who": "p98",
+     "to": [
+      420,
+      6.0,
+      -3
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    }
+   ]
+  },
+  {
+   "start": "say:If she had",
+   "anchor": [
+    350.4,
+    2.2,
+    -4
+   ],
+   "distance": 15,
+   "yaw": 10,
+   "pitch": 4,
+   "zoom": 8,
+   "pan": [
+    -8,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.3,
+     "who": "p98",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "whatif",
+     "to": [
+      350.4,
+      5.6,
+      -2.5
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.9,
+     "who": "vasaW",
+     "face": "war",
+     "shake": 0.5
+    },
+    {
+     "at": 1.66,
+     "who": "whatif",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:rotted",
+   "anchor": [
+    350.4,
+    1.8,
+    -4
+   ],
+   "distance": 11,
+   "yaw": -10,
+   "pitch": 3,
+   "zoom": 10,
+   "pan": [
+    6,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "vasaW",
+     "face": "rot",
+     "pose": {
+      "head": -5
+     },
+     "ease": 0.3
+    },
+    {
+     "at": 0.34,
+     "who": "vasaW",
+     "face": "burn",
+     "shake": 0.6,
+     "pose": {
+      "head": 4
+     }
+    }
+   ]
+  },
+  {
+   "start": "say:or sunk",
+   "anchor": [
+    350.4,
+    1.6,
+    -4
+   ],
+   "distance": 14,
+   "yaw": 8,
+   "pitch": 4,
+   "zoom": 8,
+   "pan": [
+    -6,
+    2
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "vasaW",
+     "face": "wreck",
+     "pose": {
+      "head": 24
+     },
+     "ease": 0.8
+    },
+    {
+     "at": 0.05,
+     "who": "vasaW",
+     "to": [
+      350,
+      -9,
+      -4
+     ],
+     "over": 1.3,
+     "walk": false
+    },
+    {
+     "at": 1.24,
+     "who": "poofW",
+     "to": [
+      350.3,
+      -0.4,
+      -2.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.1
+    }
+   ]
+  },
+  {
+   "start": "say:Instead",
+   "anchor": [
+    420,
+    1.3,
+    0.3
+   ],
+   "distance": 10.5,
+   "yaw": 10,
+   "pitch": 4,
+   "zoom": 8,
+   "pan": [
+    -8,
+    2
+   ],
+   "actions": [
+    {
+     "at": 0.1,
+     "who": "mom",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     },
+     "face": "happy"
+    },
+    {
+     "at": 0.18,
+     "who": "dad",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     },
+     "face": "happy"
+    },
+    {
+     "at": 0.26,
+     "who": "tech",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     },
+     "face": "happy"
+    },
+    {
+     "at": 0.34,
+     "who": "vik",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     },
+     "face": "happy"
+    },
+    {
+     "at": 0.68,
+     "who": "million",
+     "to": [
+      420,
+      2.6,
+      0.8
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    },
+    {
+     "at": 1.28,
+     "who": "million",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    }
+   ]
+  },
+  {
+   "start": "say:visit her every",
+   "anchor": [
+    420,
+    3.6,
+    -4
+   ],
+   "distance": 19,
+   "yaw": -16,
+   "pitch": 6,
+   "zoom": 6,
+   "pan": [
+    12,
+    2
+   ],
+   "actions": [
+    {
+     "at": 0.2,
+     "who": "hearts",
+     "to": [
+      420,
+      2.3,
+      0.8
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.3,
+     "who": "mom",
+     "pose": {
+      "armR": -100,
+      "armL": 100
+     }
+    },
+    {
+     "at": 0.4,
+     "who": "dad",
+     "pose": {
+      "armR": -100,
+      "armL": 100
+     }
+    },
+    {
+     "at": 0.5,
+     "who": "tech",
+     "pose": {
+      "armR": -100,
+      "armL": 100
+     }
+    },
+    {
+     "at": 0.6,
+     "who": "vik",
+     "pose": {
+      "armR": -100,
+      "armL": 100
+     }
+    }
+   ]
+  },
+  {
+   "start": "say:The worst launch",
+   "anchor": [
+    -29.6,
+    1.8,
+    -4
+   ],
+   "distance": 17,
+   "yaw": -22,
+   "pitch": 5,
+   "zoom": 8,
+   "pan": [
+    8,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.3,
+     "who": "hearts",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "poofW",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.1,
+     "who": "worst",
+     "to": [
+      -29.6,
+      5.0,
+      -2.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  },
+  {
+   "start": "say:gave her a perfect",
+   "anchor": [
+    140.2,
+    1.9,
+    -4
+   ],
+   "distance": 11,
+   "yaw": 14,
+   "pitch": 3,
+   "zoom": 10,
+   "pan": [
+    -8,
+    2
+   ],
+   "actions": [
+    {
+     "at": 0.3,
+     "who": "worst",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "vasaK",
+     "pose": {
+      "head": 22
+     },
+     "ease": 0.2
+    },
+    {
+     "at": 0.74,
+     "who": "hidden",
+     "to": [
+      140.2,
+      3.9,
+      -2.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.15
+    }
+   ]
+  },
+  {
+   "start": 50.03,
+   "anchor": [
+    -29.5,
+    1.6,
+    -4
+   ],
+   "distance": 14,
+   "yaw": 8,
+   "pitch": 3,
+   "zoom": 14,
+   "pan": [
+    -6,
+    3
+   ],
+   "frameY": 0.0,
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "vasaK",
+     "pose": {
+      "head": 28
+     },
+     "ease": 2.4,
+     "shake": 0.5
+    },
+    {
+     "at": 0.6,
+     "who": "sank",
+     "to": [
+      -29.5,
+      4.3,
+      -2.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ]
+  }
+ ],
+ "end": "audio"
+}
