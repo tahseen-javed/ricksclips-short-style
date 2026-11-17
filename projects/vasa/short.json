@@ -139,9 +139,9 @@
    "id": "sA",
    "puppet": "puppets/sailA",
    "pos": [
-    67.0,
+    67.6,
     0.04,
-    0.9
+    0.8
    ],
    "height": 1.8,
    "face": "happy"
@@ -150,9 +150,9 @@
    "id": "sB",
    "puppet": "puppets/sailB",
    "pos": [
-    67.4,
+    68.0,
     0.04,
-    -0.5
+    -0.4
    ],
    "height": 1.8,
    "face": "happy"
@@ -161,9 +161,9 @@
    "id": "sC",
    "puppet": "puppets/sailC",
    "pos": [
-    67.8,
+    68.4,
     0.04,
-    1.2
+    1.1
    ],
    "height": 1.8,
    "face": "happy"
@@ -172,9 +172,9 @@
    "id": "sD",
    "puppet": "puppets/sailD",
    "pos": [
-    68.2,
+    68.8,
     0.04,
-    -0.2
+    -0.1
    ],
    "height": 1.8,
    "face": "happy"
@@ -183,7 +183,7 @@
    "id": "sE",
    "puppet": "puppets/sailE",
    "pos": [
-    68.6,
+    69.2,
     0.04,
     0.6
    ],
@@ -194,9 +194,9 @@
    "id": "sF",
    "puppet": "puppets/sailF",
    "pos": [
-    69.0,
+    69.6,
     0.04,
-    -0.9
+    -0.7
    ],
    "height": 1.8,
    "face": "happy"
@@ -305,11 +305,11 @@
    "id": "sun",
    "puppet": "puppets/sun",
    "pos": [
-    212.0,
-    4.0,
-    -1.0
+    211.4,
+    4.2,
+    -6
    ],
-   "height": 1.3,
+   "height": 2.0,
    "face": "default"
   },
   {
@@ -1941,19 +1941,20 @@
   {
    "start": 0,
    "anchor": [
-    -29.5,
-    1.6,
+    -29.0,
+    1.8,
     -4
    ],
-   "distance": 14,
-   "yaw": 8,
-   "pitch": 3,
-   "zoom": 14,
+   "distance": 15,
+   "yaw": 6,
+   "pitch": 4,
+   "zoom": 12,
    "pan": [
-    -6,
-    3
+    4,
+    0
    ],
    "frameY": 0.0,
+   "out": "cut",
    "actions": [
     {
      "at": 0.0,
@@ -1965,12 +1966,12 @@
      "shake": 0.5
     },
     {
-     "at": 0.66,
+     "at": 0.64,
      "who": "sank",
      "to": [
-      -29.5,
-      4.3,
-      -2.6
+      -29.0,
+      4.055,
+      -3.7
      ],
      "over": 0.02,
      "walk": false,
@@ -2052,19 +2053,19 @@
      "walk": false
     },
     {
-     "at": 0.94,
+     "at": 0.92,
      "who": "cal28",
      "to": [
-      -2.4,
-      4.6,
-      -1.5
+      -0.968,
+      5.044,
+      -3.7
      ],
      "over": 0.02,
      "walk": false,
-     "hop": 0.15
+     "hop": 0.12
     },
     {
-     "at": 1.82,
+     "at": 1.8,
      "who": "cal28",
      "to": [
       0,
@@ -2074,7 +2075,8 @@
      "over": 0.02,
      "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:The Vasa",
@@ -2097,14 +2099,26 @@
      "who": "vtag",
      "to": [
       0.6,
-      5.0,
-      -2.2
+      3.934,
+      -3.7
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
+    },
+    {
+     "at": 0.6,
+     "who": "vtag",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:Two full",
@@ -2121,18 +2135,8 @@
     8,
     0
    ],
+   "out": "cut",
    "actions": [
-    {
-     "at": 0.0,
-     "who": "vtag",
-     "to": [
-      0,
-      -60,
-      0
-     ],
-     "over": 0.02,
-     "walk": false
-    },
     {
      "at": 0.0,
      "who": "smoke1",
@@ -2162,15 +2166,15 @@
      "who": "decks",
      "to": [
       0.8,
-      1.9,
-      -2.6
+      1.471,
+      -3.7
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
     },
     {
-     "at": 0.9,
+     "at": 0.88,
      "who": "decks",
      "to": [
       0,
@@ -2181,29 +2185,30 @@
      "walk": false
     },
     {
-     "at": 1.84,
+     "at": 1.82,
      "who": "one",
      "to": [
       0.8,
-      2.0,
-      -2.6
+      1.746,
+      -3.7
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:But before launch",
    "anchor": [
-    70,
-    1.4,
+    69.8,
+    0.9,
     -1
    ],
-   "distance": 16,
+   "distance": 12,
    "yaw": 12,
-   "pitch": 9,
+   "pitch": 10,
    "zoom": 6,
    "pan": [
     -10,
@@ -2265,18 +2270,19 @@
      "over": 0.02,
      "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:thirty sailors",
    "anchor": [
-    70,
-    1.0,
+    70.2,
+    0.9,
     0
    ],
-   "distance": 13,
+   "distance": 12,
    "yaw": -8,
-   "pitch": 7,
+   "pitch": 9,
    "zoom": 8,
    "pan": [
     8,
@@ -2287,16 +2293,16 @@
      "at": 0.1,
      "who": "x30",
      "to": [
-      70,
-      2.6,
-      1.4
+      70.2,
+      2.634,
+      0.3
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
     },
     {
-     "at": 2.22,
+     "at": 2.2,
      "who": "x30",
      "to": [
       0,
@@ -2310,222 +2316,227 @@
      "at": 0.0,
      "who": "sA",
      "to": [
-      71.0,
+      70.8,
       0.04,
-      0.9
+      0.8
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     },
     {
-     "at": 0.04,
+     "at": 0.035,
      "who": "sB",
      "to": [
-      71.4,
+      71.2,
       0.04,
-      -0.5
+      -0.4
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     },
     {
-     "at": 0.08,
+     "at": 0.07,
      "who": "sC",
      "to": [
-      71.8,
+      71.6,
       0.04,
-      1.2
+      1.1
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     },
     {
-     "at": 0.12,
+     "at": 0.105,
      "who": "sD",
      "to": [
-      72.2,
+      72.0,
       0.04,
-      -0.2
+      -0.1
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     },
     {
-     "at": 0.16,
+     "at": 0.14,
      "who": "sE",
      "to": [
-      72.6,
+      72.4,
       0.04,
       0.6
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     },
     {
-     "at": 0.2,
+     "at": 0.175,
      "who": "sF",
      "to": [
-      73.0,
+      72.8,
       0.04,
-      -0.9
+      -0.7
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     },
     {
-     "at": 0.85,
+     "at": 0.72,
      "who": "sA",
      "to": [
-      67.0,
+      67.6,
       0.04,
-      0.9
+      0.8
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     },
     {
-     "at": 0.89,
+     "at": 0.755,
      "who": "sB",
      "to": [
-      67.4,
+      68.0,
       0.04,
-      -0.5
+      -0.4
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     },
     {
-     "at": 0.93,
+     "at": 0.79,
      "who": "sC",
      "to": [
-      67.8,
+      68.4,
       0.04,
-      1.2
+      1.1
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     },
     {
-     "at": 0.97,
+     "at": 0.825,
      "who": "sD",
      "to": [
-      68.2,
+      68.8,
       0.04,
-      -0.2
+      -0.1
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     },
     {
-     "at": 1.01,
+     "at": 0.86,
      "who": "sE",
      "to": [
-      68.6,
+      69.2,
       0.04,
       0.6
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     },
     {
-     "at": 1.05,
+     "at": 0.895,
      "who": "sF",
      "to": [
-      69.0,
+      69.6,
       0.04,
-      -0.9
+      -0.7
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     },
     {
-     "at": 1.7,
+     "at": 1.44,
      "who": "sA",
      "to": [
-      71.0,
+      70.8,
       0.04,
-      0.9
+      0.8
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     },
     {
-     "at": 1.74,
+     "at": 1.475,
      "who": "sB",
      "to": [
-      71.4,
+      71.2,
       0.04,
-      -0.5
+      -0.4
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     },
     {
-     "at": 1.78,
+     "at": 1.51,
      "who": "sC",
      "to": [
-      71.8,
+      71.6,
       0.04,
-      1.2
+      1.1
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     },
     {
-     "at": 1.82,
+     "at": 1.545,
      "who": "sD",
      "to": [
-      72.2,
+      72.0,
       0.04,
-      -0.2
+      -0.1
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     },
     {
-     "at": 1.86,
+     "at": 1.58,
      "who": "sE",
      "to": [
-      72.6,
+      72.4,
       0.04,
       0.6
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     },
     {
-     "at": 1.9,
+     "at": 1.615,
      "who": "sF",
      "to": [
-      73.0,
+      72.8,
       0.04,
-      -0.9
+      -0.7
      ],
-     "over": 0.75,
+     "over": 0.62,
      "walk": true
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:A stability test",
-   "target": "capt",
-   "headWidth": 0.3,
-   "yaw": 10,
-   "pitch": 3,
+   "anchor": [
+    70.3,
+    1.35,
+    -3.0
+   ],
+   "distance": 6.5,
+   "yaw": -18,
+   "pitch": 4,
    "zoom": 8,
    "pan": [
     -6,
     2
    ],
-   "frameY": 0.1,
+   "out": "cut",
    "actions": [
     {
      "at": 0.15,
      "who": "test",
      "to": [
       70.3,
-      2.35,
-      -2.5
+      2.283,
+      -2.7
      ],
      "over": 0.02,
      "walk": false,
@@ -2536,7 +2547,8 @@
      "who": "capt",
      "face": "nervous"
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:She rocked",
@@ -2546,13 +2558,14 @@
     -4
    ],
    "distance": 14,
-   "yaw": -6,
-   "pitch": 4,
+   "yaw": 28,
+   "pitch": 5,
    "zoom": 10,
    "pan": [
     6,
     0
    ],
+   "out": "cut",
    "actions": [
     {
      "at": 0.3,
@@ -2576,54 +2589,51 @@
      "pose": {
       "head": 13
      },
-     "ease": 0.28
+     "ease": 0.2
     },
     {
-     "at": 0.3,
+     "at": 0.2,
      "who": "vasaH",
      "pose": {
       "head": -13
      },
-     "ease": 0.28
+     "ease": 0.2
+    },
+    {
+     "at": 0.4,
+     "who": "vasaH",
+     "pose": {
+      "head": 13
+     },
+     "ease": 0.2
     },
     {
      "at": 0.6,
      "who": "vasaH",
      "pose": {
-      "head": 13
-     },
-     "ease": 0.28
-    },
-    {
-     "at": 0.9,
-     "who": "vasaH",
-     "pose": {
       "head": -13
      },
-     "ease": 0.28
-    },
-    {
-     "at": 1.2,
-     "who": "vasaH",
-     "pose": {
-      "head": 13
-     },
-     "ease": 0.28
+     "ease": 0.2
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:they stopped",
-   "target": "capt",
-   "headWidth": 0.26,
-   "yaw": -12,
+   "anchor": [
+    70.3,
+    1.35,
+    -3.0
+   ],
+   "distance": 5.5,
+   "yaw": -16,
    "pitch": 3,
    "zoom": 12,
    "pan": [
     8,
     0
    ],
-   "frameY": 0.12,
+   "out": "cut",
    "actions": [
     {
      "at": 0.0,
@@ -2637,13 +2647,13 @@
      "at": 0.05,
      "who": "stop",
      "to": [
-      71.0,
-      1.9,
-      -2.6
+      70.796,
+      1.455,
+      -2.7
      ],
      "over": 0.02,
      "walk": false,
-     "hop": 0.15
+     "hop": 0.12
     },
     {
      "at": 0.05,
@@ -2676,14 +2686,15 @@
      "face": "shocked"
     },
     {
-     "at": 0.8,
+     "at": 0.5,
      "who": "vasaH",
      "pose": {
       "head": 0
      },
      "ease": 0.3
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:She sailed anyway",
@@ -2727,16 +2738,16 @@
      "at": 0.36,
      "who": "anyway",
      "to": [
-      2.0,
-      5.8,
-      -3
+      2.262,
+      5.076,
+      -4.7
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
     },
     {
-     "at": 0.82,
+     "at": 0.8,
      "who": "anyway",
      "to": [
       0,
@@ -2746,7 +2757,8 @@
      "over": 0.02,
      "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:Less than a mile",
@@ -2768,16 +2780,16 @@
      "at": 0.2,
      "who": "mile",
      "to": [
-      7,
-      6.4,
-      -4
+      7.0,
+      5.754,
+      -5.7
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
     },
     {
-     "at": 0.74,
+     "at": 0.76,
      "who": "mile",
      "to": [
       0,
@@ -2787,13 +2799,14 @@
      "over": 0.02,
      "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:a gust",
    "anchor": [
     6.6,
-    3.0,
+    2.4,
     -6
    ],
    "distance": 13,
@@ -2809,8 +2822,8 @@
      "at": 0.0,
      "who": "gust",
      "to": [
-      3.2,
-      4.3,
+      3.4,
+      3.6,
       -4.4
      ],
      "over": 0.02,
@@ -2822,7 +2835,7 @@
      "who": "gust",
      "to": [
       5.0,
-      4.5,
+      3.8,
       -4.4
      ],
      "over": 0.7,
@@ -2834,7 +2847,7 @@
      "shake": 0.6
     },
     {
-     "at": 0.94,
+     "at": 0.92,
      "who": "gust",
      "to": [
       0,
@@ -2844,7 +2857,8 @@
      "over": 0.02,
      "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:She leans",
@@ -2870,16 +2884,17 @@
      },
      "ease": 0.45
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:Water pours",
    "anchor": [
     8.9,
-    0.6,
+    0.8,
     -6
    ],
-   "distance": 7,
+   "distance": 8,
    "yaw": 10,
    "pitch": 3,
    "zoom": 10,
@@ -2920,13 +2935,14 @@
      "over": 0.02,
      "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:Within minutes",
    "anchor": [
     8.4,
-    2.0,
+    1.6,
     -6
    ],
    "distance": 18,
@@ -2970,7 +2986,8 @@
      "walk": false,
      "hop": 0.1
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:on the seabed",
@@ -3042,7 +3059,8 @@
      "over": 0.02,
      "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:Then in 1961",
@@ -3059,6 +3077,7 @@
     8,
     0
    ],
+   "out": "cut",
    "actions": [
     {
      "at": 0.0,
@@ -3082,21 +3101,22 @@
      "at": 0.25,
      "who": "cal61",
      "to": [
-      140.1,
-      2.6,
-      -0.8
+      140.388,
+      2.462,
+      -1.7
      ],
      "over": 0.02,
      "walk": false,
-     "hop": 0.15
+     "hop": 0.12
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:she comes back up",
    "anchor": [
     8,
-    2.0,
+    1.4,
     -6
    ],
    "distance": 15,
@@ -3116,11 +3136,11 @@
       -1.6,
       -6
      ],
-     "over": 1.4,
+     "over": 1.1,
      "walk": false
     },
     {
-     "at": 0.45,
+     "at": 0.4,
      "who": "splashU",
      "to": [
       8.2,
@@ -3164,13 +3184,14 @@
      "over": 0.02,
      "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:Almost whole",
    "anchor": [
     8,
-    2.2,
+    1.6,
     -6
    ],
    "distance": 10,
@@ -3186,9 +3207,9 @@
      "at": 0.1,
      "who": "whole",
      "to": [
-      8,
-      4.4,
-      -4.6
+      8.0,
+      3.045,
+      -5.7
      ],
      "over": 0.02,
      "walk": false,
@@ -3198,16 +3219,16 @@
      "at": 0.25,
      "who": "spark1",
      "to": [
-      9.5,
-      3.3,
-      -4.4
+      9.3,
+      2.0,
+      -4.6
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.1
     },
     {
-     "at": 0.76,
+     "at": 0.72,
      "who": "whole",
      "to": [
       0,
@@ -3218,7 +3239,7 @@
      "walk": false
     },
     {
-     "at": 0.76,
+     "at": 0.72,
      "who": "spark1",
      "to": [
       0,
@@ -3228,13 +3249,14 @@
      "over": 0.02,
      "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:How",
    "anchor": [
     8,
-    2.6,
+    1.6,
     -6
    ],
    "distance": 7.5,
@@ -3245,29 +3267,31 @@
     0,
     0
    ],
+   "out": "cut",
    "actions": [
     {
      "at": 0.05,
      "who": "ques",
      "to": [
-      8,
-      3.2,
-      -4.4
+      8.0,
+      2.042,
+      -5.7
      ],
      "over": 0.02,
      "walk": false,
-     "hop": 0.15
+     "hop": 0.12
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:You see",
    "anchor": [
     210.4,
-    1.4,
+    1.2,
     -0.5
    ],
-   "distance": 11,
+   "distance": 10,
    "yaw": 10,
    "pitch": 7,
    "zoom": 8,
@@ -3288,7 +3312,7 @@
      "walk": false
     },
     {
-     "at": 1.34,
+     "at": 1.32,
      "who": "w1",
      "to": [
       209.1,
@@ -3300,7 +3324,7 @@
      "hop": 0.25
     },
     {
-     "at": 1.46,
+     "at": 1.44,
      "who": "w2",
      "to": [
       210.6,
@@ -3312,7 +3336,7 @@
      "hop": 0.25
     },
     {
-     "at": 1.58,
+     "at": 1.56,
      "who": "w3",
      "to": [
       211.8,
@@ -3324,37 +3348,19 @@
      "hop": 0.25
     },
     {
-     "at": 0.34,
+     "at": 0.32,
      "who": "warm",
      "to": [
       210.4,
-      3.0,
-      0.6
+      2.67,
+      -0.2
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
-    }
-   ]
-  },
-  {
-   "start": "say:Tiny clams",
-   "anchor": [
-    210.6,
-    0.75,
-    0.6
-   ],
-   "distance": 4.2,
-   "yaw": -10,
-   "pitch": 4,
-   "zoom": 10,
-   "pan": [
-    6,
-    2
-   ],
-   "actions": [
+    },
     {
-     "at": 0.0,
+     "at": 2.1,
      "who": "warm",
      "to": [
       0,
@@ -3363,7 +3369,26 @@
      ],
      "over": 0.02,
      "walk": false
-    },
+    }
+   ],
+   "frameY": 0.0
+  },
+  {
+   "start": "say:Tiny clams",
+   "anchor": [
+    210.6,
+    0.75,
+    0.6
+   ],
+   "distance": 4.4,
+   "yaw": -10,
+   "pitch": 4,
+   "zoom": 10,
+   "pan": [
+    6,
+    2
+   ],
+   "actions": [
     {
      "at": 0.0,
      "who": "w2",
@@ -3375,27 +3400,27 @@
      "who": "clams",
      "to": [
       210.6,
-      1.5,
-      1.0
+      1.309,
+      0.7
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
     },
     {
-     "at": 0.74,
+     "at": 0.72,
      "who": "nom",
      "to": [
-      211.25,
-      0.9,
-      1.1
+      211.069,
+      0.5,
+      0.8
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
     },
     {
-     "at": 1.5,
+     "at": 1.46,
      "who": "clams",
      "to": [
       0,
@@ -3406,7 +3431,7 @@
      "walk": false
     },
     {
-     "at": 1.5,
+     "at": 1.46,
      "who": "nom",
      "to": [
       0,
@@ -3416,13 +3441,14 @@
      "over": 0.02,
      "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:In the Mediterranean",
    "anchor": [
     210.4,
-    1.2,
+    1.0,
     -0.3
    ],
    "distance": 8,
@@ -3444,8 +3470,8 @@
      "who": "med",
      "to": [
       210.4,
-      2.3,
-      0.6
+      2.181,
+      0.0
      ],
      "over": 0.02,
      "walk": false,
@@ -3462,7 +3488,7 @@
      "face": "munch"
     },
     {
-     "at": 1.55,
+     "at": 1.54,
      "who": "med",
      "to": [
       0,
@@ -3472,7 +3498,8 @@
      "over": 0.02,
      "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:would be eaten",
@@ -3489,15 +3516,16 @@
     6,
     2
    ],
+   "out": "cut",
    "actions": [
     {
-     "at": 0.28,
+     "at": 0.26,
      "who": "boat",
      "face": "eaten",
      "shake": 0.5
     },
     {
-     "at": 0.28,
+     "at": 0.26,
      "who": "w2",
      "face": "munch"
     },
@@ -3544,20 +3572,21 @@
      "who": "y30",
      "to": [
       210.4,
-      1.55,
-      0.6
+      1.151,
+      0.1
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:But the Baltic",
    "anchor": [
     280,
-    1.2,
+    1.0,
     0.2
    ],
    "distance": 8,
@@ -3646,9 +3675,9 @@
      "at": 0.15,
      "who": "baltic",
      "to": [
-      280,
-      2.6,
-      0.9
+      280.0,
+      2.181,
+      0.5
      ],
      "over": 0.02,
      "walk": false,
@@ -3665,13 +3694,14 @@
      "over": 0.02,
      "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:cold and barely",
    "anchor": [
     280,
-    0.9,
+    0.8,
     0.5
    ],
    "distance": 5,
@@ -3687,9 +3717,9 @@
      "at": 0.05,
      "who": "coldsalt",
      "to": [
-      280,
-      1.6,
-      0.95
+      280.0,
+      1.291,
+      0.65
      ],
      "over": 0.02,
      "walk": false,
@@ -3711,13 +3741,14 @@
      "over": 0.02,
      "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:and shipworms can't",
    "anchor": [
     280.2,
-    0.9,
+    0.8,
     0.4
    ],
    "distance": 6,
@@ -3728,6 +3759,7 @@
     -6,
     0
    ],
+   "out": "cut",
    "actions": [
     {
      "at": 0.0,
@@ -3738,16 +3770,16 @@
      "at": 0.54,
      "who": "nope",
      "to": [
-      280.3,
-      1.55,
-      0.95
+      280.569,
+      1.461,
+      0.7
      ],
      "over": 0.02,
      "walk": false,
-     "hop": 0.15
+     "hop": 0.12
     },
     {
-     "at": 1.06,
+     "at": 1.08,
      "who": "wormC",
      "to": [
       280,
@@ -3757,13 +3789,14 @@
      "over": 0.5,
      "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:So for 333",
    "anchor": [
     140,
-    2.2,
+    2.0,
     -4
    ],
    "distance": 18,
@@ -3834,16 +3867,16 @@
      "at": 0.3,
      "who": "y333",
      "to": [
-      140,
-      4.6,
-      -2.4
+      140.0,
+      4.626,
+      -3.7
      ],
      "over": 0.02,
      "walk": false,
-     "hop": 0.15
+     "hop": 0.12
     },
     {
-     "at": 3.74,
+     "at": 3.73,
      "who": "y333",
      "to": [
       0,
@@ -3853,7 +3886,8 @@
      "over": 0.02,
      "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:Untouched",
@@ -3877,8 +3911,8 @@
      "who": "untouched",
      "to": [
       140.4,
-      3.6,
-      -2.6
+      3.113,
+      -3.7
      ],
      "over": 0.02,
      "walk": false,
@@ -3888,21 +3922,22 @@
      "at": 0.25,
      "who": "spark2",
      "to": [
-      141.8,
-      2.5,
+      141.6,
+      2.4,
       -2.8
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.1
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:Today she",
    "anchor": [
     420,
-    3.4,
+    3.2,
     -5
    ],
    "distance": 17,
@@ -3913,6 +3948,7 @@
     8,
     0
    ],
+   "out": "cut",
    "actions": [
     {
      "at": 0.6,
@@ -3940,21 +3976,22 @@
      "at": 0.76,
      "who": "p98",
      "to": [
-      420,
-      6.0,
-      -3
+      420.0,
+      5.47,
+      -4.7
      ],
      "over": 0.02,
      "walk": false,
-     "hop": 0.15
+     "hop": 0.12
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:If she had",
    "anchor": [
     350.4,
-    2.2,
+    2.0,
     -4
    ],
    "distance": 15,
@@ -3982,21 +4019,21 @@
      "who": "whatif",
      "to": [
       350.4,
-      5.6,
-      -2.5
+      4.33,
+      -3.7
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
     },
     {
-     "at": 0.9,
+     "at": 0.88,
      "who": "vasaW",
      "face": "war",
      "shake": 0.5
     },
     {
-     "at": 1.66,
+     "at": 1.64,
      "who": "whatif",
      "to": [
       0,
@@ -4006,7 +4043,8 @@
      "over": 0.02,
      "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:rotted",
@@ -4034,7 +4072,7 @@
      "ease": 0.3
     },
     {
-     "at": 0.34,
+     "at": 0.36,
      "who": "vasaW",
      "face": "burn",
      "shake": 0.6,
@@ -4042,7 +4080,8 @@
       "head": 4
      }
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:or sunk",
@@ -4059,6 +4098,7 @@
     -6,
     2
    ],
+   "out": "cut",
    "actions": [
     {
      "at": 0.0,
@@ -4092,7 +4132,8 @@
      "walk": false,
      "hop": 0.1
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:Instead",
@@ -4147,16 +4188,16 @@
      "face": "happy"
     },
     {
-     "at": 0.68,
+     "at": 0.7,
      "who": "million",
      "to": [
-      420,
-      2.6,
-      0.8
+      420.0,
+      2.76,
+      0.6
      ],
      "over": 0.02,
      "walk": false,
-     "hop": 0.15
+     "hop": 0.12
     },
     {
      "at": 1.28,
@@ -4169,13 +4210,14 @@
      "over": 0.02,
      "walk": false
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:visit her every",
    "anchor": [
     420,
-    3.6,
+    3.4,
     -4
    ],
    "distance": 19,
@@ -4186,6 +4228,7 @@
     12,
     2
    ],
+   "out": "cut",
    "actions": [
     {
      "at": 0.2,
@@ -4231,12 +4274,13 @@
       "armL": 100
      }
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:The worst launch",
    "anchor": [
-    -29.6,
+    -29.4,
     1.8,
     -4
    ],
@@ -4248,6 +4292,7 @@
     8,
     0
    ],
+   "out": "cut",
    "actions": [
     {
      "at": 0.3,
@@ -4275,21 +4320,22 @@
      "at": 0.1,
      "who": "worst",
      "to": [
-      -29.6,
-      5.0,
-      -2.6
+      -29.4,
+      4.494,
+      -3.7
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
    "start": "say:gave her a perfect",
    "anchor": [
     140.2,
-    1.9,
+    1.8,
     -4
    ],
    "distance": 11,
@@ -4300,6 +4346,7 @@
     -8,
     2
    ],
+   "out": "cut",
    "actions": [
     {
      "at": 0.3,
@@ -4325,29 +4372,30 @@
      "who": "hidden",
      "to": [
       140.2,
-      3.9,
-      -2.6
+      3.452,
+      -3.7
      ],
      "over": 0.02,
      "walk": false,
-     "hop": 0.15
+     "hop": 0.12
     }
-   ]
+   ],
+   "frameY": 0.0
   },
   {
-   "start": 50.03,
+   "start": 49.74,
    "anchor": [
-    -29.5,
-    1.6,
+    -29.0,
+    1.8,
     -4
    ],
-   "distance": 14,
-   "yaw": 8,
-   "pitch": 3,
-   "zoom": 14,
+   "distance": 15,
+   "yaw": 6,
+   "pitch": 4,
+   "zoom": 12,
    "pan": [
-    -6,
-    3
+    4,
+    0
    ],
    "frameY": 0.0,
    "actions": [
@@ -4361,12 +4409,12 @@
      "shake": 0.5
     },
     {
-     "at": 0.6,
+     "at": 0.58,
      "who": "sank",
      "to": [
-      -29.5,
-      4.3,
-      -2.6
+      -29.0,
+      4.055,
+      -3.7
      ],
      "over": 0.02,
      "walk": false,

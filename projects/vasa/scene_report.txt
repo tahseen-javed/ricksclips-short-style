@@ -1,47 +1,46 @@
-music projects/vasa/audio/music.wav 53.2 s
+music projects/vasa/audio/music.wav 52.9 s
 shot  start   dur  phrase
-S00    0.00  2.40  0
-S01    2.40  1.86  Stockholm
-S02    4.26  0.64  The Vasa
+S00    0.00  2.38  0
+S01    2.38  1.84  Stockholm
+S02    4.22  0.64  The Vasa
    ! very short shot (mostly glide)
-S03    4.90  2.42  Two full
-S04    7.32  0.82  But before launch
-S05    8.14  2.26  thirty sailors
-S06   10.40  0.92  A stability test
-S07   11.32  0.78  She rocked
-S08   12.10  0.68  they stopped
+S03    4.86  2.38  Two full
+S04    7.24  0.82  But before launch
+S05    8.06  2.24  thirty sailors
+S06   10.30  0.92  A stability test
+S07   11.22  0.80  She rocked
+S08   12.02  0.67  they stopped
    ! very short shot (mostly glide)
-S09   12.78  0.86  She sailed anyway
-S10   13.64  0.78  Less than a mile
-S11   14.42  0.98  a gust
-S12   15.40  0.72  She leans
-S13   16.12  1.66  Water pours
-S14   17.78  1.68  Within minutes
-S15   19.46  0.66  on the seabed
+S09   12.69  0.84  She sailed anyway
+S10   13.53  0.80  Less than a mile
+S11   14.33  0.96  a gust
+S12   15.29  0.70  She leans
+S13   15.99  1.66  Water pours
+S14   17.65  1.66  Within minutes
+S15   19.31  0.66  on the seabed
    ! very short shot (mostly glide)
-S16   20.12  1.18  Then in 1961
-S17   21.30  0.84  she comes back up
-S18   22.14  0.80  Almost whole
-S19   22.94  0.74  How
-S20   23.68  2.12  You see
-S21   25.80  1.54  Tiny clams
-S22   27.34  1.59  In the Mediterranean
-S23   28.93  1.58  would be eaten
-S24   30.51  0.70  But the Baltic
+S16   19.97  1.18  Then in 1961
+S17   21.15  0.84  she comes back up
+S18   21.99  0.76  Almost whole
+S19   22.75  0.74  How
+S20   23.49  2.14  You see
+S21   25.63  1.50  Tiny clams
+S22   27.13  1.58  In the Mediterranean
+S23   28.71  1.56  would be eaten
+S24   30.27  0.70  But the Baltic
    ! very short shot (mostly glide)
-S25   31.21  1.28  cold and barely
-S26   32.49  1.46  and shipworms can't
-S27   33.95  3.78  So for 333
-S28   37.73  0.64  Untouched
+S25   30.97  1.28  cold and barely
+S26   32.25  1.44  and shipworms can't
+S27   33.69  3.77  So for 333
+S28   37.46  0.64  Untouched
    ! very short shot (mostly glide)
-S29   38.37  1.92  Today she
-S30   40.29  1.70  If she had
-S31   41.99  0.78  rotted
-S32   42.77  1.80  or sunk
-S33   44.57  1.32  Instead
-S34   45.89  1.06  visit her every
-S35   46.95  1.54  The worst launch
-S36   48.49  1.54  gave her a perfect
-S37   50.03  2.78  Sinking#2
-   ! S07 action at 1.20 s runs past the shot (0.78 s): vasaH ['pose', 'ease']
-wrote short.json: 38 shots, 71 characters, 82 props, voice 52.81 s
+S29   38.10  1.94  Today she
+S30   40.04  1.68  If she had
+S31   41.72  0.78  rotted
+S32   42.50  1.78  or sunk
+S33   44.28  1.32  Instead
+S34   45.60  1.06  visit her every
+S35   46.66  1.54  The worst launch
+S36   48.20  1.54  gave her a perfect
+S37   49.74  2.76  Sinking#2
+wrote short.json: 38 shots, 71 characters, 82 props, voice 52.50 s
