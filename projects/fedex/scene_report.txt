@@ -1,0 +1,37 @@
+music: 55.2 s, funk 112 bpm, E minor
+shot  start   dur  phrase
+S00    0.00  1.68  0
+S01    1.68  1.38  survived because
+S02    3.06  2.04  bet the company's
+S03    5.10  1.62  on blackjack
+S04    6.72  1.50  In April
+S05    8.22  2.78  Federal Express launched
+S06   11.00  0.75  out of Memphis
+S07   11.75  2.84  On that first night
+S08   14.59  1.08  to 25 cities
+S09   15.67  2.54  Fourteen jets for
+S10   18.21  1.38  Fuel costs
+S11   19.59  1.34  and the money
+S12   20.93  2.50  Then the company's
+S13   23.43  2.42  Nowhere near
+S14   25.85  1.26  You see
+S15   27.11  2.12  did something
+S16   29.23  1.16  He flew to
+S17   30.39  1.50  sat down
+S18   31.89  1.50  and turned that
+S19   33.39  1.57  twentyseven
+S20   34.96  2.12  One card table
+S21   37.08  1.56  Not a strategy
+S22   38.64  1.06  The jets kept
+S23   39.70  0.96  investors came
+S24   40.66  2.10  and Smith raised
+S25   42.76  1.92  The tiny overnight
+S26   44.68  1.12  And the idea
+S27   45.80  2.48  It started
+S28   48.28  1.82  His grade
+S29   50.10  0.80  Graded average
+S30   50.90  1.10  saved by
+S31   52.00  1.46  and today
+S32   53.46  1.38  cargo airline#2
+   ! b4: move from S11 (20.48+0.50 s) overlaps next move in S11 at 20.89 s
+wrote short.json: 33 shots, 91 characters, 100 props, voice 54.84 s
