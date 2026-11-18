@@ -67,6 +67,21 @@ room("LB", "#8a5a3a", "libwall.png", "wood.jpg", sidec="#7a4e32")
 room("GR", "#9ea696", "gerwall.png", "concrete.jpg", sidec="#8e9686")
 room("TD", "#faf4e8", "kitchen.png", "kfloor.jpg", sidec="#eee6d6")
 
+SIGNS = []                                                   # (name, world corners) of text painted on set pictures
+
+
+def sign(nm, loc, plane_, rect, W=2400, Hh=1100):
+    (x, y, z, pw, ph), (a, b, c, d) = plane_, rect; X0 = base.X[loc] + x
+    SIGNS.append((nm, [[X0 + (u / W - 0.5) * pw, y + ph * (1 - v / Hh), z + 0.02] for u in (a, c) for v in (b, d)]))
+
+
+NSP, KTP, PRP, ROOMP = (0, 0.15, -6.44, 13, 5.96), (0, 0.06, -4.82, 11, 5.04), (0, 0.15, -5.98, 13, 5.96), (0, 0.06, -4.82, 11, 5.04)
+sign("newsagent", "NS", NSP, (560, 120, 1480, 290)); sign("bill1", "NS", NSP, (960, 470, 1180, 720)); sign("bill2", "NS", NSP, (1220, 470, 1440, 720))
+sign("menu", "KT", KTP, (900, 320, 1500, 840))
+for k, x0 in enumerate((40, 900, 1760)): sign("poster%d" % k, "PR", PRP, (x0, 140, x0 + 610, 960))
+sign("chart", "OP", ROOMP, (1000, 300, 1400, 860)); sign("diploma", "OP", ROOMP, (180, 220, 600, 520))
+sign("calendar", "TD", ROOMP, (1020, 440, 1340, 720)); sign("map", "GR", ROOMP, (900, 200, 1500, 680))
+
 # ================================================================== CHARACTERS
 JOHN0 = pos("AF", -0.9, 0.06, 0.0)
 human("john", "john", JOHN0, face="confused"); put("beauP", "beau", pos("AF", -2.4, 0.05, -9.6), 2.0)
@@ -78,7 +93,7 @@ human("johnK", "john", pos("KT", -0.3, 0.06, -1.6), face="sneaky"); COOK0 = pos(
 put("carrotK", "carrot", PARK, 1.0); put("pileK", "pile", PARK, 0.9)
 human("jimmy", "jimmy", pos("RD", -0.5, 0.06, -2.8), face="happy"); put("radarR", "radar", pos("RD", 0.7, 0.86, -4.1), 1.1)
 human("minR", "minister", PARK, face="sneaky")
-human("minP", "minister", pos("PR", -0.6, 0.15, -4.4), face="happy"); put("drC", "drcarrot", PARK, 1.5)
+human("minP", "minister", pos("PR", -0.6, 0.15, -4.4), face="happy"); put("drC", "drcarrot", PARK, 1.5); human("minN", "minister", PARK, face="happy")
 put("pileF", "pile", pos("FM", 0.6, 0.05, -5.2), 2.0); human("farmer", "farmer", pos("FM", -1.5, 0.06, -3.6), face="happy")
 human("doctor", "doctor", pos("OP", -0.6, 0.06, -2.4), face="neutral"); put("carrotO", "carrot", pos("OP", 0.45, 0.06, -2.2), 1.0, face="happy")
 human("historian", "historian", pos("LB", 0.0, 0.06, -2.6), face="happy")
@@ -114,7 +129,7 @@ def S(start, **kw):
 
 def hook_state(s):
     show(s, 0.0, "john", JOHN0, hop=0); act(s, 0.0, "john", face="confused", pose=dict(armR=-80, armL=80))
-    tag(s, 0.0, "qmark", 0.1, 0.24, 0.5, wf=0.07); return tag(s, 0.0, "bestpilot", 0.31, 0.0, 0.4)
+    tag(s, 0.0, "qmark", 0.1, 0.24, 0.5, wf=0.07); return tag(s, 0.0, "bestpilot", 0.31, 0.0, 0.4, wf=0.3)
 
 
 HOOK = dict(anchor=pos("AF", -0.9, 1.5, 0.0), dist=6.6, yaw=8, pitch=6, zoom=-5, pan=(6, 0))
@@ -137,7 +152,7 @@ show(s, 0.0, "b1", pos("SK", 0.6, 6.9, -9.5), hop=0); go(s, 0.02, "b1", pos("SK"
 tag(s, 0.05, "y1940", 0.3, wf=0.2); bl = rel(s, "Blitz"); tag(s, bl, "blitz", 0.08, 0.0, 0.5, wf=0.22, tilt=-8)
 for dx in (-0.26, 0.26): tag(s, bl, "boom", -0.1, dx, 0.6, wf=0.1)
 s = S("German bombers", out="cut", anchor=pos("SK", 0.4, 5.4, -7.5), dist=10, yaw=12, pitch=-8, zoom=8, pan=(-9, 0))
-show(s, 0.0, "b0", pos("SK", -0.4, 4.9, -7.5), hop=0); go(s, 0.02, "b0", pos("SK", 0.7, 5.1, -7.5), rel(s, "One pilot keeps") - 0.1, walk=False)
+show(s, 0.0, "b0", pos("SK", -0.1, 4.9, -7.5), hop=0); go(s, 0.02, "b0", pos("SK", 0.7, 5.1, -7.5), rel(s, "One pilot keeps") - 0.1, walk=False)
 show(s, 0.0, "b1", PARK, hop=0); en = rel(s, "every night"); tag(s, en, "everynight", 0.33); tag(s, en, "boom", -0.12, -0.25, 0.6, wf=0.1)
 s = S("One pilot keeps", out="cut", anchor=pos("SK", 0.0, 5.5, -7.5), dist=13, yaw=-10, pitch=-6, zoom=5, pan=(-5, 0))
 show(s, 0.0, "beauF", pos("SK", -1.0, 5.2, -7.0), hop=0); go(s, 0.02, "beauF", pos("SK", -0.25, 5.4, -7.0), rel(s, "John Cunningham") - 0.1, walk=False)
@@ -146,23 +161,22 @@ act(s, an, "b0", face="shock", shake=0.4); tag(s, an, "found", 0.32, tilt=-6)
 
 # ---- 6-7 John Cunningham, twenty kills, nineteen in pitch black
 s = S("John Cunningham", out="cut", anchor=pos("AF", -0.9, 1.5, 0.0), dist=5.6, yaw=9, pitch=4, zoom=10, pan=(-9, 0))
-act(s, 0.0, "john", face="happy", pose=dict(armR=-150, armL=150), shake=0.3); tag(s, 0.05, "name", 0.31, wf=0.26); tag(s, 0.3, "sparkle", 0.12, 0.24, 0.6, wf=0.08)
-s = S("Twenty kills", out="cut", anchor=pos("AF", -1.5, 1.6, -2.0), dist=9, yaw=10, pitch=6, zoom=8, pan=(-9, 0))
-act(s, 0.0, "beauP", face="tally"); act(s, 0.0, "john", face="smug", pose=dict(armR=-120, armL=0))
-tag(s, 0.05, "k20", 0.3, -0.12, wf=0.15); tag(s, rel(s, "nineteen"), "k19", 0.12, 0.1, 0.5, wf=0.2)
+act(s, 0.0, "john", face="happy", pose=dict(armR=-150, armL=150), shake=0.3); nm = tag(s, 0.05, "name", 0.31, wf=0.26); tag(s, 0.3, "sparkle", 0.12, 0.24, 0.6, wf=0.08)
+tw = rel(s, "Twenty kills"); hide(s, tw - 0.03, nm); s["_tags"].remove(nm); tag(s, tw, "k20", 0.3, wf=0.15); act(s, tw, "john", face="smug", pose=dict(armR=-120, armL=0), shake=0.3)
+act(s, tw, "beauP", face="tally")
+s = S("nineteen", out="cut", anchor=pos("AF", -1.5, 1.6, -2.0), dist=9, yaw=10, pitch=6, zoom=8, pan=(-9, 0))
+act(s, 0.0, "john", face="smug", pose=dict(armR=-120, armL=0)); tag(s, 0.0, "k20", 0.3, -0.12, wf=0.15); tag(s, 0.05, "k19", 0.12, 0.1, 0.5, wf=0.2)
 
 # ---- 8-11 the papers: CAT'S EYES; his secret? carrots, lots of carrots
 s = S("The papers call", out="cut", anchor=pos("NS", 0.2, 1.45, -4.7), dist=7.2, yaw=10, pitch=6, zoom=8, pan=(-9, 0))
 act(s, 0.0, "newsboy", face="shouting", pose=dict(armR=-150, armL=0), shake=0.3); ce = rel(s, "Cat's")
 tag(s, ce, "paper", 0.17, 0.0, 0.5, wf=0.2, hf=0.3); tag(s, ce, "catseyes", 0.38, wf=0.22); act(s, ce, "reader", face="shocked", pose=dict(armR=-150), shake=0.3)
-s = S("His secret", out="cut", anchor=pos("KT", -0.2, 1.4, -1.6), dist=5.6, yaw=14, pitch=4, zoom=8, pan=(-5, 0))
+s = S("His secret", out="cut", anchor=pos("KT", -0.2, 1.4, -1.6), dist=5.6, yaw=-4, pitch=4, zoom=9, pan=(0, 0))
 act(s, 0.0, "johnK", face="sneaky", pose=dict(armR=-120, armL=0)); tag(s, 0.05, "secret", 0.31); tag(s, 0.1, "qmark", 0.1, 0.24, 0.5, wf=0.07)
 show(s, 0.0, "cook", PARK, hop=0); cz = rel(s, "Carrots"); show(s, cz, "carrotK", pos("KT", 0.3, 0.06, -1.4)); act(s, cz, "carrotK", face="happy", shake=0.3)
-act(s, cz, "johnK", face="happy", pose=dict(armR=-150, armL=150)); tag(s, cz, "carrots", 0.12, 0.0, 0.5, tilt=8, wf=0.2)
-s = S("Lots of carrots", out="cut", anchor=pos("KT", 0.5, 1.6, -2.3), dist=8.2, yaw=10, pitch=8, zoom=8, pan=(3, 0))
-show(s, 0.0, "cook", COOK0, hop=0.12)
-show(s, 0.0, "pileK", pos("KT", 0.0, 0.81, -3.3)); act(s, 0.0, "johnK", face="shocked", shake=0.4); act(s, 0.0, "cook", face="happy", pose=dict(armR=-150, armL=150))
-act(s, 0.0, "carrotK", face="default"); temp(s, "carrotK"); tag(s, 0.1, "lots", 0.33)
+act(s, cz, "johnK", face="happy", pose=dict(armR=-150, armL=150)); cs = tag(s, cz, "carrots", 0.12, 0.0, 0.5, tilt=8, wf=0.2)
+lo = rel(s, "Lots of carrots"); hide(s, lo - 0.03, cs); s["_tags"].remove(cs); tag(s, lo, "lots", 0.12, 0.0, 0.5, wf=0.26)
+show(s, lo, "pileK", pos("KT", 0.0, 0.81, -3.3)); act(s, lo, "johnK", face="shocked", shake=0.4); temp(s, "carrotK")
 
 # ---- 12-14 the real secret: a radar hidden inside his plane; the enemy must not learn
 s = S("You see", out="cut", anchor=pos("RD", 0.1, 1.5, -3.1), dist=6.8, yaw=-12, pitch=6, zoom=7, pan=(9, 0))
@@ -175,14 +189,16 @@ show(s, 0.0, "radarR", PARK, hop=0); show(s, 0.0, "minR", pos("RD", -1.8, 0.06, 
 tag(s, 0.1, "shh", 0.12, -0.24, 0.6, wf=0.11); temp(s, "minR"); tag(s, rel(s, "enemy"), "topsecret", 0.32, tilt=-8)
 
 # ---- 15-19 the carrot story everywhere: posters, Doctor Carrot, carrot fudge, 100,000 tons
-s = S("So the carrot story", out="cut", anchor=pos("PR", 0.0, 2.6, -4.6), dist=11, yaw=-10, pitch=6, zoom=7, pan=(10, 0))
+s = S("So the carrot story", out="cut", anchor=pos("PR", 0.0, 2.4, -4.6), dist=9, yaw=-6, pitch=6, zoom=7, pan=(4, 0))
 act(s, 0.0, "minP", face="happy", pose=dict(armR=-150, armL=150), shake=0.3); st_ = tag(s, 0.05, "story", 0.37); tag(s, rel(s, "everywhere"), "everywhere", 0.13, tilt=-6, wf=0.22)
 po = rel(s, "Posters"); hide(s, po - 0.03, st_); s["_tags"].remove(st_); tag(s, po, "posters", 0.37, wf=0.2); act(s, po, "minP", face="smug", pose=dict(armR=-95, armL=0))
-s = S("A mascot called", out="cut", anchor=pos("PR", -0.05, 1.3, -4.4), dist=7.2, yaw=-12, pitch=4, zoom=7, pan=(0, 0))
-show(s, 0.0, "drC", pos("PR", 0.45, 0.15, -4.3)); act(s, 0.0, "minP", face="happy", pose=dict(armR=-95, armL=0)); temp(s, "drC")
+s = S("A mascot called", out="cut", anchor=pos("NS", -0.05, 1.35, -4.6), dist=7.2, yaw=0, pitch=4, zoom=7, pan=(0, 0))
+for cid in ("newsboy", "reader"): show(s, 0.0, cid, PARK, hop=0)
+show(s, 0.0, "minN", pos("NS", -0.6, 0.15, -4.6), hop=0); show(s, 0.0, "drC", pos("NS", 0.45, 0.15, -4.5)); temp(s, "drC", "minN")
+act(s, 0.0, "minN", face="happy", pose=dict(armR=-95, armL=0))
 dc = rel(s, "Doctor"); act(s, dc, "drC", shake=0.4); dn = tag(s, dc, "drname", 0.33)
 fz = rel(s, "Carrot fudge"); hide(s, fz - 0.03, dn); s["_tags"].remove(dn); tag(s, fz, "fudget", 0.33); tag(s, fz, "fudge", 0.04, -0.2, 0.6, wf=0.2, hf=0.13)
-act(s, fz, "minP", face="shocked", shake=0.3)
+act(s, fz, "minN", face="shocked", shake=0.3)
 s = S("By 1942", out="cut", anchor=pos("FM", 0.3, 2.0, -4.0), dist=12, yaw=8, pitch=6, zoom=-5, pan=(6, 0))
 act(s, 0.05, "pileF", shake=0.4); tag(s, 0.05, "y1942", 0.31, wf=0.18); ht = rel(s, "hundred thousand")
 act(s, ht, "farmer", face="shocked", pose=dict(armR=-150, armL=150), shake=0.4); tag(s, ht, "tons", 0.15, wf=0.24)
@@ -193,15 +209,15 @@ act(s, 0.0, "doctor", face="smug", pose=dict(armR=-120, armL=0)); nv = rel(s, "n
 act(s, nv, "carrotO", face="shocked", shake=0.4); act(s, nv, "doctor", face="shouting", shake=0.3); tag(s, nv, "nonv", 0.32, tilt=-6)
 s = S("And historians say", out="cut", anchor=pos("LB", 0.0, 1.45, -2.6), dist=5.2, yaw=12, pitch=4, zoom=10, pan=(-9, 0))
 act(s, 0.0, "historian", face="happy", pose=dict(armR=-150, armL=0)); tag(s, 0.05, "historians", 0.33)
-s = S("the Germans probably", out="cut", anchor=pos("GR", -0.5, 1.45, -2.6), dist=5.2, yaw=-14, pitch=4, zoom=10, pan=(9, 0))
-act(s, 0.0, "german", face="smug", pose=dict(armR=-80)); tag(s, 0.05, "paper", 0.02, 0.2, 0.6, wf=0.16, hf=0.2); nf = rel(s, "never")
+s = S("the Germans probably", out="cut", anchor=pos("GR", -0.4, 1.95, -2.6), dist=6.8, yaw=-12, pitch=4, zoom=8, pan=(5, 0))
+act(s, 0.0, "german", face="smug", pose=dict(armR=-80)); tag(s, 0.05, "paper", -0.02, 0.21, 0.6, wf=0.12, hf=0.14); nf = rel(s, "never")
 act(s, nf, "german", face="happy", pose=dict(armR=-150, armL=150), shake=0.4); tag(s, nf, "never", 0.33, tilt=-7, wf=0.26)
 
 # ---- 23-25 today: it fooled us; 80+ years later we still believe it
 s = S("The only people", out="cut", anchor=pos("TD", 0.2, 1.3, -2.3), dist=7.4, yaw=12, pitch=6, zoom=8, pan=(2, 0))
-act(s, 0.0, "mom", face="happy", pose=dict(armR=-95)); act(s, 0.0, "max", face="happy"); show(s, 0.0, "carrotT", pos("TD", 0.9, 0.06, -2.2))
+act(s, 0.0, "mom", face="happy", pose=dict(armR=-95)); act(s, 0.0, "max", face="happy"); show(s, 0.0, "carrotT", pos("TD", 0.8, 0.06, -2.2))
 us = rel(s, "us"); tag(s, us, "fooled", 0.33); act(s, us, "mom", face="shocked", shake=0.3)
-s = S("More than eighty", out="cut", anchor=pos("TD", 0.65, 1.15, -2.2), dist=5.2, yaw=-14, pitch=6, zoom=10, pan=(9, 0))
+s = S("More than eighty", out="cut", anchor=pos("TD", 0.2, 1.15, -2.2), dist=5.8, yaw=8, pitch=6, zoom=8, pan=(0, 0))
 act(s, 0.0, "max", face="happy", pose=dict(armR=-150), shake=0.3); show(s, 0.0, "mom", PARK, hop=0); act(s, 0.0, "carrotT", face="default", shake=0.3); tag(s, 0.05, "y80", 0.33, wf=0.17)
 s = S("we still believe", out="cut", anchor=pos("TD", 0.15, 1.3, -2.3), dist=7.2, yaw=10, pitch=6, zoom=-6, pan=(-8, 0))
 show(s, 0.0, "mom", pos("TD", -0.6, 0.06, -2.4), hop=0)
@@ -327,6 +343,15 @@ for k, s in enumerate(shots):
             inside = max(xs) > 0 and min(xs) < 1 and max(ys) > 0 and min(ys) < 1
             if inside and (min(xs) < 0.03 or max(xs) > 0.97 or min(ys) < 0.03 or max(ys) > 0.985):
                 flags += 1; print("   CUT S%02d t=%.2f %-14s x %.2f..%.2f y %.2f..%.2f" % (k, tl, cid, min(xs), max(xs), min(ys), max(ys)))
+for k, s in enumerate(shots):
+    for tl in (0.05, s["_dur"] * 0.5, s["_dur"] - 0.05):
+        c = cam(s, tl)
+        for nm, corners in SIGNS:
+            pts = [proj(c, q) for q in corners]
+            if any(q is None for q in pts): continue
+            xs, ys = [q[0] for q in pts], [q[1] for q in pts]
+            if max(xs) > 0.01 and min(xs) < 0.99 and max(ys) > 0.01 and min(ys) < 0.99 and (min(xs) < 0.01 or max(xs) > 0.99 or min(ys) < 0.01 or max(ys) > 0.99):
+                flags += 1; print("   SIGNCUT S%02d t=%.2f %-10s x %.2f..%.2f y %.2f..%.2f" % (k, tl, nm, min(xs), max(xs), min(ys), max(ys)))
 BOXES = []                                                   # engine CAMERA_INSIDE_PROP: AABB (+0.12) of every house (with its rotated cone roof) / box
 for pr in props:
     if pr["type"] not in ("house", "box", "crate", "wall"): continue

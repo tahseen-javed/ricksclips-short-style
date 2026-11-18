@@ -422,8 +422,7 @@ def skynight(path):                                          # Blitz London at n
 def hangar(path):
     W, Hh = 2400, 1100; d = Draw(W, Hh); d.rect(0, 0, W, Hh, (186, 190, 176, 255))
     for x in range(0, W, 40): d.stroke([(x, 260), (x, Hh)], (160, 166, 152, 255), 8)
-    d.rrect(560, 30, 1840, 200, 24, fill=NAVY, outline=LINE, width=12); d.text(1200, 116, 'R.A.F.   604  SQUADRON', 80, WHITE, stroke=4, stroke_fill=LINE)
-    for x in (380, 2020): roundel(d, x, 116, 1.4)
+    for x in (380, 900, 1500, 2020): roundel(d, x, 116, 1.4)
     d.rect(300, 260, 2100, Hh, (150, 156, 142, 255)); d.stroke([(1200, 260), (1200, Hh)], LINE, 12); d.rrect(300, 260, 2100, Hh, 6, outline=LINE, width=14)
     for k in range(6): d.rrect(380 + k * 290, 300, 560 + k * 290, 420, 10, fill=(255, 226, 140, 255), outline=LINE, width=8)
     for k in range(18): d.rect(300 + k * 100, Hh - 60, 350 + k * 100, Hh, (250, 210, 60, 255))
@@ -439,9 +438,9 @@ def street40(path):                                          # sandbagged London
         d.rrect(x, 200, x + 260, 560, 8, fill=GLASS, outline=LINE, width=12); d.stroke([(x + 10, 210), (x + 250, 550)], WHITE, 14); d.stroke([(x + 250, 210), (x + 10, 550)], WHITE, 14)
     d.rrect(560, 120, 1480, 290, 20, fill=(40, 100, 70, 255), outline=LINE, width=12); d.text(1020, 206, 'NEWSAGENT', 110, (255, 226, 120, 255), stroke=5, stroke_fill=LINE)
     d.rect(600, 330, 1440, 1000, (52, 84, 62, 255)); d.rrect(600, 330, 1440, 1000, 6, outline=LINE, width=12)
-    for k, (txt, col) in enumerate((('EXTRA!', RED), ("CAT'S EYES", NAVY), ('RAF WINS', NAVY))):
-        x = 660 + k * 260; d.rect(x, 380, x + 220, 640, (246, 242, 226, 255)); d.rrect(x, 380, x + 220, 640, 4, outline=LINE, width=6); d.text(x + 110, 450, txt.split()[0], 46, col)
-        if ' ' in txt: d.text(x + 110, 520, txt.split()[1], 46, col)
+    for k, (txt, col) in enumerate((('EXTRA!', RED), ("CAT'S EYES", NAVY))):
+        x = 960 + k * 260; d.rect(x, 470, x + 220, 720, (246, 242, 226, 255)); d.rrect(x, 470, x + 220, 720, 4, outline=LINE, width=6); d.text(x + 110, 540, txt.split()[0], 46, col)
+        if ' ' in txt: d.text(x + 110, 610, txt.split()[1], 46, col)
     for k in range(26): d.rrect(k * 94, Hh - 120 - (k % 2) * 30, k * 94 + 110, Hh - 40 - (k % 2) * 30, 30, fill=(214, 196, 150, 255), outline=LINE, width=8)
     d.out().save(path)
 
@@ -449,10 +448,10 @@ def street40(path):                                          # sandbagged London
 def messwall(path):                                          # RAF mess: two-tone wall, menu board, bunting, hatch
     W, Hh = 2400, 1100; d = Draw(W, Hh); d.rect(0, 0, W, Hh, (244, 234, 206, 255)); d.rect(0, 640, W, Hh, (124, 166, 124, 255)); d.stroke([(0, 640), (W, 640)], LINE, 10)
     for k in range(24): x = k * 100; d.poly([(x, 30), (x + 100, 30), (x + 50, 120)], fill=((210, 40, 50, 255), WHITE, (40, 70, 150, 255))[k % 3], outline=LINE, width=6)
-    d.rrect(200, 220, 900, 760, 20, fill=(54, 70, 60, 255), outline=(150, 104, 64, 255), width=26); d.text(550, 300, 'MENU', 90, WHITE)
-    for k, t in enumerate(('carrot soup', 'carrot pie', 'carrot jam', 'CARROTS!')): d.text(550, 420 + k * 86, t, 66, (255, 236, 140, 255) if k == 3 else (236, 240, 236, 255))
-    d.rrect(1160, 260, 2160, 700, 16, fill=(70, 56, 50, 255), outline=LINE, width=14); d.rrect(1110, 690, 2210, 760, 10, fill=(160, 110, 70, 255), outline=LINE, width=12)
-    roundel(d, 1660, 150, 1.4); d.out().save(path)
+    d.rrect(900, 320, 1500, 840, 20, fill=(54, 70, 60, 255), outline=(150, 104, 64, 255), width=26); d.text(1200, 395, 'MENU', 80, WHITE)
+    for k, t in enumerate(('carrot soup', 'carrot pie', 'carrot jam', 'CARROTS!')): d.text(1200, 500 + k * 82, t, 60, (255, 236, 140, 255) if k == 3 else (236, 240, 236, 255))
+    d.rrect(1720, 260, 2340, 700, 16, fill=(70, 56, 50, 255), outline=LINE, width=14); d.rrect(1690, 690, 2390, 760, 10, fill=(160, 110, 70, 255), outline=LINE, width=12)
+    roundel(d, 2030, 150, 1.4); roundel(d, 370, 150, 1.4); d.out().save(path)
 
 
 def radarwall(path):                                         # inside the night fighter: ribs, portholes, cables
@@ -474,16 +473,16 @@ def posterwall(path, pa, pb, pc):
         d.stroke([(0, y), (W, y)], (226, 200, 180, 255), 5)
         for x in range(((y // 50) % 2) * 70, W, 140): d.stroke([(x, y), (x, y + 50)], (226, 200, 180, 255), 5)
     im = d.out()
-    for p, x, a in ((pb, 140, -3), (pa, 880, 2), (pc, 1620, -2)):
+    for p, x, a in ((pb, 40, -3), (pa, 900, 2), (pc, 1760, -2)):
         q = p.resize((600, 800), Image.LANCZOS).rotate(a, expand=True, resample=Image.BICUBIC); im.alpha_composite(q, (x, 150))
     im.save(path)
 
 
 def eyewall(path):                                           # optician: eye chart, diploma, glasses shelf
     W, Hh = 2400, 1100; d = Draw(W, Hh); d.rect(0, 0, W, Hh, (196, 222, 238, 255))
-    d.rrect(880, 60, 1520, 1040, 20, fill=WHITE, outline=LINE, width=14)
-    for k, (row, size) in enumerate((('E', 200), ('F P', 120), ('T O Z', 90), ('L P E D', 70), ('P E C F D', 56), ('E D F C Z P', 44))):
-        d.text(1200, 190 + sum((200, 120, 90, 70, 56, 44)[:k]) * 1.3 + k * 26, row, size, LINE)
+    d.rrect(1000, 300, 1400, 860, 16, fill=WHITE, outline=LINE, width=12)
+    for k, (row, size) in enumerate((('E', 110), ('F P', 70), ('T O Z', 52), ('L P E D', 40), ('P E C F D', 32))):
+        d.text(1200, 380 + sum((110, 70, 52, 40, 32)[:k]) * 1.25 + k * 18, row, size, LINE)
     d.rrect(180, 220, 600, 520, 12, fill=(250, 246, 230, 255), outline=(150, 104, 64, 255), width=20); d.text(390, 320, 'DIPLOMA', 56, NAVY); d.ellipse(390, 430, 44, 44, fill=RED, outline=LINE, width=6)
     d.rect(1700, 520, 2260, 556, (150, 104, 64, 255))
     for k in range(4):
@@ -506,10 +505,11 @@ def libwall(path):                                           # historian's libra
 
 def gerwall(path):                                           # German HQ: map of Britain, radio set, clock (no insignia)
     W, Hh = 2400, 1100; d = Draw(W, Hh); d.rect(0, 0, W, Hh, (158, 166, 150, 255)); d.rect(0, 820, W, Hh, (128, 136, 122, 255))
-    d.rrect(700, 80, 1700, 860, 16, fill=(130, 180, 220, 255), outline=(110, 80, 54, 255), width=24)
+    d.rrect(900, 200, 1500, 680, 16, fill=(130, 180, 220, 255), outline=(110, 80, 54, 255), width=18)
     GB = [(1180, 140), (1260, 200), (1240, 300), (1300, 420), (1380, 560), (1420, 700), (1300, 760), (1120, 780), (1000, 740), (1080, 640), (1040, 520), (1100, 420), (1060, 300), (1100, 200)]
-    d.poly(GB, fill=(160, 200, 130, 255), outline=LINE, width=10); d.text(1200, 820, 'BRITAIN', 50, LINE)
-    for x, y in ((1250, 650), (1230, 520), (1160, 460)): d.dot(x, y, 14, RED)
+    GB = [(1200 + (x - 1210) * 0.62, 440 + (y - 460) * 0.62) for x, y in GB]
+    d.poly(GB, fill=(160, 200, 130, 255), outline=LINE, width=8)
+    for x, y in ((1225, 560), (1213, 480), (1170, 440)): d.dot(x, y, 10, RED)
     d.rrect(140, 380, 560, 760, 20, fill=(90, 84, 72, 255), outline=LINE, width=12)
     for x in (240, 460): d.ellipse(x, 480, 56, 56, fill=(230, 220, 180, 255), outline=LINE, width=8)
     for k in range(5): d.stroke([(200, 600 + k * 30), (500, 600 + k * 30)], (60, 56, 50, 255), 8)
