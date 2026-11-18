@@ -63,3 +63,12 @@ frame width in close-ups, cute characters (big round heads, shiny eyes, blush).
 - Whisper writes numbers as digits, so the "understood" score drops (0.92) even when every word is right. Read the replace lines, not the score.
 - Local dry run before any cloud run (python only, no install): make_assets into D:/Claude projects/_tmp/fx with the Montserrat font, then build_short with a fake words.json (NO_MUSIC=1). It caught two crashes for free.
 - Funk score (112 bpm E minor) synth: fedex/tools/make_music.py. Next video: change the style again.
+
+## Video 07 (Black Friday) -> projects/blackfriday
+- Frame size: height = 0.728 x distance, width = 0.41 x distance (portrait). Check every character's x +/- 0.42 m against that width, and remember zoom (%/s) shrinks it during the shot.
+- Hook rule (user, video 07): on frame 1 the character is 100% in frame head to feet and every card is fully visible. Use a pull-out (zoom -5) on the hook and the loop shot so nothing can drift out.
+- Anything between the camera and the actors hides their legs (a parked car lane, a desk). Put crowds on the near side (crosswalk) or remove the prop. Characters left in a set from an earlier shot walk into later close-ups: teleport them out with show(..., hop=0) at the start of the shot.
+- Hyphenated script words are one token: say("armynavy"), say("twelvehour"), not "Army"/"twelve".
+- A line that starts with a hard consonant ("Gridlock!") lost its onset (Whisper heard "ridlock"); merging it into the previous TTS line fixed it (0.969 -> 0.975).
+- aspect.json written by make_assets.py: build_short reads card aspects from it (no hand-typed ASP table).
+- Electro-swing (124 bpm, swung hats, sleigh bells, walking bass) + noir + synthwave score: blackfriday/tools/make_music.py. Next video: change the style again.
