@@ -72,3 +72,13 @@ frame width in close-ups, cute characters (big round heads, shiny eyes, blush).
 - A line that starts with a hard consonant ("Gridlock!") lost its onset (Whisper heard "ridlock"); merging it into the previous TTS line fixed it (0.969 -> 0.975).
 - aspect.json written by make_assets.py: build_short reads card aspects from it (no hand-typed ASP table).
 - Electro-swing (124 bpm, swung hats, sleigh bells, walking bass) + noir + synthwave score: blackfriday/tools/make_music.py. Next video: change the style again.
+
+## Video 08 (Cat's Eyes carrot myth) -> projects/catseyes
+- build_short.py now has a full local frame check (engine camera maths, dolly drift): CUT for characters/cards crossing the frame edge, SIGNCUT for text painted on set pictures (register with sign()), INSIDE for the engine's CAMERA_INSIDE_PROP. Run it on the dry run with the real words.json; aim for 0 flags before any cloud run.
+- tag() is deferred: every card is fitted to x 10-85 %, y 8-63 % for its whole time on screen (zoom + pan included). Never hand-tune card dy again.
+- A house's cone roof AABB is +-max(w,d)*0.78*1.41 around it: wide houses (hangar, terrace) trigger CAMERA_INSIDE_PROP from metres away. Use box + flat roof slab for anything wider than about 7 m.
+- Set pictures: keep text small and central (menus, bills, charts, calendars); long sign bands (RAF 604 SQUADRON) get cut in every close shot. Space wall posters so a medium shot shows exactly one.
+- Shots under 0.7 s in the real voice timing: merge single-word sentences into the neighbour shot and swap the card with hide() + tag() at the word.
+- Voice: a line starting "You see" lost "You"; merging it mid-line fixed it. Voice came out at 37 s (target 44) and sounded fine.
+- Music: war march (D minor 132) + oompah (F major 126, tuba/glock/woodblock) + spy pulse + trap: catseyes/tools/make_music.py. Next video: change style again.
+- 3 cloud runs: 1st stopped by CAMERA_INSIDE_PROP, 2nd rendered but cut set text seen on the sheet, 3rd clean.
