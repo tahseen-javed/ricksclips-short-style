@@ -288,6 +288,17 @@
    "face": "default"
   },
   {
+   "id": "minN",
+   "puppet": "puppets/minister",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
    "id": "pileF",
    "puppet": "puppets/pile",
    "pos": [
@@ -405,7 +416,7 @@
     -60,
     0
    ],
-   "height": 0.331,
+   "height": 0.366,
    "face": "default"
   },
   {
@@ -557,7 +568,7 @@
     -60,
     0
    ],
-   "height": 0.284,
+   "height": 0.259,
    "face": "default"
   },
   {
@@ -579,11 +590,22 @@
     -60,
     0
    ],
-   "height": 0.916,
+   "height": 0.57,
    "face": "default"
   },
   {
-   "id": "k19_18",
+   "id": "k20_18",
+   "puppet": "puppets/k20",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.945,
+   "face": "default"
+  },
+  {
+   "id": "k19_19",
    "puppet": "puppets/k19",
    "pos": [
     0,
@@ -594,7 +616,7 @@
    "face": "default"
   },
   {
-   "id": "paper_19",
+   "id": "paper_20",
    "puppet": "puppets/paper",
    "pos": [
     0,
@@ -605,7 +627,7 @@
    "face": "default"
   },
   {
-   "id": "catseyes_20",
+   "id": "catseyes_21",
    "puppet": "puppets/catseyes",
    "pos": [
     0,
@@ -616,7 +638,7 @@
    "face": "default"
   },
   {
-   "id": "secret_21",
+   "id": "secret_22",
    "puppet": "puppets/secret",
    "pos": [
     0,
@@ -627,18 +649,18 @@
    "face": "default"
   },
   {
-   "id": "qmark_22",
+   "id": "qmark_23",
    "puppet": "puppets/qmark",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.545,
+   "height": 0.529,
    "face": "default"
   },
   {
-   "id": "carrots_23",
+   "id": "carrots_24",
    "puppet": "puppets/carrots",
    "pos": [
     0,
@@ -652,18 +674,18 @@
    }
   },
   {
-   "id": "lots_24",
+   "id": "lots_25",
    "puppet": "puppets/lots",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.408,
+   "height": 0.284,
    "face": "default"
   },
   {
-   "id": "realsecret_25",
+   "id": "realsecret_26",
    "puppet": "puppets/realsecret",
    "pos": [
     0,
@@ -674,7 +696,7 @@
    "face": "default"
   },
   {
-   "id": "radart_26",
+   "id": "radart_27",
    "puppet": "puppets/radart",
    "pos": [
     0,
@@ -685,7 +707,7 @@
    "face": "default"
   },
   {
-   "id": "sparkle_27",
+   "id": "sparkle_28",
    "puppet": "puppets/sparkle",
    "pos": [
     0,
@@ -696,7 +718,7 @@
    "face": "default"
   },
   {
-   "id": "shh_28",
+   "id": "shh_29",
    "puppet": "puppets/shh",
    "pos": [
     0,
@@ -707,7 +729,7 @@
    "face": "default"
   },
   {
-   "id": "topsecret_29",
+   "id": "topsecret_30",
    "puppet": "puppets/topsecret",
    "pos": [
     0,
@@ -721,43 +743,43 @@
    }
   },
   {
-   "id": "story_30",
+   "id": "story_31",
    "puppet": "puppets/story",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.429,
+   "height": 0.409,
    "face": "default"
   },
   {
-   "id": "everywhere_31",
+   "id": "everywhere_32",
    "puppet": "puppets/everywhere",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.56,
+   "height": 0.533,
    "face": "default",
    "pose": {
     "head": -6
    }
   },
   {
-   "id": "posters_32",
+   "id": "posters_33",
    "puppet": "puppets/posters",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.613,
+   "height": 0.517,
    "face": "default"
   },
   {
-   "id": "drname_33",
+   "id": "drname_34",
    "puppet": "puppets/drname",
    "pos": [
     0,
@@ -768,7 +790,7 @@
    "face": "default"
   },
   {
-   "id": "fudget_34",
+   "id": "fudget_35",
    "puppet": "puppets/fudget",
    "pos": [
     0,
@@ -779,7 +801,7 @@
    "face": "default"
   },
   {
-   "id": "fudge_35",
+   "id": "fudge_36",
    "puppet": "puppets/fudge",
    "pos": [
     0,
@@ -790,7 +812,7 @@
    "face": "default"
   },
   {
-   "id": "y1942_36",
+   "id": "y1942_37",
    "puppet": "puppets/y1942",
    "pos": [
     0,
@@ -801,7 +823,7 @@
    "face": "default"
   },
   {
-   "id": "tons_37",
+   "id": "tons_38",
    "puppet": "puppets/tons",
    "pos": [
     0,
@@ -812,7 +834,7 @@
    "face": "default"
   },
   {
-   "id": "nonv_38",
+   "id": "nonv_39",
    "puppet": "puppets/nonv",
    "pos": [
     0,
@@ -826,7 +848,7 @@
    }
   },
   {
-   "id": "historians_39",
+   "id": "historians_40",
    "puppet": "puppets/historians",
    "pos": [
     0,
@@ -837,32 +859,32 @@
    "face": "default"
   },
   {
-   "id": "paper_40",
+   "id": "paper_41",
    "puppet": "puppets/paper",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.65,
+   "height": 0.652,
    "face": "default"
   },
   {
-   "id": "never_41",
+   "id": "never_42",
    "puppet": "puppets/never",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.208,
+   "height": 0.317,
    "face": "default",
    "pose": {
     "head": -7
    }
   },
   {
-   "id": "fooled_42",
+   "id": "fooled_43",
    "puppet": "puppets/fooled",
    "pos": [
     0,
@@ -873,18 +895,18 @@
    "face": "default"
   },
   {
-   "id": "y80_43",
+   "id": "y80_44",
    "puppet": "puppets/y80",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.485,
+   "height": 0.558,
    "face": "default"
   },
   {
-   "id": "believe_44",
+   "id": "believe_45",
    "puppet": "puppets/believe",
    "pos": [
     0,
@@ -898,7 +920,7 @@
    }
   },
   {
-   "id": "qmark_45",
+   "id": "qmark_46",
    "puppet": "puppets/qmark",
    "pos": [
     0,
@@ -909,14 +931,14 @@
    "face": "default"
   },
   {
-   "id": "bestpilot_46",
+   "id": "bestpilot_47",
    "puppet": "puppets/bestpilot",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.331,
+   "height": 0.355,
    "face": "default"
   }
  ],
@@ -2527,9 +2549,9 @@
      "at": 0.0,
      "who": "bestpilot_2",
      "to": [
-      -0.844,
-      2.824,
-      0.396
+      -0.883,
+      2.439,
+      0.402
      ],
      "over": 0.02,
      "walk": false,
@@ -2980,7 +3002,7 @@
      "at": 0.0,
      "who": "b0",
      "to": [
-      69.6,
+      69.9,
       4.9,
       -7.5
      ],
@@ -3196,12 +3218,38 @@
      "shake": 0.3
     },
     {
+     "at": 0.57,
+     "who": "name_15",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.6,
+     "who": "john",
+     "face": "smug",
+     "pose": {
+      "armR": -120,
+      "armL": 0
+     },
+     "shake": 0.3
+    },
+    {
+     "at": 0.6,
+     "who": "beauP",
+     "face": "tally"
+    },
+    {
      "at": 0.05,
      "who": "name_15",
      "to": [
-      -0.853,
-      2.622,
-      0.296
+      -0.879,
+      2.383,
+      0.3
      ],
      "over": 0.02,
      "walk": false,
@@ -3220,8 +3268,20 @@
      "hop": 0.12
     },
     {
-     "at": 0.56,
-     "who": "name_15",
+     "at": 0.6,
+     "who": "k20_17",
+     "to": [
+      -0.863,
+      2.346,
+      0.298
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 1.08,
+     "who": "sparkle_16",
      "to": [
       0,
       -60,
@@ -3231,8 +3291,8 @@
      "walk": false
     },
     {
-     "at": 0.56,
-     "who": "sparkle_16",
+     "at": 1.08,
+     "who": "k20_17",
      "to": [
       0,
       -60,
@@ -3246,7 +3306,7 @@
    "frameY": 0.0
   },
   {
-   "start": "say:Twenty kills",
+   "start": "say:nineteen",
    "anchor": [
     -1.5,
     1.6,
@@ -3264,11 +3324,6 @@
    "actions": [
     {
      "at": 0.0,
-     "who": "beauP",
-     "face": "tally"
-    },
-    {
-     "at": 0.0,
      "who": "john",
      "face": "smug",
      "pose": {
@@ -3277,20 +3332,20 @@
      }
     },
     {
-     "at": 0.05,
-     "who": "k20_17",
+     "at": 0.0,
+     "who": "k20_18",
      "to": [
-      -1.835,
-      2.96,
-      -1.636
+      -1.884,
+      3.093,
+      -1.628
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
     },
     {
-     "at": 0.52,
-     "who": "k19_18",
+     "at": 0.05,
+     "who": "k19_19",
      "to": [
       -1.05,
       1.889,
@@ -3301,8 +3356,8 @@
      "hop": 0.12
     },
     {
-     "at": 1.41,
-     "who": "k20_17",
+     "at": 0.89,
+     "who": "k20_18",
      "to": [
       0,
       -60,
@@ -3312,8 +3367,8 @@
      "walk": false
     },
     {
-     "at": 1.41,
-     "who": "k19_18",
+     "at": 0.89,
+     "who": "k19_19",
      "to": [
       0,
       -60,
@@ -3364,7 +3419,7 @@
     },
     {
      "at": 0.68,
-     "who": "paper_19",
+     "who": "paper_20",
      "to": [
       140.287,
       1.555,
@@ -3376,7 +3431,7 @@
     },
     {
      "at": 0.68,
-     "who": "catseyes_20",
+     "who": "catseyes_21",
      "to": [
       140.228,
       2.907,
@@ -3388,7 +3443,7 @@
     },
     {
      "at": 1.18,
-     "who": "paper_19",
+     "who": "paper_20",
      "to": [
       0,
       -60,
@@ -3399,7 +3454,7 @@
     },
     {
      "at": 1.18,
-     "who": "catseyes_20",
+     "who": "catseyes_21",
      "to": [
       0,
       -60,
@@ -3420,11 +3475,11 @@
     -1.6
    ],
    "distance": 5.6,
-   "yaw": 14,
+   "yaw": -4,
    "pitch": 4,
-   "zoom": 8,
+   "zoom": 9,
    "pan": [
-    -25,
+    0,
     0
    ],
    "out": "cut",
@@ -3478,44 +3533,8 @@
      }
     },
     {
-     "at": 0.05,
-     "who": "secret_21",
-     "to": [
-      209.873,
-      2.483,
-      -1.309
-     ],
-     "over": 0.02,
-     "walk": false,
-     "hop": 0.12
-    },
-    {
-     "at": 0.1,
-     "who": "qmark_22",
-     "to": [
-      210.456,
-      1.535,
-      -1.248
-     ],
-     "over": 0.02,
-     "walk": false,
-     "hop": 0.12
-    },
-    {
-     "at": 0.46,
-     "who": "carrots_23",
-     "to": [
-      209.921,
-      1.705,
-      -1.115
-     ],
-     "over": 0.02,
-     "walk": false,
-     "hop": 0.12
-    },
-    {
-     "at": 0.78,
-     "who": "secret_21",
+     "at": 0.79,
+     "who": "carrots_24",
      "to": [
       0,
       -60,
@@ -3525,62 +3544,7 @@
      "walk": false
     },
     {
-     "at": 0.78,
-     "who": "qmark_22",
-     "to": [
-      0,
-      -60,
-      0
-     ],
-     "over": 0.02,
-     "walk": false
-    },
-    {
-     "at": 0.78,
-     "who": "carrots_23",
-     "to": [
-      0,
-      -60,
-      0
-     ],
-     "over": 0.02,
-     "walk": false
-    }
-   ],
-   "glide": "dolly",
-   "frameY": 0.0
-  },
-  {
-   "start": "say:Lots of carrots",
-   "anchor": [
-    210.5,
-    1.6,
-    -2.3
-   ],
-   "distance": 8.2,
-   "yaw": 10,
-   "pitch": 8,
-   "zoom": 8,
-   "pan": [
-    15,
-    0
-   ],
-   "out": "cut",
-   "actions": [
-    {
-     "at": 0.0,
-     "who": "cook",
-     "to": [
-      211.3,
-      0.06,
-      -2.0
-     ],
-     "over": 0.02,
-     "walk": false,
-     "hop": 0.12
-    },
-    {
-     "at": 0.0,
+     "at": 0.82,
      "who": "pileK",
      "to": [
       210.0,
@@ -3592,40 +3556,62 @@
      "hop": 0.12
     },
     {
-     "at": 0.0,
+     "at": 0.82,
      "who": "johnK",
      "face": "shocked",
      "shake": 0.4
     },
     {
-     "at": 0.0,
-     "who": "cook",
-     "face": "happy",
-     "pose": {
-      "armR": -150,
-      "armL": 150
-     }
-    },
-    {
-     "at": 0.0,
-     "who": "carrotK",
-     "face": "default"
-    },
-    {
-     "at": 0.1,
-     "who": "lots_24",
+     "at": 0.05,
+     "who": "secret_22",
      "to": [
-      210.552,
-      3.366,
-      -2.005
+      209.779,
+      2.483,
+      -1.301
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
     },
     {
-     "at": 0.6,
-     "who": "carrotK",
+     "at": 0.1,
+     "who": "qmark_23",
+     "to": [
+      210.222,
+      1.574,
+      -1.069
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.46,
+     "who": "carrots_24",
+     "to": [
+      209.765,
+      1.705,
+      -1.101
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.82,
+     "who": "lots_25",
+     "to": [
+      209.746,
+      1.781,
+      -1.103
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 1.42,
+     "who": "secret_22",
      "to": [
       0,
       -60,
@@ -3635,8 +3621,30 @@
      "walk": false
     },
     {
-     "at": 0.6,
-     "who": "lots_24",
+     "at": 1.42,
+     "who": "qmark_23",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.42,
+     "who": "lots_25",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.42,
+     "who": "carrotK",
      "to": [
       0,
       -60,
@@ -3687,7 +3695,7 @@
     },
     {
      "at": 0.05,
-     "who": "realsecret_25",
+     "who": "realsecret_26",
      "to": [
       279.992,
       2.495,
@@ -3699,7 +3707,7 @@
     },
     {
      "at": 1.0,
-     "who": "radart_26",
+     "who": "radart_27",
      "to": [
       279.975,
       2.224,
@@ -3711,7 +3719,7 @@
     },
     {
      "at": 1.26,
-     "who": "realsecret_25",
+     "who": "realsecret_26",
      "to": [
       0,
       -60,
@@ -3722,7 +3730,7 @@
     },
     {
      "at": 1.26,
-     "who": "radart_26",
+     "who": "radart_27",
      "to": [
       0,
       -60,
@@ -3772,7 +3780,7 @@
     },
     {
      "at": 0.15,
-     "who": "sparkle_27",
+     "who": "sparkle_28",
      "to": [
       -2.348,
       2.033,
@@ -3784,7 +3792,7 @@
     },
     {
      "at": 0.88,
-     "who": "sparkle_27",
+     "who": "sparkle_28",
      "to": [
       0,
       -60,
@@ -3853,7 +3861,7 @@
     },
     {
      "at": 0.1,
-     "who": "shh_28",
+     "who": "shh_29",
      "to": [
       278.27,
       1.837,
@@ -3865,7 +3873,7 @@
     },
     {
      "at": 0.68,
-     "who": "topsecret_29",
+     "who": "topsecret_30",
      "to": [
       278.909,
       2.872,
@@ -3877,7 +3885,7 @@
     },
     {
      "at": 1.4,
-     "who": "shh_28",
+     "who": "shh_29",
      "to": [
       0,
       -60,
@@ -3899,7 +3907,7 @@
     },
     {
      "at": 1.4,
-     "who": "topsecret_29",
+     "who": "topsecret_30",
      "to": [
       0,
       -60,
@@ -3916,15 +3924,15 @@
    "start": "say:So the carrot story",
    "anchor": [
     350.0,
-    2.6,
+    2.4,
     -4.6
    ],
-   "distance": 11,
-   "yaw": -10,
+   "distance": 9,
+   "yaw": -6,
    "pitch": 6,
    "zoom": 7,
    "pan": [
-    50,
+    20,
     0
    ],
    "out": "cut",
@@ -3941,7 +3949,7 @@
     },
     {
      "at": 1.31,
-     "who": "story_30",
+     "who": "story_31",
      "to": [
       0,
       -60,
@@ -3961,11 +3969,11 @@
     },
     {
      "at": 0.05,
-     "who": "story_30",
+     "who": "story_31",
      "to": [
-      349.851,
-      4.067,
-      -4.322
+      349.926,
+      4.064,
+      -4.306
      ],
      "over": 0.02,
      "walk": false,
@@ -3973,11 +3981,11 @@
     },
     {
      "at": 0.92,
-     "who": "everywhere_31",
+     "who": "everywhere_32",
      "to": [
-      349.865,
-      3.461,
-      -4.319
+      349.952,
+      3.005,
+      -4.303
      ],
      "over": 0.02,
      "walk": false,
@@ -3985,11 +3993,11 @@
     },
     {
      "at": 1.34,
-     "who": "posters_32",
+     "who": "posters_33",
      "to": [
-      349.896,
-      4.577,
-      -4.314
+      349.938,
+      4.166,
+      -4.305
      ],
      "over": 0.02,
      "walk": false,
@@ -3997,7 +4005,7 @@
     },
     {
      "at": 1.86,
-     "who": "everywhere_31",
+     "who": "everywhere_32",
      "to": [
       0,
       -60,
@@ -4008,7 +4016,7 @@
     },
     {
      "at": 1.86,
-     "who": "posters_32",
+     "who": "posters_33",
      "to": [
       0,
       -60,
@@ -4024,12 +4032,12 @@
   {
    "start": "say:A mascot called",
    "anchor": [
-    349.95,
-    1.3,
-    -4.4
+    139.95,
+    1.35,
+    -4.6
    ],
    "distance": 7.2,
-   "yaw": -12,
+   "yaw": 0,
    "pitch": 4,
    "zoom": 7,
    "pan": [
@@ -4040,11 +4048,47 @@
    "actions": [
     {
      "at": 0.0,
+     "who": "newsboy",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "reader",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "minN",
+     "to": [
+      139.4,
+      0.15,
+      -4.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
      "who": "drC",
      "to": [
-      350.45,
+      140.45,
       0.15,
-      -4.3
+      -4.5
      ],
      "over": 0.02,
      "walk": false,
@@ -4052,7 +4096,7 @@
     },
     {
      "at": 0.0,
-     "who": "minP",
+     "who": "minN",
      "face": "happy",
      "pose": {
       "armR": -95,
@@ -4066,7 +4110,7 @@
     },
     {
      "at": 1.31,
-     "who": "drname_33",
+     "who": "drname_34",
      "to": [
       0,
       -60,
@@ -4077,17 +4121,17 @@
     },
     {
      "at": 1.34,
-     "who": "minP",
+     "who": "minN",
      "face": "shocked",
      "shake": 0.3
     },
     {
      "at": 0.7,
-     "who": "drname_33",
+     "who": "drname_34",
      "to": [
-      349.875,
-      2.696,
-      -4.109
+      139.937,
+      2.746,
+      -4.3
      ],
      "over": 0.02,
      "walk": false,
@@ -4095,11 +4139,11 @@
     },
     {
      "at": 1.34,
-     "who": "fudget_34",
+     "who": "fudget_35",
      "to": [
-      349.875,
-      2.696,
-      -4.109
+      139.937,
+      2.746,
+      -4.3
      ],
      "over": 0.02,
      "walk": false,
@@ -4107,11 +4151,11 @@
     },
     {
      "at": 1.34,
-     "who": "fudge_35",
+     "who": "fudge_36",
      "to": [
-      349.384,
-      1.349,
-      -3.907
+      139.499,
+      1.399,
+      -4.0
      ],
      "over": 0.02,
      "walk": false,
@@ -4130,7 +4174,7 @@
     },
     {
      "at": 1.92,
-     "who": "fudget_34",
+     "who": "minN",
      "to": [
       0,
       -60,
@@ -4141,7 +4185,18 @@
     },
     {
      "at": 1.92,
-     "who": "fudge_35",
+     "who": "fudget_35",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.92,
+     "who": "fudge_36",
      "to": [
       0,
       -60,
@@ -4188,7 +4243,7 @@
     },
     {
      "at": 0.05,
-     "who": "y1942_36",
+     "who": "y1942_37",
      "to": [
       420.342,
       4.078,
@@ -4200,7 +4255,7 @@
     },
     {
      "at": 1.78,
-     "who": "tons_37",
+     "who": "tons_38",
      "to": [
       420.32,
       2.99,
@@ -4212,7 +4267,7 @@
     },
     {
      "at": 3.92,
-     "who": "y1942_36",
+     "who": "y1942_37",
      "to": [
       0,
       -60,
@@ -4223,7 +4278,7 @@
     },
     {
      "at": 3.92,
-     "who": "tons_37",
+     "who": "tons_38",
      "to": [
       0,
       -60,
@@ -4276,7 +4331,7 @@
     },
     {
      "at": 1.64,
-     "who": "nonv_38",
+     "who": "nonv_39",
      "to": [
       489.792,
       2.356,
@@ -4288,7 +4343,7 @@
     },
     {
      "at": 2.26,
-     "who": "nonv_38",
+     "who": "nonv_39",
      "to": [
       0,
       -60,
@@ -4329,7 +4384,7 @@
     },
     {
      "at": 0.05,
-     "who": "historians_39",
+     "who": "historians_40",
      "to": [
       560.062,
       2.567,
@@ -4341,7 +4396,7 @@
     },
     {
      "at": 0.86,
-     "who": "historians_39",
+     "who": "historians_40",
      "to": [
       0,
       -60,
@@ -4357,16 +4412,16 @@
   {
    "start": "say:the Germans probably",
    "anchor": [
-    629.5,
-    1.45,
+    629.6,
+    1.95,
     -2.6
    ],
-   "distance": 5.2,
-   "yaw": -14,
+   "distance": 6.8,
+   "yaw": -12,
    "pitch": 4,
-   "zoom": 10,
+   "zoom": 8,
    "pan": [
-    45,
+    25,
     0
    ],
    "out": "cut",
@@ -4391,11 +4446,11 @@
     },
     {
      "at": 0.05,
-     "who": "paper_40",
+     "who": "paper_41",
      "to": [
-      629.504,
-      1.474,
-      -1.981
+      629.866,
+      1.759,
+      -1.93
      ],
      "over": 0.02,
      "walk": false,
@@ -4403,11 +4458,11 @@
     },
     {
      "at": 1.0,
-     "who": "never_41",
+     "who": "never_42",
      "to": [
-      629.376,
-      2.028,
-      -2.322
+      629.487,
+      2.87,
+      -2.317
      ],
      "over": 0.02,
      "walk": false,
@@ -4415,7 +4470,7 @@
     },
     {
      "at": 1.86,
-     "who": "paper_40",
+     "who": "paper_41",
      "to": [
       0,
       -60,
@@ -4426,7 +4481,7 @@
     },
     {
      "at": 1.86,
-     "who": "never_41",
+     "who": "never_42",
      "to": [
       0,
       -60,
@@ -4473,7 +4528,7 @@
      "at": 0.0,
      "who": "carrotT",
      "to": [
-      700.9,
+      700.8,
       0.06,
       -2.2
      ],
@@ -4489,7 +4544,7 @@
     },
     {
      "at": 1.95,
-     "who": "fooled_42",
+     "who": "fooled_43",
      "to": [
       700.228,
       2.506,
@@ -4501,7 +4556,7 @@
     },
     {
      "at": 2.25,
-     "who": "fooled_42",
+     "who": "fooled_43",
      "to": [
       0,
       -60,
@@ -4517,16 +4572,16 @@
   {
    "start": "say:More than eighty",
    "anchor": [
-    700.65,
+    700.2,
     1.15,
     -2.2
    ],
-   "distance": 5.2,
-   "yaw": -14,
+   "distance": 5.8,
+   "yaw": 8,
    "pitch": 6,
-   "zoom": 10,
+   "zoom": 8,
    "pan": [
-    45,
+    0,
     0
    ],
    "out": "cut",
@@ -4560,11 +4615,11 @@
     },
     {
      "at": 0.05,
-     "who": "y80_43",
+     "who": "y80_44",
      "to": [
-      700.56,
-      1.968,
-      -1.913
+      700.231,
+      2.15,
+      -1.901
      ],
      "over": 0.02,
      "walk": false,
@@ -4572,7 +4627,7 @@
     },
     {
      "at": 1.22,
-     "who": "y80_43",
+     "who": "y80_44",
      "to": [
       0,
       -60,
@@ -4649,7 +4704,7 @@
     },
     {
      "at": 0.05,
-     "who": "believe_44",
+     "who": "believe_45",
      "to": [
       700.202,
       2.838,
@@ -4661,7 +4716,7 @@
     },
     {
      "at": 0.92,
-     "who": "believe_44",
+     "who": "believe_45",
      "to": [
       0,
       -60,
@@ -4742,7 +4797,7 @@
     },
     {
      "at": 0.0,
-     "who": "qmark_45",
+     "who": "qmark_46",
      "to": [
       -0.296,
       1.705,
@@ -4754,11 +4809,11 @@
     },
     {
      "at": 0.0,
-     "who": "bestpilot_46",
+     "who": "bestpilot_47",
      "to": [
-      -0.844,
-      2.824,
-      0.396
+      -0.889,
+      2.384,
+      0.402
      ],
      "over": 0.02,
      "walk": false,

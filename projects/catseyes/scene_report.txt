@@ -6,25 +6,22 @@ S02    3.00  1.08  and a carrot
 S03    4.08  1.56  It's 1940
 S04    5.64  1.28  German bombers
 S05    6.92  1.26  One pilot keeps
-S06    8.18  0.60  John Cunningham
-   ! very short shot
-S07    8.78  1.45  Twenty kills
+S06    8.18  1.12  John Cunningham
+S07    9.30  0.93  nineteen
 S08   10.23  1.22  The papers call
-S09   11.45  0.82  His secret
-S10   12.27  0.64  Lots of carrots
-   ! very short shot
-S11   12.91  1.30  You see
-S12   14.21  0.92  hidden inside
-S13   15.13  1.44  Britain could not
-S14   16.57  1.90  So the carrot story
-S15   18.47  1.96  A mascot called
-S16   20.43  3.96  By 1942
-S17   24.39  2.30  But carrots don't
-S18   26.69  0.90  And historians say
-S19   27.59  1.90  the Germans probably
-S20   29.49  2.29  The only people
-S21   31.78  1.26  More than eighty
-S22   33.04  0.96  we still believe
-S23   34.00  2.96  Because Britain's
+S09   11.45  1.46  His secret
+S10   12.91  1.30  You see
+S11   14.21  0.92  hidden inside
+S12   15.13  1.44  Britain could not
+S13   16.57  1.90  So the carrot story
+S14   18.47  1.96  A mascot called
+S15   20.43  3.96  By 1942
+S16   24.39  2.30  But carrots don't
+S17   26.69  0.90  And historians say
+S18   27.59  1.90  the Germans probably
+S19   29.49  2.29  The only people
+S20   31.78  1.26  More than eighty
+S21   33.04  0.96  we still believe
+S22   34.00  2.96  Because Britain's
 frame check: 0 CUT flags
-wrote short.json: 24 shots, 73 characters, 113 props, voice 36.96 s
+wrote short.json: 23 shots, 75 characters, 113 props, voice 36.96 s
