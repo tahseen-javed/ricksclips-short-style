@@ -82,3 +82,12 @@ frame width in close-ups, cute characters (big round heads, shiny eyes, blush).
 - Voice: a line starting "You see" lost "You"; merging it mid-line fixed it. Voice came out at 37 s (target 44) and sounded fine.
 - Music: war march (D minor 132) + oompah (F major 126, tuba/glock/woodblock) + spy pulse + trap: catseyes/tools/make_music.py. Next video: change style again.
 - 3 cloud runs: 1st stopped by CAMERA_INSIDE_PROP, 2nd rendered but cut set text seen on the sheet, 3rd clean.
+
+## Video 09 (Great Emu War) -> projects/emuwar
+- build_short.py now auto-fits the camera: any shot with a CUT/SIGNCUT is widened (distance x1.06 per step, cap x1.35). Before relying on it, park props that are not in the shot (wheat sheaves, extra soldiers) so it does not widen for stray background items. Run the hide pass BEFORE the autofit so temp props are gone.
+- Card names must never equal a cast name: the "meredith" name card would have replaced Major Meredith. Name cards end in "t" (majort, pearcet).
+- Kokoro softens the first word of every chunk: a 150-word line got split inside and lost "So", "And" and the C of "Campion". Keep each tts line under about 60 words and start every line on a strong word (November, Defence, Nine, No); never on So/And/You/It/C-, G- words.
+- spec ground texture must exist in the project (asphalt.jpg was left over -> short.json validation stop).
+- sticker_burst fits about 5 characters (SHHH!, BANG!); longer text (RAT-A-TAT!) is cut by the star.
+- Tokens: about 570K new, mostly cache writes from waking a long chat after each 40-minute render. Start every video in a fresh chat.
+- Music: western showdown + bush-band country + surf chase + tense pulse: emuwar/tools/make_music.py.
