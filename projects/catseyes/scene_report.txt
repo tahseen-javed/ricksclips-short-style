@@ -1,32 +1,30 @@
-music: 38.1 s, war march 132 bpm D minor + oompah F major + spy pulse + trap
+music: 37.4 s, war march 132 bpm D minor + oompah F major + spy pulse + trap
 shot  start   dur  phrase
-S00    0.00  2.16  0
-S01    2.16  0.74  A machine could
-S02    2.90  1.22  and a carrot
-S03    4.12  1.52  It's 1940
-S04    5.64  1.88  German bombers
-S05    7.52  1.53  One pilot keeps
-S06    9.05  0.80  John Cunningham
-S07    9.85  1.82  Twenty kills
-S08   11.67  1.42  The papers call
-S09   13.09  0.98  His secret
-S10   14.07  0.74  Lots of carrots
-S11   14.81  1.60  You see
-S12   16.41  1.02  hidden inside
-S13   17.43  1.52  Britain could not
-S14   18.95  1.98  So the carrot story
-S15   20.93  1.26  A mascot called
-S16   22.19  0.58  Carrot fudge
+S00    0.00  2.24  0
+S01    2.24  0.76  A machine could
+S02    3.00  1.08  and a carrot
+S03    4.08  1.56  It's 1940
+S04    5.64  1.28  German bombers
+S05    6.92  1.26  One pilot keeps
+S06    8.18  0.60  John Cunningham
    ! very short shot
-S17   22.77  3.12  By 1942
-S18   25.89  1.97  But carrots don't
-S19   27.86  0.80  And historians say
-S20   28.66  1.72  the Germans probably
-S21   30.38  2.28  The only people
-S22   32.66  1.16  More than eighty
-S23   33.82  0.92  we still believe
-S24   34.74  2.92  Because Britain's
-   ! beauF: move from S05 (7.54+1.60 s) overlaps next move in S05 at 9.01 s
-   CUT S05 t=0.77 beauF          x -0.01..0.45 y 0.41..0.53
-frame check: 1 CUT flags
-wrote short.json: 25 shots, 73 characters, 111 props, voice 37.66 s
+S07    8.78  1.45  Twenty kills
+S08   10.23  1.22  The papers call
+S09   11.45  0.82  His secret
+S10   12.27  0.64  Lots of carrots
+   ! very short shot
+S11   12.91  1.30  You see
+S12   14.21  0.92  hidden inside
+S13   15.13  1.44  Britain could not
+S14   16.57  1.90  So the carrot story
+S15   18.47  1.96  A mascot called
+S16   20.43  3.96  By 1942
+S17   24.39  2.30  But carrots don't
+S18   26.69  0.90  And historians say
+S19   27.59  1.90  the Germans probably
+S20   29.49  2.29  The only people
+S21   31.78  1.26  More than eighty
+S22   33.04  0.96  we still believe
+S23   34.00  2.96  Because Britain's
+frame check: 0 CUT flags
+wrote short.json: 24 shots, 73 characters, 113 props, voice 36.96 s

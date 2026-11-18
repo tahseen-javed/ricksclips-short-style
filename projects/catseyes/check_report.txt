@@ -1,0 +1,29 @@
+{
+ "frames": 1109,
+ "step": 1,
+ "pan_speed_med_px_s": 31.3,
+ "zoom_med_pct_s": 6.21,
+ "static_frames_pct": 24.4,
+ "pan_speed_ok": true,
+ "zoom_ok": true
+}
+width=1080
+height=1920
+r_frame_rate=30/1
+duration=36.966667
+r_frame_rate=0/0
+duration=36.966009
+  Integrated loudness:
+    I:         -15.9 LUFS
+    Threshold: -26.0 LUFS
+
+  Loudness range:
+    LRA:         2.1 LU
+    Threshold: -36.0 LUFS
+    LRA low:   -16.8 LUFS
+    LRA high:  -14.7 LUFS
+
+  True peak:
+    Peak:       -3.1 dBFS
+[out#0/null @ 0x5f125eafb940] video:451KiB audio:6368KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame= 1109 fps=558 q=-0.0 Lsize=N/A time=00:00:36.96 bitrate=N/A speed=18.6x elapsed=0:00:01.98    
