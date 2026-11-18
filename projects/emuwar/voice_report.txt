@@ -1,0 +1,27 @@
+Collecting en-core-web-sm==3.8.0
+  Downloading en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 107.3 MB/s  0:00:00
+Installing collected packages: en-core-web-sm
+Successfully installed en-core-web-sm-3.8.0
+[38;5;2m✔ Download and installation successful[0m
+You can now load the package via spacy.load('en_core_web_sm')
+am_fenrir @1.28     41.2 s  understood 0.914
+am_fenrir @1.32     39.1 s  understood 0.910
+am_fenrir @1.36     33.5 s  understood 0.865
+chose am_fenrir @1.28 (understood 0.914): tempo 1.000 -> about 41.2 s
+Downloading: "https://download.pytorch.org/torchaudio/models/wav2vec2_fairseq_base_ls960_asr_ls960.pth" to /home/runner/.cache/torch/hub/checkpoints/wav2vec2_fairseq_base_ls960_asr_ls960.pth
+  0%|          | 0.00/360M [00:00<?, ?B/s]  7%|▋         | 26.0M/360M [00:00<00:01, 272MB/s] 19%|█▉        | 68.6M/360M [00:00<00:00, 375MB/s] 33%|███▎      | 119M/360M [00:00<00:00, 445MB/s]  47%|████▋     | 168M/360M [00:00<00:00, 471MB/s] 60%|█████▉    | 216M/360M [00:00<00:00, 483MB/s] 74%|███████▎  | 265M/360M [00:00<00:00, 492MB/s] 87%|████████▋ | 313M/360M [00:00<00:00, 497MB/s]100%|██████████| 360M/360M [00:00<00:00, 470MB/s]
+aligned 155 words over 41.67 s, mean confidence 0.94, shortest word 0.04 s
+heard: Australia sent machine guns to war, the enemy had feathers and the enemy won. Ampion Western Australia, November 1932. A drought pushes 20,000 emus onto wheat farms run by World War 1 veterans. The wheat gets wrecked, the farmers beg for help, Defense Minister Pierce approves a military answer the army sends three soldiers, two Lewis machine guns, 10,000 rounds. One week later, 2,500 rounds are gone. The soldiers are pulled out, they come back. Same result, 9,860 rounds fire. 986 birds claimed. 10 bullets for every emu you see the commander Major Meredith admitted it himself. Emus could face machine guns with the invulnerability of tanks. The government stopped sending soldiers, it paid farmers a bounty per bird instead. No machine guns, no army. Six months in 1934, about 57,000 bounties claimed. Almost 58 times what the machine guns got, bullets lost, cash won. That is how in 1932.
+intelligibility 0.917 (1.0 = every word understood)
+  replace: said ['campion'] -> heard ['ampion']
+  replace: said ['twenty', 'thousand'] -> heard ['20', '000']
+  replace: said ['one'] -> heard ['1']
+  replace: said ['defence'] -> heard ['defense']
+  replace: said ['pearce'] -> heard ['pierce']
+  replace: said ['ten', 'thousand'] -> heard ['10', '000']
+  replace: said ['fired', 'just'] -> heard ['fire']
+  replace: said ['ten'] -> heard ['10']
+  delete: said ['so'] -> heard []
+  replace: said ['fifty', 'eight'] -> heard ['58']
+  delete: said ['and'] -> heard []

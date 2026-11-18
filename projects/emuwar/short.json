@@ -1,0 +1,4088 @@
+{
+ "fps": 30,
+ "audio": {
+  "voice": "audio/voice.mp3",
+  "music": "audio/music.mp3",
+  "musicDb": -11
+ },
+ "words": "audio/words.json",
+ "captions": {
+  "wordsPer": 1
+ },
+ "font": "fonts/Montserrat-ExtraBold.ttf",
+ "contactShadow": 0.6,
+ "moods": {
+  "day": {
+   "sun": {
+    "azimuth": 40,
+    "elevation": 46,
+    "color": "#ffe8c8",
+    "intensity": 2.4
+   },
+   "sky": {
+    "top": "#5b8ee0",
+    "horizon": "#f6d6b0"
+   },
+   "fill": {
+    "sky": "#a0b4ff",
+    "ground": "#6a4b6e",
+    "intensity": 1.2
+   }
+  },
+  "hot": {
+   "sun": {
+    "azimuth": 60,
+    "elevation": 40,
+    "color": "#ffcf9a",
+    "intensity": 2.5
+   },
+   "sky": {
+    "top": "#e89a5a",
+    "horizon": "#ffd9a0"
+   },
+   "fill": {
+    "sky": "#ffc8a0",
+    "ground": "#8a4a3e",
+    "intensity": 1.2
+   }
+  }
+ },
+ "lighting": [
+  {
+   "t": 0,
+   "mood": "day"
+  },
+  {
+   "t": 6.24,
+   "mood": "hot",
+   "fade": 0.02
+  },
+  {
+   "t": 7.66,
+   "mood": "day",
+   "fade": 0.02
+  }
+ ],
+ "ground": {
+  "texture": "textures/asphalt.jpg",
+  "repeat": [
+   175,
+   175
+  ],
+  "size": 1400
+ },
+ "backdrop": {
+  "image": "bg/sky.jpg",
+  "blur": 4
+ },
+ "ink": {
+  "set": 4
+ },
+ "characters": [
+  {
+   "id": "gunW",
+   "puppet": "puppets/gunner",
+   "pos": [
+    -0.45,
+    0.06,
+    0.0
+   ],
+   "height": 1.8,
+   "face": "shouting"
+  },
+  {
+   "id": "lewisH",
+   "puppet": "puppets/lewis",
+   "pos": [
+    0.5,
+    0.06,
+    0.35
+   ],
+   "height": 0.85,
+   "face": "default"
+  },
+  {
+   "id": "emuH",
+   "puppet": "puppets/emu",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.9,
+   "face": "default",
+   "flip": true
+  },
+  {
+   "id": "truck",
+   "puppet": "puppets/truck",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.1,
+   "face": "default"
+  },
+  {
+   "id": "emutank",
+   "puppet": "puppets/emutank",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 2.0,
+   "face": "default",
+   "flip": true
+  },
+  {
+   "id": "e4",
+   "puppet": "puppets/emu",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.6,
+   "face": "run",
+   "flip": true
+  },
+  {
+   "id": "e5",
+   "puppet": "puppets/emu",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.6,
+   "face": "run",
+   "flip": true
+  },
+  {
+   "id": "farmer",
+   "puppet": "puppets/farmer",
+   "pos": [
+    7.5,
+    0.06,
+    -1.6
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "farmwife",
+   "puppet": "puppets/farmwife",
+   "pos": [
+    8.6,
+    0.06,
+    -1.8
+   ],
+   "height": 1.7,
+   "face": "happy"
+  },
+  {
+   "id": "wheat1",
+   "puppet": "puppets/wheat",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.4,
+   "face": "default"
+  },
+  {
+   "id": "e1",
+   "puppet": "puppets/emu",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.7,
+   "face": "run"
+  },
+  {
+   "id": "e2",
+   "puppet": "puppets/emu",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.7,
+   "face": "run"
+  },
+  {
+   "id": "cashW",
+   "puppet": "puppets/cash",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.8,
+   "face": "default"
+  },
+  {
+   "id": "herd",
+   "puppet": "puppets/herd",
+   "pos": [
+    69.5,
+    0.05,
+    -4.0
+   ],
+   "height": 1.1,
+   "face": "default"
+  },
+  {
+   "id": "e6",
+   "puppet": "puppets/emu",
+   "pos": [
+    71.2,
+    0.05,
+    -1.8
+   ],
+   "height": 1.6,
+   "face": "run"
+  },
+  {
+   "id": "e7",
+   "puppet": "puppets/emu",
+   "pos": [
+    68.5,
+    0.05,
+    -1.4
+   ],
+   "height": 1.5,
+   "face": "run"
+  },
+  {
+   "id": "pearce",
+   "puppet": "puppets/pearce",
+   "pos": [
+    139.6,
+    0.06,
+    -2.6
+   ],
+   "height": 1.8,
+   "face": "neutral"
+  },
+  {
+   "id": "merA",
+   "puppet": "puppets/meredith",
+   "pos": [
+    209.05,
+    0.06,
+    -2.4
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "gunA",
+   "puppet": "puppets/gunner",
+   "pos": [
+    210.0,
+    0.06,
+    -2.6
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "gun2A",
+   "puppet": "puppets/gunner2",
+   "pos": [
+    210.95,
+    0.06,
+    -2.4
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "lewisA1",
+   "puppet": "puppets/lewis",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.85,
+   "face": "default"
+  },
+  {
+   "id": "lewisA2",
+   "puppet": "puppets/lewis",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.85,
+   "face": "default"
+  },
+  {
+   "id": "ammoA",
+   "puppet": "puppets/ammo",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.0,
+   "face": "default"
+  },
+  {
+   "id": "clerk",
+   "puppet": "puppets/clerk",
+   "pos": [
+    280.55,
+    0.06,
+    -3.0
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "farmB",
+   "puppet": "puppets/farmer",
+   "pos": [
+    279.4,
+    0.06,
+    -2.6
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "cashB0",
+   "puppet": "puppets/cash",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.75,
+   "face": "default"
+  },
+  {
+   "id": "cashB1",
+   "puppet": "puppets/cash",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.75,
+   "face": "default"
+  },
+  {
+   "id": "cashB2",
+   "puppet": "puppets/cash",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.75,
+   "face": "default"
+  },
+  {
+   "id": "atwar_1",
+   "puppet": "puppets/atwar",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.34,
+   "face": "default"
+  },
+  {
+   "id": "feathers_2",
+   "puppet": "puppets/feathers",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.764,
+   "face": "default"
+  },
+  {
+   "id": "feathert_3",
+   "puppet": "puppets/feathert",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.614,
+   "face": "default"
+  },
+  {
+   "id": "trophy_4",
+   "puppet": "puppets/trophy",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.062,
+   "face": "default"
+  },
+  {
+   "id": "emuwins_5",
+   "puppet": "puppets/emuwins",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.678,
+   "face": "default",
+   "pose": {
+    "head": -7
+   }
+  },
+  {
+   "id": "ozmap_6",
+   "puppet": "puppets/ozmap",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.452,
+   "face": "default"
+  },
+  {
+   "id": "y1932_7",
+   "puppet": "puppets/y1932",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.951,
+   "face": "default"
+  },
+  {
+   "id": "drought_8",
+   "puppet": "puppets/drought",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.918,
+   "face": "default",
+   "pose": {
+    "head": -6
+   }
+  },
+  {
+   "id": "e20k_9",
+   "puppet": "puppets/e20k",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.704,
+   "face": "default"
+  },
+  {
+   "id": "vets_10",
+   "puppet": "puppets/vets",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.507,
+   "face": "default"
+  },
+  {
+   "id": "wrecked_11",
+   "puppet": "puppets/wrecked",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.57,
+   "face": "default",
+   "pose": {
+    "head": -8
+   }
+  },
+  {
+   "id": "help_12",
+   "puppet": "puppets/help",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.768,
+   "face": "default"
+  },
+  {
+   "id": "pearcet_13",
+   "puppet": "puppets/pearcet",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.275,
+   "face": "default"
+  },
+  {
+   "id": "approved_14",
+   "puppet": "puppets/approved",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.423,
+   "face": "default",
+   "pose": {
+    "head": -8
+   }
+  },
+  {
+   "id": "soldiers3_15",
+   "puppet": "puppets/soldiers3",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.558,
+   "face": "default"
+  },
+  {
+   "id": "guns2_16",
+   "puppet": "puppets/guns2",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.555,
+   "face": "default"
+  },
+  {
+   "id": "r10k_17",
+   "puppet": "puppets/r10k",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.381,
+   "face": "default"
+  },
+  {
+   "id": "week_18",
+   "puppet": "puppets/week",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.897,
+   "face": "default"
+  },
+  {
+   "id": "r2500_19",
+   "puppet": "puppets/r2500",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.551,
+   "face": "default",
+   "pose": {
+    "head": -6
+   }
+  },
+  {
+   "id": "pulled_20",
+   "puppet": "puppets/pulled",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.593,
+   "face": "default",
+   "pose": {
+    "head": -7
+   }
+  },
+  {
+   "id": "round2_21",
+   "puppet": "puppets/round2",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.622,
+   "face": "default"
+  },
+  {
+   "id": "same_22",
+   "puppet": "puppets/same",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.593,
+   "face": "default",
+   "pose": {
+    "head": 7
+   }
+  },
+  {
+   "id": "r9860_23",
+   "puppet": "puppets/r9860",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.546,
+   "face": "default"
+  },
+  {
+   "id": "boom_24",
+   "puppet": "puppets/boom",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.068,
+   "face": "default"
+  },
+  {
+   "id": "b986_25",
+   "puppet": "puppets/b986",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.637,
+   "face": "default"
+  },
+  {
+   "id": "per10_26",
+   "puppet": "puppets/per10",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.537,
+   "face": "default"
+  },
+  {
+   "id": "majort_27",
+   "puppet": "puppets/majort",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.262,
+   "face": "default"
+  },
+  {
+   "id": "tanks_28",
+   "puppet": "puppets/tanks",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.75,
+   "face": "default",
+   "pose": {
+    "head": -7
+   }
+  },
+  {
+   "id": "nosoldiers_29",
+   "puppet": "puppets/nosoldiers",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.312,
+   "face": "default",
+   "pose": {
+    "head": -6
+   }
+  },
+  {
+   "id": "cash_30",
+   "puppet": "puppets/cash",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.63,
+   "face": "default"
+  },
+  {
+   "id": "bounty_31",
+   "puppet": "puppets/bounty",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.337,
+   "face": "default"
+  },
+  {
+   "id": "noguns_32",
+   "puppet": "puppets/noguns",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.342,
+   "face": "default",
+   "pose": {
+    "head": -6
+   }
+  },
+  {
+   "id": "y1934_33",
+   "puppet": "puppets/y1934",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.863,
+   "face": "default"
+  },
+  {
+   "id": "b57k_34",
+   "puppet": "puppets/b57k",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.461,
+   "face": "default"
+  },
+  {
+   "id": "x58_35",
+   "puppet": "puppets/x58",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.618,
+   "face": "default"
+  },
+  {
+   "id": "lost_36",
+   "puppet": "puppets/lost",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.48,
+   "face": "default",
+   "pose": {
+    "head": -6
+   }
+  },
+  {
+   "id": "won_37",
+   "puppet": "puppets/won",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.458,
+   "face": "default"
+  },
+  {
+   "id": "cash_38",
+   "puppet": "puppets/cash",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.524,
+   "face": "default"
+  },
+  {
+   "id": "atwar_39",
+   "puppet": "puppets/atwar",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.34,
+   "face": "default"
+  },
+  {
+   "id": "y1932_40",
+   "puppet": "puppets/y1932",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.539,
+   "face": "default"
+  }
+ ],
+ "props": [
+  {
+   "type": "plane",
+   "image": "props/skyday.png",
+   "pos": [
+    0,
+    -1,
+    -30
+   ],
+   "size": [
+    96,
+    42
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    0,
+    0,
+    -4
+   ],
+   "size": [
+    44,
+    0.05,
+    26
+   ],
+   "texture": "textures/dirt.jpg",
+   "repeat": [
+    11,
+    7
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/wheatrow.png",
+   "pos": [
+    -22.2,
+    0.05,
+    -6.5
+   ],
+   "size": [
+    7.5,
+    1.63
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/wheatrow.png",
+   "pos": [
+    -14.8,
+    0.05,
+    -6.5
+   ],
+   "size": [
+    7.5,
+    1.63
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/wheatrow.png",
+   "pos": [
+    -7.4,
+    0.05,
+    -6.5
+   ],
+   "size": [
+    7.5,
+    1.63
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/wheatrow.png",
+   "pos": [
+    0.0,
+    0.05,
+    -6.5
+   ],
+   "size": [
+    7.5,
+    1.63
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/wheatrow.png",
+   "pos": [
+    7.4,
+    0.05,
+    -6.5
+   ],
+   "size": [
+    7.5,
+    1.63
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/wheatrow.png",
+   "pos": [
+    14.8,
+    0.05,
+    -6.5
+   ],
+   "size": [
+    7.5,
+    1.63
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/wheatrow.png",
+   "pos": [
+    22.2,
+    0.05,
+    -6.5
+   ],
+   "size": [
+    7.5,
+    1.63
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/wheatrow.png",
+   "pos": [
+    -18.5,
+    0.05,
+    -9.0
+   ],
+   "size": [
+    7.5,
+    1.63
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/wheatrow.png",
+   "pos": [
+    -11.1,
+    0.05,
+    -9.0
+   ],
+   "size": [
+    7.5,
+    1.63
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/wheatrow.png",
+   "pos": [
+    -3.7,
+    0.05,
+    -9.0
+   ],
+   "size": [
+    7.5,
+    1.63
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/wheatrow.png",
+   "pos": [
+    3.7,
+    0.05,
+    -9.0
+   ],
+   "size": [
+    7.5,
+    1.63
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/wheatrow.png",
+   "pos": [
+    11.1,
+    0.05,
+    -9.0
+   ],
+   "size": [
+    7.5,
+    1.63
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/wheatrow.png",
+   "pos": [
+    18.5,
+    0.05,
+    -9.0
+   ],
+   "size": [
+    7.5,
+    1.63
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/wheatrow.png",
+   "pos": [
+    25.9,
+    0.05,
+    -9.0
+   ],
+   "size": [
+    7.5,
+    1.63
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/windmill.png",
+   "pos": [
+    -7.5,
+    0.05,
+    -12
+   ],
+   "size": [
+    2.6,
+    5.94
+   ]
+  },
+  {
+   "type": "house",
+   "pos": [
+    10,
+    0,
+    -14
+   ],
+   "size": [
+    6,
+    3.6,
+    5
+   ],
+   "roof": "#b8bcc4",
+   "door": "#7a5890",
+   "color": "#f0e0c0"
+  },
+  {
+   "type": "post",
+   "pos": [
+    -16,
+    0,
+    -5.2
+   ],
+   "h": 1.0,
+   "color": "#a07050"
+  },
+  {
+   "type": "post",
+   "pos": [
+    -14,
+    0,
+    -5.2
+   ],
+   "h": 1.0,
+   "color": "#a07050"
+  },
+  {
+   "type": "post",
+   "pos": [
+    -12,
+    0,
+    -5.2
+   ],
+   "h": 1.0,
+   "color": "#a07050"
+  },
+  {
+   "type": "post",
+   "pos": [
+    -10,
+    0,
+    -5.2
+   ],
+   "h": 1.0,
+   "color": "#a07050"
+  },
+  {
+   "type": "post",
+   "pos": [
+    -8,
+    0,
+    -5.2
+   ],
+   "h": 1.0,
+   "color": "#a07050"
+  },
+  {
+   "type": "post",
+   "pos": [
+    -6,
+    0,
+    -5.2
+   ],
+   "h": 1.0,
+   "color": "#a07050"
+  },
+  {
+   "type": "post",
+   "pos": [
+    -4,
+    0,
+    -5.2
+   ],
+   "h": 1.0,
+   "color": "#a07050"
+  },
+  {
+   "type": "post",
+   "pos": [
+    -2,
+    0,
+    -5.2
+   ],
+   "h": 1.0,
+   "color": "#a07050"
+  },
+  {
+   "type": "post",
+   "pos": [
+    0,
+    0,
+    -5.2
+   ],
+   "h": 1.0,
+   "color": "#a07050"
+  },
+  {
+   "type": "post",
+   "pos": [
+    2,
+    0,
+    -5.2
+   ],
+   "h": 1.0,
+   "color": "#a07050"
+  },
+  {
+   "type": "post",
+   "pos": [
+    4,
+    0,
+    -5.2
+   ],
+   "h": 1.0,
+   "color": "#a07050"
+  },
+  {
+   "type": "post",
+   "pos": [
+    6,
+    0,
+    -5.2
+   ],
+   "h": 1.0,
+   "color": "#a07050"
+  },
+  {
+   "type": "post",
+   "pos": [
+    8,
+    0,
+    -5.2
+   ],
+   "h": 1.0,
+   "color": "#a07050"
+  },
+  {
+   "type": "post",
+   "pos": [
+    10,
+    0,
+    -5.2
+   ],
+   "h": 1.0,
+   "color": "#a07050"
+  },
+  {
+   "type": "post",
+   "pos": [
+    12,
+    0,
+    -5.2
+   ],
+   "h": 1.0,
+   "color": "#a07050"
+  },
+  {
+   "type": "post",
+   "pos": [
+    14,
+    0,
+    -5.2
+   ],
+   "h": 1.0,
+   "color": "#a07050"
+  },
+  {
+   "type": "post",
+   "pos": [
+    16,
+    0,
+    -5.2
+   ],
+   "h": 1.0,
+   "color": "#a07050"
+  },
+  {
+   "type": "box",
+   "pos": [
+    0,
+    0.6,
+    -5.2
+   ],
+   "size": [
+    32,
+    0.1,
+    0.08
+   ],
+   "color": "#c09060"
+  },
+  {
+   "type": "plane",
+   "image": "props/outback.png",
+   "pos": [
+    70,
+    -0.5,
+    -20
+   ],
+   "size": [
+    34,
+    14.9
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    70,
+    0,
+    -4
+   ],
+   "size": [
+    44,
+    0.05,
+    26
+   ],
+   "texture": "textures/redsand.jpg",
+   "repeat": [
+    11,
+    7
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    140,
+    0,
+    -1
+   ],
+   "size": [
+    12,
+    0.06,
+    10
+   ],
+   "texture": "textures/wood.jpg",
+   "repeat": [
+    4,
+    4
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    140,
+    0,
+    -5
+   ],
+   "size": [
+    12,
+    6.2,
+    0.3
+   ],
+   "color": "#aa7850"
+  },
+  {
+   "type": "box",
+   "pos": [
+    134.15,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    6.2,
+    10
+   ],
+   "color": "#9a6a44"
+  },
+  {
+   "type": "box",
+   "pos": [
+    145.85,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    6.2,
+    10
+   ],
+   "color": "#9a6a44"
+  },
+  {
+   "type": "plane",
+   "image": "props/office.png",
+   "pos": [
+    140,
+    0.06,
+    -4.82
+   ],
+   "size": [
+    11,
+    5.04
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    140.6,
+    0,
+    -3.9
+   ],
+   "size": [
+    2.6,
+    0.78,
+    1.0
+   ],
+   "color": "#7a4a2c"
+  },
+  {
+   "type": "box",
+   "pos": [
+    140.6,
+    0.78,
+    -3.9
+   ],
+   "size": [
+    2.7,
+    0.06,
+    1.1
+   ],
+   "color": "#a06a40"
+  },
+  {
+   "type": "plane",
+   "image": "props/skyday.png",
+   "pos": [
+    210,
+    -1,
+    -30
+   ],
+   "size": [
+    96,
+    42
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    210,
+    0,
+    -4
+   ],
+   "size": [
+    44,
+    0.05,
+    26
+   ],
+   "texture": "textures/dirt.jpg",
+   "repeat": [
+    11,
+    7
+   ]
+  },
+  {
+   "type": "house",
+   "pos": [
+    204,
+    0,
+    -9
+   ],
+   "size": [
+    3.2,
+    2.2,
+    3.2
+   ],
+   "roof": "#a89a6a",
+   "door": "#7a5890",
+   "color": "#c8b88a"
+  },
+  {
+   "type": "house",
+   "pos": [
+    208.5,
+    0,
+    -10.5
+   ],
+   "size": [
+    3.2,
+    2.2,
+    3.2
+   ],
+   "roof": "#a89a6a",
+   "door": "#7a5890",
+   "color": "#c8b88a"
+  },
+  {
+   "type": "house",
+   "pos": [
+    213.5,
+    0,
+    -9.5
+   ],
+   "size": [
+    3.2,
+    2.2,
+    3.2
+   ],
+   "roof": "#a89a6a",
+   "door": "#7a5890",
+   "color": "#c8b88a"
+  },
+  {
+   "type": "house",
+   "pos": [
+    218,
+    0,
+    -11
+   ],
+   "size": [
+    3.2,
+    2.2,
+    3.2
+   ],
+   "roof": "#a89a6a",
+   "door": "#7a5890",
+   "color": "#c8b88a"
+  },
+  {
+   "type": "crate",
+   "pos": [
+    205.8,
+    0,
+    -6.0
+   ],
+   "size": 0.8,
+   "color": "#6e784c"
+  },
+  {
+   "type": "crate",
+   "pos": [
+    206.6,
+    0,
+    -6.4
+   ],
+   "size": 0.8,
+   "color": "#6e784c"
+  },
+  {
+   "type": "crate",
+   "pos": [
+    215.0,
+    0,
+    -6.2
+   ],
+   "size": 0.8,
+   "color": "#6e784c"
+  },
+  {
+   "type": "post",
+   "pos": [
+    216.5,
+    0,
+    -7.5
+   ],
+   "h": 5.0,
+   "color": "#e8e0d0"
+  },
+  {
+   "type": "box",
+   "pos": [
+    280,
+    0,
+    -1
+   ],
+   "size": [
+    12,
+    0.06,
+    10
+   ],
+   "texture": "textures/btiles.jpg",
+   "repeat": [
+    4,
+    4
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    280,
+    0,
+    -5
+   ],
+   "size": [
+    12,
+    6.2,
+    0.3
+   ],
+   "color": "#e2d6b4"
+  },
+  {
+   "type": "box",
+   "pos": [
+    274.15,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    6.2,
+    10
+   ],
+   "color": "#d4c6a0"
+  },
+  {
+   "type": "box",
+   "pos": [
+    285.85,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    6.2,
+    10
+   ],
+   "color": "#d4c6a0"
+  },
+  {
+   "type": "plane",
+   "image": "props/bountywall.png",
+   "pos": [
+    280,
+    0.06,
+    -4.82
+   ],
+   "size": [
+    11,
+    5.04
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/skyday.png",
+   "pos": [
+    280,
+    -1,
+    -30
+   ],
+   "size": [
+    96,
+    42
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "start": 0,
+   "anchor": [
+    0.15,
+    1.35,
+    0.1
+   ],
+   "distance": 6.8,
+   "yaw": -8,
+   "pitch": 6,
+   "zoom": -5,
+   "pan": [
+    15,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "gunW",
+     "to": [
+      -0.45,
+      0.06,
+      0.0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "lewisH",
+     "to": [
+      0.5,
+      0.06,
+      0.35
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "lewisH",
+     "face": "default"
+    },
+    {
+     "at": 0.0,
+     "who": "gunW",
+     "face": "shouting",
+     "pose": {
+      "armR": -70,
+      "armL": 0
+     }
+    },
+    {
+     "at": 0.0,
+     "who": "emuH",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 1.42,
+     "who": "gunW",
+     "shake": 0.3
+    },
+    {
+     "at": 1.8,
+     "who": "atwar_1",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "atwar_1",
+     "to": [
+      0.071,
+      2.495,
+      0.493
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:The enemy had feathers",
+   "anchor": [
+    0.6,
+    1.3,
+    0.2
+   ],
+   "distance": 8.833,
+   "yaw": 10,
+   "pitch": 4,
+   "zoom": 8,
+   "pan": [
+    -20,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "emuH",
+     "to": [
+      1.45,
+      0.06,
+      0.25
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.0,
+     "who": "emuH",
+     "face": "default"
+    },
+    {
+     "at": 0.0,
+     "who": "gunW",
+     "face": "shocked",
+     "shake": 0.3
+    },
+    {
+     "at": 1.02,
+     "who": "feathers_2",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.02,
+     "who": "feathert_3",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.64,
+     "who": "feathers_2",
+     "to": [
+      1.294,
+      1.609,
+      0.687
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.64,
+     "who": "feathert_3",
+     "to": [
+      0.652,
+      3.051,
+      0.495
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:And the enemy won",
+   "anchor": [
+    0.65,
+    1.3,
+    0.25
+   ],
+   "distance": 8.584,
+   "yaw": -12,
+   "pitch": 6,
+   "zoom": 8,
+   "pan": [
+    20,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "emuH",
+     "face": "happy",
+     "shake": 0.3
+    },
+    {
+     "at": 0.0,
+     "who": "gunW",
+     "face": "nervous"
+    },
+    {
+     "at": 0.54,
+     "who": "emuH",
+     "face": "happy",
+     "shake": 0.4
+    },
+    {
+     "at": 0.92,
+     "who": "trophy_4",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.92,
+     "who": "emuwins_5",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.54,
+     "who": "trophy_4",
+     "to": [
+      0.938,
+      1.519,
+      0.925
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.54,
+     "who": "emuwins_5",
+     "to": [
+      0.588,
+      2.961,
+      0.543
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:Campion",
+   "anchor": [
+    8.0,
+    1.8,
+    -2.6
+   ],
+   "distance": 10.5,
+   "yaw": 6,
+   "pitch": 8,
+   "zoom": 7,
+   "pan": [
+    -40,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "farmer",
+     "face": "happy",
+     "pose": {
+      "armR": -150
+     }
+    },
+    {
+     "at": 2.34,
+     "who": "ozmap_6",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 2.34,
+     "who": "y1932_7",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "ozmap_6",
+     "to": [
+      7.884,
+      2.281,
+      -2.286
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 1.2,
+     "who": "y1932_7",
+     "to": [
+      8.761,
+      3.446,
+      -2.177
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:A drought pushes",
+   "anchor": [
+    70.0,
+    1.6,
+    -2.6
+   ],
+   "distance": 11.993,
+   "yaw": -10,
+   "pitch": 6,
+   "zoom": 7,
+   "pan": [
+    -30,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.02,
+     "who": "herd",
+     "to": [
+      70.3,
+      0.05,
+      -4.0
+     ],
+     "over": 1.3199999999999998,
+     "walk": false
+    },
+    {
+     "at": 0.02,
+     "who": "e6",
+     "to": [
+      71.4,
+      0.05,
+      -1.8
+     ],
+     "over": 1.3199999999999998,
+     "walk": false
+    },
+    {
+     "at": 0.02,
+     "who": "e7",
+     "to": [
+      69.0,
+      0.05,
+      -1.4
+     ],
+     "over": 1.3199999999999998,
+     "walk": false
+    },
+    {
+     "at": 1.38,
+     "who": "drought_8",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.38,
+     "who": "e20k_9",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "drought_8",
+     "to": [
+      69.926,
+      3.786,
+      -2.308
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.6,
+     "who": "e20k_9",
+     "to": [
+      69.948,
+      2.82,
+      -2.305
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:onto wheat farms",
+   "anchor": [
+    8.3,
+    1.4,
+    -2.0
+   ],
+   "distance": 10.706,
+   "yaw": 12,
+   "pitch": 6,
+   "zoom": 8,
+   "pan": [
+    -45,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "wheat1",
+     "to": [
+      9.3,
+      0.06,
+      -2.5
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.0,
+     "who": "e1",
+     "to": [
+      9.7,
+      0.06,
+      -1.2
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.02,
+     "who": "e1",
+     "to": [
+      9.0,
+      0.06,
+      -1.3
+     ],
+     "over": 0.8,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "farmer",
+     "face": "shocked",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     },
+     "shake": 0.3
+    },
+    {
+     "at": 0.0,
+     "who": "farmwife",
+     "face": "shocked"
+    },
+    {
+     "at": 1.9,
+     "who": "vets_10",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.46,
+     "who": "vets_10",
+     "to": [
+      8.275,
+      2.74,
+      -1.688
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:The wheat gets wrecked",
+   "anchor": [
+    9.4,
+    1.2,
+    -2.0
+   ],
+   "distance": 7.226,
+   "yaw": -12,
+   "pitch": 6,
+   "zoom": 9,
+   "pan": [
+    20,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "e1",
+     "to": [
+      8.7,
+      0.06,
+      -1.5
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "e1",
+     "face": "happy"
+    },
+    {
+     "at": 0.0,
+     "who": "farmer",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "farmwife",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.5,
+     "who": "wheat1",
+     "face": "wrecked",
+     "shake": 0.5
+    },
+    {
+     "at": 0.5,
+     "who": "e1",
+     "shake": 0.4
+    },
+    {
+     "at": 0.72,
+     "who": "wrecked_11",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.72,
+     "who": "wheat1",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.5,
+     "who": "wrecked_11",
+     "to": [
+      9.338,
+      2.598,
+      -1.707
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:The farmers beg",
+   "anchor": [
+    8.0,
+    1.4,
+    -1.7
+   ],
+   "distance": 6.4,
+   "yaw": 10,
+   "pitch": 4,
+   "zoom": 8,
+   "pan": [
+    -25,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "e1",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "farmer",
+     "to": [
+      7.5,
+      0.06,
+      -1.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "farmwife",
+     "to": [
+      8.6,
+      0.06,
+      -1.8
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "farmer",
+     "face": "shouting",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     },
+     "shake": 0.4
+    },
+    {
+     "at": 0.0,
+     "who": "farmwife",
+     "face": "shouting",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     },
+     "shake": 0.4
+    },
+    {
+     "at": 0.88,
+     "who": "help_12",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.1,
+     "who": "help_12",
+     "to": [
+      8.04,
+      2.388,
+      -1.403
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:Defence Minister Pearce",
+   "anchor": [
+    139.9,
+    1.8,
+    -2.8
+   ],
+   "distance": 6.0,
+   "yaw": 0,
+   "pitch": 4,
+   "zoom": 8,
+   "pan": [
+    -30,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "pearce",
+     "face": "smug",
+     "pose": {
+      "armR": -80
+     }
+    },
+    {
+     "at": 1.24,
+     "who": "pearce",
+     "face": "shouting",
+     "pose": {
+      "armR": -150
+     },
+     "shake": 0.4
+    },
+    {
+     "at": 1.88,
+     "who": "pearcet_13",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.88,
+     "who": "approved_14",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "pearcet_13",
+     "to": [
+      139.846,
+      2.532,
+      -2.5
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 1.24,
+     "who": "approved_14",
+     "to": [
+      139.88,
+      2.149,
+      -2.3
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:The army sends",
+   "anchor": [
+    210.0,
+    1.5,
+    -2.5
+   ],
+   "distance": 8.539,
+   "yaw": -10,
+   "pitch": 6,
+   "zoom": 8,
+   "pan": [
+    30,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "merA",
+     "face": "happy",
+     "pose": {
+      "armR": -150
+     },
+     "shake": 0.3
+    },
+    {
+     "at": 0.1,
+     "who": "gunA",
+     "face": "happy",
+     "pose": {
+      "armR": -150
+     },
+     "shake": 0.3
+    },
+    {
+     "at": 0.2,
+     "who": "gun2A",
+     "face": "happy",
+     "pose": {
+      "armR": -150
+     },
+     "shake": 0.3
+    },
+    {
+     "at": 1.18,
+     "who": "soldiers3_15",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.58,
+     "who": "soldiers3_15",
+     "to": [
+      209.919,
+      2.962,
+      -2.21
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:Two Lewis",
+   "anchor": [
+    210.0,
+    1.2,
+    -2.0
+   ],
+   "distance": 8.833,
+   "yaw": 10,
+   "pitch": 6,
+   "zoom": 8,
+   "pan": [
+    -30,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "lewisA1",
+     "to": [
+      209.35,
+      0.06,
+      -1.5
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.12,
+     "who": "lewisA2",
+     "to": [
+      210.75,
+      0.06,
+      -1.5
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.0,
+     "who": "gunA",
+     "face": "shocked"
+    },
+    {
+     "at": 0.0,
+     "who": "gun2A",
+     "face": "shocked"
+    },
+    {
+     "at": 0.96,
+     "who": "guns2_16",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.1,
+     "who": "guns2_16",
+     "to": [
+      210.052,
+      3.109,
+      -1.705
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:Ten thousand rounds",
+   "anchor": [
+    209.5,
+    1.2,
+    -2.2
+   ],
+   "distance": 6.784,
+   "yaw": -12,
+   "pitch": 6,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "gunA",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "gun2A",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "lewisA1",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "lewisA2",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "ammoA",
+     "to": [
+      210.05,
+      0.06,
+      -2.0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.0,
+     "who": "merA",
+     "face": "happy",
+     "pose": {
+      "armR": -120
+     }
+    },
+    {
+     "at": 0.78,
+     "who": "r10k_17",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.1,
+     "who": "r10k_17",
+     "to": [
+      209.438,
+      2.689,
+      -1.907
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:One week later",
+   "anchor": [
+    0.5,
+    1.3,
+    0.0
+   ],
+   "distance": 9.438,
+   "yaw": 10,
+   "pitch": 6,
+   "zoom": 6,
+   "pan": [
+    0,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "lewisH",
+     "face": "fire",
+     "shake": 0.5
+    },
+    {
+     "at": 0.0,
+     "who": "gunW",
+     "face": "shouting",
+     "pose": {
+      "armR": -70
+     }
+    },
+    {
+     "at": 0.0,
+     "who": "emuH",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "e4",
+     "to": [
+      1.7,
+      0.06,
+      -0.8
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.02,
+     "who": "e4",
+     "to": [
+      1.4,
+      0.06,
+      -0.8
+     ],
+     "over": 1.5799999999999998,
+     "walk": false
+    },
+    {
+     "at": 0.46,
+     "who": "e4",
+     "face": "happy",
+     "shake": 0.4
+    },
+    {
+     "at": 1.64,
+     "who": "week_18",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.64,
+     "who": "r2500_19",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "week_18",
+     "to": [
+      0.049,
+      2.875,
+      0.384
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.46,
+     "who": "r2500_19",
+     "to": [
+      0.824,
+      2.772,
+      0.451
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:The soldiers are",
+   "anchor": [
+    0.0,
+    1.1,
+    -1.6
+   ],
+   "distance": 8.5,
+   "yaw": -10,
+   "pitch": 6,
+   "zoom": 6,
+   "pan": [
+    0,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "gunW",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "lewisH",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "e4",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "truck",
+     "to": [
+      0.35,
+      0.06,
+      -1.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.05,
+     "who": "truck",
+     "to": [
+      -0.35,
+      0.06,
+      -1.6
+     ],
+     "over": 0.72,
+     "walk": false
+    },
+    {
+     "at": 0.88,
+     "who": "pulled_20",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.56,
+     "who": "pulled_20",
+     "to": [
+      -0.052,
+      2.66,
+      -1.305
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:They come back",
+   "anchor": [
+    0.0,
+    1.1,
+    -1.6
+   ],
+   "distance": 8.5,
+   "yaw": 8,
+   "pitch": 6,
+   "zoom": 7,
+   "pan": [
+    0,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "truck",
+     "to": [
+      -0.35,
+      0.06,
+      -1.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.02,
+     "who": "truck",
+     "to": [
+      0.35,
+      0.06,
+      -1.6
+     ],
+     "over": 0.7,
+     "walk": false
+    },
+    {
+     "at": 1.12,
+     "who": "round2_21",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.12,
+     "who": "same_22",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "round2_21",
+     "to": [
+      0.026,
+      2.717,
+      -1.301
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.54,
+     "who": "same_22",
+     "to": [
+      0.042,
+      1.732,
+      -1.303
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:9860 rounds",
+   "anchor": [
+    0.5,
+    1.3,
+    0.0
+   ],
+   "distance": 9.752,
+   "yaw": -8,
+   "pitch": 4,
+   "zoom": 6,
+   "pan": [
+    0,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "truck",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "gunW",
+     "to": [
+      -0.45,
+      0.06,
+      0.0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "lewisH",
+     "to": [
+      0.5,
+      0.06,
+      0.35
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "lewisH",
+     "face": "fire",
+     "shake": 0.6
+    },
+    {
+     "at": 0.0,
+     "who": "gunW",
+     "face": "shouting",
+     "pose": {
+      "armR": -70
+     }
+    },
+    {
+     "at": 0.0,
+     "who": "e5",
+     "to": [
+      1.55,
+      0.06,
+      -0.6
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "e5",
+     "face": "run"
+    },
+    {
+     "at": 3.72,
+     "who": "r9860_23",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 3.72,
+     "who": "boom_24",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 3.72,
+     "who": "b986_25",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "r9860_23",
+     "to": [
+      0.412,
+      2.92,
+      0.291
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.1,
+     "who": "boom_24",
+     "to": [
+      0.614,
+      1.618,
+      0.622
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 2.1,
+     "who": "b986_25",
+     "to": [
+      0.397,
+      2.303,
+      0.491
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:Ten bullets",
+   "anchor": [
+    1.5,
+    1.1,
+    -0.6
+   ],
+   "distance": 5.4,
+   "yaw": 12,
+   "pitch": 4,
+   "zoom": 9,
+   "pan": [
+    -25,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "e5",
+     "face": "default",
+     "shake": 0.3
+    },
+    {
+     "at": 0.0,
+     "who": "lewisH",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "gunW",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.98,
+     "who": "per10_26",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "per10_26",
+     "to": [
+      1.562,
+      2.05,
+      -0.307
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:You see",
+   "anchor": [
+    209.0,
+    1.5,
+    -2.4
+   ],
+   "distance": 5.6,
+   "yaw": -12,
+   "pitch": 4,
+   "zoom": 9,
+   "pan": [
+    25,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "ammoA",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "merA",
+     "face": "nervous",
+     "pose": {
+      "armR": -100
+     }
+    },
+    {
+     "at": 2.18,
+     "who": "majort_27",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "majort_27",
+     "to": [
+      208.889,
+      2.18,
+      -2.117
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:Emus could face",
+   "anchor": [
+    0.55,
+    1.4,
+    0.1
+   ],
+   "distance": 10.562,
+   "yaw": 12,
+   "pitch": 6,
+   "zoom": 6,
+   "pan": [
+    0,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "e5",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "gunW",
+     "to": [
+      -0.45,
+      0.06,
+      0.0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "lewisH",
+     "to": [
+      0.5,
+      0.06,
+      0.35
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "emutank",
+     "to": [
+      1.45,
+      0.06,
+      0.0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.0,
+     "who": "lewisH",
+     "face": "fire",
+     "shake": 0.5
+    },
+    {
+     "at": 0.0,
+     "who": "gunW",
+     "face": "shocked",
+     "shake": 0.3
+    },
+    {
+     "at": 2.32,
+     "who": "tanks_28",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 2.32,
+     "who": "emutank",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.96,
+     "who": "tanks_28",
+     "to": [
+      0.593,
+      3.289,
+      0.397
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:So the government",
+   "anchor": [
+    139.8,
+    1.8,
+    -2.8
+   ],
+   "distance": 6.148,
+   "yaw": -4,
+   "pitch": 4,
+   "zoom": 9,
+   "pan": [
+    25,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "pearce",
+     "face": "shouting",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     },
+     "shake": 0.3
+    },
+    {
+     "at": 1.46,
+     "who": "nosoldiers_29",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.1,
+     "who": "nosoldiers_29",
+     "to": [
+      139.75,
+      2.783,
+      -2.503
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:It paid farmers",
+   "anchor": [
+    280.0,
+    1.7,
+    -2.8
+   ],
+   "distance": 7.208,
+   "yaw": 10,
+   "pitch": 4,
+   "zoom": 6,
+   "pan": [
+    15,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "clerk",
+     "face": "happy",
+     "pose": {
+      "armR": -90
+     }
+    },
+    {
+     "at": 0.0,
+     "who": "farmB",
+     "face": "happy",
+     "pose": {
+      "armR": -150
+     }
+    },
+    {
+     "at": 2.78,
+     "who": "cash_30",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 2.78,
+     "who": "bounty_31",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 2.78,
+     "who": "noguns_32",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.2,
+     "who": "cash_30",
+     "to": [
+      280.104,
+      1.647,
+      -2.209
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.64,
+     "who": "bounty_31",
+     "to": [
+      280.01,
+      2.839,
+      -2.497
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 1.66,
+     "who": "noguns_32",
+     "to": [
+      280.01,
+      2.371,
+      -2.497
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:Six months",
+   "anchor": [
+    280.0,
+    1.9,
+    -2.6
+   ],
+   "distance": 10.17,
+   "yaw": -6,
+   "pitch": 6,
+   "zoom": 6,
+   "pan": [
+    0,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.1,
+     "who": "cashB0",
+     "to": [
+      279.1,
+      0.06,
+      -2.0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.25,
+     "who": "cashB1",
+     "to": [
+      279.85,
+      0.06,
+      -2.0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.4,
+     "who": "cashB2",
+     "to": [
+      281.1,
+      0.06,
+      -2.0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.0,
+     "who": "farmB",
+     "face": "happy",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     },
+     "shake": 0.3
+    },
+    {
+     "at": 2.8,
+     "who": "y1934_33",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 2.8,
+     "who": "b57k_34",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "y1934_33",
+     "to": [
+      279.457,
+      3.586,
+      -2.355
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 1.44,
+     "who": "b57k_34",
+     "to": [
+      280.063,
+      3.306,
+      -2.091
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:Almost fiftyeight",
+   "anchor": [
+    8.0,
+    1.4,
+    -1.7
+   ],
+   "distance": 6.6,
+   "yaw": -10,
+   "pitch": 6,
+   "zoom": 8,
+   "pan": [
+    25,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "cashW",
+     "to": [
+      8.05,
+      0.06,
+      -1.2
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.0,
+     "who": "farmer",
+     "face": "happy",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     },
+     "shake": 0.3
+    },
+    {
+     "at": 0.0,
+     "who": "farmwife",
+     "face": "happy",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     },
+     "shake": 0.3
+    },
+    {
+     "at": 1.92,
+     "who": "x58_35",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.92,
+     "who": "cashW",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "x58_35",
+     "to": [
+      7.926,
+      2.367,
+      -1.408
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:Bullets lost",
+   "anchor": [
+    0.15,
+    1.3,
+    0.1
+   ],
+   "distance": 7.2,
+   "yaw": 10,
+   "pitch": 4,
+   "zoom": 8,
+   "pan": [
+    -25,
+    0
+   ],
+   "out": "cut",
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "gunW",
+     "to": [
+      -0.45,
+      0.06,
+      0.0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "lewisH",
+     "to": [
+      0.5,
+      0.06,
+      0.35
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "lewisH",
+     "face": "default"
+    },
+    {
+     "at": 0.0,
+     "who": "gunW",
+     "face": "nervous",
+     "pose": {
+      "armR": 0
+     }
+    },
+    {
+     "at": 1.12,
+     "who": "lost_36",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.12,
+     "who": "won_37",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.12,
+     "who": "cash_38",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "lost_36",
+     "to": [
+      0.202,
+      2.79,
+      0.395
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.7,
+     "who": "won_37",
+     "to": [
+      0.202,
+      1.962,
+      0.395
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.7,
+     "who": "cash_38",
+     "to": [
+      0.952,
+      1.143,
+      0.568
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  },
+  {
+   "start": "say:And that is how",
+   "anchor": [
+    0.15,
+    1.35,
+    0.1
+   ],
+   "distance": 6.8,
+   "yaw": -8,
+   "pitch": 6,
+   "zoom": -5,
+   "pan": [
+    15,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "gunW",
+     "to": [
+      -0.45,
+      0.06,
+      0.0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "lewisH",
+     "to": [
+      0.5,
+      0.06,
+      0.35
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "lewisH",
+     "face": "default"
+    },
+    {
+     "at": 0.0,
+     "who": "gunW",
+     "face": "shouting",
+     "pose": {
+      "armR": -70,
+      "armL": 0
+     }
+    },
+    {
+     "at": 0.0,
+     "who": "emuH",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "truck",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "e4",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "e5",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "atwar_39",
+     "to": [
+      0.071,
+      2.495,
+      0.493
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.58,
+     "who": "y1932_40",
+     "to": [
+      0.523,
+      1.697,
+      0.758
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0
+  }
+ ],
+ "end": "audio"
+}
