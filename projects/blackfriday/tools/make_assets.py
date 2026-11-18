@@ -339,8 +339,8 @@ def stands(path):
             col = [SK[0][0], SK[1][0], SK[2][0]][R_.randint(3)]; hat = [NAVY, BLK, GOLD, RED, None][R_.randint(5)]
             d.ellipse(x, y + 30, 22, 22, fill=col, outline=LINE, width=4); d.dot(x - 7, y + 30, 3, LINE); d.dot(x + 7, y + 30, 3, LINE)
             if hat: d.chord(x, y + 22, 23, 18, 180, 360, fill=hat)
-    for x0, txt, col, tc in ((300, 'GO ARMY!', BLK, GOLD), (1950, 'GO NAVY!', NAVY, GOLD)):
-        d.rrect(x0, 150, x0 + 1150, 290, 20, fill=col, outline=LINE, width=12); d.text(x0 + 575, 222, txt, 110, tc, stroke=5, stroke_fill=LINE)
+    for x0, txt, col, tc in ((1230, 'ARMY!', BLK, GOLD), (1710, 'NAVY!', NAVY, GOLD)):
+        d.rrect(x0, 150, x0 + 460, 290, 20, fill=col, outline=LINE, width=12); d.text(x0 + 230, 222, txt, 100, tc, stroke=5, stroke_fill=LINE)
     d.rect(0, 290, W, 306, (230, 230, 236, 255)); d.out().save(path)
 
 
