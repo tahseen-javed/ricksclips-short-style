@@ -1,37 +1,37 @@
-music: 47.0 s, electro-swing 124 bpm A minor + noir + synthwave
+music: 47.1 s, electro-swing 124 bpm A minor + noir + synthwave
 shot  start   dur  phrase
 S00    0.00  2.40  0
-S01    2.40  1.62  It was named
-S02    4.02  1.78  Philadelphia
-S03    5.80  1.32  The day after
-S04    7.12  1.92  suburban shoppers
-S05    9.04  2.56  Then on Saturday
-S06   11.60  1.52  and the tourists
-S07   13.12  0.42  Gridlock
+S01    2.40  1.64  It was named
+S02    4.04  1.70  Philadelphia
+S03    5.74  1.24  The day after
+S04    6.98  1.92  suburban shoppers
+S05    8.90  2.50  Then on Saturday
+S06   11.40  1.51  and the tourists
+S07   12.91  0.54  Gridlock
    ! very short shot
-S08   13.54  0.34  Crowds
+S08   13.45  0.44  Crowds
    ! very short shot
-S09   13.88  0.66  Chaos
+S09   13.89  0.74  Chaos
+S10   14.63  1.60  No traffic cop
+S11   16.23  1.32  They work
+S12   17.55  2.16  So the police
+S13   19.71  0.90  Black Friday#2
+S14   20.61  0.66  Stores hate it
    ! very short shot
-S10   14.54  1.60  No traffic cop
-S11   16.14  1.33  They work
-S12   17.47  2.16  So the police
-S13   19.63  0.88  Black Friday#2
-S14   20.51  0.66  Stores hate it
-   ! very short shot
-S15   21.17  2.80  That same year
-S16   23.97  1.32  Nobody says
-S17   25.29  1.70  You see
-S18   26.99  1.88  Slowly
-S19   28.87  1.62  So retailers
-S20   30.49  2.04  If you can't
-S21   32.53  2.52  In the 1980s
-S22   35.05  2.02  Stores lose money
-S23   37.07  2.32  and this is the day
-S24   39.39  0.94  Sounds perfect
-S25   40.33  0.98  It just isn't
-S26   41.31  0.76  Today
-S27   42.07  2.44  print the
-S28   44.51  1.20  And not one
-S29   45.71  0.88  why
-wrote short.json: 30 shots, 87 characters, 95 props, voice 46.59 s
+S15   21.27  2.78  That same year
+S16   24.05  1.34  Nobody says
+S17   25.39  1.68  You see
+S18   27.07  1.88  Slowly
+S19   28.95  1.62  So retailers
+S20   30.57  2.04  If you can't
+S21   32.61  2.53  In the 1980s
+S22   35.14  2.02  Stores lose money
+S23   37.16  2.32  and this is the day
+S24   39.48  0.96  Sounds perfect
+S25   40.44  0.98  It just isn't
+S26   41.42  0.76  Today
+S27   42.18  2.42  print the
+S28   44.60  1.22  And not one
+S29   45.82  0.86  why
+   ! kidM: move from S16 (24.15+1.40 s) overlaps next move in S17 at 25.39 s
+wrote short.json: 30 shots, 87 characters, 93 props, voice 46.68 s
