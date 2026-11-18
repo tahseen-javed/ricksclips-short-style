@@ -289,7 +289,7 @@ spec = {
                       "sky": {"top": "#5b8ee0", "horizon": "#f6d6b0"}, "fill": {"sky": "#a0b4ff", "ground": "#6a4b6e", "intensity": 1.2}},
               "hot": {"sun": {"azimuth": 60, "elevation": 40, "color": "#ffcf9a", "intensity": 2.5}, "sky": {"top": "#e89a5a", "horizon": "#ffd9a0"}, "fill": {"sky": "#ffc8a0", "ground": "#8a4a3e", "intensity": 1.2}}},
     "lighting": [{"t": 0, "mood": "day"}, mood("hot", "A drought pushes"), mood("day", "onto wheat farms")],
-    "ground": {"texture": TEX + "asphalt.jpg", "repeat": [175, 175], "size": 1400},
+    "ground": {"texture": TEX + "dirt.jpg", "repeat": [175, 175], "size": 1400},
     "backdrop": {"image": "bg/sky.jpg", "blur": 4}, "ink": {"set": 4},
     "characters": chars, "props": props, "shots": shots, "end": "audio",
 }
