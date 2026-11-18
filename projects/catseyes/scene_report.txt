@@ -1,0 +1,32 @@
+music: 38.1 s, war march 132 bpm D minor + oompah F major + spy pulse + trap
+shot  start   dur  phrase
+S00    0.00  2.16  0
+S01    2.16  0.74  A machine could
+S02    2.90  1.22  and a carrot
+S03    4.12  1.52  It's 1940
+S04    5.64  1.88  German bombers
+S05    7.52  1.53  One pilot keeps
+S06    9.05  0.80  John Cunningham
+S07    9.85  1.82  Twenty kills
+S08   11.67  1.42  The papers call
+S09   13.09  0.98  His secret
+S10   14.07  0.74  Lots of carrots
+S11   14.81  1.60  You see
+S12   16.41  1.02  hidden inside
+S13   17.43  1.52  Britain could not
+S14   18.95  1.98  So the carrot story
+S15   20.93  1.26  A mascot called
+S16   22.19  0.58  Carrot fudge
+   ! very short shot
+S17   22.77  3.12  By 1942
+S18   25.89  1.97  But carrots don't
+S19   27.86  0.80  And historians say
+S20   28.66  1.72  the Germans probably
+S21   30.38  2.28  The only people
+S22   32.66  1.16  More than eighty
+S23   33.82  0.92  we still believe
+S24   34.74  2.92  Because Britain's
+   ! beauF: move from S05 (7.54+1.60 s) overlaps next move in S05 at 9.01 s
+   CUT S05 t=0.77 beauF          x -0.01..0.45 y 0.41..0.53
+frame check: 1 CUT flags
+wrote short.json: 25 shots, 73 characters, 111 props, voice 37.66 s
