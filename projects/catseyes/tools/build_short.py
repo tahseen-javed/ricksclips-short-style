@@ -32,7 +32,7 @@ def room(loc, wallc, img, floor, rep=(4, 4), sidec=None):     # interior: floor,
 # ================================================================== SETS
 # AF night airfield: concrete apron, 604 Squadron hangar, runway lights, sandbags, windsock post
 plane("AF", "skynight.png", 0, -1, -30, 96, 42); box("AF", 0, 0, -4, [40, 0.05, 26], texture="concrete.jpg", repeat=[10, 7])
-house("AF", 0, -14, [16, 7.5, 6], "#5a6070", color="#b8bcaa"); plane("AF", "hangar.png", 0, 0.05, -10.94, 14, 6.42)
+box("AF", 0, 0, -14, [16, 7.5, 6], color="#b8bcaa"); box("AF", 0, 7.5, -14, [16.4, 0.5, 6.4], color="#5a6070"); plane("AF", "hangar.png", 0, 0.05, -10.94, 14, 6.42)
 for x in range(-15, 16, 3): box("AF", x, 0.05, 3.4, [0.3, 0.22, 0.3], color="#ffe27a")
 for x in (-8.5, 8.5): box("AF", x, 0, -6.0, [3.0, 0.9, 1.2], color="#d6c496")
 post("AF", 10.5, -7, 4.0, "#e8e0d0")
@@ -45,7 +45,7 @@ for x in (-6, 0, 6): post("SK", x, -6.5, 3.2, "#33405a")
 box("SK", -3, 0, -7, [3, 0.8, 1], color="#d6c496"); box("SK", 4, 0, -7, [3, 0.8, 1], color="#d6c496")
 # NS newsagent street (day): pavement, brick shopfront with taped windows, lamp posts
 plane("NS", "skyday.png", 0, -1, -30, 96, 42); box("NS", 0, 0, -5.25, [34, 0.15, 2.6], color="#d4ccbe")
-house("NS", 0, -9, [14, 6.4, 5], "#6a4a3a", color="#b25c48"); plane("NS", "street40.png", 0, 0.15, -6.44, 13, 5.96)
+box("NS", 0, 0, -9, [14, 6.4, 5], color="#b25c48"); box("NS", 0, 6.4, -9, [14.4, 0.4, 5.4], color="#6a4a3a"); plane("NS", "street40.png", 0, 0.15, -6.44, 13, 5.96)
 for x in (-9, 9): house("NS", x, -9.5, [4.6, 5.0, 5], "#5a4a5a", color="#c8b090")
 for x in (-6.6, 6.6): post("NS", x, -4.4, 3.4, "#33405a")
 # KT RAF mess: green tiles, two-tone wall with menu + bunting, a long table at the back
@@ -137,10 +137,10 @@ show(s, 0.0, "b1", pos("SK", 0.6, 6.9, -9.5), hop=0); go(s, 0.02, "b1", pos("SK"
 tag(s, 0.05, "y1940", 0.3, wf=0.2); bl = rel(s, "Blitz"); tag(s, bl, "blitz", 0.08, 0.0, 0.5, wf=0.22, tilt=-8)
 for dx in (-0.26, 0.26): tag(s, bl, "boom", -0.1, dx, 0.6, wf=0.1)
 s = S("German bombers", out="cut", anchor=pos("SK", 0.4, 5.4, -7.5), dist=10, yaw=12, pitch=-8, zoom=8, pan=(-9, 0))
-show(s, 0.0, "b0", pos("SK", -0.4, 4.9, -7.5), hop=0); go(s, 0.02, "b0", pos("SK", 0.7, 5.1, -7.5), 1.6, walk=False)
+show(s, 0.0, "b0", pos("SK", -0.4, 4.9, -7.5), hop=0); go(s, 0.02, "b0", pos("SK", 0.7, 5.1, -7.5), rel(s, "One pilot keeps") - 0.1, walk=False)
 show(s, 0.0, "b1", PARK, hop=0); en = rel(s, "every night"); tag(s, en, "everynight", 0.33); tag(s, en, "boom", -0.12, -0.25, 0.6, wf=0.1)
 s = S("One pilot keeps", out="cut", anchor=pos("SK", 0.0, 5.5, -7.5), dist=13, yaw=-10, pitch=-6, zoom=5, pan=(-5, 0))
-show(s, 0.0, "beauF", pos("SK", -1.3, 5.2, -7.0), hop=0); go(s, 0.02, "beauF", pos("SK", -0.5, 5.4, -7.0), 1.6, walk=False)
+show(s, 0.0, "beauF", pos("SK", -1.0, 5.2, -7.0), hop=0); go(s, 0.02, "beauF", pos("SK", -0.25, 5.4, -7.0), rel(s, "John Cunningham") - 0.1, walk=False)
 show(s, 0.0, "b0", pos("SK", 1.2, 5.9, -8.5), hop=0); temp(s, "beauF", "b0"); an = rel(s, "anyway")
 act(s, an, "b0", face="shock", shake=0.4); tag(s, an, "found", 0.32, tilt=-6)
 
@@ -178,12 +178,11 @@ tag(s, 0.1, "shh", 0.12, -0.24, 0.6, wf=0.11); temp(s, "minR"); tag(s, rel(s, "e
 s = S("So the carrot story", out="cut", anchor=pos("PR", 0.0, 2.6, -4.6), dist=11, yaw=-10, pitch=6, zoom=7, pan=(10, 0))
 act(s, 0.0, "minP", face="happy", pose=dict(armR=-150, armL=150), shake=0.3); st_ = tag(s, 0.05, "story", 0.37); tag(s, rel(s, "everywhere"), "everywhere", 0.13, tilt=-6, wf=0.22)
 po = rel(s, "Posters"); hide(s, po - 0.03, st_); s["_tags"].remove(st_); tag(s, po, "posters", 0.37, wf=0.2); act(s, po, "minP", face="smug", pose=dict(armR=-95, armL=0))
-s = S("A mascot called", out="cut", anchor=pos("PR", 0.0, 1.3, -4.4), dist=7.0, yaw=-12, pitch=4, zoom=10, pan=(3, 0))
-show(s, 0.0, "drC", pos("PR", 0.55, 0.15, -4.3)); act(s, 0.0, "minP", face="happy", pose=dict(armR=-95, armL=0)); temp(s, "drC")
-dc = rel(s, "Doctor"); act(s, dc, "drC", shake=0.4); tag(s, dc, "drname", 0.33)
-s = S("Carrot fudge", out="cut", anchor=pos("KT", 1.1, 1.4, -2.0), dist=5.4, yaw=14, pitch=6, zoom=10, pan=(-9, 0))
-for cid in ("johnK", "pileK"): show(s, 0.0, cid, PARK, hop=0)
-act(s, 0.0, "cook", face="happy", pose=dict(armR=-95, armL=-60)); tag(s, 0.05, "fudge", 0.05, -0.18, 0.6, wf=0.2, hf=0.14); tag(s, 0.1, "fudget", 0.34)
+s = S("A mascot called", out="cut", anchor=pos("PR", -0.05, 1.3, -4.4), dist=7.2, yaw=-12, pitch=4, zoom=7, pan=(0, 0))
+show(s, 0.0, "drC", pos("PR", 0.45, 0.15, -4.3)); act(s, 0.0, "minP", face="happy", pose=dict(armR=-95, armL=0)); temp(s, "drC")
+dc = rel(s, "Doctor"); act(s, dc, "drC", shake=0.4); dn = tag(s, dc, "drname", 0.33)
+fz = rel(s, "Carrot fudge"); hide(s, fz - 0.03, dn); s["_tags"].remove(dn); tag(s, fz, "fudget", 0.33); tag(s, fz, "fudge", 0.04, -0.2, 0.6, wf=0.2, hf=0.13)
+act(s, fz, "minP", face="shocked", shake=0.3)
 s = S("By 1942", out="cut", anchor=pos("FM", 0.3, 2.0, -4.0), dist=12, yaw=8, pitch=6, zoom=-5, pan=(6, 0))
 act(s, 0.05, "pileF", shake=0.4); tag(s, 0.05, "y1942", 0.31, wf=0.18); ht = rel(s, "hundred thousand")
 act(s, ht, "farmer", face="shocked", pose=dict(armR=-150, armL=150), shake=0.4); tag(s, ht, "tons", 0.15, wf=0.24)
@@ -328,6 +327,18 @@ for k, s in enumerate(shots):
             inside = max(xs) > 0 and min(xs) < 1 and max(ys) > 0 and min(ys) < 1
             if inside and (min(xs) < 0.03 or max(xs) > 0.97 or min(ys) < 0.03 or max(ys) > 0.985):
                 flags += 1; print("   CUT S%02d t=%.2f %-14s x %.2f..%.2f y %.2f..%.2f" % (k, tl, cid, min(xs), max(xs), min(ys), max(ys)))
+BOXES = []                                                   # engine CAMERA_INSIDE_PROP: AABB (+0.12) of every house (with its rotated cone roof) / box
+for pr in props:
+    if pr["type"] not in ("house", "box", "crate", "wall"): continue
+    (x, y, z), (w, h, d) = pr["pos"], pr["size"]
+    if pr["type"] == "house": r = max(w, d) * 0.78 * 1.4143; BOXES.append((pr, x - max(w / 2, r), y, z - max(d / 2, r), x + max(w / 2, r), y + h * 1.6, z + max(d / 2, r)))
+    else: BOXES.append((pr, x - w / 2, y, z - d / 2, x + w / 2, y + h, z + d / 2))
+for k, s in enumerate(shots):
+    for tl in (0.05, s["_dur"] * 0.5, s["_dur"] - 0.05):
+        cp = cam(s, tl)[0]
+        for pr, x0, y0, z0, x1, y1, z1 in BOXES:
+            if x0 - 0.12 <= cp[0] <= x1 + 0.12 and y0 - 0.12 <= cp[1] <= y1 + 0.12 and z0 - 0.12 <= cp[2] <= z1 + 0.12:
+                flags += 1; print("   INSIDE S%02d t=%.2f %s@%s" % (k, tl, pr["type"], pr["pos"]))
 print("frame check: %d CUT flags" % flags)
 for s in shots: s.pop("_phrase"); s.pop("_dur", None)
 json.dump(spec, open(os.path.join(P, "short.json"), "w"), indent=1)
