@@ -164,8 +164,8 @@
   "ink": "#271925",
   "accent": "#e0b43a",
   "paper": [
-   "#f6ecd6",
-   "#e8d5ae"
+   "#dcc49a",
+   "#c9a878"
   ],
   "dofPx": 8,
   "particle": "#ffe6b0",
@@ -177,8 +177,8 @@
   {
    "type": "sweat",
    "on": "kiwiB",
-   "t": 9.08,
-   "dur": 0.9
+   "t": 8.83,
+   "dur": 0.44
   },
   {
    "type": "speed",
@@ -196,19 +196,19 @@
    "type": "z",
    "on": "nyer",
    "t": 27.02,
-   "dur": 1.2
+   "dur": 0.96
   },
   {
    "type": "sweat",
    "on": "kiwiB",
    "t": 30.9,
-   "dur": 0.9
+   "dur": 0.72
   },
   {
    "type": "blush",
    "on": "kiwiN",
    "t": 34.88,
-   "dur": 0.9
+   "dur": 0.4
   }
  ],
  "characters": [
@@ -308,7 +308,7 @@
     -60,
     0
    ],
-   "height": 0.744,
+   "height": 0.679,
    "face": "default"
   },
   {
@@ -319,7 +319,7 @@
     -60,
     0
    ],
-   "height": 0.718,
+   "height": 0.529,
    "face": "default"
   },
   {
@@ -330,7 +330,7 @@
     -60,
     0
    ],
-   "height": 0.628,
+   "height": 0.591,
    "face": "default"
   },
   {
@@ -341,7 +341,7 @@
     -60,
     0
    ],
-   "height": 0.739,
+   "height": 0.615,
    "face": "default"
   },
   {
@@ -352,7 +352,7 @@
     -60,
     0
    ],
-   "height": 0.631,
+   "height": 0.651,
    "face": "default"
   },
   {
@@ -363,7 +363,7 @@
     -60,
     0
    ],
-   "height": 0.829,
+   "height": 0.756,
    "face": "default",
    "pose": {
     "head": -8
@@ -377,7 +377,7 @@
     -60,
     0
    ],
-   "height": 0.598,
+   "height": 0.563,
    "face": "default"
   },
   {
@@ -388,7 +388,7 @@
     -60,
     0
    ],
-   "height": 0.367,
+   "height": 0.39,
    "face": "default",
    "pose": {
     "head": 7
@@ -402,7 +402,7 @@
     -60,
     0
    ],
-   "height": 0.395,
+   "height": 0.407,
    "face": "default"
   },
   {
@@ -413,7 +413,7 @@
     -60,
     0
    ],
-   "height": 0.499,
+   "height": 0.569,
    "face": "default"
   },
   {
@@ -435,7 +435,7 @@
     -60,
     0
    ],
-   "height": 0.264,
+   "height": 0.265,
    "face": "default"
   },
   {
@@ -446,7 +446,7 @@
     -60,
     0
    ],
-   "height": 0.16,
+   "height": 0.175,
    "face": "default",
    "pose": {
     "head": -6
@@ -471,7 +471,7 @@
     -60,
     0
    ],
-   "height": 0.468,
+   "height": 0.355,
    "face": "default"
   },
   {
@@ -482,145 +482,156 @@
     -60,
     0
    ],
-   "height": 0.278,
+   "height": 0.246,
    "face": "default",
    "pose": {
     "head": -6
    }
   },
   {
-   "id": "midnite_17",
+   "id": "clock12_17",
+   "puppet": "puppets/clock12",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.493,
+   "face": "default"
+  },
+  {
+   "id": "midnite_18",
    "puppet": "puppets/midnite",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.903,
+   "height": 0.629,
    "face": "default"
   },
   {
-   "id": "cbyc_18",
+   "id": "cbyc_19",
    "puppet": "puppets/cbyc",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.3,
+   "height": 0.319,
    "face": "default"
   },
   {
-   "id": "nzfirst_19",
+   "id": "nzfirst_20",
    "puppet": "puppets/nzfirst",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.543,
+   "height": 0.496,
    "face": "default"
   },
   {
-   "id": "ldn11_20",
+   "id": "ldn11_21",
    "puppet": "puppets/ldn11",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.912,
+   "height": 0.737,
    "face": "default"
   },
   {
-   "id": "nov18_21",
+   "id": "nov18_22",
    "puppet": "puppets/nov18",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.601,
+   "height": 0.485,
    "face": "default"
   },
   {
-   "id": "ny6_22",
+   "id": "ny6_23",
    "puppet": "puppets/ny6",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.679,
+   "height": 0.583,
    "face": "default"
   },
   {
-   "id": "yrsdelay_23",
+   "id": "yrsdelay_24",
    "puppet": "puppets/yrsdelay",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.635,
+   "height": 0.58,
    "face": "default",
    "pose": {
     "head": -6
    }
   },
   {
-   "id": "cal18_24",
+   "id": "cal18_25",
    "puppet": "puppets/cal18",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 1.565,
+   "height": 1.21,
    "face": "default"
   },
   {
-   "id": "cal19_25",
+   "id": "cal19_26",
    "puppet": "puppets/cal19",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 1.613,
+   "height": 1.247,
    "face": "default"
   },
   {
-   "id": "oneday_26",
+   "id": "oneday_27",
    "puppet": "puppets/oneday",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.538,
+   "height": 0.607,
    "face": "default"
   },
   {
-   "id": "playing_27",
+   "id": "playing_28",
    "puppet": "puppets/playing",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.259,
+   "height": 0.293,
    "face": "default"
   },
   {
-   "id": "still18_28",
+   "id": "still18_29",
    "puppet": "puppets/still18",
    "pos": [
     0,
     -60,
     0
    ],
-   "height": 0.64,
+   "height": 0.603,
    "face": "default"
   }
  ],
@@ -1208,9 +1219,9 @@
      "at": 0.0,
      "who": "launch19_1",
      "to": [
-      -1.462,
-      2.04,
-      -2.099
+      -1.416,
+      2.113,
+      -2.092
      ],
      "over": 0.02,
      "walk": false,
@@ -1264,9 +1275,9 @@
      "at": 0.02,
      "who": "cal19_2",
      "to": [
-      -1.209,
-      1.745,
-      -2.138
+      -1.078,
+      1.667,
+      -2.161
      ],
      "over": 0.02,
      "walk": false,
@@ -1351,12 +1362,12 @@
      "walk": false
     },
     {
-     "at": -0.8,
+     "at": 1.08,
      "who": "first18_3",
      "to": [
-      -1.256,
-      2.229,
-      -2.303
+      -1.238,
+      2.282,
+      -2.307
      ],
      "over": 0.02,
      "walk": false,
@@ -1366,9 +1377,9 @@
      "at": 1.4,
      "who": "cal18_4",
      "to": [
-      -0.865,
-      1.436,
-      -2.386
+      -0.814,
+      1.346,
+      -2.397
      ],
      "over": 0.02,
      "walk": false,
@@ -1439,9 +1450,9 @@
      "at": 0.7,
      "who": "fall25_5",
      "to": [
-      139.874,
-      2.644,
-      -2.318
+      140.074,
+      2.22,
+      -2.282
      ],
      "over": 0.02,
      "walk": false,
@@ -1524,9 +1535,9 @@
      "at": 0.03,
      "who": "delayed_6",
      "to": [
-      139.636,
-      3.276,
-      -2.684
+      139.752,
+      3.417,
+      -2.705
      ],
      "over": 0.02,
      "walk": false,
@@ -1536,9 +1547,9 @@
      "at": 0.16,
      "who": "may26_7",
      "to": [
-      139.627,
-      3.256,
-      -2.683
+      139.752,
+      2.518,
+      -2.705
      ],
      "over": 0.02,
      "walk": false,
@@ -1577,10 +1588,41 @@
    "pitch": 4,
    "zoom": 8,
    "pan": [
-    -40.2,
+    -20,
     0
    ],
    "actions": [
+    {
+     "at": 0.95,
+     "who": "delayed_8",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.95,
+     "who": "nov19_9",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.97,
+     "who": "kiwiB",
+     "shake": 0.4,
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     }
+    },
     {
      "at": 0.0,
      "who": "kiwiB",
@@ -1592,7 +1634,12 @@
      "face": "shocked"
     },
     {
-     "at": 0.93,
+     "at": 1.1,
+     "who": "kiwiB",
+     "face": "shouting"
+    },
+    {
+     "at": 1.57,
      "who": "delayed_8",
      "to": [
       0,
@@ -1603,8 +1650,19 @@
      "walk": false
     },
     {
-     "at": 0.93,
+     "at": 1.57,
      "who": "nov19_9",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.57,
+     "who": "delays2_10",
      "to": [
       0,
       -60,
@@ -1617,90 +1675,33 @@
      "at": 0.03,
      "who": "delayed_8",
      "to": [
-      138.989,
-      1.83,
-      -1.317
+      139.038,
+      1.974,
+      -1.307
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
     },
     {
-     "at": -6.44,
+     "at": 0.16,
      "who": "nov19_9",
      "to": [
-      139.003,
-      1.717,
-      -1.314
+      139.038,
+      1.534,
+      -1.307
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
-    }
-   ],
-   "out": "dissolve",
-   "outDur": 0.4,
-   "frameY": 0.0,
-   "atmos": {
-    "dust": {
-     "count": 26,
-     "size": 1.0,
-     "drift": 1.0
-    },
-    "rays": {
-     "angle": 25,
-     "intensity": 0.55
-    }
-   }
-  },
-  {
-   "start": "say:Two delays",
-   "anchor": [
-    139.1,
-    1.5,
-    -1.6
-   ],
-   "distance": 4.55,
-   "yaw": 14,
-   "pitch": 4,
-   "zoom": 8,
-   "pan": [
-    60.9,
-    0
-   ],
-   "actions": [
-    {
-     "at": 0.05,
-     "who": "kiwiB",
-     "shake": 0.4,
-     "pose": {
-      "armR": -150,
-      "armL": 150
-     }
     },
     {
-     "at": 0.0,
-     "who": "kiwiB",
-     "face": "shouting"
-    },
-    {
-     "at": 0.6,
+     "at": 0.97,
      "who": "delays2_10",
      "to": [
-      0,
-      -60,
-      0
-     ],
-     "over": 0.02,
-     "walk": false
-    },
-    {
-     "at": 0.05,
-     "who": "delays2_10",
-     "to": [
-      139.336,
-      1.938,
-      -1.35
+      139.038,
+      1.969,
+      -1.307
      ],
      "over": 0.02,
      "walk": false,
@@ -1711,7 +1712,7 @@
    "outDur": 0.4,
    "dof": {
     "focus": "kiwiB",
-    "blur": 0.5
+    "blur": 0.4
    },
    "frameY": 0.0,
    "atmos": {
@@ -1777,9 +1778,9 @@
      "at": 0.64,
      "who": "preord_11",
      "to": [
-      70.322,
-      3.842,
-      -2.5
+      70.342,
+      3.949,
+      -2.503
      ],
      "over": 0.02,
      "walk": false,
@@ -1847,9 +1848,9 @@
      "at": 0.05,
      "who": "psstore_12",
      "to": [
-      70.955,
-      2.066,
-      -2.624
+      71.038,
+      1.853,
+      -2.607
      ],
      "over": 0.02,
      "walk": false,
@@ -1941,9 +1942,9 @@
      "at": 0.0,
      "who": "nodisc_13",
      "to": [
-      71.727,
-      1.571,
-      -3.007
+      71.758,
+      1.581,
+      -3.003
      ],
      "over": 0.02,
      "walk": false,
@@ -2094,9 +2095,9 @@
      "at": 0.6,
      "who": "gb200_15",
      "to": [
-      69.138,
-      1.653,
-      -1.881
+      69.233,
+      1.616,
+      -1.858
      ],
      "over": 0.02,
      "walk": false,
@@ -2191,9 +2192,9 @@
      "at": 2.02,
      "who": "notone_16",
      "to": [
-      -1.018,
-      2.056,
-      -2.292
+      -0.948,
+      1.908,
+      -2.305
      ],
      "over": 0.02,
      "walk": false,
@@ -2214,14 +2215,14 @@
   {
    "start": "say:It unlocks at midnight",
    "anchor": [
-    1.0,
-    2.3,
-    -3.4
+    -0.95,
+    1.6,
+    -2.6
    ],
-   "distance": 8.5,
+   "distance": 6.292,
    "yaw": -10,
-   "pitch": 2,
-   "zoom": 6,
+   "pitch": 4,
+   "zoom": 8,
    "pan": [
     15,
     0
@@ -2244,7 +2245,7 @@
     },
     {
      "at": 1.68,
-     "who": "midnite_17",
+     "who": "clock12_17",
      "to": [
       0,
       -60,
@@ -2254,12 +2255,35 @@
      "walk": false
     },
     {
-     "at": 0.68,
-     "who": "midnite_17",
+     "at": 1.68,
+     "who": "midnite_18",
      "to": [
-      0.814,
-      3.024,
-      -3.128
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "clock12_17",
+     "to": [
+      -0.6,
+      1.354,
+      -2.234
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.68,
+     "who": "midnite_18",
+     "to": [
+      -1.002,
+      2.396,
+      -2.305
      ],
      "over": 0.02,
      "walk": false,
@@ -2271,7 +2295,7 @@
    "frameY": 0.0,
    "snap": {
     "t": 0.68,
-    "zoom": 25,
+    "zoom": 20,
     "dur": 0.28
    },
    "atmos": {
@@ -2317,7 +2341,7 @@
     },
     {
      "at": 1.06,
-     "who": "cbyc_18",
+     "who": "cbyc_19",
      "to": [
       0,
       -60,
@@ -2328,11 +2352,11 @@
     },
     {
      "at": 0.05,
-     "who": "cbyc_18",
+     "who": "cbyc_19",
      "to": [
-      -1.617,
-      2.49,
-      -2.69
+      -1.538,
+      2.489,
+      -2.707
      ],
      "over": 0.02,
      "walk": false,
@@ -2392,7 +2416,7 @@
     },
     {
      "at": 1.57,
-     "who": "nzfirst_19",
+     "who": "nzfirst_20",
      "to": [
       0,
       -60,
@@ -2403,11 +2427,11 @@
     },
     {
      "at": 0.05,
-     "who": "nzfirst_19",
+     "who": "nzfirst_20",
      "to": [
-      -0.73,
-      2.107,
-      -2.323
+      -0.673,
+      2.227,
+      -2.309
      ],
      "over": 0.02,
      "walk": false,
@@ -2468,7 +2492,7 @@
     },
     {
      "at": 2.46,
-     "who": "ldn11_20",
+     "who": "ldn11_21",
      "to": [
       0,
       -60,
@@ -2479,7 +2503,7 @@
     },
     {
      "at": 2.46,
-     "who": "nov18_21",
+     "who": "nov18_22",
      "to": [
       0,
       -60,
@@ -2490,23 +2514,23 @@
     },
     {
      "at": 0.7,
-     "who": "ldn11_20",
+     "who": "ldn11_21",
      "to": [
-      209.553,
-      2.548,
-      -2.262
+      209.407,
+      2.091,
+      -2.242
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
     },
     {
-     "at": -22.9,
-     "who": "nov18_21",
+     "at": 1.58,
+     "who": "nov18_22",
      "to": [
-      209.621,
-      2.568,
-      -2.272
+      209.445,
+      1.562,
+      -2.247
      ],
      "over": 0.02,
      "walk": false,
@@ -2560,7 +2584,7 @@
     },
     {
      "at": 1.32,
-     "who": "ny6_22",
+     "who": "ny6_23",
      "to": [
       0,
       -60,
@@ -2571,11 +2595,11 @@
     },
     {
      "at": 0.5,
-     "who": "ny6_22",
+     "who": "ny6_23",
      "to": [
-      279.769,
-      2.243,
-      -1.683
+      279.876,
+      2.268,
+      -1.664
      ],
      "over": 0.02,
      "walk": false,
@@ -2661,7 +2685,7 @@
     },
     {
      "at": 1.08,
-     "who": "yrsdelay_23",
+     "who": "yrsdelay_24",
      "to": [
       0,
       -60,
@@ -2672,11 +2696,11 @@
     },
     {
      "at": 0.38,
-     "who": "yrsdelay_23",
+     "who": "yrsdelay_24",
      "to": [
-      139.933,
-      3.305,
-      -2.479
+      140.062,
+      3.163,
+      -2.507
      ],
      "over": 0.02,
      "walk": false,
@@ -2748,7 +2772,7 @@
     },
     {
      "at": 1.82,
-     "who": "cal18_24",
+     "who": "cal18_25",
      "to": [
       0,
       -60,
@@ -2759,7 +2783,7 @@
     },
     {
      "at": 1.82,
-     "who": "cal19_25",
+     "who": "cal19_26",
      "to": [
       0,
       -60,
@@ -2770,7 +2794,7 @@
     },
     {
      "at": 1.82,
-     "who": "oneday_26",
+     "who": "oneday_27",
      "to": [
       0,
       -60,
@@ -2781,11 +2805,11 @@
     },
     {
      "at": 0.05,
-     "who": "cal18_24",
+     "who": "cal18_25",
      "to": [
-      69.592,
-      3.012,
-      -2.638
+      69.416,
+      1.879,
+      -2.669
      ],
      "over": 0.02,
      "walk": false,
@@ -2793,11 +2817,11 @@
     },
     {
      "at": 0.25,
-     "who": "cal19_25",
+     "who": "cal19_26",
      "to": [
-      71.133,
-      3.015,
-      -2.366
+      71.308,
+      1.865,
+      -2.335
      ],
      "over": 0.02,
      "walk": false,
@@ -2805,11 +2829,11 @@
     },
     {
      "at": 0.7,
-     "who": "oneday_26",
+     "who": "oneday_27",
      "to": [
-      70.206,
-      3.377,
-      -2.53
+      70.348,
+      3.179,
+      -2.505
      ],
      "over": 0.02,
      "walk": false,
@@ -2868,7 +2892,7 @@
     },
     {
      "at": 1.76,
-     "who": "playing_27",
+     "who": "playing_28",
      "to": [
       0,
       -60,
@@ -2879,11 +2903,11 @@
     },
     {
      "at": 1.1,
-     "who": "playing_27",
+     "who": "playing_28",
      "to": [
-      -0.901,
-      2.056,
-      -2.29
+      -0.827,
+      1.934,
+      -2.309
      ],
      "over": 0.02,
      "walk": false,
@@ -3012,11 +3036,11 @@
     },
     {
      "at": 0.05,
-     "who": "still18_28",
+     "who": "still18_29",
      "to": [
-      -1.453,
-      1.984,
-      -2.097
+      -1.425,
+      2.033,
+      -2.093
      ],
      "over": 0.02,
      "walk": false,
