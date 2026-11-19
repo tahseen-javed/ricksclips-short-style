@@ -119,6 +119,7 @@ function resolveTimeline(s) {
     const text = typeof cap === 'string' ? cap : cap.text, per = (cap && cap.wordsPer) || s.words_per_caption || 1, every = ((cap && cap.framesPer) || s.frames_per_caption || 10) / fps, ws = text.split(/\s+/).filter(Boolean);
     for (let i = 0, n = 0; i < ws.length; i += per, n++) s._captions.push({ t0: n * every, t1: i + per >= ws.length ? end : (n + 1) * every, text: ws.slice(i, i + per).map(clean).join(' ') });
   }
+  if (s._captions.length && s._captions[0].t0 > 0 && s._captions[0].t0 <= 0.25) s._captions[0].t0 = 0;   // HOOK LAW B: first caption word on screen at frame 0
   s._frames = Math.max(1, Math.round(end * fps)); s._end = end;
   return s;
 }
