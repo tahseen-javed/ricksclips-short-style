@@ -310,16 +310,16 @@ def gala(path):                                              # award stage: emer
 
 
 def street(path):                                            # night street: deep blue city, lit windows, neon shapes, wet road, police glow
-    im = CA.gradient((10, 16, 50), (50, 50, 110), W2, H2, 1.0).convert('RGBA'); d = Draw(W2, H2); R_ = np.random.RandomState(12); x = 0
+    im = CA.gradient((40, 52, 120), (110, 100, 180), W2, H2, 1.0).convert('RGBA'); d = Draw(W2, H2); R_ = np.random.RandomState(12); x = 0
     while x < W2:
-        w, h = R_.randint(160, 300), R_.randint(380, 760); d.rect(x, 900 - h, x + w, 900, (26, 30, 66, 255)); d.poly([(x, 900 - h), (x + w, 900 - h), (x + w, 900), (x, 900)], outline=LINE, width=6)
+        w, h = R_.randint(160, 300), R_.randint(380, 760); d.rect(x, 900 - h, x + w, 900, (62, 70, 136, 255)); d.poly([(x, 900 - h), (x + w, 900 - h), (x + w, 900), (x, 900)], outline=LINE, width=6)
         for i in range(int(w / 50)):
             for j in range(int(h / 70)):
                 if R_.rand() < 0.4: d.rect(x + 14 + i * 50, 930 - h + j * 70, x + 40 + i * 50, 966 - h + j * 70, (255, 214, 120, 255))
         x += w + 10
     g = Draw(W2, H2)
     for x0, y0, c in ((300, 420, PINK), (1500, 360, CYAN), (2000, 500, (255, 170, 60, 255))): g.rrect(x0, y0, x0 + 220, y0 + 90, 40, outline=c, width=12); g.dot(x0 + 110, y0 + 45, 18, c)
-    d.rect(0, 900, W2, H2, (30, 30, 56, 255)); d.stroke([(0, 900), (W2, 900)], LINE, 8)
+    d.rect(0, 900, W2, H2, (70, 70, 110, 255)); d.stroke([(0, 900), (W2, 900)], LINE, 8)
     for x in range(60, W2, 260): d.rect(x, 990, x + 140, 1004, (230, 220, 160, 255))
     im.alpha_composite(d.out()); im.alpha_composite(g.out().filter(ImageFilter.GaussianBlur(10))); im.alpha_composite(g.out())
     glow(im, 500, 960, 300, (255, 40, 60, 120), 60); glow(im, 1900, 960, 300, (40, 100, 255, 120), 60); im.convert('RGB').save(path)
@@ -350,7 +350,7 @@ if __name__ == '__main__':
     T = lambda n: os.path.join(ROOT, 'textures', n)
     B.tex_wood(T('wood.jpg')); CE.tiles(T('pave.jpg'), (150, 146, 150), (128, 124, 132)); CE.tiles(T('violet.jpg'), (84, 44, 120), (70, 36, 104)); CE.tiles(T('sand.jpg'), (240, 196, 160), (226, 180, 146))
     CE.tiles(T('navy.jpg'), (60, 56, 100), (50, 46, 88)); CE.tiles(T('grid.jpg'), (16, 30, 60), (24, 60, 90)); CE.tiles(T('steel.jpg'), (110, 124, 130), (94, 108, 116))
-    CE.tiles(T('check.jpg'), (245, 245, 245), (40, 40, 48)); CE.tiles(T('emer.jpg'), (120, 40, 50), (100, 30, 42)); CE.tiles(T('asphalt.jpg'), (54, 54, 76), (44, 44, 64))
+    CE.tiles(T('check.jpg'), (245, 245, 245), (40, 40, 48)); CE.tiles(T('emer.jpg'), (120, 40, 50), (100, 30, 42)); CE.tiles(T('asphalt.jpg'), (92, 92, 122), (80, 80, 108))
     G.sky(os.path.join(ROOT, 'bg', 'sky.jpg')); Pp = lambda n: os.path.join(ROOT, 'props', n)
     SETS = dict(arena=arena, lounge=lounge, desert=desert, winter=winter, cyber=cyber, archive=archive, factory=factory, finish=finish, gala=gala, street=street)
     for n, f in SETS.items(): f(Pp(n + '.png')); items.append((n, Image.open(Pp(n + '.png'))))

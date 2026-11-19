@@ -75,16 +75,16 @@ for x, z in ((-3.3, -3.0), (3.4, -3.4)): post("SP", x, z, 2.2, "#f0f0f0"); box("
 yard("HQ", "gala.png", "emer.jpg")
 box("HQ", 0, 0.04, -4.2, [3.4, 0.3, 1.2], color="#d8a830"); lamp("HQ", -3.4, -3.4, 2.0, "#c89020", "#fff4c0"); lamp("HQ", 3.4, -3.4, 2.0, "#c89020", "#fff4c0")
 yard("ST", "street.png", "asphalt.jpg")
-lamp("ST", -3.2, -3.6, 3.0, "#2e3440", "#ffe7a8"); box("ST", 3.4, 0.04, -2.6, [0.5, 0.9, 0.5], color="#30a050")
+lamp("ST", -3.4, -4.6, 3.0, "#2e3440", "#ffe7a8")
 
 # ================================================================== CHARACTERS (cards carry "_" in the id: not frame-checked as cast; hero props are)
-KP = pos("AR", -0.45, 0.04, -1.4)
+KP = pos("AR", -0.6, 0.04, -1.4)
 human("kid", "kid", KP, face="shocked"); put("boss", "boss", pos("AR", 0.3, 0.04, -4.6), 2.7); human("toastA", "toast", PARK, face="smug")
-human("kidL", "kid", pos("LV", -0.5, 0.06, -2.4), face="nervous"); put("wclock", "wclock", pos("LV", -1.9, 2.3, -4.75), 0.9)
+human("kidL", "kid", pos("LV", -0.5, 0.06, -2.4), face="nervous"); put("wclock", "wclock", pos("LV", -1.6, 2.4, -4.75), 0.85)
 put("hglass", "hglass", pos("HG", 0.0, 0.04, -3.2), 2.4)
 human("toast", "toast", pos("RM", 0.0, 0.06, -2.5), face="happy")
 human("toastC", "toast", pos("CY", 0.0, 0.04, -2.4), face="shocked")
-put("jfile", "jfile", pos("FL", 0.8, 0.04, -3.4), 2.2); put("robotF", "robot", pos("FL", -0.9, 0.04, -2.6), 1.4)
+put("jfile", "jfile", pos("FL", 0.8, 0.04, -3.4), 1.9); put("robotF", "robot", pos("FL", -0.9, 0.04, -2.6), 1.4)
 put("robotC", "robot", pos("CK", 0.0, 0.04, -2.5), 1.5)
 human("toastS", "toast", pos("SP", -0.6, 0.04, -2.1), face="happy"); put("bossS", "boss", pos("SP", 0.75, 0.04, -3.2), 1.7, face="defeated")
 human("rep", "rep", pos("HQ", 1.0, 0.04, -2.6), face="happy"); human("toastH", "toast", pos("HQ", -0.9, 0.04, -2.3), face="happy")
@@ -127,19 +127,18 @@ def snap(s, t, z=25): SNAPC.append((s, t, z))
 def cfx(s, t, typ, on, dur=0.9): FXC.append((s, t, typ, on, dur))
 
 
-HOOK = dict(anchor=(-0.05, 1.7, -2.7), dist=7.4, yaw=-5, pitch=5)
+HOOK = dict(anchor=(-0.05, 1.6, -2.7), dist=7.4, yaw=-5, pitch=12)
 # ---- 0-3.5 hook: GTA Online's loading screen beat Rockstar for seven years. One player killed it.
 s = S("0", "AR", zoom=8, pan=(-3, 0), **HOOK); ft(s, "kid", ["shocked", "shouting", "shocked"]); act(s, 0.0, "kid", pose=dict(armR=-150)); act(s, 0.1, "boss", shake=0.3)
 tag(s, 0.0, "gtaon", 0.3, 0.0, wf=0.56, hf=0.2)
 s = S("beat Rockstar", "AR", (0.3, 1.5, -4.6), 8.4, 12, pitch=-2, zoom=8, yawTo=0, pitchTo=4, _dis=1); hide(s, 0.0, "kid"); act(s, 0.0, "boss", shake=0.4)
 tag(s, 0.05, "yrs7", 0.3, wf=0.52, hf=0.2); snap(s, 0.25, 16)
-s = crane("One player", "AR", (-0.05, 1.5, -3.0), 9.0, -22, -6, 30, 6, _dis=1); show(s, 0.0, "toastA", KP, hop=0); s["_tags"].append("toastA")
+s = crane("One player", "AR", (-0.05, 1.5, -3.0), 9.0, -22, -6, 32, 12, _dis=1); show(s, 0.0, "toastA", KP, hop=0); s["_tags"].append("toastA")
 ft(s, "toastA", ["smug", "shouting", "happy"]); act(s, 0.0, "toastA", pose=dict(armR=-150)); tag(s, 0.05, "oneplayer", 0.3, wf=0.52)
-act(s, rel(s, "killed"), "boss", face="defeated", shake=0.4); cfx(s, rel(s, "killed"), "bang", "boss", 0.7)
+act(s, rel(s, "killed"), "boss", face="defeated", shake=0.4); cfx(s, rel(s, "killed"), "bang", "toastA", 0.7)
 # ---- 3.5-6 every time you joined, you waited. Six minutes.
-s = crane("Every time you", "LV", (-0.2, 1.6, -2.8), 8.6, 20, 4, 34, 7, fgBlur=dict(side="left", blur=0.8)); ft(s, "kidL", ["nervous", "confused", "nervous"])
+s = crane("Every time you", "LV", (-0.5, 1.5, -2.5), 6.2, 24, -4, 34, 6, fgBlur=dict(side="left", blur=0.8)); ft(s, "kidL", ["nervous", "confused", "nervous"]); cfx(s, rel(s, "waited"), "z", "kidL")
 tag(s, 0.05, "everytime", 0.31, wf=0.5)
-s = S("you waited", "LV", (-0.5, 1.4, -2.4), 4.4, -14, pitch=4, zoom=12, pan=(0, 0), dof=dict(focus="kidL", blur=0.4)); ft(s, "kidL", ["confused", "nervous"]); cfx(s, 0.2, "z", "kidL")
 s = crane("Six minutes", "HG", (0.0, 1.5, -3.2), 8.0, -18, 2, 36, 5); tag(s, 0.05, "min6", 0.33, wf=0.5); snap(s, 0.5, 14)
 # ---- 6-12 Early 2021. A programmer who calls himself t0st gets curious. He digs in...
 s = crane("Early 2021", "RM", (0.5, 1.7, -3.0), 9.0, 22, 6, 32, 6); tag(s, 0.05, "y2021", 0.25, -0.12, wf=0.3, hf=0.3)
@@ -150,8 +149,8 @@ s = crane("He digs in", "CY", (0.0, 1.9, -3.4), 9.4, -24, -4, 38, 6); ft(s, "toa
 s = S("what the game does", "CY", (0.0, 1.5, -2.4), 5.0, 10, pitch=8, zoom=10, pan=(-3, 0)); ft(s, "toastC", ["confused", "shocked", "confused"]); tag(s, 0.05, "waitq", 0.29, wf=0.6, hf=0.26)
 # ---- 12-21 You see, at startup the game reads one file... two billion pointless checks
 s = crane("You see", "FL", (0.0, 1.6, -3.0), 9.2, 20, 2, 30, 6); act(s, 0.0, "robotF", shake=0.2); tag(s, rel(s, "startup"), "startup", 0.32, wf=0.48)
-s = S("reads one file", "FL", (0.8, 1.15, -3.4), 4.6, -10, zoom=10, pan=(3, 0), type="macro", dof=dict(focus="jfile", blur=0.6)); tag(s, 0.05, "onefile", 0.33, wf=0.44, hf=0.15); snap(s, 0.1, 14)
-s = S("Ten megabytes", "FL", (0.8, 1.3, -3.4), 5.2, 14, pitch=6, yawTo=-6); tag(s, 0.05, "mb10", 0.32, wf=0.5)
+s = S("reads one file", "FL", (0.8, 1.0, -3.4), 4.6, -10, zoom=10, pan=(3, 0), type="macro", dof=dict(focus="jfile", blur=0.6)); tag(s, 0.05, "onefile", 0.33, wf=0.44, hf=0.15); snap(s, 0.1, 14)
+s = S("Ten megabytes", "FL", (0.8, 1.1, -3.4), 5.2, 14, pitch=6, yawTo=-6); tag(s, 0.05, "mb10", 0.32, wf=0.5)
 s = S("Nearly sixtythree", "FL", (0.0, 1.8, -3.2), 7.6, -6, pitch=8, zoom=-7, pan=(0, 0)); tag(s, 0.05, "items63", 0.3, wf=0.5); act(s, 0.0, "robotF", shake=0.3)
 s = crane("And for every", "CK", (0.0, 1.4, -3.0), 8.0, -20, 4, 34, 6, fgBlur=dict(side="right", blur=0.8)); act(s, 0.0, "robotC", shake=0.2)
 s = S("it checks the", "CK", (0.0, 1.25, -2.5), 4.6, 12, pitch=4, zoom=12, pan=(-3, 0)); tag(s, 0.05, "again", 0.32, wf=0.6, hf=0.14); act(s, 0.5, "robotC", face="dizzy", shake=0.3)
@@ -170,11 +169,10 @@ cfx(s, 0.5, "blush", "toastH", 0.8); snap(s, 0.15, 14)
 s = S("and promises", "HQ", (1.0, 1.45, -2.6), 4.2, 10, pitch=4, yawTo=-4, dof=dict(focus="rep", blur=0.4)); ft(s, "rep", ["smug", "happy", "smug"]); tag(s, 0.05, "promise", 0.32, wf=0.6, hf=0.14)
 # ---- 31-end For seven years, the toughest boss in GTA Online was never the cops. It was the loading screen. (pull-out onto the hook frame)
 s = crane("For seven years#2", "ST", (0.1, 1.6, -3.2), 10.0, 18, 0, 34, 6); ft(s, "cop", ["smug", "neutral"]); tag(s, 0.05, "yrs7", 0.3, wf=0.5, hf=0.2)
-s = S("the toughest boss", "ST", (-1.0, 1.4, -2.2), 3.6, 12, pitch=4, zoom=12, pan=(0, 0)); ft(s, "cop", ["neutral", "confused", "smug"]); tag(s, 0.05, "toughest", 0.31, wf=0.52); snap(s, 0.2, 14)
+s = S("boss in", "ST", (-1.0, 1.4, -2.2), 3.6, 12, pitch=4, zoom=12, pan=(0, 0)); ft(s, "cop", ["neutral", "confused", "smug"]); tag(s, 0.05, "toughest", 0.31, wf=0.52); snap(s, 0.2, 14)
 s = S("was never the", "ST", (0.35, 1.3, -3.2), 9.0, 6, pitch=6, yawTo=-4); ft(s, "cop", ["confused", "nervous"]); tag(s, 0.05, "notcops", 0.31, wf=0.52); cfx(s, 0.3, "z", "cop")
-s = crane("It was the", "AR", (0.0, 1.6, -3.2), 9.0, 24, 2, 34, 6); show(s, 0.0, "kid", KP, hop=0); act(s, 0.0, "boss", face="default", shake=0.4)
-ft(s, "kid", ["shocked", "shouting"]); tag(s, 0.05, "loadscr", 0.3, wf=0.52)
-s = S("loading screen#2", "AR", zoom=-5, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); ft(s, "kid", ["shouting", "shocked"]); act(s, 0.0, "kid", pose=dict(armR=-150))
+s = S("It was the", "AR", zoom=-5, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); ft(s, "kid", ["shocked", "shouting", "shocked"]); show(s, 0.0, "kid", KP, hop=0)
+act(s, 0.0, "boss", face="default", shake=0.4); act(s, 0.0, "kid", pose=dict(armR=-150))
 tag(s, 0.05, "gtaon", 0.3, 0.0, wf=0.56, hf=0.2)
 
 for s in shots: s.setdefault("frameY", 0.0)
@@ -320,7 +318,7 @@ for k, s in enumerate(shots):
 spec = {
     "fps": 30, "audio": {"voice": "audio/voice.mp3", "music": "audio/music.mp3", "musicDb": -11},
     "words": "audio/words.json", "captions": {"wordsPer": 1}, "font": "fonts/Montserrat-ExtraBold.ttf", "contactShadow": 0.6, "seed": 12,
-    "moods": {"arena": {"sun": {"azimuth": -30, "elevation": 22, "color": "#ffb878", "intensity": 2.3}, "sky": {"top": "#2a1050", "horizon": "#ff9050"}, "fill": {"sky": "#c080ff", "ground": "#4a2050", "intensity": 1.35}}, "lounge": {"sun": {"azimuth": 50, "elevation": 35, "color": "#ffd8a0", "intensity": 2.3}, "sky": {"top": "#e09060", "horizon": "#ffe0b0"}, "fill": {"sky": "#ffd0a0", "ground": "#7a4a30", "intensity": 1.30}}, "desert": {"sun": {"azimuth": -50, "elevation": 26, "color": "#fff0c0", "intensity": 2.4}, "sky": {"top": "#80d8c8", "horizon": "#ffd0a0"}, "fill": {"sky": "#b0f0e0", "ground": "#c08060", "intensity": 1.30}}, "winter": {"sun": {"azimuth": 160, "elevation": 40, "color": "#b8c8ff", "intensity": 2.0}, "sky": {"top": "#0c1030", "horizon": "#303a80"}, "fill": {"sky": "#a0a0ff", "ground": "#503060", "intensity": 1.40}}, "cyber": {"sun": {"azimuth": 0, "elevation": 50, "color": "#b0fff0", "intensity": 1.9}, "sky": {"top": "#040818", "horizon": "#103050"}, "fill": {"sky": "#40e0ff", "ground": "#102040", "intensity": 1.45}}, "archive": {"sun": {"azimuth": 30, "elevation": 45, "color": "#ffd890", "intensity": 2.2}, "sky": {"top": "#5a3018", "horizon": "#e0a060"}, "fill": {"sky": "#ffc080", "ground": "#5a3020", "intensity": 1.30}}, "factory": {"sun": {"azimuth": -20, "elevation": 50, "color": "#f0fff8", "intensity": 2.3}, "sky": {"top": "#2a6070", "horizon": "#a0d0d0"}, "fill": {"sky": "#a0f0f0", "ground": "#405058", "intensity": 1.25}}, "noon": {"sun": {"azimuth": 40, "elevation": 60, "color": "#fffaf0", "intensity": 2.5}, "sky": {"top": "#3a8af0", "horizon": "#d0f0ff"}, "fill": {"sky": "#b0d8ff", "ground": "#508040", "intensity": 1.20}}, "gala": {"sun": {"azimuth": 20, "elevation": 40, "color": "#ffe8a0", "intensity": 2.3}, "sky": {"top": "#0a4030", "horizon": "#40c090"}, "fill": {"sky": "#a0ffd0", "ground": "#503020", "intensity": 1.35}}, "street": {"sun": {"azimuth": 200, "elevation": 30, "color": "#a8b8ff", "intensity": 2.0}, "sky": {"top": "#080c30", "horizon": "#30306a"}, "fill": {"sky": "#ff7090", "ground": "#202050", "intensity": 1.40}}},
+    "moods": {"arena": {"sun": {"azimuth": -30, "elevation": 22, "color": "#ffb878", "intensity": 2.3}, "sky": {"top": "#2a1050", "horizon": "#ff9050"}, "fill": {"sky": "#c080ff", "ground": "#4a2050", "intensity": 1.35}}, "lounge": {"sun": {"azimuth": 50, "elevation": 35, "color": "#ffd8a0", "intensity": 2.3}, "sky": {"top": "#e09060", "horizon": "#ffe0b0"}, "fill": {"sky": "#ffd0a0", "ground": "#7a4a30", "intensity": 1.30}}, "desert": {"sun": {"azimuth": -50, "elevation": 26, "color": "#fff0c0", "intensity": 2.4}, "sky": {"top": "#80d8c8", "horizon": "#ffd0a0"}, "fill": {"sky": "#b0f0e0", "ground": "#c08060", "intensity": 1.30}}, "winter": {"sun": {"azimuth": 160, "elevation": 40, "color": "#b8c8ff", "intensity": 2.0}, "sky": {"top": "#0c1030", "horizon": "#303a80"}, "fill": {"sky": "#a0a0ff", "ground": "#503060", "intensity": 1.40}}, "cyber": {"sun": {"azimuth": 0, "elevation": 50, "color": "#b0fff0", "intensity": 1.9}, "sky": {"top": "#040818", "horizon": "#103050"}, "fill": {"sky": "#40e0ff", "ground": "#102040", "intensity": 1.45}}, "archive": {"sun": {"azimuth": 30, "elevation": 45, "color": "#ffd890", "intensity": 2.2}, "sky": {"top": "#5a3018", "horizon": "#e0a060"}, "fill": {"sky": "#ffc080", "ground": "#5a3020", "intensity": 1.30}}, "factory": {"sun": {"azimuth": -20, "elevation": 50, "color": "#f0fff8", "intensity": 2.3}, "sky": {"top": "#2a6070", "horizon": "#a0d0d0"}, "fill": {"sky": "#a0f0f0", "ground": "#405058", "intensity": 1.25}}, "noon": {"sun": {"azimuth": 40, "elevation": 60, "color": "#fffaf0", "intensity": 2.5}, "sky": {"top": "#3a8af0", "horizon": "#d0f0ff"}, "fill": {"sky": "#b0d8ff", "ground": "#508040", "intensity": 1.20}}, "gala": {"sun": {"azimuth": 20, "elevation": 40, "color": "#ffe8a0", "intensity": 2.3}, "sky": {"top": "#0a4030", "horizon": "#40c090"}, "fill": {"sky": "#a0ffd0", "ground": "#503020", "intensity": 1.35}}, "street": {"sun": {"azimuth": 200, "elevation": 58, "color": "#c8d4ff", "intensity": 2.6}, "sky": {"top": "#1a2460", "horizon": "#5a5aa0"}, "fill": {"sky": "#ff90b0", "ground": "#40407a", "intensity": 1.85}}},
     "lighting": light, "ground": {"texture": TEX + "pave.jpg", "repeat": [175, 175], "size": 1400},
     "backdrop": {"image": "bg/sky.jpg", "blur": 4}, "ink": {"set": 4},
     "fxLook": {"ink": "#271925", "accent": "#ff9a3c", "paper": ["#dcc49a", "#c9a878"], "dofPx": 8, "particle": "#ffe6b0", "bokehColor": "#a0c8ff", "ray": "#fff1c8", "raySide": 1},
@@ -331,7 +329,7 @@ spec = {
 CUE = dict(player="One player", killed="killed", every="Every time you", waited="you waited", six="Six minutes", early="Early 2021", toast="A programmer", curious="gets curious",
            digs="He digs in", wait="what the game does", yousee="You see", file="reads one file", mb="Ten megabytes", items="Nearly sixtythree", every2="And for every",
            checks="it checks the", billion="Almost two billion", fix="So t0st writes", become="Six minutes become", seventy="Seventy percent", gone="gone", pays="Rockstar pays",
-           dollars="ten thousand dollars", promises="and promises", seven2="For seven years#2", boss="the toughest boss", cops="was never the", was="It was the", loading2="loading screen#2")
+           dollars="ten thousand dollars", promises="and promises", seven2="For seven years#2", boss="boss in", cops="was never the", was="It was the", loading2="loading screen#2")
 cues = {k: say(v) for k, v in CUE.items()}; cues["end"] = DURATION
 cp, wav = os.path.join(P, "audio", "cues.json"), os.path.join(P, "audio", "music.wav")
 json.dump(cues, open(cp, "w"))
