@@ -18,8 +18,12 @@ def put(cid, name, at, h, face="default", **kw):
     chars.append(dict(id=cid, puppet="puppets/" + name, pos=at, height=h, face=face, **kw))
 
 
-def rel(s, phrase):
-    return round(say(phrase) - (0.0 if s["start"] == 0 else say(s["_phrase"])), 3)
+def rel(s, phrase):                                          # the first match at or after the shot start (repeated words!)
+    t0 = 0.0 if s["start"] == 0 else say(s["_phrase"]); k = 1
+    while True:
+        t = say("%s#%d" % (phrase, k))
+        if t >= t0 - 0.01: return round(t - t0, 3)
+        k += 1
 
 
 def room(loc, wallc, img, floor, rep=(4, 4), sidec=None):
@@ -105,15 +109,14 @@ s = S("It was promised", "BB", (0.0, 2.0, -2.6), 9.0, -10, pitch=3, zoom=6, pan=
 ft(s, "kiwiB", ["happy", "smug", "happy"]); act(s, 0.0, "kiwiB", pose=dict(armR=-150)); tag(s, rel(s, "fall"), "fall25", 0.12, 0.05, wf=0.36)
 s = S("Then May", "BB", (-0.3, 2.4, -3.0), 9.0, 10, pitch=2, zoom=8, pan=(3, 0)); ft(s, "kiwiB", ["shocked", "nervous"])
 tag(s, 0.03, "delayed", 0.3, tilt=-8, wf=0.36); tag(s, rel(s, "May"), "may26", 0.1, wf=0.42); snap(s, rel(s, "May"))
-s = S("Then November", "BB", (-0.9, 1.45, -1.6), 4.6, -12, zoom=8, pan=(-4, 0)); ft(s, "kiwiB", ["nervous", "shocked", "nervous"])
-tag(s, 0.03, "delayed", 0.3, tilt=7, wf=0.36); tag(s, rel(s, "November"), "nov19", 0.12, wf=0.3)
-s = S("Two delays", "BB", (-0.9, 1.5, -1.6), 3.4, 14, zoom=8, pan=(4, 0), dof=dict(focus="kiwiB", blur=0.5)); ft(s, "kiwiB", ["shouting", "nervous"])
-act(s, 0.05, "kiwiB", shake=0.4, pose=dict(armR=-150, armL=150)); tag(s, 0.05, "delays2", 0.26, 0.2, wf=0.28); snap(s, 0.1, 20); cfx(s, 0.35, "sweat", "kiwiB")
+s = S("Then November", "BB", (-0.9, 1.45, -1.6), 4.6, -12, zoom=8, pan=(-4, 0), dof=dict(focus="kiwiB", blur=0.4)); ft(s, "kiwiB", ["nervous", "shocked", "shouting", "nervous"])
+d1 = tag(s, 0.03, "delayed", 0.3, tilt=7, wf=0.36); n1 = tag(s, rel(s, "November"), "nov19", 0.1, wf=0.3); td = rel(s, "Two delays")
+hide(s, td - 0.02, d1); hide(s, td - 0.02, n1); act(s, td, "kiwiB", shake=0.4, pose=dict(armR=-150, armL=150)); tag(s, td, "delays2", 0.24, wf=0.3); cfx(s, td + 0.1, "sweat", "kiwiB")
 # ---- 9-19 the store: most pre-ordered, the box with no disc, a download code, 200 GB
 s = S("It still became", "ST", (0.3, 2.3, -2.8), 8.6, 8, zoom=6, pan=(-4, 0)); ft(s, "shopgirl", ["happy", "smug", "happy"])
 act(s, 0.0, "kiwiS", face="happy"); tag(s, rel(s, "most"), "preord", 0.3, wf=0.44)
 s = S("in PlayStation Store", "ST", (1.1, 1.4, -2.9), 5.0, -12, zoom=8, pan=(-3, 0)); ft(s, "shopgirl", ["shouting", "happy"])
-act(s, 0.0, "shopgirl", pose=dict(armR=-150, armL=150), shake=0.3); tag(s, 0.05, "psstore", 0.31, wf=0.62, hf=0.1); snap(s, 0.05)
+act(s, 0.0, "shopgirl", pose=dict(armR=-150, armL=150), shake=0.3); tag(s, 0.05, "psstore", 0.31, wf=0.72, hf=0.14); snap(s, 0.05)
 s = S("And the box", "ST", (1.8, 1.34, -3.3), 1.75, 6, zoom=7, pan=(2, 0), type="macro", dof=dict(focus="gboxS", blur=0.6))
 s = S("No disc inside", "ST", (1.8, 1.36, -3.3), 2.6, -8, zoom=8, pan=(-3, 0), dof=dict(focus="gboxS", blur=0.5))
 act(s, 0.0, "gboxS", face="open", shake=0.3); tag(s, rel(s, "No disc"), "nodisc", 0.3, tilt=-6, wf=0.5); snap(s, 0.08, 20)
@@ -124,8 +127,8 @@ show(s, 0.0, "shopgirl", PARK, hop=0); g2 = rel(s, "200"); act(s, g2, "kiwiS", s
 # ---- 19-26 the pivot: not one moment, midnight local time, country by country, New Zealand first
 s = S("You see", "NZ", (-1.0, 1.55, -2.6), 5.2, 10, zoom=8, pan=(4, 0)); ft(s, "kiwiN", ["confused", "nervous", "confused"]); show(s, 0.0, "gboxN", PARK, hop=0)
 tag(s, rel(s, "one moment"), "notone", 0.3, tilt=-6, wf=0.5); cfx(s, 0.5, "question", "kiwiN")
-s = S("It unlocks at midnight", "NZ", (1.0, 2.3, -3.4), 8.5, -10, pitch=2, zoom=6, pan=(3, 0)); ft(s, "kiwiN", ["shocked", "happy"])
-tag(s, rel(s, "midnight"), "midnite", 0.24, -0.05, wf=0.4); snap(s, rel(s, "midnight"))
+s = S("It unlocks at midnight", "NZ", (-0.95, 1.6, -2.6), 5.6, -10, zoom=8, pan=(3, 0)); ft(s, "kiwiN", ["shocked", "happy", "shocked"])
+tag(s, 0.05, "clock12", 0.0, 0.25, wf=0.2, hf=0.17); tag(s, rel(s, "midnight"), "midnite", 0.3, 0.0, wf=0.42); snap(s, rel(s, "midnight"), 20)
 s = S("country by country", "NZ", (-1.6, 1.9, -3.0), 5.6, 12, pitch=2, zoom=8, pan=(-3, 0)); ft(s, "kiwiN", ["happy", "smug"])
 act(s, 0.0, "kiwiN", pose=dict(armR=-150)); tag(s, 0.05, "cbyc", 0.32, wf=0.56)
 s = S("New Zealand hits", "NZ", (-0.6, 1.6, -2.6), 5.0, -14, zoom=8, pan=(4, 0)); ft(s, "kiwiN", ["shouting", "happy", "shouting"])
@@ -141,7 +144,7 @@ s = S("Then the wave", "NY", (0.0, 1.6, -2.0), 6.0, 6, zoom=6, pan=(-3, 0), type
 s = S("So after years", "BB", (0.0, 2.4, -2.8), 8.2, 12, zoom=8, pan=(3, 0)); ft(s, "kiwiB", ["nervous", "shocked"])
 tag(s, rel(s, "years"), "yrsdelay", 0.3, tilt=-6, wf=0.5); cfx(s, 0.3, "sweat", "kiwiB"); snap(s, rel(s, "years"), 20)
 s = S("launch day didn't", "ST", (0.4, 2.35, -2.8), 8.8, -10, zoom=8, pan=(-3, 0)); ft(s, "shopgirl", ["confused", "shocked", "confused"]); show(s, 0.0, "shopgirl", pos("ST", 0.5, 0.06, -2.7), hop=0)
-tag(s, 0.05, "cal18", 0.18, -0.24, wf=0.2, hf=0.2); tag(s, 0.25, "cal19", 0.18, 0.24, wf=0.2, hf=0.2); tag(s, rel(s, "fit"), "oneday", 0.36, wf=0.6)
+tag(s, 0.05, "cal18", 0.02, -0.25, wf=0.2, hf=0.18); tag(s, 0.25, "cal19", 0.02, 0.25, wf=0.2, hf=0.18); tag(s, rel(s, "fit"), "oneday", 0.31, wf=0.6)
 s = S("Players in New Zealand", "NZ", (-0.9, 1.5, -2.6), 4.4, 14, zoom=8, pan=(-4, 0), dof=dict(focus="kiwiN", blur=0.4)); ft(s, "kiwiN", ["happy", "smug", "happy"])
 act(s, 0.0, "kiwiN", pose=dict(armL=40, armR=-40)); al = rel(s, "already"); tag(s, al, "playing", 0.3, wf=0.5); snap(s, al); cfx(s, al + 0.2, "blush", "kiwiN")
 s = S("while most of the planet", "NZ", (-1.6, 1.9, -3.0), 5.6, -12, pitch=2, zoom=8, pan=(3, 0)); ft(s, "kiwiN", ["happy", "smug"])
@@ -181,7 +184,8 @@ for x in shots:
 FX, last = [], -9.0
 for s, t, typ, on, dur in FXC:
     T = starts[shots.index(s)] + t
-    if T >= 2.0 and T - last >= 3.0: FX.append(dict(type=typ, on=on, t=round(T, 3), dur=dur)); last = T
+    end_ = starts[shots.index(s)] + s["_dur"] - 0.1
+    if T >= 2.0 and T - last >= 3.0 and end_ - T >= 0.4: FX.append(dict(type=typ, on=on, t=round(T, 3), dur=round(min(dur, end_ - T), 2))); last = T
 # ---- face tracks: a new face every 0.55 s, never the same twice in a row
 for s in shots:
     if "_ft" in s:
@@ -265,6 +269,7 @@ for k, s in enumerate(shots[:-1]):
     if s["distance"] != d0: print("   autofit S%02d distance %.1f -> %.1f" % (k, d0, s["distance"]))
 
 # ---- fit every card into the safe box (x 10-85 %, y 8-63 %) for its whole time on screen, drift + pan + snap peak included
+RECT = {}
 for (s, at, cid, name, dy, dx, dz, wf, hf, c) in REQ:
     d = s["distance"]; h = min(wf * d / ASP[name], hf * 0.728 * d); samples = [at + (s["_dur"] - at) * u for u in (0, 0.25, 0.5, 0.75, 1.0)]
     if s.get("snap") and s["snap"]["t"] + 0.12 > at: samples.append(s["snap"]["t"] + 0.12)
@@ -275,8 +280,8 @@ for (s, at, cid, name, dy, dx, dz, wf, hf, c) in REQ:
             xc, yc = 0.5 + dx * sc + px, 0.5 - dy * sc + py
             if xc - wfr * sc / 2 < 0.10 or xc + wfr * sc / 2 > 0.85 or yc - hfr * sc / 2 < 0.08 or yc + hfr * sc / 2 > 0.63: ok = False; break
         if ok: break
-        dx += (-0.03 - dx) * 0.15; dy += (0.15 - dy) * 0.15; h *= 0.97
-    c["height"] = round(h, 3); SH[cid] = c["height"]; card(s, at, cid, dy, dx, dz)
+        dx *= 0.97; dy *= 0.97; h *= 0.97                  # shrink the whole card layout towards the centre: cards never slide onto each other
+    c["height"] = round(h, 3); SH[cid] = c["height"]; card(s, at, cid, dy, dx, dz); RECT[cid] = (s, at, 0.5 + dx - wfr / 2, 0.5 - dy - hfr / 2, 0.5 + dx + wfr / 2, 0.5 - dy + hfr / 2)
 
 # ================================================================== SPEC
 MOOD = dict(NZ="night", ST="store", BB="day", LD="ldn", NY="dawn")
@@ -295,7 +300,7 @@ spec = {
               "dawn": {"sun": {"azimuth": -60, "elevation": 14, "color": "#ffb08a", "intensity": 2.3}, "sky": {"top": "#6a5aa8", "horizon": "#ffc49a"}, "fill": {"sky": "#c0a0ff", "ground": "#6a4a5e", "intensity": 1.25}}},
     "lighting": light, "ground": {"texture": TEX + "pave.jpg", "repeat": [175, 175], "size": 1400},
     "backdrop": {"image": "bg/sky.jpg", "blur": 4}, "ink": {"set": 4},
-    "fxLook": {"ink": "#271925", "accent": "#e0b43a", "paper": ["#f6ecd6", "#e8d5ae"], "dofPx": 8, "particle": "#ffe6b0", "bokehColor": "#c8b4ff", "ray": "#fff1c8", "raySide": 1},
+    "fxLook": {"ink": "#271925", "accent": "#e0b43a", "paper": ["#dcc49a", "#c9a878"], "dofPx": 8, "particle": "#ffe6b0", "bokehColor": "#c8b4ff", "ray": "#fff1c8", "raySide": 1},
     "fx": FX, "characters": chars, "props": props, "shots": shots, "end": "audio",
 }
 
@@ -333,6 +338,11 @@ for k, s in enumerate(shots):
         for pr, x0, y0, z0, x1, y1, z1 in BOXES:
             if x0 - 0.12 <= cp_[0] <= x1 + 0.12 and y0 - 0.12 <= cp_[1] <= y1 + 0.12 and z0 - 0.12 <= cp_[2] <= z1 + 0.12:
                 flags += 1; print("   INSIDE S%02d t=%.2f %s@%s" % (k, tl, pr["type"], pr["pos"]))
+for a_, b_ in [(x, y) for x in RECT for y in RECT if x < y and RECT[x][0] is RECT[y][0]]:   # cards on screen together must not overlap
+    s, A, B_ = RECT[a_][0], RECT[a_], RECT[b_]
+    off = lambda cid, at: min([x["at"] for x in s["actions"] if x["who"] == cid and x.get("to") == PARK and x["at"] > at] + [99])
+    if max(A[1], B_[1]) < min(off(a_, A[1]), off(b_, B_[1])) and A[2] < B_[4] and B_[2] < A[4] and A[3] < B_[5] and B_[3] < A[5]:
+        flags += 1; print("   OVERLAP S%02d %s / %s" % (shots.index(s), a_, b_))
 print("frame check: %d CUT flags" % flags)
 for s in shots: s.pop("_phrase"); s.pop("_dur", None)
 json.dump(spec, open(os.path.join(P, "short.json"), "w"), indent=1)

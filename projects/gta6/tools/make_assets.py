@@ -143,6 +143,18 @@ def cal(n):                                                  # calendar page NOV
     d.text(360, 520, n, 330, LINE); return d.out()
 
 
+def alarm():                                                 # cute alarm clock at midnight
+    d = Draw(760, 800)
+    for x in (180, 580): d.dot(x, 130, 90, GOLD); d.ellipse(x, 130, 90, 90, outline=LINE, width=14)
+    for x0, x1 in ((240, 160), (520, 600)): d.stroke([(x0, 700), (x1, 780)], LINE, 22)
+    d.ellipse(380, 430, 300, 300, fill=(122, 84, 200, 255), outline=LINE, width=18); d.ellipse(380, 430, 240, 240, fill=WHITE, outline=LINE, width=12)
+    for k in range(12): a = math.radians(k * 30); d.dot(380 + 200 * math.sin(a), 430 - 200 * math.cos(a), 12 if k % 3 == 0 else 8, LINE)
+    d.stroke([(380, 430), (380, 250)], LINE, 22); d.stroke([(380, 430), (380, 300)], RED, 12); d.dot(380, 430, 22, LINE)
+    eyes2(d, [(310, 500), (450, 500)], 30, 'calm'); d.chord(380, 570, 40, 30, 0, 180, fill=(124, 40, 62, 255), outline=LINE, width=8)
+    for x in (280, 480): d.ellipse(x, 560, 26, 14, fill=BLUSH)
+    return d.out()
+
+
 def card2(big, small, col, w, bs=150, ss=62):                # big_card with a size for long words
     d = G.card(w, 420); d.text(w / 2, 170, big, bs, col, stroke=8, stroke_fill=LINE); d.text(w / 2, 326, small, ss, LINE); return d.out()
 
@@ -263,7 +275,7 @@ if __name__ == '__main__':
                  cbyc=V.wtag('COUNTRY BY COUNTRY', 1240, GREEN, 78), nzfirst=card2('NEW ZEALAND', 'HITS MIDNIGHT FIRST', BLUE, 1120, 108, 58),
                  ldn11=card2('11 A.M.', 'LONDON', RED, 760, 150), nov18=V.wtag('NOV 18', 640, RED, 100), ny6=card2('6 A.M.', 'NEW YORK', ORNG, 720, 150),
                  yrsdelay=CA.stamp('YEARS OF DELAYS', 1040, 90), oneday=CA.stamp("DIDN'T FIT IN ONE DAY", 1240, 82),
-                 playing=V.wtag('ALREADY PLAYING!', 1000, GREEN, 84), still18=card2('NOV 18', 'MOST OF THE PLANET', RED, 820, 150))
+                 clock12=alarm(), playing=V.wtag('ALREADY PLAYING!', 1000, GREEN, 84), still18=card2('NOV 18', 'MOST OF THE PLANET', RED, 820, 150))
     for nm, im in cards.items(): G.build_card(nm, {'default': im}); items.append((nm, im))
     json.dump({nm: round(im.width / im.height, 3) for nm, im in list(cards.items()) + [(k, v['default']) for k, v in multi.items()]}, open(os.path.join(ROOT, 'aspect.json'), 'w'))
     T = lambda n: os.path.join(ROOT, 'textures', n)
