@@ -1,0 +1,13 @@
+GTA Online's loading screen beat Rockstar for seven years. One player killed it.
+
+Every time you joined, you waited. Six minutes.
+
+Early 2021. A programmer who calls himself t0st gets curious. He digs in to see what the game does during that wait.
+
+You see, at startup the game reads one file. Ten megabytes. Nearly sixty-three thousand items. And for every item, it checks the whole list again. Almost two billion pointless checks.
+
+So t0st writes his own small fix. Six minutes become under two. Seventy percent of the wait, gone.
+
+Rockstar pays him ten thousand dollars and promises to use his fix.
+
+For seven years, the toughest boss in GTA Online was never the cops. It was the loading screen.
