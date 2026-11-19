@@ -102,3 +102,13 @@ frame width in close-ups, cute characters (big round heads, shiny eyes, blush).
 - Engine pops cards and captions in from zero size, so frame 0 shows neither, even with the card parked in place and word 1 at t0 = 0. For HOOK LAW A/B, next video: skip the pop for anything that starts at t = 0 (stage.js caption + show).
 - Music: trap 140 bpm + 8-bit chiptune 150 bpm + ticking clock pulse (gta6/tools/make_music.py).
 - Tokens: about 440K new (138K output). Cause: long planning output and a stills run plus two full runs. Next video: copy projects/gta6/tools, short planning, fresh chat.
+
+## Video 12 (GTA Online loading screen, t0st) -> projects/gtaload
+- Template: copy projects/gtaload/tools. make_assets.py imports lordgta_assets (head/body/plaque/stamp/neon/bubble) and only adds overlays (beanie, headphones, police cap, hoodie) + new props; build_short.py was spliced from lordgta (sets, shots, ATM, moods, CUE only).
+- Local dry run BEFORE the cloud: fake words.json at 0.19 s + 0.016 s/letter per word (0.16 s after a full stop) gives the real ~35-38 s pace; then `python tools/sf.py camcheck <short.json>` from the History root (camcheck.cmd breaks on paths with spaces).
+- After the first stills run: pull the real words.json and re-run build_short locally; fix shots under 0.7 s by merging them into a neighbouring crane (shot starts move to the next phrase).
+- Night street set was TOO_DARK (luma < 50): night sets need sun 2.6 / fill 1.85, building colours >= (60,70,136), floor tiles >= (90,90,120).
+- Big hero behind a near character: raise the hook pitch (5 -> 12) so the near head projects below the far face.
+- `_dis=1` on a shot forces a dissolve instead of a glide (needed when a character is swapped in/out between same-set shots).
+- Never put a comic fx (bang) on a prop that sits under a card: it lands on the text.
+- Music: boss rock 150/160 bpm + bossa waiting music 118 bpm + electro arp 112 bpm + piano house 124 bpm.
