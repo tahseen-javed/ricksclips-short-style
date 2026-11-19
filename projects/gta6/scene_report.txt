@@ -1,0 +1,47 @@
+music: 38.8 s, trap launch beat 140 bpm F minor + 8-bit chiptune 150 bpm + ticking clock pulse
+   autofit S01 distance 3.9 -> 5.2
+   autofit S02 distance 4.8 -> 5.4
+   autofit S04 distance 9.0 -> 10.7
+   autofit S06 distance 3.4 -> 4.5
+   autofit S07 distance 8.6 -> 10.9
+   autofit S08 distance 5.0 -> 7.1
+   autofit S11 distance 5.4 -> 6.8
+   autofit S13 distance 5.2 -> 5.8
+   autofit S15 distance 5.6 -> 6.7
+   autofit S16 distance 5.0 -> 6.0
+   autofit S17 distance 8.6 -> 9.1
+   autofit S18 distance 5.2 -> 6.2
+   autofit S20 distance 8.2 -> 11.0
+   autofit S21 distance 8.8 -> 11.8
+   autofit S22 distance 4.4 -> 6.2
+   autofit S23 distance 5.6 -> 6.3
+shot  start   dur  phrase
+S00    0.00  1.32  0                          d 5.6
+S01    1.32  0.80  November 19th              d 5.2  snap
+S02    2.12  1.92  The first players          d 5.4
+S03    4.04  1.88  It was promised            d 9.0
+S04    5.92  1.84  Then May                   d 10.7  snap
+S05    7.76  0.97  Then November              d 4.6
+S06    8.73  0.64  Two delays                 d 4.5
+   ! very short shot
+S07    9.37  1.52  It still became            d 10.9
+S08   10.89  1.38  in PlayStation Store       d 7.1  snap
+S09   12.27  1.48  And the box                d 1.8
+S10   13.75  0.88  No disc inside             d 2.6
+S11   14.63  1.08  Just a download code       d 6.8
+S12   15.71  1.52  for a game over            d 4.4  snap
+S13   17.23  2.56  You see                    d 5.8
+S14   19.79  1.72  It unlocks at midnight     d 8.5  snap
+S15   21.51  1.10  country by country         d 6.7
+S16   22.61  1.61  New Zealand hits           d 6.0
+S17   24.22  2.50  In London                  d 9.1
+S18   26.72  1.36  In New York                d 6.2  snap
+S19   28.08  2.52  Then the wave              d 6.0
+S20   30.60  1.12  So after years             d 11.0  snap
+S21   31.72  1.86  launch day didn't          d 11.8
+S22   33.58  1.80  Players in New Zealand     d 6.2  snap
+S23   35.38  0.92  while most of the planet   d 6.3
+S24   36.30  2.12  was still living           d 4.7
+snaps 8, comic fx 6
+frame check: 0 CUT flags
+wrote short.json: 25 shots, 36 characters, 39 props, voice 38.42 s
