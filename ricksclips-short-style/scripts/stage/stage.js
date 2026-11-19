@@ -7,6 +7,8 @@
 //   renderFrame(i)    -> PNG data URL            one finished frame, captions included
 //   probeFrame(i)     -> { image, checks... }    a still plus sanity checks
 import * as THREE from 'three';
+import * as FX from './fx.js';                  // PRO SAMPLE fx layer (opt-in keys only)
+const fxEnv = () => ({ THREE, camera, chars, setRoot, shots, S, octx, base: renderer.domElement });
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
@@ -63,7 +65,7 @@ function driftAt(shot, tl) {                       // profile time at local seco
   if (f <= 0) t = f / FPS * (1 + ARRIVE_GAIN);
   else if (f >= n - 1) t = T[n - 1] + (f - (n - 1)) / FPS;
   else { const i = Math.floor(f); t = lerp(T[i], T[i + 1], f - i); }
-  return { dx: shot.pan[0] * t, dy: shot.pan[1] * t, scale: Math.exp(Math.log1p(shot.zoom / 100) * t) };
+  return { dx: shot.pan[0] * t, dy: shot.pan[1] * t, scale: Math.exp(Math.log1p(shot.zoom / 100) * t) * (shot.snap ? FX.snap(shot.snap, tl) : 1) };
 }
 
 // ------------------------------------------------------------ puppets
@@ -373,8 +375,9 @@ window.setup = async (spec) => {
 
   for (const s of spec._shots) {
     const n = Math.max(2, Math.round(s.dur * FPS)), yaw = rad(s.yaw || 0), pitch = rad(s.pitch ?? 6);
+    if (s.type === 'macro' && !s.anchor) { const q = (S.props || []).find(p => p.name === s.prop); if (q) s.anchor = q.pos; }
     if (!s.anchor && !chars[s.target]) throw new Error('shot target "' + s.target + '" is not a character id (or give "anchor")');
-    shots.push({ start: s.start, dur: s.dur, n, T: driftTable(n), pan: s.pan || [0, 0], zoom: s.zoom ?? 6, fov: s.fov || 40, glide: s.glide || 'lens',
+    shots.push({ start: s.start, dur: s.dur, n, T: driftTable(n), pan: s.pan || [0, 0], zoom: s.zoom ?? 6, snap: s.snap, raw: s, fov: s.fov || 40, glide: s.glide || 'lens',
       out: s.out === 'whip' ? 'glide' : (s.out || 'glide'), outDur: s.outDur, target: s.target, anchor: s.anchor ? new THREE.Vector3(...s.anchor) : null,
       headWidth: s.headWidth || 0.20, distance: s.distance, ox: s.frameX ?? 0, oy: s.frameY ?? 0.12,
       dir: new THREE.Vector3(Math.sin(yaw) * Math.cos(pitch), Math.sin(pitch), Math.cos(yaw) * Math.cos(pitch)) });
@@ -461,6 +464,7 @@ function compose(i, withCaption = true) {
     const p = plan.kind === 'glide' ? { pos: plan.a.pos.clone().lerp(plan.b.pos, mix), quat: plan.a.quat.clone().slerp(plan.b.quat, mix), fov: lerp(plan.a.fov, plan.b.fov, mix), anchor: plan.a.anchor.clone().lerp(plan.b.anchor, mix) } : plan.a;
     applyMood(moodAt(t), p.anchor); setCamera(p); drawScene(); octx.drawImage(renderer.domElement, 0, 0);
   }
+  FX.post(octx, t, fxEnv());
   if (withCaption) drawCaption(t);
   return plan;
 }
