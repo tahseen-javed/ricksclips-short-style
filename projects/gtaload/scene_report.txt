@@ -1,0 +1,49 @@
+music: 35.3 s, boss rock 150/160 bpm + bossa waiting 118 bpm + electro arp 112 bpm + piano house 124 bpm
+   autofit S08 distance 4.4 -> 4.7
+   autofit S11 distance 9.2 -> 9.8
+   autofit S12 distance 4.6 -> 5.5
+   autofit S14 distance 7.6 -> 8.5
+   autofit S18 distance 6.0 -> 7.1
+   autofit S20 distance 8.0 -> 9.5
+   autofit S22 distance 4.4 -> 4.7
+   autofit S23 distance 4.2 -> 4.7
+   autofit S24 distance 10.0 -> 11.2
+   autofit S25 distance 3.6 -> 5.1
+   autofit S26 distance 9.0 -> 11.4
+   autofit S27 distance 9.0 -> 9.5
+shot  start   dur  phrase
+S00    0.00  1.68  0                          d 7.4
+S01    1.68  1.60  beat Rockstar              d 8.4  snap
+S02    3.28  1.04  One player                 d 9.0
+S03    4.32  0.74  Every time you             d 8.6
+S04    5.06  0.54  you waited                 d 4.4
+   ! very short shot
+S05    5.60  0.78  Six minutes                d 8.0  snap
+S06    6.38  1.26  Early 2021                 d 9.0
+S07    7.64  1.70  A programmer               d 5.6
+S08    9.34  0.88  gets curious               d 4.7  snap
+S09   10.22  0.78  He digs in                 d 9.4
+S10   11.00  1.58  what the game does         d 5.0
+S11   12.58  1.22  You see                    d 9.8
+S12   13.80  0.94  reads one file             d 5.5  snap
+S13   14.74  0.76  Ten megabytes              d 5.2
+S14   15.50  1.67  Nearly sixtythree          d 8.5
+S15   17.17  0.84  And for every              d 8.0
+S16   18.01  1.34  it checks the              d 4.6
+S17   19.35  1.90  Almost two billion         d 4.0  snap
+S18   21.25  1.92  So t0st writes             d 7.1
+S19   23.17  1.46  Six minutes become         d 6.6
+S20   24.63  1.54  Seventy percent            d 9.5  snap
+S21   26.17  0.76  Rockstar pays              d 9.0
+S22   26.93  1.08  ten thousand dollars       d 4.7
+S23   28.01  1.54  and promises               d 4.7
+S24   29.55  0.66  For seven years#2          d 11.2
+   ! very short shot
+S25   30.21  1.88  the toughest boss          d 5.1  snap
+S26   32.09  1.18  was never the              d 11.4
+S27   33.27  0.36  It was the                 d 9.5
+   ! very short shot
+S28   33.63  1.26  loading screen#2           d 6.9
+snaps 7, comic fx 5
+frame check: 0 CUT flags
+wrote short.json: 29 shots, 40 characters, 82 props, voice 34.89 s

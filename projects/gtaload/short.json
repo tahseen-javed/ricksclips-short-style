@@ -1,0 +1,3692 @@
+{
+ "fps": 30,
+ "audio": {
+  "voice": "audio/voice.mp3",
+  "music": "audio/music.mp3",
+  "musicDb": -11
+ },
+ "words": "audio/words.json",
+ "captions": {
+  "wordsPer": 1
+ },
+ "font": "fonts/Montserrat-ExtraBold.ttf",
+ "contactShadow": 0.6,
+ "seed": 12,
+ "moods": {
+  "arena": {
+   "sun": {
+    "azimuth": -30,
+    "elevation": 22,
+    "color": "#ffb878",
+    "intensity": 2.3
+   },
+   "sky": {
+    "top": "#2a1050",
+    "horizon": "#ff9050"
+   },
+   "fill": {
+    "sky": "#c080ff",
+    "ground": "#4a2050",
+    "intensity": 1.35
+   }
+  },
+  "lounge": {
+   "sun": {
+    "azimuth": 50,
+    "elevation": 35,
+    "color": "#ffd8a0",
+    "intensity": 2.3
+   },
+   "sky": {
+    "top": "#e09060",
+    "horizon": "#ffe0b0"
+   },
+   "fill": {
+    "sky": "#ffd0a0",
+    "ground": "#7a4a30",
+    "intensity": 1.3
+   }
+  },
+  "desert": {
+   "sun": {
+    "azimuth": -50,
+    "elevation": 26,
+    "color": "#fff0c0",
+    "intensity": 2.4
+   },
+   "sky": {
+    "top": "#80d8c8",
+    "horizon": "#ffd0a0"
+   },
+   "fill": {
+    "sky": "#b0f0e0",
+    "ground": "#c08060",
+    "intensity": 1.3
+   }
+  },
+  "winter": {
+   "sun": {
+    "azimuth": 160,
+    "elevation": 40,
+    "color": "#b8c8ff",
+    "intensity": 2.0
+   },
+   "sky": {
+    "top": "#0c1030",
+    "horizon": "#303a80"
+   },
+   "fill": {
+    "sky": "#a0a0ff",
+    "ground": "#503060",
+    "intensity": 1.4
+   }
+  },
+  "cyber": {
+   "sun": {
+    "azimuth": 0,
+    "elevation": 50,
+    "color": "#b0fff0",
+    "intensity": 1.9
+   },
+   "sky": {
+    "top": "#040818",
+    "horizon": "#103050"
+   },
+   "fill": {
+    "sky": "#40e0ff",
+    "ground": "#102040",
+    "intensity": 1.45
+   }
+  },
+  "archive": {
+   "sun": {
+    "azimuth": 30,
+    "elevation": 45,
+    "color": "#ffd890",
+    "intensity": 2.2
+   },
+   "sky": {
+    "top": "#5a3018",
+    "horizon": "#e0a060"
+   },
+   "fill": {
+    "sky": "#ffc080",
+    "ground": "#5a3020",
+    "intensity": 1.3
+   }
+  },
+  "factory": {
+   "sun": {
+    "azimuth": -20,
+    "elevation": 50,
+    "color": "#f0fff8",
+    "intensity": 2.3
+   },
+   "sky": {
+    "top": "#2a6070",
+    "horizon": "#a0d0d0"
+   },
+   "fill": {
+    "sky": "#a0f0f0",
+    "ground": "#405058",
+    "intensity": 1.25
+   }
+  },
+  "noon": {
+   "sun": {
+    "azimuth": 40,
+    "elevation": 60,
+    "color": "#fffaf0",
+    "intensity": 2.5
+   },
+   "sky": {
+    "top": "#3a8af0",
+    "horizon": "#d0f0ff"
+   },
+   "fill": {
+    "sky": "#b0d8ff",
+    "ground": "#508040",
+    "intensity": 1.2
+   }
+  },
+  "gala": {
+   "sun": {
+    "azimuth": 20,
+    "elevation": 40,
+    "color": "#ffe8a0",
+    "intensity": 2.3
+   },
+   "sky": {
+    "top": "#0a4030",
+    "horizon": "#40c090"
+   },
+   "fill": {
+    "sky": "#a0ffd0",
+    "ground": "#503020",
+    "intensity": 1.35
+   }
+  },
+  "street": {
+   "sun": {
+    "azimuth": 200,
+    "elevation": 30,
+    "color": "#a8b8ff",
+    "intensity": 2.0
+   },
+   "sky": {
+    "top": "#080c30",
+    "horizon": "#30306a"
+   },
+   "fill": {
+    "sky": "#ff7090",
+    "ground": "#202050",
+    "intensity": 1.4
+   }
+  }
+ },
+ "lighting": [
+  {
+   "t": 0,
+   "mood": "arena"
+  },
+  {
+   "t": 4.12,
+   "mood": "lounge",
+   "fade": 0.4
+  },
+  {
+   "t": 5.4,
+   "mood": "desert",
+   "fade": 0.4
+  },
+  {
+   "t": 6.18,
+   "mood": "winter",
+   "fade": 0.4
+  },
+  {
+   "t": 10.02,
+   "mood": "cyber",
+   "fade": 0.4
+  },
+  {
+   "t": 12.38,
+   "mood": "archive",
+   "fade": 0.4
+  },
+  {
+   "t": 16.97,
+   "mood": "factory",
+   "fade": 0.4
+  },
+  {
+   "t": 21.05,
+   "mood": "winter",
+   "fade": 0.4
+  },
+  {
+   "t": 24.43,
+   "mood": "noon",
+   "fade": 0.4
+  },
+  {
+   "t": 25.97,
+   "mood": "gala",
+   "fade": 0.4
+  },
+  {
+   "t": 29.35,
+   "mood": "street",
+   "fade": 0.4
+  },
+  {
+   "t": 33.07,
+   "mood": "arena",
+   "fade": 0.4
+  }
+ ],
+ "ground": {
+  "texture": "textures/pave.jpg",
+  "repeat": [
+   175,
+   175
+  ],
+  "size": 1400
+ },
+ "backdrop": {
+  "image": "bg/sky.jpg",
+  "blur": 4
+ },
+ "ink": {
+  "set": 4
+ },
+ "fxLook": {
+  "ink": "#271925",
+  "accent": "#ff9a3c",
+  "paper": [
+   "#dcc49a",
+   "#c9a878"
+  ],
+  "dofPx": 8,
+  "particle": "#ffe6b0",
+  "bokehColor": "#a0c8ff",
+  "ray": "#fff1c8",
+  "raySide": 1
+ },
+ "fx": [
+  {
+   "type": "bang",
+   "on": "boss",
+   "t": 3.78,
+   "dur": 0.44
+  },
+  {
+   "type": "question",
+   "on": "toast",
+   "t": 9.49,
+   "dur": 0.63
+  },
+  {
+   "type": "sweat",
+   "on": "robotC",
+   "t": 19.75,
+   "dur": 0.9
+  },
+  {
+   "type": "blush",
+   "on": "toastH",
+   "t": 27.43,
+   "dur": 0.48
+  },
+  {
+   "type": "z",
+   "on": "cop",
+   "t": 32.39,
+   "dur": 0.78
+  }
+ ],
+ "characters": [
+  {
+   "id": "kid",
+   "puppet": "puppets/kid",
+   "pos": [
+    -0.45,
+    0.04,
+    -1.4
+   ],
+   "height": 1.8,
+   "face": "shocked"
+  },
+  {
+   "id": "boss",
+   "puppet": "puppets/boss",
+   "pos": [
+    0.3,
+    0.04,
+    -4.6
+   ],
+   "height": 2.7,
+   "face": "default"
+  },
+  {
+   "id": "toastA",
+   "puppet": "puppets/toast",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.8,
+   "face": "smug"
+  },
+  {
+   "id": "kidL",
+   "puppet": "puppets/kid",
+   "pos": [
+    69.5,
+    0.06,
+    -2.4
+   ],
+   "height": 1.8,
+   "face": "nervous"
+  },
+  {
+   "id": "wclock",
+   "puppet": "puppets/wclock",
+   "pos": [
+    68.1,
+    2.3,
+    -4.75
+   ],
+   "height": 0.9,
+   "face": "default"
+  },
+  {
+   "id": "hglass",
+   "puppet": "puppets/hglass",
+   "pos": [
+    140.0,
+    0.04,
+    -3.2
+   ],
+   "height": 2.4,
+   "face": "default"
+  },
+  {
+   "id": "toast",
+   "puppet": "puppets/toast",
+   "pos": [
+    210.0,
+    0.06,
+    -2.5
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "toastC",
+   "puppet": "puppets/toast",
+   "pos": [
+    280.0,
+    0.04,
+    -2.4
+   ],
+   "height": 1.8,
+   "face": "shocked"
+  },
+  {
+   "id": "jfile",
+   "puppet": "puppets/jfile",
+   "pos": [
+    350.8,
+    0.04,
+    -3.4
+   ],
+   "height": 2.2,
+   "face": "default"
+  },
+  {
+   "id": "robotF",
+   "puppet": "puppets/robot",
+   "pos": [
+    349.1,
+    0.04,
+    -2.6
+   ],
+   "height": 1.4,
+   "face": "default"
+  },
+  {
+   "id": "robotC",
+   "puppet": "puppets/robot",
+   "pos": [
+    420.0,
+    0.04,
+    -2.5
+   ],
+   "height": 1.5,
+   "face": "default"
+  },
+  {
+   "id": "toastS",
+   "puppet": "puppets/toast",
+   "pos": [
+    489.4,
+    0.04,
+    -2.1
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "bossS",
+   "puppet": "puppets/boss",
+   "pos": [
+    490.75,
+    0.04,
+    -3.2
+   ],
+   "height": 1.7,
+   "face": "defeated"
+  },
+  {
+   "id": "rep",
+   "puppet": "puppets/rep",
+   "pos": [
+    561.0,
+    0.04,
+    -2.6
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "toastH",
+   "puppet": "puppets/toast",
+   "pos": [
+    559.1,
+    0.04,
+    -2.3
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "cop",
+   "puppet": "puppets/cop",
+   "pos": [
+    629.0,
+    0.04,
+    -2.2
+   ],
+   "height": 1.8,
+   "face": "smug"
+  },
+  {
+   "id": "copcar",
+   "puppet": "puppets/copcar",
+   "pos": [
+    631.2,
+    0.04,
+    -4.2
+   ],
+   "height": 1.0,
+   "face": "default"
+  },
+  {
+   "id": "gtaon_1",
+   "puppet": "puppets/gtaon",
+   "pos": [
+    -0.076,
+    2.598,
+    -2.401
+   ],
+   "height": 0.897,
+   "face": "default"
+  },
+  {
+   "id": "yrs7_2",
+   "puppet": "puppets/yrs7",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.902,
+   "face": "default"
+  },
+  {
+   "id": "oneplayer_3",
+   "puppet": "puppets/oneplayer",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.873,
+   "face": "default"
+  },
+  {
+   "id": "everytime_4",
+   "puppet": "puppets/everytime",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.942,
+   "face": "default"
+  },
+  {
+   "id": "min6_5",
+   "puppet": "puppets/min6",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.59,
+   "face": "default"
+  },
+  {
+   "id": "y2021_6",
+   "puppet": "puppets/y2021",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.794,
+   "face": "default"
+  },
+  {
+   "id": "tname_7",
+   "puppet": "puppets/tname",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.595,
+   "face": "default"
+  },
+  {
+   "id": "waitq_8",
+   "puppet": "puppets/waitq",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.657,
+   "face": "default"
+  },
+  {
+   "id": "startup_9",
+   "puppet": "puppets/startup",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.812,
+   "face": "default"
+  },
+  {
+   "id": "onefile_10",
+   "puppet": "puppets/onefile",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.455,
+   "face": "default"
+  },
+  {
+   "id": "mb10_11",
+   "puppet": "puppets/mb10",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.587,
+   "face": "default"
+  },
+  {
+   "id": "items63_12",
+   "puppet": "puppets/items63",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.057,
+   "face": "default"
+  },
+  {
+   "id": "again_13",
+   "puppet": "puppets/again",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.415,
+   "face": "default"
+  },
+  {
+   "id": "billion_14",
+   "puppet": "puppets/billion",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.354,
+   "face": "default"
+  },
+  {
+   "id": "fix_15",
+   "puppet": "puppets/fix",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.511,
+   "face": "default"
+  },
+  {
+   "id": "gone_16",
+   "puppet": "puppets/gone",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.013,
+   "face": "default"
+  },
+  {
+   "id": "cheque_17",
+   "puppet": "puppets/cheque",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.566,
+   "face": "default"
+  },
+  {
+   "id": "promise_18",
+   "puppet": "puppets/promise",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.439,
+   "face": "default"
+  },
+  {
+   "id": "yrs7_19",
+   "puppet": "puppets/yrs7",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.206,
+   "face": "default"
+  },
+  {
+   "id": "toughest_20",
+   "puppet": "puppets/toughest",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.48,
+   "face": "default"
+  },
+  {
+   "id": "notcops_21",
+   "puppet": "puppets/notcops",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.976,
+   "face": "default"
+  },
+  {
+   "id": "loadscr_22",
+   "puppet": "puppets/loadscr",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.078,
+   "face": "default"
+  },
+  {
+   "id": "gtaon_23",
+   "puppet": "puppets/gtaon",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.859,
+   "face": "default"
+  }
+ ],
+ "props": [
+  {
+   "type": "plane",
+   "image": "props/arena.png",
+   "pos": [
+    0,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/violet.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "post",
+   "pos": [
+    -3.4,
+    0,
+    -4.4
+   ],
+   "h": 2.4,
+   "color": "#3a2050"
+  },
+  {
+   "type": "box",
+   "pos": [
+    -3.4,
+    2.4,
+    -4.4
+   ],
+   "size": [
+    0.36,
+    0.36,
+    0.36
+   ],
+   "color": "#ffd890"
+  },
+  {
+   "type": "post",
+   "pos": [
+    3.6,
+    0,
+    -4.2
+   ],
+   "h": 2.4,
+   "color": "#3a2050"
+  },
+  {
+   "type": "box",
+   "pos": [
+    3.6,
+    2.4,
+    -4.2
+   ],
+   "size": [
+    0.36,
+    0.36,
+    0.36
+   ],
+   "color": "#ffd890"
+  },
+  {
+   "type": "box",
+   "pos": [
+    -2.6,
+    0.04,
+    -0.4
+   ],
+   "size": [
+    0.9,
+    0.4,
+    0.7
+   ],
+   "color": "#6a2a8a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    2.5,
+    0.04,
+    -0.2
+   ],
+   "size": [
+    0.7,
+    0.3,
+    0.6
+   ],
+   "color": "#8a3a6a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    70,
+    0,
+    -1
+   ],
+   "size": [
+    12,
+    0.06,
+    10
+   ],
+   "texture": "textures/wood.jpg",
+   "repeat": [
+    4,
+    4
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    70,
+    0,
+    -5
+   ],
+   "size": [
+    12,
+    6.2,
+    0.3
+   ],
+   "color": "#c87a48"
+  },
+  {
+   "type": "box",
+   "pos": [
+    64.15,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    6.2,
+    10
+   ],
+   "color": "#b06a3c"
+  },
+  {
+   "type": "box",
+   "pos": [
+    75.85,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    6.2,
+    10
+   ],
+   "color": "#b06a3c"
+  },
+  {
+   "type": "plane",
+   "image": "props/lounge.png",
+   "pos": [
+    70,
+    0.06,
+    -4.82
+   ],
+   "size": [
+    11,
+    5.04
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    70.4,
+    0.06,
+    -3.4
+   ],
+   "size": [
+    2.8,
+    0.55,
+    0.9
+   ],
+   "color": "#2f7f8f"
+  },
+  {
+   "type": "box",
+   "pos": [
+    70.4,
+    0.06,
+    -3.9
+   ],
+   "size": [
+    2.8,
+    1.1,
+    0.3
+   ],
+   "color": "#287080"
+  },
+  {
+   "type": "box",
+   "pos": [
+    71.7,
+    0.06,
+    -1.5
+   ],
+   "size": [
+    0.9,
+    0.4,
+    0.6
+   ],
+   "color": "#8a5a3a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    66.6,
+    0,
+    -3.8
+   ],
+   "h": 1.7,
+   "color": "#5a3a2a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    66.6,
+    1.7,
+    -3.8
+   ],
+   "size": [
+    0.36,
+    0.36,
+    0.36
+   ],
+   "color": "#fff0c0"
+  },
+  {
+   "type": "plane",
+   "image": "props/desert.png",
+   "pos": [
+    140,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    140,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/sand.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "tree",
+   "pos": [
+    136.8,
+    0,
+    -4.2
+   ],
+   "scale": 0.8,
+   "color": "#4aa070"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    143.4,
+    0,
+    -3.6
+   ],
+   "scale": 0.7,
+   "color": "#4aa070"
+  },
+  {
+   "type": "box",
+   "pos": [
+    138.1,
+    0.04,
+    -1.6
+   ],
+   "size": [
+    0.7,
+    0.35,
+    0.7
+   ],
+   "color": "#e0a070"
+  },
+  {
+   "type": "box",
+   "pos": [
+    142.2,
+    0.04,
+    -2.0
+   ],
+   "size": [
+    0.5,
+    0.25,
+    0.5
+   ],
+   "color": "#f0b8a0"
+  },
+  {
+   "type": "box",
+   "pos": [
+    210,
+    0,
+    -1
+   ],
+   "size": [
+    12,
+    0.06,
+    10
+   ],
+   "texture": "textures/navy.jpg",
+   "repeat": [
+    4,
+    4
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    210,
+    0,
+    -5
+   ],
+   "size": [
+    12,
+    6.2,
+    0.3
+   ],
+   "color": "#262a5c"
+  },
+  {
+   "type": "box",
+   "pos": [
+    204.15,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    6.2,
+    10
+   ],
+   "color": "#20244e"
+  },
+  {
+   "type": "box",
+   "pos": [
+    215.85,
+    0,
+    -1
+   ],
+   "size": [
+    0.3,
+    6.2,
+    10
+   ],
+   "color": "#20244e"
+  },
+  {
+   "type": "plane",
+   "image": "props/winter.png",
+   "pos": [
+    210,
+    0.06,
+    -4.82
+   ],
+   "size": [
+    11,
+    5.04
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    211.3,
+    0.06,
+    -3.4
+   ],
+   "size": [
+    2.2,
+    0.75,
+    0.8
+   ],
+   "color": "#5a4070"
+  },
+  {
+   "type": "box",
+   "pos": [
+    210.85,
+    0.81,
+    -3.6
+   ],
+   "size": [
+    0.75,
+    0.48,
+    0.08
+   ],
+   "color": "#30e8d8"
+  },
+  {
+   "type": "box",
+   "pos": [
+    211.75,
+    0.81,
+    -3.6
+   ],
+   "size": [
+    0.75,
+    0.48,
+    0.08
+   ],
+   "color": "#ff70c0"
+  },
+  {
+   "type": "post",
+   "pos": [
+    206.8,
+    0,
+    -3.6
+   ],
+   "h": 1.6,
+   "color": "#3a3060"
+  },
+  {
+   "type": "box",
+   "pos": [
+    206.8,
+    1.6,
+    -3.6
+   ],
+   "size": [
+    0.36,
+    0.36,
+    0.36
+   ],
+   "color": "#ff80c8"
+  },
+  {
+   "type": "plane",
+   "image": "props/cyber.png",
+   "pos": [
+    280,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    280,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/grid.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "post",
+   "pos": [
+    276.6,
+    0,
+    -4.0
+   ],
+   "h": 2.6,
+   "color": "#1a3a6a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    276.6,
+    2.6,
+    -4.0
+   ],
+   "size": [
+    0.36,
+    0.36,
+    0.36
+   ],
+   "color": "#80ffe0"
+  },
+  {
+   "type": "post",
+   "pos": [
+    278.1,
+    0,
+    -4.8
+   ],
+   "h": 1.8,
+   "color": "#1a3a6a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    278.1,
+    1.8,
+    -4.8
+   ],
+   "size": [
+    0.36,
+    0.36,
+    0.36
+   ],
+   "color": "#80ffe0"
+  },
+  {
+   "type": "post",
+   "pos": [
+    282.1,
+    0,
+    -4.6
+   ],
+   "h": 2.2,
+   "color": "#1a3a6a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    282.1,
+    2.2,
+    -4.6
+   ],
+   "size": [
+    0.36,
+    0.36,
+    0.36
+   ],
+   "color": "#80ffe0"
+  },
+  {
+   "type": "post",
+   "pos": [
+    283.5,
+    0,
+    -3.8
+   ],
+   "h": 1.4,
+   "color": "#1a3a6a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    283.5,
+    1.4,
+    -3.8
+   ],
+   "size": [
+    0.36,
+    0.36,
+    0.36
+   ],
+   "color": "#80ffe0"
+  },
+  {
+   "type": "plane",
+   "image": "props/archive.png",
+   "pos": [
+    350,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    350,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/wood.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "crate",
+   "pos": [
+    346.7,
+    0.04,
+    -2.2
+   ],
+   "size": 0.7,
+   "rotY": 0,
+   "texture": "textures/wood.jpg"
+  },
+  {
+   "type": "crate",
+   "pos": [
+    347.4,
+    0.04,
+    -2.8
+   ],
+   "size": 0.6,
+   "rotY": 0,
+   "texture": "textures/wood.jpg"
+  },
+  {
+   "type": "crate",
+   "pos": [
+    353.1,
+    0.04,
+    -1.9
+   ],
+   "size": 0.6,
+   "rotY": 0,
+   "texture": "textures/wood.jpg"
+  },
+  {
+   "type": "crate",
+   "pos": [
+    353.3,
+    0.04,
+    -2.9
+   ],
+   "size": 0.7,
+   "rotY": 0,
+   "texture": "textures/wood.jpg"
+  },
+  {
+   "type": "post",
+   "pos": [
+    348.1,
+    0,
+    -4.6
+   ],
+   "h": 2.4,
+   "color": "#4a2a18"
+  },
+  {
+   "type": "box",
+   "pos": [
+    348.1,
+    2.4,
+    -4.6
+   ],
+   "size": [
+    0.36,
+    0.36,
+    0.36
+   ],
+   "color": "#ffd070"
+  },
+  {
+   "type": "plane",
+   "image": "props/factory.png",
+   "pos": [
+    420,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    420,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/steel.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    420,
+    0.04,
+    -3.6
+   ],
+   "size": [
+    6.4,
+    0.7,
+    0.9
+   ],
+   "color": "#3c4250"
+  },
+  {
+   "type": "box",
+   "pos": [
+    420,
+    0.74,
+    -3.6
+   ],
+   "size": [
+    6.4,
+    0.04,
+    0.8
+   ],
+   "color": "#22262e"
+  },
+  {
+   "type": "crate",
+   "pos": [
+    417.4,
+    0.78,
+    -3.6
+   ],
+   "size": 0.42,
+   "rotY": 0,
+   "texture": "textures/wood.jpg"
+  },
+  {
+   "type": "crate",
+   "pos": [
+    418.3,
+    0.78,
+    -3.6
+   ],
+   "size": 0.42,
+   "rotY": 0,
+   "texture": "textures/wood.jpg"
+  },
+  {
+   "type": "crate",
+   "pos": [
+    419.2,
+    0.78,
+    -3.6
+   ],
+   "size": 0.42,
+   "rotY": 0,
+   "texture": "textures/wood.jpg"
+  },
+  {
+   "type": "crate",
+   "pos": [
+    420.9,
+    0.78,
+    -3.6
+   ],
+   "size": 0.42,
+   "rotY": 0,
+   "texture": "textures/wood.jpg"
+  },
+  {
+   "type": "crate",
+   "pos": [
+    421.8,
+    0.78,
+    -3.6
+   ],
+   "size": 0.42,
+   "rotY": 0,
+   "texture": "textures/wood.jpg"
+  },
+  {
+   "type": "crate",
+   "pos": [
+    422.7,
+    0.78,
+    -3.6
+   ],
+   "size": 0.42,
+   "rotY": 0,
+   "texture": "textures/wood.jpg"
+  },
+  {
+   "type": "post",
+   "pos": [
+    416.4,
+    0,
+    -2.4
+   ],
+   "h": 2.0,
+   "color": "#2e3440"
+  },
+  {
+   "type": "box",
+   "pos": [
+    416.4,
+    2.0,
+    -2.4
+   ],
+   "size": [
+    0.36,
+    0.36,
+    0.36
+   ],
+   "color": "#ff9040"
+  },
+  {
+   "type": "plane",
+   "image": "props/finish.png",
+   "pos": [
+    490,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    490,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/asphalt.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "post",
+   "pos": [
+    486.7,
+    0,
+    -3.0
+   ],
+   "h": 2.2,
+   "color": "#f0f0f0"
+  },
+  {
+   "type": "box",
+   "pos": [
+    487.0,
+    1.8,
+    -3.0
+   ],
+   "size": [
+    0.6,
+    0.4,
+    0.04
+   ],
+   "color": "#e83050"
+  },
+  {
+   "type": "post",
+   "pos": [
+    493.4,
+    0,
+    -3.4
+   ],
+   "h": 2.2,
+   "color": "#f0f0f0"
+  },
+  {
+   "type": "box",
+   "pos": [
+    493.7,
+    1.8,
+    -3.4
+   ],
+   "size": [
+    0.6,
+    0.4,
+    0.04
+   ],
+   "color": "#e83050"
+  },
+  {
+   "type": "plane",
+   "image": "props/gala.png",
+   "pos": [
+    560,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    560,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/emer.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    560,
+    0.04,
+    -4.2
+   ],
+   "size": [
+    3.4,
+    0.3,
+    1.2
+   ],
+   "color": "#d8a830"
+  },
+  {
+   "type": "post",
+   "pos": [
+    556.6,
+    0,
+    -3.4
+   ],
+   "h": 2.0,
+   "color": "#c89020"
+  },
+  {
+   "type": "box",
+   "pos": [
+    556.6,
+    2.0,
+    -3.4
+   ],
+   "size": [
+    0.36,
+    0.36,
+    0.36
+   ],
+   "color": "#fff4c0"
+  },
+  {
+   "type": "post",
+   "pos": [
+    563.4,
+    0,
+    -3.4
+   ],
+   "h": 2.0,
+   "color": "#c89020"
+  },
+  {
+   "type": "box",
+   "pos": [
+    563.4,
+    2.0,
+    -3.4
+   ],
+   "size": [
+    0.36,
+    0.36,
+    0.36
+   ],
+   "color": "#fff4c0"
+  },
+  {
+   "type": "plane",
+   "image": "props/street.png",
+   "pos": [
+    630,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    630,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/asphalt.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "post",
+   "pos": [
+    626.8,
+    0,
+    -3.6
+   ],
+   "h": 3.0,
+   "color": "#2e3440"
+  },
+  {
+   "type": "box",
+   "pos": [
+    626.8,
+    3.0,
+    -3.6
+   ],
+   "size": [
+    0.36,
+    0.36,
+    0.36
+   ],
+   "color": "#ffe7a8"
+  },
+  {
+   "type": "box",
+   "pos": [
+    633.4,
+    0.04,
+    -2.6
+   ],
+   "size": [
+    0.5,
+    0.9,
+    0.5
+   ],
+   "color": "#30a050"
+  }
+ ],
+ "shots": [
+  {
+   "start": 0.0,
+   "anchor": [
+    -0.05,
+    1.7,
+    -2.7
+   ],
+   "distance": 7.4,
+   "yaw": -5,
+   "pitch": 5,
+   "zoom": 8,
+   "pan": [
+    -15,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "kid",
+     "pose": {
+      "armR": -150
+     }
+    },
+    {
+     "at": 0.1,
+     "who": "boss",
+     "shake": 0.3
+    },
+    {
+     "at": 0.0,
+     "who": "kid",
+     "face": "shocked"
+    },
+    {
+     "at": 0.55,
+     "who": "kid",
+     "face": "shouting"
+    },
+    {
+     "at": 1.1,
+     "who": "kid",
+     "face": "shocked"
+    },
+    {
+     "at": 1.64,
+     "who": "gtaon_1",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "gtaon_1",
+     "to": [
+      -0.076,
+      2.598,
+      -2.401
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.35
+    },
+    "rays": {
+     "angle": 30,
+     "intensity": 0.45
+    }
+   }
+  },
+  {
+   "start": 1.68,
+   "anchor": [
+    0.3,
+    1.5,
+    -4.6
+   ],
+   "distance": 8.4,
+   "yaw": 12,
+   "pitch": -2,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "kid",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "boss",
+     "shake": 0.4
+    },
+    {
+     "at": 1.56,
+     "who": "yrs7_2",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "yrs7_2",
+     "to": [
+      0.359,
+      2.402,
+      -4.306
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "yawTo": 0,
+   "pitchTo": 4,
+   "frameY": 0.0,
+   "snap": {
+    "t": 0.25,
+    "zoom": 16,
+    "dur": 0.28
+   },
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.35
+    },
+    "rays": {
+     "angle": 30,
+     "intensity": 0.45
+    }
+   }
+  },
+  {
+   "start": 3.28,
+   "anchor": [
+    -0.05,
+    1.5,
+    -3.0
+   ],
+   "distance": 9.0,
+   "yaw": -22,
+   "pitch": 30,
+   "zoom": 8,
+   "pan": [
+    37.5,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "toastA",
+     "to": [
+      -0.45,
+      0.04,
+      -1.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "toastA",
+     "pose": {
+      "armR": -150
+     }
+    },
+    {
+     "at": 0.5,
+     "who": "boss",
+     "face": "defeated",
+     "shake": 0.4
+    },
+    {
+     "at": 0.0,
+     "who": "toastA",
+     "face": "smug"
+    },
+    {
+     "at": 0.55,
+     "who": "toastA",
+     "face": "shouting"
+    },
+    {
+     "at": 1.0,
+     "who": "toastA",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.0,
+     "who": "oneplayer_3",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "oneplayer_3",
+     "to": [
+      -0.155,
+      2.604,
+      -2.719
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "yawTo": -6,
+   "pitchTo": 6,
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.35
+    },
+    "rays": {
+     "angle": 30,
+     "intensity": 0.45
+    }
+   }
+  },
+  {
+   "start": 4.32,
+   "anchor": [
+    69.8,
+    1.6,
+    -2.8
+   ],
+   "distance": 8.6,
+   "yaw": 20,
+   "pitch": 34,
+   "zoom": 8,
+   "pan": [
+    52.7,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "kidL",
+     "face": "nervous"
+    },
+    {
+     "at": 0.7,
+     "who": "everytime_4",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "everytime_4",
+     "to": [
+      69.892,
+      2.847,
+      -2.515
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "yawTo": 4,
+   "pitchTo": 7,
+   "fgBlur": {
+    "side": "left",
+    "blur": 0.8
+   },
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 24,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 28,
+     "intensity": 0.55
+    }
+   }
+  },
+  {
+   "start": 5.06,
+   "anchor": [
+    69.5,
+    1.4,
+    -2.4
+   ],
+   "distance": 4.4,
+   "yaw": -14,
+   "pitch": 4,
+   "zoom": 12,
+   "pan": [
+    72.2,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "kidL",
+     "face": "confused"
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "dof": {
+    "focus": "kidL",
+    "blur": 0.4
+   },
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 24,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 28,
+     "intensity": 0.55
+    }
+   }
+  },
+  {
+   "start": 5.6,
+   "anchor": [
+    140.0,
+    1.5,
+    -3.2
+   ],
+   "distance": 8.0,
+   "yaw": -18,
+   "pitch": 36,
+   "zoom": 8,
+   "pan": [
+    50.0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.74,
+     "who": "min6_5",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "min6_5",
+     "to": [
+      139.92,
+      2.35,
+      -2.911
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "yawTo": 2,
+   "pitchTo": 5,
+   "frameY": 0.0,
+   "snap": {
+    "t": 0.5,
+    "zoom": 14,
+    "dur": 0.28
+   },
+   "atmos": {
+    "dust": {
+     "count": 20,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 35,
+     "intensity": 0.5
+    }
+   }
+  },
+  {
+   "start": 6.38,
+   "anchor": [
+    210.5,
+    1.7,
+    -3.0
+   ],
+   "distance": 9.0,
+   "yaw": 22,
+   "pitch": 32,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 1.22,
+     "who": "y2021_6",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "y2021_6",
+     "to": [
+      210.228,
+      2.298,
+      -2.576
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "yawTo": 6,
+   "pitchTo": 6,
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.35
+    }
+   }
+  },
+  {
+   "start": 7.64,
+   "anchor": [
+    210.3,
+    1.4,
+    -2.7
+   ],
+   "distance": 5.6,
+   "yaw": -12,
+   "pitch": 4,
+   "zoom": 10,
+   "pan": [
+    15,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "toast",
+     "face": "happy"
+    },
+    {
+     "at": 0.55,
+     "who": "toast",
+     "face": "smug"
+    },
+    {
+     "at": 1.1,
+     "who": "toast",
+     "face": "happy"
+    },
+    {
+     "at": 1.66,
+     "who": "tname_7",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.36,
+     "who": "tname_7",
+     "to": [
+      210.238,
+      2.188,
+      -2.407
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.35
+    }
+   }
+  },
+  {
+   "start": 9.34,
+   "anchor": [
+    210.0,
+    1.45,
+    -2.5
+   ],
+   "distance": 4.664,
+   "yaw": 16,
+   "pitch": 6,
+   "zoom": 8,
+   "pan": [
+    44.3,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "toast",
+     "face": "confused"
+    },
+    {
+     "at": 0.55,
+     "who": "toast",
+     "face": "sneaky"
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "yawTo": 4,
+   "dof": {
+    "focus": "toast",
+    "blur": 0.4
+   },
+   "frameY": 0.0,
+   "snap": {
+    "t": 0.2,
+    "zoom": 14,
+    "dur": 0.28
+   },
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.35
+    }
+   }
+  },
+  {
+   "start": 10.22,
+   "anchor": [
+    280.0,
+    1.9,
+    -3.4
+   ],
+   "distance": 9.4,
+   "yaw": -24,
+   "pitch": 38,
+   "zoom": 8,
+   "pan": [
+    50.0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "toastC",
+     "face": "shocked"
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "yawTo": -4,
+   "pitchTo": 6,
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.4
+    }
+   }
+  },
+  {
+   "start": 11.0,
+   "anchor": [
+    280.0,
+    1.5,
+    -2.4
+   ],
+   "distance": 5.0,
+   "yaw": 10,
+   "pitch": 8,
+   "zoom": 10,
+   "pan": [
+    -15,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "toastC",
+     "face": "confused"
+    },
+    {
+     "at": 0.55,
+     "who": "toastC",
+     "face": "shocked"
+    },
+    {
+     "at": 1.1,
+     "who": "toastC",
+     "face": "confused"
+    },
+    {
+     "at": 1.54,
+     "who": "waitq_8",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "waitq_8",
+     "to": [
+      280.052,
+      1.904,
+      -2.105
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.4
+    }
+   }
+  },
+  {
+   "start": 12.58,
+   "anchor": [
+    350.0,
+    1.6,
+    -3.0
+   ],
+   "distance": 9.752,
+   "yaw": 20,
+   "pitch": 30,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "robotF",
+     "shake": 0.2
+    },
+    {
+     "at": 1.18,
+     "who": "startup_9",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.5,
+     "who": "startup_9",
+     "to": [
+      350.043,
+      2.723,
+      -2.703
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "yawTo": 2,
+   "pitchTo": 6,
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 26,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 25,
+     "intensity": 0.45
+    }
+   }
+  },
+  {
+   "start": 13.8,
+   "anchor": [
+    350.8,
+    1.15,
+    -3.4
+   ],
+   "distance": 5.479,
+   "yaw": -10,
+   "pitch": 4,
+   "zoom": 10,
+   "pan": [
+    15,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.9,
+     "who": "onefile_10",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "onefile_10",
+     "to": [
+      350.748,
+      1.923,
+      -3.105
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "type": "macro",
+   "dof": {
+    "focus": "jfile",
+    "blur": 0.6
+   },
+   "frameY": 0.0,
+   "snap": {
+    "t": 0.1,
+    "zoom": 14,
+    "dur": 0.28
+   },
+   "atmos": {
+    "dust": {
+     "count": 26,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 25,
+     "intensity": 0.45
+    }
+   }
+  },
+  {
+   "start": 14.74,
+   "anchor": [
+    350.8,
+    1.3,
+    -3.4
+   ],
+   "distance": 5.2,
+   "yaw": 14,
+   "pitch": 6,
+   "zoom": 8,
+   "pan": [
+    51.3,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.72,
+     "who": "mb10_11",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "mb10_11",
+     "to": [
+      350.86,
+      2.112,
+      -3.106
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "yawTo": -6,
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 26,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 25,
+     "intensity": 0.45
+    }
+   }
+  },
+  {
+   "start": 15.5,
+   "anchor": [
+    350.0,
+    1.8,
+    -3.2
+   ],
+   "distance": 8.539,
+   "yaw": -6,
+   "pitch": 8,
+   "zoom": -7,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "robotF",
+     "shake": 0.3
+    },
+    {
+     "at": 1.63,
+     "who": "items63_12",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "items63_12",
+     "to": [
+      349.969,
+      3.136,
+      -2.902
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 26,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 25,
+     "intensity": 0.45
+    }
+   }
+  },
+  {
+   "start": 17.17,
+   "anchor": [
+    420.0,
+    1.4,
+    -3.0
+   ],
+   "distance": 8.0,
+   "yaw": -20,
+   "pitch": 34,
+   "zoom": 8,
+   "pan": [
+    46.4,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "robotC",
+     "shake": 0.2
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "yawTo": 4,
+   "pitchTo": 6,
+   "fgBlur": {
+    "side": "right",
+    "blur": 0.8
+   },
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 18,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 20,
+     "intensity": 0.4
+    }
+   }
+  },
+  {
+   "start": 18.01,
+   "anchor": [
+    420.0,
+    1.25,
+    -2.5
+   ],
+   "distance": 4.6,
+   "yaw": 12,
+   "pitch": 4,
+   "zoom": 12,
+   "pan": [
+    -15,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.5,
+     "who": "robotC",
+     "face": "dizzy",
+     "shake": 0.3
+    },
+    {
+     "at": 1.3,
+     "who": "again_13",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "again_13",
+     "to": [
+      420.062,
+      1.991,
+      -2.207
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 18,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 20,
+     "intensity": 0.4
+    }
+   }
+  },
+  {
+   "start": 19.35,
+   "anchor": [
+    420.0,
+    1.15,
+    -2.5
+   ],
+   "distance": 4.0,
+   "yaw": -12,
+   "pitch": 3,
+   "zoom": 10,
+   "pan": [
+    15,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "robotC",
+     "face": "dizzy",
+     "shake": 0.5
+    },
+    {
+     "at": 1.86,
+     "who": "billion_14",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "billion_14",
+     "to": [
+      419.938,
+      1.64,
+      -2.207
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "type": "macro",
+   "dof": {
+    "focus": "robotC",
+    "blur": 0.5
+   },
+   "frameY": 0.0,
+   "snap": {
+    "t": 0.15,
+    "zoom": 14,
+    "dur": 0.28
+   },
+   "atmos": {
+    "dust": {
+     "count": 18,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 20,
+     "intensity": 0.4
+    }
+   }
+  },
+  {
+   "start": 21.25,
+   "anchor": [
+    210.6,
+    1.5,
+    -2.9
+   ],
+   "distance": 7.147,
+   "yaw": -16,
+   "pitch": 7,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "toast",
+     "pose": {
+      "armR": -120
+     }
+    },
+    {
+     "at": 0.0,
+     "who": "toast",
+     "face": "happy"
+    },
+    {
+     "at": 0.55,
+     "who": "toast",
+     "face": "smug"
+    },
+    {
+     "at": 1.1,
+     "who": "toast",
+     "face": "happy"
+    },
+    {
+     "at": 1.88,
+     "who": "fix_15",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "fix_15",
+     "to": [
+      210.522,
+      2.207,
+      -2.61
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "yawTo": 2,
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.35
+    }
+   }
+  },
+  {
+   "start": 23.17,
+   "anchor": [
+    210.6,
+    2.0,
+    -3.3
+   ],
+   "distance": 6.6,
+   "yaw": 0,
+   "pitch": 4,
+   "zoom": 6,
+   "pan": [
+    -15,
+    0
+   ],
+   "actions": [],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "type": "cutaway",
+   "long": true,
+   "diagram": {
+    "kind": "bars",
+    "title": "THE WAIT",
+    "items": [
+     "6 MINUTES",
+     "UNDER 2"
+    ]
+   },
+   "frameY": 0.0
+  },
+  {
+   "start": 24.63,
+   "anchor": [
+    490.0,
+    1.4,
+    -2.7
+   ],
+   "distance": 9.528,
+   "yaw": 22,
+   "pitch": 30,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "toastS",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     }
+    },
+    {
+     "at": 0.0,
+     "who": "bossS",
+     "shake": 0.4
+    },
+    {
+     "at": 0.0,
+     "who": "toastS",
+     "face": "happy"
+    },
+    {
+     "at": 0.55,
+     "who": "toastS",
+     "face": "shouting"
+    },
+    {
+     "at": 1.1,
+     "who": "toastS",
+     "face": "happy"
+    },
+    {
+     "at": 1.5,
+     "who": "gone_16",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "gone_16",
+     "to": [
+      490.106,
+      2.68,
+      -2.419
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "yawTo": 2,
+   "pitchTo": 5,
+   "frameY": 0.0,
+   "snap": {
+    "t": 0.6,
+    "zoom": 14,
+    "dur": 0.28
+   },
+   "atmos": {
+    "dust": {
+     "count": 16,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 40,
+     "intensity": 0.55
+    }
+   }
+  },
+  {
+   "start": 26.17,
+   "anchor": [
+    560.05,
+    1.5,
+    -2.6
+   ],
+   "distance": 9.0,
+   "yaw": -20,
+   "pitch": 32,
+   "zoom": 8,
+   "pan": [
+    51.3,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "rep",
+     "pose": {
+      "armR": -120
+     }
+    },
+    {
+     "at": 0.0,
+     "who": "rep",
+     "face": "happy"
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "yawTo": -2,
+   "pitchTo": 6,
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.35
+    },
+    "rays": {
+     "angle": 22,
+     "intensity": 0.5
+    }
+   }
+  },
+  {
+   "start": 26.93,
+   "anchor": [
+    559.1,
+    1.45,
+    -2.3
+   ],
+   "distance": 4.664,
+   "yaw": 12,
+   "pitch": 5,
+   "zoom": 12,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "toastH",
+     "face": "shocked"
+    },
+    {
+     "at": 0.55,
+     "who": "toastH",
+     "face": "happy"
+    },
+    {
+     "at": 1.04,
+     "who": "cheque_17",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "cheque_17",
+     "to": [
+      559.162,
+      2.044,
+      -2.007
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.35
+    },
+    "rays": {
+     "angle": 22,
+     "intensity": 0.5
+    }
+   }
+  },
+  {
+   "start": 28.01,
+   "anchor": [
+    561.0,
+    1.45,
+    -2.6
+   ],
+   "distance": 4.719,
+   "yaw": 10,
+   "pitch": 4,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "rep",
+     "face": "smug"
+    },
+    {
+     "at": 0.55,
+     "who": "rep",
+     "face": "happy"
+    },
+    {
+     "at": 1.1,
+     "who": "rep",
+     "face": "smug"
+    },
+    {
+     "at": 1.5,
+     "who": "promise_18",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "promise_18",
+     "to": [
+      561.047,
+      2.234,
+      -2.304
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "yawTo": -4,
+   "dof": {
+    "focus": "rep",
+    "blur": 0.4
+   },
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.35
+    },
+    "rays": {
+     "angle": 22,
+     "intensity": 0.5
+    }
+   }
+  },
+  {
+   "start": 29.55,
+   "anchor": [
+    630.1,
+    1.6,
+    -3.2
+   ],
+   "distance": 11.236,
+   "yaw": 18,
+   "pitch": 34,
+   "zoom": 8,
+   "pan": [
+    59.1,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "cop",
+     "face": "smug"
+    },
+    {
+     "at": 0.62,
+     "who": "yrs7_19",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "yrs7_19",
+     "to": [
+      630.18,
+      2.807,
+      -2.911
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "yawTo": 0,
+   "pitchTo": 6,
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.4
+    }
+   }
+  },
+  {
+   "start": 30.21,
+   "anchor": [
+    629.0,
+    1.4,
+    -2.2
+   ],
+   "distance": 5.107,
+   "yaw": 12,
+   "pitch": 4,
+   "zoom": 12,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "cop",
+     "face": "neutral"
+    },
+    {
+     "at": 0.55,
+     "who": "cop",
+     "face": "confused"
+    },
+    {
+     "at": 1.1,
+     "who": "cop",
+     "face": "smug"
+    },
+    {
+     "at": 1.84,
+     "who": "toughest_20",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "toughest_20",
+     "to": [
+      629.062,
+      2.036,
+      -1.907
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "frameY": 0.0,
+   "snap": {
+    "t": 0.2,
+    "zoom": 14,
+    "dur": 0.28
+   },
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.4
+    }
+   }
+  },
+  {
+   "start": 32.09,
+   "anchor": [
+    630.35,
+    1.3,
+    -3.2
+   ],
+   "distance": 11.362,
+   "yaw": 6,
+   "pitch": 6,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "cop",
+     "face": "confused"
+    },
+    {
+     "at": 0.55,
+     "who": "cop",
+     "face": "nervous"
+    },
+    {
+     "at": 1.14,
+     "who": "notcops_21",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "notcops_21",
+     "to": [
+      630.377,
+      2.591,
+      -2.901
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "yawTo": -4,
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.4
+    }
+   }
+  },
+  {
+   "start": 33.27,
+   "anchor": [
+    0.0,
+    1.6,
+    -3.2
+   ],
+   "distance": 9.54,
+   "yaw": 24,
+   "pitch": 34,
+   "zoom": 8,
+   "pan": [
+    108.3,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "kid",
+     "to": [
+      -0.45,
+      0.04,
+      -1.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "boss",
+     "face": "default",
+     "shake": 0.4
+    },
+    {
+     "at": 0.0,
+     "who": "kid",
+     "face": "shocked"
+    },
+    {
+     "at": 0.32,
+     "who": "loadscr_22",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "loadscr_22",
+     "to": [
+      0.094,
+      2.963,
+      -2.915
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "yawTo": 2,
+   "pitchTo": 6,
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.35
+    },
+    "rays": {
+     "angle": 30,
+     "intensity": 0.45
+    }
+   }
+  },
+  {
+   "start": 33.63,
+   "anchor": [
+    -0.05,
+    1.7,
+    -2.7
+   ],
+   "distance": 6.868,
+   "yaw": -5,
+   "pitch": 5,
+   "zoom": -5,
+   "pan": [
+    31.0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "kid",
+     "pose": {
+      "armR": -150
+     }
+    },
+    {
+     "at": 0.0,
+     "who": "kid",
+     "face": "shouting"
+    },
+    {
+     "at": 0.55,
+     "who": "kid",
+     "face": "shocked"
+    },
+    {
+     "at": 0.05,
+     "who": "gtaon_23",
+     "to": [
+      -0.076,
+      2.559,
+      -2.401
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.35
+    },
+    "rays": {
+     "angle": 30,
+     "intensity": 0.45
+    }
+   }
+  }
+ ],
+ "end": "audio"
+}
