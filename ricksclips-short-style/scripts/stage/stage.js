@@ -380,6 +380,7 @@ window.setup = async (spec) => {
     shots.push({ start: s.start, dur: s.dur, n, T: driftTable(n), pan: s.pan || [0, 0], zoom: s.zoom ?? 6, snap: s.snap, raw: s, fov: s.fov || 40, glide: s.glide || 'lens',
       out: s.out === 'whip' ? 'glide' : (s.out || 'glide'), outDur: s.outDur, target: s.target, anchor: s.anchor ? new THREE.Vector3(...s.anchor) : null,
       headWidth: s.headWidth || 0.20, distance: s.distance, ox: s.frameX ?? 0, oy: s.frameY ?? 0.12,
+      arc: (s.yawTo !== undefined || s.pitchTo !== undefined) ? { y0: s.yaw || 0, p0: s.pitch ?? 6, y1: s.yawTo ?? (s.yaw || 0), p1: s.pitchTo ?? (s.pitch ?? 6) } : null,
       dir: new THREE.Vector3(Math.sin(yaw) * Math.cos(pitch), Math.sin(pitch), Math.cos(yaw) * Math.cos(pitch)) });
   }
   window.totalFrames = spec._frames;
@@ -393,16 +394,19 @@ function shotPose(k, t) {                                       // camera of sho
   const anchor = s.anchor ? s.anchor.clone() : ch.headAt(t);
   const t0 = Math.tan(rad(s.fov) / 2);
   const d0 = s.distance || (ch ? ch.headD / (s.headWidth * 2 * t0 * (W / H)) : 6);
-  const fwd = s.dir.clone().negate(), right = new THREE.Vector3().crossVectors(fwd, new THREE.Vector3(0, 1, 0)).normalize(), up = new THREE.Vector3().crossVectors(right, fwd).normalize();
+  let dir = s.dir;                                              // crane / orbit: yaw and pitch ease from (yaw, pitch) to (yawTo, pitchTo) over the shot
+  if (s.arc) { const u = Math.min(1, Math.max(0, (t - s.start) / s.dur)), e = 1 - (1 - u) * (1 - u), ay = rad(s.arc.y0 + (s.arc.y1 - s.arc.y0) * e), ap = rad(s.arc.p0 + (s.arc.p1 - s.arc.p0) * e);
+    dir = new THREE.Vector3(Math.sin(ay) * Math.cos(ap), Math.sin(ap), Math.cos(ay) * Math.cos(ap)); }
+  const fwd = dir.clone().negate(), right = new THREE.Vector3().crossVectors(fwd, new THREE.Vector3(0, 1, 0)).normalize(), up = new THREE.Vector3().crossVectors(right, fwd).normalize();
   let fov = s.fov;
   if (s.glide === 'dolly') {
     const d = d0 / p.scale, wpp = 2 * d * t0 / H;
     const look = anchor.clone().addScaledVector(right, -p.dx * wpp - s.ox * W * wpp).addScaledVector(up, p.dy * wpp - s.oy * H * wpp);
-    tmpCam.position.copy(look).addScaledVector(s.dir, d); tmpCam.lookAt(look);
+    tmpCam.position.copy(look).addScaledVector(dir, d); tmpCam.lookAt(look);
   } else {
     const tz = t0 / p.scale, wpp0 = 2 * d0 * t0 / H; fov = 2 * Math.atan(tz) * 180 / Math.PI;
     const look = anchor.clone().addScaledVector(right, -s.ox * W * wpp0).addScaledVector(up, -s.oy * H * wpp0);
-    tmpCam.position.copy(look).addScaledVector(s.dir, d0); tmpCam.lookAt(look);
+    tmpCam.position.copy(look).addScaledVector(dir, d0); tmpCam.lookAt(look);
     const pxAng = 2 * tz / H; tmpCam.rotateY(Math.atan(p.dx * pxAng)); tmpCam.rotateX(Math.atan(p.dy * pxAng));
   }
   return { pos: tmpCam.position.clone(), quat: tmpCam.quaternion.clone(), fov, anchor };
