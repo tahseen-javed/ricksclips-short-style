@@ -91,3 +91,14 @@ frame width in close-ups, cute characters (big round heads, shiny eyes, blush).
 - sticker_burst fits about 5 characters (SHHH!, BANG!); longer text (RAT-A-TAT!) is cut by the star.
 - Tokens: about 570K new, mostly cache writes from waking a long chat after each 40-minute render. Start every video in a fresh chat.
 - Music: western showdown + bush-band country + surf chase + tense pulse: emuwar/tools/make_music.py.
+
+## Video 10 (GTA 6 launch, Nov 19 / Nov 18) -> projects/gta6
+- rel(s, phrase) must search from the shot start: say("November") always returned the FIRST "November", so cards keyed to repeated words showed up shots early. Fixed in gta6/tools/build_short.py (rel walks "#k" matches).
+- Card fit: never pull cards toward one point (they stacked: MAY 26 hid under DELAYED). Now dx, dy, h shrink together toward the centre, plus an OVERLAP check in the scene report.
+- No painted text on set pictures (TV title, store sign, billboard header): close shots crop it. Words go on fitted cards only.
+- Snap-ins only on medium/close shots; on wide shots the 25 % punch pushes people off the edge.
+- Comic fx duration is clamped to the shot end (a sweat drop spilled into the next set, huge).
+- Cutaway paper must be darker (#dcc49a/#c9a878), or the stills check flags TOO_BRIGHT.
+- Engine pops cards and captions in from zero size, so frame 0 shows neither, even with the card parked in place and word 1 at t0 = 0. For HOOK LAW A/B, next video: skip the pop for anything that starts at t = 0 (stage.js caption + show).
+- Music: trap 140 bpm + 8-bit chiptune 150 bpm + ticking clock pulse (gta6/tools/make_music.py).
+- Tokens: about 440K new (138K output). Cause: long planning output and a stills run plus two full runs. Next video: copy projects/gta6/tools, short planning, fresh chat.
