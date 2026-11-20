@@ -316,13 +316,14 @@ if __name__ == '__main__':
                  miners55=plaque('55 MINERS', 'RAN!', (40, 90, 180, 255), WHITE, 900, border=YEL, bs=170, ss=100, sc=YEL),
                  escaped=neon('ALL 55', 'ESCAPED!', 900, LIME, GOLDL),
                  gulf=plaque('SALT WATER', 'FROM THE GULF', (20, 150, 170, 255), WHITE, 960, border=WHITE, bs=160, ss=84, sc=(255, 240, 160, 255)),
+                 refilled=stamp('THE CANAL REFILLED IT!', 1060, (30, 130, 200, 255), 84, -3),
                  still=plaque('LAKE PEIGNEUR', 'IS STILL THERE', (90, 60, 150, 255), WHITE, 980, border=GOLDL, bs=130, ss=84, sc=GOLDL),
                  notsame=stamp('NOT THE SAME LAKE', 1000, (230, 110, 40, 255), 100, -4))
     for nm, im in cards.items(): G.build_card(nm, {'default': im}); items.append((nm, im))
     json.dump({nm: round(im.width / im.height, 3) for nm, im in list(cards.items()) + [(k, v['default']) for k, v in multi.items()]}, open(os.path.join(ROOT, 'aspect.json'), 'w'))
     T = lambda n: os.path.join(ROOT, 'textures', n)
     B.tex_wood(T('wood.jpg')); CE.tiles(T('pave.jpg'), (120, 150, 140), (104, 134, 126))
-    water(T('lake.jpg'), (50, 150, 160), (120, 210, 210)); water(T('lily.jpg'), (110, 160, 170), (180, 220, 220)); water(T('noon.jpg'), (80, 170, 225), (200, 240, 255))
+    water(T('lake.jpg'), (50, 150, 160), (120, 210, 210)); water(T('lily.jpg'), (60, 170, 180), (170, 236, 230)); water(T('noon.jpg'), (80, 170, 225), (200, 240, 255))
     water(T('stormw.jpg'), (60, 120, 110), (140, 200, 180)); water(T('canal.jpg'), (90, 180, 200), (220, 250, 255)); water(T('flood.jpg'), (60, 150, 200), (200, 240, 255))
     water(T('sea.jpg'), (40, 180, 200), (210, 255, 255)); water(T('dusk.jpg'), (120, 100, 170), (255, 200, 150))
     CE.tiles(T('steel.jpg'), (110, 120, 136), (96, 106, 122)); CE.tiles(T('salt.jpg'), (246, 220, 230), (232, 204, 220)); B.tex_grass(T('grass.jpg'))

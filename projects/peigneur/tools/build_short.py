@@ -136,7 +136,7 @@ def cfx(s, t, typ, on, dur=0.9): FXC.append((s, t, typ, on, dur))
 HOOK = dict(anchor=(-0.12, 1.3, -1.45), dist=8.6, yaw=-6, pitch=10)
 # ---- 0-2.6 hook: A hole the size of a pizza swallowed an entire lake.
 s = S("0", "WH", zoom=7, pan=(-3, 0), **HOOK); ft(s, "fisher", ["shocked", "shouting", "shocked"]); act(s, 0.0, "fisher", pose=dict(armR=-150)); act(s, 0.1, "pizza", shake=0.3)
-tag(s, 0.0, "pizzahole", 0.3, 0.0, wf=0.6, hf=0.2); snap(s, rel(s, "pizza"), 12)
+tag(s, 0.0, "pizzahole", 0.3, 0.0, wf=0.6, hf=0.2); snap(s, max(0.82, rel(s, "pizza")), 12)
 s = crane("swallowed an", "WH", (0.0, 0.8, -2.6), 9.5, 26, 6, 46, 18); ft(s, "fisher", ["shouting", "shocked"]); act(s, 0.0, "pizza", shake=0.4); tag(s, 0.05, "entire", 0.33, wf=0.5)
 # ---- November 20, 1980. Texaco was drilling in Louisiana's Lake Peigneur, just 10 feet deep.
 s = crane("November", "BY", (0.4, 1.8, -3.0), 8.0, -24, -2, 36, 6); tag(s, 0.05, "date", 0.2, -0.1, wf=0.34, hf=0.36)
@@ -153,7 +153,7 @@ act(s, 0.3, "barge1", shake=0.4); go(s, 0.5, "barge1", pos("SK", -0.5, -0.35, -2
 s = S("11 barges", "SK", (0.0, 2.0, -3.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="timeline", title="SWALLOWED", items=["THE RIG", "11 BARGES", "65 ACRES OF LAND"]))
 # ---- A canal flowed backward into a 150-foot waterfall.
 s = crane("A canal flowed", "WF", (0.0, 1.8, -4.0), 9.0, -22, 0, 34, 8); tag(s, 0.05, "backward", 0.32, wf=0.6, hf=0.14); go(s, 0.0, "gullW", pos("WF", -0.4, 2.9, -3.5), 1.6, walk=False)
-s = S("into a", "WF", (0.0, 1.6, -4.6), 6.4, 8, pitch=4, zoom=12, pan=(0, 0)); tag(s, 0.05, "falls150", 0.31, wf=0.5); snap(s, 0.3, 14)
+s = S("into a", "WF", (0.0, 1.6, -4.6), 6.4, 8, pitch=4, zoom=12, pan=(0, 0), _dis=1); hide(s, 0.0, "gullW"); tag(s, 0.05, "falls150", 0.31, wf=0.5); snap(s, 0.3, 14)
 # ---- You see, right under the lake sat a salt mine. The drill punched straight into its tunnels, and the whole lake drained down.
 s = crane("You see", "SM", (0.0, 2.2, -3.6), 10.0, 20, 0, 36, 6); ft(s, "minerS", ["happy", "smug"])
 s = S("sat a salt", "SM", (-0.3, 1.4, -2.4), 5.4, -12, pitch=6, zoom=10, pan=(3, 0)); ft(s, "minerS", ["happy", "confused"]); tag(s, 0.05, "saltmine", 0.31, wf=0.56)
@@ -168,12 +168,12 @@ cfx(s, 0.3, "speed", "m2", 0.8)
 s = crane("and every one", "EX", (0.0, 1.5, -2.6), 7.4, 18, -2, 30, 8); tag(s, 0.05, "escaped", 0.31, wf=0.5); snap(s, 0.3, 14)
 for m in ("e1", "e2", "e3"): act(s, 0.0, m, pose=dict(armR=-150, armL=150)); ft(s, m, ["happy", "shouting"])
 # ---- The canal refilled it with salt water from the Gulf.
-s = crane("The canal refilled", "GF", (0.0, 1.8, -3.4), 9.0, -18, 4, 36, 8); go(s, 0.0, "g1", pos("GF", -0.5, 2.4, -3.0), 1.4, walk=False); go(s, 0.0, "g2", pos("GF", 0.4, 2.9, -3.6), 1.4, walk=False)
+s = crane("The canal refilled", "GF", (0.0, 1.8, -3.4), 9.0, -18, 4, 36, 8); go(s, 0.0, "g1", pos("GF", -0.5, 2.4, -3.0), 1.4, walk=False); go(s, 0.0, "g2", pos("GF", 0.4, 2.9, -3.6), 1.4, walk=False); tag(s, 0.05, "refilled", 0.2, wf=0.6, hf=0.14)
 s = S("salt water", "GF", (0.0, 1.9, -3.4), 6.6, 10, pitch=6, zoom=10, pan=(3, 0)); tag(s, 0.05, "gulf", 0.31, wf=0.52)
 # ---- Lake Peigneur is still there. It's just not the same lake.
 s = crane("Peigneur is", "NL", (0.0, 1.7, -2.6), 9.0, 20, 2, 32, 6); ft(s, "fisherN", ["happy", "smug"]); tag(s, 0.05, "still", 0.31, wf=0.56)
 s = S("It's just", "NL", (-0.6, 1.55, -1.5), 4.4, -10, pitch=5, zoom=12, pan=(0, 0), dof=dict(focus="fisherN", blur=0.4)); ft(s, "fisherN", ["confused", "happy", "confused"])
-tag(s, 0.05, "notsame", 0.32, wf=0.6, hf=0.14); snap(s, 0.2, 14); cfx(s, 0.4, "question", "fisherN")
+tag(s, 0.05, "notsame", 0.32, wf=0.6, hf=0.14); snap(s, 0.2, 14); cfx(s, 0.4, "blush", "fisherN")
 # ---- All because of a hole the size of a pizza. (pull-out onto the hook frame)
 s = S("All because", "WH", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); ft(s, "fisher", ["shocked", "shouting", "shocked"]); show(s, 0.0, "fisher", FP, hop=0)
 act(s, 0.0, "pizza", shake=0.4); act(s, 0.0, "fisher", pose=dict(armR=-150)); tag(s, 0.05, "pizzahole", 0.3, 0.0, wf=0.6, hf=0.2)
