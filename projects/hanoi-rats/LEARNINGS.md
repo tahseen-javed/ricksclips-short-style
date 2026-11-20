@@ -112,3 +112,13 @@ frame width in close-ups, cute characters (big round heads, shiny eyes, blush).
 - `_dis=1` on a shot forces a dissolve instead of a glide (needed when a character is swapped in/out between same-set shots).
 - Never put a comic fx (bang) on a prop that sits under a card: it lands on the text.
 - Music: boss rock 150/160 bpm + bossa waiting music 118 bpm + electro arp 112 bpm + piano house 124 bpm.
+
+## Video 13 (Lake Peigneur, pizza-sized hole) -> projects/peigneur
+- Template: copy projects/peigneur/tools. build_short.py was spliced with a small python script (replace SETS..SHOTS, HOOK..frameY, ATM, MOOD, moods, CUE by markers); make_assets.py only adds hard-hat / straw-hat overlays, props, 11 set pictures, water + swirl textures (flat whirlpool = textured thin box on the floor, great for top-down cranes).
+- 2 cloud runs only (stills, then full), 0 fix renders: fake-word dry run -> CUT fixes -> camcheck PASS -> stills run -> one contact sheet -> small fixes + real-word recheck -> full.
+- Real voice was 31.9 s (am_fenrir 1.28, 118 words); with real words the hook snap fell at 0.72 s: write snap(s, max(0.82, rel(...))).
+- Autofit widened most crane shots x1.2-1.26: start cranes about 1.2x farther than the first guess.
+- A prop flying in one shot (gull) can sit in front of the next shot's card: hide it there and use _dis=1. The "question" fx lands on the card in close-ups; use blush/sweat.
+- HOOK dist must already fit at the snap peak (autofit on shot 0 breaks the loop match with the last shot).
+- Music: taiko storm 128/136 + Cajun two-step 132/120 + salt-mine mystery 110 + bluegrass chase 160.
+- Tokens: about 303K new (97K output, 205K cache writes), over the 250K allowance.
