@@ -1,0 +1,3247 @@
+{
+ "fps": 30,
+ "audio": {
+  "voice": "audio/voice.mp3",
+  "music": "audio/music.mp3",
+  "musicDb": -11
+ },
+ "words": "audio/words.json",
+ "captions": {
+  "wordsPer": 1
+ },
+ "font": "fonts/Montserrat-ExtraBold.ttf",
+ "contactShadow": 0.6,
+ "seed": 13,
+ "moods": {
+  "whirl": {
+   "sun": {
+    "azimuth": -30,
+    "elevation": 22,
+    "color": "#ffb070",
+    "intensity": 2.3
+   },
+   "sky": {
+    "top": "#18465a",
+    "horizon": "#ff9a50"
+   },
+   "fill": {
+    "sky": "#80e0e0",
+    "ground": "#305050",
+    "intensity": 1.4
+   }
+  },
+  "bayou": {
+   "sun": {
+    "azimuth": 40,
+    "elevation": 15,
+    "color": "#ffd0b0",
+    "intensity": 2.3
+   },
+   "sky": {
+    "top": "#f08cb0",
+    "horizon": "#ffe0a0"
+   },
+   "fill": {
+    "sky": "#ffc0d0",
+    "ground": "#507060",
+    "intensity": 1.35
+   }
+  },
+  "noon": {
+   "sun": {
+    "azimuth": 40,
+    "elevation": 60,
+    "color": "#fffaf0",
+    "intensity": 2.5
+   },
+   "sky": {
+    "top": "#3a8af0",
+    "horizon": "#d0f0ff"
+   },
+   "fill": {
+    "sky": "#b0d8ff",
+    "ground": "#508040",
+    "intensity": 1.2
+   }
+  },
+  "deck": {
+   "sun": {
+    "azimuth": -60,
+    "elevation": 14,
+    "color": "#ffb060",
+    "intensity": 2.4
+   },
+   "sky": {
+    "top": "#784090",
+    "horizon": "#ffa050"
+   },
+   "fill": {
+    "sky": "#ffb090",
+    "ground": "#404050",
+    "intensity": 1.35
+   }
+  },
+  "storm": {
+   "sun": {
+    "azimuth": 160,
+    "elevation": 40,
+    "color": "#c0f0d0",
+    "intensity": 2.2
+   },
+   "sky": {
+    "top": "#3c1e5a",
+    "horizon": "#6eaa78"
+   },
+   "fill": {
+    "sky": "#b0a0ff",
+    "ground": "#305040",
+    "intensity": 1.5
+   }
+  },
+  "falls": {
+   "sun": {
+    "azimuth": 0,
+    "elevation": 30,
+    "color": "#ffe8b0",
+    "intensity": 2.4
+   },
+   "sky": {
+    "top": "#ffc070",
+    "horizon": "#ffecbe"
+   },
+   "fill": {
+    "sky": "#fff0c0",
+    "ground": "#607040",
+    "intensity": 1.3
+   }
+  },
+  "salt": {
+   "sun": {
+    "azimuth": 30,
+    "elevation": 50,
+    "color": "#fff0f4",
+    "intensity": 2.3
+   },
+   "sky": {
+    "top": "#f0c8dc",
+    "horizon": "#ffe8f0"
+   },
+   "fill": {
+    "sky": "#ffd0e8",
+    "ground": "#a07090",
+    "intensity": 1.4
+   }
+  },
+  "flood": {
+   "sun": {
+    "azimuth": 0,
+    "elevation": 50,
+    "color": "#c0f0ff",
+    "intensity": 2.4
+   },
+   "sky": {
+    "top": "#286e82",
+    "horizon": "#96d2dc"
+   },
+   "fill": {
+    "sky": "#80e0ff",
+    "ground": "#305a70",
+    "intensity": 1.6
+   }
+  },
+  "escape": {
+   "sun": {
+    "azimuth": -40,
+    "elevation": 18,
+    "color": "#ffe0a0",
+    "intensity": 2.4
+   },
+   "sky": {
+    "top": "#ffaa5a",
+    "horizon": "#ffeca0"
+   },
+   "fill": {
+    "sky": "#fff0b0",
+    "ground": "#608040",
+    "intensity": 1.3
+   }
+  },
+  "gulf": {
+   "sun": {
+    "azimuth": 40,
+    "elevation": 60,
+    "color": "#fffaf0",
+    "intensity": 2.5
+   },
+   "sky": {
+    "top": "#3caae6",
+    "horizon": "#dcfaff"
+   },
+   "fill": {
+    "sky": "#b0f0ff",
+    "ground": "#408080",
+    "intensity": 1.2
+   }
+  },
+  "dusk": {
+   "sun": {
+    "azimuth": 200,
+    "elevation": 20,
+    "color": "#ffc890",
+    "intensity": 2.3
+   },
+   "sky": {
+    "top": "#463282",
+    "horizon": "#ffaa6e"
+   },
+   "fill": {
+    "sky": "#c0a0ff",
+    "ground": "#504070",
+    "intensity": 1.5
+   }
+  }
+ },
+ "lighting": [
+  {
+   "t": 0,
+   "mood": "whirl"
+  },
+  {
+   "t": 2.18,
+   "mood": "bayou",
+   "fade": 0.4
+  },
+  {
+   "t": 3.92,
+   "mood": "noon",
+   "fade": 0.4
+  },
+  {
+   "t": 7.56,
+   "mood": "deck",
+   "fade": 0.4
+  },
+  {
+   "t": 9.27,
+   "mood": "storm",
+   "fade": 0.4
+  },
+  {
+   "t": 14.47,
+   "mood": "falls",
+   "fade": 0.4
+  },
+  {
+   "t": 17.35,
+   "mood": "salt",
+   "fade": 0.4
+  },
+  {
+   "t": 20.99,
+   "mood": "flood",
+   "fade": 0.4
+  },
+  {
+   "t": 23.73,
+   "mood": "escape",
+   "fade": 0.4
+  },
+  {
+   "t": 24.75,
+   "mood": "gulf",
+   "fade": 0.4
+  },
+  {
+   "t": 27.22,
+   "mood": "dusk",
+   "fade": 0.4
+  },
+  {
+   "t": 29.48,
+   "mood": "whirl",
+   "fade": 0.4
+  }
+ ],
+ "ground": {
+  "texture": "textures/pave.jpg",
+  "repeat": [
+   175,
+   175
+  ],
+  "size": 1400
+ },
+ "backdrop": {
+  "image": "bg/sky.jpg",
+  "blur": 4
+ },
+ "ink": {
+  "set": 4
+ },
+ "fxLook": {
+  "ink": "#271925",
+  "accent": "#ff9a3c",
+  "paper": [
+   "#dcc49a",
+   "#c9a878"
+  ],
+  "dofPx": 8,
+  "particle": "#ffe6b0",
+  "bokehColor": "#a0c8ff",
+  "ray": "#fff1c8",
+  "raySide": 1
+ },
+ "fx": [
+  {
+   "type": "bang",
+   "on": "minerS",
+   "t": 20.15,
+   "dur": 0.6
+  },
+  {
+   "type": "question",
+   "on": "fisherN",
+   "t": 28.9,
+   "dur": 0.68
+  }
+ ],
+ "characters": [
+  {
+   "id": "fisher",
+   "puppet": "puppets/fisher",
+   "pos": [
+    -0.85,
+    0.34,
+    -1.25
+   ],
+   "height": 1.8,
+   "face": "shocked"
+  },
+  {
+   "id": "pizza",
+   "puppet": "puppets/pizza",
+   "pos": [
+    0.5,
+    0.06,
+    -1.6
+   ],
+   "height": 1.1,
+   "face": "shocked"
+  },
+  {
+   "id": "gullB",
+   "puppet": "puppets/gull",
+   "pos": [
+    71.7,
+    1.2,
+    -3.2
+   ],
+   "height": 0.5,
+   "face": "default"
+  },
+  {
+   "id": "rig",
+   "puppet": "puppets/rig",
+   "pos": [
+    140.8,
+    0.04,
+    -3.6
+   ],
+   "height": 3.6,
+   "face": "default"
+  },
+  {
+   "id": "pole",
+   "puppet": "puppets/pole",
+   "pos": [
+    138.8,
+    0.04,
+    -1.6
+   ],
+   "height": 1.7,
+   "face": "default"
+  },
+  {
+   "id": "driller",
+   "puppet": "puppets/driller",
+   "pos": [
+    209.4,
+    0.04,
+    -2.0
+   ],
+   "height": 1.8,
+   "face": "nervous"
+  },
+  {
+   "id": "bit",
+   "puppet": "puppets/bit",
+   "pos": [
+    210.8,
+    0.04,
+    -2.6
+   ],
+   "height": 2.2,
+   "face": "default"
+  },
+  {
+   "id": "rigS",
+   "puppet": "puppets/rig",
+   "pos": [
+    280.0,
+    0.04,
+    -4.2
+   ],
+   "height": 2.8,
+   "face": "default"
+  },
+  {
+   "id": "barge1",
+   "puppet": "puppets/barge",
+   "pos": [
+    279.2,
+    0.04,
+    -2.3
+   ],
+   "height": 0.6,
+   "face": "default"
+  },
+  {
+   "id": "barge2",
+   "puppet": "puppets/barge",
+   "pos": [
+    280.9,
+    0.04,
+    -3.0
+   ],
+   "height": 0.55,
+   "face": "default"
+  },
+  {
+   "id": "gullW",
+   "puppet": "puppets/gull",
+   "pos": [
+    348.7,
+    2.6,
+    -3.5
+   ],
+   "height": 0.55,
+   "face": "default"
+  },
+  {
+   "id": "minerS",
+   "puppet": "puppets/miner",
+   "pos": [
+    419.4,
+    0.04,
+    -2.2
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "bitS",
+   "puppet": "puppets/bit",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.8,
+   "face": "default"
+  },
+  {
+   "id": "m1",
+   "puppet": "puppets/miner",
+   "pos": [
+    488.8,
+    0.04,
+    -2.6
+   ],
+   "height": 1.8,
+   "face": "shocked"
+  },
+  {
+   "id": "m2",
+   "puppet": "puppets/miner",
+   "pos": [
+    489.6,
+    0.04,
+    -3.1
+   ],
+   "height": 1.8,
+   "face": "shocked"
+  },
+  {
+   "id": "m3",
+   "puppet": "puppets/miner",
+   "pos": [
+    490.4,
+    0.04,
+    -2.7
+   ],
+   "height": 1.8,
+   "face": "shocked"
+  },
+  {
+   "id": "e1",
+   "puppet": "puppets/miner",
+   "pos": [
+    559.1,
+    0.04,
+    -2.4
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "e2",
+   "puppet": "puppets/miner",
+   "pos": [
+    560.0,
+    0.04,
+    -2.9
+   ],
+   "height": 1.8,
+   "face": "shouting"
+  },
+  {
+   "id": "e3",
+   "puppet": "puppets/miner",
+   "pos": [
+    560.9,
+    0.04,
+    -2.4
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "g1",
+   "puppet": "puppets/gull",
+   "pos": [
+    628.7,
+    2.2,
+    -3.0
+   ],
+   "height": 0.6,
+   "face": "default"
+  },
+  {
+   "id": "g2",
+   "puppet": "puppets/gull",
+   "pos": [
+    631.1,
+    2.7,
+    -3.6
+   ],
+   "height": 0.5,
+   "face": "default"
+  },
+  {
+   "id": "fisherN",
+   "puppet": "puppets/fisher",
+   "pos": [
+    699.4,
+    0.34,
+    -1.5
+   ],
+   "height": 1.8,
+   "face": "happy"
+  },
+  {
+   "id": "pizzahole_1",
+   "puppet": "puppets/pizzahole",
+   "pos": [
+    -0.151,
+    2.196,
+    -1.152
+   ],
+   "height": 0.896,
+   "face": "default"
+  },
+  {
+   "id": "entire_2",
+   "puppet": "puppets/entire",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.889,
+   "face": "default"
+  },
+  {
+   "id": "date_3",
+   "puppet": "puppets/date",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 2.273,
+   "face": "default"
+  },
+  {
+   "id": "texaco_4",
+   "puppet": "puppets/texaco",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.017,
+   "face": "default"
+  },
+  {
+   "id": "lakename_5",
+   "puppet": "puppets/lakename",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.66,
+   "face": "default"
+  },
+  {
+   "id": "ft10_6",
+   "puppet": "puppets/ft10",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.528,
+   "face": "default"
+  },
+  {
+   "id": "inch14_7",
+   "puppet": "puppets/inch14",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.76,
+   "face": "default"
+  },
+  {
+   "id": "spin_8",
+   "puppet": "puppets/spin",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.769,
+   "face": "default"
+  },
+  {
+   "id": "rigsw_9",
+   "puppet": "puppets/rigsw",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.137,
+   "face": "default"
+  },
+  {
+   "id": "backward_10",
+   "puppet": "puppets/backward",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.806,
+   "face": "default"
+  },
+  {
+   "id": "falls150_11",
+   "puppet": "puppets/falls150",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.833,
+   "face": "default"
+  },
+  {
+   "id": "saltmine_12",
+   "puppet": "puppets/saltmine",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.574,
+   "face": "default"
+  },
+  {
+   "id": "tunnels_13",
+   "puppet": "puppets/tunnels",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.501,
+   "face": "default"
+  },
+  {
+   "id": "drained_14",
+   "puppet": "puppets/drained",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.075,
+   "face": "default"
+  },
+  {
+   "id": "miners55_15",
+   "puppet": "puppets/miners55",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 1.13,
+   "face": "default"
+  },
+  {
+   "id": "escaped_16",
+   "puppet": "puppets/escaped",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.963,
+   "face": "default"
+  },
+  {
+   "id": "gulf_17",
+   "puppet": "puppets/gulf",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.66,
+   "face": "default"
+  },
+  {
+   "id": "still_18",
+   "puppet": "puppets/still",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.986,
+   "face": "default"
+  },
+  {
+   "id": "notsame_19",
+   "puppet": "puppets/notsame",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.321,
+   "face": "default"
+  },
+  {
+   "id": "pizzahole_20",
+   "puppet": "puppets/pizzahole",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.913,
+   "face": "default"
+  }
+ ],
+ "props": [
+  {
+   "type": "plane",
+   "image": "props/whirlbg.png",
+   "pos": [
+    0,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    0,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/lake.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    0.3,
+    0.04,
+    -3.6
+   ],
+   "size": [
+    5.2,
+    0.03,
+    4.0
+   ],
+   "texture": "textures/swirl.jpg",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    -1.5,
+    0.04,
+    -1.3
+   ],
+   "size": [
+    2.2,
+    0.3,
+    1.6
+   ],
+   "texture": "textures/wood.jpg",
+   "repeat": [
+    2,
+    2
+   ]
+  },
+  {
+   "type": "post",
+   "pos": [
+    -2.5,
+    0,
+    -2.0
+   ],
+   "h": 0.75,
+   "color": "#5a3a2a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    -0.5,
+    0,
+    -2.0
+   ],
+   "h": 0.75,
+   "color": "#5a3a2a"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    -4.0,
+    0,
+    -4.6
+   ],
+   "scale": 0.9,
+   "color": "#3f7a5a"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    4.2,
+    0,
+    -4.4
+   ],
+   "scale": 0.8,
+   "color": "#3f7a5a"
+  },
+  {
+   "type": "plane",
+   "image": "props/bayou.png",
+   "pos": [
+    70,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    70,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/lily.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "tree",
+   "pos": [
+    66.4,
+    0,
+    -3.8
+   ],
+   "scale": 1.0,
+   "color": "#4f8a5a"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    73.8,
+    0,
+    -4.2
+   ],
+   "scale": 0.9,
+   "color": "#4f8a5a"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    67.8,
+    0,
+    -5.0
+   ],
+   "scale": 0.7,
+   "color": "#4f8a5a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    68.6,
+    0.04,
+    -1.8
+   ],
+   "size": [
+    0.6,
+    0.02,
+    0.4
+   ],
+   "color": "#5aa060"
+  },
+  {
+   "type": "box",
+   "pos": [
+    70.9,
+    0.04,
+    -2.6
+   ],
+   "size": [
+    0.6,
+    0.02,
+    0.4
+   ],
+   "color": "#5aa060"
+  },
+  {
+   "type": "box",
+   "pos": [
+    72.2,
+    0.04,
+    -1.6
+   ],
+   "size": [
+    0.6,
+    0.02,
+    0.4
+   ],
+   "color": "#5aa060"
+  },
+  {
+   "type": "box",
+   "pos": [
+    67.4,
+    0.04,
+    -2.8
+   ],
+   "size": [
+    0.6,
+    0.02,
+    0.4
+   ],
+   "color": "#5aa060"
+  },
+  {
+   "type": "post",
+   "pos": [
+    71.7,
+    0,
+    -3.2
+   ],
+   "h": 1.2,
+   "color": "#5a3a2a"
+  },
+  {
+   "type": "plane",
+   "image": "props/lakenoon.png",
+   "pos": [
+    140,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    140,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/noon.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    137.2,
+    0.04,
+    -2.6
+   ],
+   "size": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "color": "#ff8a30"
+  },
+  {
+   "type": "box",
+   "pos": [
+    142.9,
+    0.04,
+    -2.2
+   ],
+   "size": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "color": "#ff8a30"
+  },
+  {
+   "type": "plane",
+   "image": "props/deck.png",
+   "pos": [
+    210,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    210,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/steel.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    207.0,
+    0.04,
+    -3.6
+   ],
+   "size": [
+    1.6,
+    0.5,
+    0.8
+   ],
+   "color": "#8a96a8"
+  },
+  {
+   "type": "crate",
+   "pos": [
+    212.9,
+    0.04,
+    -2.4
+   ],
+   "size": 0.6,
+   "rotY": 0,
+   "texture": "textures/wood.jpg"
+  },
+  {
+   "type": "crate",
+   "pos": [
+    213.3,
+    0.04,
+    -3.2
+   ],
+   "size": 0.5,
+   "rotY": 0,
+   "texture": "textures/wood.jpg"
+  },
+  {
+   "type": "post",
+   "pos": [
+    213.5,
+    0,
+    -4.0
+   ],
+   "h": 2.2,
+   "color": "#3a3f4a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    213.5,
+    2.2,
+    -4.0
+   ],
+   "size": [
+    0.36,
+    0.36,
+    0.36
+   ],
+   "color": "#fff0c0"
+  },
+  {
+   "type": "plane",
+   "image": "props/storm.png",
+   "pos": [
+    280,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    280,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/stormw.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    280,
+    0.04,
+    -3.2
+   ],
+   "size": [
+    6.0,
+    0.03,
+    4.4
+   ],
+   "texture": "textures/swirl2.jpg",
+   "repeat": [
+    1,
+    1
+   ]
+  },
+  {
+   "type": "tree",
+   "pos": [
+    276.0,
+    0,
+    -4.6
+   ],
+   "scale": 0.9,
+   "color": "#4a7a50"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    284.1,
+    0,
+    -4.8
+   ],
+   "scale": 0.8,
+   "color": "#4a7a50"
+  },
+  {
+   "type": "plane",
+   "image": "props/falls.png",
+   "pos": [
+    350,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    350,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/canal.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "tree",
+   "pos": [
+    347.1,
+    0,
+    -3.4
+   ],
+   "scale": 0.9,
+   "color": "#4f9a5a"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    353.0,
+    0,
+    -3.0
+   ],
+   "scale": 0.8,
+   "color": "#4f9a5a"
+  },
+  {
+   "type": "barrel",
+   "pos": [
+    347.8,
+    0,
+    -1.8
+   ]
+  },
+  {
+   "type": "barrel",
+   "pos": [
+    352.4,
+    0,
+    -2.2
+   ]
+  },
+  {
+   "type": "plane",
+   "image": "props/saltmine.png",
+   "pos": [
+    420,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    420,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/salt.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    417.0,
+    0.04,
+    -3.0
+   ],
+   "size": [
+    0.8,
+    2.6,
+    0.8
+   ],
+   "color": "#f4e6ee"
+  },
+  {
+   "type": "box",
+   "pos": [
+    423.1,
+    0.04,
+    -3.4
+   ],
+   "size": [
+    0.8,
+    2.6,
+    0.8
+   ],
+   "color": "#f4e6ee"
+  },
+  {
+   "type": "post",
+   "pos": [
+    418.1,
+    0,
+    -4.2
+   ],
+   "h": 2.2,
+   "color": "#7a5a70"
+  },
+  {
+   "type": "box",
+   "pos": [
+    418.1,
+    2.2,
+    -4.2
+   ],
+   "size": [
+    0.36,
+    0.36,
+    0.36
+   ],
+   "color": "#fff0a0"
+  },
+  {
+   "type": "plane",
+   "image": "props/tunnel.png",
+   "pos": [
+    490,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    490,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/flood.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    486.8,
+    0.04,
+    -3.4
+   ],
+   "size": [
+    0.8,
+    2.8,
+    0.8
+   ],
+   "color": "#f6e8f0"
+  },
+  {
+   "type": "box",
+   "pos": [
+    493.3,
+    0.04,
+    -3.0
+   ],
+   "size": [
+    0.8,
+    2.8,
+    0.8
+   ],
+   "color": "#f6e8f0"
+  },
+  {
+   "type": "plane",
+   "image": "props/escape.png",
+   "pos": [
+    560,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    560,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/grass.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "tree",
+   "pos": [
+    556.4,
+    0,
+    -3.6
+   ],
+   "scale": 0.9,
+   "color": "#5aa050"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    563.7,
+    0,
+    -4.0
+   ],
+   "scale": 1.0,
+   "color": "#5aa050"
+  },
+  {
+   "type": "plane",
+   "image": "props/gulf.png",
+   "pos": [
+    630,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    630,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/sea.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    627.4,
+    0.04,
+    -2.4
+   ],
+   "size": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "color": "#ff5a50"
+  },
+  {
+   "type": "box",
+   "pos": [
+    632.7,
+    0.04,
+    -2.0
+   ],
+   "size": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "color": "#ff5a50"
+  },
+  {
+   "type": "plane",
+   "image": "props/newlake.png",
+   "pos": [
+    700,
+    -0.2,
+    -6.5
+   ],
+   "size": [
+    16,
+    7.333
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    700,
+    0,
+    -1
+   ],
+   "size": [
+    16,
+    0.04,
+    12
+   ],
+   "texture": "textures/dusk.jpg",
+   "repeat": [
+    8,
+    8
+   ]
+  },
+  {
+   "type": "box",
+   "pos": [
+    699.4,
+    0.04,
+    -1.5
+   ],
+   "size": [
+    2.2,
+    0.3,
+    1.6
+   ],
+   "texture": "textures/wood.jpg",
+   "repeat": [
+    2,
+    2
+   ]
+  },
+  {
+   "type": "post",
+   "pos": [
+    698.4,
+    0,
+    -2.2
+   ],
+   "h": 0.75,
+   "color": "#5a3a2a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    700.4,
+    0,
+    -2.2
+   ],
+   "h": 0.75,
+   "color": "#5a3a2a"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    696.2,
+    0,
+    -4.2
+   ],
+   "scale": 0.9,
+   "color": "#3f6a5a"
+  },
+  {
+   "type": "tree",
+   "pos": [
+    703.9,
+    0,
+    -4.6
+   ],
+   "scale": 0.8,
+   "color": "#3f6a5a"
+  },
+  {
+   "type": "post",
+   "pos": [
+    701.6,
+    0,
+    -2.6
+   ],
+   "h": 1.7,
+   "color": "#4a3a5a"
+  },
+  {
+   "type": "box",
+   "pos": [
+    701.6,
+    1.7,
+    -2.6
+   ],
+   "size": [
+    0.36,
+    0.36,
+    0.36
+   ],
+   "color": "#fff0c0"
+  }
+ ],
+ "shots": [
+  {
+   "start": 0.0,
+   "anchor": [
+    -0.12,
+    1.3,
+    -1.45
+   ],
+   "distance": 8.6,
+   "yaw": -6,
+   "pitch": 10,
+   "zoom": 7,
+   "pan": [
+    -36.1,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "fisher",
+     "pose": {
+      "armR": -150
+     }
+    },
+    {
+     "at": 0.1,
+     "who": "pizza",
+     "shake": 0.3
+    },
+    {
+     "at": 0.0,
+     "who": "fisher",
+     "face": "shocked"
+    },
+    {
+     "at": 0.55,
+     "who": "fisher",
+     "face": "shouting"
+    },
+    {
+     "at": 1.04,
+     "who": "pizzahole_1",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "pizzahole_1",
+     "to": [
+      -0.151,
+      2.196,
+      -1.152
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "frameY": 0.0,
+   "snap": {
+    "t": 0.72,
+    "zoom": 12,
+    "dur": 0.28
+   },
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.35
+    },
+    "rays": {
+     "angle": 30,
+     "intensity": 0.45
+    }
+   }
+  },
+  {
+   "start": 1.08,
+   "anchor": [
+    0.0,
+    0.8,
+    -2.6
+   ],
+   "distance": 10.674,
+   "yaw": 26,
+   "pitch": 46,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "pizza",
+     "shake": 0.4
+    },
+    {
+     "at": 0.0,
+     "who": "fisher",
+     "face": "shouting"
+    },
+    {
+     "at": 0.55,
+     "who": "fisher",
+     "face": "shocked"
+    },
+    {
+     "at": 1.26,
+     "who": "entire_2",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "entire_2",
+     "to": [
+      0.124,
+      2.081,
+      -2.327
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "yawTo": 6,
+   "pitchTo": 18,
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.35
+    },
+    "rays": {
+     "angle": 30,
+     "intensity": 0.45
+    }
+   }
+  },
+  {
+   "start": 2.38,
+   "anchor": [
+    70.4,
+    1.8,
+    -3.0
+   ],
+   "distance": 10.1,
+   "yaw": -24,
+   "pitch": 36,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 1.7,
+     "who": "date_3",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "date_3",
+     "to": [
+      69.956,
+      1.926,
+      -2.861
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "yawTo": -2,
+   "pitchTo": 6,
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 22,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 28,
+     "intensity": 0.55
+    }
+   }
+  },
+  {
+   "start": 4.12,
+   "anchor": [
+    140.6,
+    1.9,
+    -3.4
+   ],
+   "distance": 9.0,
+   "yaw": 22,
+   "pitch": 34,
+   "zoom": 8,
+   "pan": [
+    37.5,
+    0
+   ],
+   "actions": [
+    {
+     "at": 1.0,
+     "who": "texaco_4",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "texaco_4",
+     "to": [
+      140.704,
+      3.245,
+      -3.119
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "yawTo": 4,
+   "pitchTo": 8,
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 18,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 35,
+     "intensity": 0.5
+    }
+   }
+  },
+  {
+   "start": 5.16,
+   "anchor": [
+    140.8,
+    2.0,
+    -3.6
+   ],
+   "distance": 6.8,
+   "yaw": -14,
+   "pitch": 6,
+   "zoom": 10,
+   "pan": [
+    15,
+    0
+   ],
+   "actions": [
+    {
+     "at": 1.46,
+     "who": "lakename_5",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "lakename_5",
+     "to": [
+      140.727,
+      2.873,
+      -3.309
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 18,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 35,
+     "intensity": 0.5
+    }
+   }
+  },
+  {
+   "start": 6.66,
+   "anchor": [
+    138.8,
+    0.95,
+    -1.6
+   ],
+   "distance": 4.4,
+   "yaw": -14,
+   "pitch": 5,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "rig",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.06,
+     "who": "ft10_6",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "ft10_6",
+     "to": [
+      138.733,
+      1.618,
+      -1.308
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "yawTo": -2,
+   "type": "macro",
+   "dof": {
+    "focus": "pole",
+    "blur": 0.5
+   },
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 18,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 35,
+     "intensity": 0.5
+    }
+   }
+  },
+  {
+   "start": 7.76,
+   "anchor": [
+    210.1,
+    1.35,
+    -2.3
+   ],
+   "distance": 8.079,
+   "yaw": 18,
+   "pitch": 30,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 1.29,
+     "who": "bit",
+     "shake": 0.5
+    },
+    {
+     "at": 0.0,
+     "who": "driller",
+     "face": "nervous"
+    },
+    {
+     "at": 0.55,
+     "who": "driller",
+     "face": "shocked"
+    },
+    {
+     "at": 1.1,
+     "who": "driller",
+     "face": "shouting"
+    },
+    {
+     "at": 1.67,
+     "who": "inch14_7",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "inch14_7",
+     "to": [
+      210.186,
+      2.356,
+      -2.013
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "yawTo": -4,
+   "pitchTo": 6,
+   "frameY": 0.0,
+   "snap": {
+    "t": 1.29,
+    "zoom": 14,
+    "dur": 0.28
+   },
+   "atmos": {
+    "dust": {
+     "count": 24,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 22,
+     "intensity": 0.5
+    }
+   }
+  },
+  {
+   "start": 9.47,
+   "anchor": [
+    280.0,
+    0.5,
+    -3.0
+   ],
+   "distance": 10.112,
+   "yaw": -28,
+   "pitch": 48,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 1.36,
+     "who": "spin_8",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "spin_8",
+     "to": [
+      279.871,
+      1.562,
+      -2.729
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "yawTo": 8,
+   "pitchTo": 26,
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.4
+    }
+   }
+  },
+  {
+   "start": 10.87,
+   "anchor": [
+    280.0,
+    1.4,
+    -3.4
+   ],
+   "distance": 9.767,
+   "yaw": 14,
+   "pitch": 12,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "rigS",
+     "shake": 0.4
+    },
+    {
+     "at": 0.15,
+     "who": "rigS",
+     "to": [
+      280.0,
+      -1.1,
+      -4.2
+     ],
+     "over": 1.2,
+     "walk": false
+    },
+    {
+     "at": 0.3,
+     "who": "barge1",
+     "shake": 0.4
+    },
+    {
+     "at": 0.5,
+     "who": "barge1",
+     "to": [
+      279.5,
+      -0.35,
+      -2.7
+     ],
+     "over": 1.0,
+     "walk": false
+    },
+    {
+     "at": 1.34,
+     "who": "rigsw_9",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.88,
+     "who": "rigsw_9",
+     "to": [
+      279.991,
+      2.905,
+      -3.1
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "yawTo": -4,
+   "pitchTo": 6,
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.4
+    }
+   }
+  },
+  {
+   "start": 12.25,
+   "anchor": [
+    280.0,
+    2.0,
+    -3.4
+   ],
+   "distance": 6.6,
+   "yaw": 0,
+   "pitch": 4,
+   "zoom": 6,
+   "pan": [
+    -15,
+    0
+   ],
+   "actions": [],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "type": "cutaway",
+   "long": true,
+   "diagram": {
+    "kind": "timeline",
+    "title": "SWALLOWED",
+    "items": [
+     "THE RIG",
+     "11 BARGES",
+     "65 ACRES OF LAND"
+    ]
+   },
+   "frameY": 0.0
+  },
+  {
+   "start": 14.67,
+   "anchor": [
+    350.0,
+    1.8,
+    -4.0
+   ],
+   "distance": 10.719,
+   "yaw": -22,
+   "pitch": 34,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "gullW",
+     "to": [
+      349.6,
+      2.9,
+      -3.5
+     ],
+     "over": 1.6,
+     "walk": false
+    },
+    {
+     "at": 1.08,
+     "who": "backward_10",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "backward_10",
+     "to": [
+      349.897,
+      3.238,
+      -3.718
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "yawTo": 0,
+   "pitchTo": 8,
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 20,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 38,
+     "intensity": 0.6
+    }
+   }
+  },
+  {
+   "start": 15.79,
+   "anchor": [
+    350.0,
+    1.6,
+    -4.6
+   ],
+   "distance": 8.079,
+   "yaw": 8,
+   "pitch": 4,
+   "zoom": 12,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 1.72,
+     "who": "falls150_11",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "falls150_11",
+     "to": [
+      350.042,
+      2.702,
+      -4.303
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "frameY": 0.0,
+   "snap": {
+    "t": 0.3,
+    "zoom": 14,
+    "dur": 0.28
+   },
+   "atmos": {
+    "dust": {
+     "count": 20,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 38,
+     "intensity": 0.6
+    }
+   }
+  },
+  {
+   "start": 17.55,
+   "anchor": [
+    420.0,
+    2.2,
+    -3.6
+   ],
+   "distance": 10.0,
+   "yaw": 20,
+   "pitch": 36,
+   "zoom": 8,
+   "pan": [
+    39.0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "minerS",
+     "face": "happy"
+    },
+    {
+     "at": 0.55,
+     "who": "minerS",
+     "face": "smug"
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "yawTo": 0,
+   "pitchTo": 6,
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 26,
+     "size": 1.0,
+     "drift": 1.0
+    }
+   }
+  },
+  {
+   "start": 18.55,
+   "anchor": [
+    419.7,
+    1.4,
+    -2.4
+   ],
+   "distance": 5.4,
+   "yaw": -12,
+   "pitch": 6,
+   "zoom": 10,
+   "pan": [
+    15,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "minerS",
+     "face": "happy"
+    },
+    {
+     "at": 0.55,
+     "who": "minerS",
+     "face": "confused"
+    },
+    {
+     "at": 0.86,
+     "who": "saltmine_12",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "saltmine_12",
+     "to": [
+      419.638,
+      2.16,
+      -2.107
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 26,
+     "size": 1.0,
+     "drift": 1.0
+    }
+   }
+  },
+  {
+   "start": 19.45,
+   "anchor": [
+    420.1,
+    1.5,
+    -2.6
+   ],
+   "distance": 7.861,
+   "yaw": 12,
+   "pitch": 8,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.15,
+     "who": "bitS",
+     "to": [
+      420.8,
+      1.3,
+      -2.8
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.2,
+     "who": "bitS",
+     "to": [
+      420.8,
+      0.5,
+      -2.8
+     ],
+     "over": 0.35,
+     "walk": false
+    },
+    {
+     "at": 0.55,
+     "who": "bitS",
+     "shake": 0.5
+    },
+    {
+     "at": 0.0,
+     "who": "minerS",
+     "face": "confused"
+    },
+    {
+     "at": 0.55,
+     "who": "minerS",
+     "face": "shocked"
+    },
+    {
+     "at": 1.1,
+     "who": "minerS",
+     "face": "shouting"
+    },
+    {
+     "at": 1.7,
+     "who": "tunnels_13",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.66,
+     "who": "tunnels_13",
+     "to": [
+      420.118,
+      2.482,
+      -2.301
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "yawTo": -2,
+   "frameY": 0.0,
+   "snap": {
+    "t": 0.6,
+    "zoom": 14,
+    "dur": 0.28
+   },
+   "atmos": {
+    "dust": {
+     "count": 26,
+     "size": 1.0,
+     "drift": 1.0
+    }
+   }
+  },
+  {
+   "start": 21.19,
+   "anchor": [
+    490.0,
+    1.8,
+    -3.0
+   ],
+   "distance": 10.112,
+   "yaw": -20,
+   "pitch": 34,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "m3",
+     "face": "shocked"
+    },
+    {
+     "at": 0.55,
+     "who": "m3",
+     "face": "shouting"
+    },
+    {
+     "at": 1.1,
+     "who": "m3",
+     "face": "shocked"
+    },
+    {
+     "at": 1.38,
+     "who": "drained_14",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "drained_14",
+     "to": [
+      489.905,
+      3.285,
+      -2.715
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "yawTo": 2,
+   "pitchTo": 6,
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.4
+    }
+   }
+  },
+  {
+   "start": 22.61,
+   "anchor": [
+    490.1,
+    1.3,
+    -2.8
+   ],
+   "distance": 10.004,
+   "yaw": 10,
+   "pitch": 5,
+   "zoom": 10,
+   "pan": [
+    -15,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "m1",
+     "to": [
+      489.4,
+      0.04,
+      -2.6
+     ],
+     "over": 1.2,
+     "walk": true
+    },
+    {
+     "at": 0.0,
+     "who": "m2",
+     "to": [
+      490.2,
+      0.04,
+      -3.1
+     ],
+     "over": 1.2,
+     "walk": true
+    },
+    {
+     "at": 0.0,
+     "who": "m3",
+     "to": [
+      491.0,
+      0.04,
+      -2.7
+     ],
+     "over": 1.2,
+     "walk": true
+    },
+    {
+     "at": 0.0,
+     "who": "m3",
+     "face": "shouting"
+    },
+    {
+     "at": 0.55,
+     "who": "m3",
+     "face": "shocked"
+    },
+    {
+     "at": 1.28,
+     "who": "miners55_15",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "miners55_15",
+     "to": [
+      490.152,
+      2.796,
+      -2.505
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.4
+    }
+   }
+  },
+  {
+   "start": 23.93,
+   "anchor": [
+    560.0,
+    1.5,
+    -2.6
+   ],
+   "distance": 9.343,
+   "yaw": 18,
+   "pitch": 30,
+   "zoom": 8,
+   "pan": [
+    38.2,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "e1",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     }
+    },
+    {
+     "at": 0.0,
+     "who": "e2",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     }
+    },
+    {
+     "at": 0.0,
+     "who": "e3",
+     "pose": {
+      "armR": -150,
+      "armL": 150
+     }
+    },
+    {
+     "at": 0.0,
+     "who": "e3",
+     "face": "happy"
+    },
+    {
+     "at": 0.55,
+     "who": "e3",
+     "face": "shouting"
+    },
+    {
+     "at": 0.98,
+     "who": "escaped_16",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "escaped_16",
+     "to": [
+      560.083,
+      2.775,
+      -2.312
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "yawTo": -2,
+   "pitchTo": 8,
+   "frameY": 0.0,
+   "snap": {
+    "t": 0.3,
+    "zoom": 14,
+    "dur": 0.28
+   },
+   "atmos": {
+    "dust": {
+     "count": 18,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 30,
+     "intensity": 0.6
+    }
+   }
+  },
+  {
+   "start": 24.95,
+   "anchor": [
+    630.0,
+    1.8,
+    -3.4
+   ],
+   "distance": 10.719,
+   "yaw": -18,
+   "pitch": 36,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "g1",
+     "to": [
+      629.5,
+      2.4,
+      -3.0
+     ],
+     "over": 1.4,
+     "walk": false
+    },
+    {
+     "at": 0.0,
+     "who": "g2",
+     "to": [
+      630.4,
+      2.9,
+      -3.6
+     ],
+     "over": 1.4,
+     "walk": false
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "yawTo": 4,
+   "pitchTo": 8,
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 14,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 40,
+     "intensity": 0.5
+    }
+   }
+  },
+  {
+   "start": 26.09,
+   "anchor": [
+    630.0,
+    1.9,
+    -3.4
+   ],
+   "distance": 6.6,
+   "yaw": 10,
+   "pitch": 6,
+   "zoom": 10,
+   "pan": [
+    15,
+    0
+   ],
+   "actions": [
+    {
+     "at": 1.29,
+     "who": "gulf_17",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "gulf_17",
+     "to": [
+      630.052,
+      2.773,
+      -3.105
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 14,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 40,
+     "intensity": 0.5
+    }
+   }
+  },
+  {
+   "start": 27.42,
+   "anchor": [
+    700.0,
+    1.7,
+    -2.6
+   ],
+   "distance": 9.0,
+   "yaw": 20,
+   "pitch": 32,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "fisherN",
+     "face": "happy"
+    },
+    {
+     "at": 0.55,
+     "who": "fisherN",
+     "face": "smug"
+    },
+    {
+     "at": 1.04,
+     "who": "still_18",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "still_18",
+     "to": [
+      700.095,
+      3.005,
+      -2.315
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "yawTo": 2,
+   "pitchTo": 6,
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.35
+    }
+   }
+  },
+  {
+   "start": 28.5,
+   "anchor": [
+    699.4,
+    1.55,
+    -1.5
+   ],
+   "distance": 4.4,
+   "yaw": -10,
+   "pitch": 5,
+   "zoom": 12,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "fisherN",
+     "face": "confused"
+    },
+    {
+     "at": 0.55,
+     "who": "fisherN",
+     "face": "happy"
+    },
+    {
+     "at": 1.14,
+     "who": "notsame_19",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "notsame_19",
+     "to": [
+      699.348,
+      2.123,
+      -1.205
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "dof": {
+    "focus": "fisherN",
+    "blur": 0.4
+   },
+   "frameY": 0.0,
+   "snap": {
+    "t": 0.2,
+    "zoom": 14,
+    "dur": 0.28
+   },
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.35
+    }
+   }
+  },
+  {
+   "start": 29.68,
+   "anchor": [
+    -0.12,
+    1.3,
+    -1.45
+   ],
+   "distance": 7.757,
+   "yaw": -6,
+   "pitch": 10,
+   "zoom": -4,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "fisher",
+     "to": [
+      -0.85,
+      0.34,
+      -1.25
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "pizza",
+     "shake": 0.4
+    },
+    {
+     "at": 0.0,
+     "who": "fisher",
+     "pose": {
+      "armR": -150
+     }
+    },
+    {
+     "at": 0.0,
+     "who": "fisher",
+     "face": "shocked"
+    },
+    {
+     "at": 0.55,
+     "who": "fisher",
+     "face": "shouting"
+    },
+    {
+     "at": 1.1,
+     "who": "fisher",
+     "face": "shocked"
+    },
+    {
+     "at": 1.65,
+     "who": "fisher",
+     "face": "shouting"
+    },
+    {
+     "at": 0.05,
+     "who": "pizzahole_20",
+     "to": [
+      -0.151,
+      2.212,
+      -1.152
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    }
+   ],
+   "glide": "dolly",
+   "frameY": 0.0,
+   "atmos": {
+    "bokeh": {
+     "count": 12,
+     "size": 1.0,
+     "alpha": 0.35
+    },
+    "rays": {
+     "angle": 30,
+     "intensity": 0.45
+    }
+   }
+  }
+ ],
+ "end": "audio"
+}
