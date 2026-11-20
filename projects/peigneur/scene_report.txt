@@ -5,7 +5,6 @@ music: 32.3 s, taiko storm 128/136 + Cajun two-step 132/120 + salt-mine mystery 
    autofit S07 distance 9.0 -> 10.1
    autofit S08 distance 8.2 -> 9.8
    autofit S10 distance 9.0 -> 10.7
-   autofit S11 distance 6.4 -> 8.1
    autofit S14 distance 6.6 -> 7.9
    autofit S15 distance 9.0 -> 10.1
    autofit S16 distance 8.4 -> 10.0
@@ -23,7 +22,7 @@ S07    9.47  1.40  The water                  d 10.1
 S08   10.87  1.38  A whirlpool                d 9.8
 S09   12.25  2.42  11 barges                  d 6.6
 S10   14.67  1.12  A canal flowed             d 10.7
-S11   15.79  1.76  into a                     d 8.1  snap
+S11   15.79  1.76  into a                     d 6.4  snap
 S12   17.55  1.00  You see                    d 10.0
 S13   18.55  0.90  sat a salt                 d 5.4
 S14   19.45  1.74  The drill punched          d 7.9  snap
@@ -37,4 +36,4 @@ S21   28.50  1.18  It's just                  d 4.4  snap
 S22   29.68  2.18  All because                d 7.8
 snaps 6, comic fx 2
 frame check: 0 CUT flags
-wrote short.json: 23 shots, 42 characters, 67 props, voice 31.86 s
+wrote short.json: 23 shots, 43 characters, 67 props, voice 31.86 s

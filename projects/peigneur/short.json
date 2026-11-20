@@ -298,7 +298,7 @@
    "dur": 0.6
   },
   {
-   "type": "question",
+   "type": "blush",
    "on": "fisherN",
    "t": 28.9,
    "dur": 0.68
@@ -552,10 +552,10 @@
    "puppet": "puppets/pizzahole",
    "pos": [
     -0.151,
-    2.196,
+    2.169,
     -1.152
    ],
-   "height": 0.896,
+   "height": 0.869,
    "face": "default"
   },
   {
@@ -665,7 +665,7 @@
     -60,
     0
    ],
-   "height": 0.833,
+   "height": 0.66,
    "face": "default"
   },
   {
@@ -724,7 +724,18 @@
    "face": "default"
   },
   {
-   "id": "gulf_17",
+   "id": "refilled_17",
+   "puppet": "puppets/refilled",
+   "pos": [
+    0,
+    -60,
+    0
+   ],
+   "height": 0.781,
+   "face": "default"
+  },
+  {
+   "id": "gulf_18",
    "puppet": "puppets/gulf",
    "pos": [
     0,
@@ -735,7 +746,7 @@
    "face": "default"
   },
   {
-   "id": "still_18",
+   "id": "still_19",
    "puppet": "puppets/still",
    "pos": [
     0,
@@ -746,7 +757,7 @@
    "face": "default"
   },
   {
-   "id": "notsame_19",
+   "id": "notsame_20",
    "puppet": "puppets/notsame",
    "pos": [
     0,
@@ -757,7 +768,7 @@
    "face": "default"
   },
   {
-   "id": "pizzahole_20",
+   "id": "pizzahole_21",
    "puppet": "puppets/pizzahole",
    "pos": [
     0,
@@ -1710,7 +1721,7 @@
      "who": "pizzahole_1",
      "to": [
       -0.151,
-      2.196,
+      2.169,
       -1.152
      ],
      "over": 0.02,
@@ -1723,7 +1734,7 @@
    "glide": "dolly",
    "frameY": 0.0,
    "snap": {
-    "t": 0.72,
+    "t": 0.82,
     "zoom": 12,
     "dur": 0.28
    },
@@ -2363,8 +2374,8 @@
      "hop": 0.12
     }
    ],
-   "out": "glide",
-   "outDur": 0.5,
+   "out": "dissolve",
+   "outDur": 0.4,
    "glide": "dolly",
    "yawTo": 0,
    "pitchTo": 8,
@@ -2388,7 +2399,7 @@
     1.6,
     -4.6
    ],
-   "distance": 8.079,
+   "distance": 6.4,
    "yaw": 8,
    "pitch": 4,
    "zoom": 12,
@@ -2397,6 +2408,17 @@
     0
    ],
    "actions": [
+    {
+     "at": 0.0,
+     "who": "gullW",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
     {
      "at": 1.72,
      "who": "falls150_11",
@@ -2413,7 +2435,7 @@
      "who": "falls150_11",
      "to": [
       350.042,
-      2.702,
+      2.473,
       -4.303
      ],
      "over": 0.02,
@@ -2944,6 +2966,29 @@
      ],
      "over": 1.4,
      "walk": false
+    },
+    {
+     "at": 1.1,
+     "who": "refilled_17",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 0.05,
+     "who": "refilled_17",
+     "to": [
+      629.917,
+      2.526,
+      -3.112
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
     }
    ],
    "out": "glide",
@@ -2982,7 +3027,7 @@
    "actions": [
     {
      "at": 1.29,
-     "who": "gulf_17",
+     "who": "gulf_18",
      "to": [
       0,
       -60,
@@ -2993,7 +3038,7 @@
     },
     {
      "at": 0.05,
-     "who": "gulf_17",
+     "who": "gulf_18",
      "to": [
       630.052,
       2.773,
@@ -3048,7 +3093,7 @@
     },
     {
      "at": 1.04,
-     "who": "still_18",
+     "who": "still_19",
      "to": [
       0,
       -60,
@@ -3059,7 +3104,7 @@
     },
     {
      "at": 0.05,
-     "who": "still_18",
+     "who": "still_19",
      "to": [
       700.095,
       3.005,
@@ -3112,7 +3157,7 @@
     },
     {
      "at": 1.14,
-     "who": "notsame_19",
+     "who": "notsame_20",
      "to": [
       0,
       -60,
@@ -3123,7 +3168,7 @@
     },
     {
      "at": 0.05,
-     "who": "notsame_19",
+     "who": "notsame_20",
      "to": [
       699.348,
       2.123,
@@ -3217,7 +3262,7 @@
     },
     {
      "at": 0.05,
-     "who": "pizzahole_20",
+     "who": "pizzahole_21",
      "to": [
       -0.151,
       2.212,
