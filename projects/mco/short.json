@@ -18,16 +18,16 @@
     "azimuth": -30,
     "elevation": 25,
     "color": "#ffc890",
-    "intensity": 1.9
+    "intensity": 2.3
    },
    "sky": {
     "top": "#0a1430",
     "horizon": "#2a4070"
    },
    "fill": {
-    "sky": "#6080d0",
-    "ground": "#202840",
-    "intensity": 1.6
+    "sky": "#7090e0",
+    "ground": "#405080",
+    "intensity": 2.0
    }
   },
   "space": {

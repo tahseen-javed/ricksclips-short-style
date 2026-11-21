@@ -1,7 +1,7 @@
 28 shots, 41.60 s, 1248 frames at 540x960
-shot 00 a  t=  0.27s  luma    49  contrast 45.8  TOO_DARK
-shot 00 b  t=  0.67s  luma  49.9  contrast 47.2  TOO_DARK
-shot 00 c  t=  1.07s  luma  51.5  contrast 48.8  ok
+shot 00 a  t=  0.27s  luma  67.6  contrast 39.2  ok
+shot 00 b  t=  0.67s  luma  68.2  contrast 40.8  ok
+shot 00 c  t=  1.07s  luma  69.3  contrast 42.5  ok
 shot 01 a  t=  1.60s  luma  62.9  contrast   42  ok
 shot 01 b  t=  2.00s  luma  68.3  contrast 44.7  ok
 shot 01 c  t=  2.40s  luma  71.2  contrast 46.4  ok
@@ -79,9 +79,9 @@ shot 25 b  t= 38.27s  luma 149.1  contrast 46.5  ok
 shot 25 c  t= 38.57s  luma 148.1  contrast 46.9  ok
 shot 26 a  t= 38.93s  luma 150.6  contrast 53.2  ok
 shot 26 b  t= 39.17s  luma 145.9  contrast 55.2  ok
-shot 26 c  t= 39.40s  luma 141.4  contrast 51.5  ok
-shot 27 a  t= 40.00s  luma    50  contrast 46.5  ok
-shot 27 b  t= 40.60s  luma  49.2  contrast 45.7  TOO_DARK
-shot 27 c  t= 41.20s  luma  49.4  contrast   46  TOO_DARK
+shot 26 c  t= 39.40s  luma 142.6  contrast 51.7  ok
+shot 27 a  t= 40.00s  luma  68.2  contrast   40  ok
+shot 27 b  t= 40.60s  luma  67.7  contrast 39.3  ok
+shot 27 c  t= 41.20s  luma    68  contrast 39.4  ok
 84 stills -> /home/runner/work/ricksclips-short-style/ricksclips-short-style/projects/mco/render_stills/sheet.jpg
-4 still(s) flagged: fix them in short.json and run --stills again before the full render
+no problems found: safe to run the full render
