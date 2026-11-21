@@ -1,0 +1,9 @@
+NASA's math was perfect. That's exactly how they lost a 125 million dollar spacecraft at Mars.
+
+December 11, 1998. Mars Climate Orbiter launches on a nine-month trip. Every engine burn is calculated to the decimal. But the navigators keep seeing its path drift lower. They raise concerns. Nobody fixes it.
+
+September 23, 1999. The orbiter should pass high above the Martian air. Instead, it drops to under 40 miles. Contact is lost. It never calls home again.
+
+You see, the numbers were never wrong. The units were. Lockheed Martin's software reported thrust in pounds. NASA's software read it as newtons. Every push was off by a factor of 4.45.
+
+One missing label, unnoticed for nine months. So when someone tells you their math is perfect, ask one question. Perfect in what units? Because NASA's math was perfect.
