@@ -122,3 +122,11 @@ frame width in close-ups, cute characters (big round heads, shiny eyes, blush).
 - HOOK dist must already fit at the snap peak (autofit on shot 0 breaks the loop match with the last shot).
 - Music: taiko storm 128/136 + Cajun two-step 132/120 + salt-mine mystery 110 + bluegrass chase 160.
 - Tokens: about 303K new (97K output, 205K cache writes), over the 250K allowance.
+
+## Video 14 (Mars Climate Orbiter, wrong units) -> projects/mco
+- Template: copy projects/mco/tools. 13 sets (CR..QN), cast nav/nav2/boss/lock + gold orbiter hero prop in most sets; ft() now takes several characters per shot (list in s["_ft"]); build_short honours NOFIT=1 to print the raw CUT list before autofit (fix positions first, autofit only for small widening).
+- Kokoro swallows soft line-start words (They / The / Lockheed / One -> heard "It raised", "Units were", "When Martian", "when"): keep soft-onset words mid-line and write "Lock-heed". Understood went 0.971 -> 0.989.
+- The full mode is gated by the stop-frame check: TOO_DARK (luma < ~50) blocks the render. Dark night sets need light floors (navy tile 78,96,146) and fill >= 1.9; space/amber sets the same.
+- Hook contradiction works best IN the hook frame: wall-screen Mars + red X sits right of the "PERFECT" sign (screen drawn low in the picture, v 400-920).
+- Space sets: crane pitch <= 26 so the star floor does not fill half the frame.
+- Runs: stills (voice + sheet) -> full (failed: hook TOO_DARK) -> full. Tokens ~396K new (133K output, 264K cache writes).
