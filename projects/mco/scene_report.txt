@@ -1,37 +1,38 @@
-music: 41.1 s, space synth 124/112 + adventure march 128 + tension clock 104 + crash 140 + lonely radio 90 + funk reveal 116
+music: 42.0 s, space synth 124/112 + adventure march 128 + tension clock 104 + crash 140 + lonely radio 90 + funk reveal 116
    autofit S06 distance 8.0 -> 9.5
    autofit S08 distance 9.4 -> 10.6
+   autofit S18 distance 5.0 -> 5.3
    autofit S19 distance 5.6 -> 5.9
    autofit S23 distance 8.6 -> 9.1
 shot  start   dur  phrase
 S00    0.00  1.34  0                          d 8.0  snap
 S01    1.34  1.34  That's exactly             d 9.0
 S02    2.68  2.66  125                        d 6.4
-S03    5.34  1.76  December                   d 10.0
-S04    7.10  1.32  Mars Climate               d 9.6  snap
+S03    5.34  1.78  December                   d 10.0
+S04    7.12  1.30  Mars Climate               d 9.6  snap
 S05    8.42  0.90  on a                       d 6.8
 S06    9.32  1.01  Every engine               d 9.5
-S07   10.33  1.26  calculated                 d 4.4
-S08   11.59  1.32  But the navigators         d 10.6
-S09   12.91  1.12  its path                   d 4.2  snap
-S10   14.03  0.82  They raise                 d 8.0
-S11   14.85  0.86  Nobody fixes               d 4.9
-S12   15.71  1.96  September                  d 9.5
-S13   17.67  2.16  The orbiter should         d 6.8
-S14   19.83  2.00  Instead                    d 9.0  snap
-S15   21.83  0.96  Contact is                 d 9.5
-S16   22.79  1.18  It never                   d 5.0
-S17   23.97  1.62  You see the                d 9.5
-S18   25.59  0.80  The units                  d 5.0  snap
-S19   26.39  2.56  Lockheed Martin's          d 5.9
-S20   28.95  1.85  NASA's software            d 5.6
-S21   30.80  2.36  Every push                 d 6.6
-S22   33.16  0.72  One missing                d 4.0  snap
-S23   33.88  1.18  unnoticed                  d 9.1
-S24   35.06  1.86  So when                    d 9.0
-S25   36.92  0.96  ask one                    d 4.9
-S26   37.88  1.04  Perfect in                 d 8.6  snap
-S27   38.92  1.82  Because NASA's             d 7.3
+S07   10.33  1.24  calculated                 d 4.4
+S08   11.57  1.32  But the navigators         d 10.6
+S09   12.89  1.02  its path                   d 4.2  snap
+S10   13.91  1.08  They raise                 d 8.0
+S11   14.99  0.88  Nobody fixes               d 4.9
+S12   15.87  2.00  September                  d 9.5
+S13   17.87  2.14  The orbiter should         d 6.8
+S14   20.01  2.00  Instead                    d 9.0  snap
+S15   22.01  0.94  Contact is                 d 9.5
+S16   22.95  1.20  It never                   d 5.0
+S17   24.15  1.42  You see the                d 9.5
+S18   25.57  1.08  The units                  d 5.3  snap
+S19   26.65  2.58  Lockheed Martin's          d 5.9
+S20   29.23  1.89  NASA's software            d 5.6
+S21   31.12  2.64  Every push                 d 6.6
+S22   33.76  0.82  One missing                d 4.0  snap
+S23   34.58  1.32  unnoticed                  d 9.1
+S24   35.90  1.88  So when                    d 9.0
+S25   37.78  0.98  ask one                    d 4.9
+S26   38.76  0.82  Perfect in                 d 8.6  snap
+S27   39.58  2.02  Because NASA's             d 7.3
 snaps 7, comic fx 4
 frame check: 0 CUT flags
-wrote short.json: 28 shots, 51 characters, 69 props, voice 40.74 s
+wrote short.json: 28 shots, 51 characters, 69 props, voice 41.60 s
