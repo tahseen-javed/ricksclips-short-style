@@ -183,9 +183,9 @@ def window(d, x0, y0, x1, y1, frame=(250, 250, 245, 255)):
 
 
 def ctrl(path):                                              # night control room: giant screen (Earth -> Mars, red X), consoles, amber desk lamps
-    im = sky((10, 20, 50), (34, 52, 92), 1.1); d = Draw(W2, H2)
+    im = sky((28, 46, 92), (64, 90, 140), 1.1); d = Draw(W2, H2)
     for x in range(100, W2, 400): d.rrect(x, 0, x + 220, 26, 8, fill=(210, 230, 255, 255))
-    d.rrect(380, 400, 2020, 920, 26, fill=(8, 14, 34, 255), outline=LINE, width=16)
+    d.rrect(380, 400, 2020, 920, 26, fill=(18, 32, 70, 255), outline=LINE, width=16)
     r_ = np.random.RandomState(5)
     for _ in range(70): d.dot(r_.randint(420, 1980), r_.randint(440, 880), r_.choice([3, 4, 6]), (255, 250, 230, 230))
     d.ellipse(640, 760, 56, 56, fill=(60, 130, 220, 255), outline=LINE, width=8); planet(d, 1450, 730, 112, MARS[:3], MSPOTS)
@@ -194,7 +194,7 @@ def ctrl(path):                                              # night control roo
     for x0, x1 in ((40, 340), (2060, 2360)):
         d.rrect(x0, 420, x1, 700, 16, fill=(10, 30, 40, 255), outline=LINE, width=12)
         d.stroke([(x0 + 30 + k * 24, 660 - 160 * abs(math.sin(k * 0.7 + x0))) for k in range(11)], (90, 255, 140, 255), 8)
-    d.rect(0, 960, W2, H2, (26, 34, 56, 255)); d.stroke([(0, 960), (W2, 960)], LINE, 8)
+    d.rect(0, 960, W2, H2, (60, 74, 110, 255)); d.stroke([(0, 960), (W2, 960)], LINE, 8)
     for x in range(0, W2, 300):
         if x + 260 < 380 or x + 40 > 2020: d.rrect(x + 40, 740, x + 260, 840, 10, fill=(18, 28, 50, 255), outline=LINE, width=8); d.rect(x + 60, 758, x + 240, 820, (70, 180, 255, 255))
         d.rrect(x + 10, 900, x + 290, 1000, 16, fill=(52, 64, 92, 255), outline=LINE, width=8)
@@ -402,7 +402,7 @@ if __name__ == '__main__':
     json.dump({nm: round(im.width / im.height, 3) for nm, im in list(cards.items()) + [(k, v['default']) for k, v in multi.items()]}, open(os.path.join(ROOT, 'aspect.json'), 'w'))
     T = lambda n: os.path.join(ROOT, 'textures', n)
     B.tex_wood(T('wood.jpg')); CE.tiles(T('pave.jpg'), (70, 70, 96), (60, 60, 84))
-    CE.tiles(T('navtile.jpg'), (40, 50, 84), (34, 44, 74)); sandtex(T('starfloor.jpg'), (66, 36, 106), (255, 240, 220), seed=5); CE.tiles(T('pad.jpg'), (176, 170, 166), (160, 154, 150))
+    CE.tiles(T('navtile.jpg'), (78, 96, 146), (66, 84, 130)); sandtex(T('starfloor.jpg'), (66, 36, 106), (255, 240, 220), seed=5); CE.tiles(T('pad.jpg'), (176, 170, 166), (160, 154, 150))
     sandtex(T('starfloor2.jpg'), (24, 90, 104), (220, 250, 255), seed=6); CE.tiles(T('darktile.jpg'), (110, 88, 70), (96, 76, 60)); sandtex(T('carpet.jpg'), (126, 96, 146), (110, 82, 130))
     sandtex(T('redsand.jpg'), (206, 104, 62), (176, 84, 48)); sandtex(T('redsand2.jpg'), (150, 60, 42), (120, 44, 32)); sandtex(T('nightsand.jpg'), (84, 78, 124), (70, 64, 108))
     CE.tiles(T('checker.jpg'), (236, 232, 226), (200, 200, 212)); CE.tiles(T('deskwood.jpg'), (166, 116, 74), (150, 104, 66)); CE.tiles(T('schoolwood.jpg'), (214, 164, 110), (200, 150, 98))
