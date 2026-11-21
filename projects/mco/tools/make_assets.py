@@ -158,6 +158,12 @@ def cal(top, year, col):
     d.text(360, 520, year, 230, dk(col, 0.8), stroke=10, stroke_fill=LINE); return d.out()
 
 
+def bigneon(l1, l2, w, col, col2, h=460):                   # neon sign with two equally big lines
+    d = Draw(w, h); d.rrect(10, 10, w - 10, h - 10, 40, fill=(34, 14, 58, 255), outline=LINE, width=16); d.rrect(34, 34, w - 34, h - 34, 28, outline=col2, width=8)
+    for k, (txt, c) in enumerate(((l1, col), (l2, col2))): d.text(w / 2, h * (0.32 + 0.38 * k), txt, LA.fit(txt, 150, w - 120), c, stroke=7, stroke_fill=LINE)
+    return d.out()
+
+
 # ------------------------------------------------------------------ set pictures (no text on them)
 W2, H2 = 2400, 1100
 def sky(top, bot, k=1.2): return CA.gradient(top, bot, W2, H2, k).convert('RGBA')
@@ -179,25 +185,27 @@ def window(d, x0, y0, x1, y1, frame=(250, 250, 245, 255)):
 def ctrl(path):                                              # night control room: giant screen (Earth -> Mars, red X), consoles, amber desk lamps
     im = sky((10, 20, 50), (34, 52, 92), 1.1); d = Draw(W2, H2)
     for x in range(100, W2, 400): d.rrect(x, 0, x + 220, 26, 8, fill=(210, 230, 255, 255))
-    d.rrect(480, 70, 1920, 620, 26, fill=(8, 14, 34, 255), outline=LINE, width=16); stars(d, 60, 600, 5)
-    d.ellipse(700, 440, 60, 60, fill=(60, 130, 220, 255), outline=LINE, width=8); planet(d, 1520, 320, 170, MARS[:3], MSPOTS)
-    for u in np.linspace(0, 1, 16): d.dot(760 + u * 640, 430 - 260 * math.sin(u * 2.6) + 60 * u, 9, (255, 236, 160, 255))
-    for a, b in (((1600, 380), (1740, 520)), ((1740, 380), (1600, 520))): d.stroke([a, b], LINE, 40); d.stroke([a, b], (255, 60, 60, 255), 24)
-    for x0, x1 in ((80, 400), (2000, 2320)):
-        d.rrect(x0, 140, x1, 420, 16, fill=(10, 30, 40, 255), outline=LINE, width=12)
-        d.stroke([(x0 + 30 + k * 26, 380 - 160 * abs(math.sin(k * 0.7 + x0))) for k in range(11)], (90, 255, 140, 255), 8)
-    d.rect(0, 700, W2, H2, (26, 34, 56, 255)); d.stroke([(0, 700), (W2, 700)], LINE, 8)
+    d.rrect(380, 400, 2020, 920, 26, fill=(8, 14, 34, 255), outline=LINE, width=16)
+    r_ = np.random.RandomState(5)
+    for _ in range(70): d.dot(r_.randint(420, 1980), r_.randint(440, 880), r_.choice([3, 4, 6]), (255, 250, 230, 230))
+    d.ellipse(640, 760, 56, 56, fill=(60, 130, 220, 255), outline=LINE, width=8); planet(d, 1450, 730, 112, MARS[:3], MSPOTS)
+    for u in np.linspace(0, 1, 16): d.dot(700 + u * 650, 750 - 200 * math.sin(u * 2.8) + 40 * u, 9, (255, 236, 160, 255))
+    for a, b in (((1460, 730), (1590, 860)), ((1590, 730), (1460, 860))): d.stroke([a, b], LINE, 44); d.stroke([a, b], (255, 60, 60, 255), 26)
+    for x0, x1 in ((40, 340), (2060, 2360)):
+        d.rrect(x0, 420, x1, 700, 16, fill=(10, 30, 40, 255), outline=LINE, width=12)
+        d.stroke([(x0 + 30 + k * 24, 660 - 160 * abs(math.sin(k * 0.7 + x0))) for k in range(11)], (90, 255, 140, 255), 8)
+    d.rect(0, 960, W2, H2, (26, 34, 56, 255)); d.stroke([(0, 960), (W2, 960)], LINE, 8)
     for x in range(0, W2, 300):
-        d.rrect(x + 40, 560, x + 260, 660, 10, fill=(18, 28, 50, 255), outline=LINE, width=8); d.rect(x + 60, 578, x + 240, 640, (70, 180, 255, 255) if (x // 300) % 2 else (90, 220, 150, 255))
-        d.rrect(x + 10, 660, x + 290, 780, 16, fill=(52, 64, 92, 255), outline=LINE, width=8)
-    for x in (450, 1350, 2250): d.dot(x, 650, 22, (255, 180, 70, 255))
-    im.alpha_composite(d.out()); glow(im, 1200, 345, 700, (90, 160, 255, 80), 90); glow(im, 1520, 320, 260, (255, 120, 60, 110), 50); glow(im, 1670, 450, 150, (255, 60, 60, 140), 40)
-    for x in (450, 1350, 2250): glow(im, x, 650, 120, (255, 180, 80, 120), 30)
+        if x + 260 < 380 or x + 40 > 2020: d.rrect(x + 40, 740, x + 260, 840, 10, fill=(18, 28, 50, 255), outline=LINE, width=8); d.rect(x + 60, 758, x + 240, 820, (70, 180, 255, 255))
+        d.rrect(x + 10, 900, x + 290, 1000, 16, fill=(52, 64, 92, 255), outline=LINE, width=8)
+    for x in (250, 2150): d.dot(x, 880, 22, (255, 180, 70, 255))
+    im.alpha_composite(d.out()); glow(im, 1200, 660, 700, (90, 160, 255, 80), 90); glow(im, 1450, 730, 200, (255, 120, 60, 120), 50); glow(im, 1525, 795, 150, (255, 60, 60, 150), 40)
+    for x in (250, 2150): glow(im, x, 880, 120, (255, 180, 80, 120), 30)
     im.convert('RGB').save(path)
 
 
 def space(path):                                             # deep violet space, nebula, a giant Mars, Phobos, a far sun
-    im = sky((14, 8, 40), (70, 26, 86), 1.1); d = Draw(W2, H2); stars(d, 220, H2, 7)
+    im = sky((40, 22, 86), (130, 60, 150), 1.1); d = Draw(W2, H2); stars(d, 220, H2, 7)
     planet(d, 1700, 720, 560, MARS[:3], MSPOTS); d.chord(1700, 720, 560, 560, 300, 480, fill=(40, 10, 40, 110))
     d.ellipse(860, 300, 60, 44, fill=(150, 140, 150, 255), outline=LINE, width=8); d.dot(840, 290, 12, (110, 100, 110, 255))
     d.dot(300, 240, 60, (255, 250, 220, 255))
@@ -249,8 +257,8 @@ def board(path):                                             # warm office: chal
 
 
 def radarbg(path):                                           # dark navigation room: amber wall plot, tape-reel computers
-    im = sky((24, 16, 16), (60, 40, 30), 1.0); d = Draw(W2, H2)
-    d.rrect(620, 80, 1780, 610, 20, fill=(30, 20, 8, 255), outline=(90, 80, 70, 255), width=18)
+    im = sky((80, 56, 40), (140, 100, 66), 1.0); d = Draw(W2, H2)
+    d.rrect(620, 80, 1780, 610, 20, fill=(60, 40, 16, 255), outline=(90, 80, 70, 255), width=18)
     for x in range(680, 1760, 90): d.stroke([(x, 90), (x, 600)], (90, 60, 20, 255), 3)
     for y in range(140, 600, 80): d.stroke([(630, y), (1770, y)], (90, 60, 20, 255), 3)
     d.ellipse(1640, 360, 60, 60, fill=MARS, outline=LINE, width=6)
@@ -259,8 +267,8 @@ def radarbg(path):                                           # dark navigation r
         d.rrect(x, 150, x + 230, 700, 12, fill=(150, 146, 130, 255), outline=LINE, width=10)
         for cy in (250, 400): d.ellipse(x + 115, cy, 70, 70, fill=(60, 56, 50, 255), outline=LINE, width=8); d.dot(x + 115, cy, 16, (190, 186, 170, 255))
         for k in range(5): d.dot(x + 40 + k * 38, 560, 9, (255, 80, 60, 255) if k % 2 else (255, 210, 80, 255))
-    d.rect(0, 700, W2, H2, (40, 32, 28, 255)); d.stroke([(0, 700), (W2, 700)], LINE, 8)
-    im.alpha_composite(d.out()); glow(im, 1200, 345, 650, (255, 170, 60, 70), 90); im.convert('RGB').save(path)
+    d.rect(0, 700, W2, H2, (96, 74, 58, 255)); d.stroke([(0, 700), (W2, 700)], LINE, 8)
+    im.alpha_composite(d.out()); glow(im, 1200, 345, 650, (255, 170, 60, 90), 90); im.convert('RGB').save(path)
 
 
 def meet(path):                                              # dusk meeting room: big window on a purple city, falling chart, clock
@@ -378,7 +386,7 @@ if __name__ == '__main__':
                  nobody=stamp('NOBODY FIXES IT!', 980, (110, 110, 130, 255), 106, 4),
                  date2=cal('SEP 23', '1999', (210, 90, 50, 255)),
                  high=plaque('HIGH ABOVE', 'THE MARTIAN AIR', (40, 110, 190, 255), WHITE, 980, border=(150, 230, 255, 255), bs=150, ss=86, sc=(150, 230, 255, 255)),
-                 miles40=neon('UNDER 40', 'MILES!', 900, (255, 120, 80, 255), GOLDL),
+                 miles40=bigneon('UNDER 40', 'MILES!', 900, (255, 120, 80, 255), GOLDL),
                  contact=stamp('CONTACT LOST!', 920, (220, 40, 50, 255), 116, -4),
                  never=plaque('NEVER CALLS', 'HOME AGAIN', NAVY, WHITE, 960, border=(170, 200, 255, 255), bs=150, ss=100, sc=(170, 200, 255, 255)),
                  numbers=plaque('THE NUMBERS', 'WERE NEVER WRONG', (40, 150, 80, 255), WHITE, 1000, border=GOLDL, bs=150, ss=84, sc=GOLDL),
@@ -389,13 +397,13 @@ if __name__ == '__main__':
                  months9=plaque('UNNOTICED', 'FOR NINE MONTHS', (120, 84, 50, 255), WHITE, 960, border=GOLDL, bs=160, ss=90, sc=GOLDL),
                  mathperf=stamp('"MY MATH IS PERFECT!"', 1060, (60, 150, 90, 255), 96, 3),
                  askone=stamp('ASK ONE QUESTION', 980, (60, 110, 200, 255), 104, -3),
-                 whatunits=neon('PERFECT IN', 'WHAT UNITS?', 960, LIME, GOLDL))
+                 whatunits=bigneon('PERFECT IN', 'WHAT UNITS?', 980, LIME, GOLDL))
     for nm, im in cards.items(): G.build_card(nm, {'default': im}); items.append((nm, im))
     json.dump({nm: round(im.width / im.height, 3) for nm, im in list(cards.items()) + [(k, v['default']) for k, v in multi.items()]}, open(os.path.join(ROOT, 'aspect.json'), 'w'))
     T = lambda n: os.path.join(ROOT, 'textures', n)
     B.tex_wood(T('wood.jpg')); CE.tiles(T('pave.jpg'), (70, 70, 96), (60, 60, 84))
-    CE.tiles(T('navtile.jpg'), (40, 50, 84), (34, 44, 74)); sandtex(T('starfloor.jpg'), (30, 14, 56), (255, 240, 220), seed=5); CE.tiles(T('pad.jpg'), (176, 170, 166), (160, 154, 150))
-    sandtex(T('starfloor2.jpg'), (10, 50, 66), (220, 250, 255), seed=6); CE.tiles(T('darktile.jpg'), (64, 52, 42), (54, 44, 36)); sandtex(T('carpet.jpg'), (126, 96, 146), (110, 82, 130))
+    CE.tiles(T('navtile.jpg'), (40, 50, 84), (34, 44, 74)); sandtex(T('starfloor.jpg'), (66, 36, 106), (255, 240, 220), seed=5); CE.tiles(T('pad.jpg'), (176, 170, 166), (160, 154, 150))
+    sandtex(T('starfloor2.jpg'), (24, 90, 104), (220, 250, 255), seed=6); CE.tiles(T('darktile.jpg'), (110, 88, 70), (96, 76, 60)); sandtex(T('carpet.jpg'), (126, 96, 146), (110, 82, 130))
     sandtex(T('redsand.jpg'), (206, 104, 62), (176, 84, 48)); sandtex(T('redsand2.jpg'), (150, 60, 42), (120, 44, 32)); sandtex(T('nightsand.jpg'), (84, 78, 124), (70, 64, 108))
     CE.tiles(T('checker.jpg'), (236, 232, 226), (200, 200, 212)); CE.tiles(T('deskwood.jpg'), (166, 116, 74), (150, 104, 66)); CE.tiles(T('schoolwood.jpg'), (214, 164, 110), (200, 150, 98))
     G.sky(os.path.join(ROOT, 'bg', 'sky.jpg')); Pp = lambda n: os.path.join(ROOT, 'props', n)

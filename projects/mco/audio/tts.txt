@@ -1,13 +1,10 @@
 NASA's math was perfect! That's exactly how they lost a one hundred twenty-five million dollar spacecraft at Mars!
 December eleventh, nineteen ninety-eight! Mars Climate Orbiter launches on a nine-month trip!
-Every engine burn is calculated to the decimal! But the navigators keep seeing its path drift lower!
-They raise concerns! Nobody fixes it!
+Every engine burn is calculated to the decimal! But the navigators keep seeing its path drift lower! They raise concerns! Nobody fixes it!
 September twenty-third, nineteen ninety-nine! The orbiter should pass high above the Martian air!
 Instead, it drops to under forty miles! Contact is lost! It never calls home again!
-~You see, the numbers were never wrong!
-The units were!
-Lockheed Martin's software reported thrust in pounds! NASA's software read it as newtons!
-Every push was off by a factor of four point four five!
-One missing label, unnoticed for nine months!
+~You see, the numbers were never wrong! The units were!
+Lock-heed Martin's software reported thrust in pounds! NASA's software read it as newtons!
+Every push was off by a factor of four point four five! One missing label, unnoticed for nine months!
 So when someone tells you their math is perfect, ask one question! Perfect in what units?
 Because NASA's math was perfect!
