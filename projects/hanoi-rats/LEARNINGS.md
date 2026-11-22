@@ -130,3 +130,18 @@ frame width in close-ups, cute characters (big round heads, shiny eyes, blush).
 - Hook contradiction works best IN the hook frame: wall-screen Mars + red X sits right of the "PERFECT" sign (screen drawn low in the picture, v 400-920).
 - Space sets: crane pitch <= 26 so the star floor does not fill half the frame.
 - Runs: stills (voice + sheet) -> full (failed: hook TOO_DARK) -> full. Tokens ~396K new (133K output, 264K cache writes).
+
+## Video 15 (Monopoly, made to hate monopolies) -> projects/monopoly
+- Template: copy projects/monopoly/tools. make_assets imports mco_assets + mono_assets helpers (hat overlays bowler/cap/fedora/bun, board(), faceon(), street(), deed()); 15 sets, 9 cute cast, giant board-game floor = textured thin box (boardtex.jpg) + 3D house props: great top-down crane hook.
+- Splice by markers with a scratch script (splice_*.py: sets/shots/cfg files) instead of rewriting build_short; helpers T() and swap() (card swap inside one shot) keep shots 1-2 s without extra shots.
+- Close-ups: anchor y 1.25 (not 1.5) or autofit widens them x1.3 and neighbours slide in half-visible. Multi-character sets: keep 1.2 m+ between people; if a close-up still catches a neighbour, use _dis=1 and hide() them.
+- Voice: keep threshold 0.975 (1.36 speed gave 48.8 s with mumbled words at 0.965). am_fenrir 1.28 + tempo 1.05 = 57 s for 217 words.
+- Phrases with hyphenated script words: write them joined ("Eightyfive years", "Clyde twentytwo") because WN joins the tokens.
+- Runs: stills, stills (voice fix), full. Music: ragtime stride + game-show swing + tango + lament + trap.
+
+## Video 16 (Pluto farm boy) -> projects/pluto
+- Template: copy projects/pluto/tools (imports mono_assets too). Big backdrop planets must stay 100% in frame: hide them (_dis=1) during probe macros instead of cropping.
+- Fake-word dry run is ~25 % slower than the real voice: re-check sub-0.7 s shots with the real words.json after the stills run (merge with card swap).
+- camcheck needs a cutaway diagram (counter "MILES OF PLUTO" 7,800) and >=4 shots in the first 6.6 s.
+- Music: epic timpani/brass + country banjo shuffle + music-box mystery + lament + space drift.
+- Tokens for 15+16 together: about 0.75M new (too much reasoning output). Next video: fresh chat, plan in a few lines, copy projects/pluto/tools.
