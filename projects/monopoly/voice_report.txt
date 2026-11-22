@@ -1,24 +1,21 @@
 Collecting en-core-web-sm==3.8.0
   Downloading en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 117.2 MB/s  0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 218.8 MB/s  0:00:00
 Installing collected packages: en-core-web-sm
 Successfully installed en-core-web-sm-3.8.0
 [38;5;2m✔ Download and installation successful[0m
 You can now load the package via spacy.load('en_core_web_sm')
 am_fenrir @1.28     59.5 s  understood 0.979
-am_fenrir @1.32     57.6 s  understood 0.975
+am_fenrir @1.32     57.6 s  understood 0.968
 am_fenrir @1.36     48.8 s  understood 0.965
-chose am_fenrir @1.36 (understood 0.965): tempo 1.000 -> about 48.8 s
+chose am_fenrir @1.28 (understood 0.979): tempo 1.050 -> about 56.7 s
 Downloading: "https://download.pytorch.org/torchaudio/models/wav2vec2_fairseq_base_ls960_asr_ls960.pth" to /home/runner/.cache/torch/hub/checkpoints/wav2vec2_fairseq_base_ls960_asr_ls960.pth
-  0%|          | 0.00/360M [00:00<?, ?B/s] 14%|█▍        | 50.8M/360M [00:00<00:00, 532MB/s] 29%|██▉       | 104M/360M [00:00<00:00, 548MB/s]  44%|████▍     | 158M/360M [00:00<00:00, 554MB/s] 58%|█████▊    | 211M/360M [00:00<00:00, 553MB/s] 73%|███████▎  | 264M/360M [00:00<00:00, 554MB/s] 88%|████████▊ | 316M/360M [00:00<00:00, 554MB/s]100%|██████████| 360M/360M [00:00<00:00, 539MB/s]
-aligned 217 words over 49.32 s, mean confidence 0.92, shortest word 0.04 s
-heard: Monopoly was invented to make people hate monopolies. It did the exact opposite. Lizzie Maggie is a typist with a grudge. Landlords get rich just by owning land and their tenants pay for it. So she designs a board game to prove it. She pats it in 1904. The Landlord's game, here's the strange part, it ships with two rule sets. In one, every player gets richer whenever anyone earns. In the other, you crush your friends with rent until they go broke. Is which one people loved? You see, Lizzie meant the cruel rules as a warning. Play them, feel how unfair they are, then switch to the fair ones. But players skipped the lesson and kept the cruelty. For years, fans copied the board by hand. Players swapped in their own local street names. Then a man named Charles Darrow learned the game from friends, called it his own invention and sold it to Parker Brothers in 1935, and Lizzie. Parker Brothers bought her pat for $500, her name disappeared. Decades later, an Achanauts professor fighting Parker Brothers in court dug up her old patents. The truth came back. Though the next time a friend bangers you on boardwalk, that sting is the whole point. Because Monopoly was invented to make people hate monopolies.
-intelligibility 0.965 (1.0 = every word understood)
+  0%|          | 0.00/360M [00:00<?, ?B/s]  8%|▊         | 30.5M/360M [00:00<00:01, 319MB/s] 17%|█▋        | 62.9M/360M [00:00<00:00, 331MB/s] 29%|██▉       | 104M/360M [00:00<00:00, 375MB/s]  41%|████      | 148M/360M [00:00<00:00, 409MB/s] 54%|█████▍    | 195M/360M [00:00<00:00, 438MB/s] 66%|██████▌   | 236M/360M [00:00<00:00, 398MB/s] 76%|███████▋  | 275M/360M [00:00<00:00, 400MB/s] 90%|█████████ | 326M/360M [00:00<00:00, 439MB/s]100%|██████████| 360M/360M [00:00<00:00, 418MB/s]
+aligned 217 words over 57.16 s, mean confidence 0.96, shortest word 0.04 s
+heard: Monopoly was invented to make people hate monopolies. It did the exact opposite. Lizzie Maggie is a typist with a grudge. Landlords get rich just by owning land and their tenants pay for it. So she designs a board game to prove it. She pats it in 1904. The Landlord's Game, here's the strange part, it ships with two rule sets. In one, every player gets richer whenever anyone earns. In the other, you crush your friends with rent until they go broke. Guess which one people loved? You see, Lizzie meant the cruel rules as a warning. Play them, feel how unfair they are, then switch to the fair ones. The players skipped the lesson and kept the cruelty. For years, fans copied the board by hand. Players swapped in their own local street names. Then a man named Charles Darrow learned the game from friends, called it his own invention and sold it to Parker Brothers in 1935, and Lizzie. Parker Brothers bought her patent for $500, her name disappeared. Decades later, an economics professor fighting Parker Brothers in court dug up her old patents. The truth came back. So the next time a friend bankrupts you on Boardwalk, that sting is the whole point. Lizzie's monopoly was invented to make people hate monopolies.
+intelligibility 0.979 (1.0 = every word understood)
   replace: said ['magie'] -> heard ['maggie']
   replace: said ['patents'] -> heard ['pats']
-  replace: said ['guess'] -> heard ['is']
-  replace: said ['patent'] -> heard ['pat']
+  replace: said ['but'] -> heard ['the']
   delete: said ['dollars'] -> heard []
-  replace: said ['economics'] -> heard ['achanauts']
-  replace: said ['so'] -> heard ['though']
-  replace: said ['bankrupts'] -> heard ['bangers']
+  replace: said ['because'] -> heard ["lizzie's"]

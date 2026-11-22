@@ -1,76 +1,68 @@
-music: 49.7 s, ragtime stride 132/126 + game-show swing 120 + sneaky tango 112/116 + piano lament 84 + brass march 128 + trap 140
+music: 57.6 s, ragtime stride 132/126 + game-show swing 120 + sneaky tango 112/116 + piano lament 84 + brass march 128 + trap 140
    autofit S00 distance 7.6 -> 8.5
    autofit S04 distance 4.8 -> 5.4
    autofit S05 distance 9.0 -> 9.5
-   autofit S06 distance 5.4 -> 5.7
-   autofit S08 distance 7.8 -> 9.8
-   autofit S13 distance 4.0 -> 4.5
-   autofit S14 distance 5.4 -> 6.1
-   autofit S16 distance 9.0 -> 10.7
-   autofit S19 distance 10.4 -> 11.0
-   autofit S23 distance 6.2 -> 6.6
-   autofit S25 distance 9.4 -> 11.9
-   autofit S28 distance 6.4 -> 8.1
-   autofit S29 distance 9.2 -> 11.0
-   autofit S34 distance 8.8 -> 9.3
-   autofit S35 distance 8.0 -> 9.5
-   autofit S38 distance 9.6 -> 10.2
-   autofit S39 distance 4.8 -> 5.4
-   autofit S42 distance 6.0 -> 6.7
-   autofit S43 distance 9.4 -> 11.2
+   autofit S08 distance 7.8 -> 10.4
+   autofit S12 distance 4.0 -> 4.8
+   autofit S15 distance 9.0 -> 10.7
+   autofit S18 distance 10.4 -> 11.0
+   autofit S24 distance 9.4 -> 11.9
+   autofit S27 distance 6.4 -> 8.1
+   autofit S28 distance 9.2 -> 11.6
+   autofit S33 distance 8.8 -> 9.3
+   autofit S34 distance 8.0 -> 9.0
+   autofit S37 distance 9.6 -> 10.2
+   autofit S38 distance 4.8 -> 5.4
+   autofit S41 distance 6.0 -> 6.7
+   autofit S42 distance 9.4 -> 11.9
 shot  start   dur  phrase
-S00    0.00  0.92  0                          d 8.5  snap
-S01    0.92  1.24  to make                    d 9.4
-S02    2.16  1.22  It did the                 d 5.0
-S03    3.38  1.02  Lizzie Magie               d 8.6
-S04    4.40  0.72  with a grudge              d 5.4
-S05    5.12  0.70  Landlords get              d 9.5
-S06    5.82  0.80  just by owning             d 5.7  snap
-S07    6.62  1.06  and their tenants          d 5.2
-S08    7.68  1.16  So she designs             d 9.8
-S09    8.84  0.50  to prove it                d 3.8
-   ! very short shot
-S10    9.34  1.32  She patents                d 9.0
-S11   10.66  0.88  The Landlord's             d 4.2  snap
-S12   11.54  0.86  Here's the strange         d 11.0
-S13   12.40  1.30  It ships                   d 4.5
-S14   13.70  1.14  In one                     d 6.1  snap
-S15   14.84  1.00  whenever anyone            d 3.0
-S16   15.84  1.35  In the other               d 10.7
-S17   17.19  0.58  until they go              d 4.9
-   ! very short shot
-S18   17.77  1.52  Guess which                d 9.4
-S19   19.29  1.42  You see Lizzie             d 11.0
-S20   20.71  0.62  as a warning               d 5.0  snap
-   ! very short shot
-S21   21.33  1.38  Play them                  d 6.6
-S22   22.71  1.28  then switch                d 5.0
-S23   23.99  1.06  But players                d 6.6
-S24   25.05  0.88  and kept the               d 4.4  snap
-S25   25.93  0.80  For years                  d 11.9
-S26   26.73  1.12  copied the board           d 3.6
-S27   27.85  1.08  Players swapped            d 9.0
-S28   28.93  0.80  local street               d 8.1  snap
-S29   29.73  1.28  Then a man                 d 11.0
-S30   31.01  0.90  learned the game           d 3.4
-S31   31.91  1.02  called it his              d 4.8  snap
-S32   32.93  0.98  and sold it                d 8.8
-S33   33.91  1.00  in 1935                    d 6.0
-S34   34.91  0.82  And Lizzie                 d 9.3
-S35   35.73  0.98  Parker Brothers bought     d 9.5
-S36   36.71  1.12  for 500                    d 4.8  snap
-S37   37.83  0.98  Her name                   d 3.8
-S38   38.81  0.66  Decades later              d 10.2
-   ! very short shot
-S39   39.47  0.90  an economics               d 5.4
-S40   40.37  1.08  fighting Parker            d 6.6
-S41   41.45  1.04  dug up her                 d 4.6  snap
-S42   42.49  0.96  The truth came             d 6.7
-S43   43.45  1.24  So the next                d 11.2
-S44   44.69  0.94  on Boardwalk               d 4.8
-S45   45.63  0.84  is the whole               d 5.2
-S46   46.47  1.14  Because Monopoly           d 9.4
-S47   47.61  1.71  to make#2                  d 7.0
-snaps 10, comic fx 6
+S00    0.00  1.14  0                          d 8.5  snap
+S01    1.14  1.50  to make                    d 9.4
+S02    2.64  1.30  It did the                 d 5.0
+S03    3.94  1.16  Lizzie Magie               d 8.6
+S04    5.10  0.74  with a grudge              d 5.4
+S05    5.84  0.94  Landlords get              d 9.5
+S06    6.78  1.02  just by owning             d 5.4  snap
+S07    7.80  1.18  and their tenants          d 5.2
+S08    8.98  1.92  So she designs             d 10.4
+S09   10.90  1.52  She patents                d 9.0
+S10   12.42  1.06  The Landlord's             d 4.2
+S11   13.48  1.02  Here's the strange         d 11.0
+S12   14.50  1.46  It ships                   d 4.8  snap
+S13   15.96  1.39  In one                     d 5.4
+S14   17.35  1.18  whenever anyone            d 3.0
+S15   18.53  1.20  In the other               d 10.7
+S16   19.73  1.36  with rent                  d 4.9  snap
+S17   21.09  1.54  Guess which                d 9.4
+S18   22.63  0.76  You see Lizzie             d 11.0
+S19   23.39  1.42  the cruel rules            d 5.0  snap
+S20   24.81  1.62  Play them                  d 6.6
+S21   26.43  1.30  then switch                d 5.0
+S22   27.73  1.16  But players                d 6.2
+S23   28.89  1.00  and kept the               d 4.4  snap
+S24   29.89  0.82  For years                  d 11.9
+S25   30.71  1.20  copied the board           d 3.6
+S26   31.91  1.18  Players swapped            d 9.0
+S27   33.09  0.98  local street               d 8.1  snap
+S28   34.07  1.40  Then a man                 d 11.6
+S29   35.47  1.14  learned the game           d 3.4
+S30   36.61  1.22  called it his              d 4.8  snap
+S31   37.83  1.30  and sold it                d 8.8
+S32   39.13  1.06  in 1935                    d 6.0
+S33   40.19  0.86  And Lizzie                 d 9.3
+S34   41.05  1.26  Parker Brothers bought     d 9.0
+S35   42.31  1.20  for 500                    d 4.8  snap
+S36   43.51  1.08  Her name                   d 3.8
+S37   44.59  0.72  Decades later              d 10.2
+S38   45.31  1.10  an economics               d 5.4
+S39   46.41  1.48  fighting Parker            d 6.6
+S40   47.89  1.21  dug up her                 d 4.6  snap
+S41   49.10  1.00  The truth came             d 6.7
+S42   50.10  1.46  So the next                d 11.9
+S43   51.56  1.22  on Boardwalk               d 4.8  snap
+S44   52.78  0.88  is the whole               d 5.2
+S45   53.66  1.52  Because Monopoly           d 9.4
+S46   55.18  1.98  to make#2                  d 6.9
+snaps 11, comic fx 8
 frame check: 0 CUT flags
-wrote short.json: 48 shots, 97 characters, 76 props, voice 49.32 s
+wrote short.json: 47 shots, 97 characters, 76 props, voice 57.16 s
