@@ -149,8 +149,7 @@ s = crane("Landlords get", "LL", (0.1, 1.3, -1.9), 9.0, 22, 2, 36, 6); ft(s, "lo
 s = S("just by owning", "LL", (-0.8, 1.25, -1.8), 5.4, -10, pitch=5, zoom=10, yawTo=2, dof=dict(focus="lord", blur=0.4)); ft(s, "lord", ["smug", "sneaky", "smug"]); T(s, "owning"); snap(s, rel(s, "land"), 12)
 s = S("and their tenants", "LL", (1.2, 1.25, -1.9), 5.2, 12, pitch=5, zoom=10, pan=(-3, 0), dof=dict(focus="ten", blur=0.4)); ft(s, "ten", ["nervous", "shocked", "nervous"]); T(s, "tenants"); cfx(s, 0.3, "sweat", "ten", 0.8)
 # ---- So she designs a board game to prove it.
-s = crane("So she designs", "TY", (0.6, 1.2, -1.9), 7.8, 26, 6, 40, 8); ft(s, "lizT", ["happy", "smug"]); T(s, "designs")
-s = S("to prove it", "TY", (1.2, 1.03, -1.8), 3.8, -8, pitch=4, yawTo=4, type="macro", dof=dict(focus="boardT", blur=0.5)); T(s, "prove", wf=0.6, hf=0.14); snap(s, 0.3, 12)
+s = crane("So she designs", "TY", (0.6, 1.2, -1.9), 7.8, 26, 6, 40, 8); ft(s, "lizT", ["happy", "smug"]); c_ = T(s, "designs"); swap(s, c_, rel(s, "prove"), "prove", wf=0.6, hf=0.14); snap(s, rel(s, "prove"), 12)
 # ---- She patents it in 1904. The Landlord's Game.
 s = crane("She patents", "PT", (0.1, 1.3, -1.8), 9.0, -22, -2, 34, 6); ft(s, "lizP", ["happy", "smug"]); act(s, 0.1, "pat", shake=0.3); T(s, "y1904", dy=0.2, dx=0.15, wf=0.32, hf=0.34)
 s = S("The Landlord's", "PT", (0.9, 1.39, -2.3), 4.2, 10, pitch=4, yawTo=-2, type="macro", dof=dict(focus="boardP", blur=0.5)); T(s, "llgame"); snap(s, rel(s, "Game"), 14)
@@ -162,12 +161,12 @@ s = S("In one", "RS", (-2.1, 1.4, -2.1), 5.4, -14, pitch=5, zoom=10, pan=(3, 0))
 s = S("whenever anyone", "RS", (-0.5, 1.0, -1.9), 3.0, 10, pitch=4, zoom=12, type="macro", dof=dict(focus="bkG", blur=0.5)); act(s, 0.1, "bkG", shake=0.3); T(s, "earns")
 # ---- In the other, you crush your friends with rent until they go broke.
 s = crane("In the other", "CU", (0.0, 1.3, -1.9), 9.0, -24, -2, 36, 6); ft(s, "fanC", ["smug", "sneaky"]); ft(s, "tenC", ["nervous", "shocked"]); act(s, 0.1, "bagC", shake=0.3); T(s, "crush")
-s = S("until they go", "CU", (1.3, 1.25, -1.6), 4.9, -10, pitch=5, zoom=12, dof=dict(focus="tenC", blur=0.4)); ft(s, "tenC", ["shocked", "nervous", "shocked"]); T(s, "broke"); snap(s, rel(s, "broke"), 14); cfx(s, 0.3, "sweat", "tenC", 0.8)
+s = S("with rent", "CU", (1.3, 1.25, -1.6), 4.9, -10, pitch=5, zoom=12, dof=dict(focus="tenC", blur=0.4)); ft(s, "tenC", ["shocked", "nervous", "shocked"]); T(s, "broke"); snap(s, rel(s, "broke"), 14); cfx(s, 0.3, "sweat", "tenC", 0.8)
 # ---- Guess which one people loved.
 s = crane("Guess which", "GU", (0.0, 1.4, -2.3), 9.4, 20, 0, 30, 6); ft(s, "lizQ", ["nervous", "confused"]); act(s, 0.2, "bkG2", shake=0.3); act(s, 0.6, "bkR2", shake=0.3); T(s, "guess", dy=0.3, wf=0.58)
 # ---- You see, Lizzie meant the cruel rules as a warning. Play them, feel how unfair they are, then switch to the fair ones.
 s = crane("You see Lizzie", "LS", (0.45, 1.3, -1.9), 10.4, -18, -2, 30, 6); ft(s, "lizL", ["shouting", "happy"]); ft(s, "fan1L", ["smug", "neutral"]); ft(s, "fan2L", ["confused", "happy"]); act(s, 0.0, "lizL", pose=dict(armR=-150))
-s = S("as a warning", "LS", (-0.7, 1.25, -2.0), 5.0, 12, pitch=5, zoom=12, dof=dict(focus="lizL", blur=0.4)); ft(s, "lizL", ["shouting", "nervous"]); act(s, 0.1, "bkGL", shake=0.3); T(s, "warning"); snap(s, rel(s, "warning"), 12)
+s = S("the cruel rules", "LS", (-0.7, 1.25, -2.0), 5.0, 12, pitch=5, zoom=12, dof=dict(focus="lizL", blur=0.4)); ft(s, "lizL", ["shouting", "nervous"]); act(s, 0.1, "bkGL", shake=0.3); T(s, "warning"); snap(s, rel(s, "warning"), 12)
 s = S("Play them", "LS", (1.35, 1.25, -1.7), 6.6, 12, pitch=5, zoom=6, yawTo=4); ft(s, "fan1L", ["smug", "happy"]); ft(s, "fan2L", ["nervous", "shocked"]); act(s, 0.1, "bkRL", shake=0.3); c_ = T(s, "play", wf=0.5, hf=0.13)
 swap(s, c_, rel(s, "feel"), "unfair", wf=0.58, hf=0.14); snap(s, rel(s, "unfair"), 12); cfx(s, rel(s, "unfair"), "sweat", "fan2L", 0.7)
 s = S("then switch", "LS", (-0.7, 1.25, -2.0), 5.0, -10, pitch=5, zoom=12, dof=dict(focus="lizL", blur=0.4)); ft(s, "lizL", ["happy", "smug"]); act(s, 0.1, "bkGL", shake=0.3); T(s, "switch")
@@ -361,7 +360,7 @@ spec = {
 
 # ---- music + effects synthesised to the word timings: full energy from frame 1
 CUE = dict(hook="Monopoly", tomake="to make", opp="It did the", liz="Lizzie Magie", typ="typist", grudge="with a grudge", lords="Landlords get", owning="just by owning", ten="and their tenants",
-           designs="So she designs", prove="to prove it", pat="She patents", llg="The Landlord's", strange="Here's the strange", ships="It ships", one="In one", earns="whenever anyone",
+           designs="So she designs", prove="prove it", pat="She patents", llg="The Landlord's", strange="Here's the strange", ships="It ships", one="In one", earns="whenever anyone",
            other="In the other", broke="until they go", guess="Guess which", yousee="You see Lizzie", play="Play them", feel="feel how", switch="then switch", skipped="But players", kept="and kept the",
            years="For years", copied="copied the board", swapped="Players swapped", local="local street", then="Then a man", learned="learned the game", called="called it his", sold="and sold it",
            y35="in 1935", andliz="And Lizzie", bought="Parker Brothers bought", d500="for 500", name="Her name", decades="Decades later", econ="an economics", fight="fighting Parker", dug="dug up her",

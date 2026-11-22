@@ -59,7 +59,7 @@ for v in VOICES:
         rows.append(("%s @%.2f" % (v, sp), a, understood(a)))
         print("%-18s %5.1f s  understood %.3f" % (rows[-1][0], len(a) / SR, rows[-1][2]))
 if os.path.exists(d + "_cand.wav"): os.remove(d + "_cand.wav")
-good = [r for r in rows if r[2] >= 0.965]
+good = [r for r in rows if r[2] >= 0.975]
 name, a, sco = min(good, key=lambda r: len(r[1])) if good else max(rows, key=lambda r: r[2])
 dur = len(a) / SR; tempo = min(1.05, max(1.0, dur / target))
 print("chose %s (understood %.3f): tempo %.3f -> about %.1f s" % (name, sco, tempo, dur / tempo))
