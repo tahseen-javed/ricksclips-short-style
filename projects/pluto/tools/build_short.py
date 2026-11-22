@@ -138,8 +138,7 @@ HOOK = dict(anchor=(0.1, 1.2, -1.7), dist=9.2, yaw=4, pitch=8)
 # ---- 0: A farm boy found a planet with a telescope built from an old car. Eighty-five years later, he flew there.
 s = S("0", "FM", zoom=7, pan=(-3, 0), **HOOK); ft(s, "clydeF", ["shocked", "happy", "shocked"]); act(s, 0.0, "clydeF", pose=dict(armR=-150)); act(s, 0.1, "scopeF", shake=0.3)
 tag(s, 0.0, "farmboy", 0.3, 0.0, wf=0.62, hf=0.22); snap(s, max(0.82, rel(s, "planet")), 12)
-s = S("with a telescope", "FM", (0.9, 0.9, -1.9), 3.6, -10, pitch=4, yawTo=4, type="macro", dof=dict(focus="scopeF", blur=0.5)); act(s, 0.1, "scopeF", shake=0.3)
-s = S("built from", "FM", (-0.75, 1.25, -1.5), 4.6, 10, pitch=5, zoom=12, dof=dict(focus="clydeF", blur=0.4)); ft(s, "clydeF", ["smug", "happy"]); T(s, "oldcar")
+s = S("with a telescope", "FM", (0.9, 0.9, -1.9), 3.6, -10, pitch=4, yawTo=4, type="macro", dof=dict(focus="scopeF", blur=0.5)); act(s, 0.1, "scopeF", shake=0.3); T(s, "oldcar")
 s = crane("Eightyfive years", "SP", (-0.6, 1.3, -3.2), 10.0, 18, 2, 20, 5); act(s, 0.1, "probeS", shake=0.3); T(s, "flew"); snap(s, rel(s, "flew"), 12)
 # ---- Kansas. A hailstorm wipes out the Tombaugh family's crops. Clyde, twenty-two, can't afford college.
 s = crane("Kansas", "HL", (-0.1, 1.2, -1.9), 10.0, -24, -4, 36, 6); ft(s, "dadH", ["shocked", "nervous"]); ft(s, "momH", ["nervous", "shocked"]); ft(s, "clydeH", ["nervous", "confused"])
@@ -150,7 +149,7 @@ s = S("Clyde twentytwo", "HL", (1.3, 1.25, -1.6), 4.6, -10, pitch=5, zoom=12, do
 s = crane("So in 1928", "WB", (-0.3, 1.2, -1.8), 8.0, 8, 0, 24, 6); ft(s, "clydeW", ["happy", "smug"]); act(s, 0.1, "scopeW", shake=0.3); T(s, "y1928", dy=0.2, dx=0.15, wf=0.32, hf=0.34)
 s = S("he builds his", "WB", (-0.3, 1.2, -1.8), 5.4, -12, pitch=5, zoom=10); ft(s, "clydeW", ["smug", "happy"]); act(s, 0.0, "clydeW", pose=dict(armR=-150)); T(s, "ownscope"); snap(s, rel(s, "telescope"), 12)
 s = S("The parts", "WB", (-3.0, 0.45, -2.2), 3.4, 10, pitch=4, yawTo=2, type="macro", dof=dict(focus="carW", blur=0.5)); act(s, 0.1, "carW", shake=0.3); T(s, "parts", dy=0.3, wf=0.5, hf=0.14)
-s = S("The crankshaft", "WB", (2.3, 0.88, -2.1), 2.6, -8, pitch=4, yawTo=4, type="macro", dof=dict(focus="crankW", blur=0.5)); act(s, 0.1, "crankW", shake=0.2); T(s, "buick"); snap(s, rel(s, "Buick"), 12)
+s = S("1910 Buick", "WB", (2.3, 0.88, -2.1), 2.6, -8, pitch=4, yawTo=4, type="macro", dof=dict(focus="crankW", blur=0.5)); act(s, 0.1, "crankW", shake=0.2); T(s, "buick"); snap(s, rel(s, "Buick"), 12)
 s = S("and pieces of", "WB", (3.3, 1.0, -2.1), 2.8, 8, pitch=4, yawTo=-2, type="macro", dof=dict(focus="sepW", blur=0.5)); act(s, 0.1, "sepW", shake=0.3); T(s, "cream")
 # ---- He sketches Jupiter and Mars and mails the drawings to Lowell Observatory in Arizona. He wants advice. They send back a job offer.
 s = crane("He sketches", "AT", (0.0, 1.2, -1.8), 8.4, -22, -2, 36, 6); ft(s, "clydeA", ["happy", "smug"]); act(s, 0.1, "sketchA", shake=0.3); T(s, "sketches")
@@ -171,8 +170,7 @@ s = S("and find the", "BC", (-3.0, 1.09, -2.0), 3.0, 10, pitch=4, yawTo=-2, type
 s = crane("Among countless", "PX", (0.0, 1.3, -2.6), 9.0, -26, -4, 40, 8); act(s, 0.1, "pxP", shake=0.2); T(s, "countless")
 # ---- February 18th, 1930. He finds it. He is twenty-four. The world names it Pluto.
 s = crane("February 18th", "BC", (-0.2, 1.2, -1.8), 8.6, 16, 2, 26, 6); act(s, 0.0, "compB", shake=0.4); ft(s, "clydeB", ["shocked", "happy"]); T(s, "y1930", dy=0.2, dx=0.15, wf=0.32, hf=0.34)
-s = S("He finds it", "BC", (-1.2, 1.25, -1.5), 4.4, -10, pitch=5, zoom=12, dof=dict(focus="clydeB", blur=0.4)); ft(s, "clydeB", ["shouting", "happy"]); act(s, 0.0, "clydeB", pose=dict(armR=-150, armL=150)); T(s, "finds", wf=0.55, hf=0.14); snap(s, rel(s, "finds"), 14); cfx(s, 0.25, "bang", "clydeB", 0.6)
-s = S("He is", "BC", (-0.3, 1.25, -1.7), 7.8, -12, pitch=6, zoom=10); ft(s, "clydeB", ["happy", "smug"]); T(s, "age24", dy=0.3, wf=0.5)
+s = S("He finds it", "BC", (-1.2, 1.25, -1.5), 4.4, -10, pitch=5, zoom=12, dof=dict(focus="clydeB", blur=0.4)); ft(s, "clydeB", ["shouting", "happy"]); act(s, 0.0, "clydeB", pose=dict(armR=-150, armL=150)); c_ = T(s, "finds", wf=0.55, hf=0.14); snap(s, rel(s, "finds"), 14); cfx(s, 0.25, "bang", "clydeB", 0.6); swap(s, c_, rel(s, "He is"), "age24", dy=0.3, wf=0.5)
 s = crane("The world names", "NW", (0.1, 1.2, -1.8), 8.6, 22, 2, 34, 6); ft(s, "newsN", ["shouting", "happy"]); act(s, 0.0, "newsN", pose=dict(armR=-150)); act(s, 0.2, "plutoN", shake=0.4); T(s, "named"); snap(s, rel(s, "Pluto"), 14)
 # ---- Clyde dies before anyone can visit it. But in 2006, NASA launches New Horizons, and inside a small capsule rides about an ounce of his ashes.
 s = S("Clyde dies", "LO", (-0.2, 1.25, -1.8), 6.4, -14, pitch=10, pitchTo=4, zoom=6, _dis=1); hide(s, 0.0, "astroL"); show(s, 0.0, "clydeO", pos("LO", -0.6, 0.04, -1.6), hop=0); ft(s, "clydeO", ["neutral", "happy"]); T(s, "before")
@@ -351,7 +349,7 @@ spec = {
 
 # ---- music + effects synthesised to the word timings: full energy from frame 1
 CUE = dict(hook="A farm", planet="planet", tele="with a telescope", flew="Eightyfive years", kansas="Kansas", hail="hailstorm", tomb="the Tombaugh", clyde22="Clyde twentytwo",
-           y28="So in 1928", builds="he builds his", parts="The parts", crank="The crankshaft", buick="Buick", pieces="and pieces of", sketch="He sketches", mails="and mails the",
+           y28="So in 1928", builds="he builds his", parts="The parts", crank="1910 Buick", buick="Buick", pieces="and pieces of", sketch="He sketches", mails="and mails the",
            lowell="to Lowell Observatory", advice="He wants advice", send="They send back", yousee="You see Lowell", mystery="a mystery world", gave="They gave the",
            tedious="the most tedious", flip="Flip between", taken="taken days apart", find="and find the", moves="moves", among="Among countless", feb="February 18th",
            finds="He finds it", heis="He is", world="The world names", pluto1="Pluto", dies="Clyde dies", b2006="But in 2006", nasa="NASA launches", inside="and inside a",
