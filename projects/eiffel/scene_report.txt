@@ -1,0 +1,51 @@
+music: 38.8 s, spy jazz 132/120 + Paris musette accordion 124/128 + epic timpani 128 + morse effects
+   autofit S00 distance 8.6 -> 9.7
+   autofit S04 distance 9.6 -> 10.2
+   autofit S07 distance 9.2 -> 10.3
+   autofit S09 distance 9.0 -> 11.4
+   autofit S16 distance 7.4 -> 10.5
+   autofit S17 distance 9.0 -> 12.8
+   autofit S19 distance 9.0 -> 9.5
+   autofit S21 distance 6.6 -> 7.4
+   autofit S23 distance 9.0 -> 9.5
+   autofit S24 distance 7.6 -> 9.6
+   autofit S25 distance 8.2 -> 10.4
+   autofit S26 distance 2.8 -> 3.0
+   autofit S30 distance 9.0 -> 10.1
+shot  start   dur  phrase
+S00    0.00  0.88  0                          d 9.7
+S01    0.88  1.20  built to be                d 9.4  snap
+S02    2.08  1.24  One wire on                d 6.4
+S03    3.32  0.98  Then it caught             d 5.6
+S04    4.30  1.52  Paris 1889                 d 10.2
+S05    5.82  0.94  Gustave Eiffel gets        d 4.4
+S06    6.76  1.36  permit for just            d 2.6
+S07    8.12  1.32  Famous artists already     d 10.3
+S08    9.44  1.70  his tower useless          d 4.4  snap
+S09   11.14  1.54  After twenty years         d 11.4
+S10   12.68  0.89  and tear it                d 7.4
+S11   13.57  0.88  Eiffel needs a             d 7.6
+S12   14.45  0.58  A big one                  d 4.4
+   ! very short shot
+S13   15.03  1.52  You see Eiffel             d 7.0
+S14   16.55  1.18  into a giant               d 4.2  snap
+S15   17.73  0.98  In 1898                    d 7.6
+S16   18.71  1.60  a radio signal             d 10.5
+S17   20.31  0.82  to the Panthon             d 12.8
+S18   21.13  1.14  four kilometers away       d 6.6
+S19   22.27  1.10  The army moves             d 9.5
+S20   23.37  1.64  A permanent radio          d 3.6
+S21   25.01  1.24  And Paris renews           d 7.4
+S22   26.25  1.18  for seventy more           d 2.8  snap
+S23   27.43  0.74  Then war comes             d 9.5
+S24   28.17  1.60  The tower listens          d 9.6
+S25   29.77  1.26  They call it               d 10.4  snap
+S26   31.03  1.26  It intercepts messages     d 3.0
+S27   32.29  2.06  a secret agent             d 7.6
+S28   34.35  0.74  Her real name              d 4.6
+S29   35.09  0.72  Mata Hari                  d 4.2  snap
+S30   35.81  1.10  Not bad for                d 10.1
+S31   36.91  1.50  built to be#2              d 8.0
+snaps 6, comic fx 3
+frame check: 0 CUT flags
+wrote short.json: 32 shots, 54 characters, 43 props, voice 38.41 s
