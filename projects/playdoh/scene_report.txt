@@ -16,7 +16,7 @@ shot  start   dur  phrase
 S00    0.00  1.02  0                          d 6.8
 S01    1.02  1.56  has played with            d 3.4  snap
 S02    2.58  1.18  You just called            d 8.2
-S03    3.76  1.52  Cincinnati                 d 9.6
+S03    3.76  1.52  Cincinnati                 d 8.0
 S04    5.28  1.06  a small soap               d 4.6
 S05    6.34  1.38  Back then                  d 10.8
 S06    7.72  1.64  and soot turned            d 5.0  snap
@@ -56,4 +56,4 @@ S39   49.32  1.16  And every kid              d 4.6
 S40   50.48  2.00  has played with#2          d 6.2
 snaps 9, comic fx 5
 frame check: 0 CUT flags
-wrote short.json: 41 shots, 59 characters, 45 props, voice 52.48 s
+wrote short.json: 41 shots, 59 characters, 43 props, voice 52.48 s
