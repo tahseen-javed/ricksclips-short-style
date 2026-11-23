@@ -47,7 +47,7 @@ def yard(loc, img, floor, w=16, rep=(8, 8)):
 def table(loc, x, z, w=1.6, d=0.8, h=0.7, col="#8a5a3a"): box(loc, x, 0.04, z, [w, h, d], color=col)
 
 
-yard("BT", "bath80.png", "tile80.jpg"); box("BT", 2.7, 0.04, -3.2, [1.4, 0.6, 0.8], color="#f8f4ec"); box("BT", -3.0, 0.04, -2.8, [0.6, 0.9, 0.6], color="#ff9a50")
+yard("BT", "bath80.png", "tile80.jpg"); box("BT", 4.2, 0.04, -3.8, [1.4, 0.6, 0.8], color="#f8f4ec"); box("BT", -3.0, 0.04, -2.8, [0.6, 0.9, 0.6], color="#ff9a50")
 yard("JP", "jpl.png", "navytile.jpg"); box("JP", -2.8, 0.04, -2.4, [1.2, 0.8, 0.6], color="#3c50a0"); box("JP", 2.8, 0.04, -2.6, [1.2, 0.8, 0.6], color="#3c50a0")
 yard("SP", "space.png", "starfloor.jpg")
 for x, y, z, sz in ((-3.2, 0.6, -2.6, 0.4), (3.0, 2.2, -3.4, 0.3), (2.6, 0.5, -2.2, 0.35)): box("SP", x, y, z, [sz, sz * 0.8, sz], color="#8a6ad0")
@@ -61,7 +61,7 @@ yard("YD", "backyard.png", "lawn.jpg"); box("YD", 2.9, 0.04, -3.0, [1.2, 0.3, 0.
 
 # ================================================================== CHARACTERS (cards carry "_" in the id: not frame-checked as cast; hero props are)
 human("lonB", "lonnie", pos("BT", -0.8, 0.04, -1.6), face="shocked"); put("soakB", "soaker", pos("BT", -0.35, 0.95, -1.35), 0.42); put("blast_B", "blast", pos("BT", 0.62, 1.02, -1.35), 0.26)
-put("sinkB", "sink", pos("BT", 2.4, 0.04, -3.4), 1.1); put("blastS", "blast", PARK, 0.4, flip=True); put("shadow_B", "shadowkid", pos("BT", -1.6, 0.04, -4.0), 1.1)
+put("sinkB", "sink", pos("BT", 2.4, 0.04, -3.4), 1.1); put("blastS", "blast", PARK, 0.55, flip=True); put("shadow_B", "shadowkid", pos("BT", -1.6, 0.04, -4.0), 1.1)
 human("lonJ", "lonnie", pos("JP", -0.8, 0.04, -1.6), face="happy"); put("rocketJ", "rocket", pos("JP", 0.7, 0.04, -2.2), 1.5)
 put("galS", "galileo", pos("SP", 0.5, 1.2, -2.2), 1.0); put("jupS", "jupiter", pos("SP", -1.2, 0.8, -4.4), 2.0)
 human("lonH", "lonnie", pos("HM", -1.0, 0.04, -1.6), face="happy"); put("coolH", "cooler", pos("HM", 0.6, 0.04, -2.2), 1.4); put("freonH", "freon", pos("HM", -2.8, 0.78, -2.3), 0.55)
@@ -120,9 +120,8 @@ HOOK = dict(anchor=(0.0, 1.0, -1.5), dist=7.0, yaw=4, pitch=8)
 # ---- A rocket scientist invented the Super Soaker. By accident. In his bathroom.
 s = S("0", "BT", zoom=14, pan=(-3, 0), **HOOK); ft(s, "lonB", ["shocked", "happy", "shocked"]); act(s, 0.1, "soakB", shake=0.4); act(s, 0.0, "blast_B", shake=0.3)
 tag(s, 0.0, "hookc", 0.3, 0.0, wf=0.66, hf=0.24)
-s = S("invented the", "BT", (-0.55, 1.1, -1.5), 3.6, -14, pitch=4, yawTo=6, dof=dict(focus="soakB", blur=0.4)); ft(s, "lonB", ["happy", "shocked"]); act(s, 0.1, "soakB", face="shocked", shake=0.3); snap(s, max(0.3, rel(s, "Soaker")), 14)
-s = S("By accident", "BT", (2.4, 1.0, -3.4), 2.8, -6, pitch=14, pitchTo=2, type="macro", dof=dict(focus="sinkB", blur=0.5), _dis=1); hide(s, 0.0, "blast_B"); act(s, 0.1, "sinkB", face="on", shake=0.4); T(s, "accident")
-s = S("In his bathroom", "BT", (0.7, 1.2, -2.4), 10.4, 10, pitch=6, zoom=-10); ft(s, "lonB", ["shocked", "happy"]); act(s, 0.1, "shadow_B", shake=0.3); T(s, "wait", 0.15, wf=0.5)
+s = S("Super Soaker", "BT", (-0.55, 1.1, -1.5), 3.6, -14, pitch=4, yawTo=6, dof=dict(focus="soakB", blur=0.4)); ft(s, "lonB", ["happy", "shocked"]); act(s, 0.1, "soakB", face="shocked", shake=0.3); snap(s, 0.3, 14); T(s, "accident", rel(s, "accident"))
+s = S("In his bathroom", "BT", (0.7, 1.2, -2.4), 10.4, 10, pitch=6, zoom=-10); hide(s, 0.0, "blast_B"); act(s, 0.1, "sinkB", face="on", shake=0.4); ft(s, "lonB", ["shocked", "happy"]); act(s, 0.1, "shadow_B", shake=0.3); T(s, "wait", 0.15, wf=0.5)
 # ---- Lonnie Johnson worked at NASA's Jet Propulsion Laboratory. He worked on Galileo, the probe sent to Jupiter. Serious work.
 s = crane("Lonnie Johnson worked", "JP", (0.0, 1.2, -1.9), 9.0, 22, 2, 36, 6); ft(s, "lonJ", ["happy", "smug"]); T(s, "lonniec")
 s = S("Jet Propulsion", "JP", (0.3, 1.2, -2.0), 6.5, -6, pitch=5, zoom=4, pan=(34, 0)); act(s, 0.05, "rocketJ", shake=0.5); ft(s, "lonJ", ["shocked", "happy"])
@@ -132,7 +131,7 @@ s = S("Serious work", "JP", (-0.8, 1.45, -1.6), 4.0, 10, pitch=5, zoom=12, dof=d
 # ---- 1982. At home, he's building a new cooling system that runs on water instead of Freon.
 s = crane("1982", "HM", (-0.2, 1.2, -1.9), 9.0, -22, -2, 36, 6); ft(s, "lonH", ["happy", "smug"]); T(s, "y1982", dy=0.2, dx=0.15, wf=0.32, hf=0.34)
 s = S("a new cooling", "HM", (0.6, 0.85, -2.2), 3.4, -8, pitch=4, zoom=12, type="macro", dof=dict(focus="coolH", blur=0.5)); act(s, 0.1, "coolH", shake=0.3); T(s, "cooling")
-s = S("instead of Freon", "HM", (-2.8, 1.05, -2.3), 2.6, 8, pitch=14, pitchTo=2, type="macro", dof=dict(focus="freonH", blur=0.5)); act(s, 0.1, "freonH", shake=0.4); T(s, "freonc")
+s = S("instead of Freon", "HM", (-2.8, 1.05, -2.3), 2.6, 8, pitch=14, pitchTo=2, type="macro", dof=dict(focus="freonH", blur=0.5)); act(s, 0.1, "freonH", shake=0.4); T(s, "freonc"); snap(s, rel(s, "Freon"), 10)
 # ---- He hooks a homemade nozzle to his bathroom sink. Turns it on. A blast of water shoots clean across the room.
 s = crane("He hooks a", "BT", (0.7, 1.2, -2.4), 10.4, 20, 2, 38, 6, _dis=1); hide(s, 0.0, "soakB"); hide(s, 0.0, "blast_B"); ft(s, "lonB", ["happy", "smug"]); T(s, "nozzlec")
 s = S("to his bathroom", "BT", (0.7, 1.2, -2.4), 9.4, -10, pitch=5, zoom=-10); ft(s, "lonB", ["smug", "happy"]); act(s, 0.1, "sinkB", shake=0.3)
@@ -153,7 +152,7 @@ s = S("a toy company", "LR", (0.6, 1.45, -1.7), 4.0, -10, pitch=5, zoom=12, dof=
 s = S("finally licensed it", "LR", (-2.7, 1.05, -2.2), 2.6, 8, pitch=14, pitchTo=2, type="macro", dof=dict(focus="contractL", blur=0.5)); act(s, 0.1, "contractL", shake=0.4); T(s, "licensed")
 # ---- It launched in 1990 as the Power Drencher. They renamed it. Super Soaker.
 s = crane("It launched in", "TS", (-0.3, 1.1, -1.9), 8.6, 22, 2, 36, 6); ft(s, "kidcT", ["shocked", "happy"]); T(s, "y1990", dy=0.2, dx=0.15, wf=0.32, hf=0.34)
-s = S("as the Power", "TS", (0.4, 0.8, -2.2), 3.8, -8, pitch=4, zoom=12, type="macro", dof=dict(focus="boxT", blur=0.5)); act(s, 0.1, "boxT", shake=0.3)
+s = S("as the Power", "TS", (0.4, 0.5, -2.2), 3.8, -8, pitch=4, zoom=12, type="macro", dof=dict(focus="boxT", blur=0.5)); act(s, 0.1, "boxT", shake=0.3)
 s = S("They renamed it", "TS", (-0.4, 1.1, -1.9), 6.8, -16, pitch=5, yawTo=4); ft(s, "kidcT", ["shocked", "happy"]); T(s, "renamed")
 s = S("Super Soaker#2", "TS", (2.8, 1.05, -2.4), 2.8, 8, pitch=4, zoom=14, type="macro", dof=dict(focus="soakT", blur=0.5)); act(s, 0.05, "soakT", shake=0.5); T(s, "soakerc"); snap(s, 0.3, 12); cfx(s, 0.3, "glint", "soakT", 0.7)
 # ---- In about two years, it made 200 million dollars. Total sales today? Close to a billion.
@@ -163,9 +162,8 @@ s = S("Total sales today", "MN", (-0.3, 0.6, -2.0), 4.0, 8, pitch=4, zoom=12, ty
 s = S("Close to a", "MN", (1.8, 0.8, -3.4), 5.0, -8, pitch=5, zoom=-10); act(s, 0.1, "coinsM", shake=0.4); T(s, "billion"); snap(s, rel(s, "billion"), 14); cfx(s, 0.3, "glint", "coinsM", 0.7)
 # ---- He set out to build a better way to cool things down. He nailed it. It just fits in a kid's hands.
 s = crane("He set out", "HM", (-0.2, 1.2, -1.9), 9.0, 20, 0, 34, 6); ft(s, "lonH", ["happy", "smug"]); T(s, "cool")
-s = S("to cool things", "HM", (0.6, 0.9, -2.2), 3.4, 6, pitch=14, pitchTo=2, type="macro", dof=dict(focus="coolH", blur=0.5)); act(s, 0.1, "coolH", shake=0.3)
-s = S("He nailed it", "YD", (0.2, 1.0, -1.8), 8.0, 6, pitch=5, zoom=4, pan=(26, 0)); ft(s, "kiddY", ["happy", "shouting"]); ft(s, "kidcY", ["shocked", "happy"]); act(s, 0.1, "blast_Y", shake=0.4); T(s, "nailed")
-s = S("It just fits", "YD", (-0.55, 0.85, -1.5), 3.4, -10, pitch=5, zoom=12, dof=dict(focus="soakY", blur=0.4)); ft(s, "kiddY", ["happy", "smug"]); T(s, "hands"); snap(s, rel(s, "hands"), 12); cfx(s, 0.3, "blush", "kiddY", 0.7)
+s = S("to cool things", "HM", (0.6, 0.9, -2.2), 3.4, 6, pitch=14, pitchTo=2, type="macro", dof=dict(focus="coolH", blur=0.5)); act(s, 0.1, "coolH", shake=0.3); T(s, "nailed", rel(s, "He nailed"))
+s = S("It just fits", "YD", (0.2, 0.9, -1.8), 6.0, -10, pitch=5, zoom=12); ft(s, "kidcY", ["shocked", "happy"]); act(s, 0.1, "blast_Y", shake=0.4); ft(s, "kiddY", ["happy", "smug"]); T(s, "hands"); snap(s, rel(s, "hands"), 12); cfx(s, 0.3, "blush", "kiddY", 0.7)
 # ---- Because a rocket scientist invented the Super Soaker. (pull-out onto the hook frame)
 s = S("Because a rocket", "JP", (-0.1, 1.2, -1.9), 6.8, 16, pitch=5, yawTo=-2); ft(s, "lonJ", ["smug", "happy"]); act(s, 0.1, "rocketJ", shake=0.3)
 s = S("invented the#2", "BT", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); show(s, 0.0, "soakB", pos("BT", -0.35, 0.95, -1.35), hop=0); show(s, 0.0, "blast_B", pos("BT", 0.62, 1.02, -1.35), hop=0)
@@ -324,7 +322,7 @@ spec = {
               "sunsetpink": {"sun": {"azimuth": 200, "elevation": 14, "color": "#ffc090", "intensity": 2.5}, "sky": {"top": "#ff5a8c", "horizon": "#ffc864"}, "fill": {"sky": "#ffd0c0", "ground": "#6a7050", "intensity": 1.6}}},
     "lighting": light, "ground": {"texture": TEX + "pave.jpg", "repeat": [175, 175], "size": 1400},
     "backdrop": {"image": "bg/sky.jpg", "blur": 4}, "ink": {"set": 4},
-    "fxLook": {"ink": "#271925", "accent": "#3cdcff", "paper": ["#e8f8ff", "#c8ecff"], "dofPx": 8, "particle": "#e8faff", "bokehColor": "#ff8ad8", "ray": "#fff0e0", "raySide": 1},
+    "fxLook": {"ink": "#271925", "accent": "#3cdcff", "paper": ["#7cc8f0", "#58aee0"], "dofPx": 8, "particle": "#e8faff", "bokehColor": "#ff8ad8", "ray": "#fff0e0", "raySide": 1},
     "fx": FX, "characters": chars, "props": props, "shots": shots, "end": "audio",
 }
 
