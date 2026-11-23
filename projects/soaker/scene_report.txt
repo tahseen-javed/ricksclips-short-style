@@ -1,71 +1,65 @@
 music: 45.3 s, surf rock 150/152 + 80s synth-pop 118/122 + funk 112/116 + splash effects
-   autofit S00 distance 7.0 -> 7.4
+   autofit S00 distance 7.0 -> 8.3
    autofit S01 distance 3.6 -> 4.3
-   autofit S02 distance 2.8 -> 3.0
-   autofit S03 distance 10.4 -> 11.7
-   autofit S05 distance 6.5 -> 8.2
-   autofit S06 distance 11.0 -> 11.7
-   autofit S07 distance 10.0 -> 10.6
-   autofit S08 distance 4.0 -> 4.5
-   autofit S10 distance 3.4 -> 4.0
-   autofit S12 distance 10.4 -> 12.4
-   autofit S13 distance 9.4 -> 10.6
-   autofit S15 distance 10.0 -> 13.4
-   autofit S16 distance 9.6 -> 11.4
-   autofit S19 distance 4.0 -> 5.0
-   autofit S20 distance 9.5 -> 10.1
-   autofit S21 distance 3.0 -> 3.6
-   autofit S22 distance 3.8 -> 4.0
-   autofit S24 distance 4.0 -> 4.8
-   autofit S27 distance 3.8 -> 4.3
-   autofit S28 distance 6.8 -> 9.1
-   autofit S30 distance 9.4 -> 11.2
-   autofit S35 distance 3.4 -> 3.8
-   autofit S36 distance 8.0 -> 8.5
-   autofit S37 distance 3.4 -> 3.8
+   autofit S02 distance 10.4 -> 11.7
+   autofit S04 distance 6.5 -> 8.2
+   autofit S05 distance 11.0 -> 11.7
+   autofit S06 distance 10.0 -> 10.6
+   autofit S07 distance 4.0 -> 4.5
+   autofit S09 distance 3.4 -> 4.0
+   autofit S11 distance 10.4 -> 12.4
+   autofit S12 distance 9.4 -> 10.6
+   autofit S14 distance 10.0 -> 13.4
+   autofit S15 distance 9.6 -> 11.4
+   autofit S18 distance 4.0 -> 5.0
+   autofit S19 distance 9.5 -> 10.1
+   autofit S20 distance 3.0 -> 3.6
+   autofit S21 distance 3.8 -> 4.0
+   autofit S23 distance 4.0 -> 4.8
+   autofit S26 distance 3.8 -> 4.3
+   autofit S27 distance 6.8 -> 9.1
+   autofit S29 distance 9.4 -> 11.2
+   autofit S34 distance 3.4 -> 3.6
+   autofit S35 distance 6.0 -> 8.5
 shot  start   dur  phrase
-S00    0.00  0.96  0                          d 7.4
-S01    0.96  1.28  invented the               d 4.3  snap
-S02    2.24  0.68  By accident                d 3.0
-   ! very short shot
-S03    2.92  0.80  In his bathroom            d 11.7
-S04    3.72  1.40  Lonnie Johnson worked      d 9.0
-S05    5.12  1.32  Jet Propulsion             d 8.2
-S06    6.44  1.02  He worked on               d 11.7
-S07    7.46  1.30  the probe sent             d 10.6  snap
-S08    8.76  0.86  Serious work               d 4.5
-S09    9.62  1.86  1982                       d 9.0
-S10   11.48  1.76  a new cooling              d 4.0
-S11   13.24  0.90  instead of Freon           d 2.6
-S12   14.14  1.26  He hooks a                 d 12.4
-S13   15.40  1.08  to his bathroom            d 10.6
-S14   16.48  0.74  Turns it on                d 3.0
-S15   17.22  0.72  A blast of                 d 13.4  snap
-S16   17.94  1.34  shoots clean across        d 11.4
-S17   19.28  1.24  You see most               d 8.0
-S18   20.52  0.94  just mop the               d 3.0
-S19   21.46  1.56  Lonnie thought             d 5.0
-S20   23.02  0.92  He spent seven             d 10.1
-S21   23.94  0.80  turning that blast         d 3.6
-S22   24.74  1.42  into a pressurized         d 4.0  snap
-S23   26.16  1.00  In 1989                    d 8.6
-S24   27.16  1.28  a toy company              d 4.8
-S25   28.44  1.02  finally licensed it        d 2.6
-S26   29.46  1.28  It launched in             d 8.6
-S27   30.74  0.96  as the Power               d 4.3
-S28   31.70  0.80  They renamed it            d 9.1
-S29   32.50  0.78  Super Soaker#2             d 2.8  snap
-S30   33.28  0.80  In about two               d 11.2
-S31   34.08  1.57  it made 200                d 6.6
-S32   35.65  1.06  Total sales today          d 4.0
-S33   36.71  0.92  Close to a                 d 5.0  snap
-S34   37.63  1.30  He set out                 d 9.0
-S35   38.93  1.06  to cool things             d 3.8
-S36   39.99  0.56  He nailed it               d 8.5
-   ! very short shot
-S37   40.55  1.44  It just fits               d 3.8  snap
-S38   41.99  1.14  Because a rocket           d 6.8
-S39   43.13  1.76  invented the#2             d 6.4
-snaps 7, comic fx 4
+S00    0.00  1.48  0                          d 8.3
+S01    1.48  1.44  Super Soaker               d 4.3  snap
+S02    2.92  0.80  In his bathroom            d 11.7
+S03    3.72  1.40  Lonnie Johnson worked      d 9.0
+S04    5.12  1.32  Jet Propulsion             d 8.2
+S05    6.44  1.02  He worked on               d 11.7
+S06    7.46  1.30  the probe sent             d 10.6  snap
+S07    8.76  0.86  Serious work               d 4.5
+S08    9.62  1.86  1982                       d 9.0
+S09   11.48  1.76  a new cooling              d 4.0
+S10   13.24  0.90  instead of Freon           d 2.6  snap
+S11   14.14  1.26  He hooks a                 d 12.4
+S12   15.40  1.08  to his bathroom            d 10.6
+S13   16.48  0.74  Turns it on                d 3.0
+S14   17.22  0.72  A blast of                 d 13.4  snap
+S15   17.94  1.34  shoots clean across        d 11.4
+S16   19.28  1.24  You see most               d 8.0
+S17   20.52  0.94  just mop the               d 3.0
+S18   21.46  1.56  Lonnie thought             d 5.0
+S19   23.02  0.92  He spent seven             d 10.1
+S20   23.94  0.80  turning that blast         d 3.6
+S21   24.74  1.42  into a pressurized         d 4.0  snap
+S22   26.16  1.00  In 1989                    d 8.6
+S23   27.16  1.28  a toy company              d 4.8
+S24   28.44  1.02  finally licensed it        d 2.6
+S25   29.46  1.28  It launched in             d 8.6
+S26   30.74  0.96  as the Power               d 4.3
+S27   31.70  0.80  They renamed it            d 9.1
+S28   32.50  0.78  Super Soaker#2             d 2.8  snap
+S29   33.28  0.80  In about two               d 11.2
+S30   34.08  1.57  it made 200                d 6.6
+S31   35.65  1.06  Total sales today          d 4.0
+S32   36.71  0.92  Close to a                 d 5.0  snap
+S33   37.63  1.30  He set out                 d 9.0
+S34   38.93  1.62  to cool things             d 3.6
+S35   40.55  1.44  It just fits               d 8.5  snap
+S36   41.99  1.14  Because a rocket           d 6.8
+S37   43.13  1.76  invented the#2             d 6.4
+snaps 8, comic fx 4
 frame check: 0 CUT flags
-wrote short.json: 40 shots, 58 characters, 40 props, voice 44.89 s
+wrote short.json: 38 shots, 58 characters, 40 props, voice 44.89 s
