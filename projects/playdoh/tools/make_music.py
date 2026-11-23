@@ -244,12 +244,6 @@ def section(t0, t1, kind, bpm):
                 if e % 3 == 0: put(bed, pluck(midi(ch[(e // 3) % 3] + 12), bt * 0.6), u, 0.1)
                 if e in (0, 8): put(bed, kick(), u, 0.35); put(bed, b808(midi(root - 12), bt * 1.2), u, 0.25)
                 if e % 4 == 2: put(bed, hat(), u, 0.05)
-            else:                                             # funk reveal: slap bass, clav chords, 16th hats, kick/snare
-                if e in (0, 7, 8): put(bed, kick(), u, 0.65)
-                if e in (4, 12): put(bed, snare(), u, 0.4)
-                put(bed, hat(), u, 0.05 if e % 2 else 0.08)
-                if e in (0, 3, 6, 10, 11, 14): put(bed, slap(midi(root - 12 + (12 if e in (3, 11) else 0)), bt * 0.4), u, 0.3)
-                if e in (2, 6, 7, 14): put(bed, sum(clav(midi(m), bt * 0.3) for m in ch), u, 0.05)
             elif kind == 'toybox':                            # toy-box bounce: plucked uke strums, glockenspiel hook, claps, bouncy bass
                 if e in (0, 8): put(bed, kick(), u, 0.55); put(bed, tri(midi(root - 12), bt * 0.6), u, 0.35)
                 if e in (6, 14): put(bed, tri(midi(root - 5), bt * 0.4), u, 0.25)
@@ -257,6 +251,12 @@ def section(t0, t1, kind, bpm):
                 if e in (0, 3, 6, 8, 10, 12, 14): put(bed, sum(pluck(midi(m), bt * 0.5) for m in ch), u, 0.07)
                 if e in (0, 2, 5, 8, 11, 13): put(bed, bell(midi(ch[(e + bar) % 3] + 12), 0.35), u, 0.06)
                 if e % 2 == 1: put(bed, hat(), u, 0.06)
+            else:                                             # funk reveal: slap bass, clav chords, 16th hats, kick/snare
+                if e in (0, 7, 8): put(bed, kick(), u, 0.65)
+                if e in (4, 12): put(bed, snare(), u, 0.4)
+                put(bed, hat(), u, 0.05 if e % 2 else 0.08)
+                if e in (0, 3, 6, 10, 11, 14): put(bed, slap(midi(root - 12 + (12 if e in (3, 11) else 0)), bt * 0.4), u, 0.3)
+                if e in (2, 6, 7, 14): put(bed, sum(clav(midi(m), bt * 0.3) for m in ch), u, 0.05)
         t = b0 + 4 * bt
 
 
