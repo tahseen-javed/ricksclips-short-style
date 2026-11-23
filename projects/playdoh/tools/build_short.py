@@ -49,7 +49,6 @@ def table(loc, x, z, w=1.6, d=0.8, h=0.7, col="#8a5a3a"): box(loc, x, 0.04, z, [
 
 yard("PR", "playroom.png", "candy.jpg"); box("PR", -2.9, 0.04, -2.6, [0.6, 0.6, 0.6], color="#ff5a8a"); box("PR", -2.4, 0.04, -3.4, [0.5, 0.9, 0.5], color="#5ab4ff"); box("PR", 3.0, 0.04, -2.4, [0.5, 0.5, 0.5], color="#ffd23c")
 yard("CN", "cincy.png", "cobblesep.jpg"); house("CN", -3.4, -4.4, [1.6, 2.6, 1.4], "#6a3a2a", color="#b8704a"); house("CN", 3.4, -4.6, [1.6, 3.2, 1.4], "#5a3a30", color="#a0603e")
-for x in (-1.8, 1.8): post("CN", x, -3.0, 2.4, "#3a2a24")
 yard("KF", "factory.png", "factile.jpg"); table("KF", 2.6, -2.0, 1.2, 0.8, 0.74, "#c87840"); box("KF", -2.8, 0.04, -2.4, [0.9, 0.9, 0.9], color="#ff8aa8"); box("KF", 3.6, 0.04, -3.8, [1.0, 1.4, 1.0], color="#d08040")
 yard("SO", "sooty.png", "oldboard.jpg"); box("SO", -3.2, 0.04, -3.0, [1.0, 0.8, 0.6], color="#6a5a54"); box("SO", 3.2, 0.04, -3.4, [0.8, 1.2, 0.6], color="#5a4a44")
 yard("GS", "atomic.png", "atomtile.jpg"); table("GS", -2.9, -2.2, 1.0, 0.7, 0.74, "#ff7a6e"); box("GS", 3.0, 0.04, -3.2, [1.2, 0.8, 0.7], color="#7ad2c0")
@@ -122,7 +121,7 @@ tag(s, 0.0, "hookc", 0.3, 0.0, wf=0.66, hf=0.24)
 s = S("has played with", "PR", (0.45, 0.7, -1.9), 3.4, -14, pitch=4, yawTo=6, type="macro", dof=dict(focus="canPR", blur=0.5)); act(s, 0.1, "canPR", shake=0.3); snap(s, max(0.3, rel(s, "cleaner")), 14)
 s = crane("You just called", "PR", (0.0, 0.85, -2.0), 8.2, 20, 2, 34, 6); ft(s, "kidaP", ["happy", "shocked"]); hide(s, rel(s, "Playdoh"), "canPR"); show(s, rel(s, "Playdoh") + 0.02, "pdPR", pos("PR", 0.45, 0.04, -1.9)); act(s, 0.1, "trophy_PR", shake=0.3); T(s, "wait", rel(s, "Playdoh") + 0.15, wf=0.5)
 # ---- Cincinnati. Kutol Products, a small soap company. Back then, homes burned coal, and soot turned every wall gray.
-s = S("Cincinnati", "CN", (0.0, 1.6, -3.0), 9.6, 0, pitch=6, zoom=4, pan=(36, 0)); c_ = T(s, "cinci", dy=0.3, wf=0.62, hf=0.17); swap(s, c_, rel(s, "Kutol"), "kutol", wf=0.62)
+s = S("Cincinnati", "CN", (0.0, 1.6, -3.0), 8.0, 6, pitch=8, zoom=-10); c_ = T(s, "cinci", dy=0.3, wf=0.62, hf=0.17); swap(s, c_, rel(s, "Kutol"), "kutol", wf=0.62)
 s = crane("a small soap", "KF", (2.6, 1.05, -2.0), 4.6, -24, -4, 36, 6); act(s, 0.1, "soapK", shake=0.3); cfx(s, 0.2, "glint", "soapK", 0.7)
 s = S("Back then", "SO", (0.1, 1.2, -2.0), 9.6, 10, pitch=6, zoom=-10); ft(s, "momS", ["nervous", "shocked"]); act(s, 0.1, "stoveS", shake=0.4); T(s, "coal")
 s = S("and soot turned", "SO", (0.0, 1.3, -2.8), 5.0, -6, pitch=14, pitchTo=2, zoom=4, type="macro"); act(s, 0.1, "wall_S", shake=0.2); T(s, "gray"); snap(s, rel(s, "gray"), 14)

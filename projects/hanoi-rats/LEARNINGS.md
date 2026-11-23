@@ -145,3 +145,14 @@ frame width in close-ups, cute characters (big round heads, shiny eyes, blush).
 - camcheck needs a cutaway diagram (counter "MILES OF PLUTO" 7,800) and >=4 shots in the first 6.6 s.
 - Music: epic timpani/brass + country banjo shuffle + music-box mystery + lament + space drift.
 - Tokens for 15+16 together: about 0.75M new (too much reasoning output). Next video: fresh chat, plan in a few lines, copy projects/pluto/tools.
+
+## Videos 17-19 (Play-Doh, Super Soaker, Eiffel) -> projects/playdoh, projects/soaker, projects/eiffel (one chat, 2026-11-23)
+- Template: copy projects/eiffel/tools (pd_assets.py = shared eyes/shine/win helpers + head() with beard/beret/kepi/hard hat/headphones/feather hat).
+- Splice tool `_tmp/splice_v.py <pluto build_short> <pluto make_music> parts.txt <project>`: one parts.txt per video with sections HEAD/SETS/SHOTS/ATM/MOOD/MOODS/LOOK/SEED/CUE/XPROG/KINDS/SCORE/MUSICNAME. New music kinds go before the `else:  # funk reveal` branch (not before `t = b0 + 4 * bt`). Always `python -m py_compile tools/make_music.py` locally before pushing.
+- `_tmp/fakewords.py script words.json 0.22` for the dry run; `_tmp/minisheet.py render_stills out.jpg b` = one still per shot on one 7-column sheet (cheap to view).
+- Cutaway counter on a light fxLook paper = TOO_BRIGHT (luma 228) and blocks the full render: use mid-tone paper (e.g. #f49ac4/#de74a8, #7cc8f0/#58aee0, #b89ae0/#9a78cc).
+- Background-only decoration (wall panel, water jets, tower-top section, "?" open-loop props) gets an id with "_" so autofit does not blow up close-ups; hero props named in the script keep checked ids.
+- Close-up of one adult next to others still needs >= 1.3 m spacing or a different set; autofit widens to show the full body (d >= ~4.5 for 1.8 m).
+- Shot-length rule 0.7-2.0 s: merge with card swap (swap()) or move the shot start phrase; check again with the real CTC words.
+- Kokoro: "Then war" at a line start was heard as "before": keep soft starts (Then/The/They) mid-line. Never add words to tts.txt that are not in the script.
+- git: the cloud commits short.json/audio; delete local generated files (short.json, audio/words.json, cues.json, music.mp3) before `git pull --rebase`, and check `git log origin/master` before starting a run.
