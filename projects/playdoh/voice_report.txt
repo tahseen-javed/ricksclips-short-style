@@ -1,0 +1,22 @@
+Collecting en-core-web-sm==3.8.0
+  Downloading en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 221.9 MB/s  0:00:00
+Installing collected packages: en-core-web-sm
+Successfully installed en-core-web-sm-3.8.0
+[38;5;2m✔ Download and installation successful[0m
+You can now load the package via spacy.load('en_core_web_sm')
+am_fenrir @1.28     55.0 s  understood 0.942
+am_fenrir @1.32     52.8 s  understood 0.949
+am_fenrir @1.36     46.0 s  understood 0.935
+chose am_fenrir @1.32 (understood 0.949): tempo 1.016 -> about 52.0 s
+Downloading: "https://download.pytorch.org/torchaudio/models/wav2vec2_fairseq_base_ls960_asr_ls960.pth" to /home/runner/.cache/torch/hub/checkpoints/wav2vec2_fairseq_base_ls960_asr_ls960.pth
+  0%|          | 0.00/360M [00:00<?, ?B/s] 12%|█▏        | 43.1M/360M [00:00<00:00, 452MB/s] 24%|██▍       | 87.4M/360M [00:00<00:00, 459MB/s] 37%|███▋      | 134M/360M [00:00<00:00, 471MB/s]  50%|████▉     | 179M/360M [00:00<00:00, 459MB/s] 63%|██████▎   | 226M/360M [00:00<00:00, 473MB/s] 75%|███████▌  | 272M/360M [00:00<00:00, 459MB/s] 88%|████████▊ | 315M/360M [00:00<00:00, 440MB/s]100%|█████████▉| 360M/360M [00:00<00:00, 448MB/s]100%|██████████| 360M/360M [00:00<00:00, 454MB/s]
+aligned 202 words over 52.48 s, mean confidence 0.93, shortest word 0.04 s
+heard: Every kid in America has played with wallpaper cleaner. You just called it Play-Doh. Cincinnati, Qtall products a small soap company. Back then, homes burned coal and soot turned every wall gray. Qtall's best seller was a soft, doughy putty. You rolled it across the wallpaper and the dirt came right off. Then after World War II, America switched to gas and oil heat. No soot, no dirty walls, washable vinyl wallpaper finished the job. Qtall's biggest hit was going down the drain. You see, the rescue came from the family. Keizu Fall was a nursery school teacher and Joe Macvicker's sister-in-law. She read that the putty could be used for art projects. She tried it with her class. The kids loved it. So she told Joe, stop selling it for walls, sell it to kids. She even gave it a new name, Play-Doh. In 1956, it hit a department store in Washington, then Macy's. Then Captain Kangaroo started playing with it on TV. More than two billion cans later, it's in the Toy Hall of Fame, not bad for a product that was dying because nobody needed to clean their walls. And every kid in America has played with wallpaper cleaner.
+intelligibility 0.966 (1.0 = every word understood)
+  replace: said ['kutol'] -> heard ['qtall']
+  replace: said ["kutol's"] -> heard ["qtall's"]
+  replace: said ['two'] -> heard ['ii']
+  replace: said ["kutol's"] -> heard ["qtall's"]
+  replace: said ['kay', 'zufall'] -> heard ['keizu', 'fall']
+  replace: said ["mcvicker's"] -> heard ["macvicker's"]

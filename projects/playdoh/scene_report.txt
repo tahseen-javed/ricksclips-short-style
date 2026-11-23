@@ -1,0 +1,64 @@
+music: 52.9 s, toy-box uke + glockenspiel 128/132 + ragtime 124 + piano lament 88 + game-show swing 136 + march 128
+   autofit S04 distance 10.0 -> 11.9
+   autofit S05 distance 9.6 -> 10.8
+   autofit S07 distance 7.6 -> 8.5
+   autofit S09 distance 5.0 -> 5.6
+   autofit S11 distance 8.5 -> 9.0
+   autofit S17 distance 4.6 -> 4.9
+   autofit S18 distance 10.6 -> 11.9
+   autofit S20 distance 4.4 -> 4.7
+   autofit S21 distance 6.0 -> 7.1
+   autofit S22 distance 3.6 -> 4.3
+   autofit S24 distance 10.6 -> 12.6
+   autofit S26 distance 5.6 -> 7.5
+   autofit S27 distance 3.6 -> 4.0
+   autofit S32 distance 8.6 -> 9.7
+   autofit S36 distance 9.0 -> 9.5
+   autofit S38 distance 7.8 -> 8.8
+shot  start   dur  phrase
+S00    0.00  1.02  0                          d 6.8
+S01    1.02  1.56  has played with            d 3.4  snap
+S02    2.58  1.18  You just called            d 8.2
+S03    3.76  1.52  Cincinnati                 d 9.6
+S04    5.28  1.06  a small soap               d 11.9
+S05    6.34  1.38  Back then                  d 10.8
+S06    7.72  1.64  and soot turned            d 5.0  snap
+S07    9.36  1.12  Kutol's best seller        d 8.5
+S08   10.48  1.12  a soft doughy              d 3.2
+S09   11.60  1.32  You rolled it              d 5.6
+S10   12.92  1.27  and the dirt               d 5.0  snap
+S11   14.19  1.38  Then after World           d 9.0
+S12   15.57  1.96  America switched to        d 3.6
+S13   17.53  0.58  No soot                    d 4.2
+   ! very short shot
+S14   18.11  0.80  No dirty walls             d 4.4  snap
+S15   18.91  2.08  Washable vinyl             d 3.0
+S16   20.99  1.12  Kutol's biggest hit        d 8.0
+S17   22.11  1.06  going down the             d 4.9  snap
+S18   23.17  0.92  You see the                d 11.9
+S19   24.09  0.72  from the family            d 6.2
+S20   24.81  1.74  Kay Zufall was             d 4.7
+S21   26.55  1.56  and Joe McVicker's         d 7.1  snap
+S22   28.11  0.78  She read that              d 4.3
+S23   28.89  1.36  could be used              d 3.0
+S24   30.25  1.02  She tried it               d 12.6
+S25   31.27  0.80  The kids loved             d 4.2  snap
+S26   32.07  2.14  So she told                d 7.5
+S27   34.21  0.74  Sell it to                 d 4.0
+S28   34.95  1.10  She even gave              d 4.4
+S29   36.05  0.56  Playdoh#2                  d 3.4  snap
+   ! very short shot
+S30   36.61  1.06  In 1956                    d 9.0
+S31   37.67  1.90  it hit a                   d 4.2
+S32   39.57  0.84  Then Macy's                d 9.7
+S33   40.41  1.37  Then Captain Kangaroo      d 8.6
+S34   41.78  1.32  playing with it            d 5.4
+S35   43.10  1.42  More than two              d 6.6
+S36   44.52  1.30  it's in the                d 9.5  snap
+S37   45.82  1.58  Not bad for                d 4.2
+S38   47.40  1.92  because nobody needed      d 8.8
+S39   49.32  1.16  And every kid              d 4.6
+S40   50.48  2.00  has played with#2          d 6.2
+snaps 9, comic fx 5
+frame check: 0 CUT flags
+wrote short.json: 41 shots, 59 characters, 45 props, voice 52.48 s
