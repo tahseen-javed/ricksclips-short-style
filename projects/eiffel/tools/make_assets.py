@@ -49,18 +49,21 @@ def head(char, expr):
     im.alpha_composite(d.out()); return im
 
 
-def tower(face='default', h=1600):                           # cute Eiffel Tower: iron lattice, three decks, gold lights, a face on the first deck
-    W = 900; d = Draw(W, h); cx = W / 2
-    leg = lambda y: 70 + 370 * (y / h) ** 2.2
-    d.poly([(cx, 60), (cx + leg(h * 0.4) * 0.5, h * 0.4), (cx + leg(h) * 1.0, h - 20), (cx + 140, h - 20), (cx + 40, h * 0.66), (cx - 40, h * 0.66), (cx - 140, h - 20), (cx - leg(h) * 1.0, h - 20), (cx - leg(h * 0.4) * 0.5, h * 0.4)], fill=IRON, outline=LINE, width=16)
-    d.chord(cx, h - 20, 150, 200, 180, 360, fill=(70, 50, 80, 255))
-    for k in range(14):
-        y = 160 + k * (h - 260) / 14; w = leg(y) * 0.8; d.stroke([(cx - w, y), (cx + w * 0.7, y + 60)], IRONL, 8); d.stroke([(cx + w, y), (cx - w * 0.7, y + 60)], IRONL, 8)
-    for y in (h * 0.4, h * 0.66): w = leg(y) * 0.6 + 40; d.rrect(cx - w, y - 26, cx + w, y + 26, 10, fill=(120, 70, 60, 255), outline=LINE, width=12); [d.dot(cx - w + 30 + i * (2 * w - 60) / 6, y, 9, YEL) for i in range(7)]
-    d.stroke([(cx, 60), (cx, 0)], LINE, 14)
-    if face == 'wire': [d.arc(cx, 20, 60 + 50 * i, 40 + 30 * i, 200, 340, CYAN, 10) for i in range(3)]
-    if face == 'ear': d.ellipse(cx + 170, h * 0.52, 120, 170, fill=(255, 190, 170, 255), outline=LINE, width=14); d.arc(cx + 170, h * 0.52, 60, 100, 100, 300, (200, 120, 110, 255), 14)
-    eyes(d, cx, h * 0.52, 0.85, {'default': 'happy', 'wire': 'happy', 'ear': 'happy'}.get(face, face)); return d.out()
+def tower(face='default', h=1600):                           # cute Eiffel Tower: curved iron legs, big arch, two gold-lit decks, spire, face above the arch
+    W = 1000; d = Draw(W, h); cx = W / 2; top = 120
+    w = lambda y: 26 + 430 * ((y - top) / (h - top)) ** 2.6
+    R_ = [(cx + w(y), y) for y in range(top, h - 19, 40)] + [(cx + w(h - 20), h - 20)]
+    a, b, ay = w(h - 20) - 120, (h - 20) - h * 0.70, h - 20
+    arch = [(cx + a * math.cos(math.radians(t)), ay - b * math.sin(math.radians(t))) for t in range(0, 181, 10)]
+    d.poly(R_ + [(cx + a, h - 20)] + arch + [(cx - a, h - 20)] + [(2 * cx - x, y) for x, y in reversed(R_)], fill=IRON, outline=LINE, width=14)
+    for k in range(16):
+        y0 = top + 60 + k * (h * 0.70 - top - 60) / 16; y1 = y0 + (h * 0.70 - top) / 16
+        d.stroke([(cx - w(y0) + 8, y0), (cx + w(y1) - 8, y1)], IRONL, 7); d.stroke([(cx + w(y0) - 8, y0), (cx - w(y1) + 8, y1)], IRONL, 7)
+    for y in (h * 0.42, h * 0.70): ww = w(y) + 36; d.rrect(cx - ww, y - 28, cx + ww, y + 28, 10, fill=(120, 70, 60, 255), outline=LINE, width=12); [d.dot(cx - ww + 30 + i * (2 * ww - 60) / 6, y, 10, YEL) for i in range(7)]
+    d.rrect(cx - 34, top - 40, cx + 34, top + 10, 8, fill=(120, 70, 60, 255), outline=LINE, width=10); d.stroke([(cx, top - 40), (cx, 10)], LINE, 14)
+    if face == 'wire': [d.arc(cx, 30, 60 + 50 * i, 40 + 30 * i, 200, 340, CYAN, 10) for i in range(3)]
+    if face == 'ear': d.ellipse(cx + w(h * 0.56) + 60, h * 0.56, 100, 150, fill=(255, 190, 170, 255), outline=LINE, width=14); d.arc(cx + w(h * 0.56) + 60, h * 0.56, 50, 90, 100, 300, (200, 120, 110, 255), 14)
+    eyes(d, cx, h * 0.56, 0.95, {'default': 'happy', 'wire': 'happy', 'ear': 'happy'}.get(face, face)); return d.out()
 
 
 def towertop():                                              # the very top: little iron cap, flag pole, the antenna wire singing radio rings

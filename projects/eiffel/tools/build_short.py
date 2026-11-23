@@ -66,10 +66,10 @@ yard("WR", "warnight.png", "redcob.jpg"); box("WR", 2.8, 0.04, -2.8, [0.9, 0.5, 
 yard("EA", "bigear.png", "tealcob.jpg"); box("EA", -2.9, 0.04, -2.8, [0.8, 0.6, 0.6], color="#2a6a70")
 
 # ================================================================== CHARACTERS (cards carry "_" in the id: not frame-checked as cast; hero props are)
-put("towerH", "tower", pos("HK", 0.5, 0.04, -2.8), 3.2, face="nervous"); put("ballH", "ball", pos("HK", -1.2, 1.6, -2.4), 1.2)
+put("towerH", "tower", pos("HK", 0.4, 0.04, -2.8), 3.2, face="nervous"); put("ballH", "ball", pos("HK", -1.2, 1.5, -2.4), 1.4)
 put("t_top", "towertop", pos("TP", 0.0, 0.3, -2.6), 2.8); put("wavesT", "waves", PARK, 0.7)
 put("spyS", "spy", pos("SY", 0.5, 0.04, -2.0), 1.8); human("mataS", "mata", PARK, face="smug")
-human("eiffelP", "eiffel", pos("PA", -0.8, 0.04, -1.6), face="happy"); put("towerP", "tower", pos("PA", 1.0, 0.04, -3.4), 3.0)
+human("eiffelP", "eiffel", pos("PA", -0.8, 0.04, -1.6), face="happy"); put("towerP", "tower", pos("PA", 1.4, 0.04, -3.4), 3.0)
 human("eiffelM", "eiffel", pos("PM", -1.0, 0.04, -1.6), face="nervous"); put("permitM", "permit", pos("PM", 0.6, 0.78, -1.9), 0.75)
 human("art1", "artist", pos("AR", -0.9, 0.04, -1.6), face="shouting"); human("art2", "artist2", pos("AR", 0.4, 0.04, -1.8), face="shocked"); put("easelA", "easel", pos("AR", 1.5, 0.04, -2.7), 1.4)
 put("towerC", "tower", pos("CL", 0.9, 0.04, -3.2), 3.0, face="nervous"); put("ballC", "ball", pos("CL", -0.45, 1.6, -2.4), 1.1); human("bossC", "boss", pos("CL", -1.3, 0.04, -1.8), face="shouting")
@@ -122,7 +122,7 @@ def blink(s, who, t0, t1, step=0.3):
     while t < t1: act(s, round(t, 3), who, face="b" if k % 2 == 0 else "default"); t += step; k += 1
 
 
-HOOK = dict(anchor=(0.0, 1.7, -2.6), dist=8.6, yaw=4, pitch=6)
+HOOK = dict(anchor=(0.0, 1.7, -2.6), dist=9.4, yaw=4, pitch=6)
 # ---- The Eiffel Tower was built to be torn down. One wire on top saved it. Then it caught a spy.
 s = S("0", "HK", zoom=14, pan=(-3, 0), **HOOK); act(s, 0.0, "towerH", shake=0.4); go(s, 0.15, "ballH", pos("HK", -0.75, 1.6, -2.4), 0.6, walk=False); act(s, 0.7, "towerH", face="shocked", shake=0.5)
 tag(s, 0.0, "hookc", 0.3, 0.0, wf=0.66, hf=0.24)
@@ -132,15 +132,14 @@ s = S("Then it caught", "SY", (0.5, 1.1, -2.0), 5.6, -6, pitch=5, zoom=4, pan=(2
 # ---- Paris, 1889. Gustave Eiffel gets a permit for just twenty years.
 s = crane("Paris 1889", "PA", (0.3, 1.5, -2.4), 9.6, -22, -2, 36, 6); ft(s, "eiffelP", ["happy", "smug"]); T(s, "y1889", dy=0.2, dx=-0.15, wf=0.32, hf=0.34)
 s = S("Gustave Eiffel gets", "PA", (-0.8, 1.2, -1.6), 4.4, 10, pitch=5, zoom=12, dof=dict(focus="eiffelP", blur=0.4)); ft(s, "eiffelP", ["smug", "happy"]); T(s, "eiffelc")
-s = S("permit for just", "PM", (0.6, 1.15, -1.9), 2.6, -6, pitch=14, pitchTo=2, type="macro", dof=dict(focus="permitM", blur=0.5)); act(s, 0.1, "permitM", shake=0.4)
+s = S("permit for just", "PM", (0.6, 1.15, -1.9), 2.6, -6, pitch=14, pitchTo=2, type="macro", dof=dict(focus="permitM", blur=0.5)); act(s, 0.1, "permitM", shake=0.4); snap(s, rel(s, "twenty"), 10)
 # ---- Famous artists already call his tower "useless and monstrous." After twenty years, the city can take it, and tear it down.
 s = crane("Famous artists already", "AR", (0.2, 1.2, -1.9), 9.2, 22, 2, 34, 6); ft(s, "art1", ["shouting", "smug"]); ft(s, "art2", ["shocked", "shouting"]); act(s, 0.1, "easelA", shake=0.3); T(s, "artists")
 s = S("his tower useless", "AR", (-0.9, 1.2, -1.6), 4.4, 10, pitch=5, zoom=12, dof=dict(focus="art1", blur=0.4)); ft(s, "art1", ["shouting", "smug"]); act(s, 0.0, "art1", pose=dict(armR=-150)); T(s, "useless"); snap(s, rel(s, "monstrous"), 12); cfx(s, 0.3, "bang", "art1", 0.6)
 s = S("After twenty years", "CL", (0.0, 1.5, -2.6), 9.0, -16, pitch=6, yawTo=4); ft(s, "bossC", ["shouting", "smug"]); act(s, 0.1, "ballC", shake=0.3); T(s, "after20")
 s = S("and tear it", "CL", (0.5, 1.6, -2.8), 7.4, 8, pitch=6, zoom=-12, _dis=1); hide(s, 0.0, "bossC"); go(s, 0.05, "ballC", pos("CL", 0.1, 1.6, -2.5), 0.5, walk=False); act(s, 0.5, "towerC", face="shocked", shake=0.6); T(s, "tear")
 # ---- Eiffel needs a reason. A big one.
-s = crane("Eiffel needs a", "PM", (-0.2, 1.2, -1.8), 7.6, -20, 0, 32, 6); ft(s, "eiffelM", ["nervous", "confused"]); T(s, "reason"); cfx(s, 0.3, "question", "eiffelM", 0.7)
-s = S("A big one", "PM", (-1.0, 1.2, -1.6), 4.4, 12, pitch=5, zoom=14, dof=dict(focus="eiffelM", blur=0.4)); ft(s, "eiffelM", ["shocked", "happy"]); act(s, 0.0, "eiffelM", pose=dict(armR=-150)); T(s, "bigone")
+s = crane("Eiffel needs a", "PM", (-0.2, 1.2, -1.8), 7.6, -20, 0, 32, 6); ft(s, "eiffelM", ["nervous", "confused"]); c_ = T(s, "reason"); cfx(s, 0.3, "question", "eiffelM", 0.7); swap(s, c_, rel(s, "A big one"), "bigone"); act(s, rel(s, "A big one"), "eiffelM", pose=dict(armR=-150))
 # ---- You see, Eiffel turns his tower into a giant antenna. In 1898, a radio signal flies from the top to the Pantheon, four kilometers away.
 s = crane("You see Eiffel", "TP", (0.0, 1.6, -2.6), 7.0, 20, 0, 34, 6); act(s, 0.1, "t_top", shake=0.4)
 s = S("into a giant", "TP", (0.0, 2.6, -2.6), 4.2, -6, pitch=4, zoom=12, type="macro", dof=dict(focus="t_top", blur=0.4)); act(s, 0.1, "t_top", shake=0.4); T(s, "antenna"); snap(s, rel(s, "antenna"), 12)
@@ -149,7 +148,7 @@ s = S("a radio signal", "TP", (0.2, 2.0, -2.6), 7.4, 6, pitch=5, zoom=4, pan=(20
 s = crane("to the Panthon", "PN", (0.3, 1.3, -3.0), 9.0, 22, 2, 30, 6); show(s, 0.1, "wavesN", pos("PN", -1.4, 2.3, -2.6)); act(s, 0.3, "pantN", shake=0.4); T(s, "pantc")
 s = S("four kilometers away", "PN", (0.0, 2.0, -2.0), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="KILOMETERS AWAY", items=["4"]))
 # ---- The army moves in. A permanent radio station follows. And Paris renews his permit for seventy more years.
-s = crane("The army moves", "AY", (0.0, 1.2, -1.8), 9.0, -22, -2, 36, 6); ft(s, "sold1", ["happy", "smug"]); ft(s, "sold2", ["smug", "happy"]); ft(s, "sold3", ["happy", "shouting"]); T(s, "army")
+s = crane("The army moves", "AY", (0.0, 1.2, -1.8), 9.0, -22, -2, 36, 6); ft(s, "sold1", ["happy", "smug"]); ft(s, "sold2", ["smug", "happy"]); ft(s, "sold3", ["happy", "shouting"]); T(s, "army"); snap(s, 0.3, 12)
 s = S("A permanent radio", "RS", (0.9, 1.05, -2.0), 3.6, 10, pitch=4, zoom=12, type="macro", dof=dict(focus="radioR", blur=0.5)); act(s, 0.1, "radioR", shake=0.3); T(s, "station")
 s = S("And Paris renews", "PM", (-0.2, 1.2, -1.8), 6.6, 16, pitch=5, yawTo=-2); act(s, 0.2, "permitM", shake=0.4); ft(s, "eiffelM", ["happy", "smug"]); cfx(s, 0.4, "blush", "eiffelM", 0.7)
 s = S("for seventy more", "PM", (0.6, 1.15, -1.9), 2.8, 8, pitch=4, zoom=14, type="macro", dof=dict(focus="permitM", blur=0.5)); act(s, 0.1, "permitM", face="renewed", shake=0.5); T(s, "plus70"); snap(s, rel(s, "seventy"), 12)
@@ -159,11 +158,12 @@ s = S("The tower listens", "EA", (0.0, 1.7, -2.8), 7.6, -8, pitch=5, zoom=12); s
 s = S("They call it", "EA", (0.0, 1.6, -2.8), 8.2, -16, pitch=5, yawTo=4); act(s, 0.1, "towerE", shake=0.4); T(s, "bigear"); snap(s, rel(s, "ear"), 12)
 s = S("It intercepts messages", "RS", (-2.7, 1.0, -2.2), 2.8, 8, pitch=14, pitchTo=2, type="macro", dof=dict(focus="tapeR", blur=0.5)); act(s, 0.1, "tapeR", shake=0.4); T(s, "intercept")
 s = crane("a secret agent", "SY", (0.3, 1.1, -2.0), 7.6, -20, 0, 32, 6); act(s, 0.1, "spyS", shake=0.3); T(s, "h21")
+s = S("code name", "SY", (0.5, 1.0, -2.0), 5.6, -14, pitch=5, yawTo=4); act(s, 0.1, "spyS", shake=0.4); cfx(s, 0.2, "question", "spyS", 0.7)
 # ---- Her real name? Mata Hari.
 s = S("Her real name", "SY", (0.5, 1.0, -2.0), 4.6, 10, pitch=5, zoom=12, dof=dict(focus="spyS", blur=0.4)); act(s, 0.1, "spyS", shake=0.4); T(s, "realname")
 s = S("Mata Hari", "SY", (0.5, 1.0, -2.0), 4.2, -8, pitch=5, zoom=-10); hide(s, 0.0, "spyS"); show(s, 0.02, "mataS", pos("SY", 0.5, 0.04, -2.0)); ft(s, "mataS", ["smug", "happy"]); T(s, "matac"); snap(s, 0.3, 12); cfx(s, 0.3, "glint", "mataS", 0.7)
 # ---- Not bad for a tower that was built to be torn down. (pull-out onto the hook frame)
-s = S("Not bad for", "PA", (0.1, 1.5, -2.4), 9.0, 16, pitch=6, yawTo=-2); ft(s, "eiffelP", ["smug", "happy"]); act(s, 0.1, "towerP", shake=0.3); T(s, "notbad")
+s = S("Not bad for", "PA", (0.3, 1.5, -2.4), 9.6, 16, pitch=6, yawTo=-2); ft(s, "eiffelP", ["smug", "happy"]); act(s, 0.1, "towerP", shake=0.3); T(s, "notbad")
 s = S("built to be#2", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); show(s, 0.0, "ballH", pos("HK", -1.0, 1.6, -2.4), hop=0); act(s, 0.0, "towerH", face="nervous", shake=0.4)
 go(s, 0.2, "ballH", pos("HK", -0.75, 1.6, -2.4), 0.6, walk=False); tag(s, 0.05, "hookc", 0.3, 0.0, wf=0.66, hf=0.24)
 for s in shots: s.setdefault("frameY", 0.0)
