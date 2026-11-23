@@ -50,7 +50,7 @@ def table(loc, x, z, w=1.6, d=0.8, h=0.7, col="#8a5a3a"): box(loc, x, 0.04, z, [
 yard("PR", "playroom.png", "candy.jpg"); box("PR", -2.9, 0.04, -2.6, [0.6, 0.6, 0.6], color="#ff5a8a"); box("PR", -2.4, 0.04, -3.4, [0.5, 0.9, 0.5], color="#5ab4ff"); box("PR", 3.0, 0.04, -2.4, [0.5, 0.5, 0.5], color="#ffd23c")
 yard("CN", "cincy.png", "cobblesep.jpg"); house("CN", -3.4, -4.4, [1.6, 2.6, 1.4], "#6a3a2a", color="#b8704a"); house("CN", 3.4, -4.6, [1.6, 3.2, 1.4], "#5a3a30", color="#a0603e")
 for x in (-1.8, 1.8): post("CN", x, -3.0, 2.4, "#3a2a24")
-yard("KF", "factory.png", "factile.jpg"); table("KF", 2.2, -2.0, 1.2, 0.8, 0.74, "#c87840"); box("KF", -2.8, 0.04, -2.4, [0.9, 0.9, 0.9], color="#ff8aa8"); box("KF", 3.6, 0.04, -3.8, [1.0, 1.4, 1.0], color="#d08040")
+yard("KF", "factory.png", "factile.jpg"); table("KF", 2.6, -2.0, 1.2, 0.8, 0.74, "#c87840"); box("KF", -2.8, 0.04, -2.4, [0.9, 0.9, 0.9], color="#ff8aa8"); box("KF", 3.6, 0.04, -3.8, [1.0, 1.4, 1.0], color="#d08040")
 yard("SO", "sooty.png", "oldboard.jpg"); box("SO", -3.2, 0.04, -3.0, [1.0, 0.8, 0.6], color="#6a5a54"); box("SO", 3.2, 0.04, -3.4, [0.8, 1.2, 0.6], color="#5a4a44")
 yard("GS", "atomic.png", "atomtile.jpg"); table("GS", -2.9, -2.2, 1.0, 0.7, 0.74, "#ff7a6e"); box("GS", 3.0, 0.04, -3.2, [1.2, 0.8, 0.7], color="#7ad2c0")
 yard("DR", "bath.png", "aqua.jpg"); box("DR", -1.4, 0.04, -2.6, [0.5, 1.0, 0.5], color="#f4fbff"); box("DR", 1.4, 0.04, -2.6, [0.5, 1.0, 0.5], color="#f4fbff"); box("DR", -3.2, 0.04, -3.2, [0.9, 0.6, 0.6], color="#8ad8e6")
@@ -61,8 +61,8 @@ yard("HF", "fame.png", "redcarpet.jpg"); box("HF", 0.0, 0.04, -2.2, [1.0, 0.86, 
 
 # ================================================================== CHARACTERS (cards carry "_" in the id: not frame-checked as cast; hero props are)
 human("kidaP", "kida", pos("PR", -0.75, 0.04, -1.6), face="shocked", h=1.25); put("canPR", "can", pos("PR", 0.45, 0.04, -1.9), 1.2, face="shocked"); put("pdPR", "pdcan", PARK, 1.2)
-put("trophy_PR", "trophy", pos("PR", 1.25, 0.04, -3.4), 0.8, face="q")
-human("joeK", "joe", pos("KF", -0.75, 0.04, -1.7), face="happy"); human("kayK", "kay", PARK, face="happy"); put("soapK", "soap", pos("KF", 2.2, 0.78, -2.0), 0.7); put("doughK", "dough", pos("KF", -2.8, 0.94, -2.4), 0.55)
+put("trophy_PR", "trophy", pos("PR", 1.05, 0.04, -3.6), 0.7, face="q")
+human("joeK", "joe", pos("KF", -0.75, 0.04, -1.7), face="happy"); human("kayK", "kay", PARK, face="happy"); put("soapK", "soap", pos("KF", 2.6, 0.78, -2.0), 0.7); put("doughK", "dough", pos("KF", -2.8, 0.94, -2.4), 0.55)
 human("momS", "mom", pos("SO", -1.4, 0.04, -1.6), face="nervous"); put("stoveS", "stove", pos("SO", 1.6, 0.04, -2.2), 1.5); put("wall_S", "wallp", pos("SO", 0.0, 0.25, -2.8), 2.4)
 human("momG", "mom50", pos("GS", -0.9, 0.04, -1.6), face="happy"); put("furnG", "furnace", pos("GS", 1.0, 0.04, -2.2), 1.5); put("vinylG", "vinyl", pos("GS", -2.9, 0.78, -2.2), 0.55)
 put("whirlD", "whirl", pos("DR", 0.0, 0.1, -2.6), 1.1); put("canD", "can", pos("DR", 0.0, 1.3, -2.3), 0.75, face="sad")
@@ -122,8 +122,8 @@ tag(s, 0.0, "hookc", 0.3, 0.0, wf=0.66, hf=0.24)
 s = S("has played with", "PR", (0.45, 0.7, -1.9), 3.4, -14, pitch=4, yawTo=6, type="macro", dof=dict(focus="canPR", blur=0.5)); act(s, 0.1, "canPR", shake=0.3); snap(s, max(0.3, rel(s, "cleaner")), 14)
 s = crane("You just called", "PR", (0.0, 0.85, -2.0), 8.2, 20, 2, 34, 6); ft(s, "kidaP", ["happy", "shocked"]); hide(s, rel(s, "Playdoh"), "canPR"); show(s, rel(s, "Playdoh") + 0.02, "pdPR", pos("PR", 0.45, 0.04, -1.9)); act(s, 0.1, "trophy_PR", shake=0.3); T(s, "wait", rel(s, "Playdoh") + 0.15, wf=0.5)
 # ---- Cincinnati. Kutol Products, a small soap company. Back then, homes burned coal, and soot turned every wall gray.
-s = S("Cincinnati", "CN", (0.0, 1.6, -3.0), 9.6, 0, pitch=6, zoom=4, pan=(36, 0)); c_ = T(s, "cinci", dy=0.32, wf=0.48, hf=0.12); swap(s, c_, rel(s, "Kutol"), "kutol")
-s = crane("a small soap", "KF", (0.75, 1.1, -1.9), 10.0, -24, -4, 36, 6); ft(s, "joeK", ["happy", "smug"]); act(s, 0.1, "soapK", shake=0.3); cfx(s, 0.2, "glint", "soapK", 0.7)
+s = S("Cincinnati", "CN", (0.0, 1.6, -3.0), 9.6, 0, pitch=6, zoom=4, pan=(36, 0)); c_ = T(s, "cinci", dy=0.3, wf=0.62, hf=0.17); swap(s, c_, rel(s, "Kutol"), "kutol", wf=0.62)
+s = crane("a small soap", "KF", (2.6, 1.05, -2.0), 4.6, -24, -4, 36, 6); act(s, 0.1, "soapK", shake=0.3); cfx(s, 0.2, "glint", "soapK", 0.7)
 s = S("Back then", "SO", (0.1, 1.2, -2.0), 9.6, 10, pitch=6, zoom=-10); ft(s, "momS", ["nervous", "shocked"]); act(s, 0.1, "stoveS", shake=0.4); T(s, "coal")
 s = S("and soot turned", "SO", (0.0, 1.3, -2.8), 5.0, -6, pitch=14, pitchTo=2, zoom=4, type="macro"); act(s, 0.1, "wall_S", shake=0.2); T(s, "gray"); snap(s, rel(s, "gray"), 14)
 s = S("Kutol's best seller", "KF", (-1.72, 1.1, -2.0), 7.6, 6, pitch=16, pitchTo=4); ft(s, "joeK", ["smug", "happy"]); act(s, 0.1, "doughK", shake=0.3); T(s, "best")
@@ -134,9 +134,9 @@ s = S("and the dirt", "SO", (0.0, 1.3, -2.8), 5.0, -8, pitch=4, yawTo=6, zoom=4,
 # ---- Then, after World War Two, America switched to gas and oil heat. No soot. No dirty walls. Washable vinyl wallpaper finished the job.
 s = crane("Then after World", "GS", (0.1, 1.2, -1.9), 8.5, 22, 2, 38, 6); ft(s, "momG", ["happy", "smug"]); T(s, "ww2", dy=0.2, dx=0.15, wf=0.32, hf=0.34)
 s = S("America switched to", "GS", (1.0, 0.9, -2.2), 3.6, -10, pitch=4, zoom=12, type="macro", dof=dict(focus="furnG", blur=0.5)); act(s, 0.1, "furnG", shake=0.3); T(s, "gasoil")
-s = S("No soot", "SO", (1.6, 0.9, -2.2), 4.2, 8, pitch=4, zoom=-12); act(s, 0.0, "stoveS", face="sad", shake=0.3); T(s, "nosoot")
-s = S("No dirty walls", "GS", (-0.9, 1.3, -1.6), 4.4, -14, pitch=5, yawTo=4, zoom=4, dof=dict(focus="momG", blur=0.4)); ft(s, "momG", ["smug", "happy"]); T(s, "nowalls"); snap(s, rel(s, "walls"), 12)
+s = S("No soot", "SO", (1.6, 0.9, -2.2), 4.2, 8, pitch=4, zoom=-12); act(s, 0.0, "stoveS", face="sad", shake=0.3); c_ = T(s, "nosoot"); swap(s, c_, rel(s, "No dirty"), "nowalls")
 s = S("Washable vinyl", "GS", (-2.9, 1.05, -2.2), 3.0, 6, pitch=16, pitchTo=4, type="macro", dof=dict(focus="vinylG", blur=0.5)); act(s, 0.1, "vinylG", shake=0.3); T(s, "vinylc"); cfx(s, 0.4, "glint", "vinylG", 0.7)
+s = S("finished the job", "GS", (-0.9, 1.3, -1.6), 4.4, 12, pitch=5, zoom=12, dof=dict(focus="momG", blur=0.4)); ft(s, "momG", ["smug", "happy"]); act(s, 0.0, "momG", pose=dict(armR=-150)); snap(s, 0.3, 12)
 # ---- Kutol's biggest hit was going down the drain.
 s = crane("Kutol's biggest hit", "DR", (0.0, 1.1, -2.4), 8.0, -20, 0, 50, 10); act(s, 0.1, "canD", shake=0.3); T(s, "drain")
 s = S("going down the", "DR", (0.0, 0.85, -2.4), 4.6, 6, pitch=6, zoom=14, type="macro", dof=dict(focus="canD", blur=0.4)); go(s, 0.1, "canD", pos("DR", 0.0, 0.55, -2.3), 1.0, walk=False); act(s, 0.1, "whirlD", shake=0.3); snap(s, rel(s, "drain"), 14)
@@ -151,14 +151,14 @@ s = S("could be used", "NS", (0.2, 0.92, -2.9), 3.0, 10, pitch=4, zoom=12, type=
 s = crane("She tried it", "NS", (0.3, 1.1, -1.9), 10.6, 24, 4, 40, 6); hide(s, 0.0, "magN"); ft(s, "kayN", ["happy", "smug"]); ft(s, "kidaN", ["happy", "shocked"]); ft(s, "kidbN", ["shocked", "happy"]); T(s, "klass")
 s = S("The kids loved", "NS", (1.5, 0.95, -1.8), 4.2, -10, pitch=5, zoom=-10); ft(s, "kidaN", ["happy", "shocked"]); ft(s, "kidbN", ["shocked", "happy"]); act(s, 0.0, "kidaN", pose=dict(armR=-150, armL=150)); act(s, 0.0, "kidbN", pose=dict(armR=-150, armL=150)); T(s, "loved"); snap(s, rel(s, "loved"), 12); cfx(s, 0.3, "blush", "kidaN", 0.7)
 # ---- So she told Joe: stop selling it for walls. Sell it to kids. She even gave it a new name. Play-Doh.
-s = S("So she told", "KF", (-0.1, 1.4, -1.6), 5.6, 14, pitch=5, zoom=12); ft(s, "kayK", ["shouting", "smug"]); ft(s, "joeK", ["shocked", "nervous"]); act(s, 0.0, "kayK", pose=dict(armR=-150)); T(s, "stop")
+s = S("So she told", "NS", (-1.3, 1.35, -1.6), 4.4, -12, pitch=5, zoom=12, dof=dict(focus="kayN", blur=0.4)); ft(s, "kayN", ["shouting", "smug"]); act(s, 0.0, "kayN", pose=dict(armR=-150))
+s = crane("stop selling it", "KF", (-0.1, 1.3, -1.6), 6.4, 20, 2, 30, 6); ft(s, "kayK", ["shouting", "smug"]); ft(s, "joeK", ["shocked", "nervous"]); T(s, "stop")
 s = S("Sell it to", "KF", (-0.75, 1.4, -1.7), 3.6, -14, pitch=5, yawTo=4, dof=dict(focus="joeK", blur=0.4)); ft(s, "joeK", ["shocked", "happy"]); T(s, "sellk")
-s = S("She even gave", "NS", (-1.3, 1.3, -1.6), 4.4, 8, pitch=16, pitchTo=4); ft(s, "kayN", ["smug", "happy"]); act(s, 0.0, "kayN", pose=dict(armR=-150)); T(s, "newname")
-s = S("Playdoh#2", "PR", (0.45, 0.7, -1.9), 3.4, 10, pitch=4, zoom=14, type="macro", dof=dict(focus="pdPR", blur=0.5), _dis=1); act(s, 0.05, "pdPR", shake=0.5); cfx(s, 0.15, "glint", "pdPR", 0.7); snap(s, 0.3, 12)
+s = S("a new name", "PR", (0.45, 0.7, -1.9), 3.4, 10, pitch=4, zoom=14, type="macro", dof=dict(focus="pdPR", blur=0.5), _dis=1); act(s, 0.05, "pdPR", shake=0.5); T(s, "newname"); snap(s, rel(s, "Playdoh"), 12)
 # ---- In 1956, it hit a department store in Washington. Then Macy's. Then Captain Kangaroo started playing with it on TV.
 s = crane("In 1956", "DS", (0.0, 1.2, -1.8), 9.0, -22, -2, 34, 6); ft(s, "kidbD", ["shocked", "happy"]); T(s, "y1956", dy=0.2, dx=0.15, wf=0.32, hf=0.34)
 s = S("it hit a", "DS", (0.9, 1.0, -2.0), 4.2, -10, pitch=4, zoom=12, dof=dict(focus="canDS", blur=0.4)); act(s, 0.1, "canDS", shake=0.3); T(s, "dstore")
-s = S("Then Macy's", "DS", (0.05, 1.2, -2.0), 8.6, 6, pitch=5, zoom=4, pan=(24, 0)); ft(s, "kidbD", ["happy", "shocked"]); T(s, "macys")
+s = S("Then Macy's", "DS", (0.05, 1.2, -2.0), 8.6, 6, pitch=5, zoom=4, pan=(24, 0)); ft(s, "kidbD", ["happy", "shocked"]); T(s, "macys"); snap(s, 0.3, 10)
 s = crane("Then Captain Kangaroo", "TV", (-0.2, 1.1, -1.9), 8.6, 22, 2, 36, 6); ft(s, "kidaT", ["happy", "shocked"]); act(s, 0.1, "tvT", shake=0.3); T(s, "ontv")
 s = S("playing with it", "TV", (0.4, 0.95, -2.2), 5.4, -12, pitch=4, yawTo=4, type="macro", dof=dict(focus="tvT", blur=0.5)); act(s, 0.1, "tvT", shake=0.4)
 # ---- More than two billion cans later, it's in the Toy Hall of Fame.
@@ -326,7 +326,7 @@ spec = {
               "gold": {"sun": {"azimuth": 0, "elevation": 45, "color": "#fff0c8", "intensity": 2.5}, "sky": {"top": "#c08020", "horizon": "#ffd878"}, "fill": {"sky": "#fff0c8", "ground": "#805030", "intensity": 1.7}}},
     "lighting": light, "ground": {"texture": TEX + "pave.jpg", "repeat": [175, 175], "size": 1400},
     "backdrop": {"image": "bg/sky.jpg", "blur": 4}, "ink": {"set": 4},
-    "fxLook": {"ink": "#271925", "accent": "#ff4f8b", "paper": ["#fff0f6", "#ffd8e8"], "dofPx": 8, "particle": "#fff6fa", "bokehColor": "#ffd0f0", "ray": "#fff4e0", "raySide": 1},
+    "fxLook": {"ink": "#271925", "accent": "#ff4f8b", "paper": ["#f49ac4", "#de74a8"], "dofPx": 8, "particle": "#fff6fa", "bokehColor": "#ffd0f0", "ray": "#fff4e0", "raySide": 1},
     "fx": FX, "characters": chars, "props": props, "shots": shots, "end": "audio",
 }
 

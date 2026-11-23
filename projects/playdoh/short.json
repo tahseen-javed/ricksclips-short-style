@@ -225,7 +225,7 @@
    "fade": 0.4
   },
   {
-   "t": 17.91,
+   "t": 18.71,
    "mood": "atomic",
    "fade": 0.4
   },
@@ -260,17 +260,12 @@
    "fade": 0.4
   },
   {
-   "t": 31.87,
+   "t": 32.85,
    "mood": "copper",
    "fade": 0.4
   },
   {
-   "t": 34.75,
-   "mood": "sunny",
-   "fade": 0.4
-  },
-  {
-   "t": 35.85,
+   "t": 35.31,
    "mood": "candy",
    "fade": 0.4
   },
@@ -329,8 +324,8 @@
   "ink": "#271925",
   "accent": "#ff4f8b",
   "paper": [
-   "#fff0f6",
-   "#ffd8e8"
+   "#f49ac4",
+   "#de74a8"
   ],
   "dofPx": 8,
   "particle": "#fff6fa",
@@ -408,11 +403,11 @@
    "id": "trophy_PR",
    "puppet": "puppets/trophy",
    "pos": [
-    1.25,
+    1.05,
     0.04,
-    -3.4
+    -3.6
    ],
-   "height": 0.8,
+   "height": 0.7,
    "face": "q"
   },
   {
@@ -441,7 +436,7 @@
    "id": "soapK",
    "puppet": "puppets/soap",
    "pos": [
-    142.2,
+    142.6,
     0.78,
     -2.0
    ],
@@ -698,7 +693,7 @@
     -60,
     0
    ],
-   "height": 0.135,
+   "height": 0.191,
    "face": "default"
   },
   {
@@ -797,7 +792,7 @@
     -60,
     0
    ],
-   "height": 0.446,
+   "height": 0.474,
    "face": "default"
   },
   {
@@ -808,7 +803,7 @@
     -60,
     0
    ],
-   "height": 0.497,
+   "height": 0.52,
    "face": "default"
   },
   {
@@ -819,7 +814,7 @@
     -60,
     0
    ],
-   "height": 0.3,
+   "height": 0.329,
    "face": "default"
   },
   {
@@ -907,7 +902,7 @@
     -60,
     0
    ],
-   "height": 0.684,
+   "height": 0.701,
    "face": "default"
   },
   {
@@ -918,7 +913,7 @@
     -60,
     0
    ],
-   "height": 0.486,
+   "height": 0.499,
    "face": "default"
   },
   {
@@ -929,7 +924,7 @@
     -60,
     0
    ],
-   "height": 0.497,
+   "height": 0.34,
    "face": "default"
   },
   {
@@ -1212,7 +1207,7 @@
   {
    "type": "box",
    "pos": [
-    142.2,
+    142.6,
     0.04,
     -2.0
    ],
@@ -1957,7 +1952,7 @@
      "who": "cinci_3",
      "to": [
       70.0,
-      1.892,
+      1.842,
       -2.7
      ],
      "over": 0.02,
@@ -1996,11 +1991,11 @@
   {
    "start": 5.28,
    "anchor": [
-    140.75,
-    1.1,
-    -1.9
+    142.6,
+    1.05,
+    -2.0
    ],
-   "distance": 11.91,
+   "distance": 4.6,
    "yaw": -24,
    "pitch": 36,
    "zoom": 8,
@@ -2013,16 +2008,6 @@
      "at": 0.1,
      "who": "soapK",
      "shake": 0.3
-    },
-    {
-     "at": 0.0,
-     "who": "joeK",
-     "face": "happy"
-    },
-    {
-     "at": 0.55,
-     "who": "joeK",
-     "face": "smug"
     }
    ],
    "out": "dissolve",
@@ -2564,7 +2549,7 @@
    "pitch": 4,
    "zoom": -12,
    "pan": [
-    67.2,
+    0,
     0
    ],
    "actions": [
@@ -2575,8 +2560,30 @@
      "shake": 0.3
     },
     {
-     "at": 0.54,
+     "at": 0.56,
      "who": "nosoot_12",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.34,
+     "who": "nosoot_12",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
+    },
+    {
+     "at": 1.34,
+     "who": "nowalls_13",
      "to": [
       0,
       -60,
@@ -2590,7 +2597,19 @@
      "who": "nosoot_12",
      "to": [
       211.642,
-      1.491,
+      1.528,
+      -1.903
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0.12
+    },
+    {
+     "at": 0.58,
+     "who": "nowalls_13",
+     "to": [
+      211.642,
+      1.588,
       -1.903
      ],
      "over": 0.02,
@@ -2607,77 +2626,6 @@
      "count": 44,
      "size": 1.0,
      "drift": 1.0
-    }
-   }
-  },
-  {
-   "start": 18.11,
-   "anchor": [
-    279.1,
-    1.3,
-    -1.6
-   ],
-   "distance": 4.4,
-   "yaw": -14,
-   "pitch": 5,
-   "zoom": 4,
-   "pan": [
-    48.7,
-    0
-   ],
-   "actions": [
-    {
-     "at": 0.0,
-     "who": "momG",
-     "face": "smug"
-    },
-    {
-     "at": 0.76,
-     "who": "nowalls_13",
-     "to": [
-      0,
-      -60,
-      0
-     ],
-     "over": 0.02,
-     "walk": false
-    },
-    {
-     "at": 0.05,
-     "who": "nowalls_13",
-     "to": [
-      279.039,
-      1.958,
-      -1.306
-     ],
-     "over": 0.02,
-     "walk": false,
-     "hop": 0.12
-    }
-   ],
-   "out": "glide",
-   "outDur": 0.5,
-   "glide": "dolly",
-   "yawTo": 4,
-   "dof": {
-    "focus": "momG",
-    "blur": 0.4
-   },
-   "frameY": 0.0,
-   "snap": {
-    "t": 0.42,
-    "zoom": 12,
-    "dur": 0.28
-   },
-   "atmos": {
-    "dust": {
-     "count": 18,
-     "size": 1.0,
-     "drift": 1.0
-    },
-    "rays": {
-     "angle": 34,
-     "intensity": 0.55
     }
    }
   },
@@ -2703,7 +2651,7 @@
      "shake": 0.3
     },
     {
-     "at": 2.04,
+     "at": 1.2,
      "who": "vinylc_14",
      "to": [
       0,
@@ -2718,7 +2666,7 @@
      "who": "vinylc_14",
      "to": [
       277.131,
-      1.447,
+      1.485,
       -1.902
      ],
      "over": 0.02,
@@ -2726,8 +2674,8 @@
      "hop": 0.12
     }
    ],
-   "out": "dissolve",
-   "outDur": 0.4,
+   "out": "glide",
+   "outDur": 0.5,
    "glide": "dolly",
    "pitchTo": 4,
    "type": "macro",
@@ -2736,6 +2684,60 @@
     "blur": 0.5
    },
    "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 18,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 34,
+     "intensity": 0.55
+    }
+   }
+  },
+  {
+   "start": 20.15,
+   "anchor": [
+    279.1,
+    1.3,
+    -1.6
+   ],
+   "distance": 4.4,
+   "yaw": 12,
+   "pitch": 5,
+   "zoom": 12,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
+     "who": "momG",
+     "pose": {
+      "armR": -150
+     }
+    },
+    {
+     "at": 0.0,
+     "who": "momG",
+     "face": "smug"
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "dof": {
+    "focus": "momG",
+    "blur": 0.4
+   },
+   "frameY": 0.0,
+   "snap": {
+    "t": 0.3,
+    "zoom": 12,
+    "dur": 0.28
+   },
    "atmos": {
     "dust": {
      "count": 18,
@@ -2814,7 +2816,7 @@
     0.85,
     -2.4
    ],
-   "distance": 4.876,
+   "distance": 4.6,
    "yaw": 6,
    "pitch": 6,
    "zoom": 14,
@@ -2849,11 +2851,6 @@
     "blur": 0.4
    },
    "frameY": 0.0,
-   "snap": {
-    "t": 0.54,
-    "zoom": 14,
-    "dur": 0.28
-   },
    "atmos": {
     "bokeh": {
      "count": 12,
@@ -3440,8 +3437,8 @@
      "hop": 0.12
     }
    ],
-   "out": "dissolve",
-   "outDur": 0.4,
+   "out": "glide",
+   "outDur": 0.5,
    "glide": "dolly",
    "frameY": 0.0,
    "snap": {
@@ -3464,12 +3461,12 @@
   {
    "start": 32.07,
    "anchor": [
-    139.9,
-    1.4,
+    418.7,
+    1.35,
     -1.6
    ],
-   "distance": 7.494,
-   "yaw": 14,
+   "distance": 4.4,
+   "yaw": -12,
    "pitch": 5,
    "zoom": 12,
    "pan": [
@@ -3479,28 +3476,65 @@
    "actions": [
     {
      "at": 0.0,
-     "who": "kayK",
+     "who": "kayN",
      "pose": {
       "armR": -150
      }
     },
     {
      "at": 0.0,
+     "who": "kayN",
+     "face": "shouting"
+    },
+    {
+     "at": 0.55,
+     "who": "kayN",
+     "face": "smug"
+    }
+   ],
+   "out": "dissolve",
+   "outDur": 0.4,
+   "glide": "dolly",
+   "dof": {
+    "focus": "kayN",
+    "blur": 0.4
+   },
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 22,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 28,
+     "intensity": 0.55
+    }
+   }
+  },
+  {
+   "start": 33.05,
+   "anchor": [
+    139.9,
+    1.3,
+    -1.6
+   ],
+   "distance": 6.4,
+   "yaw": 20,
+   "pitch": 30,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.0,
      "who": "kayK",
      "face": "shouting"
     },
     {
      "at": 0.55,
-     "who": "kayK",
-     "face": "smug"
-    },
-    {
-     "at": 1.1,
-     "who": "kayK",
-     "face": "shouting"
-    },
-    {
-     "at": 1.65,
      "who": "kayK",
      "face": "smug"
     },
@@ -3515,17 +3549,7 @@
      "face": "nervous"
     },
     {
-     "at": 1.1,
-     "who": "joeK",
-     "face": "shocked"
-    },
-    {
-     "at": 1.65,
-     "who": "joeK",
-     "face": "nervous"
-    },
-    {
-     "at": 2.1,
+     "at": 1.12,
      "who": "stop_22",
      "to": [
       0,
@@ -3539,9 +3563,9 @@
      "at": 0.05,
      "who": "stop_22",
      "to": [
-      139.973,
-      2.305,
-      -1.309
+      139.995,
+      2.228,
+      -1.315
      ],
      "over": 0.02,
      "walk": false,
@@ -3551,6 +3575,8 @@
    "out": "glide",
    "outDur": 0.5,
    "glide": "dolly",
+   "yawTo": 2,
+   "pitchTo": 6,
    "frameY": 0.0,
    "atmos": {
     "dust": {
@@ -3567,12 +3593,12 @@
     1.4,
     -1.7
    ],
-   "distance": 4.045,
+   "distance": 4.288,
    "yaw": -14,
    "pitch": 5,
    "zoom": 8,
    "pan": [
-    52.7,
+    0,
     0
    ],
    "actions": [
@@ -3582,7 +3608,12 @@
      "face": "shocked"
     },
     {
-     "at": 0.7,
+     "at": 0.55,
+     "who": "joeK",
+     "face": "happy"
+    },
+    {
+     "at": 1.26,
      "who": "sellk_23",
      "to": [
       0,
@@ -3596,9 +3627,9 @@
      "at": 0.05,
      "who": "sellk_23",
      "to": [
-      139.189,
-      2.042,
-      -1.406
+      139.184,
+      2.061,
+      -1.407
      ],
      "over": 0.02,
      "walk": false,
@@ -3623,37 +3654,25 @@
    }
   },
   {
-   "start": 34.95,
+   "start": 35.51,
    "anchor": [
-    418.7,
-    1.3,
-    -1.6
+    0.45,
+    0.7,
+    -1.9
    ],
-   "distance": 4.4,
-   "yaw": 8,
-   "pitch": 16,
-   "zoom": 8,
+   "distance": 3.4,
+   "yaw": 10,
+   "pitch": 4,
+   "zoom": 14,
    "pan": [
     0,
     0
    ],
    "actions": [
     {
-     "at": 0.0,
-     "who": "kayN",
-     "pose": {
-      "armR": -150
-     }
-    },
-    {
-     "at": 0.0,
-     "who": "kayN",
-     "face": "smug"
-    },
-    {
-     "at": 0.55,
-     "who": "kayN",
-     "face": "happy"
+     "at": 0.05,
+     "who": "pdPR",
+     "shake": 0.5
     },
     {
      "at": 1.06,
@@ -3670,52 +3689,13 @@
      "at": 0.05,
      "who": "newname_24",
      "to": [
-      418.742,
-      1.958,
-      -1.303
+      0.502,
+      1.15,
+      -1.605
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0.12
-    }
-   ],
-   "out": "dissolve",
-   "outDur": 0.4,
-   "glide": "dolly",
-   "pitchTo": 4,
-   "frameY": 0.0,
-   "atmos": {
-    "dust": {
-     "count": 22,
-     "size": 1.0,
-     "drift": 1.0
-    },
-    "rays": {
-     "angle": 28,
-     "intensity": 0.55
-    }
-   }
-  },
-  {
-   "start": 36.05,
-   "anchor": [
-    0.45,
-    0.7,
-    -1.9
-   ],
-   "distance": 3.4,
-   "yaw": 10,
-   "pitch": 4,
-   "zoom": 14,
-   "pan": [
-    69.6,
-    0
-   ],
-   "actions": [
-    {
-     "at": 0.05,
-     "who": "pdPR",
-     "shake": 0.5
     }
    ],
    "out": "dissolve",
@@ -3728,7 +3708,7 @@
    },
    "frameY": 0.0,
    "snap": {
-    "t": 0.3,
+    "t": 0.54,
     "zoom": 12,
     "dur": 0.28
    },
@@ -3918,6 +3898,11 @@
    "outDur": 0.4,
    "glide": "dolly",
    "frameY": 0.0,
+   "snap": {
+    "t": 0.3,
+    "zoom": 10,
+    "dur": 0.28
+   },
    "atmos": {
     "bokeh": {
      "count": 12,
