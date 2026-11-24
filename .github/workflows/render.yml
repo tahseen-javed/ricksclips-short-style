@@ -139,6 +139,6 @@ jobs:
         if: always()
         run: |
           git config user.name "github-actions[bot]"; git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
-          git add -f $P/short.json $P/audio $P/voice_report.txt $P/scene_report.txt $P/stills_report.txt 2>/dev/null || true
+          for f in short.json audio voice_report.txt scene_report.txt stills_report.txt; do [ -e $P/$f ] && git add -f $P/$f; done; true
           [ "${{ inputs.mode }}" = "full" ] && [ -f $P/render.mp4 ] && git add -f $P/render.mp4 $P/check_report.txt || true
           git commit -qm "Build $P (${{ inputs.mode }})" && { git pull --rebase -q; git push -q; } || echo "nothing to commit"
