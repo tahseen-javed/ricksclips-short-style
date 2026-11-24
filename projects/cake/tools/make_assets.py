@@ -47,7 +47,7 @@ def bar(n=1):                                                # German's Sweet Ch
     for x in range(80, 1240, 140):
         for y in (100, 360): d.rrect(x, y, x + 120, y + 230, 18, fill=CH2, outline=LINE, width=6); d.rect(x + 14, y + 14, x + 34, y + 120, (150, 100, 80, 200))
     d.rrect(380, 40, 1280, 660, 30, fill=(250, 236, 200, 255), outline=LINE, width=16); d.rect(380, 120, 1280, 170, CHER); d.rect(380, 530, 1280, 580, CHER)
-    d.text(830, 290, "GERMAN'S", 160, CH2, stroke=6, stroke_fill=WT); d.text(830, 440, 'SWEET CHOCOLATE', 84, CHER, stroke=4, stroke_fill=LINE)
+    d.text(870, 290, "GERMAN'S", 140, CH2, stroke=6, stroke_fill=WT); d.text(870, 440, 'SWEET CHOCOLATE', 72, CHER, stroke=4, stroke_fill=LINE)
     d.poly([(380, 40), (430, 120), (390, 200), (440, 300), (390, 400), (440, 500), (380, 660)], fill=(250, 236, 200, 255), outline=LINE, width=10)
     return d.out()
 

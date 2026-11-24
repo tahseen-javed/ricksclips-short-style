@@ -48,20 +48,20 @@ def yard(loc, img, floor, w=16, rep=(8, 8)):
 def table(loc, x, z, w=1.6, d=0.8, h=0.7, col="#8a5a3a"): box(loc, x, 0.04, z, [w, h, d], color=col)
 
 
-yard("HK", "texas.png", "desert.jpg"); table("HK", 0.0, -2.2, 1.6, 0.9, 0.7, "#f4ece0"); box("HK", -3.0, 0.04, -1.6, [0.7, 0.5, 0.6], color="#c86a4a")
+yard("HK", "texas.png", "desert.jpg"); table("HK", 0.0, -2.2, 1.6, 0.9, 0.7, "#f0a040"); box("HK", -3.0, 0.04, -1.6, [0.7, 0.5, 0.6], color="#c86a4a")
 yard("FA", "works.png", "mahog.jpg"); table("FA", -1.4, -2.1, 0.9, 0.7, 0.74, "#5a3020")
 yard("BR", "studio.png", "velvet.jpg"); box("BR", -2.6, 0.04, -2.4, [0.9, 0.6, 0.7], color="#b84050"); box("BR", 0.0, 0.04, -2.2, [1.4, 0.56, 0.8], color="#e8d0a0"); box("BR", 2.8, 0.04, -2.4, [1.3, 0.5, 0.9], color="#40b0b0")
 yard("TX", "ranch.png", "lino.jpg"); table("TX", 0.9, -1.9, 1.2, 0.7, 0.74, "#f04050")
 yard("NP", "press.png", "steel.jpg"); box("NP", 0.0, 0.04, -2.4, [1.8, 0.4, 0.5], color="#ff9640")
 yard("SU", "suburb.png", "lawn.jpg"); box("SU", -3.0, 0.04, -1.6, [0.6, 0.5, 0.6], color="#ffd23c"); box("SU", 3.0, 0.04, -1.6, [0.6, 0.5, 0.6], color="#28c8c8")
-yard("GF", "board.png", "carpet.jpg"); table("GF", 0.9, -1.9, 1.2, 0.7, 0.74, "#3a2a30")
+yard("GF", "board.png", "carpet.jpg"); table("GF", 0.9, -1.9, 1.2, 0.7, 0.74, "#9a6a48")
 yard("MP", "maproom.png", "grid.jpg"); box("MP", 0.0, 0.04, -2.45, [2.6, 0.12, 0.3], color="#2a3a8a")
 yard("SL", "sales.png", "emer.jpg"); box("SL", -2.6, 0.04, -2.2, [0.6, 0.6, 0.6], color="#ffd246")
 yard("TY", "desk.png", "wood.jpg"); table("TY", 0.0, -2.2, 1.6, 0.8, 0.74, "#6a3a2a")
 yard("GE", "poster.png", "sepia.jpg"); box("GE", 0.0, 0.04, -2.4, [0.8, 0.5, 0.6], color="#8a5aa0")
 
 # ================================================================== CHARACTERS (cards carry "_" in the id: not frame-checked as cast; hero props are)
-put("cakeH", "cake", pos("HK", 0.0, 0.74, -2.2), 1.2, face="shocked"); put("ntag_H", "ntag", pos("HK", 0.0, 0.3, -1.72), 0.36); put("starH", "tstar", pos("HK", 1.25, 0.04, -2.6), 0.8)
+put("cakeH", "cake", pos("HK", 0.0, 0.74, -2.2), 1.2, face="shocked"); put("ntag_H", "ntag", pos("HK", -0.45, 0.74, -1.85), 0.3); put("starH", "tstar", pos("HK", 1.25, 0.04, -2.6), 0.8)
 human("samF", "samg", pos("FA", -0.3, 0.04, -1.8), face="happy"); put("kettleF", "kettle", pos("FA", 1.2, 0.04, -2.6), 1.1); put("barF", "bar", pos("FA", -1.4, 0.78, -2.1), 0.36)
 put("tagB", "ntag", pos("BR", -2.6, 0.64, -2.4), 0.6); put("barB", "bar", pos("BR", 0.0, 0.6, -2.2), 0.62); put("cakeB", "cake", pos("BR", 2.8, 0.54, -2.4), 1.1)
 human("momT", "texmom", pos("TX", -0.7, 0.04, -1.8), face="happy"); put("recipeT", "recipe", pos("TX", 0.9, 0.78, -1.9), 0.45)
@@ -116,11 +116,11 @@ def blink(s, who, t0, t1, step=0.3):
     while t < t1: act(s, round(t, 3), who, face="b" if k % 2 == 0 else "default"); t += step; k += 1
 
 
-HOOK = dict(anchor=(0.0, 1.25, -2.2), dist=8.0, yaw=4, pitch=6)
+HOOK = dict(anchor=(0.0, 1.2, -2.1), dist=4.6, yaw=4, pitch=6)
 # ---- German chocolate cake isn't German. It's named after a man called German, and it was born in Texas.
-s = S("0", "HK", zoom=14, **HOOK); act(s, 0.0, "cakeH", face="shocked", shake=0.5); hide(s, 0.0, "starH"); tag(s, 0.0, "hookc", 0.3, 0.0, wf=0.66, hf=0.24); act(s, 1.0, "cakeH", face="sad", shake=0.3); snap(s, rel(s, "isn't"), 10)
+s = S("0", "HK", zoom=10, **HOOK); act(s, 0.0, "cakeH", face="shocked", shake=0.5); hide(s, 0.0, "starH"); tag(s, 0.0, "hookc", 0.3, 0.0, wf=0.66, hf=0.24); act(s, 1.0, "cakeH", face="sad", shake=0.3); snap(s, rel(s, "isn't"), 10)
 s = S("It's named after", "BR", (-2.6, 0.92, -2.4), 2.9, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="tagB", blur=0.5)); act(s, 0.05, "tagB", shake=0.5); T(s, "manc", at=rel(s, "man"))
-s = crane("and it was", "HK", (0.0, 1.1, -2.3), 9.0, 22, 2, 36, 8); act(s, 0.05, "cakeH", face="default"); show(s, rel(s, "Texas"), "starH", pos("HK", 1.25, 0.04, -2.6)); T(s, "texc", at=rel(s, "born"))
+s = crane("and it was", "HK", (0.3, 1.1, -2.3), 7.0, 22, 2, 36, 8); act(s, 0.05, "cakeH", face="default"); show(s, rel(s, "Texas"), "starH", pos("HK", 1.25, 0.04, -2.6)); T(s, "texc", at=rel(s, "born"))
 # ---- In the 1850s, a chocolate maker named Sam German created a sweet baking bar for the Baker's Chocolate Company. They named it after him: German's Sweet Chocolate.
 s = S("In the 1850s", "FA", (-0.1, 1.1, -2.2), 9.4, -6, pitch=6, zoom=4, pan=(8, 0)); act(s, 0.1, "kettleF", shake=0.4); ft(s, "samF", ["happy", "smug"]); T(s, "y1850", dy=0.28)
 s = S("named Sam German", "FA", (-0.3, 1.25, -1.8), 4.6, 10, pitch=5, zoom=12, dof=dict(focus="samF", blur=0.4)); hide(s, 0.0, "kettleF"); hide(s, 0.0, "barF"); ft(s, "samF", ["shocked", "happy"]); act(s, 0.05, "samF", pose=dict(armR=-150)); T(s, "samc"); snap(s, rel(s, "Sam"), 8); cfx(s, 0.5, "blush", "samF", 0.6)
@@ -130,7 +130,7 @@ s = S("They named it", "FA", (-0.9, 1.0, -1.95), 5.4, -14, pitch=12, pitchTo=3);
 s = S("German's Sweet Chocolate", "BR", (0.0, 0.92, -2.2), 3.8, 4, pitch=6, zoom=14, type="macro", dof=dict(focus="barB", blur=0.5)); act(s, 0.05, "barB", shake=0.6)
 # ---- A century later, in 1957, a Texas homemaker sent her cake recipe, made with that bar, to a Dallas newspaper.
 s = crane("A century later", "TX", (0.0, 1.1, -2.0), 8.4, -22, -2, 38, 8); ft(s, "momT", ["happy", "smug"]); act(s, 0.1, "recipeT", shake=0.3)
-s = S("in 1957", "TX", (0.1, 1.15, -1.9), 6.4, 12, pitch=5, zoom=12); T(s, "y1957", dy=0.2, dx=-0.15, wf=0.32, hf=0.34); ft(s, "momT", ["smug", "happy"])
+s = S("in 1957", "TX", (0.1, 1.15, -1.9), 6.4, 12, pitch=5, zoom=12); T(s, "y1957", dy=0.2, dx=0.17, wf=0.32, hf=0.34); ft(s, "momT", ["smug", "happy"])
 s = S("a Texas homemaker", "TX", (-0.7, 1.25, -1.8), 4.6, 14, pitch=5, yawTo=-4, dof=dict(focus="momT", blur=0.4)); ft(s, "momT", ["happy", "shocked"]); T(s, "homec"); snap(s, rel(s, "homemaker"), 8); cfx(s, 0.5, "blush", "momT", 0.6)
 s = S("recipe made with", "TX", (0.9, 1.0, -1.9), 2.6, -6, pitch=14, pitchTo=2, type="macro", dof=dict(focus="recipeT", blur=0.5)); act(s, 0.05, "recipeT", shake=0.5)
 s = S("to a Dallas", "NP", (0.0, 1.2, -2.4), 5.2, 8, pitch=6, zoom=14); act(s, 0.05, "newsN", shake=0.6); T(s, "dallas", at=rel(s, "Dallas"))
@@ -150,8 +150,8 @@ s = S("German's chocolate cake", "BR", (2.8, 1.1, -2.4), 4.6, 4, pitch=6, zoom=-
 s = S("became German chocolate", "BR", (2.8, 1.1, -2.4), 3.8, -14, pitch=5, yawTo=4, dof=dict(focus="cakeB", blur=0.4)); act(s, rel(s, "German"), "cakeB", face="shocked", shake=0.6); T(s, "gcc", at=rel(s, "German"))
 s = crane("and America assumed", "GE", (0.0, 1.2, -2.4), 7.0, -22, -2, 36, 8); act(s, 0.1, "globeG", shake=0.4); T(s, "fromde", at=rel(s, "came"))
 # ---- So the most German-sounding cake in America is pure Texas. And the only German in German chocolate cake is a man's last name.
-s = S("So the most", "HK", (0.0, 1.15, -2.3), 8.8, 10, pitch=5, zoom=4, pan=(-6, 0)); act(s, 0.05, "cakeH", face="tex", shake=0.5)
-s = S("is pure Texas", "HK", (1.25, 0.5, -2.6), 3.2, -8, pitch=6, zoom=14, type="macro", dof=dict(focus="starH", blur=0.5)); act(s, 0.05, "starH", shake=0.6); T(s, "puretx"); snap(s, 0.15, 8)
+s = S("So the most", "HK", (0.0, 1.2, -2.2), 5.6, 10, pitch=5, zoom=4, pan=(-6, 0)); hide(s, 0.0, "starH"); act(s, 0.05, "cakeH", face="tex", shake=0.5)
+s = S("is pure Texas", "HK", (1.25, 0.5, -2.6), 3.2, -8, pitch=6, zoom=14, type="macro", dof=dict(focus="starH", blur=0.5)); show(s, 0.02, "starH", pos("HK", 1.25, 0.04, -2.6)); act(s, 0.1, "starH", shake=0.6); T(s, "puretx"); snap(s, 0.15, 8)
 s = S("And the only", "BR", (-2.6, 0.92, -2.4), 2.9, 12, pitch=6, yawTo=-6, type="macro", dof=dict(focus="tagB", blur=0.5)); act(s, rel(s, "German"), "tagB", face="g", shake=0.6)
 s = S("is a man's", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); act(s, 0.0, "ntag_H", face="g"); hide(s, 0.0, "starH"); act(s, 0.05, "cakeH", face="shocked", shake=0.3); T(s, "lastn", at=0.1)
 for s in shots: s.setdefault("frameY", 0.0)
