@@ -1,0 +1,20 @@
+Collecting en-core-web-sm==3.8.0
+  Downloading en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 126.1 MB/s  0:00:00
+Installing collected packages: en-core-web-sm
+Successfully installed en-core-web-sm-3.8.0
+[38;5;2m✔ Download and installation successful[0m
+You can now load the package via spacy.load('en_core_web_sm')
+am_fenrir @1.28     54.3 s  understood 0.979
+am_fenrir @1.32     52.1 s  understood 0.979
+am_fenrir @1.36     44.9 s  understood 0.971
+chose am_fenrir @1.32 (understood 0.979): tempo 1.050 -> about 49.6 s
+Downloading: "https://download.pytorch.org/torchaudio/models/wav2vec2_fairseq_base_ls960_asr_ls960.pth" to /home/runner/.cache/torch/hub/checkpoints/wav2vec2_fairseq_base_ls960_asr_ls960.pth
+  0%|          | 0.00/360M [00:00<?, ?B/s]  6%|▌         | 19.9M/360M [00:00<00:01, 208MB/s] 12%|█▏        | 42.8M/360M [00:00<00:01, 226MB/s] 20%|█▉        | 71.4M/360M [00:00<00:01, 260MB/s] 27%|██▋       | 96.2M/360M [00:00<00:01, 257MB/s] 37%|███▋      | 132M/360M [00:00<00:00, 297MB/s]  47%|████▋     | 168M/360M [00:00<00:00, 327MB/s] 55%|█████▌    | 200M/360M [00:00<00:00, 321MB/s] 64%|██████▍   | 230M/360M [00:00<00:00, 321MB/s] 74%|███████▍  | 266M/360M [00:00<00:00, 337MB/s] 86%|████████▌ | 308M/360M [00:01<00:00, 370MB/s] 97%|█████████▋| 349M/360M [00:01<00:00, 386MB/s]100%|██████████| 360M/360M [00:01<00:00, 333MB/s]
+aligned 190 words over 50.09 s, mean confidence 0.96, shortest word 0.04 s
+heard: Pinball was illegal in New York for 34 years, and one man ended the ban with a single ball. In 1942, Mayor Fiorello Lagardea declared pinball gambling. Police raided bars and bowling alleys and seized thousands of machines. Lagardea smashed them with a sledgehammer for the cameras and the pieces were dumped into the city's waters. His reason he said pinball stole children's nickels and dimes, their lunch money, Chicago and other cities banned it too. For three decades, a pinball machine in New York was contraband. You see, the whole fight came down to one question. Is pinball luck or skill? Luck meant gambling, skill meant a game. So in 1976, the industry hired a pinball expert named Roger Sharp to prove it in front of the city council. A suspicious councilman made him switch to a backup machine. Sharp pointed at the center lane and said the ball would go right there. He pulled the plunger. It went exactly there. The council voted unanimously to lift the ban. Which means a city that banned gambling let one man bet pinball's entire future on a single ball.
+intelligibility 0.974 (1.0 = every word understood)
+  replace: said ['la', 'guardia'] -> heard ['lagardea']
+  replace: said ['la', 'guardia'] -> heard ['lagardea']
+  replace: said ['sharpe'] -> heard ['sharp']
+  replace: said ['sharpe'] -> heard ['sharp']
