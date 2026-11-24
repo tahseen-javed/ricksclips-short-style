@@ -19,7 +19,7 @@ shot  start   dur  phrase
 S00    0.00  1.38  0                          d 6.5  snap
 S01    1.38  1.20  It hit Roy                 d 4.3
 S02    2.58  1.46  and he survived            d 4.6
-S03    4.04  0.98  Roy was a                  d 8.0
+S03    4.04  0.98  Roy was a                  d 6.4
 S04    5.02  1.78  in Shenandoah National     d 7.0
 S05    6.80  0.92  In 1942                    d 8.4
 S06    7.72  1.70  lightning hit him          d 5.6  snap
@@ -47,12 +47,12 @@ S27   34.71  1.86  You see most               d 9.5
 S28   36.57  0.96  But lightning hits         d 4.2  snap
 S29   37.53  1.34  is outside when            d 8.7
 S30   38.87  1.68  and Roy's whole            d 4.6
-S31   40.55  1.90  in the mountains           d 7.6
+S31   40.55  1.90  in the mountains           d 6.6
 S32   42.45  0.78  Guinness World Records     d 3.6
 S33   43.23  1.26  verified all seven         d 3.6  snap
 S34   44.49  1.42  Nobody on record           d 4.2
 S35   45.91  1.12  But here's the             d 7.8
-S36   47.03  1.44  The one time               d 6.4
+S36   47.03  1.44  The one time               d 6.2
 S37   48.47  1.50  Roy was standing           d 6.6
 S38   49.97  1.02  helping her hang           d 6.4
 S39   50.99  0.76  It hit her                 d 5.2  snap
@@ -60,4 +60,4 @@ S40   51.75  0.92  skipped the one            d 4.4
 S41   52.67  1.18  seemed to miss             d 5.5
 snaps 9, comic fx 3
 frame check: 0 CUT flags
-wrote short.json: 42 shots, 56 characters, 24 props, voice 53.85 s
+wrote short.json: 42 shots, 57 characters, 24 props, voice 53.85 s
