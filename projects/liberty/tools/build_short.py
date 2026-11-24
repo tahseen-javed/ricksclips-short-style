@@ -49,7 +49,7 @@ def yard(loc, img, floor, w=16, rep=(8, 8)):
 def table(loc, x, z, w=1.6, d=0.8, h=0.7, col="#8a5a3a"): box(loc, x, 0.04, z, [w, h, d], color=col)
 
 
-yard("HK", "harbor.png", "pier.jpg"); post("HK", 2.2, -2.8, 4.2, "#d8a030"); box("HK", 1.55, 4.1, -2.7, [1.6, 0.14, 0.14], color="#d8a030"); box("HK", -3.0, 0.04, -1.4, [0.6, 0.6, 0.6], color="#e0704a")
+yard("HK", "harbor.png", "pier.jpg"); post("HK", 2.2, -3.4, 4.2, "#d8a030"); box("HK", 1.55, 4.1, -3.3, [1.6, 0.14, 0.14], color="#d8a030"); box("HK", -3.0, 0.04, -1.4, [0.6, 0.6, 0.6], color="#e0704a")
 yard("UN", "unveil.png", "dock.jpg"); post("UN", -2.4, -2.6, 2.4, "#f4f0e8"); post("UN", 2.5, -2.7, 2.4, "#f4f0e8"); box("UN", 3.0, 0.04, -1.4, [0.6, 0.4, 0.6], color="#3a6ad0")
 yard("PN", "velvet.png", "velfloor.jpg"); box("PN", 0.0, 0.04, -2.2, [1.4, 0.6, 0.7], color="#7a3a6a"); table("PN", 2.2, -2.3, 1.2, 0.7, 0.74, "#5a2a4a")
 yard("SH", "workshop.png", "forge.jpg"); box("SH", -2.0, 0.04, -2.2, [0.7, 0.7, 0.6], color="#5a4a4a"); box("SH", 2.6, 0.04, -2.6, [0.9, 0.5, 0.7], color="#c87a4a")
@@ -64,7 +64,7 @@ yard("MI", "micro.png", "microfloor.jpg")
 yard("CE", "nightsky.png", "nightpier.jpg"); box("CE", -2.8, 0.04, -1.6, [0.6, 0.5, 0.6], color="#4a5a9a"); post("CE", 2.6, -2.4, 1.6, "#ffd870")
 
 # ================================================================== CHARACTERS (cards carry "_" in the id: not frame-checked as cast; hero props are)
-put("statueH", "liberty", pos("HK", -0.3, 0.04, -3.0), 3.2); put("bucketH", "bucket", pos("HK", 1.0, 2.7, -2.6), 0.7)
+put("statueH", "liberty", pos("HK", -0.3, 0.04, -3.0), 3.2); put("bucketH", "bucket", pos("HK", 1.0, 2.7, -3.3), 0.7)
 put("statueU", "liberty", pos("UN", 0.0, 0.04, -3.0), 3.0, face="veiled")
 put("pennyP", "penny", pos("PN", 0.0, 0.64, -2.2), 1.3); put("pen2P", "pennies2", pos("PN", 2.2, 0.78, -2.3), 0.5)
 put("sheetsS", "sheets", pos("SH", 0.4, 0.04, -2.2), 1.0)
@@ -123,7 +123,7 @@ def blink(s, who, t0, t1, step=0.3):
 
 HOOK = dict(anchor=(0.1, 1.8, -2.8), dist=9.8, yaw=4, pitch=6)
 # ---- The Statue of Liberty was never supposed to be green. That famous color is damage.
-s = S("0", "HK", zoom=14, pan=(-3, 0), **HOOK); act(s, 0.0, "statueH", shake=0.4); go(s, 0.1, "bucketH", pos("HK", 0.8, 2.75, -2.6), 0.8, walk=False); act(s, 0.5, "bucketH", shake=0.4)
+s = S("0", "HK", zoom=14, pan=(-3, 0), **HOOK); act(s, 0.0, "statueH", shake=0.4); go(s, 0.1, "bucketH", pos("HK", 0.8, 2.75, -3.3), 0.8, walk=False); act(s, 0.5, "bucketH", shake=0.4)
 tag(s, 0.0, "hookc", 0.3, 0.0, wf=0.66, hf=0.24)
 s = S("supposed to be", "HK", (0.0, 1.8, -2.9), 9.4, -12, pitch=16, pitchTo=3); act(s, 0.05, "statueH", shake=0.5); snap(s, rel(s, "green"), 8)
 s = S("That famous color", "HK", (0.15, 1.75, -2.9), 7.8, 8, pitch=4, zoom=6, dof=dict(focus="statueH", blur=0.4)); act(s, 0.05, "statueH", shake=0.4); T(s, "damage"); snap(s, rel(s, "damage"), 10)
@@ -149,7 +149,7 @@ s = crane("Officials fear the", "OF", (0.0, 1.2, -1.8), 7.6, 20, 0, 34, 6); ft(s
 s = S("is eating her", "OF", (0.9, 1.25, -1.9), 2.8, -8, pitch=6, zoom=14, type="macro", dof=dict(focus="miniO", blur=0.5)); act(s, 0.05, "miniO", shake=0.5); T(s, "eating")
 # ---- Even her designer, Frederic Bartholdi, guessed wrong. He expected her to darken to red.
 s = crane("Even her designer", "BA", (0.0, 1.2, -1.9), 8.0, -20, 0, 32, 6); ft(s, "bartB", ["happy", "smug"]); T(s, "bart")
-s = S("guessed wrong He", "BA", (-0.7, 1.25, -1.7), 4.6, 14, pitch=5, yawTo=-2); ft(s, "bartB", ["shocked", "nervous"]); T(s, "wrong"); cfx(s, 0.3, "question", "bartB", 0.6); snap(s, rel(s, "wrong"), 10)
+s = S("guessed wrong He", "BA", (-0.7, 1.25, -1.7), 4.6, 14, pitch=5, yawTo=-2); ft(s, "bartB", ["shocked", "nervous"]); T(s, "wrong"); cfx(s, 0.3, "sweat", "bartB", 0.6); snap(s, rel(s, "wrong"), 10)
 s = S("to darken to", "BA", (0.9, 1.0, -2.2), 3.4, -8, pitch=12, pitchTo=2, type="macro", dof=dict(focus="sketchB", blur=0.5)); act(s, 0.05, "sketchB", shake=0.4); T(s, "redc")
 # ---- So in 1906, Congress sets aside sixty-two thousand dollars to paint her back to copper.
 s = crane("So in 1906", "CG", (0.7, 1.2, -1.9), 9.0, -22, -2, 34, 6); ft(s, "senatorC", ["shouting", "smug"]); T(s, "y1906", dy=0.2, dx=-0.15, wf=0.32, hf=0.34)
@@ -172,14 +172,14 @@ s = crane("About ten years", "CE", (0.0, 1.6, -2.8), 9.6, 22, 2, 36, 6); act(s, 
 s = S("green from crown", "CE", (0.0, 1.7, -3.0), 7.4, -8, pitch=20, pitchTo=2); act(s, 0.1, "statueE", shake=0.3); T(s, "crownc")
 s = S("stayed that way", "CE", (0.0, 1.6, -3.0), 8.2, 18, pitch=5, yawTo=-2); act(s, 0.1, "statueE", face="armor", shake=0.3); T(s, "century")
 # ---- So the paint job would have covered the one thing keeping her alive. America nearly erased its most famous color,
-s = S("So the paint", "HK", (0.3, 2.2, -2.8), 6.6, 10, pitch=5, zoom=12); go(s, 0.05, "bucketH", pos("HK", 0.6, 2.95, -2.6), 0.9, walk=False); act(s, 0.4, "statueH", shake=0.4); T(s, "paintjob")
+s = S("So the paint", "HK", (0.3, 2.2, -2.8), 6.6, 10, pitch=5, zoom=12); go(s, 0.05, "bucketH", pos("HK", 0.6, 2.95, -3.3), 0.9, walk=False); act(s, 0.4, "statueH", shake=0.4); T(s, "paintjob")
 s = S("the one thing", "HK", (-0.1, 1.85, -2.9), 7.0, -10, pitch=4, yawTo=4, dof=dict(focus="statueH", blur=0.4)); act(s, 0.05, "statueH", shake=0.5); T(s, "alive"); snap(s, rel(s, "alive"), 10)
 s = crane("America nearly erased", "HK", (0.1, 1.6, -2.8), 10.0, -22, -2, 36, 6); act(s, 0.2, "bucketH", shake=0.4); T(s, "erased")
 s = S("its most famous", "HK", (0.1, 1.8, -2.8), 8.6, -6, pitch=6, zoom=10); act(s, 0.1, "statueH", shake=0.4)
 # ---- because the Statue of Liberty was never supposed to be green. (pull-out onto the hook frame)
 s = S("because the Statue", "HK", (0.2, 1.8, -2.8), 8.0, 16, pitch=5, yawTo=2); act(s, 0.1, "statueH", shake=0.3)
-s = S("was never supposed#2", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); show(s, 0.0, "bucketH", pos("HK", 1.0, 2.7, -2.6), hop=0); act(s, 0.0, "statueH", shake=0.3)
-go(s, 0.2, "bucketH", pos("HK", 0.8, 2.75, -2.6), 0.8, walk=False); tag(s, 0.05, "hookc", 0.3, 0.0, wf=0.66, hf=0.24)
+s = S("was never supposed#2", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); show(s, 0.0, "bucketH", pos("HK", 1.0, 2.7, -3.3), hop=0); act(s, 0.0, "statueH", shake=0.3)
+go(s, 0.2, "bucketH", pos("HK", 0.8, 2.75, -3.3), 0.8, walk=False); tag(s, 0.05, "hookc", 0.3, 0.0, wf=0.66, hf=0.24)
 for s in shots: s.setdefault("frameY", 0.0)
 
 starts = [0.0 if s["start"] == 0 else say(s["_phrase"]) for s in shots]

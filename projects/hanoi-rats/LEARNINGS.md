@@ -156,3 +156,12 @@ frame width in close-ups, cute characters (big round heads, shiny eyes, blush).
 - Shot-length rule 0.7-2.0 s: merge with card swap (swap()) or move the shot start phrase; check again with the real CTC words.
 - Kokoro: "Then war" at a line start was heard as "before": keep soft starts (Then/The/They) mid-line. Never add words to tts.txt that are not in the script.
 - git: the cloud commits short.json/audio; delete local generated files (short.json, audio/words.json, cues.json, music.mp3) before `git pull --rebase`, and check `git log origin/master` before starting a run.
+
+## Videos 20-22 (1904 marathon, Statue of Liberty green, teddy bear) -> projects/marathon, liberty, teddy (one chat, 2026-11-24)
+- Shared cast module tools/hx_assets.py (copy to each project): new hats (tophat, boater, flatcap, goggles, campaign, slouch, paperhat), new bodies (runner + bib, apron, khaki, pjs, collar, smock, labcoat), build_cast(), cards_out(), hills(), ptree().
+- audio/spoken.json is REQUIRED whenever script.txt has digit/accent words (1904., 30th,, Félix): without it CTC alignment exits and the run falls back to Whisper timings.
+- render.yml save step used one `git add -f` with short.json: when the scene failed, the whole add failed and the voice was lost. Now each path is added separately (voice-only passes work: push script + tts with template tools, run stills with redo_voice, the audio is committed even if the scene fails).
+- ft(s, who, [face, face]) with two equal faces loops forever (build_short hangs): always give two different faces.
+- A tall hero prop (3.2 m statue) cannot have a face macro: the frame check wants the whole prop. Use full-figure push-ins (dist >= 6.2) instead.
+- Phrases keep apostrophes ("That's why", "America's most famous#2"); hyphenated words are joined ("Reddishbrown", "Thirtytwo").
+- Real voices: marathon 52 s (188 words), liberty 56.6 s (215), teddy 62.4 s (238) at am_fenrir 1.28 + tempo 1.05.
