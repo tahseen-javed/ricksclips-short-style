@@ -245,7 +245,7 @@ if __name__ == '__main__':
     CE.tiles(T('lino.jpg'), (250, 246, 236), (240, 90, 100)); CE.tiles(T('steel.jpg'), (110, 126, 130), (96, 112, 116)); CE.tiles(T('lawn.jpg'), (130, 210, 110), (116, 194, 98))
     CE.tiles(T('carpet.jpg'), (120, 40, 60), (106, 34, 52)); CE.tiles(T('grid.jpg'), (40, 50, 110), (30, 40, 96)); CE.tiles(T('emer.jpg'), (40, 120, 90), (30, 104, 76))
     B.tex_wood(T('wood.jpg')); M.sandtex(T('sepia.jpg'), (200, 150, 160), (186, 136, 146))
-    G.sky(os.path.join(ROOT, 'bg', 'sky.jpg')); Pp = lambda n: os.path.join(ROOT, 'props', n)
+    CE.tiles(T('pave.jpg'), (200, 130, 80), (186, 118, 70)); G.sky(os.path.join(ROOT, 'bg', 'sky.jpg')); Pp = lambda n: os.path.join(ROOT, 'props', n)
     SETS = dict(texas=texas, works=works, studio=studio, ranch=ranch, press=press, suburb=suburb, board=board, maproom=maproom, sales=sales, desk=desk, poster=poster)
     for n, f in SETS.items(): f(Pp(n + '.png')); items.append((n, Image.open(Pp(n + '.png'))))
     B.sheet(items, os.path.join(ROOT, 'assets_preview.jpg'))
