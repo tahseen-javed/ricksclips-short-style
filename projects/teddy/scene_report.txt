@@ -1,0 +1,72 @@
+music: 62.8 s, swamp-blues shuffle 132/118 + toy-shop polka 132/140 + music-box lullaby 112 + bayou finale
+   autofit S00 distance 9.0 -> 10.1
+   autofit S01 distance 7.0 -> 9.4
+   autofit S02 distance 8.4 -> 11.2
+   autofit S06 distance 5.6 -> 7.5
+   autofit S07 distance 8.0 -> 9.5
+   autofit S08 distance 8.2 -> 10.4
+   autofit S11 distance 8.4 -> 8.9
+   autofit S22 distance 5.6 -> 7.1
+   autofit S27 distance 5.8 -> 6.5
+   autofit S30 distance 8.2 -> 11.0
+   autofit S31 distance 8.6 -> 10.9
+   autofit S32 distance 9.4 -> 11.2
+   autofit S34 distance 5.8 -> 6.9
+   autofit S39 distance 6.6 -> 7.4
+   autofit S42 distance 5.6 -> 7.1
+   autofit S43 distance 7.2 -> 7.6
+   autofit S45 distance 3.4 -> 4.0
+   autofit S46 distance 6.4 -> 7.2
+shot  start   dur  phrase
+S00    0.00  1.50  0                          d 10.1
+S01    1.50  1.16  refused to shoot           d 9.4  snap
+S02    2.66  1.82  That's why every           d 11.2
+S03    4.48  1.54  November 14th              d 8.6
+S04    6.02  0.90  Mississippi President      d 7.0
+S05    6.92  1.60  Theodore Roosevelt is      d 4.6  snap
+S06    8.52  1.08  and it is                  d 7.5
+S07    9.60  1.74  So his guide               d 9.5
+S08   11.34  1.72  His hounds corner          d 10.4  snap
+S09   13.06  0.81  The hunters club           d 8.4
+S10   13.87  0.96  tie it to                  d 5.6
+S11   14.83  1.60  and invite the             d 8.9
+S12   16.43  0.84  Roosevelt refuses          d 4.6  snap
+S13   17.27  1.38  He calls it                d 8.6
+S14   18.65  1.48  Two days later             d 8.0
+S15   20.13  1.32  cartoonist Clifford Berryman d 4.4
+S16   21.45  0.86  draws the scene            d 2.6
+S17   22.31  0.90  The president turning      d 10.6
+S18   23.21  1.04  away from a                d 7.0
+S19   24.25  1.40  The cartoon spreads        d 3.4  snap
+S20   25.65  1.48  In Brooklyn a              d 8.4
+S21   27.13  1.38  named Morris Michtom       d 4.6
+S22   28.51  0.90  His wife Rose              d 7.1
+S23   29.41  0.84  a little plush             d 2.6  snap
+S24   30.25  0.78  They put it                d 8.6
+S25   31.03  1.26  with a sign                d 6.4
+S26   32.29  1.22  It sells                   d 8.0
+S27   33.51  1.30  The Michtoms ask           d 6.5
+S28   34.81  0.74  to use his                 d 4.6
+S29   35.55  0.74  He says yes                d 2.4  snap
+S30   36.29  0.74  They quit candy            d 11.0
+S31   37.03  2.02  and start the              d 10.9
+S32   39.05  1.04  Meanwhile in Germany       d 11.2
+S33   40.09  1.83  Steiff shows its           d 2.8  snap
+S34   41.92  0.96  One American buyer         d 6.9
+S35   42.88  1.04  orders three thousand      d 6.6
+S36   43.92  1.74  By 1907                    d 8.4  snap
+S37   45.66  0.74  A Michigan priest          d 6.4
+S38   46.40  1.62  attacks teddy bears        d 4.4
+S39   48.02  1.24  Kids keep hugging          d 7.4
+S40   49.26  1.24  You see Berryman           d 8.0
+S41   50.50  1.02  that bear for              d 2.6
+S42   51.52  1.56  And every time             d 7.1
+S43   53.08  0.84  Rounder Cuter              d 7.6
+S44   53.92  2.02  The real bear              d 7.6
+S45   55.94  1.88  So the cuddly              d 4.0
+S46   57.82  1.80  is a cartoon               d 7.2
+S47   59.62  1.40  America's most famous#2    d 6.4
+S48   61.02  1.42  refused to shoot#2         d 8.4
+snaps 9, comic fx 5
+frame check: 0 CUT flags
+wrote short.json: 49 shots, 70 characters, 45 props, voice 62.44 s
