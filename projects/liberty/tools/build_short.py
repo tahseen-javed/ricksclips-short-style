@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-"""Generate short.json (and the word-cued music) for video 19: the Eiffel Tower was built to be torn down; one wire on top saved it;
-then it caught a spy (Mata Hari).
+"""Generate short.json (and the word-cued music) for video 21: the Statue of Liberty was never supposed to be green - the green is a patina
+that became her armor, and America nearly painted it over.
 usage: build_short.py <project folder>
-Twelve Paris sets 70 units apart: HK indigo night Paris with a wrecking ball (hook + loop), TP navy tower-top with the antenna wire, SY teal
-spy-noir alley (trench-coat "?" silhouette = open loop, resolved as Mata Hari), PA champagne 1889 fair, PM sage permit office, AR wine-red
-artists' cafe, CL slate demolition yard, PN peach dawn Pantheon, AY blue-morning army camp, RS amber radio room, WR blood-red war night,
-EA teal "big ear".  Shots 1-2 s, every neighbour a different move."""
+Thirteen copper-to-verdigris sets 70 units apart: HK peach-mint harbor sunrise (hook + loop, a copper paint bucket "?" hangs over her = open
+loop, resolved: the paint job would have covered her armor), UN festive 1886 unveiling, PN plum velvet penny stage, SH orange Paris workshop,
+ST slate salt storm, GR olive-gold 1910, OF mint city hall, BA terracotta studio, CG navy Congress, NP sepia news street, CH deep-blue lab,
+MI violet micro world, CE night skyline with fireworks. Shots 1-2 s, every neighbour a different move."""
 import json, os, sys, subprocess, math
 import scene_base as base
 from scene_base import *
 
-base.X.clear(); base.X.update(HK=0, TP=70, SY=140, PA=210, PM=280, AR=350, CL=420, PN=490, AY=560, RS=630, WR=700, EA=770)
+base.X.clear(); base.X.update(HK=0, UN=70, PN=140, SH=210, ST=280, GR=350, OF=420, BA=490, CG=560, NP=630, CH=700, MI=770, CE=840)
 HERE = os.path.dirname(os.path.abspath(__file__)); PARK = base.PARK
 ASP = json.load(open(os.path.join(P, "aspect.json")))
 
@@ -49,35 +49,34 @@ def yard(loc, img, floor, w=16, rep=(8, 8)):
 def table(loc, x, z, w=1.6, d=0.8, h=0.7, col="#8a5a3a"): box(loc, x, 0.04, z, [w, h, d], color=col)
 
 
-def wcrane(loc, x, z, arm_to): post(loc, x, z, 3.0, "#d8a030"); box(loc, (x + arm_to) / 2, 2.95, z, [abs(arm_to - x) + 0.3, 0.14, 0.14], color="#d8a030")
-
-
-yard("HK", "nightparis.png", "cobnight.jpg"); wcrane("HK", -2.2, -2.4, -1.2); box("HK", 2.8, 0.04, -2.6, [0.8, 0.5, 0.6], color="#6a5aa0")
-yard("TP", "topnight.png", "ironfloor.jpg")
-yard("SY", "alley.png", "wetcob.jpg"); post("SY", -1.2, -2.6, 2.6, "#1a2a30"); box("SY", 2.6, 0.04, -2.8, [0.8, 0.9, 0.6], color="#2a4a50")
-yard("PA", "fair.png", "fairsand.jpg"); box("PA", -2.8, 0.04, -2.8, [0.9, 0.6, 0.6], color="#e8c070"); tree("PA", -3.4, -4.2, 0.8, "#5a9a5a")
-yard("PM", "bureau.png", "parquet.jpg"); table("PM", 0.6, -1.9, 1.2, 0.7, 0.74, "#7a5040"); box("PM", -3.0, 0.04, -3.0, [0.8, 1.2, 0.6], color="#5a7a64")
-yard("AR", "cafe.png", "cafefloor.jpg"); box("AR", -2.8, 0.04, -2.6, [0.8, 0.7, 0.8], color="#8a2a3a")
-yard("CL", "demolish.png", "rubble.jpg"); wcrane("CL", -2.4, -2.4, -0.6); box("CL", 2.9, 0.04, -2.6, [0.9, 0.4, 0.7], color="#8a8a90")
-yard("PN", "dawn.png", "stone.jpg"); tree("PN", -3.2, -3.6, 0.8, "#6aaa6a")
-yard("AY", "camp.png", "grass2.jpg"); box("AY", 3.0, 0.04, -3.0, [1.0, 0.6, 0.8], color="#7a7a50")
-yard("RS", "valves.png", "walnut.jpg"); table("RS", 0.9, -2.0, 1.4, 0.8, 0.74, "#6a4630"); table("RS", -2.7, -2.2, 1.2, 0.7, 0.74, "#6a4630")
-yard("WR", "warnight.png", "redcob.jpg"); box("WR", 2.8, 0.04, -2.8, [0.9, 0.5, 0.7], color="#5a2a3a")
-yard("EA", "bigear.png", "tealcob.jpg"); box("EA", -2.9, 0.04, -2.8, [0.8, 0.6, 0.6], color="#2a6a70")
+yard("HK", "harbor.png", "pier.jpg"); post("HK", 2.2, -2.8, 4.2, "#d8a030"); box("HK", 1.55, 4.1, -2.7, [1.6, 0.14, 0.14], color="#d8a030"); box("HK", -3.0, 0.04, -1.4, [0.6, 0.6, 0.6], color="#e0704a")
+yard("UN", "unveil.png", "dock.jpg"); post("UN", -2.4, -2.6, 2.4, "#f4f0e8"); post("UN", 2.5, -2.7, 2.4, "#f4f0e8"); box("UN", 3.0, 0.04, -1.4, [0.6, 0.4, 0.6], color="#3a6ad0")
+yard("PN", "velvet.png", "velfloor.jpg"); box("PN", 0.0, 0.04, -2.2, [1.4, 0.6, 0.7], color="#7a3a6a"); table("PN", 2.2, -2.3, 1.2, 0.7, 0.74, "#5a2a4a")
+yard("SH", "workshop.png", "forge.jpg"); box("SH", -2.0, 0.04, -2.2, [0.7, 0.7, 0.6], color="#5a4a4a"); box("SH", 2.6, 0.04, -2.6, [0.9, 0.5, 0.7], color="#c87a4a")
+yard("ST", "storm.png", "wetstone.jpg"); box("ST", -3.0, 0.04, -1.6, [0.6, 0.5, 0.6], color="#5a6a8a")
+yard("GR", "olive.png", "olivestone.jpg"); post("GR", 2.4, -2.6, 1.4, "#7a5a3a"); box("GR", -2.8, 0.04, -1.6, [0.6, 0.4, 0.6], color="#a89a5a")
+yard("OF", "cityhall.png", "marble.jpg"); table("OF", 0.9, -1.9, 1.2, 0.7, 0.74, "#7a5a40"); box("OF", -3.0, 0.04, -3.0, [0.8, 1.2, 0.6], color="#5a8a7a")
+yard("BA", "studio.png", "terracotta.jpg"); box("BA", -2.8, 0.04, -2.6, [0.8, 0.9, 0.7], color="#e8e0d4")
+yard("CG", "congress.png", "navytile.jpg"); table("CG", 0.9, -1.9, 1.2, 0.7, 0.74, "#6a4a3a"); box("CG", -3.0, 0.04, -2.8, [0.8, 1.0, 0.6], color="#e8dcc0")
+yard("NP", "newsstreet.png", "cobsepia.jpg"); box("NP", -0.8, 0.04, -1.9, [0.8, 0.8, 0.5], color="#2a6a4a"); post("NP", 2.6, -2.4, 2.4, "#2a2a30")
+yard("CH", "lab.png", "labtile.jpg"); table("CH", 0.9, -1.9, 1.2, 0.7, 0.74, "#e8ecf4"); box("CH", -3.0, 0.04, -2.8, [0.8, 1.0, 0.6], color="#4a5a9a")
+yard("MI", "micro.png", "microfloor.jpg")
+yard("CE", "nightsky.png", "nightpier.jpg"); box("CE", -2.8, 0.04, -1.6, [0.6, 0.5, 0.6], color="#4a5a9a"); post("CE", 2.6, -2.4, 1.6, "#ffd870")
 
 # ================================================================== CHARACTERS (cards carry "_" in the id: not frame-checked as cast; hero props are)
-put("towerH", "tower", pos("HK", 0.4, 0.04, -2.8), 3.2, face="nervous"); put("ballH", "ball", pos("HK", -1.2, 1.5, -2.4), 1.4)
-put("t_top", "towertop", pos("TP", 0.0, 0.3, -2.6), 2.8); put("wavesT", "waves", PARK, 0.7)
-put("spyS", "spy", pos("SY", 0.5, 0.04, -2.0), 1.8); human("mataS", "mata", PARK, face="smug")
-human("eiffelP", "eiffel", pos("PA", -0.8, 0.04, -1.6), face="happy"); put("towerP", "tower", pos("PA", 1.4, 0.04, -3.4), 3.0)
-human("eiffelM", "eiffel", pos("PM", -1.0, 0.04, -1.6), face="nervous"); put("permitM", "permit", pos("PM", 0.6, 0.78, -1.9), 0.75)
-human("art1", "artist", pos("AR", -0.9, 0.04, -1.6), face="shouting"); human("art2", "artist2", pos("AR", 0.4, 0.04, -1.8), face="shocked"); put("easelA", "easel", pos("AR", 1.5, 0.04, -2.7), 1.4)
-put("towerC", "tower", pos("CL", 0.9, 0.04, -3.2), 3.0, face="nervous"); put("ballC", "ball", pos("CL", -0.45, 1.6, -2.4), 1.1); human("bossC", "boss", pos("CL", -1.3, 0.04, -1.8), face="shouting")
-put("pantN", "pantheon", pos("PN", 0.5, 0.04, -3.2), 2.4); put("wavesN", "waves", PARK, 0.8)
-human("sold1", "soldier", pos("AY", -1.2, 0.04, -1.6), face="happy"); human("sold2", "soldier", pos("AY", 0.0, 0.04, -1.9), face="smug"); human("sold3", "soldier", pos("AY", 1.2, 0.04, -1.7), face="happy")
-human("radman", "radioman", pos("RS", -0.8, 0.04, -1.6), face="happy"); put("radioR", "radio", pos("RS", 0.9, 0.78, -2.0), 0.75); put("tapeR", "tape", pos("RS", -2.7, 0.78, -2.2), 0.5)
-put("towerW", "tower", pos("WR", 0.3, 0.04, -3.2), 3.0, face="shocked"); human("sold4", "soldier", pos("WR", -1.3, 0.04, -1.8), face="shocked")
-put("towerE", "tower", pos("EA", 0.0, 0.04, -2.8), 3.2, face="ear"); put("wavesE", "waves", PARK, 0.7)
+put("statueH", "liberty", pos("HK", -0.3, 0.04, -3.0), 3.2); put("bucketH", "bucket", pos("HK", 1.0, 2.7, -2.6), 0.7)
+put("statueU", "liberty", pos("UN", 0.0, 0.04, -3.0), 3.0, face="veiled")
+put("pennyP", "penny", pos("PN", 0.0, 0.64, -2.2), 1.3); put("pen2P", "pennies2", pos("PN", 2.2, 0.78, -2.3), 0.5)
+put("sheetsS", "sheets", pos("SH", 0.4, 0.04, -2.2), 1.0)
+put("statueS", "liberty", pos("ST", 1.0, 0.04, -3.2), 3.0, face="copper"); put("cloudS", "cloud", pos("ST", -1.3, 2.3, -2.6), 1.3)
+put("statueG", "liberty", pos("GR", 0.0, 0.04, -3.0), 3.0, face="half")
+human("officialO", "official", pos("OF", -0.6, 0.04, -1.7), face="nervous"); put("miniO", "liberty", pos("OF", 0.9, 0.78, -1.9), 0.9, face="streaky")
+human("bartB", "bartholdi", pos("BA", -0.7, 0.04, -1.7), face="happy"); put("sketchB", "sketch", pos("BA", 0.9, 0.04, -2.2), 1.7)
+human("senatorC", "senator", pos("CG", -0.6, 0.04, -1.7), face="shouting"); put("bagC", "moneybag", pos("CG", 0.9, 0.78, -1.9), 0.7); put("bucketC", "bucket", pos("CG", 2.0, 0.04, -2.3), 0.8, face="happy")
+put("crowd_N", "crowd", pos("NP", 0.0, 0.04, -3.0), 1.6); human("newsN", "newsboy", pos("NP", 0.7, 0.04, -1.8), face="shouting"); put("paperN", "paper", pos("NP", -0.8, 0.84, -1.9), 0.9)
+human("chemC", "chemist", pos("CH", -0.6, 0.04, -1.7), face="happy"); put("flaskC", "flask", pos("CH", 0.9, 0.78, -1.9), 0.6)
+put("atoms_M", "atoms", pos("MI", 0.0, 0.2, -2.6), 1.6); put("shieldM", "shield", PARK, 1.1)
+put("statueE", "liberty", pos("CE", 0.0, 0.04, -3.0), 3.2, face="happy")
 # ================================================================== SHOTS
 SH = {c["id"]: c["height"] for c in chars}
 N_ = [0]; REQ = []; SNAPC = []; FXC = []; LOC = {}
@@ -122,50 +121,65 @@ def blink(s, who, t0, t1, step=0.3):
     while t < t1: act(s, round(t, 3), who, face="b" if k % 2 == 0 else "default"); t += step; k += 1
 
 
-HOOK = dict(anchor=(0.0, 1.7, -2.6), dist=9.4, yaw=4, pitch=6)
-# ---- The Eiffel Tower was built to be torn down. One wire on top saved it. Then it caught a spy.
-s = S("0", "HK", zoom=14, pan=(-3, 0), **HOOK); act(s, 0.0, "towerH", shake=0.4); go(s, 0.15, "ballH", pos("HK", -0.75, 1.6, -2.4), 0.6, walk=False); act(s, 0.7, "towerH", face="shocked", shake=0.5)
+HOOK = dict(anchor=(0.1, 1.8, -2.8), dist=9.8, yaw=4, pitch=6)
+# ---- The Statue of Liberty was never supposed to be green. That famous color is damage.
+s = S("0", "HK", zoom=14, pan=(-3, 0), **HOOK); act(s, 0.0, "statueH", shake=0.4); go(s, 0.1, "bucketH", pos("HK", 0.8, 2.75, -2.6), 0.8, walk=False); act(s, 0.5, "bucketH", shake=0.4)
 tag(s, 0.0, "hookc", 0.3, 0.0, wf=0.66, hf=0.24)
-s = S("built to be", "HK", (0.16, 1.8, -2.6), 9.4, -12, pitch=5, yawTo=6, dof=dict(focus="towerH", blur=0.3)); act(s, 0.05, "towerH", face="shocked", shake=0.6); act(s, 0.1, "ballH", shake=0.4); snap(s, rel(s, "torn"), 8)
-s = S("One wire on", "TP", (0.0, 1.6, -2.6), 6.4, 4, pitch=2, pitchTo=16); act(s, 0.1, "t_top", shake=0.4); T(s, "wire"); snap(s, rel(s, "saved"), 12)
-s = S("Then it caught", "SY", (0.5, 1.1, -2.0), 5.6, -6, pitch=5, zoom=4, pan=(26, 0)); act(s, 0.1, "spyS", shake=0.4); T(s, "spyc")
-# ---- Paris, 1889. Gustave Eiffel gets a permit for just twenty years.
-s = crane("Paris 1889", "PA", (0.3, 1.5, -2.4), 9.6, -22, -2, 36, 6); ft(s, "eiffelP", ["happy", "smug"]); T(s, "y1889", dy=0.2, dx=-0.15, wf=0.32, hf=0.34)
-s = S("Gustave Eiffel gets", "PA", (-0.8, 1.2, -1.6), 4.4, 10, pitch=5, zoom=12, dof=dict(focus="eiffelP", blur=0.4)); ft(s, "eiffelP", ["smug", "happy"]); T(s, "eiffelc")
-s = S("permit for just", "PM", (0.6, 1.15, -1.9), 2.6, -6, pitch=14, pitchTo=2, type="macro", dof=dict(focus="permitM", blur=0.5)); act(s, 0.1, "permitM", shake=0.4); snap(s, rel(s, "twenty"), 10)
-# ---- Famous artists already call his tower "useless and monstrous." After twenty years, the city can take it, and tear it down.
-s = crane("Famous artists already", "AR", (0.2, 1.2, -1.9), 9.2, 22, 2, 34, 6); ft(s, "art1", ["shouting", "smug"]); ft(s, "art2", ["shocked", "shouting"]); act(s, 0.1, "easelA", shake=0.3); T(s, "artists")
-s = S("his tower useless", "AR", (-0.9, 1.2, -1.6), 4.4, 10, pitch=5, zoom=12, dof=dict(focus="art1", blur=0.4)); ft(s, "art1", ["shouting", "smug"]); act(s, 0.0, "art1", pose=dict(armR=-150)); T(s, "useless"); snap(s, rel(s, "monstrous"), 12); cfx(s, 0.3, "bang", "art1", 0.6)
-s = S("After twenty years", "CL", (0.0, 1.5, -2.6), 9.0, -16, pitch=6, yawTo=4); ft(s, "bossC", ["shouting", "smug"]); act(s, 0.1, "ballC", shake=0.3); T(s, "after20")
-s = S("and tear it", "CL", (0.5, 1.6, -2.8), 7.4, 8, pitch=6, zoom=-12, _dis=1); hide(s, 0.0, "bossC"); go(s, 0.05, "ballC", pos("CL", 0.1, 1.6, -2.5), 0.5, walk=False); act(s, 0.5, "towerC", face="shocked", shake=0.6); T(s, "tear")
-# ---- Eiffel needs a reason. A big one.
-s = crane("Eiffel needs a", "PM", (-0.2, 1.2, -1.8), 7.6, -20, 0, 32, 6); ft(s, "eiffelM", ["nervous", "confused"]); c_ = T(s, "reason"); cfx(s, 0.3, "question", "eiffelM", 0.7); swap(s, c_, rel(s, "A big one"), "bigone"); act(s, rel(s, "A big one"), "eiffelM", pose=dict(armR=-150))
-# ---- You see, Eiffel turns his tower into a giant antenna. In 1898, a radio signal flies from the top to the Pantheon, four kilometers away.
-s = crane("You see Eiffel", "TP", (0.0, 1.6, -2.6), 7.0, 20, 0, 34, 6); act(s, 0.1, "t_top", shake=0.4)
-s = S("into a giant", "TP", (0.0, 2.6, -2.6), 4.2, -6, pitch=4, zoom=12, type="macro", dof=dict(focus="t_top", blur=0.4)); act(s, 0.1, "t_top", shake=0.4); T(s, "antenna"); snap(s, rel(s, "antenna"), 12)
-s = S("In 1898", "TP", (0.2, 1.8, -2.6), 7.6, -14, pitch=5, yawTo=4); show(s, 0.1, "wavesT", pos("TP", 0.5, 2.6, -2.2)); T(s, "y1898", dy=0.2, dx=-0.15, wf=0.32, hf=0.34)
-s = S("a radio signal", "TP", (0.2, 2.0, -2.6), 7.4, 6, pitch=5, zoom=4, pan=(20, 0)); go(s, 0.05, "wavesT", pos("TP", 0.8, 2.9, -2.2), 0.8, walk=False); act(s, 0.1, "t_top", shake=0.3)
-s = crane("to the Panthon", "PN", (0.3, 1.3, -3.0), 9.0, 22, 2, 30, 6); show(s, 0.1, "wavesN", pos("PN", -1.4, 2.3, -2.6)); act(s, 0.3, "pantN", shake=0.4); T(s, "pantc")
-s = S("four kilometers away", "PN", (0.0, 2.0, -2.0), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="KILOMETERS AWAY", items=["4"]))
-# ---- The army moves in. A permanent radio station follows. And Paris renews his permit for seventy more years.
-s = crane("The army moves", "AY", (0.0, 1.2, -1.8), 9.0, -22, -2, 36, 6); ft(s, "sold1", ["happy", "smug"]); ft(s, "sold2", ["smug", "happy"]); ft(s, "sold3", ["happy", "shouting"]); T(s, "army"); snap(s, 0.3, 12)
-s = S("A permanent radio", "RS", (0.9, 1.05, -2.0), 3.6, 10, pitch=4, zoom=12, type="macro", dof=dict(focus="radioR", blur=0.5)); act(s, 0.1, "radioR", shake=0.3); T(s, "station")
-s = S("And Paris renews", "PM", (-0.2, 1.2, -1.8), 6.6, 16, pitch=5, yawTo=-2); act(s, 0.2, "permitM", shake=0.4); ft(s, "eiffelM", ["happy", "smug"]); cfx(s, 0.4, "blush", "eiffelM", 0.7)
-s = S("for seventy more", "PM", (0.6, 1.15, -1.9), 2.8, 8, pitch=4, zoom=14, type="macro", dof=dict(focus="permitM", blur=0.5)); act(s, 0.1, "permitM", face="renewed", shake=0.5); T(s, "plus70"); snap(s, rel(s, "seventy"), 12)
-# ---- Then war comes. The tower listens to enemy radio. They call it "the big ear." It intercepts messages about a secret agent, code name H-21.
-s = crane("Then war comes", "WR", (-0.4, 1.5, -2.6), 9.0, 20, 0, 30, 6); act(s, 0.1, "towerW", shake=0.4); ft(s, "sold4", ["shocked", "nervous"]); T(s, "war")
-s = S("The tower listens", "EA", (0.0, 1.7, -2.8), 7.6, -8, pitch=5, zoom=12); show(s, 0.1, "wavesE", pos("EA", -0.9, 2.6, -2.4)); T(s, "listens")
-s = S("They call it", "EA", (0.0, 1.6, -2.8), 8.2, -16, pitch=5, yawTo=4); act(s, 0.1, "towerE", shake=0.4); T(s, "bigear"); snap(s, rel(s, "ear"), 12)
-s = S("It intercepts messages", "RS", (-2.7, 1.0, -2.2), 2.8, 8, pitch=14, pitchTo=2, type="macro", dof=dict(focus="tapeR", blur=0.5)); act(s, 0.1, "tapeR", shake=0.4); T(s, "intercept")
-s = crane("a secret agent", "SY", (0.3, 1.1, -2.0), 7.6, -20, 0, 32, 6); act(s, 0.1, "spyS", shake=0.3); T(s, "h21")
-s = S("code name", "SY", (0.5, 1.0, -2.0), 5.6, -14, pitch=5, yawTo=4); act(s, 0.1, "spyS", shake=0.4); cfx(s, 0.2, "question", "spyS", 0.7)
-# ---- Her real name? Mata Hari.
-s = S("Her real name", "SY", (0.5, 1.0, -2.0), 4.6, 10, pitch=5, zoom=12, dof=dict(focus="spyS", blur=0.4)); act(s, 0.1, "spyS", shake=0.4); T(s, "realname")
-s = S("Mata Hari", "SY", (0.5, 1.0, -2.0), 4.2, -8, pitch=5, zoom=-10); hide(s, 0.0, "spyS"); show(s, 0.02, "mataS", pos("SY", 0.5, 0.04, -2.0)); ft(s, "mataS", ["smug", "happy"]); T(s, "matac"); snap(s, 0.3, 12); cfx(s, 0.3, "glint", "mataS", 0.7)
-# ---- Not bad for a tower that was built to be torn down. (pull-out onto the hook frame)
-s = S("Not bad for", "PA", (0.3, 1.5, -2.4), 9.6, 16, pitch=6, yawTo=-2); ft(s, "eiffelP", ["smug", "happy"]); act(s, 0.1, "towerP", shake=0.3); T(s, "notbad")
-s = S("built to be#2", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); show(s, 0.0, "ballH", pos("HK", -1.0, 1.6, -2.4), hop=0); act(s, 0.0, "towerH", face="nervous", shake=0.4)
-go(s, 0.2, "ballH", pos("HK", -0.75, 1.6, -2.4), 0.6, walk=False); tag(s, 0.05, "hookc", 0.3, 0.0, wf=0.66, hf=0.24)
+s = S("supposed to be", "HK", (0.0, 1.8, -2.9), 9.4, -12, pitch=16, pitchTo=3); act(s, 0.05, "statueH", shake=0.5); snap(s, rel(s, "green"), 8)
+s = S("That famous color", "HK", (0.15, 1.75, -2.9), 7.8, 8, pitch=4, zoom=6, dof=dict(focus="statueH", blur=0.4)); act(s, 0.05, "statueH", shake=0.4); T(s, "damage"); snap(s, rel(s, "damage"), 10)
+# ---- New York Harbor. October 28th, 1886. Lady Liberty is unveiled, and she shines like a brand-new penny. Reddish-brown copper, gleaming in the sun.
+s = crane("New York Harbor", "UN", (0.0, 1.6, -2.8), 9.6, -22, -2, 36, 6); act(s, 0.2, "statueU", shake=0.3); T(s, "harborc")
+s = S("October 28th", "UN", (0.0, 1.8, -2.8), 8.0, 10, pitch=6, zoom=12); T(s, "y1886", dy=0.2, dx=-0.15, wf=0.32, hf=0.34)
+s = S("Lady Liberty is", "UN", (0.0, 1.6, -2.8), 7.6, -16, pitch=5, yawTo=4); act(s, rel(s, "unveiled"), "statueU", face="copper", shake=0.6); T(s, "unveil", at=rel(s, "unveiled"))
+s = S("and she shines", "PN", (0.0, 1.3, -2.2), 3.4, 6, pitch=6, zoom=14, type="macro", dof=dict(focus="pennyP", blur=0.5)); act(s, 0.05, "pennyP", shake=0.5); T(s, "pennyc"); snap(s, rel(s, "penny"), 10)
+s = S("Reddishbrown copper gleaming", "UN", (0.0, 1.8, -2.8), 7.4, 6, pitch=18, pitchTo=3); act(s, 0.1, "statueU", face="copper", shake=0.3); T(s, "copperc")
+# ---- Three hundred hammered sheets, each about as thick as two pennies.
+s = crane("Three hundred hammered", "SH", (0.3, 0.9, -2.2), 7.6, 22, 2, 40, 8); act(s, 0.1, "sheetsS", shake=0.5); T(s, "s300")
+s = S("each about as", "PN", (2.2, 1.0, -2.3), 2.6, -14, pitch=6, yawTo=4, type="macro", dof=dict(focus="pen2P", blur=0.5)); act(s, 0.1, "pen2P", shake=0.4); T(s, "thick")
+# ---- But salt air and rain get to work. The shine fades to a dull brown. Then green streaks creep in.
+s = crane("But salt air", "ST", (0.0, 1.6, -2.8), 9.2, 20, 0, 34, 6); act(s, 0.1, "cloudS", shake=0.5); T(s, "salt")
+s = S("rain get to", "ST", (-1.4, 2.9, -2.6), 5.0, -6, pitch=4, zoom=14, dof=dict(focus="cloudS", blur=0.4)); act(s, 0.05, "cloudS", shake=0.6)
+s = S("The shine fades", "ST", (1.0, 1.6, -3.2), 6.6, -16, pitch=5, yawTo=4); act(s, rel(s, "fades"), "statueS", face="brown", shake=0.4); T(s, "dull")
+s = S("Then green streaks", "ST", (1.0, 1.7, -3.2), 6.4, 6, pitch=4, zoom=10, dof=dict(focus="statueS", blur=0.4)); act(s, 0.05, "statueS", face="streaky", shake=0.5); T(s, "streaks"); snap(s, rel(s, "streaks"), 10)
+# ---- By 1910, she's half copper, half blue-green. Patchy, blotchy, and spreading. Officials fear the green is eating her alive.
+s = crane("By 1910", "GR", (0.0, 1.6, -2.8), 9.4, -22, -2, 36, 6); act(s, 0.1, "statueG", shake=0.3); T(s, "y1910", dy=0.2, dx=-0.15, wf=0.32, hf=0.34)
+s = S("half copper half", "GR", (0.0, 1.7, -3.0), 6.8, 8, pitch=5, zoom=12); act(s, 0.1, "statueG", shake=0.4); T(s, "halfc"); snap(s, 0.6, 8)
+s = S("Patchy blotchy and", "GR", (0.0, 1.6, -3.0), 6.4, -6, pitch=4, zoom=4, pan=(24, 0), dof=dict(focus="statueG", blur=0.4)); act(s, 0.1, "statueG", shake=0.3); T(s, "patchy")
+s = crane("Officials fear the", "OF", (0.0, 1.2, -1.8), 7.6, 20, 0, 34, 6); ft(s, "officialO", ["nervous", "shocked"]); cfx(s, 0.3, "sweat", "officialO", 0.7)
+s = S("is eating her", "OF", (0.9, 1.25, -1.9), 2.8, -8, pitch=6, zoom=14, type="macro", dof=dict(focus="miniO", blur=0.5)); act(s, 0.05, "miniO", shake=0.5); T(s, "eating")
+# ---- Even her designer, Frederic Bartholdi, guessed wrong. He expected her to darken to red.
+s = crane("Even her designer", "BA", (0.0, 1.2, -1.9), 8.0, -20, 0, 32, 6); ft(s, "bartB", ["happy", "smug"]); T(s, "bart")
+s = S("guessed wrong He", "BA", (-0.7, 1.25, -1.7), 4.6, 14, pitch=5, yawTo=-2); ft(s, "bartB", ["shocked", "nervous"]); T(s, "wrong"); cfx(s, 0.3, "question", "bartB", 0.6); snap(s, rel(s, "wrong"), 10)
+s = S("to darken to", "BA", (0.9, 1.0, -2.2), 3.4, -8, pitch=12, pitchTo=2, type="macro", dof=dict(focus="sketchB", blur=0.5)); act(s, 0.05, "sketchB", shake=0.4); T(s, "redc")
+# ---- So in 1906, Congress sets aside sixty-two thousand dollars to paint her back to copper.
+s = crane("So in 1906", "CG", (0.7, 1.2, -1.9), 9.0, -22, -2, 34, 6); ft(s, "senatorC", ["shouting", "smug"]); T(s, "y1906", dy=0.2, dx=-0.15, wf=0.32, hf=0.34)
+s = S("aside sixtytwo", "CG", (0.0, 1.8, -2.0), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="SIXTY-TWO THOUSAND DOLLARS", items=["62000"]))
+s = S("to paint her", "CG", (1.45, 1.0, -2.1), 5.8, -10, pitch=5, zoom=8, dof=dict(focus="bucketC", blur=0.4)); act(s, 0.05, "bucketC", shake=0.5); act(s, 0.2, "bagC", shake=0.4); T(s, "paintc"); snap(s, rel(s, "copper"), 8)
+# ---- And the public explodes. Newspapers call it sacrilege. The plan quietly dies.
+s = crane("And the public", "NP", (0.0, 1.2, -2.2), 8.6, -22, -2, 34, 6); ft(s, "newsN", ["shouting", "shocked"]); act(s, 0.1, "crowd_N", shake=0.5); T(s, "explode"); snap(s, rel(s, "explodes"), 10)
+s = S("Newspapers call it", "NP", (-0.8, 1.3, -1.9), 3.6, 10, pitch=8, pitchTo=2, type="macro", dof=dict(focus="paperN", blur=0.5)); act(s, 0.05, "paperN", shake=0.5)
+s = S("The plan quietly", "CG", (0.6, 1.1, -2.0), 8.8, 12, pitch=5, zoom=-8); act(s, 0.05, "bucketC", face="sad", shake=0.3); ft(s, "senatorC", ["nervous", "confused"]); T(s, "dies")
+# ---- You see, that green isn't rot. It's a patina. Copper reacts with the air and grows its own thin skin.
+s = crane("You see that", "CH", (0.1, 1.2, -1.8), 7.8, 20, 0, 32, 6); ft(s, "chemC", ["happy", "smug"]); c_ = T(s, "notrot"); swap(s, c_, rel(s, "patina"), "patina"); act(s, rel(s, "patina"), "flaskC", shake=0.5); act(s, rel(s, "patina"), "chemC", pose=dict(armR=-150)); cfx(s, rel(s, "patina"), "glint", "chemC", 0.4)
+s = S("Copper reacts with", "MI", (0.0, 1.1, -2.6), 7.4, -4, pitch=10, zoom=14); act(s, 0.1, "atoms_M", shake=0.4); T(s, "react")
+s = S("and grows its", "MI", (0.0, 1.0, -2.6), 6.0, 18, pitch=5, yawTo=-2); act(s, 0.1, "atoms_M", shake=0.3); T(s, "skin"); snap(s, rel(s, "skin"), 10)
+# ---- And that skin seals the metal underneath, shielding it from more corrosion. The damage is the armor.
+s = crane("And that skin", "MI", (0.0, 1.1, -2.4), 9.2, -20, 0, 30, 6); show(s, 0.05, "shieldM", pos("MI", 0.0, 0.7, -2.2)); T(s, "sealc")
+s = S("shielding it from", "MI", (0.0, 1.25, -2.2), 3.4, 8, pitch=4, zoom=12, type="macro", dof=dict(focus="shieldM", blur=0.4)); act(s, 0.05, "shieldM", shake=0.5); T(s, "shieldc")
+s = S("The damage is", "CE", (0.0, 1.7, -3.0), 6.4, -8, pitch=4, zoom=10, dof=dict(focus="statueE", blur=0.4)); act(s, 0.05, "statueE", face="armor", shake=0.5); T(s, "armor"); snap(s, rel(s, "armor"), 10)
+# ---- About ten years later, she's green from crown to toe. She's stayed that way for over a century.
+s = crane("About ten years", "CE", (0.0, 1.6, -2.8), 9.6, 22, 2, 36, 6); act(s, 0.1, "statueE", face="happy", shake=0.3); T(s, "later")
+s = S("green from crown", "CE", (0.0, 1.7, -3.0), 7.4, -8, pitch=20, pitchTo=2); act(s, 0.1, "statueE", shake=0.3); T(s, "crownc")
+s = S("stayed that way", "CE", (0.0, 1.6, -3.0), 8.2, 18, pitch=5, yawTo=-2); act(s, 0.1, "statueE", face="armor", shake=0.3); T(s, "century")
+# ---- So the paint job would have covered the one thing keeping her alive. America nearly erased its most famous color,
+s = S("So the paint", "HK", (0.3, 2.2, -2.8), 6.6, 10, pitch=5, zoom=12); go(s, 0.05, "bucketH", pos("HK", 0.6, 2.95, -2.6), 0.9, walk=False); act(s, 0.4, "statueH", shake=0.4); T(s, "paintjob")
+s = S("the one thing", "HK", (-0.1, 1.85, -2.9), 7.0, -10, pitch=4, yawTo=4, dof=dict(focus="statueH", blur=0.4)); act(s, 0.05, "statueH", shake=0.5); T(s, "alive"); snap(s, rel(s, "alive"), 10)
+s = crane("America nearly erased", "HK", (0.1, 1.6, -2.8), 10.0, -22, -2, 36, 6); act(s, 0.2, "bucketH", shake=0.4); T(s, "erased")
+s = S("its most famous", "HK", (0.1, 1.8, -2.8), 8.6, -6, pitch=6, zoom=10); act(s, 0.1, "statueH", shake=0.4)
+# ---- because the Statue of Liberty was never supposed to be green. (pull-out onto the hook frame)
+s = S("because the Statue", "HK", (0.2, 1.8, -2.8), 8.0, 16, pitch=5, yawTo=2); act(s, 0.1, "statueH", shake=0.3)
+s = S("was never supposed#2", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); show(s, 0.0, "bucketH", pos("HK", 1.0, 2.7, -2.6), hop=0); act(s, 0.0, "statueH", shake=0.3)
+go(s, 0.2, "bucketH", pos("HK", 0.8, 2.75, -2.6), 0.8, walk=False); tag(s, 0.05, "hookc", 0.3, 0.0, wf=0.66, hf=0.24)
 for s in shots: s.setdefault("frameY", 0.0)
 
 starts = [0.0 if s["start"] == 0 else say(s["_phrase"]) for s in shots]
@@ -213,9 +227,9 @@ for s in shots:
             prev = seq[j % len(seq)]; j += 1; act(s, round(i * 0.55, 3), who, face=prev)
 # ---- atmosphere by set: dust + rays by day, bokeh by night / dawn
 D_ = lambda c=22: dict(count=c, size=1.0, drift=1.0); BK = lambda a=0.3: dict(count=12, size=1.0, alpha=a)
-ATM = dict(HK=dict(bokeh=BK(0.4)), TP=dict(bokeh=BK(0.45)), SY=dict(bokeh=BK(0.4)), PA=dict(dust=D_(24), rays=dict(angle=30, intensity=0.55)), PM=dict(dust=D_(20), rays=dict(angle=24, intensity=0.5)),
-           AR=dict(dust=D_(20)), CL=dict(dust=D_(44)), PN=dict(dust=D_(18), rays=dict(angle=16, intensity=0.6)), AY=dict(dust=D_(22), rays=dict(angle=34, intensity=0.5)), RS=dict(dust=D_(24)),
-           WR=dict(bokeh=BK(0.4)), EA=dict(bokeh=BK(0.45)))
+ATM = dict(HK=dict(dust=D_(20), rays=dict(angle=30, intensity=0.55)), UN=dict(dust=D_(24), rays=dict(angle=24, intensity=0.55)), PN=dict(bokeh=BK(0.45)), SH=dict(dust=D_(44)), ST=dict(bokeh=BK(0.4)),
+           GR=dict(dust=D_(22), rays=dict(angle=20, intensity=0.6)), OF=dict(dust=D_(18)), BA=dict(dust=D_(24), rays=dict(angle=28, intensity=0.5)), CG=dict(dust=D_(18)), NP=dict(dust=D_(30)),
+           CH=dict(bokeh=BK(0.45)), MI=dict(bokeh=BK(0.5)), CE=dict(bokeh=BK(0.45)))
 for s in shots:
     if s.get("type") != "cutaway": s["atmos"] = ATM[LOC[id(s)]]
 
@@ -301,36 +315,37 @@ for (s, at, cid, name, dy, dx, dz, wf, hf, c) in REQ:
     c["height"] = round(h, 3); SH[cid] = c["height"]; card(s, at, cid, dy, dx, dz); RECT[cid] = (s, at, 0.5 + dx - wfr / 2, 0.5 - dy - hfr / 2, 0.5 + dx + wfr / 2, 0.5 - dy + hfr / 2)
 
 # ================================================================== SPEC
-MOOD = dict(HK="parisnight", TP="topnight", SY="noir", PA="champagne", PM="sage", AR="wine", CL="slate", PN="peach", AY="bluemorning", RS="amber", WR="warred", EA="tealear")
-light, cur = [{"t": 0, "mood": "parisnight"}], "parisnight"
+MOOD = dict(HK="sunrise", UN="festive", PN="velvet", SH="forge", ST="storm", GR="olive", OF="mintoffice", BA="terracotta", CG="navyhall", NP="sepia", CH="lab", MI="micro", CE="night")
+light, cur = [{"t": 0, "mood": "sunrise"}], "sunrise"
 for k, s in enumerate(shots):
     m = MOOD[LOC[id(s)]]
     if m != cur and s.get("type") != "cutaway": light.append({"t": round(max(0.0, starts[k] - 0.2), 3), "mood": m, "fade": 0.4}); cur = m
 spec = {
     "fps": 30, "audio": {"voice": "audio/voice.mp3", "music": "audio/music.mp3", "musicDb": -11},
-    "words": "audio/words.json", "captions": {"wordsPer": 1}, "font": "fonts/Montserrat-ExtraBold.ttf", "contactShadow": 0.6, "seed": 19,
-    "moods": {"parisnight": {"sun": {"azimuth": 150, "elevation": 35, "color": "#d8d0ff", "intensity": 2.6}, "sky": {"top": "#28287a", "horizon": "#6e5ab4"}, "fill": {"sky": "#c8c0ff", "ground": "#504870", "intensity": 2.0}},
-              "topnight": {"sun": {"azimuth": 30, "elevation": 30, "color": "#c8f0ff", "intensity": 2.6}, "sky": {"top": "#141e5a", "horizon": "#3c46a0"}, "fill": {"sky": "#a8e0ff", "ground": "#3c4070", "intensity": 2.1}},
-              "noir": {"sun": {"azimuth": -40, "elevation": 35, "color": "#ffe0c0", "intensity": 2.5}, "sky": {"top": "#145a64", "horizon": "#3c8c8c"}, "fill": {"sky": "#c0fff0", "ground": "#304a50", "intensity": 2.0}},
-              "champagne": {"sun": {"azimuth": 40, "elevation": 35, "color": "#fff0c8", "intensity": 2.4}, "sky": {"top": "#f0c070", "horizon": "#fff0c0"}, "fill": {"sky": "#fff0d0", "ground": "#907050", "intensity": 1.45}},
-              "sage": {"sun": {"azimuth": 20, "elevation": 40, "color": "#fff8e0", "intensity": 2.4}, "sky": {"top": "#78aa8c", "horizon": "#b4d6ba"}, "fill": {"sky": "#e8fff0", "ground": "#6a5040", "intensity": 1.6}},
-              "wine": {"sun": {"azimuth": -20, "elevation": 40, "color": "#ffd8b0", "intensity": 2.5}, "sky": {"top": "#962a3c", "horizon": "#c85a5a"}, "fill": {"sky": "#ffd0c0", "ground": "#5a2a30", "intensity": 1.85}},
-              "slate": {"sun": {"azimuth": 30, "elevation": 35, "color": "#ffe0c0", "intensity": 2.4}, "sky": {"top": "#5a6482", "horizon": "#9aa0b4"}, "fill": {"sky": "#e0e4f0", "ground": "#605a5a", "intensity": 1.8}},
-              "peach": {"sun": {"azimuth": 200, "elevation": 14, "color": "#ffc8a0", "intensity": 2.5}, "sky": {"top": "#ffa090", "horizon": "#ffe0c8"}, "fill": {"sky": "#ffe0d0", "ground": "#806a5a", "intensity": 1.5}},
-              "bluemorning": {"sun": {"azimuth": 50, "elevation": 45, "color": "#fffbe8", "intensity": 2.4}, "sky": {"top": "#5aa0e6", "horizon": "#c8e2fa"}, "fill": {"sky": "#e8f4ff", "ground": "#6a7050", "intensity": 1.4}},
-              "amber": {"sun": {"azimuth": 20, "elevation": 40, "color": "#ffc888", "intensity": 2.5}, "sky": {"top": "#5a3c28", "horizon": "#966440"}, "fill": {"sky": "#ffd8a8", "ground": "#503828", "intensity": 2.0}},
-              "warred": {"sun": {"azimuth": -30, "elevation": 30, "color": "#ffc0a0", "intensity": 2.6}, "sky": {"top": "#781e32", "horizon": "#c85046"}, "fill": {"sky": "#ffc8c0", "ground": "#502830", "intensity": 2.0}},
-              "tealear": {"sun": {"azimuth": 40, "elevation": 35, "color": "#e8fff8", "intensity": 2.5}, "sky": {"top": "#14646e", "horizon": "#46aaaa"}, "fill": {"sky": "#d0fff8", "ground": "#305a60", "intensity": 1.95}}},
+    "words": "audio/words.json", "captions": {"wordsPer": 1}, "font": "fonts/Montserrat-ExtraBold.ttf", "contactShadow": 0.6, "seed": 21,
+    "moods": {"sunrise": {"sun": {"azimuth": 200, "elevation": 22, "color": "#ffe0c0", "intensity": 2.5}, "sky": {"top": "#faa896", "horizon": "#c8f0dc"}, "fill": {"sky": "#fff0e8", "ground": "#8a7a8a", "intensity": 1.5}},
+              "festive": {"sun": {"azimuth": 40, "elevation": 40, "color": "#fff4d8", "intensity": 2.4}, "sky": {"top": "#5a96e6", "horizon": "#ffe2a0"}, "fill": {"sky": "#f0f4ff", "ground": "#8a7a6a", "intensity": 1.4}},
+              "velvet": {"sun": {"azimuth": 10, "elevation": 50, "color": "#fff0d8", "intensity": 2.6}, "sky": {"top": "#5a1e50", "horizon": "#963c78"}, "fill": {"sky": "#ffd8f0", "ground": "#5a2a4a", "intensity": 2.0}},
+              "forge": {"sun": {"azimuth": -20, "elevation": 35, "color": "#ffc890", "intensity": 2.5}, "sky": {"top": "#aa5032", "horizon": "#e68c50"}, "fill": {"sky": "#ffd8b0", "ground": "#6a4030", "intensity": 1.85}},
+              "storm": {"sun": {"azimuth": 30, "elevation": 40, "color": "#e0ecff", "intensity": 2.5}, "sky": {"top": "#465a82", "horizon": "#96aac8"}, "fill": {"sky": "#e0ecff", "ground": "#4a5a6a", "intensity": 1.9}},
+              "olive": {"sun": {"azimuth": 210, "elevation": 18, "color": "#ffe0a8", "intensity": 2.5}, "sky": {"top": "#b4aa50", "horizon": "#ffd28c"}, "fill": {"sky": "#fff0d0", "ground": "#7a6a4a", "intensity": 1.5}},
+              "mintoffice": {"sun": {"azimuth": 20, "elevation": 40, "color": "#fffbe8", "intensity": 2.4}, "sky": {"top": "#78beaa", "horizon": "#bee6d6"}, "fill": {"sky": "#f0fff8", "ground": "#5a6a60", "intensity": 1.5}},
+              "terracotta": {"sun": {"azimuth": 30, "elevation": 45, "color": "#fff0e0", "intensity": 2.4}, "sky": {"top": "#d2785a", "horizon": "#f0b48c"}, "fill": {"sky": "#fff0e0", "ground": "#8a5a40", "intensity": 1.5}},
+              "navyhall": {"sun": {"azimuth": 0, "elevation": 45, "color": "#fff0d0", "intensity": 2.6}, "sky": {"top": "#283c78", "horizon": "#5a6eaa"}, "fill": {"sky": "#e0e8ff", "ground": "#4a3a5a", "intensity": 2.0}},
+              "sepia": {"sun": {"azimuth": 40, "elevation": 40, "color": "#fff0d0", "intensity": 2.4}, "sky": {"top": "#c8a078", "horizon": "#f0d2aa"}, "fill": {"sky": "#fff0e0", "ground": "#7a6050", "intensity": 1.5}},
+              "lab": {"sun": {"azimuth": 20, "elevation": 40, "color": "#e8f4ff", "intensity": 2.6}, "sky": {"top": "#283c82", "horizon": "#506eb4"}, "fill": {"sky": "#d8fff0", "ground": "#3a4a70", "intensity": 2.0}},
+              "micro": {"sun": {"azimuth": 30, "elevation": 40, "color": "#e0fff8", "intensity": 2.6}, "sky": {"top": "#3c2878", "horizon": "#288c96"}, "fill": {"sky": "#d0fff0", "ground": "#3a5a70", "intensity": 2.0}},
+              "night": {"sun": {"azimuth": 150, "elevation": 35, "color": "#d8e8ff", "intensity": 2.6}, "sky": {"top": "#1e2864", "horizon": "#505aaa"}, "fill": {"sky": "#c8f0ff", "ground": "#3a4070", "intensity": 2.0}}},
     "lighting": light, "ground": {"texture": TEX + "pave.jpg", "repeat": [175, 175], "size": 1400},
     "backdrop": {"image": "bg/sky.jpg", "blur": 4}, "ink": {"set": 4},
-    "fxLook": {"ink": "#271925", "accent": "#ffcf3c", "paper": ["#b89ae0", "#9a78cc"], "dofPx": 8, "particle": "#fff4d8", "bokehColor": "#c8b8ff", "ray": "#fff1c8", "raySide": 1},
+    "fxLook": {"ink": "#271925", "accent": "#3fe0b0", "paper": ["#7cc8b0", "#5aa890"], "dofPx": 8, "particle": "#fff4d8", "bokehColor": "#a8ffe0", "ray": "#fff1c8", "raySide": 1},
     "fx": FX, "characters": chars, "props": props, "shots": shots, "end": "audio",
 }
 
 # ---- music + effects synthesised to the word timings: full energy from frame 1
-CUE = dict(paris="Paris 1889", yousee="You see Eiffel", war="Then war comes", notbad="Not bad for", tear="and tear it", monst="monstrous", signal="a radio signal", army="The army moves",
-           seventy="seventy", listens="The tower listens", ear="ear", intercepts="It intercepts", mata="Mata Hari", wire="One wire on", spy="spy", reason="Eiffel needs a", bigone="A big one",
-           saved="saved", antenna="antenna", y1898="In 1898", pant="to the Panthon")
+CUE = dict(harbor="New York Harbor", salt="But salt air", congress="So in 1906", yousee="You see that", later="About ten years", damage="damage", unveiled="unveiled", penny="penny",
+           hammered="hammered", rain="rain get", fades="fades", streaks="streaks", y1910="By 1910", eating="eating", wrong="guessed wrong", explodes="explodes", sacrilege="sacrilege",
+           dies="dies", patina="patina", skin="thin skin", armor="armor", century="century", erased="erased", paintjob="So the paint", alive="alive", dollars="dollars")
 CUE.update({"s%02d" % k: x["_phrase"] for k, x in enumerate(shots) if x["_phrase"] != "0"})
 cues = {k: say(v) for k, v in CUE.items()}; cues["end"] = DURATION
 cp, wav = os.path.join(P, "audio", "cues.json"), os.path.join(P, "audio", "music.wav")
