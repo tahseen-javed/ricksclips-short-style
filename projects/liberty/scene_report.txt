@@ -1,0 +1,59 @@
+music: 57.0 s, harbor sea shanty 124/132 + pizzicato mystery 112/118 + epic timpani 132/128 + hammer, rain, fireworks effects
+   autofit S06 distance 3.4 -> 4.8
+   autofit S09 distance 2.6 -> 2.8
+   autofit S10 distance 9.2 -> 11.6
+   autofit S11 distance 5.0 -> 5.3
+   autofit S16 distance 6.4 -> 7.2
+   autofit S19 distance 8.0 -> 8.5
+   autofit S22 distance 9.0 -> 10.7
+   autofit S25 distance 8.6 -> 9.1
+   autofit S26 distance 3.6 -> 4.0
+   autofit S27 distance 8.8 -> 9.3
+   autofit S37 distance 6.6 -> 8.3
+shot  start   dur  phrase
+S00    0.00  1.38  0                          d 9.8
+S01    1.38  1.02  supposed to be             d 9.4  snap
+S02    2.40  1.54  That famous color          d 7.8
+S03    3.94  0.78  New York Harbor            d 9.6
+S04    4.72  1.74  October 28th               d 8.0
+S05    6.46  1.28  Lady Liberty is            d 7.6
+S06    7.74  1.52  and she shines             d 4.8  snap
+S07    9.26  1.68  Reddishbrown copper gleaming d 7.4
+S08   10.94  1.12  Three hundred hammered     d 7.6
+S09   12.06  1.45  each about as              d 2.8
+S10   13.51  0.76  But salt air               d 11.6
+S11   14.27  0.82  rain get to                d 5.3
+S12   15.09  1.44  The shine fades            d 6.6
+S13   16.53  1.34  Then green streaks         d 6.4  snap
+S14   17.87  0.88  By 1910                    d 9.4
+S15   18.75  1.32  half copper half           d 6.8
+S16   20.07  1.36  Patchy blotchy and         d 7.2
+S17   21.43  0.92  Officials fear the         d 7.6
+S18   22.35  0.92  is eating her              d 2.8
+S19   23.27  1.86  Even her designer          d 8.5
+S20   25.13  1.16  guessed wrong He           d 4.6  snap
+S21   26.29  0.92  to darken to               d 3.4
+S22   27.21  1.58  So in 1906                 d 10.7
+S23   28.79  1.48  aside sixtytwo             d 6.6
+S24   30.27  1.08  to paint her               d 5.8  snap
+S25   31.35  1.30  And the public             d 9.1
+S26   32.65  1.32  Newspapers call it         d 4.0
+S27   33.97  1.16  The plan quietly           d 9.3
+S28   35.13  1.98  You see that               d 7.8
+S29   37.11  1.09  Copper reacts with         d 7.4
+S30   38.20  1.58  and grows its              d 6.0  snap
+S31   39.78  1.88  And that skin              d 9.2
+S32   41.66  1.36  shielding it from          d 3.4
+S33   43.02  1.20  The damage is              d 6.4  snap
+S34   44.22  1.28  About ten years            d 9.6
+S35   45.50  1.50  green from crown           d 7.4
+S36   47.00  1.52  stayed that way            d 8.2
+S37   48.52  1.28  So the paint               d 8.3
+S38   49.80  1.58  the one thing              d 7.0  snap
+S39   51.38  1.06  America nearly erased      d 10.0
+S40   52.44  1.04  its most famous            d 8.6
+S41   53.48  1.16  because the Statue         d 8.0
+S42   54.64  1.94  was never supposed#2       d 8.9
+snaps 8, comic fx 3
+frame check: 0 CUT flags
+wrote short.json: 43 shots, 61 characters, 50 props, voice 56.58 s
