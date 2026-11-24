@@ -62,7 +62,7 @@ yard("CC", "chamber.png", "shag.jpg"); box("CC", 0.0, 0.04, -2.45, [4.2, 0.82, 0
 
 # ================================================================== CHARACTERS (cards carry "_" in the id: not frame-checked as cast; hero props are)
 put("machH", "pmach", pos("HK", 0.0, 0.04, -2.3), 1.7, face="tape")
-put("qmanP", "qman", pos("PF", -3.2, 0.04, -2.4), 1.3); put("pfieldP", "pfield", pos("PF", 0.0, 0.04, -2.4), 1.9); put("ballP", "pball", pos("PF", 3.2, 0.5, -2.4), 0.9, face="q"); put("plungerP", "plunger", pos("PF", 6.0, 0.5, -2.4), 0.45)
+put("qmanP", "qman", pos("PF", -3.2, 0.04, -2.4), 1.3); put("pfieldP", "pfield", pos("PF", 0.0, 0.04, -2.4), 1.9); put("ballP", "pball", pos("PF", 3.2, 0.5, -2.4), 0.9, face="q"); put("plungerP", "plunger", pos("PF", 6.0, 0.5, -2.4), 0.7)
 human("mayorM", "fiorello", pos("MY", -0.6, 0.04, -1.8), face="shouting", h=1.6); put("podiumM", "podium", pos("MY", 0.6, 0.04, -2.0), 1.3)
 human("copR", "cop40", pos("PR", -1.0, 0.04, -1.8), face="shouting"); put("pinsR", "pins", pos("PR", 1.0, 0.04, -2.4), 0.9); put("pileR", "pile", pos("PR", 4.4, 0.04, -2.6), 1.5)
 human("mayorS", "fiorello", pos("SM", -1.4, 0.04, -1.8), face="shouting", h=1.6); put("smashS", "smash", pos("SM", 0.2, 0.04, -2.4), 1.9); put("camS", "newscam", pos("SM", 2.9, 0.04, -2.2), 1.2)
@@ -117,14 +117,14 @@ def blink(s, who, t0, t1, step=0.3):
     while t < t1: act(s, round(t, 3), who, face="b" if k % 2 == 0 else "default"); t += step; k += 1
 
 
-HOOK = dict(anchor=(0.0, 1.0, -2.3), dist=7.0, yaw=4, pitch=6)
+HOOK = dict(anchor=(0.0, 1.0, -2.3), dist=4.8, yaw=4, pitch=6)
 # ---- Pinball was illegal in New York for 34 years, and one man ended the ban with a single ball.
-s = S("0", "HK", zoom=14, **HOOK); act(s, 0.0, "machH", face="tape", shake=0.5); tag(s, 0.0, "hookc", 0.3, 0.0, wf=0.66, hf=0.24); snap(s, rel(s, "York"), 10)
+s = S("0", "HK", zoom=10, **HOOK); act(s, 0.0, "machH", face="tape", shake=0.5); tag(s, 0.0, "hookc", 0.3, 0.0, wf=0.66, hf=0.24); snap(s, rel(s, "York"), 10)
 s = S("for 34 years", "HK", (0.0, 1.8, -2.3), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="ILLEGAL FOR", items=["34 YEARS"]))
 s = S("and one man", "PF", (-3.2, 0.75, -2.4), 3.6, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="qmanP", blur=0.5)); act(s, 0.05, "qmanP", shake=0.4); T(s, "oneman", at=0.1)
 s = S("with a single", "PF", (3.2, 0.95, -2.4), 2.8, 6, pitch=6, zoom=14, type="macro", dof=dict(focus="ballP", blur=0.5)); act(s, 0.05, "ballP", shake=0.5)
 # ---- In 1942, Mayor Fiorello La Guardia declared pinball gambling. Police raided bars and bowling alleys and seized thousands of machines.
-s = crane("In 1942", "MY", (0.0, 1.1, -1.9), 8.0, 22, 2, 36, 8); ft(s, "mayorM", ["shouting", "smug"]); T(s, "y1942", dy=0.2, dx=-0.15, wf=0.32, hf=0.34)
+s = crane("In 1942", "MY", (0.0, 1.1, -1.9), 8.0, 22, 2, 36, 8); ft(s, "mayorM", ["shouting", "smug"]); T(s, "y1942", dy=0.12, dx=0.17, wf=0.3, hf=0.32)
 s = S("Mayor Fiorello La", "MY", (-0.6, 1.15, -1.8), 4.4, 10, pitch=5, zoom=12, dof=dict(focus="mayorM", blur=0.4)); hide(s, 0.0, "podiumM"); ft(s, "mayorM", ["smug", "shouting"]); act(s, 0.05, "mayorM", pose=dict(armR=-150)); T(s, "mayorc"); snap(s, 0.3, 8)
 s = S("declared pinball gambling", "HK", (0.0, 1.0, -2.3), 5.0, -14, pitch=5, yawTo=4); act(s, 0.05, "machH", face="shocked", shake=0.4); T(s, "gamb", at=rel(s, "gambling"))
 s = S("Police raided bars", "PR", (-0.1, 1.0, -2.0), 6.4, -6, pitch=5, zoom=4, pan=(8, 0)); go(s, 0.0, "copR", pos("PR", -0.6, 0.04, -1.8), 0.8); ft(s, "copR", ["shouting", "shocked"]); T(s, "raid")
@@ -133,7 +133,7 @@ s = crane("seized thousands of", "PR", (4.4, 0.85, -2.6), 6.4, -22, -2, 36, 8); 
 # ---- La Guardia smashed them with a sledgehammer for the cameras, and the pieces were dumped into the city's waters.
 s = S("La Guardia smashed", "SM", (-0.4, 1.05, -2.1), 7.4, 8, pitch=5, zoom=-10); act(s, 0.05, "mayorS", pose=dict(armR=-150), shake=0.3); ft(s, "mayorS", ["shouting", "smug"]); act(s, 0.1, "smashS", shake=0.7); snap(s, rel(s, "smashed"), 10); cfx(s, rel(s, "smashed"), "bang", "mayorS", 0.5)
 s = S("sledgehammer for the", "SM", (2.9, 0.7, -2.2), 3.0, -16, pitch=6, yawTo=4, type="macro", dof=dict(focus="camS", blur=0.5)); act(s, 0.05, "camS", shake=0.4); act(s, rel(s, "cameras"), "camS", shake=0.6); T(s, "cams", at=rel(s, "cameras"))
-s = crane("pieces were dumped", "RV", (0.0, 0.8, -2.6), 7.0, 22, 2, 38, 8); act(s, 0.1, "bargeV", shake=0.4); act(s, rel(s, "dumped"), "bargeV", shake=0.7)
+s = crane("pieces were dumped", "RV", (0.0, 0.8, -2.6), 5.6, 22, 2, 38, 8); act(s, 0.1, "bargeV", shake=0.4); act(s, rel(s, "dumped"), "bargeV", shake=0.7)
 # ---- His reason? He said pinball stole children's nickels and dimes. Their lunch money.
 s = S("His reason He", "MY", (0.0, 1.05, -1.9), 6.6, -4, pitch=14, pitchTo=3); show(s, 0.05, "podiumM", pos("MY", 0.6, 0.04, -2.0)); ft(s, "mayorM", ["shouting", "confused"]); act(s, 0.1, "mayorM", pose=dict(armR=-150)); T(s, "reason"); cfx(s, 0.3, "question", "mayorM", 0.7)
 s = S("stole children's nickels", "SC", (0.2, 1.1, -2.1), 2.8, 6, pitch=8, zoom=14, type="macro", dof=dict(focus="coinsC", blur=0.5)); act(s, 0.05, "coinsC", shake=0.5)
@@ -149,7 +149,7 @@ s = S("Is pinball luck", "QS", (0.0, 1.0, -2.4), 6.6, 16, pitch=5, yawTo=-4); ac
 s = S("Luck meant gambling", "QS", (0.0, 1.0, -2.4), 6.6, 0, pitch=5, zoom=12); act(s, 0.0, "scaleQ", face="luck", shake=0.6); T(s, "gamb", at=rel(s, "gambling"))
 s = S("Skill meant a", "QS", (0.0, 1.0, -2.4), 6.8, -10, pitch=5, zoom=-10); act(s, 0.0, "scaleQ", face="skill", shake=0.6); T(s, "game", at=rel(s, "game"))
 # ---- So in 1976, the industry hired a pinball expert named Roger Sharpe to prove it in front of the City Council. A suspicious councilman made him switch to a backup machine.
-s = crane("So in 1976", "CC", (0.0, 1.2, -2.6), 10.0, 22, 2, 36, 8); hide(s, 0.0, "machC"); ft(s, "c2C", ["happy", "smug"]); T(s, "y1976", dy=0.2, dx=-0.15, wf=0.32, hf=0.34)
+s = crane("So in 1976", "CC", (0.0, 1.2, -2.6), 10.0, 22, 2, 36, 8); hide(s, 0.0, "machC"); ft(s, "c2C", ["happy", "smug"]); T(s, "y1976", dy=0.1, dx=0.0, wf=0.3, hf=0.32)
 s = S("the industry hired", "CC", (3.6, 1.2, -1.6), 5.0, 8, pitch=5, zoom=12, dof=dict(focus="sharpeC", blur=0.4)); ft(s, "sharpeC", ["smug", "happy"]); T(s, "expert", at=rel(s, "expert")); snap(s, rel(s, "expert"), 8)
 s = S("named Roger Sharpe", "CC", (3.6, 1.25, -1.6), 4.4, -14, pitch=5, yawTo=4, dof=dict(focus="sharpeC", blur=0.4)); ft(s, "sharpeC", ["happy", "smug"]); act(s, 0.1, "sharpeC", pose=dict(armR=-150)); T(s, "sharpec")
 s = S("in front of", "CC", (0.0, 1.2, -2.6), 9.8, 6, pitch=6, zoom=-10); ft(s, "c1C", ["confused", "smug"]); ft(s, "c3C", ["smug", "happy"]); T(s, "councilc")
@@ -158,14 +158,14 @@ s = S("made him switch", "CC", (4.2, 1.1, -1.75), 6.0, 4, pitch=5, zoom=4, pan=(
 s = S("Sharpe pointed at", "CC", (4.2, 1.1, -1.75), 4.8, -12, pitch=5, zoom=12, dof=dict(focus="sharpeC", blur=0.3)); act(s, 0.05, "sharpeC", pose=dict(armR=-150), shake=0.3); ft(s, "sharpeC", ["smug", "happy"]); snap(s, rel(s, "pointed"), 8)
 # ---- Sharpe pointed at the center lane and said the ball would go right there. He pulled the plunger. It went exactly there. The council voted unanimously to lift the ban.
 s = crane("and said the", "PF", (0.0, 0.95, -2.4), 5.4, 18, 2, 40, 10); act(s, 0.05, "pfieldP", face="call", shake=0.3)
-s = S("He pulled the", "PF", (6.0, 0.72, -2.4), 2.4, -4, pitch=6, zoom=14, type="macro", dof=dict(focus="plungerP", blur=0.5)); act(s, rel(s, "pulled"), "plungerP", face="pulled", shake=0.4)
+s = S("He pulled the", "PF", (6.0, 0.85, -2.4), 4.3, -4, pitch=6, zoom=8, type="macro", dof=dict(focus="plungerP", blur=0.5)); act(s, rel(s, "pulled"), "plungerP", face="pulled", shake=0.4)
 s = S("It went exactly", "PF", (0.0, 0.95, -2.4), 5.0, -14, pitch=6, yawTo=4); act(s, 0.0, "pfieldP", face="hit", shake=0.6); T(s, "exactly", at=rel(s, "exactly")); snap(s, rel(s, "went"), 10)
 s = S("The council voted", "CC", (0.0, 1.2, -2.6), 9.6, 4, pitch=6, zoom=-10); hide(s, 0.0, "sharpeC"); hide(s, 0.0, "machC")
 for k, w_ in enumerate(("c1C", "c2C", "c3C")): act(s, 0.15 + 0.18 * k, w_, pose=dict(armR=-150), face="happy", shake=0.3)
 T(s, "unan", at=rel(s, "unanimously"))
 s = S("lift the ban", "HK", (0.0, 1.0, -2.3), 5.2, -6, pitch=5, zoom=14); act(s, 0.0, "machH", face="happy", shake=0.6); T(s, "lifted", at=0.05)
 # ---- Which means a city that banned gambling let one man bet pinball's entire future on a single ball.
-s = S("Which means a", "RV", (0.0, 0.9, -2.6), 7.4, -16, pitch=6, yawTo=4); act(s, 0.1, "bargeV", shake=0.3)
+s = S("Which means a", "RV", (0.0, 0.9, -2.6), 6.0, -16, pitch=6, yawTo=4); act(s, 0.1, "bargeV", shake=0.3)
 s = S("let one man", "CC", (3.6, 1.25, -1.6), 4.4, 10, pitch=12, pitchTo=3, dof=dict(focus="sharpeC", blur=0.4)); show(s, 0.0, "sharpeC", pos("CC", 3.6, 0.04, -1.6), hop=0); ft(s, "sharpeC", ["smug", "happy"])
 s = S("pinball's entire future", "PF", (3.2, 0.95, -2.4), 3.0, -10, pitch=6, yawTo=6, type="macro", dof=dict(focus="ballP", blur=0.5)); act(s, 0.0, "ballP", face="default", shake=0.4); T(s, "future")
 s = S("on a single", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); act(s, 0.0, "machH", face="happy", shake=0.3); T(s, "single", at=0.1)
