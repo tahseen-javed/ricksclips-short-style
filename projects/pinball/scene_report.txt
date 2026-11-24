@@ -3,6 +3,7 @@ music: 50.5 s, arcade chiptune 150/156 + 1942 boogie-woogie 140 + question tick 
    autofit S08 distance 2.8 -> 3.3
    autofit S10 distance 7.4 -> 8.3
    autofit S11 distance 3.0 -> 3.4
+   autofit S12 distance 5.6 -> 6.7
    autofit S14 distance 2.8 -> 3.5
    autofit S15 distance 5.6 -> 6.7
    autofit S16 distance 5.8 -> 6.5
@@ -12,10 +13,10 @@ music: 50.5 s, arcade chiptune 150/156 + 1942 boogie-woogie 140 + question tick 
    autofit S27 distance 9.8 -> 10.4
    autofit S29 distance 6.0 -> 7.1
    autofit S30 distance 4.8 -> 6.4
-   autofit S32 distance 2.4 -> 2.9
    autofit S34 distance 9.6 -> 10.2
+   autofit S36 distance 6.0 -> 6.7
 shot  start   dur  phrase
-S00    0.00  1.46  0                          d 7.0  snap
+S00    0.00  1.46  0                          d 4.8  snap
 S01    1.46  1.00  for 34 years               d 6.6
 S02    2.46  1.18  and one man                d 3.6
 S03    3.64  0.98  with a single              d 2.8
@@ -27,7 +28,7 @@ S08    9.48  0.84  bowling alleys and         d 3.3
 S09   10.32  1.44  seized thousands of        d 6.4
 S10   11.76  1.14  La Guardia smashed         d 8.3  snap
 S11   12.90  1.28  sledgehammer for the       d 3.4
-S12   14.18  1.86  pieces were dumped         d 7.0
+S12   14.18  1.86  pieces were dumped         d 6.7
 S13   16.04  1.24  His reason He              d 6.6
 S14   17.28  1.70  stole children's nickels   d 3.5
 S15   18.98  0.84  Their lunch money          d 6.7  snap
@@ -47,14 +48,14 @@ S28   35.29  0.98  A suspicious councilman    d 4.0
 S29   36.27  1.72  made him switch            d 7.1
 S30   37.99  1.26  Sharpe pointed at          d 6.4  snap
 S31   39.25  1.44  and said the               d 5.4
-S32   40.69  0.98  He pulled the              d 2.9
+S32   40.69  0.98  He pulled the              d 4.3
 S33   41.67  1.08  It went exactly            d 5.0  snap
 S34   42.75  1.52  The council voted          d 10.2
 S35   44.27  0.74  lift the ban               d 5.2
-S36   45.01  1.60  Which means a              d 7.4
+S36   45.01  1.60  Which means a              d 6.7
 S37   46.61  0.90  let one man                d 4.4
 S38   47.51  1.28  pinball's entire future    d 3.0
-S39   48.79  1.30  on a single                d 6.6
+S39   48.79  1.30  on a single                d 4.5
 snaps 8, comic fx 3
 frame check: 0 CUT flags
 wrote short.json: 40 shots, 50 characters, 28 props, voice 50.09 s
