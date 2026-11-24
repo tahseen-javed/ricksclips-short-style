@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
-"""Generate short.json (and the word-cued music) for video 19: the Eiffel Tower was built to be torn down; one wire on top saved it;
-then it caught a spy (Mata Hari).
+"""Generate short.json (and the word-cued music) for video 20: the 1904 Olympic marathon - the first man across the line rode in a car,
+the winner ran on rat poison, and the poison was legal.
 usage: build_short.py <project folder>
-Twelve Paris sets 70 units apart: HK indigo night Paris with a wrecking ball (hook + loop), TP navy tower-top with the antenna wire, SY teal
-spy-noir alley (trench-coat "?" silhouette = open loop, resolved as Mata Hari), PA champagne 1889 fair, PM sage permit office, AR wine-red
-artists' cafe, CL slate demolition yard, PN peach dawn Pantheon, AY blue-morning army camp, RS amber radio room, WR blood-red war night,
-EA teal "big ear".  Shots 1-2 s, every neighbour a different move."""
+Twelve sun-scorched 1904 sets 70 units apart: HK turquoise stadium finish (hook + loop, "?" driver = open loop -> Fred Lorz), SL ivory World's
+Fair, ST mustard start road, HT blazing heat, SU plum office, WS peach mile-12 water stop, DG lime cornfield chase, OR emerald orchard,
+CR violet country road, DQ red-striped judges tent, TR chartreuse poison aid station, RB violet rules archive. Shots 1-2 s, every neighbour a different move."""
 import json, os, sys, subprocess, math
 import scene_base as base
 from scene_base import *
 
-base.X.clear(); base.X.update(HK=0, TP=70, SY=140, PA=210, PM=280, AR=350, CL=420, PN=490, AY=560, RS=630, WR=700, EA=770)
+base.X.clear(); base.X.update(HK=0, SL=70, ST=140, HT=210, SU=280, WS=350, DG=420, OR=490, CR=560, DQ=630, TR=700, RB=770)
 HERE = os.path.dirname(os.path.abspath(__file__)); PARK = base.PARK
 ASP = json.load(open(os.path.join(P, "aspect.json")))
 
@@ -49,35 +48,32 @@ def yard(loc, img, floor, w=16, rep=(8, 8)):
 def table(loc, x, z, w=1.6, d=0.8, h=0.7, col="#8a5a3a"): box(loc, x, 0.04, z, [w, h, d], color=col)
 
 
-def wcrane(loc, x, z, arm_to): post(loc, x, z, 3.0, "#d8a030"); box(loc, (x + arm_to) / 2, 2.95, z, [abs(arm_to - x) + 0.3, 0.14, 0.14], color="#d8a030")
-
-
-yard("HK", "nightparis.png", "cobnight.jpg"); wcrane("HK", -2.2, -2.4, -1.2); box("HK", 2.8, 0.04, -2.6, [0.8, 0.5, 0.6], color="#6a5aa0")
-yard("TP", "topnight.png", "ironfloor.jpg")
-yard("SY", "alley.png", "wetcob.jpg"); post("SY", -1.2, -2.6, 2.6, "#1a2a30"); box("SY", 2.6, 0.04, -2.8, [0.8, 0.9, 0.6], color="#2a4a50")
-yard("PA", "fair.png", "fairsand.jpg"); box("PA", -2.8, 0.04, -2.8, [0.9, 0.6, 0.6], color="#e8c070"); tree("PA", -3.4, -4.2, 0.8, "#5a9a5a")
-yard("PM", "bureau.png", "parquet.jpg"); table("PM", 0.6, -1.9, 1.2, 0.7, 0.74, "#7a5040"); box("PM", -3.0, 0.04, -3.0, [0.8, 1.2, 0.6], color="#5a7a64")
-yard("AR", "cafe.png", "cafefloor.jpg"); box("AR", -2.8, 0.04, -2.6, [0.8, 0.7, 0.8], color="#8a2a3a")
-yard("CL", "demolish.png", "rubble.jpg"); wcrane("CL", -2.4, -2.4, -0.6); box("CL", 2.9, 0.04, -2.6, [0.9, 0.4, 0.7], color="#8a8a90")
-yard("PN", "dawn.png", "stone.jpg"); tree("PN", -3.2, -3.6, 0.8, "#6aaa6a")
-yard("AY", "camp.png", "grass2.jpg"); box("AY", 3.0, 0.04, -3.0, [1.0, 0.6, 0.8], color="#7a7a50")
-yard("RS", "valves.png", "walnut.jpg"); table("RS", 0.9, -2.0, 1.4, 0.8, 0.74, "#6a4630"); table("RS", -2.7, -2.2, 1.2, 0.7, 0.74, "#6a4630")
-yard("WR", "warnight.png", "redcob.jpg"); box("WR", 2.8, 0.04, -2.8, [0.9, 0.5, 0.7], color="#5a2a3a")
-yard("EA", "bigear.png", "tealcob.jpg"); box("EA", -2.9, 0.04, -2.8, [0.8, 0.6, 0.6], color="#2a6a70")
+yard("HK", "finish.png", "claytrack.jpg"); post("HK", -2.6, -2.8, 2.4, "#f4f0e8"); post("HK", 2.7, -2.9, 2.4, "#f4f0e8"); box("HK", -3.2, 0.04, -1.2, [0.6, 0.5, 0.6], color="#e07a3a")
+yard("SL", "fair.png", "pavefair.jpg"); tree("SL", -3.0, -3.6, 0.9, "#5aa86a"); tree("SL", 3.1, -3.8, 0.9, "#5aa86a"); post("SL", -1.9, -3.0, 2.2, "#e8d8b8")
+yard("ST", "road.png", "dirt.jpg"); post("ST", -2.8, -2.6, 1.0, "#9a6a40"); post("ST", 2.9, -2.6, 1.0, "#9a6a40"); box("ST", 3.2, 0.04, -1.4, [0.6, 0.4, 0.5], color="#c89a50")
+yard("HT", "heat.png", "cracked.jpg"); box("HT", -3.0, 0.04, -2.6, [0.9, 0.3, 0.7], color="#c8784a"); tree("HT", 3.2, -3.4, 0.7, "#8a8a40")
+yard("SU", "office.png", "carpetplum.jpg"); table("SU", 0.8, -1.9, 1.2, 0.7, 0.74, "#7a4a3a"); box("SU", -3.0, 0.04, -3.0, [0.8, 1.2, 0.6], color="#8a5a70")
+yard("WS", "waterstop.png", "dirt2.jpg"); box("WS", 2.8, 0.04, -2.8, [0.8, 0.4, 0.6], color="#c88a50"); post("WS", -2.8, -3.0, 1.2, "#9a6a40")
+yard("DG", "corn.png", "dirt3.jpg"); post("DG", 2.9, -2.8, 1.1, "#9a6a40"); box("DG", -3.0, 0.04, -2.6, [0.8, 0.6, 0.6], color="#c8a050")
+yard("OR", "orchard.png", "grass.jpg"); box("OR", 0.9, 0.04, -2.0, [0.7, 0.6, 0.6], color="#b07840"); tree("OR", -3.2, -3.4, 1.0, "#4a9a5a"); tree("OR", 3.3, -3.6, 1.0, "#4a9a5a")
+yard("CR", "carroad.png", "roadtex.jpg"); post("CR", 3.0, -2.8, 2.2, "#4a3a3a"); box("CR", -3.2, 0.04, -1.4, [0.6, 0.4, 0.6], color="#9a8a70")
+yard("DQ", "judges.png", "boards.jpg"); table("DQ", 1.9, -2.3, 1.2, 0.7, 0.74, "#8a5a3a"); box("DQ", -3.0, 0.04, -2.8, [0.8, 0.9, 0.6], color="#a83a46")
+yard("TR", "aid.png", "aidfloor.jpg"); table("TR", 1.8, -2.2, 1.4, 0.8, 0.74, "#6a5a30"); table("TR", -2.6, -2.2, 1.0, 0.7, 0.74, "#6a5a30")
+yard("RB", "archive.png", "library.jpg"); table("RB", -0.2, -2.0, 1.4, 0.8, 0.74, "#5a3a4a"); table("RB", 2.6, -2.3, 1.6, 0.8, 0.74, "#5a3a4a")
 
 # ================================================================== CHARACTERS (cards carry "_" in the id: not frame-checked as cast; hero props are)
-put("towerH", "tower", pos("HK", 0.4, 0.04, -2.8), 3.2, face="nervous"); put("ballH", "ball", pos("HK", -1.2, 1.5, -2.4), 1.4)
-put("t_top", "towertop", pos("TP", 0.0, 0.3, -2.6), 2.8); put("wavesT", "waves", PARK, 0.7)
-put("spyS", "spy", pos("SY", 0.5, 0.04, -2.0), 1.8); human("mataS", "mata", PARK, face="smug")
-human("eiffelP", "eiffel", pos("PA", -0.8, 0.04, -1.6), face="happy"); put("towerP", "tower", pos("PA", 1.4, 0.04, -3.4), 3.0)
-human("eiffelM", "eiffel", pos("PM", -1.0, 0.04, -1.6), face="nervous"); put("permitM", "permit", pos("PM", 0.6, 0.78, -1.9), 0.75)
-human("art1", "artist", pos("AR", -0.9, 0.04, -1.6), face="shouting"); human("art2", "artist2", pos("AR", 0.4, 0.04, -1.8), face="shocked"); put("easelA", "easel", pos("AR", 1.5, 0.04, -2.7), 1.4)
-put("towerC", "tower", pos("CL", 0.9, 0.04, -3.2), 3.0, face="nervous"); put("ballC", "ball", pos("CL", -0.45, 1.6, -2.4), 1.1); human("bossC", "boss", pos("CL", -1.3, 0.04, -1.8), face="shouting")
-put("pantN", "pantheon", pos("PN", 0.5, 0.04, -3.2), 2.4); put("wavesN", "waves", PARK, 0.8)
-human("sold1", "soldier", pos("AY", -1.2, 0.04, -1.6), face="happy"); human("sold2", "soldier", pos("AY", 0.0, 0.04, -1.9), face="smug"); human("sold3", "soldier", pos("AY", 1.2, 0.04, -1.7), face="happy")
-human("radman", "radioman", pos("RS", -0.8, 0.04, -1.6), face="happy"); put("radioR", "radio", pos("RS", 0.9, 0.78, -2.0), 0.75); put("tapeR", "tape", pos("RS", -2.7, 0.78, -2.2), 0.5)
-put("towerW", "tower", pos("WR", 0.3, 0.04, -3.2), 3.0, face="shocked"); human("sold4", "soldier", pos("WR", -1.3, 0.04, -1.8), face="shocked")
-put("towerE", "tower", pos("EA", 0.0, 0.04, -2.8), 3.2, face="ear"); put("wavesE", "waves", PARK, 0.7)
+put("tape_H", "ftape", pos("HK", 0.0, 0.04, -2.6), 1.3); put("carH", "car", pos("HK", -0.4, 0.04, -1.8), 1.2, face="mystery"); human("hicksH", "hicks", pos("HK", 1.0, 0.04, -2.0), face="nervous"); human("lorzH", "lorz", PARK, face="happy")
+put("pack_L", "pack", pos("SL", 0.0, 0.04, -2.4), 0.9)
+put("pack_S", "pack", pos("ST", 0.0, 0.04, -2.2), 1.2)
+put("sunT", "sun", pos("HT", 0.0, 1.4, -3.2), 2.4, face="angry"); put("thermoT", "thermo", pos("HT", 1.4, 0.04, -2.0), 1.5); put("pack_T", "pack", PARK, 1.0, face="drop")
+human("sullyU", "sullivan", pos("SU", -0.6, 0.04, -1.7), face="smug")
+put("barrelW", "barrel", pos("WS", 0.4, 0.04, -2.2), 1.0); put("mile12", "mile12", pos("WS", -0.9, 0.04, -2.0), 1.5)
+human("tauD", "tau", pos("DG", 0.3, 0.04, -1.8), face="shocked"); put("dogD", "dog", pos("DG", -1.3, 0.04, -1.9), 0.9)
+human("felixO", "felix", pos("OR", -0.5, 0.04, -1.7), face="happy"); put("appleO", "apple", pos("OR", 0.9, 0.64, -2.0), 0.45)
+put("carC", "car", pos("CR", 0.2, 0.04, -2.0), 1.3, face="lorz"); put("mile9", "mile9", pos("CR", -2.9, 0.04, -2.4), 1.3); put("dust_C", "dust", PARK, 0.9)
+human("judgeQ", "judge", pos("DQ", -0.8, 0.04, -1.7), face="shouting"); human("lorzQ", "lorz", pos("DQ", 0.5, 0.04, -1.9), face="nervous"); put("watchQ", "watch", pos("DQ", 1.9, 0.78, -2.3), 0.6)
+human("hicksT", "hicks", pos("TR", -0.9, 0.04, -1.7), face="nervous"); human("trainT", "trainer", pos("TR", 0.5, 0.04, -1.9), face="smug"); put("trioT", "trio", pos("TR", 1.8, 0.78, -2.2), 0.55); put("poisT", "poison", pos("TR", -2.6, 0.78, -2.2), 0.5)
+put("bookR", "rulebook", pos("RB", -0.2, 0.78, -2.0), 0.6); put("scaleR", "scale", pos("RB", 2.6, 0.78, -2.3), 0.7)
 # ================================================================== SHOTS
 SH = {c["id"]: c["height"] for c in chars}
 N_ = [0]; REQ = []; SNAPC = []; FXC = []; LOC = {}
@@ -122,50 +118,60 @@ def blink(s, who, t0, t1, step=0.3):
     while t < t1: act(s, round(t, 3), who, face="b" if k % 2 == 0 else "default"); t += step; k += 1
 
 
-HOOK = dict(anchor=(0.0, 1.7, -2.6), dist=9.4, yaw=4, pitch=6)
-# ---- The Eiffel Tower was built to be torn down. One wire on top saved it. Then it caught a spy.
-s = S("0", "HK", zoom=14, pan=(-3, 0), **HOOK); act(s, 0.0, "towerH", shake=0.4); go(s, 0.15, "ballH", pos("HK", -0.75, 1.6, -2.4), 0.6, walk=False); act(s, 0.7, "towerH", face="shocked", shake=0.5)
+HOOK = dict(anchor=(0.1, 1.0, -2.0), dist=10.0, yaw=4, pitch=6)
+# ---- The first man across the Olympic finish line rode in a car. The winner ran on rat poison. And the poison was legal.
+s = S("0", "HK", zoom=14, pan=(-3, 0), **HOOK); go(s, 0.0, "carH", pos("HK", -0.25, 0.04, -1.8), 1.0, walk=False); act(s, 0.1, "carH", shake=0.4); act(s, 0.3, "hicksH", face="shocked", shake=0.5)
 tag(s, 0.0, "hookc", 0.3, 0.0, wf=0.66, hf=0.24)
-s = S("built to be", "HK", (0.16, 1.8, -2.6), 9.4, -12, pitch=5, yawTo=6, dof=dict(focus="towerH", blur=0.3)); act(s, 0.05, "towerH", face="shocked", shake=0.6); act(s, 0.1, "ballH", shake=0.4); snap(s, rel(s, "torn"), 8)
-s = S("One wire on", "TP", (0.0, 1.6, -2.6), 6.4, 4, pitch=2, pitchTo=16); act(s, 0.1, "t_top", shake=0.4); T(s, "wire"); snap(s, rel(s, "saved"), 12)
-s = S("Then it caught", "SY", (0.5, 1.1, -2.0), 5.6, -6, pitch=5, zoom=4, pan=(26, 0)); act(s, 0.1, "spyS", shake=0.4); T(s, "spyc")
-# ---- Paris, 1889. Gustave Eiffel gets a permit for just twenty years.
-s = crane("Paris 1889", "PA", (0.3, 1.5, -2.4), 9.6, -22, -2, 36, 6); ft(s, "eiffelP", ["happy", "smug"]); T(s, "y1889", dy=0.2, dx=-0.15, wf=0.32, hf=0.34)
-s = S("Gustave Eiffel gets", "PA", (-0.8, 1.2, -1.6), 4.4, 10, pitch=5, zoom=12, dof=dict(focus="eiffelP", blur=0.4)); ft(s, "eiffelP", ["smug", "happy"]); T(s, "eiffelc")
-s = S("permit for just", "PM", (0.6, 1.15, -1.9), 2.6, -6, pitch=14, pitchTo=2, type="macro", dof=dict(focus="permitM", blur=0.5)); act(s, 0.1, "permitM", shake=0.4); snap(s, rel(s, "twenty"), 10)
-# ---- Famous artists already call his tower "useless and monstrous." After twenty years, the city can take it, and tear it down.
-s = crane("Famous artists already", "AR", (0.2, 1.2, -1.9), 9.2, 22, 2, 34, 6); ft(s, "art1", ["shouting", "smug"]); ft(s, "art2", ["shocked", "shouting"]); act(s, 0.1, "easelA", shake=0.3); T(s, "artists")
-s = S("his tower useless", "AR", (-0.9, 1.2, -1.6), 4.4, 10, pitch=5, zoom=12, dof=dict(focus="art1", blur=0.4)); ft(s, "art1", ["shouting", "smug"]); act(s, 0.0, "art1", pose=dict(armR=-150)); T(s, "useless"); snap(s, rel(s, "monstrous"), 12); cfx(s, 0.3, "bang", "art1", 0.6)
-s = S("After twenty years", "CL", (0.0, 1.5, -2.6), 9.0, -16, pitch=6, yawTo=4); ft(s, "bossC", ["shouting", "smug"]); act(s, 0.1, "ballC", shake=0.3); T(s, "after20")
-s = S("and tear it", "CL", (0.5, 1.6, -2.8), 7.4, 8, pitch=6, zoom=-12, _dis=1); hide(s, 0.0, "bossC"); go(s, 0.05, "ballC", pos("CL", 0.1, 1.6, -2.5), 0.5, walk=False); act(s, 0.5, "towerC", face="shocked", shake=0.6); T(s, "tear")
-# ---- Eiffel needs a reason. A big one.
-s = crane("Eiffel needs a", "PM", (-0.2, 1.2, -1.8), 7.6, -20, 0, 32, 6); ft(s, "eiffelM", ["nervous", "confused"]); c_ = T(s, "reason"); cfx(s, 0.3, "question", "eiffelM", 0.7); swap(s, c_, rel(s, "A big one"), "bigone"); act(s, rel(s, "A big one"), "eiffelM", pose=dict(armR=-150))
-# ---- You see, Eiffel turns his tower into a giant antenna. In 1898, a radio signal flies from the top to the Pantheon, four kilometers away.
-s = crane("You see Eiffel", "TP", (0.0, 1.6, -2.6), 7.0, 20, 0, 34, 6); act(s, 0.1, "t_top", shake=0.4)
-s = S("into a giant", "TP", (0.0, 2.6, -2.6), 4.2, -6, pitch=4, zoom=12, type="macro", dof=dict(focus="t_top", blur=0.4)); act(s, 0.1, "t_top", shake=0.4); T(s, "antenna"); snap(s, rel(s, "antenna"), 12)
-s = S("In 1898", "TP", (0.2, 1.8, -2.6), 7.6, -14, pitch=5, yawTo=4); show(s, 0.1, "wavesT", pos("TP", 0.5, 2.6, -2.2)); T(s, "y1898", dy=0.2, dx=-0.15, wf=0.32, hf=0.34)
-s = S("a radio signal", "TP", (0.2, 2.0, -2.6), 7.4, 6, pitch=5, zoom=4, pan=(20, 0)); go(s, 0.05, "wavesT", pos("TP", 0.8, 2.9, -2.2), 0.8, walk=False); act(s, 0.1, "t_top", shake=0.3)
-s = crane("to the Panthon", "PN", (0.3, 1.3, -3.0), 9.0, 22, 2, 30, 6); show(s, 0.1, "wavesN", pos("PN", -1.4, 2.3, -2.6)); act(s, 0.3, "pantN", shake=0.4); T(s, "pantc")
-s = S("four kilometers away", "PN", (0.0, 2.0, -2.0), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="KILOMETERS AWAY", items=["4"]))
-# ---- The army moves in. A permanent radio station follows. And Paris renews his permit for seventy more years.
-s = crane("The army moves", "AY", (0.0, 1.2, -1.8), 9.0, -22, -2, 36, 6); ft(s, "sold1", ["happy", "smug"]); ft(s, "sold2", ["smug", "happy"]); ft(s, "sold3", ["happy", "shouting"]); T(s, "army"); snap(s, 0.3, 12)
-s = S("A permanent radio", "RS", (0.9, 1.05, -2.0), 3.6, 10, pitch=4, zoom=12, type="macro", dof=dict(focus="radioR", blur=0.5)); act(s, 0.1, "radioR", shake=0.3); T(s, "station")
-s = S("And Paris renews", "PM", (-0.2, 1.2, -1.8), 6.6, 16, pitch=5, yawTo=-2); act(s, 0.2, "permitM", shake=0.4); ft(s, "eiffelM", ["happy", "smug"]); cfx(s, 0.4, "blush", "eiffelM", 0.7)
-s = S("for seventy more", "PM", (0.6, 1.15, -1.9), 2.8, 8, pitch=4, zoom=14, type="macro", dof=dict(focus="permitM", blur=0.5)); act(s, 0.1, "permitM", face="renewed", shake=0.5); T(s, "plus70"); snap(s, rel(s, "seventy"), 12)
-# ---- Then war comes. The tower listens to enemy radio. They call it "the big ear." It intercepts messages about a secret agent, code name H-21.
-s = crane("Then war comes", "WR", (-0.4, 1.5, -2.6), 9.0, 20, 0, 30, 6); act(s, 0.1, "towerW", shake=0.4); ft(s, "sold4", ["shocked", "nervous"]); T(s, "war")
-s = S("The tower listens", "EA", (0.0, 1.7, -2.8), 7.6, -8, pitch=5, zoom=12); show(s, 0.1, "wavesE", pos("EA", -0.9, 2.6, -2.4)); T(s, "listens")
-s = S("They call it", "EA", (0.0, 1.6, -2.8), 8.2, -16, pitch=5, yawTo=4); act(s, 0.1, "towerE", shake=0.4); T(s, "bigear"); snap(s, rel(s, "ear"), 12)
-s = S("It intercepts messages", "RS", (-2.7, 1.0, -2.2), 2.8, 8, pitch=14, pitchTo=2, type="macro", dof=dict(focus="tapeR", blur=0.5)); act(s, 0.1, "tapeR", shake=0.4); T(s, "intercept")
-s = crane("a secret agent", "SY", (0.3, 1.1, -2.0), 7.6, -20, 0, 32, 6); act(s, 0.1, "spyS", shake=0.3); T(s, "h21")
-s = S("code name", "SY", (0.5, 1.0, -2.0), 5.6, -14, pitch=5, yawTo=4); act(s, 0.1, "spyS", shake=0.4); cfx(s, 0.2, "question", "spyS", 0.7)
-# ---- Her real name? Mata Hari.
-s = S("Her real name", "SY", (0.5, 1.0, -2.0), 4.6, 10, pitch=5, zoom=12, dof=dict(focus="spyS", blur=0.4)); act(s, 0.1, "spyS", shake=0.4); T(s, "realname")
-s = S("Mata Hari", "SY", (0.5, 1.0, -2.0), 4.2, -8, pitch=5, zoom=-10); hide(s, 0.0, "spyS"); show(s, 0.02, "mataS", pos("SY", 0.5, 0.04, -2.0)); ft(s, "mataS", ["smug", "happy"]); T(s, "matac"); snap(s, 0.3, 12); cfx(s, 0.3, "glint", "mataS", 0.7)
-# ---- Not bad for a tower that was built to be torn down. (pull-out onto the hook frame)
-s = S("Not bad for", "PA", (0.3, 1.5, -2.4), 9.6, 16, pitch=6, yawTo=-2); ft(s, "eiffelP", ["smug", "happy"]); act(s, 0.1, "towerP", shake=0.3); T(s, "notbad")
-s = S("built to be#2", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); show(s, 0.0, "ballH", pos("HK", -1.0, 1.6, -2.4), hop=0); act(s, 0.0, "towerH", face="nervous", shake=0.4)
-go(s, 0.2, "ballH", pos("HK", -0.75, 1.6, -2.4), 0.6, walk=False); tag(s, 0.05, "hookc", 0.3, 0.0, wf=0.66, hf=0.24)
+s = S("Olympic finish line", "HK", (0.0, 0.8, -2.4), 8.4, -14, pitch=2, yawTo=4); act(s, 0.05, "tape_H", shake=0.5); act(s, 0.2, "hicksH", shake=0.4)
+s = S("rode in a", "HK", (-0.25, 0.7, -1.8), 6.6, 10, pitch=5, zoom=10, _dis=1, dof=dict(focus="carH", blur=0.4)); hide(s, 0.0, "hicksH"); act(s, 0.05, "carH", shake=0.5); T(s, "carc"); snap(s, rel(s, "car"), 12)
+s = S("The winner ran", "TR", (-2.6, 1.05, -2.2), 2.4, -6, pitch=14, pitchTo=2, type="macro", dof=dict(focus="poisT", blur=0.5)); act(s, 0.1, "poisT", shake=0.5); T(s, "ratc")
+s = S("And the poison", "TR", (-1.0, 1.2, -1.7), 4.6, 12, pitch=5, zoom=-10); ft(s, "hicksT", ["nervous", "happy"]); T(s, "legal")
+# ---- St. Louis. August 30th, 1904. Thirty-two runners start the Olympic marathon in ninety-degree heat, on dirt roads.
+s = crane("St Louis", "SL", (0.0, 1.3, -2.4), 9.4, -22, -2, 36, 6); act(s, 0.2, "pack_L", shake=0.3); T(s, "stl")
+s = S("30th 1904", "SL", (0.0, 1.6, -2.4), 7.6, 8, pitch=6, zoom=12); act(s, 0.1, "pack_L", shake=0.3); T(s, "y1904", dy=0.2, dx=-0.15, wf=0.32, hf=0.34); snap(s, 0.3, 10)
+s = S("Thirtytwo runners start", "ST", (0.0, 0.8, -2.2), 6.4, 16, pitch=5, yawTo=-4); act(s, 0.1, "pack_S", shake=0.4); T(s, "r32")
+s = crane("the Olympic marathon", "ST", (0.0, 0.8, -2.2), 8.0, -20, -2, 40, 10); act(s, 0.1, "pack_S", shake=0.3)
+s = S("ninetydegree heat", "HT", (0.3, 1.6, -2.8), 8.4, -6, pitch=18, pitchTo=4); act(s, 0.1, "sunT", shake=0.5); act(s, 0.3, "thermoT", shake=0.4); c_ = T(s, "heatc"); snap(s, rel(s, "heat"), 12); swap(s, c_, rel(s, "dirt"), "dirt")
+# ---- The organizer, James Sullivan, has an idea. Just one water stop. Mile twelve. He wants to study dehydration. On purpose.
+s = crane("The organizer James", "SU", (-0.1, 1.2, -1.8), 7.6, -20, 0, 32, 6); ft(s, "sullyU", ["smug", "happy"]); T(s, "sully")
+s = S("Sullivan has an", "SU", (-0.6, 1.25, -1.7), 4.4, 10, pitch=5, zoom=12, dof=dict(focus="sullyU", blur=0.4)); ft(s, "sullyU", ["happy", "smug"]); act(s, 0.05, "sullyU", pose=dict(armR=-150)); T(s, "idea"); cfx(s, 0.3, "glint", "sullyU", 0.5)
+s = S("Just one water", "WS", (-0.2, 0.9, -2.1), 6.8, -16, pitch=5, yawTo=4); act(s, 0.1, "barrelW", shake=0.4); c_ = T(s, "onestop"); act(s, rel(s, "Mile"), "mile12", shake=0.6); snap(s, rel(s, "twelve"), 10)
+s = S("He wants to", "SU", (-0.3, 1.2, -1.8), 5.6, -14, pitch=5, yawTo=2); ft(s, "sullyU", ["smug", "happy", "shouting"]); c_ = T(s, "dehyd"); swap(s, c_, rel(s, "On purpose"), "purpose"); act(s, rel(s, "On purpose"), "sullyU", shake=0.4)
+# ---- Runners drop. A wild dog chases one man a mile off course. Felix Carvajal eats rotten apples from an orchard, takes a nap, and still finishes fourth.
+s = crane("Runners drop", "HT", (0.0, 1.1, -2.2), 8.6, 20, 0, 34, 6); show(s, 0.02, "pack_T", pos("HT", -0.2, 0.04, -1.8), hop=0); act(s, 0.2, "sunT", shake=0.4); T(s, "drop")
+s = S("chases one man", "DG", (-0.3, 0.9, -1.9), 7.4, 6, pitch=4, zoom=4, pan=(10, 0)); go(s, 0.05, "tauD", pos("DG", 0.45, 0.04, -1.8), 1.2); go(s, 0.05, "dogD", pos("DG", -0.8, 0.04, -1.9), 1.2, walk=False); ft(s, "tauD", ["shocked", "nervous"]); c_ = T(s, "dogc"); swap(s, c_, rel(s, "a mile"), "offc"); snap(s, 0.3, 10)
+s = crane("Flix Carvajal eats", "OR", (0.15, 1.1, -1.8), 7.8, -22, -2, 34, 6); ft(s, "felixO", ["happy", "smug"]); T(s, "felixc")
+s = S("apples from an", "OR", (0.9, 0.86, -2.0), 2.8, 0, pitch=6, zoom=10, type="macro", dof=dict(focus="appleO", blur=0.5)); act(s, 0.05, "appleO", face="sad", shake=0.5); T(s, "apples"); snap(s, 0.3, 10)
+s = S("takes a nap", "OR", (-0.6, 1.15, -1.75), 5.0, -14, pitch=5, yawTo=4); ft(s, "felixO", ["smug", "happy", "shouting"]); c_ = T(s, "nap"); cfx(s, 0.1, "z", "felixO", 0.5); swap(s, c_, rel(s, "still"), "fourth"); act(s, rel(s, "still"), "felixO", pose=dict(armR=-150))
+# ---- Then Fred Lorz crosses the line first. But Lorz quit around mile nine and hitched a ride. About ten miles. In a car. Disqualified.
+s = crane("Then Fred Lorz", "HK", (0.0, 1.0, -2.1), 8.6, -20, 0, 32, 6, _dis=1); hide(s, 0.0, "carH"); hide(s, 0.0, "hicksH"); show(s, 0.0, "lorzH", pos("HK", -0.9, 0.04, -1.8), hop=0)
+go(s, 0.1, "lorzH", pos("HK", 0.5, 0.04, -1.8), 1.3); ft(s, "lorzH", ["happy", "smug"]); T(s, "lorzc")
+s = S("But Lorz quit", "CR", (-2.7, 0.85, -2.4), 3.6, 12, pitch=5, zoom=12, dof=dict(focus="mile9", blur=0.4)); act(s, 0.1, "mile9", shake=0.4); T(s, "quit"); snap(s, rel(s, "quit"), 10)
+s = S("and hitched a", "CR", (0.5, 0.8, -2.0), 7.6, -6, pitch=4, zoom=4, pan=(18, 0)); go(s, 0.05, "carC", pos("CR", 0.7, 0.04, -2.0), 1.0, walk=False); show(s, 0.1, "dust_C", pos("CR", -1.0, 0.3, -2.3)); T(s, "ride")
+s = crane("About ten miles", "CR", (0.8, 0.8, -2.0), 9.4, 24, 4, 42, 12); act(s, 0.1, "carC", shake=0.4); c_ = T(s, "ten"); swap(s, c_, rel(s, "car"), "incar"); act(s, rel(s, "car"), "carC", shake=0.5)
+s = S("Disqualified", "DQ", (-0.2, 1.1, -1.8), 6.6, 16, pitch=5, yawTo=-4); ft(s, "judgeQ", ["shouting", "smug"]); ft(s, "lorzQ", ["nervous", "shocked"]); act(s, 0.05, "judgeQ", pose=dict(armR=-150)); T(s, "dq"); cfx(s, 0.3, "bang", "judgeQ", 0.6)
+# ---- The real winner is Thomas Hicks. You see, his trainers kept him moving with egg whites, brandy, and strychnine. Rat poison. He staggers over the line barely standing.
+s = crane("is Thomas Hicks", "TR", (0.4, 1.1, -1.9), 9.6, -16, 0, 32, 6); ft(s, "hicksT", ["nervous", "happy"]); T(s, "hicksc")
+s = S("You see his", "TR", (1.15, 1.0, -2.0), 5.6, 18, pitch=5, yawTo=2); ft(s, "trainT", ["smug", "happy"]); cfx(s, 0.3, "glint", "trainT", 0.5)
+s = S("egg whites brandy", "TR", (1.8, 1.05, -2.2), 2.6, -4, pitch=12, pitchTo=2, type="macro", dof=dict(focus="trioT", blur=0.5)); act(s, 0.05, "trioT", shake=0.4); T(s, "recipe")
+s = S("and strychnine Rat", "TR", (-2.6, 1.05, -2.2), 2.4, 10, pitch=5, zoom=14, type="macro", dof=dict(focus="poisT", blur=0.5)); act(s, 0.05, "poisT", shake=0.5); T(s, "strych"); snap(s, rel(s, "strychnine"), 12)
+s = S("He staggers over", "HK", (0.0, 0.9, -2.0), 7.4, -6, pitch=2, zoom=10, _dis=1); hide(s, 0.0, "lorzH"); show(s, 0.0, "hicksH", pos("HK", -0.7, 0.04, -2.0), hop=0); go(s, 0.1, "hicksH", pos("HK", 0.5, 0.04, -2.0), 1.6)
+ft(s, "hicksH", ["nervous", "shocked"]); T(s, "barely"); cfx(s, 0.3, "sweat", "hicksH", 0.8)
+# ---- Three hours, twenty-eight minutes. The slowest winning time in Olympic history. Only fourteen of thirty-two finish.
+s = S("Three hours twentyeight", "DQ", (1.9, 1.08, -2.3), 2.6, 10, pitch=5, zoom=14, type="macro", dof=dict(focus="watchQ", blur=0.5)); act(s, 0.05, "watchQ", shake=0.5); snap(s, 0.2, 10)
+s = crane("The slowest winning", "HK", (0.0, 1.0, -2.2), 9.6, 22, 2, 44, 10); act(s, 0.2, "hicksH", face="nervous", shake=0.3); T(s, "slowest")
+s = S("Only fourteen of", "HK", (0.0, 2.0, -2.0), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="OF 32 FINISH", items=["14"]))
+# ---- And Hicks broke no rule. Doping wasn't banned until 1908. The poison was fine. The car was not.
+s = S("And Hicks broke", "TR", (-0.9, 1.25, -1.7), 4.6, -10, pitch=5, zoom=12, _dis=1, dof=dict(focus="hicksT", blur=0.4)); hide(s, 0.0, "trainT"); ft(s, "hicksT", ["smug", "happy"]); T(s, "norule"); cfx(s, 0.3, "glint", "hicksT", 0.6); snap(s, rel(s, "rule"), 10)
+s = crane("Doping", "RB", (0.0, 1.0, -2.0), 7.6, -20, 0, 36, 8); act(s, 0.2, "bookR", shake=0.4); T(s, "dopingc")
+s = S("until 1908", "RB", (-0.2, 1.1, -2.0), 3.2, 8, pitch=6, zoom=14, type="macro", dof=dict(focus="bookR", blur=0.5)); act(s, 0.05, "bookR", shake=0.5); T(s, "y1908", dy=0.2, dx=-0.15, wf=0.32, hf=0.34)
+s = S("The poison was#2", "RB", (2.6, 1.15, -2.3), 3.2, -10, pitch=5, yawTo=6, type="macro", dof=dict(focus="scaleR", blur=0.5)); act(s, 0.1, "scaleR", shake=0.4); T(s, "fine")
+s = S("The car was", "HK", (-0.2, 0.8, -1.8), 6.0, 10, pitch=5, zoom=12, _dis=1); hide(s, 0.0, "hicksH"); show(s, 0.0, "carH", pos("HK", -0.25, 0.04, -1.8), hop=0); act(s, 0.0, "carH", face="lorz", shake=0.5); T(s, "carnot"); snap(s, 0.3, 12)
+# ---- So the only cheater that day was the first man across the Olympic finish line. (pull-out onto the hook frame)
+s = S("So the only", "HK", (0.0, 1.0, -2.0), 7.4, -14, pitch=5, yawTo=2); act(s, 0.1, "carH", shake=0.4); T(s, "cheater")
+s = S("first man across#2", "HK", (-0.3, 0.8, -1.8), 6.6, 14, pitch=5, yawTo=-2); act(s, 0.1, "carH", shake=0.4)
+s = S("Olympic finish line#2", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); show(s, 0.0, "carH", pos("HK", -0.4, 0.04, -1.8), hop=0); act(s, 0.0, "carH", face="mystery")
+show(s, 0.0, "hicksH", pos("HK", 1.0, 0.04, -2.0), hop=0); act(s, 0.0, "hicksH", face="nervous"); go(s, 0.2, "carH", pos("HK", -0.25, 0.04, -1.8), 1.0, walk=False); tag(s, 0.05, "hookc", 0.3, 0.0, wf=0.66, hf=0.24)
 for s in shots: s.setdefault("frameY", 0.0)
 
 starts = [0.0 if s["start"] == 0 else say(s["_phrase"]) for s in shots]
@@ -213,9 +219,9 @@ for s in shots:
             prev = seq[j % len(seq)]; j += 1; act(s, round(i * 0.55, 3), who, face=prev)
 # ---- atmosphere by set: dust + rays by day, bokeh by night / dawn
 D_ = lambda c=22: dict(count=c, size=1.0, drift=1.0); BK = lambda a=0.3: dict(count=12, size=1.0, alpha=a)
-ATM = dict(HK=dict(bokeh=BK(0.4)), TP=dict(bokeh=BK(0.45)), SY=dict(bokeh=BK(0.4)), PA=dict(dust=D_(24), rays=dict(angle=30, intensity=0.55)), PM=dict(dust=D_(20), rays=dict(angle=24, intensity=0.5)),
-           AR=dict(dust=D_(20)), CL=dict(dust=D_(44)), PN=dict(dust=D_(18), rays=dict(angle=16, intensity=0.6)), AY=dict(dust=D_(22), rays=dict(angle=34, intensity=0.5)), RS=dict(dust=D_(24)),
-           WR=dict(bokeh=BK(0.4)), EA=dict(bokeh=BK(0.45)))
+ATM = dict(HK=dict(dust=D_(30), rays=dict(angle=30, intensity=0.55)), SL=dict(dust=D_(22), rays=dict(angle=24, intensity=0.5)), ST=dict(dust=D_(48)), HT=dict(dust=D_(40), rays=dict(angle=16, intensity=0.7)),
+           SU=dict(dust=D_(20)), WS=dict(dust=D_(36), rays=dict(angle=34, intensity=0.5)), DG=dict(dust=D_(40)), OR=dict(dust=D_(20), rays=dict(angle=28, intensity=0.5)), CR=dict(dust=D_(34)),
+           DQ=dict(dust=D_(20)), TR=dict(bokeh=BK(0.45)), RB=dict(bokeh=BK(0.4)))
 for s in shots:
     if s.get("type") != "cutaway": s["atmos"] = ATM[LOC[id(s)]]
 
@@ -301,36 +307,36 @@ for (s, at, cid, name, dy, dx, dz, wf, hf, c) in REQ:
     c["height"] = round(h, 3); SH[cid] = c["height"]; card(s, at, cid, dy, dx, dz); RECT[cid] = (s, at, 0.5 + dx - wfr / 2, 0.5 - dy - hfr / 2, 0.5 + dx + wfr / 2, 0.5 - dy + hfr / 2)
 
 # ================================================================== SPEC
-MOOD = dict(HK="parisnight", TP="topnight", SY="noir", PA="champagne", PM="sage", AR="wine", CL="slate", PN="peach", AY="bluemorning", RS="amber", WR="warred", EA="tealear")
-light, cur = [{"t": 0, "mood": "parisnight"}], "parisnight"
+MOOD = dict(HK="stadium", SL="fairday", ST="prairie", HT="scorch", SU="plum", WS="peachnoon", DG="cornday", OR="orchard", CR="violetdusk", DQ="tent", TR="poison", RB="archive")
+light, cur = [{"t": 0, "mood": "stadium"}], "stadium"
 for k, s in enumerate(shots):
     m = MOOD[LOC[id(s)]]
     if m != cur and s.get("type") != "cutaway": light.append({"t": round(max(0.0, starts[k] - 0.2), 3), "mood": m, "fade": 0.4}); cur = m
 spec = {
     "fps": 30, "audio": {"voice": "audio/voice.mp3", "music": "audio/music.mp3", "musicDb": -11},
-    "words": "audio/words.json", "captions": {"wordsPer": 1}, "font": "fonts/Montserrat-ExtraBold.ttf", "contactShadow": 0.6, "seed": 19,
-    "moods": {"parisnight": {"sun": {"azimuth": 150, "elevation": 35, "color": "#d8d0ff", "intensity": 2.6}, "sky": {"top": "#28287a", "horizon": "#6e5ab4"}, "fill": {"sky": "#c8c0ff", "ground": "#504870", "intensity": 2.0}},
-              "topnight": {"sun": {"azimuth": 30, "elevation": 30, "color": "#c8f0ff", "intensity": 2.6}, "sky": {"top": "#141e5a", "horizon": "#3c46a0"}, "fill": {"sky": "#a8e0ff", "ground": "#3c4070", "intensity": 2.1}},
-              "noir": {"sun": {"azimuth": -40, "elevation": 35, "color": "#ffe0c0", "intensity": 2.5}, "sky": {"top": "#145a64", "horizon": "#3c8c8c"}, "fill": {"sky": "#c0fff0", "ground": "#304a50", "intensity": 2.0}},
-              "champagne": {"sun": {"azimuth": 40, "elevation": 35, "color": "#fff0c8", "intensity": 2.4}, "sky": {"top": "#f0c070", "horizon": "#fff0c0"}, "fill": {"sky": "#fff0d0", "ground": "#907050", "intensity": 1.45}},
-              "sage": {"sun": {"azimuth": 20, "elevation": 40, "color": "#fff8e0", "intensity": 2.4}, "sky": {"top": "#78aa8c", "horizon": "#b4d6ba"}, "fill": {"sky": "#e8fff0", "ground": "#6a5040", "intensity": 1.6}},
-              "wine": {"sun": {"azimuth": -20, "elevation": 40, "color": "#ffd8b0", "intensity": 2.5}, "sky": {"top": "#962a3c", "horizon": "#c85a5a"}, "fill": {"sky": "#ffd0c0", "ground": "#5a2a30", "intensity": 1.85}},
-              "slate": {"sun": {"azimuth": 30, "elevation": 35, "color": "#ffe0c0", "intensity": 2.4}, "sky": {"top": "#5a6482", "horizon": "#9aa0b4"}, "fill": {"sky": "#e0e4f0", "ground": "#605a5a", "intensity": 1.8}},
-              "peach": {"sun": {"azimuth": 200, "elevation": 14, "color": "#ffc8a0", "intensity": 2.5}, "sky": {"top": "#ffa090", "horizon": "#ffe0c8"}, "fill": {"sky": "#ffe0d0", "ground": "#806a5a", "intensity": 1.5}},
-              "bluemorning": {"sun": {"azimuth": 50, "elevation": 45, "color": "#fffbe8", "intensity": 2.4}, "sky": {"top": "#5aa0e6", "horizon": "#c8e2fa"}, "fill": {"sky": "#e8f4ff", "ground": "#6a7050", "intensity": 1.4}},
-              "amber": {"sun": {"azimuth": 20, "elevation": 40, "color": "#ffc888", "intensity": 2.5}, "sky": {"top": "#5a3c28", "horizon": "#966440"}, "fill": {"sky": "#ffd8a8", "ground": "#503828", "intensity": 2.0}},
-              "warred": {"sun": {"azimuth": -30, "elevation": 30, "color": "#ffc0a0", "intensity": 2.6}, "sky": {"top": "#781e32", "horizon": "#c85046"}, "fill": {"sky": "#ffc8c0", "ground": "#502830", "intensity": 2.0}},
-              "tealear": {"sun": {"azimuth": 40, "elevation": 35, "color": "#e8fff8", "intensity": 2.5}, "sky": {"top": "#14646e", "horizon": "#46aaaa"}, "fill": {"sky": "#d0fff8", "ground": "#305a60", "intensity": 1.95}}},
+    "words": "audio/words.json", "captions": {"wordsPer": 1}, "font": "fonts/Montserrat-ExtraBold.ttf", "contactShadow": 0.6, "seed": 20,
+    "moods": {"stadium": {"sun": {"azimuth": 40, "elevation": 40, "color": "#fff4d8", "intensity": 2.4}, "sky": {"top": "#3cbed2", "horizon": "#bef0ec"}, "fill": {"sky": "#e8fff8", "ground": "#a0583a", "intensity": 1.4}},
+              "fairday": {"sun": {"azimuth": 30, "elevation": 45, "color": "#fffbe8", "intensity": 2.4}, "sky": {"top": "#50c8dc", "horizon": "#d2f4f0"}, "fill": {"sky": "#f0fffa", "ground": "#a08a6a", "intensity": 1.35}},
+              "prairie": {"sun": {"azimuth": 60, "elevation": 35, "color": "#fff0c0", "intensity": 2.4}, "sky": {"top": "#5ac8dc", "horizon": "#fae6aa"}, "fill": {"sky": "#fff4d8", "ground": "#a07a46", "intensity": 1.4}},
+              "scorch": {"sun": {"azimuth": 20, "elevation": 50, "color": "#ffd8a0", "intensity": 2.6}, "sky": {"top": "#f05a32", "horizon": "#ffc85a"}, "fill": {"sky": "#ffe0b0", "ground": "#a05030", "intensity": 1.5}},
+              "plum": {"sun": {"azimuth": -20, "elevation": 40, "color": "#ffe8c8", "intensity": 2.5}, "sky": {"top": "#783c6e", "horizon": "#aa6496"}, "fill": {"sky": "#ffd8f0", "ground": "#5a3a4a", "intensity": 1.85}},
+              "peachnoon": {"sun": {"azimuth": 200, "elevation": 30, "color": "#ffd8b0", "intensity": 2.5}, "sky": {"top": "#fa965a", "horizon": "#ffdcaa"}, "fill": {"sky": "#ffe8d0", "ground": "#9a6a4a", "intensity": 1.45}},
+              "cornday": {"sun": {"azimuth": 50, "elevation": 45, "color": "#fffbe0", "intensity": 2.4}, "sky": {"top": "#6ec8f0", "horizon": "#dcf6dc"}, "fill": {"sky": "#f0fff0", "ground": "#8a7a4a", "intensity": 1.35}},
+              "orchard": {"sun": {"azimuth": 30, "elevation": 40, "color": "#fff8e0", "intensity": 2.4}, "sky": {"top": "#96dcc8", "horizon": "#e6fadc"}, "fill": {"sky": "#f0fff0", "ground": "#5a7a4a", "intensity": 1.4}},
+              "violetdusk": {"sun": {"azimuth": 230, "elevation": 18, "color": "#ffc8a8", "intensity": 2.5}, "sky": {"top": "#786ed2", "horizon": "#ffc8aa"}, "fill": {"sky": "#ffe0e8", "ground": "#6a5a6a", "intensity": 1.7}},
+              "tent": {"sun": {"azimuth": -30, "elevation": 40, "color": "#fff0e0", "intensity": 2.4}, "sky": {"top": "#dc3c46", "horizon": "#fac8be"}, "fill": {"sky": "#ffe8e0", "ground": "#8a4a40", "intensity": 1.6}},
+              "poison": {"sun": {"azimuth": 20, "elevation": 40, "color": "#f0ffc0", "intensity": 2.5}, "sky": {"top": "#78962e", "horizon": "#c8dc6e"}, "fill": {"sky": "#f0ffc8", "ground": "#5a5a2a", "intensity": 1.9}},
+              "archive": {"sun": {"azimuth": 30, "elevation": 35, "color": "#f0e0ff", "intensity": 2.6}, "sky": {"top": "#503c96", "horizon": "#966ec8"}, "fill": {"sky": "#e8d8ff", "ground": "#4a3a60", "intensity": 2.0}}},
     "lighting": light, "ground": {"texture": TEX + "pave.jpg", "repeat": [175, 175], "size": 1400},
     "backdrop": {"image": "bg/sky.jpg", "blur": 4}, "ink": {"set": 4},
-    "fxLook": {"ink": "#271925", "accent": "#ffcf3c", "paper": ["#b89ae0", "#9a78cc"], "dofPx": 8, "particle": "#fff4d8", "bokehColor": "#c8b8ff", "ray": "#fff1c8", "raySide": 1},
+    "fxLook": {"ink": "#271925", "accent": "#b6ff3c", "paper": ["#f0a860", "#d88840"], "dofPx": 8, "particle": "#fff4d8", "bokehColor": "#d8ff9a", "ray": "#fff1c8", "raySide": 1},
     "fx": FX, "characters": chars, "props": props, "shots": shots, "end": "audio",
 }
 
 # ---- music + effects synthesised to the word timings: full energy from frame 1
-CUE = dict(paris="Paris 1889", yousee="You see Eiffel", war="Then war comes", notbad="Not bad for", tear="and tear it", monst="monstrous", signal="a radio signal", army="The army moves",
-           seventy="seventy", listens="The tower listens", ear="ear", intercepts="It intercepts", mata="Mata Hari", wire="One wire on", spy="spy", reason="Eiffel needs a", bigone="A big one",
-           saved="saved", antenna="antenna", y1898="In 1898", pant="to the Panthon")
+CUE = dict(stl="St Louis", drop="Runners drop", lorz="Then Fred Lorz", real="The real winner", doping="Doping", car1="car", poison="poison", legal="legal", heat="ninetydegree heat",
+           dog="dog", apples="apples", nap="nap", fourth="fourth", dq="Disqualified", incar="In a car", strych="strychnine", staggers="He staggers over", hours="Three hours",
+           fourteen="Only fourteen", carnot="The car was", cheater="cheater", purpose="On purpose", twelve="Mile twelve", idea="idea")
 CUE.update({"s%02d" % k: x["_phrase"] for k, x in enumerate(shots) if x["_phrase"] != "0"})
 cues = {k: say(v) for k, v in CUE.items()}; cues["end"] = DURATION
 cp, wav = os.path.join(P, "audio", "cues.json"), os.path.join(P, "audio", "music.wav")

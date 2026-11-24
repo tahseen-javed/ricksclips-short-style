@@ -131,8 +131,8 @@ def ring(t0):
     for k in range(4): put(fx, beep(1300 if k % 2 == 0 else 1650, 0.07), t0 + k * 0.08, 0.13)
 
 
-XPROG = dict(musette=[(48, (64, 67, 72)), (43, (62, 67, 71)), (45, (64, 69, 72)), (41, (65, 69, 72))],      # C G Am F
-             spyjazz=[(40, (64, 67, 71)), (40, (64, 67, 71)), (45, (64, 69, 72)), (47, (66, 69, 71))])   # Em Em Am B7
+XPROG = dict(galop=[(48, (64, 67, 72)), (43, (62, 67, 71)), (48, (64, 67, 72)), (43, (65, 67, 71))],      # C G C G7
+             heat=[(40, (64, 67, 71)), (38, (62, 66, 69)), (36, (60, 64, 67)), (38, (62, 66, 69))])       # Em D C D
 CAJ = [(43, (67, 71, 74)), (48, (67, 72, 76)), (50, (66, 69, 74)), (43, (67, 71, 74))]          # G C D G
 STORM = [(38, (62, 65, 69)), (34, (62, 65, 70)), (36, (60, 64, 67)), (33, (61, 64, 69))]        # Dm Bb C A
 MINE = [(45, (69, 72, 76)), (41, (69, 72, 77)), (38, (65, 69, 74)), (40, (68, 71, 76))]         # Am F Dm E
@@ -245,18 +245,17 @@ def section(t0, t1, kind, bpm):
                 if e % 3 == 0: put(bed, pluck(midi(ch[(e // 3) % 3] + 12), bt * 0.6), u, 0.1)
                 if e in (0, 8): put(bed, kick(), u, 0.35); put(bed, b808(midi(root - 12), bt * 1.2), u, 0.25)
                 if e % 4 == 2: put(bed, hat(), u, 0.05)
-            elif kind == 'musette':                           # Paris musette: oom-pah bass, accordion chords + running accordion line, brushes
-                if e in (0, 8): put(bed, tri(midi(root - 12), bt * 0.8), u, 0.35); put(bed, kick(), u, 0.4)
-                if e in (4, 12): put(bed, sum(accordion(midi(m), bt * 0.35) for m in ch), u, 0.12)
-                if e % 2 == 0: put(bed, accordion(midi(ch[(e // 2 + bar) % 3] + 12), bt * 0.45), u, 0.07)
-                if e % 4 == 2: put(bed, hat(), u, 0.05)
-            elif kind == 'spyjazz':                           # spy jazz: walking bass, brushes + rim, vibes, muted brass stabs
-                if e % 4 == 0: put(bed, tri(midi(root - 12 + (0, 3, 5, 7)[e // 4]), bt * 0.9), u, 0.38)
-                if e % 2 == 0: put(bed, hat(), u, 0.06)
-                if e in (4, 12): put(bed, rim(), u, 0.25)
-                if e == 0: put(bed, kick(), u, 0.35)
-                if e in (0, 6): put(bed, bell(midi(ch[(e + bar) % 3] + 12), 0.5), u, 0.05)
-                if e in (2, 10) and bar % 2 == 0: put(bed, brass(midi(ch[e % 3] + 12), bt * 0.6, 1600), u, 0.06)
+            elif kind == 'galop':                             # circus galop chase: oom-pah tuba, snare backbeat, brass runs, hats
+                if e in (0, 8): put(bed, tri(midi(root - 12), bt * 0.6), u, 0.4); put(bed, kick(), u, 0.4)
+                if e in (4, 12): put(bed, snare(), u, 0.18); put(bed, sum(brass(midi(m), bt * 0.3, 2400) for m in ch), u, 0.05)
+                if e % 2 == 0: put(bed, brass(midi(ch[(e // 2 + bar) % 3] + 12), bt * 0.4, 3000), u, 0.05)
+                if e % 2 == 1: put(bed, hat(), u, 0.05)
+            elif kind == 'heat':                              # dusty heat stomp: kick-clap, twangy riff, shaker, warm pad
+                if e in (0, 6, 10): put(bed, kick(), u, 0.45)
+                if e in (4, 12): put(bed, clap(), u, 0.3)
+                if e % 2 == 1: put(bed, hat(), u, 0.04)
+                if e in (0, 3, 6, 10, 14): put(bed, twang(midi(root + 12 + (0, 3, 7, 10, 12)[(e + bar) % 5]), bt * 0.7), u, 0.1)
+                if e == 0: put(bed, pad(midi(ch[0]), bt * 4), u, 0.04)
             else:                                             # funk reveal: slap bass, clav chords, 16th hats, kick/snare
                 if e in (0, 7, 8): put(bed, kick(), u, 0.65)
                 if e in (4, 12): put(bed, snare(), u, 0.4)
@@ -267,27 +266,28 @@ def section(t0, t1, kind, bpm):
 
 
 # ---------------------------------------------------------------- the score
-section(0, C['paris'], 'spyjazz', 132)
-section(C['paris'], C['yousee'], 'musette', 124)
-section(C['yousee'], C['war'], 'epic', 128)
-section(C['war'], C['notbad'], 'spyjazz', 120)
-section(C['notbad'], C['end'], 'musette', 128)
+section(0, C['stl'], 'galop', 152)
+section(C['stl'], C['drop'], 'heat', 108)
+section(C['drop'], C['lorz'], 'galop', 160)
+section(C['lorz'], C['real'], 'heat', 112)
+section(C['real'], C['doping'], 'trap', 140)
+section(C['doping'], C['end'], 'galop', 152)
 
 # ---------------------------------------------------------------- effects: a light whoosh on every scene change, hits on the words
 for k in sorted(x for x in C if x.startswith('s') and x[1:].isdigit()): put(fx, whoosh(0.45, 500, 3200), C[k] - 0.18, 0.13); put(fx, stampfx(), C[k] + 0.12, 0.16)
-morse = lambda t, n=6: [put(fx, beep(1320 if k % 3 else 1100, 0.07 if k % 2 else 0.16), t + k * 0.14, 0.11) for k in range(n)]
-put(fx, boom(), 0.0, 0.5); put(fx, kick(), 0.0, 0.7); put(fx, crash(), 0.0, 0.3); put(fx, stampfx(), 0.02, 0.3); put(fx, whoosh(0.8, 200, 1500), 0.15, 0.3); put(fx, boom(), 0.7, 0.35)
-put(fx, bell(midi(88), 0.8), C['saved'], 0.15); morse(C['wire'] + 0.2); put(fx, scratch(), C['spy'] - 0.1, 0.12); put(fx, stampfx(), C['spy'] + 0.05, 0.3)
-put(fx, boom(), C['monst'], 0.3); put(fx, boom(), C['tear'] + 0.3, 0.5); put(fx, crash(), C['tear'] + 0.35, 0.3); put(fx, thumps(1.0), C['tear'] + 0.4, 0.2)
-put(fx, bell(midi(91), 0.7), C['bigone'] + 0.1, 0.14); put(fx, riser(0.6), C['antenna'] - 0.5, 0.15); put(fx, bell(midi(84), 0.9), C['y1898'] + 0.1, 0.14)
-morse(C['signal'], 8); put(fx, whoosh(1.0, 300, 3000), C['signal'] + 0.3, 0.25); put(fx, beep(1760, 0.2), C['pant'] + 0.4, 0.12)
-for k in range(4): put(fx, snare(), C['army'] + k * 0.18, 0.25)
-put(fx, cheer(1.2), C['seventy'], 0.14); fanfare(C['seventy'] + 0.1); put(fx, boom(), C['war'], 0.45); put(fx, thumps(1.2), C['war'] + 0.2, 0.2)
-morse(C['listens'] + 0.2); put(fx, boing(), C['ear'], 0.15); morse(C['intercepts'], 7); put(fx, riser(0.8), C['mata'] - 0.7, 0.18); put(fx, crash(), C['mata'], 0.25); put(fx, bell(midi(88), 0.8), C['mata'] + 0.1, 0.16)
+put(fx, boom(), 0.0, 0.5); put(fx, kick(), 0.0, 0.7); put(fx, horn(), 0.05, 0.35); put(fx, stampfx(), 0.02, 0.3); put(fx, whoosh(0.8, 200, 1500), 0.15, 0.3)
+put(fx, horn(), C['car1'] - 0.1, 0.3); put(fx, horn(392), C['car1'] + 0.2, 0.25); put(fx, gurgle(0.8), C['poison'], 0.2); put(fx, boing(), C['legal'], 0.15)
+put(fx, bell(midi(88), 0.8), C['stl'], 0.14); put(fx, riser(0.6), C['heat'] - 0.5, 0.15); put(fx, boom(), C['heat'] + 0.3, 0.3); put(fx, bell(midi(91), 0.7), C['idea'], 0.14)
+put(fx, gavel(), C['purpose'], 0.3); put(fx, splash(), C['twelve'], 0.2); put(fx, thumps(1.0), C['drop'], 0.25)
+put(fx, whip(), C['dog'], 0.2); put(fx, crunch(), C['apples'], 0.25); put(fx, boing(), C['nap'], 0.12); fanfare(C['fourth'])
+put(fx, cheer(1.2), C['lorz'] + 0.3, 0.14); put(fx, horn(), C['incar'], 0.35); put(fx, whistle(0.6), C['dq'], 0.2); put(fx, buzzer(), C['dq'] + 0.1, 0.12)
+put(fx, gurgle(0.8), C['strych'], 0.2); put(fx, groan(1.0), C['staggers'], 0.15)
+for k in range(6): put(fx, tick(), C['hours'] + k * 0.2, 0.25)
+put(fx, drum_roll(0.8), C['fourteen'], 0.2); put(fx, gavel(), C['doping'] + 0.1, 0.3); put(fx, buzzer(), C['carnot'] + 0.3, 0.12); put(fx, crash(), C['cheater'], 0.25); put(fx, horn(), C['cheater'] + 0.3, 0.3)
 put(fx, riser(1.0), C['end'] - 1.1, 0.2); put(fx, crash(), C['end'] - 0.15, 0.25)
 
 mix = bed * 1.35 + fx * 0.85
 mix = np.tanh(mix / max(1e-6, np.abs(mix).max()) * 2.2) * 0.89
 st = np.stack([mix, np.roll(mix, int(SR * 0.008)) * 0.96], 1)
 sf.write(OUT, st.astype(np.float32), SR)
-print("music: %.1f s, spy jazz 132/120 + Paris musette accordion 124/128 + epic timpani 128 + morse effects" % LEN)
+print("music: %.1f s, circus galop 152/160 + dusty heat stomp 108/112 + poison trap 140 + car horns" % LEN)

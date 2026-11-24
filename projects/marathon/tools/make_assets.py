@@ -288,6 +288,7 @@ if __name__ == '__main__':
                  t328=M.bigneon('3 HOURS', '28 MINUTES', 960, YEL, ORNG),
                  slowest=P_('SLOWEST WIN', 'IN OLYMPIC HISTORY', (90, 60, 150, 255), 1000, 140, 100, YEL),
                  norule=stamp('NO RULE BROKEN!', 960, (60, 120, 60, 255), 130, -3),
+                 dopingc=stamp("DOPING WASN'T BANNED", 1000, (90, 60, 150, 255), 110, -3),
                  y1908=M.cal('BANNED IN', '1908', (90, 60, 150, 255)),
                  fine=stamp('THE POISON WAS FINE', 1000, (60, 150, 60, 255), 110, 3),
                  carnot=stamp('THE CAR WAS NOT!', 960, RED, 130, -4),
