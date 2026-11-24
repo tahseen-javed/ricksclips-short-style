@@ -1,0 +1,23 @@
+Collecting en-core-web-sm==3.8.0
+  Downloading en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 119.3 MB/s  0:00:00
+Installing collected packages: en-core-web-sm
+Successfully installed en-core-web-sm-3.8.0
+[38;5;2m✔ Download and installation successful[0m
+You can now load the package via spacy.load('en_core_web_sm')
+am_fenrir @1.28     58.9 s  understood 0.950
+am_fenrir @1.32     56.6 s  understood 0.940
+am_fenrir @1.36     48.3 s  understood 0.922
+chose am_fenrir @1.28 (understood 0.950): tempo 1.050 -> about 56.1 s
+Downloading: "https://download.pytorch.org/torchaudio/models/wav2vec2_fairseq_base_ls960_asr_ls960.pth" to /home/runner/.cache/torch/hub/checkpoints/wav2vec2_fairseq_base_ls960_asr_ls960.pth
+  0%|          | 0.00/360M [00:00<?, ?B/s]  8%|▊         | 30.4M/360M [00:00<00:01, 314MB/s] 17%|█▋        | 60.4M/360M [00:00<00:01, 309MB/s] 27%|██▋       | 97.6M/360M [00:00<00:00, 346MB/s] 41%|████      | 146M/360M [00:00<00:00, 411MB/s]  54%|█████▍    | 196M/360M [00:00<00:00, 448MB/s] 69%|██████▊   | 247M/360M [00:00<00:00, 478MB/s] 83%|████████▎ | 299M/360M [00:00<00:00, 502MB/s] 98%|█████████▊| 352M/360M [00:00<00:00, 516MB/s]100%|██████████| 360M/360M [00:00<00:00, 460MB/s]
+aligned 215 words over 56.58 s, mean confidence 0.96, shortest word 0.04 s
+heard: The Statue of Liberty was never supposed to be green. That famous color is damage. New York Harbor, October 28, 1886. Lady Liberty is unveiled and she shines like a brand new penny, reddish-brown copper gleaming in the sun, 300 hammered sheets each about as thick as two pennies, but salt air and rain get to work. The shine fades to a dull brown, then green streaks creep in. In 1910 she's half copper, half blue-green, patchy, blotchy and spreading, officials fear the green is eating her alive. Even her designer Frédéric Bartaldi guessed wrong, he expected her to darken to red. So in 1906 Congress sets aside $62,000 to paint her back to copper, and the public explodes. Newspapers call it sacrilege the plan quietly dies, you see that green isn't wrought, it's a patina. Copper reacts with the air and grows its own thin skin, and that skin seals the metal underneath shielding it from more corrosion. The damage is the armor. About 10 years later she's green from crown to toe, she's stayed that way for over a century, so the paint job would have covered the one thing keeping her alive. America nearly erased its most famous color because the Statue of Liberty was never supposed to be green.
+intelligibility 0.957 (1.0 = every word understood)
+  replace: said ['28th'] -> heard ['28']
+  replace: said ['three', 'hundred'] -> heard ['300']
+  replace: said ['by'] -> heard ['in']
+  replace: said ['bartholdi'] -> heard ['bartaldi']
+  replace: said ['sixty', 'two', 'thousand', 'dollars'] -> heard ['62', '000']
+  replace: said ['rot'] -> heard ['wrought']
+  replace: said ['ten'] -> heard ['10']
