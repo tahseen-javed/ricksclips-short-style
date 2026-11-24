@@ -1,0 +1,16 @@
+Collecting en-core-web-sm==3.8.0
+  Downloading en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 217.1 MB/s  0:00:00
+Installing collected packages: en-core-web-sm
+Successfully installed en-core-web-sm-3.8.0
+[38;5;2m✔ Download and installation successful[0m
+You can now load the package via spacy.load('en_core_web_sm')
+am_fenrir @1.28     64.0 s  understood 1.000
+am_fenrir @1.32     62.1 s  understood 1.000
+am_fenrir @1.36     53.4 s  understood 1.000
+chose am_fenrir @1.36 (understood 1.000): tempo 1.000 -> about 53.4 s
+Downloading: "https://download.pytorch.org/torchaudio/models/wav2vec2_fairseq_base_ls960_asr_ls960.pth" to /home/runner/.cache/torch/hub/checkpoints/wav2vec2_fairseq_base_ls960_asr_ls960.pth
+  0%|          | 0.00/360M [00:00<?, ?B/s]  7%|▋         | 26.0M/360M [00:00<00:01, 272MB/s] 19%|█▉        | 67.9M/360M [00:00<00:00, 370MB/s] 29%|██▉       | 105M/360M [00:00<00:00, 380MB/s]  42%|████▏     | 150M/360M [00:00<00:00, 416MB/s] 54%|█████▎    | 193M/360M [00:00<00:00, 425MB/s] 65%|██████▍   | 234M/360M [00:00<00:00, 427MB/s] 77%|███████▋  | 276M/360M [00:00<00:00, 432MB/s] 89%|████████▊ | 319M/360M [00:00<00:00, 434MB/s]100%|██████████| 360M/360M [00:00<00:00, 419MB/s]
+aligned 227 words over 53.85 s, mean confidence 0.96, shortest word 0.04 s
+heard: Lightning never strikes twice, it hit Roy Sullivan seven times and he survived every single one. Roy was a park ranger in Shenandoah National Park, Virginia. In 1942, Lightning hit him at a fire lookout tower and scorched his leg, then nothing for 27 years until 1969. A bolt came through his truck window, knocked him out cold, and burned off his eyebrows. 1970, it found him in his own yard and seared his shoulder. 1972, inside a ranger station, his hair caught fire and he smothered it with wet towels. 1973, he drove away from a storm cloud. It caught him anyway and his hair burned again. 1976, his ankle, and in 1977 while he was fishing, a bolt hit the top of his head and burned his chest and stomach. Then on the way back, he ran into a bear. You see, most people never get struck even once, but Lightning hits whoever is outside when the storm arrives and Roy's whole job was to be outside in the mountains through every storm for decades. Guinness World Records verified all seven strikes, nobody on record has survived more. But here's the strangest part, the one time Lightning hit his family, Roy was standing right beside his wife, helping her hang laundry, it hit her, and it skipped the one man it never seemed to miss.
+intelligibility 1.000 (1.0 = every word understood)
