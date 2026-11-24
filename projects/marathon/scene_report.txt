@@ -1,0 +1,52 @@
+music: 52.8 s, circus galop 152/160 + dusty heat stomp 108/112 + poison trap 140 + car horns
+   autofit S01 distance 8.4 -> 9.4
+   autofit S09 distance 8.4 -> 10.0
+   autofit S12 distance 6.8 -> 7.6
+   autofit S14 distance 8.6 -> 10.2
+   autofit S15 distance 7.4 -> 8.8
+   autofit S24 distance 9.6 -> 10.8
+   autofit S25 distance 5.6 -> 6.7
+shot  start   dur  phrase
+S00    0.00  1.14  0                          d 10.0
+S01    1.14  0.96  Olympic finish line        d 9.4
+S02    2.10  0.80  rode in a                  d 6.6  snap
+S03    2.90  1.62  The winner ran             d 2.4
+S04    4.52  1.24  And the poison             d 4.6
+S05    5.76  0.90  St Louis                   d 9.4
+S06    6.66  1.26  30th 1904                  d 7.6  snap
+S07    7.92  1.02  Thirtytwo runners start    d 6.4
+S08    8.94  1.10  the Olympic marathon       d 8.0
+S09   10.04  1.68  ninetydegree heat          d 10.0  snap
+S10   11.72  1.08  The organizer James        d 7.6
+S11   12.80  1.09  Sullivan has an            d 4.4
+S12   13.89  1.64  Just one water             d 7.6  snap
+S13   15.53  1.98  He wants to                d 5.6
+S14   17.51  1.38  Runners drop               d 10.2
+S15   18.89  1.72  chases one man             d 8.8
+S16   20.61  1.40  Flix Carvajal eats         d 7.8
+S17   22.01  0.90  apples from an             d 2.8  snap
+S18   22.91  1.58  takes a nap                d 5.0
+S19   24.49  1.80  Then Fred Lorz             d 8.6
+S20   26.29  1.38  But Lorz quit              d 3.6  snap
+S21   27.67  0.84  and hitched a              d 7.6
+S22   28.51  1.38  About ten miles            d 9.4
+S23   29.89  1.44  Disqualified               d 6.6
+S24   31.33  0.86  is Thomas Hicks            d 10.8
+S25   32.19  1.68  You see his                d 6.7
+S26   33.87  0.90  egg whites brandy          d 2.6
+S27   34.77  1.36  and strychnine Rat         d 2.4  snap
+S28   36.13  1.90  He staggers over           d 7.4
+S29   38.03  1.42  Three hours twentyeight    d 2.6  snap
+S30   39.45  1.94  The slowest winning        d 9.6
+S31   41.39  1.55  Only fourteen of           d 6.6
+S32   42.94  1.20  And Hicks broke            d 4.6  snap
+S33   44.14  1.00  Doping                     d 7.6
+S34   45.14  1.12  until 1908                 d 3.2
+S35   46.26  1.12  The poison was#2           d 3.2
+S36   47.38  0.98  The car was                d 6.0  snap
+S37   48.36  1.46  So the only                d 7.4
+S38   49.82  1.00  first man across#2         d 6.6
+S39   50.82  1.54  Olympic finish line#2      d 9.3
+snaps 10, comic fx 5
+frame check: 0 CUT flags
+wrote short.json: 40 shots, 67 characters, 52 props, voice 52.36 s
