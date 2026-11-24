@@ -1,7 +1,7 @@
 40 shots, 50.10 s, 1503 frames at 540x960
-shot 00 a  t=  0.30s  luma  66.8  contrast 45.4  ok
-shot 00 b  t=  0.73s  luma  66.9  contrast 46.4  ok
-shot 00 c  t=  1.17s  luma  67.6  contrast 47.8  ok
+shot 00 a  t=  0.30s  luma  68.5  contrast 47.1  ok
+shot 00 b  t=  0.73s  luma    69  contrast 48.4  ok
+shot 00 c  t=  1.17s  luma  68.9  contrast 49.7  ok
 shot 01 a  t=  1.67s  luma 127.1  contrast 26.4  ok
 shot 01 b  t=  1.97s  luma 147.4  contrast 31.3  ok
 shot 01 c  t=  2.27s  luma 123.2  contrast 25.8  ok
@@ -71,9 +71,9 @@ shot 22 c  t= 28.70s  luma 102.7  contrast 38.7  ok
 shot 23 a  t= 29.10s  luma 101.9  contrast 31.2  ok
 shot 23 b  t= 29.37s  luma 101.5  contrast   30  ok
 shot 23 c  t= 29.67s  luma 101.9  contrast 37.8  ok
-shot 24 a  t= 30.10s  luma 120.7  contrast 47.9  ok
-shot 24 b  t= 30.47s  luma 122.9  contrast   51  ok
-shot 24 c  t= 30.83s  luma 123.9  contrast 53.2  ok
+shot 24 a  t= 30.10s  luma 117.6  contrast 40.4  ok
+shot 24 b  t= 30.47s  luma   119  contrast 42.8  ok
+shot 24 c  t= 30.83s  luma 119.3  contrast 43.8  ok
 shot 25 a  t= 31.47s  luma 126.4  contrast 35.9  ok
 shot 25 b  t= 32.00s  luma 126.9  contrast 37.7  ok
 shot 25 c  t= 32.53s  luma 126.4  contrast 46.1  ok
@@ -116,8 +116,8 @@ shot 37 c  t= 47.33s  luma 124.7  contrast 35.5  ok
 shot 38 a  t= 47.77s  luma 100.4  contrast 48.8  ok
 shot 38 b  t= 48.17s  luma 100.3  contrast 49.3  ok
 shot 38 c  t= 48.53s  luma 102.2  contrast 50.7  ok
-shot 39 a  t= 49.07s  luma  70.9  contrast 44.3  ok
-shot 39 b  t= 49.43s  luma  68.8  contrast 41.3  ok
-shot 39 c  t= 49.83s  luma  68.3  contrast 40.5  ok
+shot 39 a  t= 49.07s  luma  69.1  contrast   41  ok
+shot 39 b  t= 49.43s  luma  70.9  contrast 43.3  ok
+shot 39 c  t= 49.83s  luma  70.6  contrast 43.7  ok
 120 stills -> /home/runner/work/ricksclips-short-style/ricksclips-short-style/projects/pinball/render_stills/sheet.jpg
 no problems found: safe to run the full render
