@@ -1,0 +1,43 @@
+music: 40.8 s, Texas western swing 144/148 + typewriter-tick mystery 120/124 + 1957 doo-wop 136
+   autofit S02 distance 9.0 -> 9.5
+   autofit S03 distance 9.4 -> 11.9
+   autofit S05 distance 3.6 -> 3.8
+   autofit S06 distance 8.6 -> 9.7
+   autofit S07 distance 5.4 -> 6.1
+   autofit S10 distance 6.4 -> 7.6
+   autofit S14 distance 7.4 -> 7.8
+   autofit S15 distance 6.6 -> 7.4
+   autofit S21 distance 3.0 -> 3.4
+shot  start   dur  phrase
+S00    0.00  1.82  0                          d 8.0  snap
+S01    1.82  1.64  It's named after           d 2.9
+S02    3.46  1.36  and it was                 d 9.5
+S03    4.82  1.72  In the 1850s               d 11.9
+S04    6.54  1.32  named Sam German           d 4.6  snap
+S05    7.86  1.02  a sweet baking             d 3.8
+S06    8.88  1.20  the Baker's Chocolate      d 9.7
+S07   10.08  1.12  They named it              d 6.1
+S08   11.20  1.28  German's Sweet Chocolate   d 3.8
+S09   12.48  0.80  A century later            d 8.4
+S10   13.28  1.22  in 1957                    d 7.6
+S11   14.50  1.48  a Texas homemaker          d 4.6  snap
+S12   15.98  1.34  recipe made with           d 2.6
+S13   17.32  1.14  to a Dallas                d 5.2
+S14   18.46  1.62  You see readers            d 7.8  snap
+S15   20.08  1.49  General Foods which        d 7.4
+S16   21.57  0.80  sent the recipe            d 7.6
+S17   22.37  1.42  newspapers across the      d 7.4
+S18   23.79  1.20  Sales of German's          d 7.0  snap
+S19   24.99  1.88  jumped 73 percent          d 6.6
+S20   26.87  1.46  Then the recipes           d 4.2
+S21   28.33  1.26  apostrophe and the         d 3.4  snap
+S22   29.59  1.00  German's chocolate cake    d 4.6
+S23   30.59  1.36  became German chocolate    d 3.8
+S24   31.95  1.94  and America assumed        d 7.0
+S25   33.89  1.92  So the most                d 8.8
+S26   35.81  0.94  is pure Texas              d 3.2  snap
+S27   36.75  1.96  And the only               d 2.9
+S28   38.71  1.68  is a man's                 d 7.4
+snaps 7, comic fx 3
+frame check: 0 CUT flags
+wrote short.json: 29 shots, 40 characters, 37 props, voice 40.39 s
