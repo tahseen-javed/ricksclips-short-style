@@ -134,6 +134,9 @@ def ring(t0):
 XPROG = dict(bayou=[(40, (64, 67, 71)), (45, (64, 69, 72)), (40, (64, 67, 71)), (47, (66, 69, 75))],      # Em Am Em B7
              polka=[(41, (65, 69, 72)), (48, (64, 67, 70)), (41, (65, 69, 72)), (48, (64, 67, 72))],      # F C7 F C
              lullaby=[(43, (67, 71, 74)), (40, (67, 71, 76)), (36, (67, 72, 76)), (38, (66, 69, 74))])   # G Em C D
+XPROG = dict(bluegrass=[(43, (67, 71, 74)), (48, (64, 67, 72)), (43, (67, 71, 74)), (50, (66, 69, 74))],    # G C G D
+             thunder=[(38, (62, 65, 69)), (46, (62, 65, 70)), (48, (64, 67, 72)), (38, (62, 65, 69))],      # Dm Bb C Dm
+             lakefolk=[(38, (66, 69, 74)), (43, (67, 71, 74)), (47, (66, 71, 74)), (45, (64, 69, 73))])     # D G Bm A
 CAJ = [(43, (67, 71, 74)), (48, (67, 72, 76)), (50, (66, 69, 74)), (43, (67, 71, 74))]          # G C D G
 STORM = [(38, (62, 65, 69)), (34, (62, 65, 70)), (36, (60, 64, 67)), (33, (61, 64, 69))]        # Dm Bb C A
 MINE = [(45, (69, 72, 76)), (41, (69, 72, 77)), (38, (65, 69, 74)), (40, (68, 71, 76))]         # Am F Dm E
@@ -263,6 +266,23 @@ def section(t0, t1, kind, bpm):
                 if e in (0, 8): put(bed, kick(), u, 0.3); put(bed, pluck(midi(root - 12), bt * 1.5), u, 0.2)
                 if e == 0: put(bed, pad(midi(ch[0]), bt * 4), u, 0.06)
                 if e in (4, 12): put(bed, rim(), u, 0.12)
+            elif kind == 'bluegrass':                         # Appalachian bluegrass: banjo-ish forward rolls, boom-chick bass, brush snare, fiddle twang
+                put(bed, pluck(midi(ch[e % 3] + 12 + (12 if e % 4 == 3 else 0)), bt * 0.25), u, 0.042)
+                if e in (0, 8): put(bed, pluck(midi(root - 12), bt * 0.6), u, 0.3); put(bed, kick(), u, 0.28)
+                if e in (4, 12): put(bed, pluck(midi(root - 5), bt * 0.6), u, 0.24); put(bed, snare(), u, 0.09)
+                if e in (0, 6, 10) and bar % 2 == 0: put(bed, twang(midi(ch[1] + 12), bt * 0.8), u, 0.06)
+            elif kind == 'thunder':                           # storm drums: tom booms, rim ticks, low drone pad, a far bell
+                if e in (0, 3, 8, 11): put(bed, kick(), u, 0.42)
+                if e == 12: put(bed, snare(), u, 0.14)
+                if e % 2 == 1: put(bed, rim(), u, 0.06)
+                if e == 0: put(bed, pad(midi(root - 12), bt * 4), u, 0.08)
+                if e == 6 and bar % 2: put(bed, bell(midi(ch[2] + 24), 0.5), u, 0.04)
+            elif kind == 'lakefolk':                          # gentle lake folk: fingerpicked chord tones, soft bass, bell answers
+                if e % 2 == 0: put(bed, pluck(midi(ch[(e // 2) % 3] + 12), bt * 0.5), u, 0.06)
+                if e in (0, 8): put(bed, pluck(midi(root - 12), bt * 1.2), u, 0.25)
+                if e in (4, 12): put(bed, bell(midi(ch[2] + 24), 0.4), u, 0.035)
+                if e == 0: put(bed, kick(), u, 0.22)
+                if e % 4 == 2: put(bed, hat(), u, 0.03)
             else:                                             # funk reveal: slap bass, clav chords, 16th hats, kick/snare
                 if e in (0, 7, 8): put(bed, kick(), u, 0.65)
                 if e in (4, 12): put(bed, snare(), u, 0.4)
@@ -273,27 +293,26 @@ def section(t0, t1, kind, bpm):
 
 
 # ---------------------------------------------------------------- the score
-section(0, C['nov'], 'bayou', 132)
-section(C['nov'], C['brook'], 'bayou', 118)
-section(C['brook'], C['germany'], 'polka', 132)
-section(C['germany'], C['yousee'], 'polka', 140)
-section(C['yousee'], C['cuddly'], 'lullaby', 112)
-section(C['cuddly'], C['end'], 'bayou', 132)
+section(0, C['roywas'], 'thunder', 132)
+section(C['roywas'], C['y1969'], 'bluegrass', 140)
+section(C['y1969'], C['y1973'], 'thunder', 128)
+section(C['y1973'], C['yousee'], 'bluegrass', 152)
+section(C['yousee'], C['strange'], 'lakefolk', 116)
+section(C['strange'], C['end'], 'thunder', 136)
 
-# ---------------------------------------------------------------- effects: a light whoosh on every scene change, hits on the words
+# ---------------------------------------------------------------- effects: a light whoosh on every scene change, hits on the words; a thunder boom on every strike
 for k in sorted(x for x in C if x.startswith('s') and x[1:].isdigit()): put(fx, whoosh(0.45, 500, 3200), C[k] - 0.18, 0.13); put(fx, stampfx(), C[k] + 0.12, 0.16)
-put(fx, boom(), 0.0, 0.5); put(fx, kick(), 0.0, 0.7); put(fx, crash(), 0.0, 0.3); put(fx, stampfx(), 0.02, 0.3); put(fx, whoosh(0.8, 200, 1500), 0.15, 0.3); put(fx, boom(), C['refused'], 0.3)
-put(fx, bell(midi(91), 0.8), C['sleeps'], 0.12); put(fx, bell(midi(88), 0.7), C['nov'], 0.14); put(fx, sadbone(C['notwell']), 0.0, 0.0) if False else None; put(fx, groan(0.9), C['notwell'], 0.12)
-for k in range(3): put(fx, boing(), C['hounds'] + k * 0.25, 0.08)
-put(fx, thumps(0.8), C['club'], 0.25); put(fx, whip(), C['tie'], 0.2); put(fx, drum_roll(0.8), C['shot'], 0.18); put(fx, gavel(), C['refuses'], 0.35); put(fx, crash(), C['refuses'] + 0.1, 0.2)
-put(fx, buzzer(), C['unsport'], 0.1); put(fx, scratch(), C['draws'], 0.12); put(fx, flip(), C['spreads'], 0.3); put(fx, whoosh(0.9, 400, 3500), C['spreads'] + 0.2, 0.25)
-put(fx, jingle(), C['sews'], 0.2); put(fx, bell(midi(96), 0.5), C['sign'], 0.15); put(fx, kaching(), C['sells'], 0.2); put(fx, cheer(1.2), C['out'], 0.16); put(fx, bell(midi(88), 0.6), C['yes'], 0.16); fanfare(C['yes'] + 0.1)
-put(fx, crunch(), C['quit'], 0.2); put(fx, kaching(), C['thousand'], 0.2); put(fx, cheer(1.2), C['craze'], 0.15); put(fx, gavel(), C['attacks'], 0.3); put(fx, boing(), C['hugging'], 0.12)
-put(fx, scratch(), C['smaller'] - 0.2, 0.1); put(fx, bell(midi(96), 0.5), C['cuter'], 0.16); put(fx, groan(1.0), C['beaten'], 0.12); put(fx, riser(0.8), C['cartoon2'] - 0.6, 0.15)
+put(fx, boom(), 0.0, 0.55); put(fx, crash(), 0.0, 0.35); put(fx, stampfx(), 0.02, 0.3); put(fx, whoosh(0.8, 200, 1500), 0.15, 0.3); put(fx, boom(), C['twice'], 0.3)
+for k in range(7): put(fx, bell(midi(84 + k * 2), 0.25), C['seven'] - 0.5 + k * 0.09, 0.08)
+for k in ('hit1', 'bolt69', 'seared', 'fire', 'caught', 'ankle', 'top', 'hits', 'hither'): put(fx, boom(), C[k], 0.32); put(fx, crash(), C[k] + 0.02, 0.18)
+put(fx, groan(0.8), C['knocked'], 0.1); put(fx, boing(), C['brows'], 0.14); put(fx, whoosh(0.6, 600, 3000), C['brows'] + 0.1, 0.15); put(fx, bell(midi(88), 0.7), C['y1970'], 0.12)
+put(fx, bell(midi(88), 0.7), C['y1972'], 0.12); put(fx, whoosh(0.9, 200, 900), C['towels'], 0.2); put(fx, whoosh(1.0, 300, 2500), C['drove'], 0.22); put(fx, bell(midi(88), 0.7), C['y1977'], 0.12)
+put(fx, kaching(), C['seven7'] + 0.4, 0.16); put(fx, groan(1.0), C['bear'], 0.14); put(fx, boing(), C['bear'] + 0.3, 0.12); put(fx, flip(), C['guinness'], 0.25)
+put(fx, gavel(), C['verified'], 0.3); fanfare(C['nobody'] + 0.2); put(fx, riser(0.9), C['strange'] + 0.1, 0.16); put(fx, bell(midi(96), 0.8), C['skipped'], 0.16)
 put(fx, riser(1.0), C['end'] - 1.1, 0.2); put(fx, crash(), C['end'] - 0.15, 0.25)
 
 mix = bed * 1.35 + fx * 0.85
 mix = np.tanh(mix / max(1e-6, np.abs(mix).max()) * 2.2) * 0.89
 st = np.stack([mix, np.roll(mix, int(SR * 0.008)) * 0.96], 1)
 sf.write(OUT, st.astype(np.float32), SR)
-print("music: %.1f s, swamp-blues shuffle 132/118 + toy-shop polka 132/140 + music-box lullaby 112 + bayou finale" % LEN)
+print("music: %.1f s, storm drums 132/128/136 + Appalachian bluegrass 140/152 + lake folk 116" % LEN)

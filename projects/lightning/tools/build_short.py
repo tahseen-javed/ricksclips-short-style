@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
-"""Generate short.json (and the word-cued music) for video 22: the bear Teddy Roosevelt refused to shoot became every kid's teddy bear -
-a cartoon of a cartoon of the real, old, beaten bear.
+"""Generate short.json (and the word-cued music) for video 25: lightning hit park ranger Roy Sullivan seven times - and skipped him the one time it hit his wife.
 usage: build_short.py <project folder>
-Thirteen honey-caramel + bayou-moss sets 70 units apart: HK misty gold bayou with the willow (hook + loop; a "?" bear silhouette = open loop,
-resolved on the kid's pillow), KB indigo starry bedroom, MS amber hunt camp, CH moss forest, WP ink-blue newsroom, CT cream ink-cartoon world,
-BK pink-mint candy shop, WN dusk Brooklyn street, WH sky-blue White House, FC red-yellow toy factory, GE snowy Black Forest, CZ rainbow
-1907 craze, PR violet church. Shots 1-2 s, every neighbour a different move."""
+Ten Blue Ridge storm sets 70 units apart: HK indigo-teal storm peak (hook + loop; a violet "?" silhouette = open loop, resolved as his wife), BR misty
+dawn ridges (boot), GT pine park gate (+ hikers), TW sunset lookout peak, RD purple dusk road (truck, storm cloud, flying eyebrows), YD golden backyard
+with laundry, ST pine ranger station, LK teal fishing lake, FR emerald fern trail (bear), RB gold-spotlight record stage (tally, book, trophy).
+Shots 0.7-2 s, every neighbour a different move; strikes are cartoon bolts, smoke puffs, dizzy Zs only."""
 import json, os, sys, subprocess, math
 import scene_base as base
 from scene_base import *
 
-base.X.clear(); base.X.update(HK=0, KB=70, MS=140, CH=210, WP=280, CT=350, BK=420, WN=490, WH=560, FC=630, GE=700, CZ=770, PR=840)
+base.X.clear(); base.X.update(HK=0, BR=70, GT=140, TW=210, RD=280, YD=350, ST=420, LK=490, FR=560, RB=630)
 HERE = os.path.dirname(os.path.abspath(__file__)); PARK = base.PARK
 ASP = json.load(open(os.path.join(P, "aspect.json")))
 
@@ -49,35 +48,29 @@ def yard(loc, img, floor, w=16, rep=(8, 8)):
 def table(loc, x, z, w=1.6, d=0.8, h=0.7, col="#8a5a3a"): box(loc, x, 0.04, z, [w, h, d], color=col)
 
 
-yard("HK", "bayou.png", "mud.jpg"); tree("HK", -3.2, -3.6, 1.0, "#6a9a5a"); box("HK", 3.0, 0.04, -1.4, [0.7, 0.4, 0.6], color="#7a6a4a")
-yard("KB", "bedroom.png", "rug.jpg"); box("KB", 0.0, 0.04, -2.2, [2.0, 0.46, 1.0], color="#6a5aaa"); box("KB", -3.0, 0.04, -2.8, [0.8, 1.0, 0.6], color="#c87a5a")
-yard("MS", "camp.png", "campdirt.jpg"); box("MS", 2.8, 0.04, -2.4, [0.8, 0.5, 0.6], color="#8a6a40"); tree("MS", -3.2, -3.4, 1.0, "#4a7a5a")
-yard("CH", "forest.png", "moss.jpg"); tree("CH", -3.0, -3.0, 1.1, "#3a7a4a"); tree("CH", 3.2, -3.4, 1.1, "#3a7a4a")
-yard("WP", "newsroom.png", "boardsb.jpg"); table("WP", 0.9, -1.9, 1.2, 0.7, 0.74, "#5a4a3a"); table("WP", -2.6, -2.2, 1.0, 0.7, 0.74, "#5a4a3a")
-yard("CT", "inkworld.png", "paperfl.jpg")
-yard("BK", "candy.png", "checker.jpg"); table("BK", 1.8, -2.1, 1.2, 0.7, 0.74, "#e87a96")
-yard("WN", "street.png", "brickfl.jpg"); post("WN", -2.4, -2.4, 2.4, "#2a2a30"); post("WN", 2.5, -2.4, 2.4, "#2a2a30")
-yard("WH", "whitehouse.png", "lawn.jpg"); table("WH", 0.9, -1.9, 1.2, 0.7, 0.74, "#7a4a3a")
-yard("FC", "factory.png", "factfl.jpg"); box("FC", 2.8, 0.04, -2.6, [0.9, 0.6, 0.7], color="#f0c040")
-yard("GE", "blackforest.png", "snow.jpg"); table("GE", -0.4, -2.0, 1.0, 0.7, 0.74, "#8a5a3a")
-yard("CZ", "craze.png", "confl.jpg"); box("CZ", -3.0, 0.04, -1.6, [0.6, 0.5, 0.6], color="#e05a8a"); box("CZ", 3.0, 0.04, -1.6, [0.6, 0.5, 0.6], color="#5aa0e0")
-yard("PR", "church.png", "pews.jpg"); box("PR", 0.7, 0.04, -1.95, [0.6, 1.1, 0.5], color="#8a5a3a")
+yard("HK", "stormpeak.png", "rock.jpg"); box("HK", -3.0, 0.04, -1.8, [0.8, 0.4, 0.7], color="#4a5a6a")
+yard("BR", "dawn.png", "meadow.jpg")
+yard("GT", "pines.png", "gravel.jpg")
+yard("TW", "sunsetpeak.png", "peak.jpg")
+yard("RD", "duskroad.png", "asphalt.jpg")
+yard("YD", "yard.png", "grass.jpg")
+yard("ST", "cabin.png", "wood.jpg"); table("ST", 0.9, -1.9, 1.2, 0.7, 0.74, "#8a5a3a")
+yard("LK", "lake.png", "dockw.jpg")
+yard("FR", "ferns.png", "moss2.jpg")
+yard("RB", "recstage.png", "stage.jpg"); box("RB", -3.4, 0.04, -2.4, [1.5, 0.56, 0.6], color="#3a3a7a"); box("RB", 0.0, 0.04, -2.4, [1.3, 0.56, 0.7], color="#d6a028")
 
 # ================================================================== CHARACTERS (cards carry "_" in the id: not frame-checked as cast; hero props are)
-human("teddyH", "teddyr", pos("HK", -0.9, 0.04, -1.8), face="shocked"); put("willow_H", "willow", pos("HK", 0.8, 0.04, -3.0), 2.4); put("bearH", "realbear", pos("HK", 0.8, 0.04, -2.6), 1.3, face="tied")
-put("qbear_H", "qbear", pos("HK", -1.5, 0.04, -3.6), 0.8)
-put("pillowK", "pillow", pos("KB", 0.0, 0.5, -2.2), 0.9); human("kidK", "kid", pos("KB", -1.3, 0.04, -1.8), face="happy"); human("kid2K", "kid2", pos("KB", 1.3, 0.04, -1.9), face="happy")
-human("teddyM", "teddyr", pos("MS", -0.7, 0.04, -1.7), face="nervous"); human("collierM", "collier", pos("MS", 0.7, 0.04, -1.8), face="smug")
-put("houndsC", "hounds", pos("CH", -0.7, 0.04, -2.0), 0.9); put("bearC", "realbear", pos("CH", 1.2, 0.04, -2.6), 1.2, face="shocked")
-human("berryW", "berryman", pos("WP", -0.7, 0.04, -1.7), face="happy"); put("penW", "inkpen", pos("WP", 0.9, 0.78, -1.9), 0.6); put("papersW", "papers", pos("WP", -2.6, 0.78, -2.2), 0.7)
-put("cartoonT", "cartoon", pos("CT", 0.0, 0.3, -2.6), 1.8)
-human("morrisB", "morris", pos("BK", -0.9, 0.04, -1.7), face="happy"); human("roseB", "rose", pos("BK", 0.4, 0.04, -1.9), face="happy"); put("plushB", "plush", pos("BK", 1.8, 0.78, -2.1), 0.6)
-put("windowN", "window", pos("WN", 0.0, 0.04, -2.6), 1.8)
-human("teddyW", "teddyr", pos("WH", -0.6, 0.04, -1.7), face="happy"); put("letterW", "letter", pos("WH", 0.9, 0.78, -1.9), 0.5)
-put("boxesF", "boxes", pos("FC", 0.9, 0.04, -2.4), 1.4); human("morrisF", "morris", pos("FC", -1.2, 0.04, -1.8), face="happy")
-put("steiffG", "steiff", pos("GE", -0.4, 0.78, -2.0), 0.7); human("buyerG", "buyer", pos("GE", 0.9, 0.04, -1.8), face="smug"); put("crateG", "crate", pos("GE", 2.2, 0.04, -2.5), 0.8)
-human("kidZ", "kid", pos("CZ", -0.9, 0.04, -1.8), face="happy"); human("kid2Z", "kid2", pos("CZ", 0.6, 0.04, -1.9), face="happy"); put("plushZ", "plush", pos("CZ", -0.15, 0.04, -2.3), 0.8)
-human("priestP", "priest", pos("PR", -0.6, 0.04, -1.7), face="shouting"); put("plushP", "plush", pos("PR", 0.7, 1.14, -1.95), 0.5)
+human("royH", "roy", pos("HK", -0.25, 0.04, -1.8), face="shocked"); put("boltH", "boltp", pos("HK", 0.6, 0.04, -2.4), 1.6); put("qwife_H", "qwife", pos("HK", 1.0, 0.04, -3.3), 1.0)
+put("bootB", "boot", pos("BR", -2.6, 0.04, -2.2), 0.9)
+put("gateG", "gate", pos("GT", 0.0, 0.04, -2.6), 1.6)
+human("h1G", "hk1", pos("GT", 4.2, 0.04, -2.0), face="happy"); human("h2G", "hk2", pos("GT", 5.2, 0.04, -2.1), face="happy"); human("h3G", "hk3", pos("GT", 6.2, 0.04, -2.0), face="happy")
+put("towerT", "tower", pos("TW", 0.0, 0.04, -2.8), 2.4); human("royT", "roy", pos("TW", -1.5, 0.04, -1.9), face="happy")
+put("truckR", "truck", pos("RD", 0.0, 0.04, -2.4), 1.0); put("cloudR", "cloud", pos("RD", -0.9, 2.0, -3.0), 0.9); human("royR", "roy", pos("RD", 3.8, 0.04, -1.8), face="confused"); put("browsR", "brows", pos("RD", -4.0, 1.0, -2.4), 0.6)
+human("royY", "roy", pos("YD", -0.6, 0.04, -1.8), face="happy"); human("wifeY", "wife", pos("YD", 0.6, 0.04, -1.9), face="happy"); put("laundryY", "laundry", pos("YD", 0.0, 0.04, -3.4), 1.2); put("boltY", "boltp", pos("YD", 0.6, 1.9, -2.0), 1.0)
+human("royS", "roy", pos("ST", -0.5, 0.04, -1.8), face="happy"); put("towelS", "towel", pos("ST", 0.9, 0.78, -1.9), 0.6); put("puffS", "puff", pos("ST", -0.5, 1.72, -1.75), 0.42)
+human("royL", "roy", pos("LK", -0.6, 0.04, -1.8), face="happy"); put("rodL", "rod", pos("LK", 0.55, 0.04, -2.0), 1.3); put("boltL", "boltp", pos("LK", -0.6, 1.95, -1.85), 0.8)
+human("royF", "roy", pos("FR", -0.7, 0.04, -1.8), face="happy"); put("bearF", "bear", pos("FR", 0.8, 0.04, -2.4), 1.5)
+put("tallyR", "tally", pos("RB", -3.4, 0.6, -2.4), 0.8); put("bookR", "book", pos("RB", 0.0, 0.6, -2.4), 1.0); put("trophyR", "trophy", pos("RB", 3.2, 0.04, -2.4), 1.3)
 # ================================================================== SHOTS
 SH = {c["id"]: c["height"] for c in chars}
 N_ = [0]; REQ = []; SNAPC = []; FXC = []; LOC = {}
@@ -122,69 +115,62 @@ def blink(s, who, t0, t1, step=0.3):
     while t < t1: act(s, round(t, 3), who, face="b" if k % 2 == 0 else "default"); t += step; k += 1
 
 
-HOOK = dict(anchor=(0.0, 1.3, -2.3), dist=9.0, yaw=4, pitch=6)
-# ---- America's most famous hunter refused to shoot a bear. That's why every kid sleeps with one.
-s = S("0", "HK", zoom=14, pan=(-3, 0), **HOOK); act(s, 0.0, "teddyH", pose=dict(armR=-150), shake=0.3); act(s, 0.2, "bearH", shake=0.5); tag(s, 0.0, "hookc", 0.3, 0.0, wf=0.66, hf=0.24)
-s = S("refused to shoot", "HK", (-0.1, 1.1, -2.2), 7.0, -14, pitch=4, yawTo=4); ft(s, "teddyH", ["shocked", "smug"]); act(s, 0.1, "bearH", shake=0.4); snap(s, rel(s, "shoot"), 8)
-s = crane("That's why every", "KB", (0.0, 1.0, -2.0), 8.4, 22, 2, 38, 8); ft(s, "kidK", ["happy", "smug"]); ft(s, "kid2K", ["happy", "smug"]); act(s, 0.2, "pillowK", shake=0.4); T(s, "everykid"); cfx(s, 0.4, "blush", "kidK", 0.6)
-# ---- November 14th, 1902. Mississippi. President Theodore Roosevelt is on a bear hunt, and it is not going well.
-s = crane("November 14th", "MS", (0.0, 1.2, -1.8), 8.6, -22, -2, 36, 6); ft(s, "collierM", ["smug", "happy"]); T(s, "y1902", dy=0.2, dx=-0.15, wf=0.32, hf=0.34)
-s = S("Mississippi President", "MS", (0.0, 1.2, -1.8), 7.0, 16, pitch=5, yawTo=-4); T(s, "missi")
-s = S("Theodore Roosevelt is", "MS", (-0.7, 1.25, -1.7), 4.6, 8, pitch=5, zoom=12, dof=dict(focus="teddyM", blur=0.4)); ft(s, "teddyM", ["happy", "smug"]); T(s, "tr"); snap(s, 0.3, 8)
-s = S("and it is", "MS", (-0.3, 1.2, -1.75), 5.6, -6, pitch=5, zoom=-10); ft(s, "teddyM", ["nervous", "confused"]); T(s, "notwell"); cfx(s, 0.3, "sweat", "teddyM", 0.6)
-# ---- So his guide, Holt Collier, fixes it. His hounds corner an old black bear.
-s = crane("So his guide", "MS", (0.4, 1.2, -1.8), 8.0, 20, 0, 34, 6); ft(s, "collierM", ["smug", "happy"]); act(s, 0.1, "collierM", pose=dict(armR=-150)); T(s, "holt")
-s = S("His hounds corner", "CH", (0.35, 0.8, -2.2), 8.2, -6, pitch=4, zoom=4, pan=(8, 0)); go(s, 0.05, "houndsC", pos("CH", -0.3, 0.04, -2.0), 1.0, walk=False); act(s, 0.4, "bearC", shake=0.5); T(s, "corner"); snap(s, rel(s, "bear"), 8)
-# ---- The hunters club it, tie it to a willow tree, and invite the president to take the shot.
-s = crane("The hunters club", "HK", (0.8, 1.0, -2.6), 8.4, 22, 2, 40, 8, _dis=1); hide(s, 0.0, "teddyH"); act(s, 0.1, "bearH", face="shocked", shake=0.6)
-s = S("tie it to", "HK", (0.8, 1.3, -2.8), 5.6, -10, pitch=8, pitchTo=2, dof=dict(focus="bearH", blur=0.4)); act(s, 0.05, "bearH", face="tied", shake=0.4); T(s, "tied")
-s = S("and invite the", "HK", (0.0, 1.2, -2.2), 8.4, 16, pitch=5, yawTo=-2, _dis=1); show(s, 0.0, "teddyH", pos("HK", -0.9, 0.04, -1.8), hop=0); ft(s, "teddyH", ["nervous", "confused"]); T(s, "shot")
-# ---- Roosevelt refuses. He calls it unsportsmanlike.
-s = S("Roosevelt refuses", "HK", (-0.9, 1.25, -1.8), 4.6, -8, pitch=5, zoom=14, _dis=1, dof=dict(focus="teddyH", blur=0.4)); hide(s, 0.0, "bearH"); act(s, 0.05, "teddyH", pose=dict(armR=-150), shake=0.4); ft(s, "teddyH", ["shouting", "smug"]); T(s, "refuses"); cfx(s, 0.3, "bang", "teddyH", 0.5); snap(s, 0.3, 8)
-s = S("He calls it", "HK", (0.0, 1.2, -2.2), 8.6, 0, pitch=5, zoom=-10, _dis=1); show(s, 0.0, "bearH", pos("HK", 0.8, 0.04, -2.6), hop=0); ft(s, "teddyH", ["smug", "happy"]); act(s, 0.1, "bearH", face="default"); T(s, "unsport")
-# ---- Two days later, Washington Post cartoonist Clifford Berryman draws the scene. The president, turning away from a tied-up bear. The cartoon spreads fast.
-s = crane("Two days later", "WP", (0.1, 1.2, -1.8), 8.0, -20, 0, 34, 6); ft(s, "berryW", ["happy", "smug"]); T(s, "twodays")
-s = S("cartoonist Clifford Berryman", "WP", (-0.75, 1.25, -1.7), 4.4, 14, pitch=5, yawTo=-2); ft(s, "berryW", ["smug", "happy"]); T(s, "berry")
-s = S("draws the scene", "WP", (0.9, 1.05, -1.9), 2.6, 6, pitch=6, zoom=12, type="macro", dof=dict(focus="penW", blur=0.5)); act(s, 0.05, "penW", shake=0.5)
-s = crane("The president turning", "CT", (0.0, 1.2, -2.6), 10.6, 22, 2, 30, 6); act(s, 0.1, "cartoonT", shake=0.4)
-s = S("away from a", "CT", (0.0, 1.2, -2.6), 7.0, -6, pitch=4, zoom=8, dof=dict(focus="cartoonT", blur=0.3)); act(s, 0.05, "cartoonT", shake=0.3)
-s = S("The cartoon spreads", "WP", (-2.6, 1.15, -2.2), 3.4, 10, pitch=12, pitchTo=2, type="macro", dof=dict(focus="papersW", blur=0.5)); act(s, 0.05, "papersW", shake=0.5); T(s, "spreads"); snap(s, rel(s, "spreads"), 8)
-# ---- In Brooklyn, a candy shop owner named Morris Michtom sees it. His wife Rose sews a little plush bear. They put it in the window with a sign. Teddy's bear.
-s = crane("In Brooklyn a", "WN", (0.0, 1.0, -2.6), 8.4, -22, -2, 36, 6); T(s, "brooklyn")
-s = S("named Morris Michtom", "BK", (-0.9, 1.25, -1.7), 4.6, 10, pitch=5, zoom=12, _dis=1, dof=dict(focus="morrisB", blur=0.4)); hide(s, 0.0, "roseB"); ft(s, "morrisB", ["happy", "shocked"]); T(s, "morrisc"); snap(s, 0.4, 8)
-s = S("His wife Rose", "BK", (0.9, 1.2, -1.95), 5.6, -14, pitch=5, yawTo=4, _dis=1); hide(s, 0.0, "morrisB"); show(s, 0.0, "roseB", pos("BK", 0.4, 0.04, -1.9), hop=0); ft(s, "roseB", ["happy", "smug"]); T(s, "rosec")
-s = S("a little plush", "BK", (1.8, 1.05, -2.1), 2.6, 6, pitch=12, pitchTo=2, type="macro", dof=dict(focus="plushB", blur=0.5)); act(s, 0.05, "plushB", shake=0.5); T(s, "plushc"); snap(s, 0.3, 8); cfx(s, 0.3, "blush", "roseB", 0.5)
-s = S("They put it", "WN", (0.0, 1.0, -2.6), 8.6, 4, pitch=6, zoom=12); act(s, 0.1, "windowN", shake=0.4)
-s = S("with a sign", "WN", (0.0, 0.95, -2.6), 6.4, -10, pitch=4, yawTo=4, dof=dict(focus="windowN", blur=0.4)); act(s, 0.05, "windowN", shake=0.5)
-# ---- It sells. Then it sells out. The Michtoms ask the president to use his name. He says yes. They quit candy and start the Ideal Novelty and Toy Company.
-s = crane("It sells", "BK", (-0.2, 1.2, -1.8), 8.0, 20, 0, 34, 6, _dis=1); show(s, 0.0, "morrisB", pos("BK", -0.9, 0.04, -1.7), hop=0); ft(s, "morrisB", ["happy", "shouting"]); ft(s, "roseB", ["happy", "smug"]); c_ = T(s, "sells"); swap(s, c_, rel(s, "out"), "soldout"); act(s, rel(s, "out"), "morrisB", pose=dict(armR=-150))
-s = S("The Michtoms ask", "BK", (-0.3, 1.2, -1.8), 5.8, -14, pitch=5, yawTo=2); ft(s, "morrisB", ["smug", "happy"]); ft(s, "roseB", ["happy", "smug"]); T(s, "name")
-s = S("to use his", "WH", (-0.6, 1.25, -1.7), 4.6, 8, pitch=5, zoom=12, dof=dict(focus="teddyW", blur=0.4)); ft(s, "teddyW", ["happy", "smug"])
-s = S("He says yes", "WH", (0.9, 1.0, -1.9), 2.4, -8, pitch=12, pitchTo=2, type="macro", dof=dict(focus="letterW", blur=0.5)); act(s, 0.05, "letterW", shake=0.5); snap(s, rel(s, "yes"), 8)
-s = S("They quit candy", "FC", (-0.15, 1.1, -2.0), 8.2, 14, pitch=5, yawTo=-4); ft(s, "morrisF", ["shouting", "happy"]); act(s, 0.05, "morrisF", pose=dict(armR=-150)); T(s, "quit")
-s = crane("and start the", "FC", (0.0, 1.0, -2.2), 8.6, -22, -2, 38, 8); act(s, 0.1, "boxesF", shake=0.4); T(s, "ideal")
-# ---- Meanwhile in Germany, Steiff shows its own plush bear. One American buyer orders three thousand.
-s = crane("Meanwhile in Germany", "GE", (0.9, 1.0, -2.1), 9.4, 22, 2, 36, 6); act(s, 0.1, "steiffG", shake=0.3); T(s, "germany")
-s = S("Steiff shows its", "GE", (-0.4, 1.15, -2.0), 2.8, -8, pitch=6, zoom=12, type="macro", dof=dict(focus="steiffG", blur=0.5)); act(s, 0.05, "steiffG", shake=0.5); T(s, "steiffc"); snap(s, 0.3, 8)
-s = S("One American buyer", "GE", (1.5, 1.0, -2.1), 5.8, 16, pitch=5, yawTo=-2); ft(s, "buyerG", ["smug", "happy"]); act(s, 0.2, "crateG", shake=0.4); T(s, "buyerc")
-s = S("orders three thousand", "GE", (0.0, 1.8, -2.0), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="PLUSH BEARS ORDERED", items=["3000"]))
-# ---- By 1907, it's a craze. A Michigan priest attacks teddy bears from the pulpit. Kids keep hugging them anyway.
-s = crane("By 1907", "CZ", (-0.15, 1.0, -2.0), 8.4, -22, -2, 38, 8); ft(s, "kidZ", ["happy", "shocked"]); act(s, 0.1, "plushZ", shake=0.4); c_ = T(s, "y1907", dy=0.2, dx=-0.15, wf=0.32, hf=0.34); swap(s, c_, rel(s, "craze"), "crazec"); snap(s, rel(s, "craze"), 8)
-s = S("A Michigan priest", "PR", (0.0, 1.2, -1.8), 6.4, 14, pitch=5, yawTo=-4); ft(s, "priestP", ["shouting", "confused"]); T(s, "priestc")
-s = S("attacks teddy bears", "PR", (-0.6, 1.25, -1.7), 4.4, -6, pitch=5, zoom=14, dof=dict(focus="priestP", blur=0.4)); act(s, 0.05, "priestP", pose=dict(armR=-150), shake=0.4); ft(s, "priestP", ["shouting", "confused"]); T(s, "attacks"); cfx(s, 0.3, "bang", "priestP", 0.5); snap(s, rel(s, "attacks"), 8)
-s = S("Kids keep hugging", "CZ", (-0.15, 1.0, -2.0), 6.6, 16, pitch=5, yawTo=-2); ft(s, "kidZ", ["happy", "smug"]); ft(s, "kid2Z", ["happy", "smug"]); act(s, 0.1, "plushZ", shake=0.4); T(s, "hugs"); cfx(s, 0.3, "blush", "kid2Z", 0.6)
-# ---- You see, Berryman kept drawing that bear for years. And every time, it got smaller. Rounder. Cuter. The real bear was old, heavy, and beaten.
-s = crane("You see Berryman", "WP", (0.1, 1.2, -1.8), 8.0, 20, 0, 34, 6); ft(s, "berryW", ["happy", "smug"]); act(s, 0.2, "penW", shake=0.4); T(s, "kept")
-s = S("that bear for", "WP", (0.9, 1.05, -1.9), 2.6, -6, pitch=12, pitchTo=2, type="macro", dof=dict(focus="penW", blur=0.5)); act(s, 0.05, "penW", shake=0.5)
-s = S("And every time", "CT", (0.0, 1.2, -2.6), 5.6, -16, pitch=5, yawTo=4); act(s, rel(s, "smaller"), "cartoonT", face="c2", shake=0.5); T(s, "smaller", at=rel(s, "smaller"))
-s = S("Rounder Cuter", "CT", (0.0, 1.2, -2.6), 7.2, 6, pitch=4, zoom=10); act(s, 0.05, "cartoonT", face="c3", shake=0.5); T(s, "cuter")
-s = crane("The real bear", "HK", (0.8, 1.0, -2.6), 7.6, -22, -2, 36, 6, _dis=1); hide(s, 0.0, "teddyH"); act(s, 0.1, "bearH", face="default", shake=0.3); T(s, "realb")
-# ---- So the cuddly bear on every kid's pillow is a cartoon of a cartoon of the one bear America's most famous hunter refused to shoot.
-s = S("So the cuddly", "KB", (0.0, 1.0, -2.2), 3.4, 8, pitch=10, pitchTo=2, type="macro", dof=dict(focus="pillowK", blur=0.5)); act(s, 0.05, "pillowK", shake=0.4); T(s, "cuddly")
-s = S("is a cartoon", "CT", (0.0, 1.2, -2.6), 6.4, 18, pitch=5, yawTo=-2); act(s, 0.05, "cartoonT", face="c3", shake=0.3); act(s, 0.45, "cartoonT", face="c2", shake=0.3); act(s, 0.85, "cartoonT", face="default", shake=0.3); T(s, "cofc")
-s = S("America's most famous#2", "HK", (0.8, 1.2, -2.7), 6.4, -6, pitch=5, zoom=12, _dis=1); hide(s, 0.0, "teddyH"); act(s, 0.1, "bearH", face="tied", shake=0.4)
-s = S("refused to shoot#2", "HK", zoom=-4, pan=(0, 0), _dis=1, **HOOK); s.pop("out"); s.pop("outDur"); show(s, 0.0, "teddyH", pos("HK", -0.9, 0.04, -1.8), hop=0); act(s, 0.0, "teddyH", face="shocked")
-act(s, 0.1, "teddyH", pose=dict(armR=-150), shake=0.3); tag(s, 0.05, "hookc", 0.3, 0.0, wf=0.66, hf=0.24)
+HOOK = dict(anchor=(0.2, 1.05, -2.3), dist=5.8, yaw=4, pitch=6)
+# ---- Lightning never strikes twice. It hit Roy Sullivan seven times, and he survived every single one.
+s = S("0", "HK", zoom=10, **HOOK); act(s, 0.0, "royH", face="shocked", pose=dict(armR=-150), shake=0.4); act(s, 0.0, "boltH", shake=0.6); tag(s, 0.0, "hookc", 0.3, 0.0, wf=0.66, hf=0.24); snap(s, rel(s, "twice"), 10)
+s = S("It hit Roy", "RB", (-3.4, 1.0, -2.4), 3.4, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="tallyR", blur=0.5))
+for k in range(1, 8): act(s, 0.1 + 0.09 * k, "tallyR", face="t%d" % k, shake=0.2)
+T(s, "seven", at=rel(s, "seven"))
+s = S("and he survived", "HK", (-0.25, 1.15, -1.8), 4.6, 8, pitch=14, pitchTo=3); hide(s, 0.0, "boltH"); ft(s, "royH", ["happy", "smug"]); act(s, 0.1, "royH", pose=dict(armR=-150)); T(s, "survived")
+# ---- Roy was a park ranger in Shenandoah National Park, Virginia. In 1942, lightning hit him at a fire lookout tower and scorched his leg.
+s = crane("Roy was a", "BR", (2.6, 1.2, -2.6), 8.0, 22, 2, 36, 8); T(s, "rangerc", at=rel(s, "ranger"))
+s = S("in Shenandoah National", "GT", (0.0, 0.85, -2.6), 7.0, 6, pitch=6, zoom=6, dof=dict(focus="gateG", blur=0.4)); act(s, 0.05, "gateG", shake=0.3)
+s = crane("In 1942", "TW", (-0.6, 1.3, -2.4), 8.4, -22, -2, 36, 8); ft(s, "royT", ["happy", "smug"]); T(s, "y1942", dy=0.1, dx=0.18, wf=0.28, hf=0.3)
+s = S("lightning hit him", "TW", (0.0, 1.25, -2.8), 4.4, 4, pitch=5, zoom=14); act(s, rel(s, "hit"), "towerT", face="zap", shake=0.7); snap(s, rel(s, "hit"), 10)
+s = S("and scorched his", "BR", (-2.6, 0.5, -2.2), 2.8, -14, pitch=6, yawTo=6, type="macro", dof=dict(focus="bootB", blur=0.5)); act(s, 0.05, "bootB", shake=0.5)
+# ---- Then nothing for 27 years. Until 1969. A bolt came through his truck window, knocked him out cold, and burned off his eyebrows.
+s = S("Then nothing for", "RB", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="THEN NOTHING FOR", items=["27 YEARS"]))
+s = crane("Until 1969", "RD", (0.0, 1.0, -2.5), 7.6, 22, 2, 36, 8); act(s, 0.2, "cloudR", shake=0.4); T(s, "y1969", dy=0.1, dx=0.18, wf=0.28, hf=0.3)
+s = S("A bolt came", "RD", (0.0, 0.6, -2.4), 5.4, -6, pitch=6, zoom=10, type="macro", dof=dict(focus="truckR", blur=0.5)); hide(s, 0.0, "cloudR"); act(s, 0.05, "truckR", face="zap", shake=0.7); snap(s, rel(s, "bolt"), 10)
+s = S("knocked him out", "RD", (3.8, 1.15, -1.8), 4.4, 12, pitch=14, pitchTo=3, dof=dict(focus="royR", blur=0.4)); ft(s, "royR", ["confused", "sad"]); T(s, "knocked"); cfx(s, 0.2, "z", "royR", 0.6)
+s = S("and burned off", "RD", (-4.0, 1.3, -2.4), 2.6, -16, pitch=6, yawTo=4, type="macro", dof=dict(focus="browsR", blur=0.5)); act(s, 0.05, "browsR", shake=0.6); T(s, "brow", at=rel(s, "eyebrows"))
+# ---- 1970: it found him in his own yard and seared his shoulder. 1972: inside a ranger station. His hair caught fire, and he smothered it with wet towels.
+s = crane("1970 it found", "YD", (-0.3, 1.0, -2.3), 7.8, -22, -2, 36, 8); hide(s, 0.0, "wifeY"); hide(s, 0.0, "boltY"); hide(s, 0.0, "laundryY"); ft(s, "royY", ["happy", "smug"]); T(s, "y1970", dy=0.1, dx=0.18, wf=0.28, hf=0.3)
+s = S("and seared his", "YD", (-0.6, 1.15, -1.8), 4.4, 8, pitch=5, zoom=14, dof=dict(focus="royY", blur=0.4)); ft(s, "royY", ["shocked", "nervous"]); act(s, 0.05, "royY", shake=0.5); T(s, "shoulder", at=rel(s, "shoulder")); snap(s, rel(s, "seared"), 8); cfx(s, 0.3, "sweat", "royY", 0.6)
+s = S("1972", "ST", (0.2, 1.1, -1.9), 6.4, -14, pitch=5, yawTo=4); hide(s, 0.0, "puffS"); ft(s, "royS", ["happy", "smug"]); T(s, "y1972", dy=0.1, dx=0.18, wf=0.28, hf=0.3)
+s = S("inside a ranger", "ST", (0.2, 1.1, -1.9), 7.0, 6, pitch=5, zoom=-10); ft(s, "royS", ["smug", "happy"]); T(s, "inside", at=0.05)
+s = S("His hair caught", "ST", (-0.5, 1.4, -1.8), 4.0, 10, pitch=5, zoom=14, dof=dict(focus="royS", blur=0.4)); show(s, 0.05, "puffS", pos("ST", -0.5, 1.72, -1.75)); ft(s, "royS", ["shocked", "nervous"]); act(s, 0.1, "puffS", shake=0.5); cfx(s, 0.4, "sweat", "royS", 0.4)
+s = S("and he smothered", "ST", (0.9, 1.1, -1.9), 2.6, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="towelS", blur=0.5)); hide(s, 0.0, "puffS"); act(s, 0.05, "towelS", shake=0.5); T(s, "towels", at=rel(s, "towels"))
+# ---- 1973: he drove away from a storm cloud. It caught him anyway, and his hair burned again.
+s = S("1973", "RD", (0.0, 1.1, -2.5), 7.2, 4, pitch=16, pitchTo=4); show(s, 0.3, "cloudR", pos("RD", -0.9, 2.0, -3.0)); act(s, 0.05, "truckR", face="default"); T(s, "y1973", dy=0.1, dx=0.18, wf=0.28, hf=0.3)
+s = S("he drove away", "RD", (-0.4, 1.0, -2.5), 7.0, -6, pitch=5, zoom=4, pan=(8, 0)); act(s, 0.0, "truckR", face="flee"); go(s, 0.1, "cloudR", pos("RD", -0.4, 2.0, -3.0), 1.2, walk=False); act(s, 0.3, "cloudR", shake=0.4)
+s = S("It caught him", "RD", (-0.4, 2.45, -3.0), 3.6, 14, pitch=5, yawTo=-4, type="macro", dof=dict(focus="cloudR", blur=0.5)); act(s, rel(s, "caught"), "cloudR", face="zap", shake=0.7); T(s, "caught", at=rel(s, "anyway")); snap(s, rel(s, "caught"), 10)
+# ---- 1976: his ankle. And in 1977, while he was fishing, a bolt hit the top of his head and burned his chest and stomach. Then, on the way back, he ran into a bear.
+s = S("1976 his ankle", "BR", (-2.6, 0.55, -2.2), 3.4, 8, pitch=6, zoom=12, type="macro", dof=dict(focus="bootB", blur=0.5)); act(s, rel(s, "ankle"), "bootB", face="zap", shake=0.6); c_ = T(s, "y1976", dy=0.1, dx=0.18, wf=0.28, hf=0.3); swap(s, c_, rel(s, "ankle"), "ankle")
+s = crane("And in 1977", "LK", (0.0, 1.0, -2.0), 7.0, -22, -2, 38, 8); hide(s, 0.0, "boltL"); ft(s, "royL", ["happy", "smug"]); act(s, 0.2, "rodL", shake=0.4); T(s, "y1977", dy=0.1, dx=0.18, wf=0.28, hf=0.3)
+s = S("a bolt hit", "LK", (-0.6, 1.5, -1.85), 4.6, 6, pitch=5, zoom=12, dof=dict(focus="royL", blur=0.4)); hide(s, 0.0, "rodL"); show(s, rel(s, "bolt"), "boltL", pos("LK", -0.6, 1.95, -1.85)); ft(s, "royL", ["shocked", "nervous"]); act(s, rel(s, "hit"), "royL", shake=0.6); snap(s, rel(s, "hit"), 8)
+s = S("and burned his", "RB", (-3.4, 1.0, -2.4), 3.4, 14, pitch=6, yawTo=-4, type="macro", dof=dict(focus="tallyR", blur=0.5)); act(s, 0.0, "tallyR", face="t6"); act(s, 0.4, "tallyR", face="t7", shake=0.6)
+s = S("Then on the", "FR", (0.0, 1.05, -2.1), 6.6, -8, pitch=5, zoom=-10); hide(s, 0.0, "bearF"); go(s, 0.0, "royF", pos("FR", -0.4, 0.04, -1.8), 0.9); show(s, rel(s, "bear"), "bearF", pos("FR", 0.8, 0.04, -2.4)); ft(s, "royF", ["happy", "shocked"]); T(s, "bearc", at=rel(s, "bear") - 0.3)
+# ---- You see, most people never get struck even once. But lightning hits whoever is outside when the storm arrives, and Roy's whole job was to be outside...
+s = S("You see most", "GT", (5.2, 1.0, -2.05), 8.0, 6, pitch=5, zoom=4)
+for k, w_ in enumerate(("h1G", "h2G", "h3G")): act(s, 0.2 + 0.15 * k, w_, pose=dict(armR=-150), shake=0.3); ft(s, w_, ["happy", "smug"])
+T(s, "once", at=rel(s, "never"))
+s = S("But lightning hits", "HK", (0.6, 1.0, -2.4), 4.2, -6, pitch=2, pitchTo=12); hide(s, 0.0, "royH"); show(s, 0.0, "boltH", pos("HK", 0.6, 0.04, -2.4), hop=0); act(s, 0.1, "boltH", shake=0.7); snap(s, rel(s, "hits"), 10)
+s = crane("is outside when", "GT", (5.2, 1.0, -2.05), 8.2, 22, 2, 36, 8); ft(s, "h2G", ["shocked", "nervous"]); T(s, "outside", at=0.1)
+s = S("and Roy's whole", "TW", (-1.5, 1.15, -1.9), 4.6, 14, pitch=5, yawTo=-4, dof=dict(focus="royT", blur=0.4)); hide(s, 0.0, "towerT"); ft(s, "royT", ["smug", "happy"]); act(s, 0.1, "royT", pose=dict(armR=-150)); T(s, "job", at=rel(s, "job"))
+s = S("in the mountains", "BR", (3.0, 1.2, -2.6), 7.6, -4, pitch=5, zoom=4, pan=(-8, 0)); T(s, "decades", at=rel(s, "decades"))
+# ---- Guinness World Records verified all seven strikes. Nobody on record has survived more.
+s = S("Guinness World Records", "RB", (0.0, 1.1, -2.4), 3.4, 4, pitch=6, zoom=14, type="macro", dof=dict(focus="bookR", blur=0.5)); act(s, 0.05, "bookR", shake=0.4)
+s = S("verified all seven", "RB", (0.0, 1.1, -2.4), 3.6, -14, pitch=6, yawTo=4, type="macro", dof=dict(focus="bookR", blur=0.5)); act(s, rel(s, "verified"), "bookR", face="stamp", shake=0.7); snap(s, rel(s, "all"), 8)
+s = S("Nobody on record", "RB", (3.2, 0.9, -2.4), 4.2, 10, pitch=14, pitchTo=3, dof=dict(focus="trophyR", blur=0.4)); act(s, 0.05, "trophyR", shake=0.5); T(s, "nobody")
+# ---- But here's the strangest part. The one time lightning hit his family, Roy was standing right beside his wife, helping her hang laundry. It hit her. And it skipped the one man it never seemed to miss.
+s = crane("But here's the", "YD", (0.0, 1.1, -2.5), 7.8, 22, 2, 38, 8); hide(s, 0.0, "royY"); show(s, 0.0, "laundryY", pos("YD", 0.0, 0.04, -3.4), hop=0); T(s, "strange", at=0.05)
+s = S("The one time", "YD", (0.0, 1.2, -2.6), 6.4, -6, pitch=5, zoom=12); act(s, 0.1, "laundryY", shake=0.3)
+s = S("Roy was standing", "YD", (0.0, 1.05, -2.2), 6.6, 10, pitch=5, zoom=-10); show(s, 0.0, "royY", pos("YD", -0.6, 0.04, -1.8), hop=0); show(s, 0.05, "wifeY", pos("YD", 0.6, 0.04, -1.9)); ft(s, "royY", ["happy", "smug"]); ft(s, "wifeY", ["happy", "smug"]); cfx(s, 0.5, "blush", "wifeY", 0.6)
+s = S("helping her hang", "YD", (0.0, 0.8, -3.4), 6.0, -14, pitch=6, yawTo=4, dof=dict(focus="laundryY", blur=0.4)); hide(s, 0.0, "royY"); hide(s, 0.0, "wifeY"); act(s, 0.05, "laundryY", shake=0.4)
+s = S("It hit her", "YD", (0.6, 1.4, -1.95), 4.6, 4, pitch=5, zoom=14, dof=dict(focus="wifeY", blur=0.4)); hide(s, 0.0, "laundryY"); show(s, 0.0, "wifeY", pos("YD", 0.6, 0.04, -1.9), hop=0); show(s, 0.05, "boltY", pos("YD", 0.6, 1.9, -2.0)); ft(s, "wifeY", ["shocked", "nervous"]); act(s, 0.1, "wifeY", shake=0.6); T(s, "hither", at=0.05); snap(s, rel(s, "hit"), 10)
+s = S("skipped the one", "YD", (-0.6, 1.15, -1.8), 4.4, -12, pitch=5, yawTo=4, dof=dict(focus="royY", blur=0.4)); hide(s, 0.0, "boltY"); hide(s, 0.0, "wifeY"); show(s, 0.0, "royY", pos("YD", -0.6, 0.04, -1.8), hop=0); ft(s, "royY", ["shocked", "confused"]); T(s, "skipped", at=0.05)
+s = S("seemed to miss", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); show(s, 0.0, "royH", pos("HK", -0.25, 0.04, -1.8), hop=0); act(s, 0.05, "royH", face="shocked", pose=dict(armR=-150)); act(s, 0.1, "boltH", shake=0.5)
 for s in shots: s.setdefault("frameY", 0.0)
 
 starts = [0.0 if s["start"] == 0 else say(s["_phrase"]) for s in shots]
@@ -232,9 +218,9 @@ for s in shots:
             prev = seq[j % len(seq)]; j += 1; act(s, round(i * 0.55, 3), who, face=prev)
 # ---- atmosphere by set: dust + rays by day, bokeh by night / dawn
 D_ = lambda c=22: dict(count=c, size=1.0, drift=1.0); BK = lambda a=0.3: dict(count=12, size=1.0, alpha=a)
-ATM = dict(HK=dict(dust=D_(24), rays=dict(angle=30, intensity=0.6)), KB=dict(bokeh=BK(0.45)), MS=dict(dust=D_(26), rays=dict(angle=24, intensity=0.5)), CH=dict(dust=D_(30), rays=dict(angle=18, intensity=0.6)),
-           WP=dict(dust=D_(18)), CT=dict(dust=D_(14)), BK=dict(dust=D_(18)), WN=dict(bokeh=BK(0.4)), WH=dict(dust=D_(18), rays=dict(angle=30, intensity=0.5)), FC=dict(dust=D_(30)),
-           GE=dict(dust=D_(50)), CZ=dict(dust=D_(30)), PR=dict(bokeh=BK(0.4)))
+ATM = dict(HK=dict(bokeh=BK(0.5)), BR=dict(dust=D_(24), rays=dict(angle=26, intensity=0.6)), GT=dict(dust=D_(22), rays=dict(angle=30, intensity=0.5)), TW=dict(dust=D_(20), rays=dict(angle=22, intensity=0.6)),
+           RD=dict(bokeh=BK(0.45)), YD=dict(dust=D_(24), rays=dict(angle=28, intensity=0.6)), ST=dict(dust=D_(26)), LK=dict(bokeh=BK(0.45)), FR=dict(dust=D_(30), rays=dict(angle=18, intensity=0.7)),
+           RB=dict(bokeh=BK(0.5)))
 for s in shots:
     if s.get("type") != "cutaway": s["atmos"] = ATM[LOC[id(s)]]
 
@@ -320,38 +306,35 @@ for (s, at, cid, name, dy, dx, dz, wf, hf, c) in REQ:
     c["height"] = round(h, 3); SH[cid] = c["height"]; card(s, at, cid, dy, dx, dz); RECT[cid] = (s, at, 0.5 + dx - wfr / 2, 0.5 - dy - hfr / 2, 0.5 + dx + wfr / 2, 0.5 - dy + hfr / 2)
 
 # ================================================================== SPEC
-MOOD = dict(HK="bayou", KB="nightkid", MS="amber", CH="moss", WP="inkblue", CT="cream", BK="candy", WN="dusk", WH="skyblue", FC="toyred", GE="snowy", CZ="rainbow", PR="violet")
-light, cur = [{"t": 0, "mood": "bayou"}], "bayou"
+MOOD = dict(HK="stormteal", BR="ridgedawn", GT="pinegate", TW="sunsetpk", RD="duskroad", YD="goldyard", ST="cabin", LK="lakedusk", FR="fern", RB="recgold")
+light, cur = [{"t": 0, "mood": "stormteal"}], "stormteal"
 for k, s in enumerate(shots):
     m = MOOD[LOC[id(s)]]
     if m != cur and s.get("type") != "cutaway": light.append({"t": round(max(0.0, starts[k] - 0.2), 3), "mood": m, "fade": 0.4}); cur = m
 spec = {
     "fps": 30, "audio": {"voice": "audio/voice.mp3", "music": "audio/music.mp3", "musicDb": -11},
     "words": "audio/words.json", "captions": {"wordsPer": 1}, "font": "fonts/Montserrat-ExtraBold.ttf", "contactShadow": 0.6, "seed": 22,
-    "moods": {"bayou": {"sun": {"azimuth": 210, "elevation": 22, "color": "#fff0c0", "intensity": 2.5}, "sky": {"top": "#96b46e", "horizon": "#fadc96"}, "fill": {"sky": "#fff8e0", "ground": "#6a6a4a", "intensity": 1.5}},
-              "nightkid": {"sun": {"azimuth": 150, "elevation": 35, "color": "#ffe0b0", "intensity": 2.6}, "sky": {"top": "#3c3c8c", "horizon": "#6e64be"}, "fill": {"sky": "#e0d8ff", "ground": "#4a4070", "intensity": 2.0}},
-              "amber": {"sun": {"azimuth": 220, "elevation": 20, "color": "#ffd8a0", "intensity": 2.5}, "sky": {"top": "#f09650", "horizon": "#ffdca0"}, "fill": {"sky": "#fff0d8", "ground": "#7a6040", "intensity": 1.5}},
-              "moss": {"sun": {"azimuth": 30, "elevation": 45, "color": "#f8ffd8", "intensity": 2.5}, "sky": {"top": "#3c7850", "horizon": "#a0c882"}, "fill": {"sky": "#f0ffe0", "ground": "#4a5a3a", "intensity": 1.8}},
-              "inkblue": {"sun": {"azimuth": -20, "elevation": 40, "color": "#fff4e0", "intensity": 2.6}, "sky": {"top": "#324682", "horizon": "#6478b4"}, "fill": {"sky": "#e8ecff", "ground": "#4a4a60", "intensity": 2.0}},
-              "cream": {"sun": {"azimuth": 20, "elevation": 45, "color": "#fff8e8", "intensity": 2.2}, "sky": {"top": "#dcd0b0", "horizon": "#f0e6cc"}, "fill": {"sky": "#fff8f0", "ground": "#9a8a70", "intensity": 1.2}},
-              "candy": {"sun": {"azimuth": 30, "elevation": 40, "color": "#fff4f0", "intensity": 2.4}, "sky": {"top": "#faaac8", "horizon": "#c8fae6"}, "fill": {"sky": "#fff0f8", "ground": "#9a6a7a", "intensity": 1.4}},
-              "dusk": {"sun": {"azimuth": 230, "elevation": 16, "color": "#ffc8a0", "intensity": 2.5}, "sky": {"top": "#7850a0", "horizon": "#ffaa78"}, "fill": {"sky": "#ffe0d8", "ground": "#5a4a5a", "intensity": 1.85}},
-              "skyblue": {"sun": {"azimuth": 40, "elevation": 45, "color": "#fffbe8", "intensity": 2.3}, "sky": {"top": "#5aa0e6", "horizon": "#c8e6fa"}, "fill": {"sky": "#f0f8ff", "ground": "#6a7a60", "intensity": 1.3}},
-              "toyred": {"sun": {"azimuth": -20, "elevation": 40, "color": "#fff0d8", "intensity": 2.4}, "sky": {"top": "#e6463c", "horizon": "#ffc85a"}, "fill": {"sky": "#fff0e0", "ground": "#8a5040", "intensity": 1.6}},
-              "snowy": {"sun": {"azimuth": 40, "elevation": 35, "color": "#fff0d8", "intensity": 2.2}, "sky": {"top": "#6e96d2", "horizon": "#dcecfa"}, "fill": {"sky": "#f0f8ff", "ground": "#8a96aa", "intensity": 1.2}},
-              "rainbow": {"sun": {"azimuth": 30, "elevation": 45, "color": "#fffbf0", "intensity": 2.4}, "sky": {"top": "#78c8fa", "horizon": "#ffe6fa"}, "fill": {"sky": "#fff8ff", "ground": "#9a7a6a", "intensity": 1.3}},
-              "violet": {"sun": {"azimuth": 10, "elevation": 40, "color": "#fff0d0", "intensity": 2.6}, "sky": {"top": "#5a3c8c", "horizon": "#966ebe"}, "fill": {"sky": "#f0e0ff", "ground": "#5a4050", "intensity": 2.0}}},
+    "moods": {"stormteal": {"sun": {"azimuth": 20, "elevation": 42, "color": "#f0f4ff", "intensity": 2.7}, "sky": {"top": "#1e2250", "horizon": "#28788c"}, "fill": {"sky": "#e8f0ff", "ground": "#304a50", "intensity": 2.2}},
+              "ridgedawn": {"sun": {"azimuth": 220, "elevation": 22, "color": "#ffe8c8", "intensity": 2.4}, "sky": {"top": "#96b4dc", "horizon": "#ffd2aa"}, "fill": {"sky": "#fff4ec", "ground": "#5a7050", "intensity": 1.5}},
+              "pinegate": {"sun": {"azimuth": 40, "elevation": 44, "color": "#fffbe8", "intensity": 2.3}, "sky": {"top": "#5aaae6", "horizon": "#d2f0e6"}, "fill": {"sky": "#f4fff8", "ground": "#5a7a50", "intensity": 1.4}},
+              "sunsetpk": {"sun": {"azimuth": 230, "elevation": 16, "color": "#ffc8a0", "intensity": 2.5}, "sky": {"top": "#f06e78", "horizon": "#ffc878"}, "fill": {"sky": "#ffece0", "ground": "#6a4a50", "intensity": 1.8}},
+              "duskroad": {"sun": {"azimuth": 220, "elevation": 18, "color": "#ffc8b0", "intensity": 2.5}, "sky": {"top": "#5a3c8c", "horizon": "#ff8c6e"}, "fill": {"sky": "#ffe8f0", "ground": "#4a3a50", "intensity": 2.0}},
+              "goldyard": {"sun": {"azimuth": 210, "elevation": 26, "color": "#ffe8b0", "intensity": 2.4}, "sky": {"top": "#78bef0", "horizon": "#ffdc96"}, "fill": {"sky": "#fff8e8", "ground": "#5a7a40", "intensity": 1.5}},
+              "cabin": {"sun": {"azimuth": 150, "elevation": 34, "color": "#ffe0b8", "intensity": 2.5}, "sky": {"top": "#aa7850", "horizon": "#c89664"}, "fill": {"sky": "#fff0e0", "ground": "#6a4a30", "intensity": 1.7}},
+              "lakedusk": {"sun": {"azimuth": 230, "elevation": 18, "color": "#ffd8c0", "intensity": 2.5}, "sky": {"top": "#324682", "horizon": "#f0a08c"}, "fill": {"sky": "#f0f0ff", "ground": "#3a4a5a", "intensity": 2.0}},
+              "fern": {"sun": {"azimuth": 30, "elevation": 46, "color": "#f8ffe0", "intensity": 2.5}, "sky": {"top": "#286e46", "horizon": "#96d282"}, "fill": {"sky": "#f0fff0", "ground": "#3a5a3a", "intensity": 1.8}},
+              "recgold": {"sun": {"azimuth": 10, "elevation": 40, "color": "#fff0c8", "intensity": 2.7}, "sky": {"top": "#141846", "horizon": "#3c3278"}, "fill": {"sky": "#f0ecff", "ground": "#3a2a5a", "intensity": 2.2}}},
     "lighting": light, "ground": {"texture": TEX + "pave.jpg", "repeat": [175, 175], "size": 1400},
     "backdrop": {"image": "bg/sky.jpg", "blur": 4}, "ink": {"set": 4},
-    "fxLook": {"ink": "#271925", "accent": "#ffa040", "paper": ["#e8a868", "#c88848"], "dofPx": 8, "particle": "#fff4d8", "bokehColor": "#ffd8a8", "ray": "#fff1c8", "raySide": -1},
+    "fxLook": {"ink": "#271925", "accent": "#fff03c", "paper": ["#7a9ad8", "#5a7abc"], "dofPx": 8, "particle": "#fffbe0", "bokehColor": "#c8d8ff", "ray": "#fff6c8", "raySide": -1},
     "fx": FX, "characters": chars, "props": props, "shots": shots, "end": "audio",
 }
 
 # ---- music + effects synthesised to the word timings: full energy from frame 1
-CUE = dict(nov="November 14th", brook="In Brooklyn a", ideal="and start the", germany="Meanwhile in Germany", craze="By 1907", yousee="You see Berryman", cuddly="So the cuddly",
-           refused="refused", sleeps="sleeps", notwell="not going well", hounds="hounds", club="club", tie="tie it", shot="take the shot", refuses="refuses", unsport="unsportsmanlike",
-           draws="draws", spreads="spreads", sews="sews", sign="sign", sells="It sells", out="sells out", yes="yes", quit="quit candy", thousand="thousand", attacks="attacks",
-           hugging="hugging", smaller="smaller", cuter="Cuter", beaten="beaten", cartoon2="a cartoon of")
+CUE = dict(roywas="Roy was a", y1969="Until 1969", y1973="1973 he drove", yousee="You see most", strange="But here's the",
+           twice="twice", seven="seven times", hit1="lightning hit him", leg="scorched", bolt69="A bolt came", knocked="knocked", brows="eyebrows", y1970="1970 it found", seared="seared",
+           y1972="1972 inside", fire="caught fire", towels="wet towels", drove="drove away", caught="caught him anyway", ankle="ankle", y1977="And in 1977", top="bolt hit the top",
+           seven7="burned his chest", bear="a bear", hits="lightning hits", guinness="Guinness", verified="verified", nobody="Nobody", hither="It hit her", skipped="skipped")
 CUE.update({"s%02d" % k: x["_phrase"] for k, x in enumerate(shots) if x["_phrase"] != "0"})
 cues = {k: say(v) for k, v in CUE.items()}; cues["end"] = DURATION
 cp, wav = os.path.join(P, "audio", "cues.json"), os.path.join(P, "audio", "music.wav")
