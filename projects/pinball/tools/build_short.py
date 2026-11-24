@@ -119,7 +119,7 @@ def blink(s, who, t0, t1, step=0.3):
 
 HOOK = dict(anchor=(0.0, 1.0, -2.3), dist=4.8, yaw=4, pitch=6)
 # ---- Pinball was illegal in New York for 34 years, and one man ended the ban with a single ball.
-s = S("0", "HK", zoom=10, **HOOK); act(s, 0.0, "machH", face="tape", shake=0.5); tag(s, 0.0, "hookc", 0.3, 0.0, wf=0.66, hf=0.24); snap(s, rel(s, "York"), 10)
+s = S("0", "HK", zoom=10, **HOOK); act(s, 0.0, "machH", face="tape", shake=0.5); tag(s, 0.0, "hookc", 0.14, 0.0, wf=0.62, hf=0.22); snap(s, rel(s, "York"), 10)
 s = S("for 34 years", "HK", (0.0, 1.8, -2.3), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="ILLEGAL FOR", items=["34 YEARS"]))
 s = S("and one man", "PF", (-3.2, 0.75, -2.4), 3.6, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="qmanP", blur=0.5)); act(s, 0.05, "qmanP", shake=0.4); T(s, "oneman", at=0.1)
 s = S("with a single", "PF", (3.2, 0.95, -2.4), 2.8, 6, pitch=6, zoom=14, type="macro", dof=dict(focus="ballP", blur=0.5)); act(s, 0.05, "ballP", shake=0.5)
@@ -149,7 +149,7 @@ s = S("Is pinball luck", "QS", (0.0, 1.0, -2.4), 6.6, 16, pitch=5, yawTo=-4); ac
 s = S("Luck meant gambling", "QS", (0.0, 1.0, -2.4), 6.6, 0, pitch=5, zoom=12); act(s, 0.0, "scaleQ", face="luck", shake=0.6); T(s, "gamb", at=rel(s, "gambling"))
 s = S("Skill meant a", "QS", (0.0, 1.0, -2.4), 6.8, -10, pitch=5, zoom=-10); act(s, 0.0, "scaleQ", face="skill", shake=0.6); T(s, "game", at=rel(s, "game"))
 # ---- So in 1976, the industry hired a pinball expert named Roger Sharpe to prove it in front of the City Council. A suspicious councilman made him switch to a backup machine.
-s = crane("So in 1976", "CC", (0.0, 1.2, -2.6), 10.0, 22, 2, 36, 8); hide(s, 0.0, "machC"); ft(s, "c2C", ["happy", "smug"]); T(s, "y1976", dy=0.1, dx=0.0, wf=0.3, hf=0.32)
+s = crane("So in 1976", "CC", (0.0, 1.2, -2.6), 10.0, 22, 2, 36, 8); hide(s, 0.0, "machC"); ft(s, "c2C", ["happy", "smug"]); T(s, "y1976", dy=0.04, dx=0.27, wf=0.24, hf=0.26)
 s = S("the industry hired", "CC", (3.6, 1.2, -1.6), 5.0, 8, pitch=5, zoom=12, dof=dict(focus="sharpeC", blur=0.4)); ft(s, "sharpeC", ["smug", "happy"]); T(s, "expert", at=rel(s, "expert")); snap(s, rel(s, "expert"), 8)
 s = S("named Roger Sharpe", "CC", (3.6, 1.25, -1.6), 4.4, -14, pitch=5, yawTo=4, dof=dict(focus="sharpeC", blur=0.4)); ft(s, "sharpeC", ["happy", "smug"]); act(s, 0.1, "sharpeC", pose=dict(armR=-150)); T(s, "sharpec")
 s = S("in front of", "CC", (0.0, 1.2, -2.6), 9.8, 6, pitch=6, zoom=-10); ft(s, "c1C", ["confused", "smug"]); ft(s, "c3C", ["smug", "happy"]); T(s, "councilc")
@@ -168,7 +168,7 @@ s = S("lift the ban", "HK", (0.0, 1.0, -2.3), 5.2, -6, pitch=5, zoom=14); act(s,
 s = S("Which means a", "RV", (0.0, 0.9, -2.6), 6.0, -16, pitch=6, yawTo=4); act(s, 0.1, "bargeV", shake=0.3)
 s = S("let one man", "CC", (3.6, 1.25, -1.6), 4.4, 10, pitch=12, pitchTo=3, dof=dict(focus="sharpeC", blur=0.4)); show(s, 0.0, "sharpeC", pos("CC", 3.6, 0.04, -1.6), hop=0); ft(s, "sharpeC", ["smug", "happy"])
 s = S("pinball's entire future", "PF", (3.2, 0.95, -2.4), 3.0, -10, pitch=6, yawTo=6, type="macro", dof=dict(focus="ballP", blur=0.5)); act(s, 0.0, "ballP", face="default", shake=0.4); T(s, "future")
-s = S("on a single", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); act(s, 0.0, "machH", face="happy", shake=0.3); T(s, "single", at=0.1)
+s = S("on a single", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); act(s, 0.0, "machH", face="happy", shake=0.3); T(s, "single", at=0.1, dy=0.16)
 for s in shots: s.setdefault("frameY", 0.0)
 
 starts = [0.0 if s["start"] == 0 else say(s["_phrase"]) for s in shots]
