@@ -134,6 +134,9 @@ def ring(t0):
 XPROG = dict(bayou=[(40, (64, 67, 71)), (45, (64, 69, 72)), (40, (64, 67, 71)), (47, (66, 69, 75))],      # Em Am Em B7
              polka=[(41, (65, 69, 72)), (48, (64, 67, 70)), (41, (65, 69, 72)), (48, (64, 67, 72))],      # F C7 F C
              lullaby=[(43, (67, 71, 74)), (40, (67, 71, 76)), (36, (67, 72, 76)), (38, (66, 69, 74))])   # G Em C D
+XPROG = dict(chip=[(45, (69, 72, 76)), (41, (65, 69, 72)), (43, (67, 71, 74)), (40, (64, 68, 71))],      # Am F G E
+             boogie=[(43, (67, 71, 74)), (48, (64, 67, 72)), (43, (67, 71, 74)), (50, (66, 69, 74))],    # G C G D
+             disco=[(45, (69, 72, 76)), (50, (66, 69, 74)), (43, (67, 71, 74)), (45, (69, 72, 76))])     # Am D G Am
 CAJ = [(43, (67, 71, 74)), (48, (67, 72, 76)), (50, (66, 69, 74)), (43, (67, 71, 74))]          # G C D G
 STORM = [(38, (62, 65, 69)), (34, (62, 65, 70)), (36, (60, 64, 67)), (33, (61, 64, 69))]        # Dm Bb C A
 MINE = [(45, (69, 72, 76)), (41, (69, 72, 77)), (38, (65, 69, 74)), (40, (68, 71, 76))]         # Am F Dm E
@@ -263,6 +266,25 @@ def section(t0, t1, kind, bpm):
                 if e in (0, 8): put(bed, kick(), u, 0.3); put(bed, pluck(midi(root - 12), bt * 1.5), u, 0.2)
                 if e == 0: put(bed, pad(midi(ch[0]), bt * 4), u, 0.06)
                 if e in (4, 12): put(bed, rim(), u, 0.12)
+            elif kind == 'chip':                              # arcade chiptune: triangle arpeggios, triangle bass, tight drums
+                if e % 2 == 0: put(bed, tri(midi(ch[(e // 2 + bar) % 3] + 12), bt * 0.22), u, 0.06)
+                if e in (0, 4, 8, 12): put(bed, tri(midi(root - 12), bt * 0.4), u, 0.3)
+                if e in (0, 8): put(bed, kick(), u, 0.32)
+                if e in (4, 12): put(bed, snare(), u, 0.12)
+                if e % 2 == 1: put(bed, hat(), u, 0.04)
+            elif kind == 'boogie':                            # 1942 boogie-woogie: walking eighth bass, shuffle piano stabs, brushes
+                if e % 2 == 0: put(bed, pluck(midi(root - 12 + (0, 4, 7, 9, 10, 9, 7, 4)[(e // 2) % 8]), bt * 0.45), u, 0.3)
+                if e in (2, 6, 10, 14): put(bed, sum(pluck(midi(m + 12), bt * 0.2) for m in ch), u, 0.045)
+                if e in (0, 8): put(bed, kick(), u, 0.28)
+                if e in (4, 12): put(bed, snare(), u, 0.1); put(bed, clap(), u, 0.08)
+                if e % 2 == 1: put(bed, hat(), u, 0.04)
+            elif kind == 'disco':                             # 1976 disco: four-on-the-floor, octave bass, open hats, string stabs
+                if e % 4 == 0: put(bed, kick(), u, 0.36)
+                if e % 4 == 2: put(bed, hat(), u, 0.08)
+                if e % 2 == 0: put(bed, pluck(midi(root - 12 + (0, 12)[(e // 2) % 2]), bt * 0.3), u, 0.26)
+                if e in (4, 12): put(bed, clap(), u, 0.16)
+                if e == 0: put(bed, pad(midi(ch[0] + 12), bt * 2), u, 0.06)
+                if e in (6, 14) and bar % 2: put(bed, whis(midi(ch[2] + 12), bt * 0.5), u, 0.04)
             else:                                             # funk reveal: slap bass, clav chords, 16th hats, kick/snare
                 if e in (0, 7, 8): put(bed, kick(), u, 0.65)
                 if e in (4, 12): put(bed, snare(), u, 0.4)
@@ -273,27 +295,29 @@ def section(t0, t1, kind, bpm):
 
 
 # ---------------------------------------------------------------- the score
-section(0, C['nov'], 'bayou', 132)
-section(C['nov'], C['brook'], 'bayou', 118)
-section(C['brook'], C['germany'], 'polka', 132)
-section(C['germany'], C['yousee'], 'polka', 140)
-section(C['yousee'], C['cuddly'], 'lullaby', 112)
-section(C['cuddly'], C['end'], 'bayou', 132)
+section(0, C['y1942'], 'chip', 150)
+section(C['y1942'], C['yousee'], 'boogie', 140)
+section(C['yousee'], C['y1976'], 'tick', 120)
+section(C['y1976'], C['went'], 'disco', 120)
+section(C['went'], C['end'], 'chip', 156)
 
 # ---------------------------------------------------------------- effects: a light whoosh on every scene change, hits on the words
 for k in sorted(x for x in C if x.startswith('s') and x[1:].isdigit()): put(fx, whoosh(0.45, 500, 3200), C[k] - 0.18, 0.13); put(fx, stampfx(), C[k] + 0.12, 0.16)
-put(fx, boom(), 0.0, 0.5); put(fx, kick(), 0.0, 0.7); put(fx, crash(), 0.0, 0.3); put(fx, stampfx(), 0.02, 0.3); put(fx, whoosh(0.8, 200, 1500), 0.15, 0.3); put(fx, boom(), C['refused'], 0.3)
-put(fx, bell(midi(91), 0.8), C['sleeps'], 0.12); put(fx, bell(midi(88), 0.7), C['nov'], 0.14); put(fx, sadbone(C['notwell']), 0.0, 0.0) if False else None; put(fx, groan(0.9), C['notwell'], 0.12)
-for k in range(3): put(fx, boing(), C['hounds'] + k * 0.25, 0.08)
-put(fx, thumps(0.8), C['club'], 0.25); put(fx, whip(), C['tie'], 0.2); put(fx, drum_roll(0.8), C['shot'], 0.18); put(fx, gavel(), C['refuses'], 0.35); put(fx, crash(), C['refuses'] + 0.1, 0.2)
-put(fx, buzzer(), C['unsport'], 0.1); put(fx, scratch(), C['draws'], 0.12); put(fx, flip(), C['spreads'], 0.3); put(fx, whoosh(0.9, 400, 3500), C['spreads'] + 0.2, 0.25)
-put(fx, jingle(), C['sews'], 0.2); put(fx, bell(midi(96), 0.5), C['sign'], 0.15); put(fx, kaching(), C['sells'], 0.2); put(fx, cheer(1.2), C['out'], 0.16); put(fx, bell(midi(88), 0.6), C['yes'], 0.16); fanfare(C['yes'] + 0.1)
-put(fx, crunch(), C['quit'], 0.2); put(fx, kaching(), C['thousand'], 0.2); put(fx, cheer(1.2), C['craze'], 0.15); put(fx, gavel(), C['attacks'], 0.3); put(fx, boing(), C['hugging'], 0.12)
-put(fx, scratch(), C['smaller'] - 0.2, 0.1); put(fx, bell(midi(96), 0.5), C['cuter'], 0.16); put(fx, groan(1.0), C['beaten'], 0.12); put(fx, riser(0.8), C['cartoon2'] - 0.6, 0.15)
+put(fx, boom(), 0.0, 0.5); put(fx, kick(), 0.0, 0.7); put(fx, crash(), 0.0, 0.3); put(fx, stampfx(), 0.02, 0.3); put(fx, whoosh(0.8, 200, 1500), 0.15, 0.3)
+put(fx, kaching(), C['n34'], 0.18); put(fx, bell(midi(96), 0.6), C['ball1'] + 0.3, 0.16); put(fx, bell(midi(88), 0.7), C['y1942'], 0.14); put(fx, gavel(), C['gambling'] + 0.7, 0.3)
+put(fx, whis(midi(96), 0.5), C['raid'], 0.12); put(fx, whis(midi(96), 0.3), C['raid'] + 0.6, 0.1); put(fx, crash(), C['bowling'] + 0.1, 0.25); put(fx, thumps(0.8), C['seized'], 0.25)
+put(fx, crash(), C['smashed'], 0.3); put(fx, boom(), C['smashed'], 0.3)
+for k in range(3): put(fx, stampfx(), C['cams'] + k * 0.16, 0.14)
+put(fx, whoosh(0.9, 150, 900), C['dumped'] - 0.2, 0.25); put(fx, crash(), C['dumped'] + 0.4, 0.15); put(fx, buzzer(), C['reason'], 0.08); put(fx, kaching(), C['nickels'], 0.2); put(fx, groan(0.9), C['lunch'], 0.12)
+for k in range(5): put(fx, rim(), C['chicago'] + 0.35 + k * 0.14, 0.16)
+put(fx, gavel(), C['contra'], 0.3); put(fx, riser(0.6), C['question'] - 0.5, 0.14); put(fx, boing(), C['luck'], 0.12); put(fx, bell(midi(91), 0.6), C['skill'], 0.14)
+put(fx, bell(midi(88), 0.7), C['y1976'] + 0.3, 0.14); put(fx, kaching(), C['sharpe'], 0.16); put(fx, groan(0.8), C['susp'], 0.1); put(fx, whoosh(0.7, 300, 2000), C['switch'], 0.2)
+put(fx, riser(0.9), C['pointed'], 0.14); put(fx, boing(), C['pulled'] + 0.3, 0.16); put(fx, bell(midi(96), 0.8), C['exactly'], 0.18); put(fx, cheer(1.2), C['exactly'] + 0.2, 0.14)
+put(fx, gavel(), C['unan'], 0.3); put(fx, cheer(1.4), C['unan'] + 0.2, 0.16); fanfare(C['lift']); put(fx, bell(midi(91), 0.6), C['future'], 0.14)
 put(fx, riser(1.0), C['end'] - 1.1, 0.2); put(fx, crash(), C['end'] - 0.15, 0.25)
 
 mix = bed * 1.35 + fx * 0.85
 mix = np.tanh(mix / max(1e-6, np.abs(mix).max()) * 2.2) * 0.89
 st = np.stack([mix, np.roll(mix, int(SR * 0.008)) * 0.96], 1)
 sf.write(OUT, st.astype(np.float32), SR)
-print("music: %.1f s, swamp-blues shuffle 132/118 + toy-shop polka 132/140 + music-box lullaby 112 + bayou finale" % LEN)
+print("music: %.1f s, arcade chiptune 150/156 + 1942 boogie-woogie 140 + question tick 120 + 1976 disco 120" % LEN)

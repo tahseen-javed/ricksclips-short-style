@@ -122,12 +122,12 @@ def dominoes(stage=0):                                       # domino city tiles
     d = Draw(1600, 1000)
     for k in range(5):
         x = 140 + k * 300; lean = min(1.0, max(0.0, stage - k * 0.5)) if stage else 0.0; a = lean * 1.1
-        w, h = 200, 640; cx, by = x + 100, 940
+        w, h = 250, 640; cx, by = x + 100, 940
         P = [(-w / 2, 0), (w / 2, 0), (w / 2, -h), (-w / 2, -h)]; P = [(cx + px * math.cos(a) - py * math.sin(a), by + px * math.sin(a) + py * math.cos(a)) for px, py in P]
         d.poly(P, fill=((70, 60, 110, 255), (60, 90, 140, 255), (110, 70, 120, 255), (60, 110, 110, 255), (120, 90, 60, 255))[k], outline=LINE, width=12)
         if lean < 0.3:
             for j in range(4): d.rect(x + 30 + j * 40, by - 200 - (j % 2) * 120, x + 60 + j * 40, by - 40, (255, 220, 120, 255))
-            if k == 0: d.text(cx, by - h + 80, 'CHICAGO', 54, WT, stroke=5, stroke_fill=LINE)
+            if k == 0: d.text(cx, by - h + 90, 'CHICAGO', 42, WT, stroke=4, stroke_fill=LINE)
     return d.out()
 
 
@@ -300,7 +300,7 @@ if __name__ == '__main__':
     CE.tiles(T('field.jpg'), (80, 50, 150), (66, 40, 130)); B.tex_wood(T('wood.jpg')); CE.tiles(T('lanes.jpg'), (230, 180, 110), (214, 164, 96)); CE.tiles(T('cobble.jpg'), (80, 84, 110), (66, 70, 96))
     CE.tiles(T('dock.jpg'), (110, 80, 60), (96, 68, 50)); CE.tiles(T('lino2.jpg'), (240, 230, 200), (200, 60, 60)); M.sandtex(T('tabletop.jpg'), (150, 90, 70), (134, 78, 60))
     CE.tiles(T('brick2.jpg'), (90, 40, 40), (76, 32, 32)); CE.tiles(T('felt.jpg'), (40, 140, 90), (40, 90, 200)); CE.tiles(T('shag.jpg'), (200, 140, 60), (150, 160, 70)); M.sandtex(T('steel2.jpg'), (90, 100, 130), (76, 86, 116))
-    G.sky(os.path.join(ROOT, 'bg', 'sky.jpg')); Pp = lambda n: os.path.join(ROOT, 'props', n)
+    CE.tiles(T('pave.jpg'), (70, 44, 120), (60, 36, 104)); G.sky(os.path.join(ROOT, 'bg', 'sky.jpg')); Pp = lambda n: os.path.join(ROOT, 'props', n)
     SETS = dict(playworld=playworld, radio=radio, bowling=bowling, flashnight=flashnight, harbor=harbor, school=school, dusktable=dusktable, backroom=backroom, splitstage=splitstage, chamber=chamber, chrome=chrome)
     for n, f in SETS.items(): f(Pp(n + '.png')); items.append((n, Image.open(Pp(n + '.png'))))
     B.sheet(items, os.path.join(ROOT, 'assets_preview.jpg'))
