@@ -125,7 +125,7 @@ def watch():                                                 # big brass stopwat
 
 
 def rulebook():                                              # thick old rulebook with gold corners and a ribbon
-    d = Draw(1100, 900); d.rrect(80, 120, 1020, 840, 30, fill=(70, 50, 120, 255), outline=LINE, width=16); d.rect(100, 780, 1000, 830, (250, 240, 210, 255))
+    d = Draw(1100, 900); d.rrect(80, 120, 1020, 840, 30, fill=(200, 56, 60, 255), outline=LINE, width=16); d.rect(100, 780, 1000, 830, (250, 240, 210, 255))
     for x, y in ((80, 120), (1020, 120)): d.dot(x, y, 50, (240, 190, 80, 255))
     d.rrect(300, 260, 800, 520, 20, outline=(240, 190, 80, 255), width=12); d.stroke([(840, 120), (840, 880)], RED, 26); eyes(d, 550, 390, 0.6, 'happy'); return d.out()
 
