@@ -59,7 +59,7 @@ yard("RN", "railnight.png", "ballast.jpg"); box("RN", 0, 0.045, -2.6, [14, 0.06,
 
 # ================================================================== CHARACTERS (cards + background decor carry "_" in the id: not frame-checked; hero props are)
 put("jacksH", "jacks", pos("HK", 0.0, 0.04, -2.6), 0.4); put("hotelH", "hotel", pos("HK", 0.0, 0.44, -2.6), 2.0, face="wave"); put("carq_H", "car", pos("HK", 0.95, 0.04, -4.4), 0.36, face="q")
-put("stepsH", "steps", pos("HK", -3.3, 0.04, -2.2), 1.0); human("guestH", "guest", pos("HK", -2.1, 0.04, -2.0), face="happy", h=1.6)
+put("stepsH", "steps", pos("HK", -3.9, 0.04, -2.2), 1.0); human("guestH", "guest", pos("HK", -2.7, 0.04, -2.0), face="happy", h=1.6)
 put("bedR", "bed", pos("RM", 0.0, 0.04, -2.6), 1.0); put("dinnerR", "dinner", pos("RM", 3.0, 0.04, -2.4), 0.9); put("deskR", "desk", pos("RM", 4.6, 0.04, -2.4), 1.0)
 human("guestR", "guest", pos("RM", -3.4, 0.04, -2.0), face="happy", h=1.6); put("winR", "winframe", pos("RM", -2.45, 0.6, -2.2), 1.0)
 human("senatorP", "senator", pos("PL", 0.0, 0.04, -2.2), face="happy")
@@ -131,8 +131,8 @@ s = S("Guests keep sleeping", "RM", (0.0, 0.8, -2.6), 4.4, -14, pitch=6, yawTo=4
 s = S("eating checking", "RM", (3.8, 0.75, -2.4), 8.6, -10, pitch=6, yawTo=4); act(s, 0.05, "dinnerR", shake=0.4); act(s, rel(s, "checking"), "deskR", shake=0.4)
 s = S("senator is staying", "PL", (0.0, 1.05, -2.2), 4.8, 10, pitch=5, zoom=12, dof=dict(focus="senatorP", blur=0.4)); ft(s, "senatorP", ["happy", "smug"]); T(s, "senat", at=0.05, dy=0.37, wf=0.62)
 # ---- One guest notices the front steps getting steeper. Then the windows creep up past eye level.
-s = crane("One guest notices", "HK", (-2.7, 1.0, -2.1), 6.2, -22, -2, 34, 8); show(s, 0.0, "stepsH", pos("HK", -3.3, 0.04, -2.2), hop=0); show(s, 0.0, "guestH", pos("HK", -2.1, 0.04, -2.0), hop=0); ft(s, "guestH", ["happy", "confused"])
-s = S("getting steeper", "HK", (-3.3, 0.75, -2.2), 3.8, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="stepsH", blur=0.5)); hide(s, 0.0, "guestH"); show(s, 0.0, "stepsH", pos("HK", -3.3, 0.04, -2.2), hop=0); act(s, 0.05, "stepsH", face="steep", shake=0.5); T(s, "steeper", at=rel(s, "steeper"), dy=0.38, wf=0.48); snap(s, rel(s, "steeper"), 8)
+s = crane("One guest notices", "HK", (-3.3, 1.0, -2.1), 6.2, -22, -2, 34, 8); show(s, 0.0, "stepsH", pos("HK", -3.9, 0.04, -2.2), hop=0); show(s, 0.0, "guestH", pos("HK", -2.7, 0.04, -2.0), hop=0); ft(s, "guestH", ["happy", "confused"])
+s = S("getting steeper", "HK", (-3.9, 0.75, -2.2), 3.8, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="stepsH", blur=0.5)); hide(s, 0.0, "guestH"); show(s, 0.0, "stepsH", pos("HK", -3.9, 0.04, -2.2), hop=0); act(s, 0.05, "stepsH", face="steep", shake=0.5); T(s, "steeper", at=rel(s, "steeper"), dy=0.38, wf=0.48); snap(s, rel(s, "steeper"), 8)
 s = S("Then the windows", "RM", (-2.9, 1.15, -2.1), 5.0, -10, pitch=5, zoom=10, dof=dict(focus="guestR", blur=0.4)); ft(s, "guestR", ["confused", "shocked"]); go(s, 0.1, "winR", pos("RM", -2.45, 1.0, -2.2), 1.0, walk=False)
 s = S("past eye level", "RM", (-2.9, 1.3, -2.1), 4.4, 12, pitch=4, pitchTo=12); show(s, 0.0, "winR", pos("RM", -2.45, 1.0, -2.2), hop=0); go(s, 0.05, "winR", pos("RM", -2.45, 1.35, -2.2), 0.8, walk=False); ft(s, "guestR", ["shocked", "nervous"]); T(s, "eye", at=0.1, dy=0.38, wf=0.58)
 # ---- A year earlier, crews did it to half a city block. 320 feet of brick shops. 600 men. 6,000 jackscrews.
