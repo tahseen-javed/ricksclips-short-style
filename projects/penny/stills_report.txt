@@ -1,0 +1,2 @@
+short.json has problems:
+  - ground.texture: file not found: textures/pave.jpg
