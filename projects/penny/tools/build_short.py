@@ -45,11 +45,11 @@ def yard(loc, img, floor, w=16, rep=(8, 8)):
     plane(loc, img, 0, -0.2, -6.5, w, round(w * 1100 / 2400, 3)); box(loc, 0, 0, -1, [w, 0.04, 12], texture=floor, repeat=list(rep))
 
 
-yard("HK", "presshall.png", "steel.jpg"); box("HK", -1.8, 0.04, -3.4, [0.9, 0.5, 0.8], color="#b48cdc"); box("HK", 2.4, 0.04, -1.2, [0.6, 0.35, 0.6], color="#e2804a")
+yard("HK", "presshall.png", "steel.jpg"); box("HK", -1.8, 0.04, -3.4, [0.9, 0.5, 0.8], color="#b48cdc"); box("HK", 2.4, 0.04, -1.2, [0.6, 0.35, 0.6], color="#e2804a"); box("HK", -0.4, 0.04, -2.0, [0.8, 0.36, 0.6], color="#ff3cac")
 yard("MT", "mintsky.png", "marble.jpg"); box("MT", 0, 0.04, -2.4, [5.0, 0.12, 1.4], color="#f0ece0")
 yard("PG", "vault.png", "plum.jpg"); box("PG", 1.7, 0.04, -3.2, [0.7, 0.9, 0.7], color="#f0c440")
 yard("TN", "pastel.png", "lawn.jpg")
-for x, z, rf, c in ((-2.6, -3.6, "#ff7aa8", "#fff4e0"), (2.4, -3.8, "#5ec8b0", "#fff0f4"), (-3.2, -1.6, "#ffc23c", "#f4f0ff"), (3.0, -1.4, "#9a78e0", "#fff8e0")): house("TN", x, z, [1.2, 1.0, 1.0], rf, color=c)
+for x, z, rf, c in ((-2.6, -3.6, "#ff7aa8", "#fff4e0"), (2.4, -3.8, "#5ec8b0", "#fff0f4"), (-3.2, -1.6, "#ffc23c", "#f4f0ff"), (4.6, -3.4, "#9a78e0", "#fff8e0")): house("TN", x, z, [1.2, 1.0, 1.0], rf, color=c)
 for x, z in ((-1.4, -4.2), (1.2, -4.4), (-4.2, -2.8), (4.2, -2.6)): tree("TN", x, z, 0.6, "#78c878")
 yard("JR", "kitchen.png", "ktile.jpg"); box("JR", 0, 0.04, -2.2, [2.2, 0.74, 1.0], color="#c88a50")
 yard("CU", "living.png", "wood.jpg"); box("CU", 0, 0.01, -2.2, [3.4, 0.03, 2.2], color="#ffd27a")
@@ -62,7 +62,7 @@ yard("AU", "velvet.png", "carpet.jpg"); box("AU", -2.2, 0.04, -3.6, [0.8, 1.1, 0
 yard("HV", "heaven.png", "cloud.jpg")
 
 # ================================================================== CHARACTERS (cards + background decor carry "_" in the id: not frame-checked; hero props are)
-put("pennyH", "penny", pos("HK", -0.4, 0.04, -2.0), 0.95, face="shocked"); put("pressH", "press", pos("HK", 0.62, 0.04, -2.6), 1.8); put("qlot_H", "qlot", pos("HK", -1.8, 0.54, -3.4), 0.8)
+put("pennyH", "penny", pos("HK", -0.4, 0.4, -2.0), 0.95, face="shocked"); put("pressH", "press", pos("HK", 0.62, 0.04, -2.6), 1.8); put("qlot_H", "qlot", pos("HK", -1.8, 0.54, -3.4), 0.8)
 put("prowH", "prow", pos("HK", -2.9, 0.04, -2.6), 0.6); human("mintwH", "mintw", pos("HK", -4.0, 0.04, -2.2), face="happy", h=1.6); put("pennyG", "penny", PARK, 0.8, face="gold")
 put("mintbM", "mintb", pos("MT", 0.0, 0.16, -2.4), 1.8)
 put("piggyP", "piggy", pos("PG", 0.0, 0.04, -2.4), 1.2); put("printerP", "printer", pos("PG", 3.4, 0.04, -2.4), 1.4); put("ledgerP", "ledger", pos("PG", -3.4, 0.04, -2.4), 1.2)
@@ -149,9 +149,9 @@ s = S("369", "SG", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(3, 0), type="cutaway",
 # ---- So on November 12, 2025, in Philadelphia, America struck its last circulating penny.
 s = crane("So on November", "PH", (0.0, 1.3, -3.2), 9.0, 22, 2, 36, 8); T(s, "nov12", at=rel(s, "November"), dx=0.2, dy=0.12, wf=0.26, hf=0.26)
 s = S("in Philadelphia", "PH", (0.0, 1.4, -3.2), 6.6, -8, pitch=5, zoom=12, dof=dict(focus="hallH", blur=0.4)); T(s, "philly", dy=0.37, wf=0.6)
-s = S("struck its last", "HK", (0.3, 1.0, -2.4), 5.0, -6, pitch=6, zoom=10); hide(s, 0.0, "pennyH"); show(s, rel(s, "last"), "pennyG", pos("HK", -0.1, 0.04, -1.9)); act(s, 0.05, "pressH", face="slam", shake=0.6); T(s, "last", at=rel(s, "last"), dy=0.38, wf=0.5); snap(s, rel(s, "struck"), 10)
+s = S("struck its last", "HK", (0.3, 1.0, -2.4), 5.0, -6, pitch=6, zoom=10); hide(s, 0.0, "pennyH"); show(s, rel(s, "last"), "pennyG", pos("HK", 0.35, 0.04, -1.6)); act(s, 0.05, "pressH", face="slam", shake=0.6); T(s, "last", at=rel(s, "last"), dy=0.38, wf=0.5); snap(s, rel(s, "struck"), 10)
 # ---- Then something strange happened. The final pennies went to auction. 232 sets. They sold for 16.76 million dollars. One set alone went for 800,000 dollars.
-s = S("Then something", "AU", (-2.2, 1.6, -3.4), 4.8, 10, pitch=14, pitchTo=3, dof=dict(focus="qlotA", blur=0.4)); act(s, 0.1, "qlotA", shake=0.4); T(s, "strange", dy=0.37, wf=0.62); cfx(s, 0.3, "question", "qlotA", 0.8)
+s = S("Then something", "AU", (-2.2, 1.6, -3.4), 4.8, 10, pitch=14, pitchTo=3, dof=dict(focus="qlotA", blur=0.4)); act(s, 0.1, "qlotA", shake=0.4); T(s, "strange", dy=0.37, wf=0.62)
 s = crane("The final pennies", "AU", (-0.1, 1.0, -2.3), 7.0, -22, -2, 36, 8); ft(s, "auctA", ["happy", "shocked"])
 s = S("232 sets", "AU", (4.0, 0.6, -2.8), 5.4, 12, pitch=5, yawTo=-4, dof=dict(focus="casesA", blur=0.4)); T(s, "sets232", dy=0.37, wf=0.44)
 s = S("They sold for", "SG", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="THEY SOLD FOR", items=["$16.76 MILLION"]))
@@ -164,7 +164,7 @@ s = S("for almost twenty", "SG", (3.0, 1.0, -2.4), 5.4, 8, pitch=5, zoom=-10); a
 s = crane("finally made a", "HV", (-0.1, 1.0, -2.2), 6.6, 22, 2, 36, 8); act(s, rel(s, "fortune"), "qlotV", face="open", shake=0.6); ft(s, "pennyV", ["crown", "gold"]); T(s, "fortune", at=rel(s, "fortune"), dy=0.36, wf=0.5); snap(s, rel(s, "fortune"), 10)
 s = S("the day it", "HV", (2.4, 1.2, -2.2), 4.6, -10, pitch=5, zoom=10, dof=dict(focus="pennyA", blur=0.4)); go(s, 0.05, "pennyA", pos("HV", 2.4, 0.75, -2.2), 0.9, walk=False); T(s, "bye", at=rel(s, "died") - 0.1, dy=0.38, wf=0.5)
 # ---- All because it cost America almost four cents to make one cent.
-s = crane("All because it", "HK", (0.2, 1.2, -2.3), 7.6, -22, -2, 36, 8); show(s, 0.0, "pennyH", pos("HK", -0.4, 0.04, -2.0), hop=0); act(s, 0.1, "pennyH", face="default")
+s = crane("All because it", "HK", (0.2, 1.2, -2.3), 7.6, -22, -2, 36, 8); show(s, 0.0, "pennyH", pos("HK", -0.4, 0.4, -2.0), hop=0); hide(s, 0.0, "pennyG"); act(s, 0.1, "pennyH", face="default")
 s = S("four cents#2", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); act(s, 0.05, "pennyH", face="shocked", shake=0.4); act(s, rel(s, "make") - 0.05, "pressH", face="slam", shake=0.5); T(s, "hookc", at=0.05, dy=0.33, wf=0.6, hf=0.2)
 for s in shots: s.setdefault("frameY", 0.0)
 
@@ -319,7 +319,7 @@ spec = {
               "cyanspot": {"sun": {"azimuth": 10, "elevation": 42, "color": "#f0fffc", "intensity": 2.7}, "sky": {"top": "#103250", "horizon": "#1e96aa"}, "fill": {"sky": "#e8fffc", "ground": "#1e4a64", "intensity": 2.2}},
               "skyroad": {"sun": {"azimuth": 40, "elevation": 46, "color": "#fffbf0", "intensity": 2.3}, "sky": {"top": "#5aaafa", "horizon": "#dcf0ff"}, "fill": {"sky": "#f4faff", "ground": "#6a8a6a", "intensity": 1.4}},
               "phillydusk": {"sun": {"azimuth": 230, "elevation": 18, "color": "#ffc8a0", "intensity": 2.5}, "sky": {"top": "#6e4696", "horizon": "#ffa064"}, "fill": {"sky": "#fff0e8", "ground": "#6a4a4a", "intensity": 1.9}},
-              "velvet": {"sun": {"azimuth": 10, "elevation": 40, "color": "#fff0d0", "intensity": 2.7}, "sky": {"top": "#780e28", "horizon": "#d23c46"}, "fill": {"sky": "#fff0f0", "ground": "#5a1a2a", "intensity": 2.2}},
+              "velvet": {"sun": {"azimuth": 10, "elevation": 46, "color": "#fff4e0", "intensity": 3.1}, "sky": {"top": "#a01e3c", "horizon": "#f05a5a"}, "fill": {"sky": "#fff4f0", "ground": "#a05a64", "intensity": 2.7}},
               "heaven": {"sun": {"azimuth": 200, "elevation": 30, "color": "#fff4e0", "intensity": 2.4}, "sky": {"top": "#ffaad2", "horizon": "#ffe696"}, "fill": {"sky": "#fffaf4", "ground": "#d2aab4", "intensity": 1.6}}},
     "lighting": light, "ground": {"texture": TEX + "pave.jpg", "repeat": [175, 175], "size": 1400},
     "backdrop": {"image": "bg/sky.jpg", "blur": 4}, "ink": {"set": 4},

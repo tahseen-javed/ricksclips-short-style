@@ -308,7 +308,7 @@ if __name__ == '__main__':
     multi['penny']['default'] = penny('happy')
     for nm, faces in multi.items(): G.build_card(nm, faces); items += [(nm + ' ' + k, im) for k, im in faces.items()]
     PL, TL, CR = (110, 60, 160, 255), (30, 120, 130, 255), (170, 30, 60, 255)
-    cards = dict(hookc=M.bigneon('4¢ TO MAKE', 'ONE 1¢ !?', 960, YEL, MAG),
+    cards = dict(hookc=M.bigneon('4¢ TO MAKE', '1 CENT?!', 960, YEL, MAG),
                  every=stamp('EVERY SINGLE TIME!', 980, PL, 110, -3),
                  notonce=stamp('NOT ONCE!', 700, CR, 160, 4),
                  y2024=M.cal('U.S. MINT', '2024', TL),
@@ -331,7 +331,7 @@ if __name__ == '__main__':
     CE.tiles(T('steel.jpg'), (130, 110, 170), (116, 98, 154)); CE.tiles(T('marble.jpg'), (230, 226, 214), (214, 210, 198)); CE.tiles(T('plum.jpg'), (110, 50, 100), (96, 42, 88))
     M.sandtex(T('lawn.jpg'), (140, 210, 140), (124, 194, 124)); CE.tiles(T('ktile.jpg'), (250, 236, 200), (236, 220, 184)); B.tex_wood(T('wood.jpg'))
     M.sandtex(T('asphalt.jpg'), (90, 80, 110), (80, 70, 98), seed=3); CE.tiles(T('stage.jpg'), (30, 70, 100), (24, 60, 88)); M.sandtex(T('road.jpg'), (110, 110, 130), (98, 98, 116))
-    CE.tiles(T('brick.jpg'), (170, 100, 80), (150, 86, 68)); CE.tiles(T('pave.jpg'), (120, 90, 160), (106, 78, 144)); CE.tiles(T('carpet.jpg'), (130, 20, 50), (114, 16, 42)); M.sandtex(T('cloud.jpg'), (255, 240, 244), (250, 228, 236))
+    CE.tiles(T('brick.jpg'), (170, 100, 80), (150, 86, 68)); CE.tiles(T('pave.jpg'), (120, 90, 160), (106, 78, 144)); CE.tiles(T('carpet.jpg'), (220, 96, 110), (204, 82, 96)); M.sandtex(T('cloud.jpg'), (255, 240, 244), (250, 228, 236))
     G.sky(os.path.join(ROOT, 'bg', 'sky.jpg')); Pp = lambda n: os.path.join(ROOT, 'props', n)
     SETS = dict(presshall=presshall, mintsky=mintsky, vault=vault, pastel=pastel, kitchen=kitchen, living=living, parklot=parklot, cyanstage=cyanstage, highway=highway,
                 philly=philly, velvet=velvet, heaven=heaven)
