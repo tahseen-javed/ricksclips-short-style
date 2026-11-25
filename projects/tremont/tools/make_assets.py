@@ -27,7 +27,7 @@ LA.NEW.update({
 
 def hotel(mode='default'):                                   # the Tremont House: 6 storeys, cute face over the door, TREMONT HOUSE sign (wave: guests waving)
     d = Draw(1300, 1700); d.rect(130, 260, 1170, 1660, BRICK); d.rect(100, 200, 1200, 270, (150, 70, 60, 255)); d.stroke([(100, 200), (1200, 200)], LINE, 12)
-    d.rrect(300, 90, 1000, 210, 20, fill=CREAM, outline=LINE, width=10); d.text(650, 152, 'TREMONT HOUSE', 80, (120, 40, 40, 255))
+    d.rrect(260, 90, 1040, 210, 20, fill=CREAM, outline=LINE, width=10); d.text(650, 152, 'TREMONT HOUSE', 60, (120, 40, 40, 255))
     for j in range(6):
         for i in range(5):
             x, y = 210 + i * 200, 300 + j * 205; lit = (i + j) % 3 == 0; win(d, x, y, x + 110, y + 150, (255, 220, 140, 255) if lit else (150, 200, 240, 255))

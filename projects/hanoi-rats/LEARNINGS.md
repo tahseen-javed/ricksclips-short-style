@@ -165,3 +165,13 @@ frame width in close-ups, cute characters (big round heads, shiny eyes, blush).
 - A tall hero prop (3.2 m statue) cannot have a face macro: the frame check wants the whole prop. Use full-figure push-ins (dist >= 6.2) instead.
 - Phrases keep apostrophes ("That's why", "America's most famous#2"); hyphenated words are joined ("Reddishbrown", "Thirtytwo").
 - Real voices: marathon 52 s (188 words), liberty 56.6 s (215), teddy 62.4 s (238) at am_fenrir 1.28 + tempo 1.05.
+
+## Videos 26-28 (last penny, fortune-cookie lottery, Tremont House lifted) -> projects/penny, lottery, tremont (one chat, 2026-11-25)
+- Shared cast module tools/v26_assets.py (copy to each project): new hats (propeller, beanie, headset, bonnet, visor, bucket, backcap, earmuffs, derby, nightcap, bandana), new bodies (overalls, hoodie, waistcoat, baker, svest, hawaii, track, raincoat, frock, nightie, cravat, braces2), build_cast3(), coin().
+- Hair style 'bob' needs a 'band' colour (KeyError otherwise). Draw coords are supersampled: never call d.d.rectangle directly, use d.rrect(..., 2, outline=...). Never fill with (0,0,0,0) (it erases).
+- Template ground texture is textures/pave.jpg: every make_assets must write it, or render --stills fails with "file not found".
+- Voice is ~3.35 words/s (151 words = 45 s): plan shots at 4-5 words each, then ALWAYS re-cut on the real words (merge <0.7 s shots, split >2 s ones, last shot via a "#2" phrase).
+- A prop hidden with hide() stays hidden until show(): after any shot that hides a prop, show() it in the next shot that needs it (empty-frame bug in 2 of 3 videos).
+- Dark sets seen from a crane (velvet carpet, navy lantern street) trip TOO_DARK: use mid-tone floors and bright mood fills from the start.
+- Keep the hook subject above the caption line (y 70%): stand small heroes on a pedestal box.
+- git: never `rm projects/*/short.json` (deletes committed files of old projects); check `git log origin/master` after every push before starting a run.
