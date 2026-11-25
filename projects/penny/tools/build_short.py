@@ -126,41 +126,38 @@ HOOK = dict(anchor=(0.2, 1.2, -2.3), dist=6.4, yaw=4, pitch=6)
 # ---- It cost America almost four cents to make one cent. Every single time.
 s = S("0", "HK", zoom=7, **HOOK); act(s, 0.0, "pennyH", face="shocked", shake=0.4); act(s, 0.0, "pressH", face="slam", shake=0.5); act(s, 0.45, "pressH", face="default"); tag(s, 0.0, "hookc", 0.33, 0.0, wf=0.6, hf=0.2); snap(s, rel(s, "four"), 10)
 s = S("to make one", "HK", (0.62, 1.0, -2.6), 4.0, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="pressH", blur=0.5)); hide(s, 0.0, "pennyH"); act(s, rel(s, "one") - 0.1, "pressH", face="slam", shake=0.6)
-s = crane("Every single", "HK", (-3.3, 0.8, -2.5), 6.0, 22, 2, 36, 8); act(s, 0.1, "prowH", shake=0.4); ft(s, "mintwH", ["shocked", "happy"]); T(s, "every", at=0.1, dy=0.36)
+s = crane("Every single", "HK", (-3.3, 0.8, -2.5), 6.0, 22, 2, 36, 8); act(s, 0.1, "prowH", shake=0.4); ft(s, "mintwH", ["shocked", "happy"]); c_ = T(s, "every", at=0.1, dy=0.36); swap(s, c_, rel(s, "Not"), "notonce", dy=0.36, wf=0.5)
 # ---- Not once. For nineteen straight years, the penny cost more than it was worth.
-s = S("Not once", "SG", (0.0, 0.95, -2.4), 4.6, 10, pitch=5, zoom=12, dof=dict(focus="pennyS", blur=0.4)); act(s, 0.05, "pennyS", face="sad", shake=0.5); T(s, "notonce", dy=0.37, wf=0.5)
 s = S("For nineteen straight", "SG", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="NINETEEN STRAIGHT", items=["19 YEARS"]))
 s = S("the penny cost", "SG", (-3.4, 0.95, -2.6), 6.8, -14, pitch=6, yawTo=4, dof=dict(focus="scaleS", blur=0.4)); act(s, rel(s, "more"), "scaleS", face="tip", shake=0.5); snap(s, rel(s, "more"), 8)
 # ---- In 2024 alone, the U.S. Mint lost 85 million dollars making money. Literally making money.
 s = crane("In 2024 alone", "MT", (0.0, 1.2, -2.6), 9.0, -22, -2, 36, 8); T(s, "y2024", at=rel(s, "2024"), dy=0.28, wf=0.26, hf=0.26)
 s = S("Mint lost", "PG", (0.0, 0.85, -2.4), 5.6, 8, pitch=5, zoom=14, dof=dict(focus="piggyP", blur=0.4)); act(s, rel(s, "lost"), "piggyP", face="leak", shake=0.6); T(s, "lost85", at=rel(s, "85"), dy=0.37, wf=0.6); snap(s, rel(s, "85"), 8)
-s = S("making money", "PG", (3.4, 0.95, -2.4), 5.8, -10, pitch=14, pitchTo=3); act(s, 0.1, "printerP", shake=0.5)
-s = S("Literally making", "PG", (3.4, 1.25, -2.4), 3.8, 12, pitch=5, yawTo=-4, type="macro", dof=dict(focus="printerP", blur=0.5)); act(s, 0.05, "printerP", shake=0.6); T(s, "literally", at=0.05, dy=0.36, wf=0.6)
+s = S("making money", "PG", (3.4, 1.2, -2.4), 4.2, 12, pitch=5, yawTo=-4, type="macro", dof=dict(focus="printerP", blur=0.5)); act(s, 0.05, "printerP", shake=0.6); T(s, "literally", at=rel(s, "Literally"), dy=0.36, wf=0.6)
 # ---- And about 300 billion pennies are still out there. In jars. Under couch cushions. On parking lot floors.
 s = crane("And about 300", "TN", (0.0, 0.6, -2.6), 7.0, -22, -2, 40, 10); act(s, rel(s, "300"), "pileT", shake=0.5); T(s, "b300", at=rel(s, "300"), dy=0.34, wf=0.5)
 s = S("are still out", "TN", (2.4, 0.7, -2.0), 6.0, 10, pitch=14, zoom=4, pan=(8, 0)); hide(s, 0.0, "pileT")
 for k in range(3): act(s, 0.1 + 0.15 * k, "penT%d_" % k, shake=0.4)
 s = S("In jars", "JR", (0.0, 1.35, -2.2), 3.8, -14, pitch=6, yawTo=6, type="macro", dof=dict(focus="jarJ", blur=0.5)); act(s, 0.05, "jarJ", shake=0.4)
-s = S("Under couch cushions", "CU", (0.3, 0.85, -2.2), 6.0, 8, pitch=5, zoom=-10); act(s, rel(s, "cushions"), "couchC", face="lift", shake=0.5); ft(s, "kidC", ["happy", "shocked"])
+s = S("couch cushions", "CU", (0.3, 0.85, -2.2), 6.0, 8, pitch=5, zoom=-10); act(s, rel(s, "cushions"), "couchC", face="lift", shake=0.5); ft(s, "kidC", ["happy", "shocked"])
 s = S("On parking lot", "PK", (0.2, 0.55, -2.3), 4.6, -6, pitch=18, pitchTo=4, dof=dict(focus="pennyK", blur=0.4)); go(s, 0.1, "carK", pos("PK", 0.3, 0.04, -2.9), 1.2, walk=False); act(s, 0.3, "pennyK", face="shocked", shake=0.4)
 # ---- You see, one cent never changed. But the cost to make it, manage it and ship it kept climbing, to 3.69 cents a coin.
 s = S("You see one", "SG", (0.0, 1.0, -2.4), 5.0, 14, pitch=5, yawTo=-4); act(s, 0.05, "pennyS", face="default"); T(s, "onecent", at=rel(s, "one"), dy=0.37, wf=0.56)
-s = S("But the cost", "SG", (3.0, 1.0, -2.4), 5.0, 4, pitch=5, zoom=12, dof=dict(focus="thermoS", blur=0.4)); act(s, 0.0, "thermoS", face="t1"); act(s, rel(s, "cost"), "thermoS", face="t2", shake=0.4)
-s = S("to make it", "HK", (0.62, 1.0, -2.6), 4.2, 14, pitch=6, yawTo=-4, type="macro", dof=dict(focus="pressH", blur=0.5)); hide(s, 0.0, "pennyH"); act(s, 0.1, "pressH", face="slam", shake=0.5); T(s, "make", dy=0.38, wf=0.44)
-s = S("manage it", "PG", (-3.4, 0.85, -2.4), 4.8, -10, pitch=14, pitchTo=3, dof=dict(focus="ledgerP", blur=0.4)); act(s, 0.05, "ledgerP", shake=0.4); T(s, "manage", dy=0.37, wf=0.5)
+s = S("But the cost", "HK", (0.62, 1.0, -2.6), 4.2, 14, pitch=6, yawTo=-4, type="macro", dof=dict(focus="pressH", blur=0.5)); hide(s, 0.0, "pennyH"); act(s, rel(s, "make"), "pressH", face="slam", shake=0.5); c_ = T(s, "make", at=rel(s, "make"), dy=0.38, wf=0.44); swap(s, c_, rel(s, "manage"), "manage", dy=0.38, wf=0.5)
 s = S("ship it", "RD", (0.2, 0.75, -2.4), 5.6, 6, pitch=5, zoom=4, pan=(-8, 0)); act(s, 0.05, "vanR", shake=0.3); T(s, "ship", dy=0.37, wf=0.44)
-s = S("climbing to", "SG", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="KEPT CLIMBING", items=["3.69 CENTS A COIN"]))
+s = S("369", "SG", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="KEPT CLIMBING", items=["3.69 CENTS A COIN"]))
 # ---- So on November 12, 2025, in Philadelphia, America struck its last circulating penny.
 s = crane("So on November", "PH", (0.0, 1.3, -3.2), 9.0, 22, 2, 36, 8); T(s, "nov12", at=rel(s, "November"), dx=0.2, dy=0.12, wf=0.26, hf=0.26)
 s = S("in Philadelphia", "PH", (0.0, 1.4, -3.2), 6.6, -8, pitch=5, zoom=12, dof=dict(focus="hallH", blur=0.4)); T(s, "philly", dy=0.37, wf=0.6)
-s = S("struck its last", "HK", (0.3, 1.0, -2.4), 4.8, -6, pitch=6, zoom=14); hide(s, 0.0, "pennyH"); show(s, rel(s, "last"), "pennyG", pos("HK", -0.4, 0.04, -2.0)); act(s, 0.05, "pressH", face="slam", shake=0.6); T(s, "last", at=rel(s, "last"), dy=0.38, wf=0.5); snap(s, rel(s, "struck"), 10)
+s = S("struck its last", "HK", (0.3, 1.0, -2.4), 5.0, -6, pitch=6, zoom=10); hide(s, 0.0, "pennyH"); show(s, rel(s, "last"), "pennyG", pos("HK", -0.1, 0.04, -1.9)); act(s, 0.05, "pressH", face="slam", shake=0.6); T(s, "last", at=rel(s, "last"), dy=0.38, wf=0.5); snap(s, rel(s, "struck"), 10)
 # ---- Then something strange happened. The final pennies went to auction. 232 sets. They sold for 16.76 million dollars. One set alone went for 800,000 dollars.
 s = S("Then something", "AU", (-2.2, 1.6, -3.4), 4.8, 10, pitch=14, pitchTo=3, dof=dict(focus="qlotA", blur=0.4)); act(s, 0.1, "qlotA", shake=0.4); T(s, "strange", dy=0.37, wf=0.62); cfx(s, 0.3, "question", "qlotA", 0.8)
 s = crane("The final pennies", "AU", (-0.1, 1.0, -2.3), 7.0, -22, -2, 36, 8); ft(s, "auctA", ["happy", "shocked"])
 s = S("232 sets", "AU", (4.0, 0.6, -2.8), 5.4, 12, pitch=5, yawTo=-4, dof=dict(focus="casesA", blur=0.4)); T(s, "sets232", dy=0.37, wf=0.44)
 s = S("They sold for", "SG", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="THEY SOLD FOR", items=["$16.76 MILLION"]))
+s = S("million dollars#2", "AU", (4.0, 0.6, -2.8), 4.6, -14, pitch=6, yawTo=4, type="macro", dof=dict(focus="casesA", blur=0.5)); act(s, 0.05, "casesA", shake=0.4)
 s = S("One set alone", "AU", (-4.2, 0.6, -2.2), 5.2, 14, pitch=6, yawTo=-4); act(s, 0.1, "crowdA", shake=0.5); act(s, 0.6, "crowdA", shake=0.5)
-s = S("went for 800000", "AU", (-0.2, 1.0, -2.2), 5.4, -6, pitch=5, zoom=14, dof=dict(focus="auctA", blur=0.4)); hide(s, 0.0, "podiumA"); hide(s, 0.0, "qlotA"); ft(s, "auctA", ["shocked", "happy"]); act(s, 0.1, "auctA", pose=dict(armR=-150)); T(s, "k800", at=rel(s, "800000"), dy=0.38, wf=0.56); snap(s, rel(s, "800000"), 10)
+s = S("for 800000", "AU", (-0.2, 1.0, -2.2), 5.4, -6, pitch=5, zoom=14, dof=dict(focus="auctA", blur=0.4)); hide(s, 0.0, "podiumA"); hide(s, 0.0, "qlotA"); ft(s, "auctA", ["shocked", "happy"]); act(s, 0.1, "auctA", pose=dict(armR=-150)); T(s, "k800", at=rel(s, "800000"), dy=0.38, wf=0.56); snap(s, rel(s, "800000"), 10)
 # ---- The coin that lost money for almost twenty years finally made a fortune the day it died.
 s = S("The coin that", "PG", (0.0, 0.85, -2.4), 5.2, -14, pitch=6, yawTo=4, dof=dict(focus="piggyP", blur=0.4)); act(s, 0.05, "piggyP", face="leak", shake=0.4)
 s = S("for almost twenty", "SG", (3.0, 1.0, -2.4), 5.4, 8, pitch=5, zoom=-10); act(s, 0.0, "thermoS", face="t4", shake=0.5); T(s, "twenty", at=rel(s, "twenty"), dy=0.37, wf=0.5)
@@ -168,7 +165,7 @@ s = crane("finally made a", "HV", (-0.1, 1.0, -2.2), 6.6, 22, 2, 36, 8); act(s, 
 s = S("the day it", "HV", (2.4, 1.2, -2.2), 4.6, -10, pitch=5, zoom=10, dof=dict(focus="pennyA", blur=0.4)); go(s, 0.05, "pennyA", pos("HV", 2.4, 0.75, -2.2), 0.9, walk=False); T(s, "bye", at=rel(s, "died") - 0.1, dy=0.38, wf=0.5)
 # ---- All because it cost America almost four cents to make one cent.
 s = crane("All because it", "HK", (0.2, 1.2, -2.3), 7.6, -22, -2, 36, 8); show(s, 0.0, "pennyH", pos("HK", -0.4, 0.04, -2.0), hop=0); act(s, 0.1, "pennyH", face="default")
-s = S("almost four#2", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); act(s, 0.05, "pennyH", face="shocked", shake=0.4); act(s, rel(s, "make") - 0.05, "pressH", face="slam", shake=0.5); T(s, "hookc", at=0.05, dy=0.33, wf=0.6, hf=0.2)
+s = S("four cents#2", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); act(s, 0.05, "pennyH", face="shocked", shake=0.4); act(s, rel(s, "make") - 0.05, "pressH", face="slam", shake=0.5); T(s, "hookc", at=0.05, dy=0.33, wf=0.6, hf=0.2)
 for s in shots: s.setdefault("frameY", 0.0)
 
 starts = [0.0 if s["start"] == 0 else say(s["_phrase"]) for s in shots]
@@ -333,7 +330,7 @@ spec = {
 # ---- music + effects synthesised to the word timings: full energy from frame 1
 CUE = dict(yousee="You see one", nov="So on November", strange="Then something", coin="The coin that", fortune="finally made a",
            four="four cents", one="to make one", every="Every single", notonce="Not once", nineteen="nineteen", more="more than", y2024="2024", lost="Mint lost", b85="85",
-           lit="Literally", b300="300", jars="In jars", cush="cushions", park="parking", cost="But the cost", make="to make it", manage="manage it", ship="ship it", climb="climbing",
+           lit="Literally", b300="300", jars="In jars", cush="cushions", park="parking", cost="But the cost", make="make it", manage="manage it", ship="ship it", climb="369",
            philly="Philadelphia", struck="struck", auction="auction", sets="232", sold="They sold", k800="800000", twenty="twenty", died="died", allb="All because")
 CUE.update({"s%02d" % k: x["_phrase"] for k, x in enumerate(shots) if x["_phrase"] != "0"})
 cues = {k: say(v) for k, v in CUE.items()}; cues["end"] = DURATION

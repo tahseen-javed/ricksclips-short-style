@@ -331,7 +331,7 @@ if __name__ == '__main__':
     CE.tiles(T('steel.jpg'), (130, 110, 170), (116, 98, 154)); CE.tiles(T('marble.jpg'), (230, 226, 214), (214, 210, 198)); CE.tiles(T('plum.jpg'), (110, 50, 100), (96, 42, 88))
     M.sandtex(T('lawn.jpg'), (140, 210, 140), (124, 194, 124)); CE.tiles(T('ktile.jpg'), (250, 236, 200), (236, 220, 184)); B.tex_wood(T('wood.jpg'))
     M.sandtex(T('asphalt.jpg'), (90, 80, 110), (80, 70, 98), seed=3); CE.tiles(T('stage.jpg'), (30, 70, 100), (24, 60, 88)); M.sandtex(T('road.jpg'), (110, 110, 130), (98, 98, 116))
-    CE.tiles(T('brick.jpg'), (170, 100, 80), (150, 86, 68)); CE.tiles(T('carpet.jpg'), (130, 20, 50), (114, 16, 42)); M.sandtex(T('cloud.jpg'), (255, 240, 244), (250, 228, 236))
+    CE.tiles(T('brick.jpg'), (170, 100, 80), (150, 86, 68)); CE.tiles(T('pave.jpg'), (120, 90, 160), (106, 78, 144)); CE.tiles(T('carpet.jpg'), (130, 20, 50), (114, 16, 42)); M.sandtex(T('cloud.jpg'), (255, 240, 244), (250, 228, 236))
     G.sky(os.path.join(ROOT, 'bg', 'sky.jpg')); Pp = lambda n: os.path.join(ROOT, 'props', n)
     SETS = dict(presshall=presshall, mintsky=mintsky, vault=vault, pastel=pastel, kitchen=kitchen, living=living, parklot=parklot, cyanstage=cyanstage, highway=highway,
                 philly=philly, velvet=velvet, heaven=heaven)
