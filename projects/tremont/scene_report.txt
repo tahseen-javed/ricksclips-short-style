@@ -1,0 +1,67 @@
+music: 61.1 s, Victorian music-hall stride 132 + crew jig 136/140 + swamp drone 112 + steam-train shuffle 128
+   autofit S02 distance 4.6 -> 5.2
+   autofit S07 distance 4.4 -> 4.9
+   autofit S08 distance 8.6 -> 9.1
+   autofit S12 distance 5.0 -> 5.3
+   autofit S13 distance 4.4 -> 5.9
+   autofit S25 distance 5.4 -> 5.7
+   autofit S29 distance 5.0 -> 6.0
+   autofit S33 distance 7.0 -> 9.9
+   autofit S40 distance 4.4 -> 4.7
+   autofit S42 distance 6.0 -> 6.4
+shot  start   dur  phrase
+S00    0.00  1.66  0                          d 6.8  snap
+S01    1.66  0.50  into the air               d 6.6
+   ! very short shot
+S02    2.16  1.56  while its guests           d 5.2
+S03    3.72  1.52  Chicago 1861               d 7.8
+S04    5.24  0.94  The Tremont House          d 6.0
+S05    6.18  1.10  Inch by inch               d 4.4
+S06    7.28  1.16  the whole hotel            d 6.2
+S07    8.44  1.04  Guests keep sleeping       d 4.9
+S08    9.48  1.30  eating checking            d 9.1
+S09   10.78  1.30  senator is staying         d 4.8
+S10   12.08  1.55  One guest notices          d 6.2
+S11   13.63  0.84  getting steeper            d 3.8  snap
+S12   14.47  1.10  Then the windows           d 5.3
+S13   15.57  1.04  past eye level             d 5.9
+S14   16.61  1.42  A year earlier             d 8.6
+S15   18.03  0.90  half a city                d 8.0
+S16   18.93  1.68  320 feet                   d 8.2
+S17   20.61  0.92  600 men                    d 6.4
+S18   21.53  1.26  6000 jackscrews            d 6.6
+S19   22.79  0.62  On a signal                d 4.4
+   ! very short shot
+S20   23.41  1.34  every man turns            d 5.6
+S21   24.75  0.64  one notch                  d 4.2  snap
+   ! very short shot
+S22   25.39  1.72  Stores stay open           d 5.6
+S23   27.11  1.30  You see Chicago            d 7.4
+S24   28.41  0.64  on a swamp                 d 6.2
+   ! very short shot
+S25   29.05  1.44  barely above Lake          d 5.7
+S26   30.49  1.46  In 1854                    d 6.0
+S27   31.95  1.56  killed about one           d 6.0
+S28   33.51  1.60  So the city                d 7.0
+S29   35.11  1.78  Lay new sewer              d 6.0
+S30   36.89  1.20  bury them under            d 5.6
+S31   38.09  1.50  and lift downtown          d 6.2  snap
+S32   39.59  2.47  Some buildings went        d 8.4
+S33   42.06  1.88  The young man              d 9.9
+S34   43.94  1.00  was George Pullman         d 4.6
+S35   44.94  1.40  His crews raised           d 7.0
+S36   46.34  0.96  and a whole                d 8.0
+S37   47.30  1.96  without breaking a         d 4.2  snap
+S38   49.26  1.22  Then he took               d 5.2
+S39   50.48  1.02  moving heavy buildings     d 6.6
+S40   51.50  1.00  full of sleeping           d 4.7
+S41   52.50  1.12  and put it                 d 7.4  snap
+S42   53.62  1.20  The Pullman sleeping       d 6.4
+S43   54.82  1.20  A hotel that               d 6.4
+S44   56.02  0.60  All from a                 d 4.8
+   ! very short shot
+S45   56.62  1.32  who made a                 d 8.0
+S46   57.94  2.72  rise six                   d 6.0
+snaps 6, comic fx 0
+frame check: 0 CUT flags
+wrote short.json: 47 shots, 46 characters, 29 props, voice 60.66 s
