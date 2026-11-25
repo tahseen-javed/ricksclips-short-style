@@ -1,58 +1,48 @@
 music: 45.5 s, coin hip-hop 112/120/124 + baroque auction harpsichord 132 + heavenly choir pads 104/96
    autofit S00 distance 6.4 -> 7.2
    autofit S01 distance 4.0 -> 4.2
-   autofit S02 distance 6.0 -> 7.6
-   autofit S09 distance 3.8 -> 4.8
-   autofit S14 distance 4.6 -> 6.2
-   autofit S22 distance 6.6 -> 7.9
-   autofit S23 distance 4.8 -> 6.8
-   autofit S25 distance 7.0 -> 7.9
-   autofit S29 distance 5.4 -> 6.8
+   autofit S02 distance 6.0 -> 7.1
+   autofit S07 distance 4.2 -> 5.0
+   autofit S12 distance 4.6 -> 6.2
+   autofit S18 distance 6.6 -> 7.9
+   autofit S19 distance 5.0 -> 6.0
+   autofit S21 distance 7.0 -> 7.9
+   autofit S24 distance 4.6 -> 4.9
+   autofit S26 distance 5.4 -> 6.8
 shot  start   dur  phrase
 S00    0.00  1.66  0                          d 7.2  snap
 S01    1.66  0.94  to make one                d 4.2
-S02    2.60  1.02  Every single               d 7.6
-S03    3.62  0.46  Not once                   d 4.6
-   ! very short shot
-S04    4.08  1.18  For nineteen straight      d 6.6
-S05    5.26  1.56  the penny cost             d 6.8  snap
-S06    6.82  1.70  In 2024 alone              d 9.0
-S07    8.52  1.84  Mint lost                  d 5.6  snap
-S08   10.36  0.65  making money               d 5.8
-   ! very short shot
-S09   11.01  1.08  Literally making           d 4.8
-S10   12.09  1.66  And about 300              d 7.0
-S11   13.75  0.90  are still out              d 6.0
-S12   14.65  0.56  In jars                    d 3.8
-   ! very short shot
-S13   15.21  0.96  Under couch cushions       d 6.0
-S14   16.17  1.26  On parking lot             d 6.2
-S15   17.43  1.62  You see one                d 5.0
-S16   19.05  0.50  But the cost               d 5.0
-   ! very short shot
-S17   19.55  0.48  to make it                 d 4.2
-   ! very short shot
-S18   20.03  0.60  manage it                  d 4.8
-   ! very short shot
-S19   20.63  0.54  ship it                    d 5.6
-   ! very short shot
-S20   21.17  2.28  climbing to                d 6.6
-S21   23.45  1.92  So on November             d 9.0
-S22   25.37  1.32  in Philadelphia            d 7.9
-S23   26.69  1.78  struck its last            d 6.8  snap
-S24   28.47  1.40  Then something             d 4.8
-S25   29.87  1.58  The final pennies          d 7.9
-S26   31.45  1.33  232 sets                   d 5.4
-S27   32.78  2.80  They sold for              d 6.6
-S28   35.58  0.70  One set alone              d 5.2
-S29   36.28  1.72  went for 800000            d 6.8  snap
-S30   38.00  1.02  The coin that              d 5.2
-S31   39.02  1.12  for almost twenty          d 5.4
-S32   40.14  0.96  finally made a             d 6.6  snap
-S33   41.10  0.82  the day it                 d 4.6
-S34   41.92  1.18  All because it             d 7.6
-S35   43.10  2.04  almost four#2              d 5.8
+S02    2.60  1.48  Every single               d 7.1
+S03    4.08  1.18  For nineteen straight      d 6.6
+S04    5.26  1.56  the penny cost             d 6.8  snap
+S05    6.82  1.70  In 2024 alone              d 9.0
+S06    8.52  1.84  Mint lost                  d 5.6  snap
+S07   10.36  1.73  making money               d 5.0
+S08   12.09  1.66  And about 300              d 7.0
+S09   13.75  0.90  are still out              d 6.0
+S10   14.65  0.74  In jars                    d 3.8
+S11   15.39  0.78  couch cushions             d 6.0
+S12   16.17  1.26  On parking lot             d 6.2
+S13   17.43  1.62  You see one                d 5.0
+S14   19.05  1.58  But the cost               d 4.2
+S15   20.63  1.00  ship it                    d 5.6
+S16   21.63  1.82  369                        d 6.6
+S17   23.45  1.92  So on November             d 9.0
+S18   25.37  1.32  in Philadelphia            d 7.9
+S19   26.69  1.78  struck its last            d 6.0  snap
+S20   28.47  1.40  Then something             d 4.8
+S21   29.87  1.58  The final pennies          d 7.9
+S22   31.45  1.33  232 sets                   d 5.4
+S23   32.78  1.94  They sold for              d 6.6
+S24   34.72  0.86  million dollars#2          d 4.9
+S25   35.58  0.86  One set alone              d 5.2
+S26   36.44  1.56  for 800000                 d 6.8  snap
+S27   38.00  1.02  The coin that              d 5.2
+S28   39.02  1.12  for almost twenty          d 5.4
+S29   40.14  0.96  finally made a             d 6.6  snap
+S30   41.10  0.82  the day it                 d 4.6
+S31   41.92  1.50  All because it             d 7.6
+S32   43.42  1.72  four cents#2               d 5.9
 snaps 6, comic fx 1
-   CUT S23 t=1.73 pennyG     x 0.01..0.33 y 0.56..0.79
-frame check: 1 CUT flags
-wrote short.json: 36 shots, 54 characters, 44 props, voice 45.14 s
+frame check: 0 CUT flags
+wrote short.json: 33 shots, 54 characters, 44 props, voice 45.14 s
