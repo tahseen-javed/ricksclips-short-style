@@ -169,18 +169,18 @@
   "lantern": {
    "sun": {
     "azimuth": 220,
-    "elevation": 30,
-    "color": "#ffe0d0",
-    "intensity": 2.7
+    "elevation": 36,
+    "color": "#ffe8d8",
+    "intensity": 3.0
    },
    "sky": {
-    "top": "#141846",
-    "horizon": "#3c3278"
+    "top": "#28286e",
+    "horizon": "#965aaa"
    },
    "fill": {
-    "sky": "#fff0f0",
-    "ground": "#3a2a4a",
-    "intensity": 2.3
+    "sky": "#fff4f0",
+    "ground": "#6a5a7a",
+    "intensity": 2.7
    }
   },
   "jackpot": {
@@ -688,10 +688,10 @@
    "puppet": "puppets/hookc",
    "pos": [
     0.071,
-    2.086,
+    2.116,
     -1.901
    ],
-   "height": 0.77,
+   "height": 0.796,
    "face": "default"
   },
   {
@@ -702,7 +702,7 @@
     -60,
     0
    ],
-   "height": 0.567,
+   "height": 0.655,
    "face": "default"
   },
   {
@@ -790,7 +790,7 @@
     -60,
     0
    ],
-   "height": 0.672,
+   "height": 0.654,
    "face": "default"
   },
   {
@@ -878,7 +878,7 @@
     -60,
     0
    ],
-   "height": 0.778,
+   "height": 0.766,
    "face": "default"
   }
  ],
@@ -1359,12 +1359,12 @@
     1.2,
     -2.2
    ],
-   "distance": 7.861,
+   "distance": 7.416,
    "yaw": 4,
    "pitch": 6,
    "zoom": 7,
    "pan": [
-    39.8,
+    0,
     0
    ],
    "actions": [
@@ -1411,6 +1411,11 @@
      "face": "happy"
     },
     {
+     "at": 1.1,
+     "who": "w1H",
+     "face": "shocked"
+    },
+    {
      "at": 0.0,
      "who": "w2H",
      "face": "shocked"
@@ -1419,6 +1424,11 @@
      "at": 0.55,
      "who": "w2H",
      "face": "happy"
+    },
+    {
+     "at": 1.1,
+     "who": "w2H",
+     "face": "shocked"
     },
     {
      "at": 0.0,
@@ -1431,7 +1441,12 @@
      "face": "happy"
     },
     {
-     "at": 0.94,
+     "at": 1.1,
+     "who": "w3H",
+     "face": "shocked"
+    },
+    {
+     "at": 1.56,
      "who": "hookc_1",
      "to": [
       0,
@@ -1446,7 +1461,7 @@
      "who": "hookc_1",
      "to": [
       0.071,
-      2.086,
+      2.116,
       -1.901
      ],
      "over": 0.02,
@@ -1454,8 +1469,8 @@
      "hop": 0
     }
    ],
-   "out": "glide",
-   "outDur": 0.5,
+   "out": "dissolve",
+   "outDur": 0.4,
    "glide": "dolly",
    "frameY": 0.0,
    "snap": {
@@ -1463,47 +1478,6 @@
     "zoom": 10,
     "dur": 0.28
    },
-   "atmos": {
-    "bokeh": {
-     "count": 12,
-     "size": 1.0,
-     "alpha": 0.5
-    }
-   }
-  },
-  {
-   "start": 0.98,
-   "anchor": [
-    3.1,
-    1.0,
-    -3.4
-   ],
-   "distance": 5.0,
-   "yaw": -12,
-   "pitch": 6,
-   "zoom": 8,
-   "pan": [
-    62.9,
-    0
-   ],
-   "actions": [
-    {
-     "at": 0.05,
-     "who": "bmachH",
-     "face": "spin",
-     "shake": 0.5
-    }
-   ],
-   "out": "dissolve",
-   "outDur": 0.4,
-   "glide": "dolly",
-   "yawTo": 6,
-   "type": "macro",
-   "dof": {
-    "focus": "bmachH",
-    "blur": 0.5
-   },
-   "frameY": 0.0,
    "atmos": {
     "bokeh": {
      "count": 12,
@@ -1558,11 +1532,11 @@
   {
    "start": 3.06,
    "anchor": [
-    630.0,
-    1.3,
-    -2.6
+    626.0,
+    1.5,
+    -3.2
    ],
-   "distance": 6.4,
+   "distance": 7.4,
    "yaw": -6,
    "pitch": 5,
    "zoom": 10,
@@ -1572,15 +1546,9 @@
    ],
    "actions": [
     {
-     "at": 0.0,
+     "at": 0.1,
      "who": "hqS",
-     "to": [
-      0,
-      -60,
-      0
-     ],
-     "over": 0.02,
-     "walk": false
+     "shake": 0.3
     },
     {
      "at": 0.76,
@@ -1597,9 +1565,9 @@
      "at": 0.44,
      "who": "night_2",
      "to": [
-      629.969,
-      2.016,
-      -2.302
+      625.969,
+      2.329,
+      -2.902
      ],
      "over": 0.02,
      "walk": false,
@@ -1625,12 +1593,12 @@
     1.3,
     -2.9
    ],
-   "distance": 8.056,
+   "distance": 7.6,
    "yaw": 22,
    "pitch": 36,
    "zoom": 8,
    "pan": [
-    0,
+    43.3,
     0
    ],
    "actions": [
@@ -1644,11 +1612,6 @@
      ],
      "over": 0.02,
      "walk": false
-    },
-    {
-     "at": 0.9,
-     "who": "boardC",
-     "shake": 0.4
     }
    ],
    "out": "glide",
@@ -1656,6 +1619,49 @@
    "glide": "dolly",
    "yawTo": 2,
    "pitchTo": 8,
+   "frameY": 0.0,
+   "atmos": {
+    "dust": {
+     "count": 24,
+     "size": 1.0,
+     "drift": 1.0
+    },
+    "rays": {
+     "angle": 24,
+     "intensity": 0.6
+    }
+   }
+  },
+  {
+   "start": 4.76,
+   "anchor": [
+    70.0,
+    1.3,
+    -2.9
+   ],
+   "distance": 7.42,
+   "yaw": -12,
+   "pitch": 6,
+   "zoom": 8,
+   "pan": [
+    0,
+    0
+   ],
+   "actions": [
+    {
+     "at": 0.05,
+     "who": "boardC",
+     "shake": 0.5
+    }
+   ],
+   "out": "glide",
+   "outDur": 0.5,
+   "glide": "dolly",
+   "yawTo": 4,
+   "dof": {
+    "focus": "boardC",
+    "blur": 0.4
+   },
    "frameY": 0.0,
    "atmos": {
     "dust": {
@@ -1685,6 +1691,18 @@
     0
    ],
    "actions": [
+    {
+     "at": 0.0,
+     "who": "offlC",
+     "to": [
+      72.4,
+      0.04,
+      -2.4
+     ],
+     "over": 0.02,
+     "walk": false,
+     "hop": 0
+    },
     {
      "at": 0.1,
      "who": "offlC",
@@ -2566,12 +2584,12 @@
     0.9,
     -2.3
    ],
-   "distance": 7.827,
+   "distance": 7.384,
    "yaw": 8,
    "pitch": 5,
    "zoom": -10,
    "pan": [
-    59.1,
+    0,
     0
    ],
    "actions": [
@@ -2581,7 +2599,12 @@
      "face": "smug"
     },
     {
-     "at": 0.62,
+     "at": 0.55,
+     "who": "bakerL",
+     "face": "happy"
+    },
+    {
+     "at": 1.28,
      "who": "years_10",
      "to": [
       0,
@@ -2596,7 +2619,7 @@
      "who": "years_10",
      "to": [
       559.542,
-      2.027,
+      1.996,
       -2.003
      ],
      "over": 0.02,
@@ -2617,7 +2640,7 @@
    }
   },
   {
-   "start": 32.01,
+   "start": 32.67,
    "anchor": [
     563.4,
     1.1,
@@ -3524,18 +3547,18 @@
    }
   },
   {
-   "start": 50.79,
+   "start": 51.43,
    "anchor": [
     0.05,
     1.2,
     -2.2
    ],
-   "distance": 6.221,
+   "distance": 6.317,
    "yaw": 4,
    "pitch": 6,
    "zoom": -2,
    "pan": [
-    15.6,
+    21.0,
     0
    ],
    "actions": [
@@ -3571,7 +3594,7 @@
      "who": "hookc_18",
      "to": [
       0.071,
-      2.094,
+      2.081,
       -1.901
      ],
      "over": 0.02,
