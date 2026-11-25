@@ -1,0 +1,63 @@
+music: 53.7 s, lucky dembow pop 118/124/128 + investigation drumroll 120 + factory bossa nova 132
+   autofit S00 distance 6.6 -> 7.9
+   autofit S04 distance 7.6 -> 8.1
+   autofit S08 distance 5.4 -> 6.4
+   autofit S09 distance 5.0 -> 6.0
+   autofit S11 distance 5.6 -> 5.9
+   autofit S13 distance 5.4 -> 6.1
+   autofit S15 distance 7.0 -> 7.4
+   autofit S16 distance 6.4 -> 8.1
+   autofit S21 distance 7.4 -> 8.3
+   autofit S22 distance 6.0 -> 8.5
+   autofit S23 distance 6.2 -> 7.8
+   autofit S29 distance 5.2 -> 5.8
+   autofit S30 distance 5.0 -> 5.6
+   autofit S36 distance 5.4 -> 5.7
+   autofit S38 distance 6.2 -> 7.0
+shot  start   dur  phrase
+S00    0.00  0.98  0                          d 7.9  snap
+S01    0.98  0.62  won the lottery            d 5.0
+   ! very short shot
+S02    1.60  1.46  with the exact             d 5.6
+S03    3.06  0.80  On the same                d 6.4
+S04    3.86  2.58  Powerball expected         d 8.1
+S05    6.44  0.90  That's just math           d 4.8
+S06    7.34  1.36  Instead 110 tickets        d 6.6
+S07    8.70  1.40  matched the first          d 5.4
+S08   10.10  1.60  Each one won               d 6.4
+S09   11.70  1.56  and 500000                 d 6.0  snap
+S10   13.26  1.50  Almost 19 million          d 6.6
+S11   14.76  1.20  nobody had budgeted        d 5.9
+S12   15.96  1.80  So officials did           d 8.6
+S13   17.76  1.20  They suspected a           d 6.1  snap
+S14   18.96  0.98  Or a computer              d 3.8
+S15   19.94  1.64  Then lottery officials     d 7.4
+S16   21.58  1.21  and Idaho traced           d 8.1
+S17   22.79  1.10  back to one                d 6.8
+S18   23.89  1.48  You see every              d 5.6
+S19   25.37  1.48  cracked open a             d 3.6  snap
+S20   26.85  1.66  The cookies came           d 8.8
+S21   28.51  1.42  a factory in               d 8.3
+S22   29.93  1.42  that bakes 4               d 8.5  snap
+S23   31.35  0.66  Years earlier it           d 7.8
+   ! very short shot
+S24   32.01  1.76  started printing lottery   d 4.6
+S25   33.77  0.82  just to stand              d 4.4
+S26   34.59  0.88  The numbers Drawn          d 4.4
+S27   35.47  1.10  at random from             d 3.8
+S28   36.57  0.86  That night the             d 6.8
+S29   37.43  1.52  22                         d 5.8
+S30   38.95  1.52  33                         d 5.6
+S31   40.47  1.38  The jackpot needed         d 5.6  snap
+S32   41.85  0.94  And here's the             d 7.0
+S33   42.79  0.72  A perfect cookie           d 4.0
+S34   43.51  1.46  would have meant           d 5.2
+S35   44.97  1.04  splitting one jackpot      d 4.8
+S36   46.01  1.14  The cookie's one           d 5.7  snap
+S37   47.15  0.88  made the lottery           d 5.0
+S38   48.03  1.52  every single one           d 7.0
+S39   49.55  1.24  Because 110                d 7.8
+S40   50.79  2.50  won the lottery#2          d 6.2
+snaps 7, comic fx 1
+frame check: 0 CUT flags
+wrote short.json: 41 shots, 47 characters, 31 props, voice 53.29 s
