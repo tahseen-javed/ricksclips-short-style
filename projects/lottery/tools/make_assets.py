@@ -274,8 +274,8 @@ def line(path):                                              # cookie line inter
 
 
 def lanterns(path):                                          # navy lantern street: red lanterns, moon, rooftops
-    im = sky((20, 24, 70), (60, 50, 120), 1.0); d = Draw(W2, H2); stars(d, 60, 500, 11); d.dot(1900, 200, 90, (255, 246, 210, 255))
-    for k, x in enumerate(range(0, W2, 260)): h_ = 340 + (k % 3) * 70; d.rect(x, 940 - h_, x + 240, 940, (50, 40, 80, 255)); d.poly([(x - 20, 940 - h_), (x + 120, 880 - h_), (x + 260, 940 - h_)], fill=(140, 30, 50, 255))
+    im = sky((40, 40, 110), (150, 90, 170), 1.0); d = Draw(W2, H2); stars(d, 60, 500, 11); d.dot(1900, 200, 90, (255, 246, 210, 255))
+    for k, x in enumerate(range(0, W2, 260)): h_ = 340 + (k % 3) * 70; d.rect(x, 940 - h_, x + 240, 940, (120, 80, 150, 255)); d.poly([(x - 20, 940 - h_), (x + 120, 880 - h_), (x + 260, 940 - h_)], fill=(210, 60, 80, 255)); [win(d, x + 40 + j * 100, 960 - h_ + 40, x + 100 + j * 100, 960 - h_ + 120, (255, 220, 140, 255)) for j in range(2)]
     d.stroke([(0, 260), (W2, 300)], LINE, 5)
     for x in range(120, W2, 220): y = 260 + 40 * x / W2 + 50; d.ellipse(x, y + 60, 50, 64, fill=CRIM, outline=LINE, width=8); d.rect(x - 30, y - 4, x + 30, y + 8, GOLD)
     fl(d, (40, 30, 60, 255)); im.alpha_composite(d.out()); [glow(im, x, 360, 90, (255, 120, 90, 110), 30) for x in range(120, W2, 220)]; glow(im, 1900, 200, 200, (255, 240, 200, 90), 60); im.convert('RGB').save(path)
@@ -319,7 +319,7 @@ if __name__ == '__main__':
     T = lambda n: os.path.join(ROOT, 'textures', n)
     CE.tiles(T('ledfloor.jpg'), (90, 30, 120), (76, 24, 104)); B.tex_wood(T('wood.jpg')); CE.tiles(T('roof.jpg'), (200, 180, 170), (186, 166, 156)); CE.tiles(T('carpet.jpg'), (120, 110, 80), (106, 96, 70))
     CE.tiles(T('lino.jpg'), (50, 90, 100), (42, 78, 88)); CE.tiles(T('navy.jpg'), (30, 40, 90), (24, 34, 78)); M.sandtex(T('table.jpg'), (190, 120, 60), (174, 106, 52)); CE.tiles(T('pave.jpg'), (140, 110, 100), (126, 98, 88))
-    CE.tiles(T('steel.jpg'), (150, 150, 166), (136, 136, 150)); CE.tiles(T('cobble.jpg'), (60, 50, 80), (52, 44, 70)); CE.tiles(T('plaza.jpg'), (200, 120, 90), (184, 106, 78))
+    CE.tiles(T('steel.jpg'), (150, 150, 166), (136, 136, 150)); CE.tiles(T('cobble.jpg'), (130, 100, 150), (116, 88, 136)); CE.tiles(T('plaza.jpg'), (200, 120, 90), (184, 106, 78))
     G.sky(os.path.join(ROOT, 'bg', 'sky.jpg')); Pp = lambda n: os.path.join(ROOT, 'props', n)
     SETS = dict(studio=studio, classroom=classroom, rooftop=rooftop, office=office, invest=invest, maproom=maproom, bakery=bakery, queens=queens, line=line, lanterns=lanterns, plaza=plaza)
     for n, f in SETS.items(): f(Pp(n + '.png')); items.append((n, Image.open(Pp(n + '.png'))))

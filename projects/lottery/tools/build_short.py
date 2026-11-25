@@ -124,12 +124,12 @@ HOOK = dict(anchor=(0.05, 1.2, -2.2), dist=6.6, yaw=4, pitch=6)
 s = S("0", "HK", zoom=7, **HOOK)
 for k, w_ in enumerate(("w1H", "w2H", "w3H")): act(s, 0.0, w_, face="shocked", pose=dict(armR=-150), shake=0.3); ft(s, w_, ["shocked", "happy"])
 tag(s, 0.0, "hookc", 0.33, 0.0, wf=0.6, hf=0.2); act(s, 0.2, "qball_H", shake=0.3); snap(s, rel(s, "same"), 10)
-s = S("won the lottery", "HK", (3.1, 1.0, -3.4), 5.0, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="bmachH", blur=0.5)); act(s, 0.05, "bmachH", face="spin", shake=0.5)
 s = S("with the exact", "RF", (-4.0, 0.9, -3.0), 5.6, 14, pitch=16, pitchTo=4, dof=dict(focus="tixR", blur=0.4)); act(s, 0.1, "tixR", shake=0.3)
-s = S("On the same", "LS", (0.0, 1.3, -2.6), 6.4, -6, pitch=5, zoom=10); hide(s, 0.0, "hqS"); T(s, "night", at=rel(s, "night"), dy=0.3, wf=0.5)
+s = S("On the same", "LS", (-4.0, 1.5, -3.2), 7.4, -6, pitch=5, zoom=10); act(s, 0.1, "hqS", shake=0.3); T(s, "night", at=rel(s, "night"), dy=0.3, wf=0.5)
 # ---- Powerball expected four or five second-prize winners. That's just math. Instead, 110 tickets matched the first five numbers.
-s = crane("Powerball expected", "CB", (0.0, 1.3, -2.9), 7.6, 22, 2, 36, 8); hide(s, 0.0, "offlC"); act(s, rel(s, "four"), "boardC", shake=0.4)
-s = S("That's just math", "CB", (2.4, 1.0, -2.4), 4.8, -10, pitch=5, zoom=12, dof=dict(focus="offlC", blur=0.4)); ft(s, "offlC", ["happy", "smug"]); act(s, 0.1, "offlC", pose=dict(armR=-150)); T(s, "math", dy=0.38, wf=0.6)
+s = crane("Powerball expected", "CB", (0.0, 1.3, -2.9), 7.6, 22, 2, 36, 8); hide(s, 0.0, "offlC")
+s = S("four or five", "CB", (0.0, 1.3, -2.9), 7.0, -12, pitch=6, yawTo=4, dof=dict(focus="boardC", blur=0.4)); act(s, 0.05, "boardC", shake=0.5)
+s = S("That's just math", "CB", (2.4, 1.0, -2.4), 4.8, -10, pitch=5, zoom=12, dof=dict(focus="offlC", blur=0.4)); show(s, 0.0, "offlC", pos("CB", 2.4, 0.04, -2.4), hop=0); ft(s, "offlC", ["happy", "smug"]); act(s, 0.1, "offlC", pose=dict(armR=-150)); T(s, "math", dy=0.38, wf=0.6)
 s = S("Instead 110 tickets", "CB", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="INSTEAD", items=["110 TICKETS"]))
 s = S("matched the first", "HK", (-3.4, 1.35, -2.6), 5.4, 14, pitch=6, yawTo=-4, type="macro", dof=dict(focus="balls6H", blur=0.5)); act(s, 0.1, "balls6H", shake=0.4)
 # ---- Each one won between 100,000 and 500,000 dollars. Almost 19 million dollars nobody had budgeted for.
@@ -154,7 +154,7 @@ s = S("a factory in", "FC", (0.0, 1.5, -3.0), 7.4, 4, pitch=5, zoom=12, dof=dict
 s = S("that bakes 4", "LN", (-0.5, 0.9, -2.3), 6.0, -10, pitch=5, yawTo=6); ft(s, "bakerL", ["happy", "smug"]); act(s, 0.1, "beltL", shake=0.3); T(s, "m4", at=rel(s, "4"), dy=0.37, wf=0.56); snap(s, rel(s, "4"), 8)
 # ---- Years earlier, it started printing lottery numbers on the back, just to stand out. The numbers? Drawn at random from a bowl.
 s = S("Years earlier it", "LN", (-0.5, 0.9, -2.3), 6.2, 8, pitch=5, zoom=-10); ft(s, "bakerL", ["smug", "happy"]); T(s, "years", at=0.05, dy=0.37, wf=0.6)
-s = S("started printing lottery", "LN", (3.4, 1.1, -2.4), 4.6, 14, pitch=6, yawTo=-4, type="macro", dof=dict(focus="sprintL", blur=0.5)); act(s, 0.05, "sprintL", shake=0.5)
+s = S("lottery numbers on", "LN", (3.4, 1.1, -2.4), 4.6, 14, pitch=6, yawTo=-4, type="macro", dof=dict(focus="sprintL", blur=0.5)); act(s, 0.05, "sprintL", shake=0.5)
 s = S("just to stand", "BK", (0.0, 1.2, -2.2), 4.4, -8, pitch=14, pitchTo=3); act(s, 0.05, "cookieB", face="default", shake=0.4); T(s, "standout", at=0.05, dy=0.37, wf=0.62)
 s = S("The numbers Drawn", "LN", (-3.6, 1.1, -2.2), 4.4, 12, pitch=5, zoom=12, dof=dict(focus="bowlL", blur=0.4)); act(s, 0.05, "bowlL", shake=0.5)
 s = S("at random from", "LN", (-3.6, 1.1, -2.2), 3.8, -14, pitch=6, yawTo=4, type="macro", dof=dict(focus="bowlL", blur=0.5)); T(s, "random", at=0.05, dy=0.38, wf=0.5)
@@ -179,7 +179,7 @@ T(s, "paid", at=rel(s, "full") - 0.3, dy=0.36, wf=0.5)
 # ---- Because 110 people won the lottery with the exact same numbers.
 s = crane("Because 110", "HK", (0.05, 1.2, -2.2), 7.8, 22, 2, 36, 8)
 for w_ in ("w1H", "w2H", "w3H"): act(s, 0.0, w_, face="happy", pose=dict(armR=0))
-s = S("won the lottery#2", "HK", zoom=-2, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); T(s, "hookc", at=0.05, dy=0.33, wf=0.6, hf=0.2)
+s = S("with the exact#2", "HK", zoom=-2, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); T(s, "hookc", at=0.05, dy=0.33, wf=0.6, hf=0.2)
 for k, w_ in enumerate(("w1H", "w2H", "w3H")): act(s, 0.1 + 0.1 * k, w_, face="shocked", pose=dict(armR=-150), shake=0.3)
 for s in shots: s.setdefault("frameY", 0.0)
 
@@ -333,7 +333,7 @@ spec = {
               "bakegold": {"sun": {"azimuth": 150, "elevation": 32, "color": "#ffe8c0", "intensity": 2.5}, "sky": {"top": "#964614", "horizon": "#ffb450"}, "fill": {"sky": "#fff0e0", "ground": "#7a4a2a", "intensity": 1.9}},
               "queensgold": {"sun": {"azimuth": 230, "elevation": 18, "color": "#ffd0a0", "intensity": 2.5}, "sky": {"top": "#ff8c46", "horizon": "#ffdc96"}, "fill": {"sky": "#fff0e0", "ground": "#6a4a40", "intensity": 1.7}},
               "redline": {"sun": {"azimuth": 20, "elevation": 40, "color": "#fff0e8", "intensity": 2.6}, "sky": {"top": "#961e28", "horizon": "#dc5046"}, "fill": {"sky": "#fff0f0", "ground": "#6a2a2a", "intensity": 2.1}},
-              "lantern": {"sun": {"azimuth": 220, "elevation": 30, "color": "#ffe0d0", "intensity": 2.7}, "sky": {"top": "#141846", "horizon": "#3c3278"}, "fill": {"sky": "#fff0f0", "ground": "#3a2a4a", "intensity": 2.3}},
+              "lantern": {"sun": {"azimuth": 220, "elevation": 36, "color": "#ffe8d8", "intensity": 3.0}, "sky": {"top": "#28286e", "horizon": "#965aaa"}, "fill": {"sky": "#fff4f0", "ground": "#6a5a7a", "intensity": 2.7}},
               "jackpot": {"sun": {"azimuth": 230, "elevation": 20, "color": "#ffd8b0", "intensity": 2.6}, "sky": {"top": "#b41e46", "horizon": "#ffbe50"}, "fill": {"sky": "#fff0e8", "ground": "#6a3a3a", "intensity": 2.0}}},
     "lighting": light, "ground": {"texture": TEX + "pave.jpg", "repeat": [175, 175], "size": 1400},
     "backdrop": {"image": "bg/sky.jpg", "blur": 4}, "ink": {"set": 4},
