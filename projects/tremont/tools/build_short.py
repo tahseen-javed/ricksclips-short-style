@@ -58,7 +58,7 @@ yard("WS", "workshop.png", "brass.jpg"); box("WS", 2.6, 0.04, -3.0, [1.0, 0.8, 0
 yard("RN", "railnight.png", "ballast.jpg"); box("RN", 0, 0.045, -2.6, [14, 0.06, 0.12], color="#8a7a6a"); box("RN", 0, 0.045, -2.1, [14, 0.06, 0.12], color="#8a7a6a")
 
 # ================================================================== CHARACTERS (cards + background decor carry "_" in the id: not frame-checked; hero props are)
-put("jacksH", "jacks", pos("HK", 0.0, 0.04, -2.6), 0.4); put("hotelH", "hotel", pos("HK", 0.0, 0.44, -2.6), 2.0, face="wave"); put("carq_H", "car", pos("HK", 1.15, 0.04, -4.4), 0.36, face="q")
+put("jacksH", "jacks", pos("HK", 0.0, 0.04, -2.6), 0.4); put("hotelH", "hotel", pos("HK", 0.0, 0.44, -2.6), 2.0, face="wave"); put("carq_H", "car", pos("HK", 0.95, 0.04, -4.4), 0.36, face="q")
 put("stepsH", "steps", pos("HK", -3.3, 0.04, -2.2), 1.0); human("guestH", "guest", pos("HK", -2.1, 0.04, -2.0), face="happy", h=1.6)
 put("bedR", "bed", pos("RM", 0.0, 0.04, -2.6), 1.0); put("dinnerR", "dinner", pos("RM", 3.0, 0.04, -2.4), 0.9); put("deskR", "desk", pos("RM", 4.6, 0.04, -2.4), 1.0)
 human("guestR", "guest", pos("RM", -3.4, 0.04, -2.0), face="happy", h=1.6); put("winR", "winframe", pos("RM", -2.45, 0.6, -2.2), 1.0)
@@ -120,7 +120,7 @@ HOOK = dict(anchor=(0.0, 1.45, -2.4), dist=6.8, yaw=4, pitch=6)
 # ---- A six-story hotel rose six feet into the air while its guests stayed inside.
 s = S("0", "HK", zoom=7, **HOOK); act(s, 0.0, "hotelH", face="wave", shake=0.4); tag(s, 0.0, "hookc", 0.33, 0.0, wf=0.6, hf=0.18); act(s, 0.3, "carq_H", shake=0.3); snap(s, rel(s, "rose"), 10)
 s = S("into the air", "HK", (0.0, 1.3, -2.6), 6.6, -6, pitch=2, pitchTo=14); act(s, 0.0, "hotelH", face="default"); go(s, 0.05, "hotelH", pos("HK", 0.0, 0.6, -2.6), 0.8, walk=False)
-s = S("while its guests", "RM", (0.0, 0.75, -2.6), 4.6, 12, pitch=6, zoom=12, dof=dict(focus="bedR", blur=0.4)); act(s, 0.1, "bedR", shake=0.3)
+s = S("guests stayed", "RM", (0.0, 0.75, -2.6), 4.6, 12, pitch=6, zoom=12, dof=dict(focus="bedR", blur=0.4)); act(s, 0.1, "bedR", shake=0.3)
 # ---- Chicago, 1861. The Tremont House. Inch by inch, for days, the whole hotel climbs.
 s = crane("Chicago 1861", "HK", (0.0, 1.4, -2.5), 7.8, -22, -2, 36, 8); show(s, 0.0, "hotelH", pos("HK", 0.0, 0.44, -2.6), hop=0); hide(s, 0.0, "guestH"); hide(s, 0.0, "stepsH"); T(s, "y1861", at=rel(s, "1861"), dx=-0.26, dy=0.2, wf=0.24, hf=0.24)
 s = S("The Tremont House", "HK", (0.0, 1.9, -2.6), 6.0, 6, pitch=5, zoom=8, dof=dict(focus="hotelH", blur=0.4))
@@ -131,8 +131,8 @@ s = S("Guests keep sleeping", "RM", (0.0, 0.8, -2.6), 4.4, -14, pitch=6, yawTo=4
 s = S("eating checking", "RM", (3.8, 0.75, -2.4), 8.6, -10, pitch=6, yawTo=4); act(s, 0.05, "dinnerR", shake=0.4); act(s, rel(s, "checking"), "deskR", shake=0.4)
 s = S("senator is staying", "PL", (0.0, 1.05, -2.2), 4.8, 10, pitch=5, zoom=12, dof=dict(focus="senatorP", blur=0.4)); ft(s, "senatorP", ["happy", "smug"]); T(s, "senat", at=0.05, dy=0.37, wf=0.62)
 # ---- One guest notices the front steps getting steeper. Then the windows creep up past eye level.
-s = crane("One guest notices", "HK", (-2.7, 1.0, -2.1), 6.2, -22, -2, 34, 8); ft(s, "guestH", ["happy", "confused"])
-s = S("getting steeper", "HK", (-3.3, 0.75, -2.2), 3.8, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="stepsH", blur=0.5)); hide(s, 0.0, "guestH"); act(s, 0.05, "stepsH", face="steep", shake=0.5); T(s, "steeper", at=rel(s, "steeper"), dy=0.38, wf=0.48); snap(s, rel(s, "steeper"), 8)
+s = crane("One guest notices", "HK", (-2.7, 1.0, -2.1), 6.2, -22, -2, 34, 8); show(s, 0.0, "stepsH", pos("HK", -3.3, 0.04, -2.2), hop=0); show(s, 0.0, "guestH", pos("HK", -2.1, 0.04, -2.0), hop=0); ft(s, "guestH", ["happy", "confused"])
+s = S("getting steeper", "HK", (-3.3, 0.75, -2.2), 3.8, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="stepsH", blur=0.5)); hide(s, 0.0, "guestH"); show(s, 0.0, "stepsH", pos("HK", -3.3, 0.04, -2.2), hop=0); act(s, 0.05, "stepsH", face="steep", shake=0.5); T(s, "steeper", at=rel(s, "steeper"), dy=0.38, wf=0.48); snap(s, rel(s, "steeper"), 8)
 s = S("Then the windows", "RM", (-2.9, 1.15, -2.1), 5.0, -10, pitch=5, zoom=10, dof=dict(focus="guestR", blur=0.4)); ft(s, "guestR", ["confused", "shocked"]); go(s, 0.1, "winR", pos("RM", -2.45, 1.0, -2.2), 1.0, walk=False)
 s = S("past eye level", "RM", (-2.9, 1.3, -2.1), 4.4, 12, pitch=4, pitchTo=12); show(s, 0.0, "winR", pos("RM", -2.45, 1.0, -2.2), hop=0); go(s, 0.05, "winR", pos("RM", -2.45, 1.35, -2.2), 0.8, walk=False); ft(s, "guestR", ["shocked", "nervous"]); T(s, "eye", at=0.1, dy=0.38, wf=0.58)
 # ---- A year earlier, crews did it to half a city block. 320 feet of brick shops. 600 men. 6,000 jackscrews.
@@ -143,13 +143,13 @@ s = S("600 men", "CR", (0.0, 0.6, -2.6), 6.4, 8, pitch=5, zoom=12); act(s, 0.05,
 s = S("6000 jackscrews", "BL", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="600 MEN", items=["6,000 JACKSCREWS"]))
 # ---- On a signal, every man turns his screws one notch. Stores stay open the whole time.
 s = S("On a signal", "CR", (-3.4, 1.6, -2.6), 4.4, 12, pitch=6, yawTo=-6, type="macro", dof=dict(focus="bellC", blur=0.5)); act(s, 0.05, "bellC", shake=0.7)
-s = S("every man turns", "CR", (6.1, 1.0, -2.15), 5.6, -8, pitch=5, zoom=12, dof=dict(focus="crew1C", blur=0.4))
+s = S("turns his screws", "CR", (6.1, 1.0, -2.15), 5.6, -8, pitch=5, zoom=12, dof=dict(focus="crew1C", blur=0.4))
 for w_ in ("crew1C", "crew2C"): act(s, 0.1, w_, pose=dict(armR=-150), shake=0.3); ft(s, w_, ["happy", "smug"])
 s = S("one notch", "CR", (3.4, 0.9, -2.4), 4.2, 14, pitch=6, yawTo=-4, type="macro", dof=dict(focus="screwC", blur=0.5)); act(s, rel(s, "notch"), "screwC", face="turn", shake=0.6); T(s, "notch", at=rel(s, "notch"), dy=0.38, wf=0.5); snap(s, rel(s, "notch"), 10)
-s = S("Stores stay open", "SH", (0.0, 0.95, -2.6), 5.6, -8, pitch=5, zoom=12, dof=dict(focus="shopS", blur=0.4)); act(s, 0.1, "shopS", shake=0.4); T(s, "open_", at=rel(s, "open"), dy=0.37, wf=0.62)
+s = S("stay open the", "SH", (0.0, 0.95, -2.6), 5.6, -8, pitch=5, zoom=12, dof=dict(focus="shopS", blur=0.4)); act(s, 0.1, "shopS", shake=0.4); T(s, "open_", at=rel(s, "open"), dy=0.37, wf=0.62)
 # ---- You see, Chicago was built on a swamp, barely above Lake Michigan. In 1854, cholera killed about one in twenty people.
 s = crane("You see Chicago", "SW", (0.0, 0.9, -2.6), 7.4, -22, -2, 38, 8); act(s, 0.3, "xsecW", shake=0.3)
-s = S("on a swamp", "SW", (0.0, 0.8, -2.6), 6.2, 8, pitch=5, zoom=10, dof=dict(focus="xsecW", blur=0.4)); T(s, "swampc", at=rel(s, "swamp"), dy=0.36, wf=0.5)
+s = S("built on a", "SW", (0.0, 0.8, -2.6), 6.2, 8, pitch=5, zoom=10, dof=dict(focus="xsecW", blur=0.4)); T(s, "swampc", at=rel(s, "swamp"), dy=0.36, wf=0.5)
 s = S("barely above Lake", "SW", (0.0, 0.6, -2.6), 5.4, -14, pitch=6, yawTo=4, type="macro", dof=dict(focus="xsecW", blur=0.5)); act(s, rel(s, "Lake"), "xsecW", shake=0.3)
 s = S("In 1854", "MN", (0.0, 1.2, -2.6), 6.0, 6, pitch=14, pitchTo=3, dof=dict(focus="germM", blur=0.4)); act(s, 0.1, "germM", shake=0.4); T(s, "y1854", at=rel(s, "1854"), dx=-0.24, dy=0.24, wf=0.24, hf=0.24)
 s = S("killed about one", "MN", (4.0, 0.8, -2.4), 6.0, -10, pitch=5, zoom=10, dof=dict(focus="twentyM", blur=0.4)); act(s, 0.1, "twentyM", shake=0.3); T(s, "one20", at=rel(s, "one"), dy=0.36, wf=0.4)
@@ -158,13 +158,14 @@ s = crane("So the city", "WK", (0.0, 1.0, -2.4), 7.0, 22, 2, 36, 8); T(s, "wild"
 s = S("Lay new sewer", "WK", (0.0, 0.75, -2.4), 5.0, -10, pitch=5, zoom=12, dof=dict(focus="pipeK", blur=0.4)); act(s, 0.1, "pipeK", shake=0.4)
 s = S("bury them under", "WK", (0.0, 0.7, -2.4), 5.6, 12, pitch=18, pitchTo=6); act(s, 0.1, "pipeK", shake=0.3)
 s = S("and lift downtown", "SW", (0.0, 0.8, -2.6), 6.2, 12, pitch=5, yawTo=-4, dof=dict(focus="xsecW", blur=0.4)); act(s, rel(s, "lift"), "xsecW", face="pipes", shake=0.6); snap(s, rel(s, "lift"), 10)
-s = S("Some buildings went", "BL", (0.0, 1.0, -3.0), 8.4, -8, pitch=5, zoom=-10); go(s, 0.1, "blockB", pos("BL", 0.0, 0.3, -3.0), 1.0, walk=False); T(s, "f14", at=rel(s, "fourteen"), dy=0.32, wf=0.5)
+s = S("Some buildings went", "BL", (0.0, 1.0, -3.0), 8.4, -8, pitch=5, zoom=-10); go(s, 0.1, "blockB", pos("BL", 0.0, 0.3, -3.0), 0.9, walk=False)
+s = S("much as fourteen", "BL", (0.0, 1.0, -3.0), 8.2, 12, pitch=6, yawTo=-4, dof=dict(focus="blockB", blur=0.4)); act(s, rel(s, "fourteen"), "blockB", shake=0.4); T(s, "f14", at=rel(s, "fourteen"), dy=0.32, wf=0.5)
 # ---- The young man behind some of the biggest lifts was George Pullman. His crews raised hotels and a whole city block, without breaking a single pane of glass.
-s = crane("The young man", "WS", (-0.15, 1.0, -2.2), 7.0, -22, -2, 36, 8); show(s, 0.0, "blockB", pos("BL", 0.0, 0.04, -3.0), hop=0); ft(s, "pullmanS", ["happy", "smug"])
+s = crane("The young man", "WS", (-1.0, 1.0, -2.1), 6.4, -22, -2, 36, 8); show(s, 0.0, "blockB", pos("BL", 0.0, 0.04, -3.0), hop=0); hide(s, 0.0, "glassS"); ft(s, "pullmanS", ["happy", "smug"])
 s = S("was George Pullman", "WS", (-1.0, 1.1, -2.0), 4.6, 10, pitch=5, zoom=12, dof=dict(focus="pullmanS", blur=0.4)); ft(s, "pullmanS", ["smug", "happy"]); T(s, "pullc", at=rel(s, "George"), dy=0.37, wf=0.5)
 s = S("His crews raised", "HK", (0.0, 1.45, -2.5), 7.0, -14, pitch=6, yawTo=4); show(s, 0.0, "hotelH", pos("HK", 0.0, 0.44, -2.6), hop=0); act(s, 0.05, "hotelH", face="wave")
 s = S("and a whole", "BL", (0.0, 0.9, -3.0), 8.0, 6, pitch=8, zoom=4, pan=(8, 0))
-s = S("without breaking a", "WS", (1.0, 0.85, -2.4), 4.2, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="glassS", blur=0.5)); act(s, 0.1, "glassS", shake=0.3); T(s, "pane", at=rel(s, "pane") - 0.2, dy=0.38, wf=0.62); snap(s, rel(s, "pane"), 8)
+s = S("without breaking a", "WS", (1.0, 0.85, -2.4), 4.2, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="glassS", blur=0.5)); show(s, 0.0, "glassS", pos("WS", 1.0, 0.04, -2.4), hop=0); act(s, 0.1, "glassS", shake=0.3); T(s, "pane", at=rel(s, "pane") - 0.2, dy=0.38, wf=0.62); snap(s, rel(s, "pane"), 8)
 # ---- Then he took that skill, moving heavy buildings full of sleeping people, and put it on wheels. The Pullman sleeping car. A hotel that travels.
 s = S("Then he took", "WS", (-1.0, 1.1, -2.0), 5.2, -10, pitch=14, pitchTo=4); ft(s, "pullmanS", ["confused", "smug"])
 s = S("moving heavy buildings", "HK", (0.0, 1.45, -2.5), 6.6, 8, pitch=5, zoom=-10); act(s, 0.05, "hotelH", face="default"); go(s, 0.1, "hotelH", pos("HK", 0.0, 0.58, -2.6), 0.9, walk=False)
@@ -174,8 +175,8 @@ s = S("The Pullman sleeping", "RN", (0.0, 0.7, -2.4), 6.0, -8, pitch=5, zoom=12,
 s = S("A hotel that", "RN", (0.0, 0.75, -2.4), 6.4, 6, pitch=8, zoom=4, pan=(-8, 0)); act(s, 0.0, "carN", face="night"); T(s, "travels", at=0.1, dy=0.35, wf=0.6)
 # ---- All from a man who made a six-story hotel rise six feet while its guests stayed inside.
 s = S("All from a", "WS", (-1.0, 1.1, -2.0), 4.8, 12, pitch=5, yawTo=-4, dof=dict(focus="pullmanS", blur=0.4)); ft(s, "pullmanS", ["smug", "happy"])
-s = crane("who made a", "HK", (0.0, 1.45, -2.4), 8.0, -22, -2, 36, 8); show(s, 0.0, "hotelH", pos("HK", 0.0, 0.44, -2.6), hop=0); act(s, 0.05, "hotelH", face="default")
-s = S("rise six", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); act(s, 0.05, "hotelH", face="wave", shake=0.4); T(s, "hookc", at=0.05, dy=0.33, wf=0.6, hf=0.18)
+s = crane("hotel rise", "HK", (0.0, 1.45, -2.4), 8.0, -22, -2, 36, 8); show(s, 0.0, "hotelH", pos("HK", 0.0, 0.44, -2.6), hop=0); act(s, 0.05, "hotelH", face="default")
+s = S("while its guests#2", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); act(s, 0.05, "hotelH", face="wave", shake=0.4); T(s, "hookc", at=0.05, dy=0.33, wf=0.6, hf=0.18)
 for s in shots: s.setdefault("frameY", 0.0)
 
 starts = [0.0 if s["start"] == 0 else say(s["_phrase"]) for s in shots]
