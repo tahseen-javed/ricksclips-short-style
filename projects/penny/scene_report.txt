@@ -43,6 +43,6 @@ S29   40.14  0.96  finally made a             d 6.6  snap
 S30   41.10  0.82  the day it                 d 4.6
 S31   41.92  1.50  All because it             d 7.6
 S32   43.42  1.72  four cents#2               d 5.9
-snaps 6, comic fx 1
+snaps 6, comic fx 0
 frame check: 0 CUT flags
-wrote short.json: 33 shots, 54 characters, 44 props, voice 45.14 s
+wrote short.json: 33 shots, 54 characters, 45 props, voice 45.14 s

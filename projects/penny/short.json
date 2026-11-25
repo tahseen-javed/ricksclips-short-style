@@ -186,18 +186,18 @@
   "velvet": {
    "sun": {
     "azimuth": 10,
-    "elevation": 40,
-    "color": "#fff0d0",
-    "intensity": 2.7
+    "elevation": 46,
+    "color": "#fff4e0",
+    "intensity": 3.1
    },
    "sky": {
-    "top": "#780e28",
-    "horizon": "#d23c46"
+    "top": "#a01e3c",
+    "horizon": "#f05a5a"
    },
    "fill": {
-    "sky": "#fff0f0",
-    "ground": "#5a1a2a",
-    "intensity": 2.2
+    "sky": "#fff4f0",
+    "ground": "#a05a64",
+    "intensity": 2.7
    }
   },
   "heaven": {
@@ -337,21 +337,14 @@
   "ray": "#fff6dc",
   "raySide": -1
  },
- "fx": [
-  {
-   "type": "question",
-   "on": "qlotA",
-   "t": 28.77,
-   "dur": 0.8
-  }
- ],
+ "fx": [],
  "characters": [
   {
    "id": "pennyH",
    "puppet": "puppets/penny",
    "pos": [
     -0.4,
-    0.04,
+    0.4,
     -2.0
    ],
    "height": 0.95,
@@ -1002,6 +995,20 @@
    "color": "#e2804a"
   },
   {
+   "type": "box",
+   "pos": [
+    -0.4,
+    0.04,
+    -2.0
+   ],
+   "size": [
+    0.8,
+    0.36,
+    0.6
+   ],
+   "color": "#ff3cac"
+  },
+  {
    "type": "plane",
    "image": "props/mintsky.png",
    "pos": [
@@ -1173,9 +1180,9 @@
   {
    "type": "house",
    "pos": [
-    213.0,
+    214.6,
     0,
-    -1.4
+    -3.4
    ],
    "size": [
     1.2,
@@ -2757,9 +2764,9 @@
      "at": 0.46,
      "who": "pennyG",
      "to": [
-      -0.1,
+      0.35,
       0.04,
-      -1.9
+      -1.6
      ],
      "over": 0.02,
      "walk": false,
@@ -3465,12 +3472,23 @@
      "who": "pennyH",
      "to": [
       -0.4,
-      0.04,
+      0.4,
       -2.0
      ],
      "over": 0.02,
      "walk": false,
      "hop": 0
+    },
+    {
+     "at": 0.0,
+     "who": "pennyG",
+     "to": [
+      0,
+      -60,
+      0
+     ],
+     "over": 0.02,
+     "walk": false
     },
     {
      "at": 0.1,
