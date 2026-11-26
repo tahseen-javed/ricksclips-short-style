@@ -1,1 +1,4 @@
-error: no such file: /home/runner/work/ricksclips-short-style/ricksclips-short-style/projects/lincoln/short.json
+short.json has problems:
+  - props[28].texture: file not found: textures/wood.jpg
+  - props[35].texture: file not found: textures/wood.jpg
+  - props[39].texture: file not found: textures/wood.jpg
