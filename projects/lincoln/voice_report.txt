@@ -1,0 +1,19 @@
+Collecting en-core-web-sm==3.8.0
+  Downloading en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 145.4 MB/s  0:00:00
+Installing collected packages: en-core-web-sm
+Successfully installed en-core-web-sm-3.8.0
+[38;5;2m✔ Download and installation successful[0m
+You can now load the package via spacy.load('en_core_web_sm')
+am_fenrir @1.28     36.3 s  understood 0.968
+am_fenrir @1.32     35.0 s  understood 0.996
+am_fenrir @1.36     30.5 s  understood 0.988
+chose am_fenrir @1.36 (understood 0.988): tempo 1.050 -> about 29.0 s
+Downloading: "https://download.pytorch.org/torchaudio/models/wav2vec2_fairseq_base_ls960_asr_ls960.pth" to /home/runner/.cache/torch/hub/checkpoints/wav2vec2_fairseq_base_ls960_asr_ls960.pth
+  0%|          | 0.00/360M [00:00<?, ?B/s]  9%|▉         | 33.2M/360M [00:00<00:00, 348MB/s] 23%|██▎       | 82.8M/360M [00:00<00:00, 448MB/s] 35%|███▍      | 126M/360M [00:00<00:00, 450MB/s]  49%|████▊     | 175M/360M [00:00<00:00, 475MB/s] 62%|██████▏   | 225M/360M [00:00<00:00, 492MB/s] 76%|███████▋  | 276M/360M [00:00<00:00, 505MB/s] 90%|█████████ | 325M/360M [00:00<00:00, 510MB/s]100%|██████████| 360M/360M [00:00<00:00, 488MB/s]
+aligned 124 words over 29.54 s, mean confidence 0.95, shortest word 0.04 s
+heard: The president is in the wrestling hall of fame, not a pro wrestler, Abraham Lincoln. Before the beard and top hat, Lincoln was a 6'4 frontier wrestler. Legend says about 300 matches, the only recorded loss came in 1832 to a soldier named Thompson. His most famous fight was a new Salem against the town tough Jack Armstrong. Crowds bet money, Armstrong walked away his friend. You see that friendship mattered? In 1858, Jack's son Duff was charged with murder. Lincoln defended him for free. A witness swore he saw everything by moonlight. Lincoln opened an almanac, the moon had almost set. Not guilty, one wrestling match won a friend and saved his son. That is the man in the wrestling hall of fame.
+intelligibility 0.968 (1.0 = every word understood)
+  replace: said ['a'] -> heard ['the']
+  replace: said ['six', 'foot', 'four'] -> heard ["6'4"]
+  replace: said ['in'] -> heard ['a']
