@@ -175,3 +175,15 @@ frame width in close-ups, cute characters (big round heads, shiny eyes, blush).
 - Dark sets seen from a crane (velvet carpet, navy lantern street) trip TOO_DARK: use mid-tone floors and bright mood fills from the start.
 - Keep the hook subject above the caption line (y 70%): stand small heroes on a pedestal box.
 - git: never `rm projects/*/short.json` (deletes committed files of old projects); check `git log origin/master` after every push before starting a run.
+
+## Videos 29-32 (Lincoln wrestler, Pepsi jet, Rushmore name, Hollywood sign) -> projects/lincoln, pepsijet, rushmore, hollywood (one chat, 2026-11-26)
+- Shared cast module tools/v29_assets.py (hollywood copy also has fedora/newsboy hats + deco/knit49 bodies): hats stovepipe, coonskin, kepi, straw, headphones, pilot, homburg, feather, hardhat, beret; bodies linen, fringe, soldier, patched, blackcoat, grunge, flight, judge, lawyer, tweed, dusty, driller; 'beard' + 'freckles' flags; build_cast4() moves the new hats into 'xhat2'.
+- crate() needs textures/wood.jpg: every make_assets must call B.tex_wood(T('wood.jpg')) (render stopped with "file not found" twice).
+- Multi-face props must use the same canvas size for every face and must have a 'default' face (build_sticker KeyError otherwise).
+- Phrases: hyphenated words are ONE token (forty-five -> fortyfive, Twenty-one -> twentyone, six-foot-four -> sixfootfour); write them without the hyphen in S()/CUE phrases.
+- make_music kinds: never reuse a built-in name (tango exists); whoosh(d, lo, hi) needs lo < hi.
+- Git: never `git stash` around `git add` (it dropped staged files twice and once restored an old make_assets). Commit first, then run _tmp/push.sh (cleans __pycache__, untracked short.json/cues.json/music, then pull --rebase --autostash + push). Always check `git log origin/master -1` before `gh workflow run`.
+- Wide props (mountain 2000x1300, 13-letter sign) need h small enough that width < 0.8 x frame width (0.41 x dist) incl. push-in + snap; set HOOK dist to the autofit value, because the last shot lands on HOOK dist and is never autofit.
+- The local CUT check missed real cuts on yaw-arc shots of a wide sign: keep >= 10 % margin on wide props in arcs.
+- Decor placed near a macro subject (lamp post, tree) shows as a big dark bar in the macro: keep posts/trees > 2 m away from macro anchors.
+- Parallel runs: 4 videos rendered together on Actions (30-75 min each). Re-renders this batch: Rushmore and Hollywood once each, after the first contact sheet.
