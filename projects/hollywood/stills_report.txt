@@ -1,0 +1,1 @@
+error: no such file: /home/runner/work/ricksclips-short-style/ricksclips-short-style/projects/hollywood/short.json
