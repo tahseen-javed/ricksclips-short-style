@@ -141,6 +141,10 @@ XPROG = dict(musichall=[(48, (64, 67, 72)), (45, (64, 67, 73)), (38, (65, 69, 74
              jig=[(38, (66, 69, 74)), (43, (67, 71, 74)), (38, (66, 69, 74)), (45, (64, 69, 73))],         # D G D A
              swampdrone=[(45, (64, 69, 72)), (45, (64, 69, 72)), (41, (65, 69, 72)), (40, (64, 68, 71))],  # Am Am F E
              steam=[(43, (67, 71, 74)), (40, (64, 67, 71)), (48, (64, 67, 72)), (38, (66, 69, 74))])       # G Em C D
+XPROG = dict(oldwest=[(43, (67, 71, 74)), (36, (64, 67, 72)), (38, (66, 69, 74)), (43, (67, 71, 74))],      # G C D G
+             ragtime=[(36, (64, 67, 72)), (45, (64, 67, 73)), (38, (65, 69, 74)), (43, (65, 71, 74))],      # C A7 Dm G7
+             quarry=[(40, (64, 67, 71)), (40, (64, 67, 71)), (36, (64, 67, 72)), (38, (66, 69, 74))],       # Em Em C D
+             hymn=[(41, (65, 69, 72)), (36, (64, 67, 72)), (38, (65, 69, 74)), (43, (67, 71, 74))])         # F C Dm G
 CAJ = [(43, (67, 71, 74)), (48, (67, 72, 76)), (50, (66, 69, 74)), (43, (67, 71, 74))]          # G C D G
 STORM = [(38, (62, 65, 69)), (34, (62, 65, 70)), (36, (60, 64, 67)), (33, (61, 64, 69))]        # Dm Bb C A
 MINE = [(45, (69, 72, 76)), (41, (69, 72, 77)), (38, (65, 69, 74)), (40, (68, 71, 76))]         # Am F Dm E
@@ -309,6 +313,24 @@ def section(t0, t1, kind, bpm):
                 if e in (4, 12): put(bed, snare(), u, 0.12)
                 if e in (2, 6, 10, 14): put(bed, pluck(midi(ch[(e // 4) % 3] + 12), bt * 0.3), u, 0.05)
                 if e == 0 and bar % 4 == 0: put(bed, bell(midi(ch[2] + 24), 0.9), u, 0.05); put(bed, bell(midi(ch[0] + 24), 0.9), u, 0.04)
+            elif kind == 'oldwest':                           # old-west trot: clip-clop rims, walking bass, whistle-bell tune, twang chords
+                if e in (0, 3, 8, 11): put(bed, rim(), u, 0.1)
+                if e in (0, 8): put(bed, kick(), u, 0.36); put(bed, pluck(midi((root if e == 0 else ch[1] - 12) - 12), bt * 0.8), u, 0.26)
+                if e in (4, 12): put(bed, twang(midi(ch[0]), bt * 0.4), u, 0.05)
+                if e in (0, 6, 12) and bar % 2 == 0: put(bed, bell(midi(ch[(e // 6 + bar) % 3] + 24), 0.35), u, 0.04)
+            elif kind == 'ragtime':                           # 1920s ragtime stride: oom-pah bass, syncopated bell melody, light hats
+                if e in (0, 8): put(bed, pluck(midi(root - 12), bt * 0.7), u, 0.28); put(bed, kick(), u, 0.25)
+                if e in (4, 12): [put(bed, pluck(midi(n_), bt * 0.3), u, 0.04) for n_ in ch]
+                if e in (2, 5, 7, 10, 13): put(bed, bell(midi(ch[(e + bar) % 3] + 24), 0.22), u, 0.04)
+                if e % 4 == 2: put(bed, hat(), u, 0.03)
+            elif kind == 'quarry':                            # quarry work song: anvil clinks, stomping kick, snare, low pulse
+                if e in (0, 6, 10): put(bed, kick(), u, 0.42); put(bed, bell(midi(96), 0.08), u, 0.05)
+                if e in (4, 12): put(bed, snare(), u, 0.12); put(bed, clap(), u, 0.08)
+                if e % 4 == 0: put(bed, pluck(midi(root - 12), bt * 0.5), u, 0.22)
+                if e % 2 == 1: put(bed, hat(), u, 0.025)
+            elif kind == 'hymn':                              # quiet 1941 hymn: soft pad chords, slow bells
+                if e == 0: put(bed, pad(midi(ch[0]), bt * 4), u, 0.07); put(bed, pad(midi(root - 12), bt * 4), u, 0.05); put(bed, kick(), u, 0.15)
+                if e in (0, 8): put(bed, bell(midi(ch[(e // 8 + bar) % 3] + 12), 0.8), u, 0.05)
             else:                                             # funk reveal: slap bass, clav chords, 16th hats, kick/snare
                 if e in (0, 7, 8): put(bed, kick(), u, 0.65)
                 if e in (4, 12): put(bed, snare(), u, 0.4)
@@ -319,27 +341,25 @@ def section(t0, t1, kind, bpm):
 
 
 # ---------------------------------------------------------------- the score
-section(0, C['year'], 'musichall', 132)
-section(C['year'], C['yousee'], 'jig', 136)
-section(C['yousee'], C['sothecity'], 'swampdrone', 112)
-section(C['sothecity'], C['young'], 'jig', 140)
-section(C['young'], C['end'], 'steam', 128)
+section(0, C['almost'], 'oldwest', 118)
+section(C['almost'], C['yousee'], 'ragtime', 130)
+section(C['yousee'], C['then41'], 'quarry', 124)
+section(C['then41'], C['lawyer2'], 'hymn', 84)
+section(C['lawyer2'], C['end'], 'oldwest', 122)
 
 # ---------------------------------------------------------------- effects: a light whoosh on every scene change, hits on the words
 for k in sorted(x for x in C if x.startswith('s') and x[1:].isdigit()): put(fx, whoosh(0.45, 500, 3200), C[k] - 0.18, 0.13); put(fx, stampfx(), C[k] + 0.12, 0.16)
-put(fx, boom(), 0.0, 0.4); put(fx, crash(), 0.0, 0.25); put(fx, stampfx(), 0.02, 0.3); put(fx, riser(0.8), C['rose'], 0.16); put(fx, whoosh(0.9, 300, 2000), C['air'], 0.18)
-put(fx, groan(0.6), C['sleeping'] - 0.1, 0.08); put(fx, flip(), C['y1861'], 0.25); put(fx, bell(midi(84), 0.8), C['tremont'], 0.12); put(fx, kaching(), C['checking'], 0.14)
-for k in range(4): put(fx, rim(), C['inch'] + k * 0.18, 0.12)
-put(fx, riser(0.9), C['climbs'] - 0.4, 0.14); put(fx, bell(midi(91), 0.5), C['senator'], 0.12)
-put(fx, boing(), C['steeper'], 0.16); put(fx, riser(0.8), C['windows'], 0.14); put(fx, boing(), C['eye'], 0.14); put(fx, whoosh(1.0, 400, 2500), C['year'], 0.2)
-put(fx, stampfx(), C['f320'], 0.24); put(fx, stampfx(), C['m600'], 0.24); put(fx, riser(0.8), C['k6000'] - 0.2, 0.14); put(fx, bell(midi(84), 1.0), C['signal'], 0.2); put(fx, gavel(), C['notch'], 0.3)
-put(fx, kaching(), C['open'], 0.16); put(fx, groan(0.9), C['swamp'], 0.1); put(fx, flip(), C['y1854'], 0.24); put(fx, bell(midi(72), 0.8), C['twenty'], 0.1); put(fx, boing(), C['wild'], 0.16)
-put(fx, crash(), C['pipes'], 0.14); put(fx, whoosh(0.7, 200, 900), C['bury'], 0.18); put(fx, boom(), C['lift'], 0.3); put(fx, riser(0.8), C['fourteen'] - 0.3, 0.14); put(fx, bell(midi(88), 0.7), C['pullman'], 0.14)
-put(fx, bell(midi(96), 1.0), C['pane'], 0.16); put(fx, boom(), C['wheels'], 0.3); fanfare(C['wheels'] + 0.2); put(fx, bell(midi(91), 0.9), C['car'], 0.14); put(fx, kaching(), C['travels'], 0.16)
-put(fx, riser(1.0), C['end'] - 1.1, 0.2); put(fx, crash(), C['end'] - 0.15, 0.25)
+put(fx, boom(), 0.0, 0.4); put(fx, crash(), 0.0, 0.25); put(fx, stampfx(), 0.02, 0.3); put(fx, boing(), C['joke'], 0.16); put(fx, bell(midi(84), 0.6), C['newyork'], 0.12); put(fx, riser(0.6), C['question'], 0.14)
+put(fx, boom(), C['mountain'] + 0.3, 0.26); put(fx, flip(), C['y1885'], 0.24); put(fx, whoosh(1.0, 300, 2000), C['hills'], 0.18); put(fx, bell(midi(86), 0.7), C['charles'], 0.12); put(fx, kaching(), C['claims'], 0.14)
+put(fx, boing(), C['points'], 0.14); put(fx, riser(0.6), C['guide'], 0.12); put(fx, groan(0.5), C['never'], 0.08); put(fx, stampfx(), C['callit'], 0.22); put(fx, gavel(), C['stuck'], 0.26)
+put(fx, flip(), C['almost'], 0.22); put(fx, bell(midi(88), 0.7), C['doane'], 0.12); put(fx, kaching(), C['tourists'], 0.14); put(fx, boing(), C['idea'], 0.14); put(fx, crash(), C['carve'], 0.16)
+put(fx, bell(midi(79), 0.4), C['red'], 0.12); put(fx, bell(midi(83), 0.4), C['lewis'], 0.12); put(fx, bell(midi(86), 0.4), C['buffalo'], 0.12); put(fx, boom(), C['bigger'], 0.32); put(fx, stampfx(), C['four'], 0.22)
+put(fx, crash(), C['workers'], 0.16); put(fx, flip(), C['fourteen'], 0.24); put(fx, kaching(), C['million'], 0.18); put(fx, riser(0.6), C['sixty'] - 0.3, 0.14); put(fx, bell(midi(91), 0.8), C['died1'], 0.14)
+put(fx, flip(), C['then41'] + 0.2, 0.2); put(fx, bell(midi(72), 1.2), C['died2'], 0.08); put(fx, groan(0.6), C['thin'], 0.08); put(fx, stampfx(), C['heads'], 0.2); put(fx, kaching(), C['five'], 0.18)
+put(fx, boing(), C['bodies'], 0.14); fanfare(C['kept']); put(fx, riser(1.0), C['end'] - 1.1, 0.2); put(fx, crash(), C['end'] - 0.15, 0.25)
 
 mix = bed * 1.35 + fx * 0.85
 mix = np.tanh(mix / max(1e-6, np.abs(mix).max()) * 2.2) * 0.89
 st = np.stack([mix, np.roll(mix, int(SR * 0.008)) * 0.96], 1)
 sf.write(OUT, st.astype(np.float32), SR)
-print("music: %.1f s, Victorian music-hall stride 132 + crew jig 136/140 + swamp drone 112 + steam-train shuffle 128" % LEN)
+print("music: %.1f s, old-west trot 118/122 + ragtime stride 130 + quarry work song 124 + quiet 1941 hymn 84" % LEN)

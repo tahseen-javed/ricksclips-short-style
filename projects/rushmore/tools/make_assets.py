@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Assets for video 28: Chicago 1861 - the Tremont House rose six feet on jackscrews while its guests stayed inside; George Pullman then put
-a hotel on wheels. Gaslight Victorian diorama world: amber gaslight street at dusk (hook + loop), rose-wallpaper hotel room, emerald parlour,
-sky-blue brick block, amber crawlspace of jackscrews, cream shop, teal swamp + Lake Michigan cross-section, misty green night, terracotta
-street-works cross-section, brass-cream glass workshop, Prussian-blue starry railway. Cute cast (new): George Pullman (derby, frock coat,
-watch chain), sleepy guest (striped nightcap, nightshirt), U.S. senator (white quiff, cravat), two crew men (bandanas, suspenders).
-Cholera is a cartoon germ cloud + a tiny floating figure with a halo only. usage: make_assets.py <project> <font>"""
+"""Assets for video 31: Mount Rushmore's name was a joke - New York lawyer Charles Rushmore asked his guide what a Black Hills peak was called
+(1885), "it never had a name, we'll call it Rushmore"; Doane Robinson wanted tourists, the sculptor went bigger (four presidents, 400+ workers,
+14 years, just under $1 million, 60-ft faces, nobody died), work stopped at the heads in 1941, and the lawyer gave $5,000. Black Hills granite
+world (new palette): rose-gold dawn mountain (hook + loop; a "?" speech bubble = open loop, resolved as WHAT'S IT CALLED?), lavender gaslit New
+York brownstones, mint-pine Black Hills claims, violet-teal granite peak, cherry-cream 1920s historian office, butter sketch studio, cyan sky
+worksite with scaffolds, apricot-indigo 1941 dusk. Cute cast (new): Charles Rushmore (grey homburg, pinstripes, mustache), the guide (feather
+slouch hat, green buckskin, beard), Doane Robinson (tweed, bow tie, round glasses), the sculptor (beret, dusty smock), two drillers (hard
+hats with lamps). The sculptor's death is a resting beret and chisel by a candle. usage: make_assets.py <project> <font>"""
 import os, math
 import numpy as np
 from PIL import Image
@@ -12,288 +14,235 @@ import assets_base as B
 import gimli_assets as G
 import catseyes_assets as CE
 import mco_assets as M
-from v26_assets import *
+from v29_assets import *
 
 ROOT = B.ROOT
-BRICK, CORAL, AMB, PRU, CREAM, SW = (196, 96, 70, 255), (255, 90, 95, 255), (255, 176, 60, 255), (30, 50, 100, 255), (250, 240, 220, 255), (70, 120, 90, 255)
+GRAN, VIO, ROSE, PINE, GOLD, CRM, NAVY, MINT = (196, 190, 200, 255), (138, 92, 255, 255), (255, 170, 150, 255), (50, 120, 90, 255), (250, 200, 70, 255), (252, 246, 232, 255), (40, 50, 110, 255), (150, 230, 200, 255)
 LA.NEW.update({
-    'pullman': dict(sk=0, style='side', hair=(90, 60, 40, 255), suit=(70, 60, 90, 255), shade=(54, 46, 72, 255), body='frock', acc=(200, 60, 70, 255), xhat='derby', hatc=(50, 44, 50, 255), stache=(90, 60, 40, 255)),
-    'guest': dict(sk=1, style='curly', hair=(60, 40, 30, 255), suit=(150, 200, 250, 255), shade=(120, 170, 224, 255), body='nightie', xhat='nightcap', hatc=(90, 130, 220, 255)),
-    'senator': dict(sk=0, style='quiff', hair=(246, 244, 240, 255), suit=(40, 40, 60, 255), shade=(28, 28, 44, 255), body='cravat', acc=(250, 250, 245, 255), glasses=1),
-    'crew1': dict(sk=2, style='bald', hair=(30, 24, 24, 255), suit=(240, 200, 150, 255), shade=(214, 174, 124, 255), body='braces2', acc=(60, 90, 160, 255), xhat='bandana', hatc=CORAL),
-    'crew2': dict(sk=0, style='spiky', hair=(220, 120, 60, 255), suit=(170, 210, 160, 255), shade=(140, 184, 130, 255), body='braces2', acc=(150, 60, 50, 255), xhat='bandana', hatc=(60, 140, 220, 255)),
+    'rush': dict(sk=0, style='slick', hair=(60, 50, 50, 255), suit=(80, 86, 110, 255), shade=(62, 66, 88, 255), body='lawyer', acc=(150, 60, 200, 255), xhat='homburg', hatc=(150, 150, 166, 255), stache=(60, 50, 50, 255)),
+    'guide': dict(sk=2, style='curly', hair=(40, 30, 30, 255), suit=(110, 150, 90, 255), shade=(88, 124, 70, 255), body='fringe', acc=(240, 180, 60, 255), xhat='feather', hatc=(150, 110, 80, 255), plume=(80, 160, 230, 255), beard=(40, 30, 30, 255)),
+    'doane': dict(sk=0, style='bald', hair=(230, 230, 236, 255), suit=(170, 120, 90, 255), shade=(146, 100, 72, 255), body='tweed', acc=(60, 130, 200, 255), glasses=1, stache=(236, 236, 240, 255)),
+    'sculptor': dict(sk=0, style='side', hair=(200, 200, 206, 255), suit=(236, 226, 206, 255), shade=(210, 198, 176, 255), body='dusty', acc=(220, 70, 90, 255), xhat='beret', hatc=(60, 50, 120, 255), stache=(200, 200, 206, 255)),
+    'drill1': dict(sk=1, style='spiky', hair=(50, 40, 30, 255), suit=(90, 140, 220, 255), shade=(70, 114, 190, 255), body='driller', xhat='hardhat', hatc=(255, 210, 50, 255)),
+    'drill2': dict(sk=0, style='curly', hair=(220, 120, 60, 255), suit=(230, 120, 100, 255), shade=(200, 96, 80, 255), body='driller', xhat='hardhat', hatc=(255, 150, 50, 255), freckles=1),
 })
 
 
-def hotel(mode='default'):                                   # the Tremont House: 6 storeys, cute face over the door, TREMONT HOUSE sign (wave: guests waving)
-    d = Draw(1300, 1700); d.rect(130, 260, 1170, 1660, BRICK); d.rect(100, 200, 1200, 270, (150, 70, 60, 255)); d.stroke([(100, 200), (1200, 200)], LINE, 12)
-    d.rrect(260, 90, 1040, 210, 20, fill=CREAM, outline=LINE, width=10); d.text(650, 152, 'TREMONT HOUSE', 60, (120, 40, 40, 255))
-    for j in range(6):
-        for i in range(5):
-            x, y = 210 + i * 200, 300 + j * 205; lit = (i + j) % 3 == 0; win(d, x, y, x + 110, y + 150, (255, 220, 140, 255) if lit else (150, 200, 240, 255))
-            if mode == 'wave' and (i, j) in ((0, 1), (3, 2), (1, 4), (4, 0), (2, 3)):
-                d.dot(x + 55, y + 95, 40, (255, 220, 190, 255)); d.ellipse(x + 55, y + 95, 40, 40, outline=LINE, width=6); d.stroke([(x + 95, y + 110), (x + 130, y + 40)], (255, 220, 190, 255), 18)
-                [d.dot(x + 55 + sg * 14, y + 92, 6, LINE) for sg in (-1, 1)]
-    d.rrect(560, 1460, 740, 1660, 70, fill=(90, 60, 50, 255), outline=LINE, width=10); eyes(d, 650, 1390, 0.6, 'shocked' if mode == 'wave' else 'happy')
-    d.rect(130, 1640, 1170, 1690, (110, 60, 50, 255)); d.rrect(130, 260, 1170, 1690, 2, outline=LINE, width=12)
+def gloss(d, x, y, w, h): d.ellipse(x, y, w, h, fill=(255, 255, 255, 120))
+
+
+def neon3(a, b, c, w=900, h=560):
+    d = Draw(w, h); d.rrect(10, 10, w - 10, h - 10, 44, fill=(50, 30, 90, 255), outline=LINE, width=16); d.rrect(34, 34, w - 34, h - 34, 30, outline=VIO, width=8)
+    d.text(w / 2, h * 0.2, a, LA.fit(a, 96, w - 160), MINT, stroke=6, stroke_fill=LINE)
+    for k, (t, col) in enumerate(((b, YEL), (c, ROSE))): d.text(w / 2, h * (0.47 + 0.27 * k), t, LA.fit(t, 140, w - 110), col, stroke=7, stroke_fill=LINE)
     return d.out()
 
 
-def jacks():                                                 # a row of wooden blocks + jackscrews (what the hotel stands on)
-    d = Draw(1800, 500)
-    for x in range(110, 1800, 200):
-        d.rrect(x - 70, 330, x + 70, 480, 10, fill=(160, 110, 70, 255), outline=LINE, width=8); d.rect(x - 26, 60, x + 26, 340, (180, 180, 196, 255)); [d.stroke([(x - 26, y), (x + 26, y + 16)], LINE, 5) for y in range(70, 330, 30)]
-        d.rect(x - 60, 40, x + 60, 70, (120, 120, 136, 255)); d.stroke([(x - 120, 180), (x + 120, 180)], (120, 80, 50, 255), 14)
+def stoneface(d, x, y, r, kind, face='happy'):              # one cute carved granite head (beard / glasses / wig / plain)
+    d.dot(x, y, r, (214, 208, 216, 255)); d.ellipse(x, y, r, r, outline=LINE, width=10); d.chord(x - r * 0.3, y - r * 0.3, r * 0.5, r * 0.4, 200, 340, fill=(232, 228, 236, 255))
+    if kind == 'wig': [d.dot(x + sg * r * 0.95, y - r * 0.2 + k * r * 0.3, r * 0.22, (200, 194, 204, 255)) for sg in (-1, 1) for k in range(3)]
+    if kind == 'beard': d.chord(x, y + r * 0.35, r * 0.85, r * 0.62, 0, 180, fill=(180, 174, 186, 255))
+    if kind == 'specs': [d.ellipse(x + sg * r * 0.33, y - r * 0.05, r * 0.26, r * 0.22, outline=LINE, width=8) for sg in (-1, 1)]; d.chord(x, y + r * 0.3, r * 0.5, r * 0.2, 0, 180, fill=(180, 174, 186, 255))
+    eyes(d, x, y - r * 0.05, r / 230, face)
+
+
+def rushmore(mode='default'):                                # the mountain: pine-dotted granite with 4 cute carved heads (plan: dotted bodies to the waist)
+    d = Draw(2000, 1300); d.poly([(0, 1300), (120, 700), (360, 380), (700, 220), (1100, 180), (1500, 260), (1800, 520), (2000, 900), (2000, 1300)], fill=GRAN, outline=LINE, width=16)
+    for k, (x, kind) in enumerate(((560, 'wig'), (880, 'plain'), (1150, 'specs'), (1450, 'beard'))): stoneface(d, x, 560 + (k % 2) * 40, 160, kind, 'shocked' if mode == 'gasp' else 'happy')
+    for x in range(60, 2000, 90): y = 1150 + (x * 37) % 120; d.poly([(x, y), (x + 40, y - 120), (x + 80, y)], fill=PINE)
+    if mode == 'plan':
+        for x in (560, 880, 1150, 1450): d.rrect(x - 190, 760, x + 190, 1180, 80, outline=VIO, width=14); [d.dot(x + sg * 230, 900, 50, (180, 150, 255, 160)) for sg in (-1, 1)]
+    gloss(d, 900, 260, 160, 40); return d.out()
+
+
+def bubble(mode='default'):                                  # speech bubble (default: big "?" - open loop; ask: WHAT'S IT CALLED?)
+    d = Draw(1200, 900); d.rrect(60, 60, 1140, 640, 120, fill=WT, outline=LINE, width=16); d.poly([(300, 620), (380, 860), (520, 630)], fill=WT, outline=LINE, width=14); d.rect(320, 600, 520, 640, WT)
+    if mode == 'ask': d.text(600, 260, "WHAT'S IT", 140, VIO, stroke=6, stroke_fill=LINE); d.text(600, 440, 'CALLED?', 160, (230, 80, 110, 255), stroke=6, stroke_fill=LINE)
+    else: d.text(600, 350, '?', 420, VIO, stroke=12, stroke_fill=LINE)
     return d.out()
 
 
-def steps(steep=False):                                      # the front steps (steep: more, taller steps, a sweating bead)
-    d = Draw(1200, 1100); n = 7 if steep else 3; h_ = 900 / n
-    for k in range(n): y = 1080 - (k + 1) * h_; d.rect(150 + k * 50, y, 1050 - k * 50, y + h_, (220, 210, 196, 255)); d.stroke([(150 + k * 50, y), (1050 - k * 50, y)], LINE, 10)
-    eyes(d, 600, 1000 - (h_ * 0.4), 0.6, 'shocked' if steep else 'happy')
-    if steep: d.ellipse(860, 300, 30, 46, fill=(150, 210, 255, 255), outline=LINE, width=6)
+def peak(mode='default'):                                    # the unnamed granite peak with a shy face (named: RUSHMORE flag planted)
+    d = Draw(1400, 1300); d.poly([(60, 1280), (420, 420), (640, 140), (860, 380), (1340, 1280)], fill=(180, 176, 196, 255), outline=LINE, width=16); d.poly([(560, 260), (640, 140), (720, 250), (660, 230)], fill=WT)
+    for x in range(80, 1340, 110): d.poly([(x, 1280), (x + 45, 1150), (x + 90, 1280)], fill=PINE)
+    eyes(d, 680, 760, 1.2, 'happy' if mode == 'named' else 'shocked'); d.stroke([(900, 520), (900, 160)], (120, 80, 50, 255), 16)
+    if mode == 'named': d.poly([(900, 160), (1330, 200), (900, 330)], fill=VIO, outline=LINE, width=10); d.text(1060, 236, 'RUSHMORE', 50, WT)
+    else: d.poly([(900, 160), (1200, 200), (900, 330)], fill=WT, outline=LINE, width=10); d.text(1010, 240, '?', 120, VIO)
+    gloss(d, 520, 400, 80, 30); return d.out()
+
+
+def claims():                                                # mining claims: stake signs, pickaxe, pan with gold nuggets
+    d = Draw(1600, 1000); d.ellipse(800, 900, 700, 80, fill=(170, 140, 100, 255))
+    for x in (260, 1340): d.rect(x - 16, 300, x + 16, 900, (140, 100, 60, 255)); d.rrect(x - 160, 220, x + 160, 420, 16, fill=CRM, outline=LINE, width=10); d.text(x, 320, 'CLAIM', 80, (180, 60, 60, 255))
+    d.ellipse(800, 720, 300, 120, fill=(150, 150, 166, 255), outline=LINE, width=12); [d.dot(700 + k * 60, 690 + (k % 2) * 30, 34, GOLD) for k in range(4)]; eyes(d, 800, 760, 0.6, 'happy')
+    d.stroke([(1000, 560), (1200, 860)], (140, 100, 60, 255), 22); d.chord(1000, 560, 140, 60, 180, 360, fill=(170, 170, 186, 255), outline=LINE, width=10); return d.out()
+
+
+def sdmap():                                                 # South Dakota map card: state shape, Black Hills pin, glowing route
+    d = Draw(1600, 1100); d.rrect(40, 40, 1560, 1060, 40, fill=(240, 230, 200, 255), outline=LINE, width=16)
+    d.poly([(160, 220), (1440, 220), (1460, 300), (1420, 880), (1200, 860), (1140, 900), (160, 900)], fill=(170, 220, 170, 255), outline=LINE, width=12)
+    d.stroke([(1300, 300), (900, 450), (600, 560), (330, 720)], (250, 120, 90, 255), 16); [d.dot(260 + k * 40, 740 + (k % 2) * 20, 40, (60, 90, 70, 255)) for k in range(5)]
+    d.dot(330, 640, 60, VIO); d.poly([(290, 660), (370, 660), (330, 760)], fill=VIO); d.dot(330, 640, 24, WT); d.text(1000, 980, 'SOUTH DAKOTA', 80, NAVY); return d.out()
+
+
+def tourists():                                              # row of tiny tourists with cameras, sun hats, ice creams
+    d = Draw(2000, 800); cols = [(255, 150, 160, 255), (120, 200, 240, 255), (250, 210, 90, 255), (160, 130, 230, 255), (120, 210, 150, 255)]
+    for k in range(9):
+        x = 120 + k * 220; y = 360 + (k % 2) * 40
+        d.rrect(x - 70, y + 70, x + 70, y + 320, 50, fill=cols[k % 5], outline=LINE, width=8); d.dot(x, y, 76, (255, 222, 196, 255) if k % 3 else (196, 136, 96, 255)); d.ellipse(x, y, 76, 76, outline=LINE, width=8)
+        d.ellipse(x, y - 60, 110, 26, fill=cols[(k + 2) % 5], outline=LINE, width=6); eyes(d, x, y + 10, 0.34, 'happy'); d.rrect(x - 50, y + 110, x + 50, y + 180, 12, fill=(60, 60, 70, 255), outline=LINE, width=6); d.dot(x, y + 145, 22, (150, 210, 255, 255))
     return d.out()
 
 
-def winframe():                                              # a hotel window frame (creeps up past eye level)
-    d = Draw(900, 1100); d.rrect(60, 60, 840, 1040, 20, fill=(120, 60, 50, 255), outline=LINE, width=14); d.rect(130, 130, 770, 900, (150, 210, 250, 255)); d.stroke([(450, 130), (450, 900)], (250, 250, 245, 255), 22)
-    d.stroke([(130, 515), (770, 515)], (250, 250, 245, 255), 22); d.rect(40, 920, 860, 1000, (230, 220, 200, 255)); d.ellipse(300, 300, 70, 30, fill=(255, 255, 255, 150)); return d.out()
-
-
-def bed():                                                   # sleeping guest tucked in bed with Zs
-    d = Draw(1500, 1000); d.rrect(100, 200, 260, 900, 40, fill=(140, 90, 60, 255), outline=LINE, width=12); d.rrect(1240, 400, 1400, 900, 40, fill=(140, 90, 60, 255), outline=LINE, width=12)
-    d.rrect(200, 560, 1300, 820, 40, fill=(150, 200, 250, 255), outline=LINE, width=14); d.rrect(260, 480, 520, 620, 50, fill=WT, outline=LINE, width=10); d.dot(420, 470, 110, (255, 220, 190, 255)); d.ellipse(420, 470, 110, 110, outline=LINE, width=10)
-    for sg in (-1, 1): d.arc(420 + sg * 40, 470, 22, 14, 20, 160, LINE, 8)
-    d.chord(420, 440, 116, 100, 180, 360, fill=(90, 130, 220, 255)); [d.text(640 + k * 110, 300 - k * 90, 'Z', 90 + k * 20, (120, 90, 230, 255), stroke=5, stroke_fill=LINE) for k in range(3)]
+def legends():                                               # three cute legend busts with name tags: Red Cloud, Lewis and Clark, Buffalo Bill
+    d = Draw(2000, 1000)
+    for k, (x, nm, hatc) in enumerate(((360, 'RED CLOUD', None), (1000, 'LEWIS & CLARK', (120, 90, 60, 255)), (1640, 'BUFFALO BILL', (200, 160, 110, 255)))):
+        d.rrect(x - 200, 560, x + 200, 800, 60, fill=(200, 194, 206, 255), outline=LINE, width=10); d.dot(x, 420, 170, (214, 208, 216, 255)); d.ellipse(x, 420, 170, 170, outline=LINE, width=10); eyes(d, x, 430, 0.6, 'happy')
+        if hatc is None: d.chord(x, 330, 175, 120, 180, 360, fill=(60, 50, 50, 255)); d.poly([(x + 120, 300), (x + 160, 100), (x + 200, 300)], fill=(250, 240, 220, 255), outline=LINE, width=6)
+        else: d.ellipse(x, 280, 250, 50, fill=hatc, outline=LINE, width=8); d.chord(x, 280, 150, 120, 180, 360, fill=hatc, outline=LINE, width=8)
+        if k == 2: d.poly([(x - 30, 560), (x + 30, 560), (x, 640)], fill=(240, 236, 230, 255))
+        d.rrect(x - 260, 840, x + 260, 960, 20, fill=GOLD, outline=LINE, width=8); d.text(x, 900, nm, LA.fit(nm, 70, 480), NAVY)
     return d.out()
 
 
-def dinner():                                                # dinner table: roast chicken with a happy face, candles, wobbly tea cup
-    d = Draw(1400, 1000); d.rrect(100, 560, 1300, 640, 20, fill=(150, 90, 60, 255), outline=LINE, width=12); [d.rect(x, 640, x + 50, 980, (120, 70, 50, 255)) for x in (180, 1170)]
-    d.ellipse(700, 540, 300, 60, fill=WT, outline=LINE, width=10); d.ellipse(700, 440, 220, 140, fill=(220, 140, 60, 255), outline=LINE, width=12); eyes(d, 700, 430, 0.6, 'happy')
-    for x in (280, 1120): d.rect(x - 20, 300, x + 20, 540, CREAM); d.poly([(x, 230), (x - 20, 290), (x + 20, 290)], fill=AMB)
+def blueprint():                                             # the sculptor's bigger plan: four heads carved to the waist on blue paper
+    d = Draw(1800, 1100); d.rrect(40, 40, 1760, 1060, 30, fill=(60, 110, 200, 255), outline=LINE, width=16); [d.stroke([(60, y), (1740, y)], (100, 150, 230, 255), 4) for y in range(100, 1060, 80)]
+    for x in (360, 720, 1080, 1440): d.ellipse(x, 340, 130, 150, outline=WT, width=10); d.rrect(x - 190, 500, x + 190, 940, 90, outline=WT, width=10); [d.dot(x + sg * 60, 330, 16, WT) for sg in (-1, 1)]
+    d.stroke([(100, 960), (1700, 960)], YEL, 10); d.text(900, 1010, 'TO THE WAIST', 60, YEL); eyes(d, 1640, 160, 0.5, 'happy'); return d.out()
+
+
+def crew():                                                  # 400+ workers: tiny hard-hat drillers dangling on ropes along the cliff
+    d = Draw(2000, 1100); d.rect(0, 0, 2000, 120, (150, 146, 160, 255))
+    for k in range(12):
+        x = 100 + k * 165; y = 300 + (k % 3) * 220; d.stroke([(x, 0), (x, y - 70)], (120, 90, 60, 255), 6)
+        d.rrect(x - 50, y + 40, x + 50, y + 180, 36, fill=[(90, 140, 220, 255), (230, 120, 100, 255), (120, 200, 150, 255)][k % 3], outline=LINE, width=6); d.dot(x, y, 54, (255, 222, 196, 255) if k % 2 else (196, 136, 96, 255)); d.ellipse(x, y, 54, 54, outline=LINE, width=6)
+        d.chord(x, y - 10, 60, 50, 180, 360, fill=YEL); eyes(d, x, y + 10, 0.25, 'happy'); d.rect(x - 70, y + 170, x + 70, y + 190, (140, 100, 60, 255))
     return d.out()
 
 
-def desk():                                                  # check-in desk: register book, service bell, key board
-    d = Draw(1500, 1100); d.rrect(100, 500, 1400, 1060, 30, fill=(130, 70, 50, 255), outline=LINE, width=14); d.rrect(60, 440, 1440, 530, 20, fill=(90, 50, 40, 255), outline=LINE, width=10)
-    d.rrect(300, 330, 760, 450, 10, fill=CREAM, outline=LINE, width=8); d.stroke([(530, 330), (530, 450)], LINE, 6); d.chord(1050, 440, 110, 90, 180, 360, fill=(240, 200, 80, 255), outline=LINE, width=10); d.dot(1050, 340, 20, LINE)
-    d.rrect(400, 40, 1100, 300, 20, fill=(110, 60, 40, 255), outline=LINE, width=10); [d.dot(480 + k * 90, 140 + (k % 2) * 80, 18, (240, 200, 80, 255)) for k in range(8)]
-    eyes(d, 750, 780, 0.7, 'happy'); return d.out()
+def scale():                                                 # faces 60 feet tall: one giant stone eye + nose, a tiny worker for scale
+    d = Draw(1400, 1300); d.rrect(60, 60, 1340, 1260, 80, fill=(214, 208, 216, 255), outline=LINE, width=16); d.ellipse(480, 420, 230, 170, fill=WT, outline=LINE, width=14); d.dot(500, 440, 90, LINE); d.dot(530, 400, 34, WT)
+    d.poly([(860, 300), (1000, 900), (760, 920)], fill=(196, 190, 200, 255), outline=LINE, width=12); d.stroke([(1180, 120), (1180, 760)], (120, 90, 60, 255), 6)
+    d.rrect(1140, 840, 1220, 960, 30, fill=(90, 140, 220, 255), outline=LINE, width=6); d.dot(1180, 790, 44, (255, 222, 196, 255)); d.ellipse(1180, 790, 44, 44, outline=LINE, width=6); d.chord(1180, 780, 48, 40, 180, 360, fill=YEL)
+    d.stroke([(1290, 140), (1290, 1180)], VIO, 12); d.text(1290, 640, '60', 90, VIO, stroke=5, stroke_fill=LINE); return d.out()
 
 
-def block():                                                 # half a city block: five brick shops in a row (on screws), awnings
-    d = Draw(2000, 900); cols = [BRICK, (200, 130, 80, 255), (170, 80, 80, 255), (210, 150, 100, 255), (180, 100, 70, 255)]; aw = [CORAL, (90, 170, 140, 255), AMB, (120, 120, 200, 255), CORAL]
-    for k in range(5):
-        x = 40 + k * 384; d.rect(x, 140 + (k % 2) * 60, x + 380, 760, cols[k]); d.rect(x, 140 + (k % 2) * 60, x + 380, 170 + (k % 2) * 60, (120, 60, 50, 255))
-        for i in range(2): win(d, x + 60 + i * 160, 240 + (k % 2) * 60, x + 160 + i * 160, 360 + (k % 2) * 60, (255, 220, 140, 255))
-        d.poly([(x + 20, 470), (x + 360, 470), (x + 380, 560), (x, 560)], fill=aw[k], outline=LINE, width=8); d.rect(x + 60, 560, x + 320, 760, (150, 210, 240, 255))
-        d.rrect(x, 140 + (k % 2) * 60, x + 380, 760, 2, outline=LINE, width=8)
-    for x in range(100, 2000, 160): d.rect(x - 14, 760, x + 14, 880, (180, 180, 196, 255)); d.rrect(x - 40, 850, x + 40, 900, 8, fill=(160, 110, 70, 255))
+def safety():                                                # nobody died: happy safety board with a big green check and a smiling hard hat
+    d = Draw(1300, 1100); d.rrect(80, 80, 1220, 860, 40, fill=(120, 210, 150, 255), outline=LINE, width=16); d.text(650, 220, 'NOBODY HURT', 110, WT, stroke=6, stroke_fill=LINE)
+    d.stroke([(430, 520), (580, 680), (880, 360)], WT, 60); d.rect(300, 860, 360, 1080, (120, 90, 60, 255)); d.rect(940, 860, 1000, 1080, (120, 90, 60, 255))
+    d.chord(1100, 900, 140, 110, 180, 360, fill=YEL, outline=LINE, width=10); eyes(d, 1100, 860, 0.4, 'happy'); return d.out()
+
+
+def rest():                                                  # 1941: the sculptor's beret and chisel resting on a stool by a candle (gentle)
+    d = Draw(1300, 1100); d.rrect(300, 560, 1000, 640, 20, fill=(150, 100, 60, 255), outline=LINE, width=10); [d.rect(x, 640, x + 40, 1060, (120, 80, 50, 255)) for x in (360, 900)]
+    d.ellipse(560, 520, 210, 60, fill=(60, 50, 120, 255), outline=LINE, width=10); d.rect(550, 440, 570, 470, LINE); d.stroke([(700, 540), (930, 470)], (170, 170, 186, 255), 22)
+    d.rect(1080, 420, 1160, 900, CRM); d.rrect(1080, 420, 1160, 900, 6, outline=LINE, width=6); d.poly([(1120, 300), (1090, 400), (1150, 400)], fill=(255, 190, 60, 255)); d.dot(1120, 380, 24, YEL)
     return d.out()
 
 
-def crew():                                                  # a long row of tiny crew men, each with a screw bar
-    d = Draw(2000, 700); cols = [CORAL, (60, 140, 220, 255), AMB, (90, 170, 140, 255)]
-    for k in range(10):
-        x = 100 + k * 200; y = 330
-        d.rrect(x - 70, y + 60, x + 70, y + 300, 50, fill=(240, 220, 180, 255), outline=LINE, width=8); d.dot(x, y, 70, (255, 220, 190, 255) if k % 3 else (190, 130, 90, 255)); d.ellipse(x, y, 70, 70, outline=LINE, width=8)
-        d.chord(x, y - 4, 74, 66, 180, 360, fill=cols[k % 4]); eyes(d, x, y + 14, 0.3, 'happy'); d.stroke([(x - 100, y + 200), (x + 100, y + 170)], (120, 80, 50, 255), 14)
-    return d.out()
+def emptybag():                                              # the money ran thin: a flat money bag with a moth and a sad face
+    d = Draw(1100, 1000); d.chord(550, 860, 400, 260, 180, 360, fill=(200, 170, 120, 255), outline=LINE, width=14); d.poly([(470, 600), (630, 600), (600, 660), (500, 660)], fill=(170, 140, 90, 255), outline=LINE, width=8)
+    d.text(550, 800, '$', 140, (120, 150, 110, 255)); eyes(d, 550, 720, 0.6, 'sad')
+    for sg in (-1, 1): d.ellipse(820 + sg * 50, 360, 50, 30, fill=(230, 220, 240, 255), outline=LINE, width=6)
+    d.dot(820, 360, 16, LINE); return d.out()
 
 
-def screw(turn=False):                                       # one giant jackscrew with a face (turn: one notch - motion arcs)
-    d = Draw(900, 1300); d.rrect(150, 1050, 750, 1280, 20, fill=(160, 110, 70, 255), outline=LINE, width=12); d.rect(380, 250, 520, 1060, (190, 190, 206, 255)); d.rrect(380, 250, 520, 1060, 2, outline=LINE, width=8)
-    for y in range(280, 1040, 60): d.stroke([(380, y), (520, y + 30)], LINE, 8)
-    d.rrect(230, 170, 670, 280, 20, fill=(140, 140, 156, 255), outline=LINE, width=10); d.stroke([(40 if not turn else 120, 330 if not turn else 120), (860 if not turn else 780, 330 if not turn else 540)], (130, 80, 50, 255), 34)
-    eyes(d, 450, 660, 0.6, 'shocked' if turn else 'happy')
-    if turn: [d.arc(450, 330, 380 + k * 40, 160 + k * 20, 200, 330, WT, 10) for k in range(2)]; d.text(760, 120, '+1', 110, CORAL, stroke=6, stroke_fill=LINE)
-    return d.out()
-
-
-def bell():                                                  # the foreman's signal bell with ring lines
-    d = Draw(1000, 1100); d.rect(470, 60, 530, 200, (120, 80, 50, 255)); d.chord(500, 600, 330, 420, 180, 360, fill=(240, 190, 70, 255), outline=LINE, width=14); d.rect(170, 580, 830, 680, (240, 190, 70, 255))
-    d.rrect(150, 600, 850, 690, 2, outline=LINE, width=12); d.dot(500, 760, 70, (200, 150, 50, 255)); eyes(d, 500, 420, 0.8, 'happy')
-    for sg in (-1, 1): [d.arc(500 + sg * 380, 450, 60 + k * 50, 120 + k * 60, 270 if sg > 0 else 90, 450 if sg > 0 else 270, LINE, 10) for k in range(2)]
-    return d.out()
-
-
-def shop():                                                  # a shop front that stays OPEN, a cute shopkeeper waving
-    d = Draw(1300, 1300); d.rect(100, 200, 1200, 1280, (90, 160, 140, 255)); d.rrect(100, 200, 1200, 1280, 2, outline=LINE, width=12); d.poly([(60, 200), (1240, 200), (1200, 380), (100, 380)], fill=CORAL, outline=LINE, width=10)
-    [d.rect(140 + k * 160, 200, 220 + k * 160, 380, (255, 255, 255, 170)) for k in range(7)]; d.rect(200, 480, 1100, 1040, (200, 236, 255, 255)); d.rrect(200, 480, 1100, 1040, 2, outline=LINE, width=10)
-    d.dot(650, 760, 120, (255, 220, 190, 255)); d.ellipse(650, 760, 120, 120, outline=LINE, width=10); eyes(d, 650, 770, 0.5, 'happy'); d.chord(650, 750, 124, 110, 180, 360, fill=(90, 60, 40, 255))
-    d.rrect(780, 560, 1060, 700, 20, fill=WT, outline=LINE, width=8); d.text(920, 630, 'OPEN', 80, (40, 150, 90, 255)); return d.out()
-
-
-def xsec(mode='default'):                                    # cross-section: Chicago on swamp mud just above Lake Michigan (pipes: new sewer + fresh dirt + raised city)
-    d = Draw(2000, 1300); up = 220 if mode == 'pipes' else 0
-    d.rect(40, 900, 1960, 1260, (110, 80, 60, 255)); d.rect(40, 800, 1960, 900, (90, 130, 90, 255)); d.rect(40, 860, 1960, 1260, (60, 140, 190, 180)); d.text(1500, 1120, 'LAKE MICHIGAN', 70, WT, stroke=5, stroke_fill=LINE)
-    d.stroke([(40, 860), (1960, 860)], WT, 8)
-    if mode == 'pipes': d.rect(40, 800 - up, 1960, 800, (170, 120, 80, 255)); d.dot(700, 700, 90, (150, 150, 166, 255)); d.ellipse(700, 700, 90, 90, outline=LINE, width=10); d.dot(700, 700, 50, (60, 60, 70, 255)); d.stroke([(40, 800 - up), (1960, 800 - up)], LINE, 8)
-    for k, x in enumerate(range(120, 1900, 300)): h_ = 260 + (k % 3) * 80; d.rect(x, 800 - up - h_, x + 220, 800 - up, (196 - k * 6, 96 + k * 4, 70, 255)); d.rrect(x, 800 - up - h_, x + 220, 800 - up, 2, outline=LINE, width=8); win(d, x + 60, 800 - up - h_ + 60, x + 160, 800 - up - h_ + 150, (255, 220, 140, 255))
-    if mode != 'pipes': [d.ellipse(x, 830, 40, 14, fill=(80, 110, 70, 255)) for x in range(160, 1900, 230)]
-    else: d.text(1650, 560 - up, '14 FT', 80, CORAL, stroke=5, stroke_fill=LINE); d.stroke([(1550, 800), (1550, 800 - up)], CORAL, 12)
-    return d.out()
-
-
-def germ():                                                  # cholera as a grumpy cartoon germ cloud over a swampy puddle (no people hurt on screen)
-    d = Draw(1300, 1100); d.ellipse(650, 960, 520, 110, fill=(90, 140, 100, 255), outline=LINE, width=12)
-    for x, y, r in ((450, 450, 230), (700, 380, 270), (900, 480, 220), (650, 560, 240)): d.dot(x, y, r, (150, 210, 110, 255))
-    for a in range(0, 360, 40): r_ = math.radians(a); x, y = 680 + 360 * math.cos(r_), 480 + 300 * math.sin(r_); d.stroke([(680 + 280 * math.cos(r_), 480 + 230 * math.sin(r_)), (x, y)], (120, 180, 90, 255), 20); d.dot(x, y, 34, (150, 210, 110, 255))
-    eyes(d, 680, 470, 1.0, 'sad'); d.stroke([(560, 360), (640, 400)], LINE, 14); d.stroke([(800, 360), (720, 400)], LINE, 14); return d.out()
-
-
-def twenty():                                                # one in twenty: 20 little figures, one floats up with a halo
-    d = Draw(1800, 900); cols = [(255, 160, 90, 255), (120, 190, 240, 255), (170, 130, 230, 255), (110, 200, 150, 255)]
-    for k in range(20):
-        i, j = k % 10, k // 10; x, y = 120 + i * 175, 380 + j * 300
-        if k == 13: y -= 260; d.ellipse(x, y - 110, 56, 16, outline=AMB, width=12); [d.ellipse(x + sg * 80, y + 30, 40, 26, fill=WT, outline=LINE, width=6) for sg in (-1, 1)]
-        d.rrect(x - 50, y + 40, x + 50, y + 190, 40, fill=(200, 200, 214, 255) if k == 13 else cols[k % 4], outline=LINE, width=8); d.dot(x, y, 55, (255, 220, 190, 255)); d.ellipse(x, y, 55, 55, outline=LINE, width=8)
-        [d.dot(x + sg * 18, y + 2, 7, LINE) for sg in (-1, 1)]
-    return d.out()
-
-
-def pipe():                                                  # new sewer pipe on a mound of fresh dirt, shovel stuck in
-    d = Draw(1700, 1000); d.chord(850, 960, 800, 420, 180, 360, fill=(170, 120, 80, 255), outline=LINE, width=14)
-    d.rrect(300, 380, 1400, 640, 130, fill=(170, 170, 186, 255), outline=LINE, width=14); d.ellipse(1400, 510, 70, 130, fill=(60, 60, 70, 255), outline=LINE, width=12); eyes(d, 800, 500, 0.8, 'happy')
-    d.stroke([(1500, 900), (1580, 380)], (120, 80, 50, 255), 22); d.poly([(1460, 880), (1560, 900), (1530, 1000), (1440, 980)], fill=(180, 180, 196, 255), outline=LINE, width=8); return d.out()
-
-
-def glass(sparkle=True):                                     # a perfect pane of glass in a gilded frame, sparkling, unbroken
-    d = Draw(1000, 1200); d.rrect(80, 80, 920, 1120, 30, fill=(200, 150, 60, 255), outline=LINE, width=14); d.rect(160, 160, 840, 1040, (200, 236, 255, 255)); d.rrect(160, 160, 840, 1040, 2, outline=LINE, width=8)
-    d.poly([(220, 300), (420, 200), (300, 500)], fill=(255, 255, 255, 170)); d.poly([(560, 800), (780, 640), (700, 900)], fill=(255, 255, 255, 140)); eyes(d, 500, 640, 0.9, 'happy')
-    for x, y in ((120, 120), (880, 200), (860, 1080)): d.poly([(x, y - 60), (x + 16, y - 16), (x + 60, y), (x + 16, y + 16), (x, y + 60), (x - 16, y + 16), (x - 60, y), (x - 16, y - 16)], fill=WT, outline=LINE, width=5)
-    return d.out()
-
-
-def car(mode='default'):                                     # Pullman sleeping car (night: lit berths with sleepy faces + Zs; q: dark silhouette with "?")
-    d = Draw(2000, 900)
-    if mode == 'q':
-        d.rrect(60, 200, 1940, 720, 80, fill=(70, 50, 110, 255)); [d.dot(x, 760, 90, (60, 40, 100, 255)) for x in (300, 520, 1480, 1700)]; d.text(1000, 470, '?', 380, AMB, stroke=12, stroke_fill=LINE); return d.out()
-    d.rrect(60, 200, 1940, 720, 80, fill=(120, 40, 50, 255), outline=LINE, width=16); d.rect(60, 250, 1940, 300, (240, 190, 70, 255)); d.text(1000, 278, 'PULLMAN', 46, (120, 40, 50, 255))
-    d.chord(1000, 220, 960, 120, 180, 360, fill=(90, 30, 40, 255), outline=LINE, width=14)
-    for k in range(7):
-        x = 220 + k * 250; win(d, x - 80, 360, x + 80, 560, (255, 220, 140, 255) if mode == 'night' else (170, 220, 250, 255))
-        if mode == 'night': d.dot(x, 470, 46, (255, 220, 190, 255)); d.ellipse(x, 470, 46, 46, outline=LINE, width=6); [d.arc(x + sg * 16, 470, 10, 6, 20, 160, LINE, 5) for sg in (-1, 1)]; d.chord(x, 456, 48, 40, 180, 360, fill=(90, 130, 220, 255))
-    if mode == 'night': [d.text(1700 + k * 90, 160 - k * 70, 'Z', 80 + k * 20, (160, 140, 255, 255), stroke=5, stroke_fill=LINE) for k in range(3)]
-    for x in (300, 520, 1480, 1700): d.dot(x, 760, 90, (50, 50, 60, 255)); d.dot(x, 760, 36, (200, 200, 210, 255))
-    d.rect(60, 840, 1940, 870, (120, 100, 90, 255)); return d.out()
+def check():                                                 # the lawyer's $5,000 gift check
+    d = Draw(1800, 900); d.rrect(60, 100, 1740, 840, 30, fill=(230, 220, 255, 255), outline=LINE, width=16); [d.stroke([(100, y), (1700, y)], (210, 200, 240, 255), 6) for y in range(160, 820, 60)]
+    d.text(560, 230, 'FOR: THE CARVING', 80, NAVY); d.rrect(980, 300, 1680, 470, 20, fill=WT, outline=LINE, width=10); d.text(1330, 385, '$5,000', 130, (40, 120, 70, 255))
+    d.stroke([(1050, 700), (1650, 700)], LINE, 6); d.text(1350, 650, 'C. Rushmore', 80, (60, 40, 150, 255)); eyes(d, 450, 560, 0.8, 'happy'); return d.out()
 
 
 # ------------------------------------------------------------------ set pictures (no text on them)
-def gaslight(path):                                          # amber gaslight 1861 street at dusk: lamps, wooden sidewalks, low skyline
-    im = sky((90, 60, 120), (255, 170, 90), 1.0); d = Draw(W2, H2)
-    for k, x in enumerate(range(0, W2, 240)): h_ = 260 + (k * 89) % 220; d.rect(x, 900 - h_, x + 220, 940, (150 + (k % 3) * 20, 80, 70, 255)); win(d, x + 60, 900 - h_ + 50, x + 160, 900 - h_ + 130, (255, 210, 120, 255))
-    for x in range(150, W2, 520): d.rect(x - 8, 560, x + 8, 940, LINE); d.rrect(x - 36, 500, x + 36, 570, 12, fill=(255, 220, 140, 255), outline=LINE, width=6)
-    fl(d, (120, 90, 70, 255)); im.alpha_composite(d.out()); [glow(im, x, 535, 120, (255, 200, 110, 140), 40) for x in range(150, W2, 520)]; im.convert('RGB').save(path)
+def dawn(path):                                              # rose-gold dawn over the Black Hills: layered pine ridges, sun glow
+    im = sky((255, 150, 140), (255, 220, 170), 1.0); d = Draw(W2, H2); d.dot(1900, 520, 160, (255, 246, 210, 255))
+    hills(d, 640, (200, 140, 160, 255), 90, 3); hills(d, 740, (120, 120, 140, 255), 70, 4, 1.2)
+    for x in range(0, W2, 70): y = 820 + (x * 53) % 60; d.poly([(x, y + 120), (x + 35, y - 60), (x + 70, y + 120)], fill=(50, 100, 80, 255))
+    fl(d, (110, 120, 100, 255)); im.alpha_composite(d.out()); glow(im, 1900, 520, 500, (255, 230, 180, 120), 100); im.convert('RGB').save(path)
 
 
-def roseroom(path):                                          # cosy hotel room: rose wallpaper, gas sconces, framed picture
-    im = sky((200, 110, 130), (240, 160, 160), 1.0); d = Draw(W2, H2)
-    for x in range(60, W2, 160):
-        for y in range(60, 900, 160): d.dot(x + (y // 160 % 2) * 80, y, 22, (240, 130, 150, 255))
-    d.rect(0, 700, W2, 940, (150, 80, 90, 255)); d.rrect(900, 150, 1500, 520, 20, fill=(120, 170, 140, 255), outline=(200, 150, 60, 255), width=24)
-    for x in (500, 1900): d.rect(x - 10, 300, x + 10, 400, (200, 150, 60, 255)); d.dot(x, 280, 30, (255, 220, 140, 255))
-    fl(d, (120, 70, 60, 255)); im.alpha_composite(d.out()); [glow(im, x, 280, 120, (255, 210, 140, 120), 40) for x in (500, 1900)]; im.convert('RGB').save(path)
+def brownstone(path):                                        # lavender gaslit 1885 New York brownstones, stoops, lamps
+    im = sky((150, 120, 200), (230, 190, 220), 1.0); d = Draw(W2, H2)
+    for k, x in enumerate(range(0, W2, 400)): d.rect(x + 10, 200, x + 390, 940, (170, 100, 80, 255)); [win(d, x + 60 + i * 150, 280 + j * 200, x + 140 + i * 150, 400 + j * 200, (255, 220, 150, 255)) for i in range(2) for j in range(2)]; d.rect(x + 120, 760, x + 280, 940, (130, 80, 60, 255))
+    for x in range(200, W2, 400): d.rect(x - 8, 560, x + 8, 940, LINE); d.rrect(x - 30, 500, x + 30, 570, 10, fill=(255, 220, 140, 255), outline=LINE, width=6)
+    fl(d, (120, 100, 120, 255)); im.alpha_composite(d.out()); [glow(im, x, 535, 110, (255, 210, 130, 130), 40) for x in range(200, W2, 400)]; im.convert('RGB').save(path)
 
 
-def parlour(path):                                           # emerald parlour: gold frames, flag, fireplace glow
-    im = sky((20, 90, 70), (50, 150, 110), 1.0); d = Draw(W2, H2)
-    for x in range(0, W2, 200): d.rect(x, 0, x + 12, 940, (200, 160, 70, 255))
-    d.rrect(1600, 520, 2100, 940, 20, fill=(120, 60, 50, 255), outline=LINE, width=12); d.rect(1700, 640, 2000, 940, (40, 20, 20, 255)); d.dot(1850, 860, 70, AMB)
-    d.rrect(300, 160, 700, 520, 10, fill=(240, 230, 210, 255), outline=(200, 160, 70, 255), width=24); [d.rect(320, 180 + k * 50, 680, 205 + k * 50, (200, 60, 70, 255)) for k in range(0, 7, 2)]; d.rect(320, 180, 480, 330, (40, 50, 110, 255))
-    fl(d, (80, 50, 40, 255)); im.alpha_composite(d.out()); glow(im, 1850, 840, 220, (255, 170, 80, 120), 60); im.convert('RGB').save(path)
+def pines(path):                                             # mint-pine Black Hills morning: granite spires, pines, creek
+    im = sky((150, 220, 210), (240, 250, 235), 1.0); d = Draw(W2, H2)
+    for x, h_ in ((300, 380), (700, 460), (1700, 420), (2100, 360)): d.poly([(x - 120, 900), (x - 40, 900 - h_), (x + 30, 900 - h_ + 40), (x + 120, 900)], fill=(190, 186, 200, 255), outline=LINE, width=8)
+    for x in range(0, W2, 90): y = 760 + (x * 31) % 80; d.poly([(x, y + 180), (x + 45, y - 40), (x + 90, y + 180)], fill=(60, 140, 100, 255))
+    d.rect(0, 900, W2, 940, (120, 190, 230, 255)); fl(d, (120, 150, 100, 255)); im.alpha_composite(d.out()); glow(im, 1200, 300, 700, (255, 255, 240, 80), 140); im.convert('RGB').save(path)
 
 
-def blocksky(path):                                          # sky-blue 1860 day: far brick skyline, church spire, clouds
-    im = sky((110, 180, 240), (230, 240, 250), 1.0); d = Draw(W2, H2)
-    for x, y in ((300, 160), (1500, 220)): [d.dot(x + k * 90, y + (k % 2) * 24, 80, (255, 255, 255, 240)) for k in range(4)]
-    for k, x in enumerate(range(0, W2, 200)): h_ = 180 + (k * 71) % 200; d.rect(x, 900 - h_, x + 180, 940, (200, 150, 130, 255))
-    d.rect(1180, 400, 1260, 940, (180, 130, 110, 255)); d.poly([(1160, 400), (1220, 200), (1280, 400)], fill=(150, 100, 90, 255))
-    fl(d, (150, 130, 110, 255)); im.alpha_composite(d.out()); im.convert('RGB').save(path)
+def granite(path):                                           # violet-teal granite cliffs at golden hour
+    im = sky((90, 70, 170), (90, 200, 200), 1.0); d = Draw(W2, H2)
+    for k in range(6): x = k * 450; d.poly([(x - 100, 940), (x + 60, 300 + (k % 2) * 120), (x + 200, 260 + (k % 3) * 60), (x + 400, 940)], fill=(150 + k * 6, 140 + k * 6, 180, 255), outline=LINE, width=8)
+    fl(d, (110, 110, 130, 255)); im.alpha_composite(d.out()); glow(im, 600, 200, 400, (255, 220, 180, 110), 90); im.convert('RGB').save(path)
 
 
-def crawl(path):                                             # amber crawlspace under the building: timber beams, lantern glow
-    im = sky((110, 70, 30), (200, 130, 60), 1.0); d = Draw(W2, H2)
-    for y in (60, 260): d.rect(0, y, W2, y + 90, (120, 80, 40, 255)); d.stroke([(0, y), (W2, y)], LINE, 6)
-    for x in range(100, W2, 400): d.rect(x, 0, x + 60, 940, (130, 90, 50, 255))
-    fl(d, (110, 80, 50, 255)); im.alpha_composite(d.out()); [glow(im, x, 500, 200, (255, 200, 120, 110), 60) for x in (600, 1800)]; im.convert('RGB').save(path)
+def office(path):                                            # cherry-cream 1920s historian office: wallpaper stripes, map frame, radio
+    im = sky((200, 80, 90), (250, 220, 200), 1.0); d = Draw(W2, H2)
+    for x in range(0, W2, 120): d.rect(x, 0, x + 60, 940, (240, 200, 190, 120))
+    d.rrect(800, 160, 1600, 560, 20, fill=(200, 230, 200, 255), outline=(170, 120, 60, 255), width=24); d.poly([(900, 260), (1500, 260), (1480, 480), (920, 480)], fill=(150, 210, 150, 255))
+    d.rrect(1900, 600, 2200, 900, 30, fill=(150, 90, 60, 255), outline=LINE, width=8); d.dot(2050, 720, 70, (240, 200, 140, 255))
+    fl(d, (150, 90, 80, 255)); im.alpha_composite(d.out()); im.convert('RGB').save(path)
 
 
-def shopst(path):                                            # cream shopping street, bunting, bright noon
-    im = sky((150, 210, 250), (255, 244, 220), 1.0); d = Draw(W2, H2); d.stroke([(0, 120), (800, 200), (1600, 120), (W2, 200)], LINE, 5)
-    for x in range(40, W2, 80): y = 160 + 40 * math.sin(x / 130); d.poly([(x, y), (x + 50, y), (x + 25, y + 60)], fill=[CORAL, AMB, (90, 170, 140, 255)][(x // 80) % 3])
-    for k, x in enumerate(range(0, W2, 300)): d.rect(x, 380, x + 280, 940, [(240, 220, 190, 255), (220, 190, 160, 255)][k % 2])
-    fl(d, (170, 150, 120, 255)); im.alpha_composite(d.out()); im.convert('RGB').save(path)
+def studio(path):                                            # butter sketch studio: skylights, plaster busts, easels
+    im = sky((255, 230, 140), (255, 246, 210), 1.0); d = Draw(W2, H2)
+    for x in (400, 1200, 2000): d.poly([(x - 250, 80), (x + 250, 80), (x + 200, 300), (x - 200, 300)], fill=(190, 230, 250, 255), outline=(200, 170, 100, 255), width=14)
+    for x in (300, 2100): d.rect(x - 60, 700, x + 60, 940, (220, 210, 200, 255)); d.dot(x, 620, 90, (236, 232, 228, 255))
+    fl(d, (190, 160, 110, 255)); im.alpha_composite(d.out()); im.convert('RGB').save(path)
 
 
-def swamp(path):                                             # teal swamp + lake horizon: reeds, cattails, lily pads, mist
-    im = sky((60, 140, 150), (190, 230, 210), 1.0); d = Draw(W2, H2); d.rect(0, 640, W2, 940, (60, 130, 150, 255))
-    for x in range(30, W2, 70): d.stroke([(x, 940), (x + 10, 640 - (x % 5) * 30)], (60, 110, 60, 255), 10); d.ellipse(x + 10, 640 - (x % 5) * 30, 12, 30, fill=(120, 80, 50, 255))
-    fl(d, (70, 110, 80, 255)); im.alpha_composite(d.out()); glow(im, 1200, 600, 700, (230, 255, 240, 80), 140); im.convert('RGB').save(path)
+def worksite(path):                                          # cyan-sky worksite: cliff face, wooden scaffolds, ladders, compressor shed
+    im = sky((80, 190, 240), (210, 240, 255), 1.0); d = Draw(W2, H2); d.poly([(0, 940), (100, 200), (2300, 160), (2400, 940)], fill=(190, 184, 196, 255), outline=LINE, width=10)
+    for y in (380, 600): d.rect(200, y, 2200, y + 24, (170, 120, 70, 255))
+    for x in range(260, 2200, 320): d.rect(x, 200, x + 16, 940, (150, 100, 60, 255))
+    fl(d, (160, 150, 140, 255)); im.alpha_composite(d.out()); im.convert('RGB').save(path)
 
 
-def mistnight(path):                                         # misty green-blue night, moon, rooftops
-    im = sky((30, 60, 70), (70, 120, 110), 1.0); d = Draw(W2, H2); d.dot(1800, 220, 90, (240, 250, 220, 255)); stars(d, 40, 500, 4)
-    for k, x in enumerate(range(0, W2, 230)): h_ = 240 + (k % 3) * 70; d.rect(x, 940 - h_, x + 210, 940, (40, 70, 70, 255)); win(d, x + 70, 940 - h_ + 60, x + 140, 940 - h_ + 130, (255, 220, 140, 255))
-    fl(d, (50, 70, 60, 255)); im.alpha_composite(d.out()); glow(im, 1800, 220, 220, (240, 255, 220, 90), 60); im.convert('RGB').save(path)
-
-
-def works(path):                                             # terracotta street works: dirt mounds, cranes, sunset
-    im = sky((240, 130, 90), (255, 210, 150), 1.0); d = Draw(W2, H2)
-    for x in (300, 1900): d.stroke([(x, 940), (x, 300), (x + 400, 300)], (90, 60, 50, 255), 20); d.stroke([(x + 380, 300), (x + 380, 520)], LINE, 6)
-    for x in (900, 1500): d.chord(x, 940, 300, 200, 180, 360, fill=(170, 110, 70, 255), outline=LINE, width=10)
-    fl(d, (150, 100, 70, 255)); im.alpha_composite(d.out()); im.convert('RGB').save(path)
-
-
-def workshop(path):                                          # brass-cream glass workshop: big arched windows, shelves of panes
-    im = sky((250, 236, 206), (240, 210, 160), 1.0); d = Draw(W2, H2)
-    for x in (300, 1000, 1700): d.chord(x + 200, 500, 200, 200, 180, 360, fill=(170, 220, 250, 255), outline=(180, 140, 60, 255), width=20); d.rect(x, 500, x + 400, 860, (170, 220, 250, 255)); d.rrect(x, 500, x + 400, 860, 2, outline=(180, 140, 60, 255), width=20)
-    fl(d, (180, 140, 90, 255)); im.alpha_composite(d.out()); im.convert('RGB').save(path)
-
-
-def railnight(path):                                         # Prussian-blue starry night with rail tracks to the horizon and a moon
-    im = sky((14, 24, 70), (40, 80, 150), 1.0); d = Draw(W2, H2); stars(d, 120, 700, 8); d.dot(500, 200, 100, (255, 246, 210, 255))
-    hills(d, 760, (30, 50, 90, 255), 60, 3); d.poly([(1100, 760), (1300, 760), (2000, 940), (400, 940)], fill=(90, 80, 80, 255)); [d.stroke([(1150 - k * 60, 760 + k * 30), (1250 + k * 60, 760 + k * 30)], (140, 110, 80, 255), 8) for k in range(7)]
-    fl(d, (40, 50, 80, 255)); im.alpha_composite(d.out()); glow(im, 500, 200, 260, (255, 240, 200, 100), 60); im.convert('RGB').save(path)
+def dusk(path):                                              # apricot-indigo 1941 dusk: quiet mountain silhouette, first stars
+    im = sky((70, 60, 140), (255, 180, 130), 1.0); d = Draw(W2, H2); stars(d, 50, 300, 7)
+    hills(d, 700, (110, 90, 140, 255), 120, 2); hills(d, 820, (70, 70, 110, 255), 60, 4, 0.5)
+    fl(d, (120, 100, 120, 255)); im.alpha_composite(d.out()); glow(im, 1200, 760, 700, (255, 190, 140, 110), 140); im.convert('RGB').save(path)
 
 
 if __name__ == '__main__':
     for sub in ('puppets', 'textures', 'bg', 'props', 'models', 'audio'): os.makedirs(os.path.join(ROOT, sub), exist_ok=True)
-    items = build_cast3(('pullman', 'guest', 'senator', 'crew1', 'crew2'))
-    multi = dict(hotel={'default': hotel(), 'wave': hotel('wave')}, jacks={'default': jacks()}, steps={'default': steps(), 'steep': steps(True)}, winframe={'default': winframe()},
-                 bed={'default': bed()}, dinner={'default': dinner()}, desk={'default': desk()}, block={'default': block()}, crew={'default': crew()},
-                 screw={'default': screw(), 'turn': screw(True)}, bell={'default': bell()}, shop={'default': shop()}, xsec={'default': xsec(), 'pipes': xsec('pipes')},
-                 germ={'default': germ()}, twenty={'default': twenty()}, pipe={'default': pipe()}, glass={'default': glass()}, car={k: car(k) for k in ('default', 'night', 'q')})
+    items = build_cast4(('rush', 'guide', 'doane', 'sculptor', 'drill1', 'drill2'))
+    multi = dict(rushmore={k: rushmore(k) for k in ('default', 'gasp', 'plan')}, bubble={'default': bubble(), 'ask': bubble('ask')}, peak={'default': peak(), 'named': peak('named')},
+                 claims={'default': claims()}, sdmap={'default': sdmap()}, tourists={'default': tourists()}, legends={'default': legends()}, blueprint={'default': blueprint()},
+                 crew={'default': crew()}, scale={'default': scale()}, safety={'default': safety()}, rest={'default': rest()}, emptybag={'default': emptybag()}, check={'default': check()})
     for nm, faces in multi.items(): G.build_card(nm, faces); items += [(nm + ' ' + k, im) for k, im in faces.items()]
-    PL, GR, RB = (90, 50, 110, 255), (30, 110, 80, 255), (150, 50, 50, 255)
-    cards = dict(hookc=M.bigneon('HOTEL ROSE', '6 FEET!', 860, YEL, CORAL),
-                 y1861=M.cal('CHICAGO', '1861', RB),
-                 inch=stamp('INCH BY INCH...', 860, PL, 120, -3),
-                 senat=P_('A U.S. SENATOR', 'IS STAYING THERE', GR, 980, 130, 110, YEL),
-                 steeper=stamp('STEEPER?!', 680, RB, 170, 4),
-                 eye=stamp('PAST EYE LEVEL!', 900, PRU, 120, -3),
-                 year=stamp('A YEAR EARLIER...', 940, PL, 110, 3),
-                 f320=M.bigneon('320 FEET', 'OF SHOPS', 860, YEL, AMB),
-                 m600=M.bigneon('600', 'MEN', 640, YEL, CORAL),
-                 notch=stamp('ONE NOTCH!', 760, RB, 150, -4),
-                 open_=stamp('STORES STAY OPEN!', 960, GR, 110, 3),
-                 swampc=P_('BUILT ON', 'A SWAMP', (40, 110, 110, 255), 820, 130, 170, YEL),
-                 y1854=M.cal('CHOLERA', '1854', (40, 90, 80, 255)),
-                 one20=M.bigneon('1 IN', '20', 560, YEL, (150, 230, 120, 255)),
-                 wild=M.bigneon('A WILD', 'FIX!', 700, YEL, CORAL),
-                 f14=M.bigneon('UP TO', '14 FEET!', 760, YEL, AMB),
-                 pullc=P_('GEORGE', 'PULLMAN', PL, 860, 130, 190, YEL),
-                 pane=stamp('NOT ONE PANE BROKEN!', 1000, (40, 120, 170, 255), 100, -3),
-                 wheels=M.bigneon('ON', 'WHEELS!', 700, YEL, CORAL),
-                 travels=P_('A HOTEL', 'THAT TRAVELS!', RB, 960, 150, 150, YEL))
+    PU, TQ, RB = (100, 60, 180, 255), (30, 130, 130, 255), (180, 60, 80, 255)
+    cards = dict(hookc=neon3("MOUNT RUSHMORE'S", 'NAME WAS', 'A JOKE!'),
+                 nylaw=P_('A NEW YORK', 'LAWYER', PU, 820, 130, 170, YEL),
+                 y1885=M.cal('DAKOTA', '1885', TQ),
+                 charles=P_('CHARLES', 'RUSHMORE', (80, 86, 110, 255), 860, 130, 180, YEL),
+                 noname=stamp('IT NEVER HAD A NAME!', 1000, RB, 100, -3),
+                 callit=M.bigneon("WE'LL CALL IT", 'RUSHMORE', 900, YEL, VIO),
+                 stuck=stamp('AND IT STUCK!', 760, TQ, 140, 4),
+                 doanec=P_('DOANE', 'ROBINSON', (170, 100, 70, 255), 800, 130, 180, YEL),
+                 want=stamp('WANTS TOURISTS!', 820, (230, 90, 120, 255), 130, 3),
+                 bigger=M.bigneon('WENT', 'BIGGER!', 720, YEL, VIO),
+                 four=P_('FOUR', 'PRESIDENTS', PU, 800, 140, 170, YEL),
+                 workers=M.bigneon('400+', 'WORKERS', 680, YEL, MINT),
+                 y14=M.cal('YEARS', '14', (60, 110, 200, 255)),
+                 sixty=M.bigneon('FACES', '60 FEET TALL', 860, YEL, ROSE),
+                 nodied=stamp('NOBODY DIED!', 720, (50, 150, 90, 255), 150, -3),
+                 y1941=M.cal('STOPPED', '1941', RB),
+                 heads=stamp('JUST THE HEADS', 860, PU, 120, 3),
+                 gave=M.bigneon('LAWYER GAVE', '$5,000', 860, YEL, MINT),
+                 kept=P_('THE NAME', 'STAYED', TQ, 800, 130, 170, YEL))
     cards_out(ROOT, cards, multi, items)
     T = lambda n: os.path.join(ROOT, 'textures', n)
-    CE.tiles(T('boards.jpg'), (150, 110, 80), (136, 98, 70)); CE.tiles(T('rug.jpg'), (170, 70, 80), (154, 60, 70)); CE.tiles(T('green.jpg'), (60, 100, 70), (52, 88, 62)); CE.tiles(T('cobble.jpg'), (170, 150, 130), (156, 136, 118))
-    M.sandtex(T('dirt.jpg'), (140, 100, 70), (126, 88, 60)); CE.tiles(T('shopfl.jpg'), (220, 200, 170), (206, 186, 156)); M.sandtex(T('mud.jpg'), (90, 110, 80), (78, 98, 70)); M.sandtex(T('night.jpg'), (50, 70, 60), (42, 60, 52))
-    CE.tiles(T('brass.jpg'), (220, 190, 140), (206, 176, 126)); M.sandtex(T('ballast.jpg'), (70, 70, 90), (60, 60, 78)); CE.tiles(T('pave.jpg'), (120, 100, 90), (106, 88, 78))
+    M.sandtex(T('granfl.jpg'), (150, 140, 130), (138, 128, 118)); CE.tiles(T('cobble.jpg'), (150, 130, 140), (136, 118, 128)); M.sandtex(T('needles.jpg'), (110, 140, 90), (98, 128, 80)); M.sandtex(T('gravel.jpg'), (150, 146, 160), (138, 134, 148))
+    CE.tiles(T('officefl.jpg'), (170, 110, 90), (156, 100, 82)); CE.tiles(T('studiofl.jpg'), (210, 180, 130), (196, 166, 118)); M.sandtex(T('rubble.jpg'), (170, 164, 160), (156, 150, 146)); M.sandtex(T('duskfl.jpg'), (110, 100, 120), (98, 90, 110))
+    CE.tiles(T('pave.jpg'), (120, 100, 90), (106, 88, 78)); B.tex_wood(T('wood.jpg'))
     G.sky(os.path.join(ROOT, 'bg', 'sky.jpg')); Pp = lambda n: os.path.join(ROOT, 'props', n)
-    SETS = dict(gaslight=gaslight, roseroom=roseroom, parlour=parlour, blocksky=blocksky, crawl=crawl, shopst=shopst, swamp=swamp, mistnight=mistnight, works=works, workshop=workshop, railnight=railnight)
+    SETS = dict(dawn=dawn, brownstone=brownstone, pines=pines, granite=granite, office=office, studio=studio, worksite=worksite, dusk=dusk)
     for n, f in SETS.items(): f(Pp(n + '.png')); items.append((n, Image.open(Pp(n + '.png'))))
     B.sheet(items, os.path.join(ROOT, 'assets_preview.jpg'))
     print('assets written to', ROOT, '-', len(items), 'items')
