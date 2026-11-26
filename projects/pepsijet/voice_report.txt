@@ -1,0 +1,25 @@
+Collecting en-core-web-sm==3.8.0
+  Downloading en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 124.5 MB/s  0:00:00
+Installing collected packages: en-core-web-sm
+Successfully installed en-core-web-sm-3.8.0
+[38;5;2m✔ Download and installation successful[0m
+You can now load the package via spacy.load('en_core_web_sm')
+am_fenrir @1.28     63.3 s  understood 0.914
+am_fenrir @1.32     60.7 s  understood 0.900
+am_fenrir @1.36     52.2 s  understood 0.880
+chose am_fenrir @1.28 (understood 0.914): tempo 1.050 -> about 60.3 s
+Downloading: "https://download.pytorch.org/torchaudio/models/wav2vec2_fairseq_base_ls960_asr_ls960.pth" to /home/runner/.cache/torch/hub/checkpoints/wav2vec2_fairseq_base_ls960_asr_ls960.pth
+  0%|          | 0.00/360M [00:00<?, ?B/s]  6%|▌         | 21.5M/360M [00:00<00:01, 214MB/s] 20%|██        | 72.5M/360M [00:00<00:00, 398MB/s] 32%|███▏      | 116M/360M [00:00<00:00, 424MB/s]  44%|████▎     | 157M/360M [00:00<00:00, 424MB/s] 55%|█████▍    | 197M/360M [00:00<00:00, 421MB/s] 67%|██████▋   | 241M/360M [00:00<00:00, 433MB/s] 78%|███████▊  | 282M/360M [00:00<00:00, 428MB/s] 91%|█████████▏| 329M/360M [00:00<00:00, 449MB/s]100%|██████████| 360M/360M [00:00<00:00, 427MB/s]
+aligned 222 words over 60.75 s, mean confidence 0.95, shortest word 0.04 s
+heard: Pepsi put a fighter jet in an ad as a joke, a college student tried to buy it. 1996 Pepsi Stuff, Drink Pepsi, collect points, trade them for t-shirts and leather jackets. Then the final shot, a teenager lands a Harrier Jump Jet at his high school, price 7 million Pepsi points. Nobody can drink that much Pepsi, but John Leonard, a business student, found the loophole you could buy extra points. 10 cents each, 7 million points, $700,000 for a military jet worth over 30 million. So he found five investors, he mailed Pepsi 15 labels and a check for $700,000 and 8 dollars 50, some of that was shipping and handling. Pepsi sent the check back, he sued. You see, Pepsi said it was obviously a joke and in 1999 a federal judge agreed. Judge Kimba Wood called flying a jet to school an exaggerated adolescent fantasy. No objective person the court said could see a real offer. Leonard lost, the appeal failed too. But Pepsi still changed the ad, the jet now cost 700 million points and two new words appeared under the price just kidding. Leonard never got his jet, he got a Netflix series instead in 2022 because nobody told a college student that Pepsi's fighter jet was a joke.
+intelligibility 0.930 (1.0 = every word understood)
+  replace: said ['seven'] -> heard ['7']
+  replace: said ['ten'] -> heard ['10']
+  replace: said ['seven'] -> heard ['7']
+  replace: said ['seven', 'hundred', 'thousand', 'dollars'] -> heard ['700', '000']
+  replace: said ['thirty'] -> heard ['30']
+  replace: said ['fifteen'] -> heard ['15']
+  replace: said ['seven', 'hundred', 'thousand'] -> heard ['700', '000', 'and', '8']
+  replace: said ['and', 'eight', 'dollars', 'fifty'] -> heard ['50']
+  replace: said ['seven', 'hundred'] -> heard ['700']
