@@ -46,13 +46,13 @@ def yard(loc, img, floor, w=16, rep=(8, 8)):
 
 
 yard("HK", "dawn.png", "granfl.jpg"); tree("HK", -3.0, -3.8, 0.8, "#3c7a5a"); tree("HK", 3.2, -4.0, 0.9, "#468a64")
-yard("NY", "brownstone.png", "cobble.jpg"); post("NY", 2.4, -3.2, 2.4, "#2a2a3a"); box("NY", -2.6, 0.04, -3.4, [0.8, 0.4, 0.6], color="#8a5a4a")
+yard("NY", "brownstone.png", "cobble.jpg"); post("NY", -3.0, -3.2, 2.4, "#2a2a3a"); box("NY", -2.6, 0.04, -3.4, [0.8, 0.4, 0.6], color="#8a5a4a")
 yard("PN", "pines.png", "needles.jpg"); tree("PN", -3.4, -4.0, 1.0, "#3c8a64"); tree("PN", 3.6, -4.2, 1.1, "#4a9a6e"); cart("PN", 3.0, 0.04, -3.6, 30)
 yard("GR", "granite.png", "gravel.jpg"); tree("GR", -4.0, -4.6, 0.9, "#3c7a6a"); box("GR", 4.4, 0.04, -3.6, [0.7, 0.5, 0.7], color="#a8a4b8")
 yard("OF", "office.png", "officefl.jpg"); box("OF", 1.4, 0.04, -2.8, [1.4, 0.75, 0.8], color="#8a4a3a")
 yard("ST", "studio.png", "studiofl.jpg"); box("ST", 0.75, 0.04, -2.7, [1.4, 0.46, 0.6], color="#b48c5a")
 yard("WK", "worksite.png", "rubble.jpg"); crate("WK", -2.4, 0, -3.8); barrel("WK", 2.4, -3.8)
-yard("DK", "dusk.png", "duskfl.jpg"); tree("DK", -4.0, -4.2, 0.9, "#4a4a70")
+yard("DK", "dusk.png", "duskfl.jpg"); tree("DK", -6.5, -4.6, 0.9, "#4a4a70")
 
 # ================================================================== CHARACTERS (cards + background decor carry "_" in the id: not frame-checked; hero props are)
 put("rushK", "rushmore", pos("HK", 0.0, 0.04, -4.6), 1.6); human("lawK", "rush", pos("HK", -0.7, 0.04, -2.2), face="happy", h=1.3); put("bubbleK", "bubble", pos("HK", 0.0, 1.4, -2.2), 0.5)
@@ -65,7 +65,7 @@ human("doaneO", "doane", pos("OF", -0.6, 0.04, -2.2), face="happy", h=1.6)
 human("sculptS", "sculptor", pos("ST", -0.85, 0.04, -2.2), face="happy", h=1.6); put("blueS", "blueprint", pos("ST", 0.75, 0.5, -2.6), 0.75)
 put("crewW", "crew", pos("WK", 0.0, 0.6, -3.8), 1.1); human("drill1W", "drill1", pos("WK", -0.6, 0.04, -2.2), face="happy", h=1.6); human("drill2W", "drill2", pos("WK", 0.6, 0.04, -2.2), face="happy", h=1.6)
 put("scaleW", "scale", pos("WK", 4.2, 0.04, -2.6), 1.3); put("safetyW", "safety", pos("WK", -4.2, 0.04, -2.6), 1.2)
-put("rushD", "rushmore", pos("DK", 0.0, 0.04, -4.4), 1.6); put("restD", "rest", pos("DK", 2.8, 0.04, -2.4), 0.9); put("bagD", "emptybag", pos("DK", -2.8, 0.04, -2.4), 0.8)
+put("rushD", "rushmore", pos("DK", 0.0, 0.04, -4.4), 1.6); put("restD", "rest", pos("DK", 2.8, 0.04, -2.4), 1.0); put("bagD", "emptybag", pos("DK", -2.8, 0.04, -2.4), 0.9)
 # ================================================================== SHOTS
 SH = {c["id"]: c["height"] for c in chars}
 N_ = [0]; REQ = []; SNAPC = []; FXC = []; LOC = {}
@@ -145,8 +145,8 @@ s = S("Faces sixty feet", "WK", (4.2, 0.75, -2.6), 4.4, 12, pitch=6, yawTo=-6, t
 s = S("And remarkably nobody", "WK", (-4.2, 0.7, -2.6), 5.0, 8, pitch=5, zoom=-10); act(s, rel(s, "nobody"), "safetyW", shake=0.5); T(s, "nodied", at=rel(s, "died"), dy=0.37, wf=0.5)
 # ---- Then in 1941 the sculptor died, the money ran thin, and the work stopped at the heads.
 s = crane("Then in 1941", "DK", (0.0, 1.1, -4.0), 7.0, 22, 2, 34, 8); T(s, "y1941", at=rel(s, "1941"), dx=-0.24, dy=0.22, wf=0.26, hf=0.26)
-s = S("the sculptor died", "DK", (2.8, 0.5, -2.4), 3.8, -12, pitch=8, yawTo=4, type="macro", dof=dict(focus="restD", blur=0.5))
-s = S("the money ran", "DK", (-2.8, 0.45, -2.4), 3.8, 6, pitch=6, zoom=12, dof=dict(focus="bagD", blur=0.5)); act(s, rel(s, "thin"), "bagD", shake=0.4)
+s = S("the sculptor died", "DK", (2.8, 0.6, -2.4), 3.7, 0, pitch=8, zoom=8, type="macro", dof=dict(focus="restD", blur=0.5))
+s = S("the money ran", "DK", (-2.8, 0.5, -2.4), 3.6, 10, pitch=6, yawTo=-4, type="macro", dof=dict(focus="bagD", blur=0.5)); act(s, rel(s, "thin"), "bagD", shake=0.4)
 s = S("and the work", "HK", (0.0, 1.0, -4.6), 5.6, -6, pitch=5, zoom=-10); hide(s, 0.0, "lawK"); hide(s, 0.0, "bubbleK"); act(s, 0.0, "rushK", face="default"); T(s, "heads", at=rel(s, "stopped"), dy=0.36, wf=0.56)
 # ---- The lawyer even gave five thousand dollars toward the carving. So the presidents never got their bodies.
 s = S("The lawyer even", "NY", (0.0, 1.05, -2.2), 5.0, 12, pitch=6, yawTo=-4); ft(s, "lawN", ["smug", "happy"])
