@@ -1,0 +1,69 @@
+music: 61.1 s, 90s new jack swing 104/108 + surf rock 150 + courtroom habanera 116
+   autofit S00 distance 6.4 -> 6.8
+   autofit S02 distance 7.6 -> 8.1
+   autofit S04 distance 6.4 -> 8.1
+   autofit S05 distance 4.8 -> 5.1
+   autofit S06 distance 6.6 -> 7.9
+   autofit S07 distance 4.4 -> 4.7
+   autofit S13 distance 7.0 -> 7.4
+   autofit S18 distance 5.2 -> 6.6
+   autofit S19 distance 7.0 -> 7.4
+   autofit S21 distance 4.4 -> 5.2
+   autofit S28 distance 5.6 -> 6.7
+   autofit S31 distance 7.4 -> 7.8
+   autofit S37 distance 5.0 -> 6.7
+   autofit S41 distance 6.4 -> 8.6
+   autofit S42 distance 7.0 -> 7.9
+   autofit S43 distance 4.6 -> 5.2
+shot  start   dur  phrase
+S00    0.00  2.18  0                          d 6.8  snap
+S01    2.18  1.50  A college student          d 4.4
+S02    3.68  1.70  1996                       d 8.1  snap
+S03    5.38  1.26  Drink Pepsi collect        d 4.2
+S04    6.64  1.90  trade them for             d 8.1
+S05    8.54  1.00  Then the final             d 5.1
+S06    9.54  0.78  A teenager lands           d 7.9
+S07   10.32  1.78  Harrier jump jet           d 4.7  snap
+S08   12.10  1.12  Price seven million        d 4.6
+S09   13.22  0.90  Pepsi Points               d 5.0
+S10   14.12  1.64  Nobody can drink           d 4.4
+S11   15.76  1.56  But John Leonard           d 4.6
+S12   17.32  0.70  found the loophole         d 4.0
+   ! very short shot
+S13   18.02  1.30  You could buy              d 7.4
+S14   19.32  0.98  Ten cents each             d 4.2  snap
+S15   20.30  1.08  Seven million points       d 6.6
+S16   21.38  1.22  Seven hundred thousand     d 4.2
+S17   22.60  0.84  For a military             d 7.6
+S18   23.44  1.32  worth over thirty          d 6.6  snap
+S19   24.76  1.50  So he found                d 7.4
+S20   26.26  1.54  He mailed Pepsi            d 4.8
+S21   27.80  1.89  and a check                d 5.2  snap
+S22   29.69  1.20  and eight dollars          d 5.6
+S23   30.89  1.58  Some of that               d 5.0
+S24   32.47  0.98  Pepsi sent the             d 5.0
+S25   33.45  0.94  He sued                    d 4.6  snap
+S26   34.39  1.56  Pepsi said it              d 4.4
+S27   35.95  1.10  and in 1999                d 7.8
+S28   37.05  1.14  a federal judge            d 6.7  snap
+S29   38.19  1.02  Judge Kimba Wood           d 4.6
+S30   39.21  1.02  flying a jet               d 7.0
+S31   40.23  1.88  an exaggerated adolescent  d 7.8  snap
+S32   42.11  1.64  No objective person        d 7.6
+S33   43.75  1.14  could see a                d 4.4
+S34   44.89  0.80  Leonard lost               d 4.4
+S35   45.69  1.20  The appeal failed          d 4.4
+S36   46.89  1.58  But Pepsi still            d 6.0
+S37   48.47  0.88  The jet now                d 6.7
+S38   49.35  1.50  seven hundred million      d 4.2  snap
+S39   50.85  1.64  And two new                d 4.8
+S40   52.49  0.76  just kidding               d 4.6
+S41   53.25  1.18  Leonard never got          d 8.6
+S42   54.43  1.62  He got a                   d 7.9  snap
+S43   56.05  0.98  in 2022                    d 5.2
+S44   57.03  1.52  Because nobody told        d 5.0
+S45   58.55  1.06  that Pepsi's fighter       d 4.6
+S46   59.61  1.14  was a joke                 d 6.1
+snaps 11, comic fx 4
+frame check: 0 CUT flags
+wrote short.json: 47 shots, 51 characters, 37 props, voice 60.75 s
