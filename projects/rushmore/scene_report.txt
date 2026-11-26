@@ -1,0 +1,59 @@
+music: 46.0 s, old-west trot 118/122 + ragtime stride 130 + quarry work song 124 + quiet 1941 hymn 84
+   autofit S00 distance 6.4 -> 7.2
+   autofit S03 distance 6.8 -> 7.6
+   autofit S04 distance 7.4 -> 8.3
+   autofit S05 distance 4.6 -> 4.9
+   autofit S06 distance 7.4 -> 9.3
+   autofit S07 distance 7.6 -> 9.1
+   autofit S09 distance 5.0 -> 5.3
+   autofit S16 distance 5.0 -> 5.6
+   autofit S17 distance 5.6 -> 5.9
+   autofit S18 distance 4.8 -> 5.7
+   autofit S19 distance 7.0 -> 8.8
+   autofit S22 distance 5.0 -> 6.0
+   autofit S26 distance 7.0 -> 7.4
+   autofit S29 distance 5.6 -> 6.7
+   autofit S31 distance 4.2 -> 4.5
+   autofit S32 distance 5.6 -> 7.9
+   autofit S33 distance 6.6 -> 7.4
+shot  start   dur  phrase
+S00    0.00  1.54  0                          d 7.2  snap
+S01    1.54  0.76  A New York                 d 4.6
+S02    2.30  0.86  asked one question         d 4.0
+S03    3.16  1.26  and a mountain             d 7.6
+S04    4.42  0.84  1885                       d 8.3
+S05    5.26  1.36  The Black Hills            d 4.9  snap
+S06    6.62  1.96  Charles Rushmore is        d 9.3
+S07    8.58  1.18  He points at               d 9.1
+S08    9.76  1.26  asks his guide             d 4.6
+S09   11.02  1.12  The answer reportedly      d 5.3
+S10   12.14  0.75  it never had               d 5.0
+S11   12.89  1.54  We'll call it              d 5.6  snap
+S12   14.43  1.24  Almost forty years         d 6.6
+S13   15.67  1.76  a state historian          d 7.0
+S14   17.43  0.78  wants tourists             d 6.0
+S15   18.21  0.94  His first idea             d 4.4
+S16   19.15  1.62  Carve Western legends      d 5.6
+S17   20.77  1.38  Red Cloud                  d 5.9
+S18   22.15  0.78  Buffalo Bill               d 5.7
+S19   22.93  1.36  You see the                d 8.8  snap
+S20   24.29  1.80  Four presidents carved     d 5.2
+S21   26.09  1.32  More than four             d 8.0
+S22   27.41  0.78  Fourteen years             d 6.0
+S23   28.19  1.34  Just under one             d 6.6
+S24   29.53  1.22  Faces sixty feet           d 4.4  snap
+S25   30.75  1.40  And remarkably nobody      d 5.0
+S26   32.15  1.08  Then in 1941               d 7.4
+S27   33.23  0.82  the sculptor died          d 3.8
+S28   34.05  0.96  the money ran              d 3.8
+S29   35.01  1.36  and the work               d 6.7
+S30   36.37  0.98  The lawyer even            d 5.0
+S31   37.35  1.85  five thousand dollars      d 4.5  snap
+S32   39.20  1.78  So the presidents          d 7.9
+S33   40.98  1.34  But the mountain           d 7.4
+S34   42.32  1.48  all because one            d 4.4
+S35   43.80  0.82  asked one simple           d 4.0  snap
+S36   44.62  0.96  question#2                 d 6.1
+snaps 7, comic fx 2
+frame check: 0 CUT flags
+wrote short.json: 37 shots, 45 characters, 30 props, voice 45.58 s
