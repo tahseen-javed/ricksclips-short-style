@@ -540,7 +540,7 @@
     0.04,
     -2.4
    ],
-   "height": 0.9,
+   "height": 1.0,
    "face": "default"
   },
   {
@@ -551,7 +551,7 @@
     0.04,
     -2.4
    ],
-   "height": 0.8,
+   "height": 0.9,
    "face": "default"
   },
   {
@@ -861,7 +861,7 @@
   {
    "type": "post",
    "pos": [
-    72.4,
+    67.0,
     0,
     -3.2
    ],
@@ -1173,9 +1173,9 @@
   {
    "type": "tree",
    "pos": [
-    486.0,
+    483.5,
     0,
-    -4.2
+    -4.6
    ],
    "scale": 0.9,
    "color": "#4a4a70"
@@ -2837,11 +2837,11 @@
    "start": 33.23,
    "anchor": [
     492.8,
-    0.5,
+    0.6,
     -2.4
    ],
-   "distance": 3.8,
-   "yaw": -12,
+   "distance": 3.7,
+   "yaw": 0,
    "pitch": 8,
    "zoom": 8,
    "pan": [
@@ -2852,7 +2852,6 @@
    "out": "glide",
    "outDur": 0.5,
    "glide": "dolly",
-   "yawTo": 4,
    "type": "macro",
    "dof": {
     "focus": "restD",
@@ -2871,15 +2870,15 @@
    "start": 34.05,
    "anchor": [
     487.2,
-    0.45,
+    0.5,
     -2.4
    ],
-   "distance": 3.8,
-   "yaw": 6,
+   "distance": 3.6,
+   "yaw": 10,
    "pitch": 6,
-   "zoom": 12,
+   "zoom": 8,
    "pan": [
-    0,
+    40.6,
     0
    ],
    "actions": [
@@ -2892,6 +2891,8 @@
    "out": "dissolve",
    "outDur": 0.4,
    "glide": "dolly",
+   "yawTo": -4,
+   "type": "macro",
    "dof": {
     "focus": "bagD",
     "blur": 0.5
