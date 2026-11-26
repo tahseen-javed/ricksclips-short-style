@@ -268,7 +268,7 @@ if __name__ == '__main__':
     M.sandtex(T('lawn.jpg'), (110, 190, 100), (98, 176, 90)); CE.tiles(T('studio.jpg'), (240, 110, 180), (226, 98, 166)); CE.tiles(T('dormfl.jpg'), (150, 110, 80), (136, 98, 70)); CE.tiles(T('hangfl.jpg'), (140, 150, 160), (128, 138, 148))
     CE.tiles(T('roof.jpg'), (180, 150, 160), (166, 138, 148)); CE.tiles(T('sidewalk.jpg'), (210, 210, 215), (196, 196, 202)); CE.tiles(T('plaza.jpg'), (220, 222, 230), (206, 208, 218)); CE.tiles(T('marblefl.jpg'), (200, 206, 220), (186, 192, 208))
     M.sandtex(T('cloudfl.jpg'), (245, 230, 250), (236, 220, 244)); CE.tiles(T('rug.jpg'), (150, 120, 170), (138, 108, 158)); CE.tiles(T('pave.jpg'), (120, 100, 90), (106, 88, 78))
-    G.sky(os.path.join(ROOT, 'bg', 'sky.jpg')); Pp = lambda n: os.path.join(ROOT, 'props', n)
+    B.tex_wood(T('wood.jpg')); G.sky(os.path.join(ROOT, 'bg', 'sky.jpg')); Pp = lambda n: os.path.join(ROOT, 'props', n)
     SETS = dict(schoolyard=schoolyard, memphis=memphis, dorm=dorm, hangar=hangar, rooftop=rooftop, poststreet=poststreet, glassplaza=glassplaza, fedcourt=fedcourt, fantasy=fantasy, livingroom=livingroom)
     for n, f in SETS.items(): f(Pp(n + '.png')); items.append((n, Image.open(Pp(n + '.png'))))
     B.sheet(items, os.path.join(ROOT, 'assets_preview.jpg'))

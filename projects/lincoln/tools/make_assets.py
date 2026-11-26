@@ -268,7 +268,7 @@ if __name__ == '__main__':
     CE.tiles(T('mat.jpg'), (40, 190, 180), (34, 172, 164)); CE.tiles(T('marble.jpg'), (230, 240, 236), (214, 226, 222)); M.sandtex(T('prairie.jpg'), (190, 170, 90), (176, 156, 80)); M.sandtex(T('campdirt.jpg'), (170, 136, 110), (156, 124, 100))
     M.sandtex(T('grass.jpg'), (120, 170, 110), (108, 156, 100)); M.sandtex(T('dust.jpg'), (210, 160, 120), (196, 148, 110)); M.sandtex(T('meadow.jpg'), (180, 150, 80), (166, 138, 72)); CE.tiles(T('courtfl.jpg'), (170, 100, 80), (156, 90, 72))
     CE.tiles(T('stone.jpg'), (150, 140, 180), (136, 126, 166)); M.sandtex(T('nightgr.jpg'), (90, 130, 130), (80, 120, 120)); CE.tiles(T('studyfl.jpg'), (170, 110, 70), (156, 100, 62)); CE.tiles(T('pave.jpg'), (120, 100, 90), (106, 88, 78))
-    G.sky(os.path.join(ROOT, 'bg', 'sky.jpg')); Pp = lambda n: os.path.join(ROOT, 'props', n)
+    B.tex_wood(T('wood.jpg')); G.sky(os.path.join(ROOT, 'bg', 'sky.jpg')); Pp = lambda n: os.path.join(ROOT, 'props', n)
     SETS = dict(arena=arena, trophyhall=trophyhall, prairie=prairie, camp=camp, salem=salem, duskring=duskring, fireflies=fireflies, court=court, jail=jail, moonfield=moonfield, study=study)
     for n, f in SETS.items(): f(Pp(n + '.png')); items.append((n, Image.open(Pp(n + '.png'))))
     B.sheet(items, os.path.join(ROOT, 'assets_preview.jpg'))
