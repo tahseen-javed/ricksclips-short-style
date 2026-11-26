@@ -141,6 +141,9 @@ XPROG = dict(musichall=[(48, (64, 67, 72)), (45, (64, 67, 73)), (38, (65, 69, 74
              jig=[(38, (66, 69, 74)), (43, (67, 71, 74)), (38, (66, 69, 74)), (45, (64, 69, 73))],         # D G D A
              swampdrone=[(45, (64, 69, 72)), (45, (64, 69, 72)), (41, (65, 69, 72)), (40, (64, 68, 71))],  # Am Am F E
              steam=[(43, (67, 71, 74)), (40, (64, 67, 71)), (48, (64, 67, 72)), (38, (66, 69, 74))])       # G Em C D
+XPROG = dict(jackswing=[(41, (65, 69, 72)), (43, (67, 70, 74)), (38, (65, 69, 72)), (40, (64, 67, 71))],    # F Gm Dm Em
+             surf=[(40, (64, 68, 71)), (45, (64, 69, 73)), (40, (64, 68, 71)), (47, (66, 71, 75))],         # E A E B
+             habanera=[(38, (65, 69, 74)), (45, (64, 69, 73)), (38, (65, 69, 74)), (43, (67, 70, 74))])        # Dm A Dm Gm
 CAJ = [(43, (67, 71, 74)), (48, (67, 72, 76)), (50, (66, 69, 74)), (43, (67, 71, 74))]          # G C D G
 STORM = [(38, (62, 65, 69)), (34, (62, 65, 70)), (36, (60, 64, 67)), (33, (61, 64, 69))]        # Dm Bb C A
 MINE = [(45, (69, 72, 76)), (41, (69, 72, 77)), (38, (65, 69, 74)), (40, (68, 71, 76))]         # Am F Dm E
@@ -309,6 +312,23 @@ def section(t0, t1, kind, bpm):
                 if e in (4, 12): put(bed, snare(), u, 0.12)
                 if e in (2, 6, 10, 14): put(bed, pluck(midi(ch[(e // 4) % 3] + 12), bt * 0.3), u, 0.05)
                 if e == 0 and bar % 4 == 0: put(bed, bell(midi(ch[2] + 24), 0.9), u, 0.05); put(bed, bell(midi(ch[0] + 24), 0.9), u, 0.04)
+            elif kind == 'jackswing':                         # 90s new jack swing: swung kick, snare+clap on 2/4, chord stabs, bell hook
+                if e in (0, 7, 10): put(bed, kick(), u, 0.45)
+                if e in (4, 12): put(bed, snare(), u, 0.12); put(bed, clap(), u, 0.16)
+                if e % 2 == 0: put(bed, hat(), u, 0.04 if e % 4 else 0.02)
+                if e in (3, 11): [put(bed, pluck(midi(n_), bt * 0.3), u, 0.05) for n_ in ch]
+                if e in (0, 6) and bar % 2 == 0: put(bed, bell(midi(ch[2] + 12), 0.4), u, 0.04)
+                if e == 0: put(bed, pluck(midi(root - 12), bt * 1.2), u, 0.3)
+            elif kind == 'surf':                              # surf rock: fast twang picking, driving kick-snare, hats
+                if e in (0, 8): put(bed, kick(), u, 0.42)
+                if e in (4, 12): put(bed, snare(), u, 0.12)
+                if e % 2 == 1: put(bed, hat(), u, 0.03)
+                put(bed, twang(midi((root if e % 4 == 0 else ch[e % 3]) + 12), bt * 0.22), u, 0.05)
+            elif kind == 'habanera':                             # courtroom tango: habanera kick, staccato plucks, rim ticks, pad
+                if e in (0, 6, 8): put(bed, kick(), u, 0.36)
+                if e in (0, 3, 6, 8): put(bed, pluck(midi(ch[(e // 3) % 3]), bt * 0.25), u, 0.07)
+                if e in (12, 14): put(bed, rim(), u, 0.08)
+                if e == 0: put(bed, pad(midi(root - 12), bt * 4), u, 0.07)
             else:                                             # funk reveal: slap bass, clav chords, 16th hats, kick/snare
                 if e in (0, 7, 8): put(bed, kick(), u, 0.65)
                 if e in (4, 12): put(bed, snare(), u, 0.4)
@@ -319,27 +339,25 @@ def section(t0, t1, kind, bpm):
 
 
 # ---------------------------------------------------------------- the score
-section(0, C['year'], 'musichall', 132)
-section(C['year'], C['yousee'], 'jig', 136)
-section(C['yousee'], C['sothecity'], 'swampdrone', 112)
-section(C['sothecity'], C['young'], 'jig', 140)
-section(C['young'], C['end'], 'steam', 128)
+section(0, C['nobody'], 'jackswing', 104)
+section(C['nobody'], C['yousee'], 'surf', 150)
+section(C['yousee'], C['butpepsi'], 'habanera', 116)
+section(C['butpepsi'], C['end'], 'jackswing', 108)
 
 # ---------------------------------------------------------------- effects: a light whoosh on every scene change, hits on the words
 for k in sorted(x for x in C if x.startswith('s') and x[1:].isdigit()): put(fx, whoosh(0.45, 500, 3200), C[k] - 0.18, 0.13); put(fx, stampfx(), C[k] + 0.12, 0.16)
-put(fx, boom(), 0.0, 0.4); put(fx, crash(), 0.0, 0.25); put(fx, stampfx(), 0.02, 0.3); put(fx, riser(0.8), C['rose'], 0.16); put(fx, whoosh(0.9, 300, 2000), C['air'], 0.18)
-put(fx, groan(0.6), C['sleeping'] - 0.1, 0.08); put(fx, flip(), C['y1861'], 0.25); put(fx, bell(midi(84), 0.8), C['tremont'], 0.12); put(fx, kaching(), C['checking'], 0.14)
-for k in range(4): put(fx, rim(), C['inch'] + k * 0.18, 0.12)
-put(fx, riser(0.9), C['climbs'] - 0.4, 0.14); put(fx, bell(midi(91), 0.5), C['senator'], 0.12)
-put(fx, boing(), C['steeper'], 0.16); put(fx, riser(0.8), C['windows'], 0.14); put(fx, boing(), C['eye'], 0.14); put(fx, whoosh(1.0, 400, 2500), C['year'], 0.2)
-put(fx, stampfx(), C['f320'], 0.24); put(fx, stampfx(), C['m600'], 0.24); put(fx, riser(0.8), C['k6000'] - 0.2, 0.14); put(fx, bell(midi(84), 1.0), C['signal'], 0.2); put(fx, gavel(), C['notch'], 0.3)
-put(fx, kaching(), C['open'], 0.16); put(fx, groan(0.9), C['swamp'], 0.1); put(fx, flip(), C['y1854'], 0.24); put(fx, bell(midi(72), 0.8), C['twenty'], 0.1); put(fx, boing(), C['wild'], 0.16)
-put(fx, crash(), C['pipes'], 0.14); put(fx, whoosh(0.7, 200, 900), C['bury'], 0.18); put(fx, boom(), C['lift'], 0.3); put(fx, riser(0.8), C['fourteen'] - 0.3, 0.14); put(fx, bell(midi(88), 0.7), C['pullman'], 0.14)
-put(fx, bell(midi(96), 1.0), C['pane'], 0.16); put(fx, boom(), C['wheels'], 0.3); fanfare(C['wheels'] + 0.2); put(fx, bell(midi(91), 0.9), C['car'], 0.14); put(fx, kaching(), C['travels'], 0.16)
-put(fx, riser(1.0), C['end'] - 1.1, 0.2); put(fx, crash(), C['end'] - 0.15, 0.25)
+put(fx, boom(), 0.0, 0.4); put(fx, crash(), 0.0, 0.25); put(fx, stampfx(), 0.02, 0.3); put(fx, boing(), C['joke'], 0.16); put(fx, riser(0.6), C['tried'] - 0.2, 0.14); put(fx, flip(), C['y1996'], 0.25)
+put(fx, bell(midi(84), 0.7), C['stuff'], 0.14); put(fx, kaching(), C['drink'], 0.14); put(fx, kaching(), C['trade'], 0.12); put(fx, bell(midi(79), 0.6), C['final'], 0.12); put(fx, whoosh(1.0, 200, 1200), C['lands'], 0.22)
+put(fx, boom(), C['harrier'], 0.3); put(fx, stampfx(), C['price'], 0.2); put(fx, kaching(), C['seven'], 0.18); put(fx, boing(), C['nobody'], 0.16); put(fx, bell(midi(88), 0.7), C['john'], 0.14); put(fx, riser(0.6), C['loophole'] - 0.3, 0.14)
+put(fx, kaching(), C['ten'], 0.18); put(fx, riser(0.9), C['sevenh'] - 0.5, 0.14); put(fx, kaching(), C['sevenh'] + 0.6, 0.2); put(fx, whoosh(1.0, 300, 2400), C['military'], 0.2); put(fx, boom(), C['thirty'], 0.28)
+put(fx, bell(midi(86), 0.7), C['five'], 0.14); put(fx, flip(), C['mailed'], 0.22); put(fx, stampfx(), C['check'], 0.22); put(fx, kaching(), C['fifty'], 0.16); put(fx, boing(), C['shipping'], 0.12)
+put(fx, groan(0.6), C['back'], 0.1); put(fx, gavel(), C['sued'], 0.3); put(fx, flip(), C['y1999'], 0.24); put(fx, gavel(), C['agreed'], 0.3); put(fx, bell(midi(84), 0.7), C['kimba'], 0.12)
+put(fx, whoosh(1.0, 400, 3000), C['flying'], 0.2); put(fx, riser(0.8), C['fantasy'] - 0.4, 0.14); put(fx, boing(), C['offer'], 0.14); put(fx, groan(0.7), C['lost'], 0.1); put(fx, gavel(), C['appeal'] + 0.4, 0.26)
+put(fx, stampfx(), C['changed'], 0.22); put(fx, riser(0.8), C['sevenm'] - 0.4, 0.16); put(fx, crash(), C['sevenm'] + 0.2, 0.2); put(fx, boing(), C['kidding'], 0.2); put(fx, groan(0.6), C['never'], 0.08)
+fanfare(C['netflix']); put(fx, flip(), C['y2022'], 0.22); put(fx, riser(1.0), C['end'] - 1.1, 0.2); put(fx, crash(), C['end'] - 0.15, 0.25)
 
 mix = bed * 1.35 + fx * 0.85
 mix = np.tanh(mix / max(1e-6, np.abs(mix).max()) * 2.2) * 0.89
 st = np.stack([mix, np.roll(mix, int(SR * 0.008)) * 0.96], 1)
 sf.write(OUT, st.astype(np.float32), SR)
-print("music: %.1f s, Victorian music-hall stride 132 + crew jig 136/140 + swamp drone 112 + steam-train shuffle 128" % LEN)
+print("music: %.1f s, 90s new jack swing 104/108 + surf rock 150 + courtroom habanera 116" % LEN)

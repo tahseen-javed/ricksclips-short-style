@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Generate short.json (and the word-cued music) for video 28: Chicago 1861 - the Tremont House rose six feet while its guests stayed inside.
+"""Generate short.json (and the word-cued music) for video 30: Pepsi's 1996 Harrier jet ad and the student who tried to buy it.
 usage: build_short.py <project folder>
-Eleven gaslight-Victorian sets 70 units apart: HK amber gaslight street with the hotel on jackscrews (hook + loop; a violet "?" rail-car silhouette =
-open loop, resolved as the Pullman sleeping car), RM rose hotel room, PL emerald parlour, BL sky-blue brick block, CR amber crawlspace of jackscrews,
-SH cream shop street, SW teal swamp + lake cross-section, MN misty green night, WK terracotta street works, WS brass-cream glass workshop, RN
-Prussian-blue starry railway. Shots 0.7-2 s, every neighbour a different move; buildings and props are the stars, people small companions."""
+Ten 90s Memphis-pop sets 70 units apart: HK sky-blue schoolyard (hook + loop; the covered "?" price tag = open loop, revealed as 700,000,000
+POINTS + JUST KIDDING), TV cobalt-bubblegum Memphis studio, DR grape-lime dorm, HG steel-teal hangar, RT peach-lilac rooftop, PO red-white-blue
+post street, HQ mirror-glass plaza, FC cool marble federal court, FN pastel rainbow fantasy, LV dusk-lilac living room. Shots 0.7-2 s, every
+neighbour a different move; the jet, cans, tags and checks are the stars, people small companions."""
 import json, os, sys, subprocess, math
 import scene_base as base
 from scene_base import *
 
-base.X.clear(); base.X.update(HK=0, RM=70, PL=140, BL=210, CR=280, SH=350, SW=420, MN=490, WK=560, WS=630, RN=700)
+base.X.clear(); base.X.update(HK=0, TV=70, DR=140, HG=210, RT=280, PO=350, HQ=420, FC=490, FN=560, LV=630)
 HERE = os.path.dirname(os.path.abspath(__file__)); PARK = base.PARK
 ASP = json.load(open(os.path.join(P, "aspect.json")))
 
@@ -45,33 +45,30 @@ def yard(loc, img, floor, w=16, rep=(8, 8)):
     plane(loc, img, 0, -0.2, -6.5, w, round(w * 1100 / 2400, 3)); box(loc, 0, 0, -1, [w, 0.04, 12], texture=floor, repeat=list(rep))
 
 
-yard("HK", "gaslight.png", "cobble.jpg"); box("HK", 2.6, 0.04, -1.2, [0.5, 0.4, 0.5], color="#a86a40")
-yard("RM", "roseroom.png", "rug.jpg"); box("RM", 1.5, 0.04, -3.6, [0.8, 1.2, 0.5], color="#8a5040")
-yard("PL", "parlour.png", "green.jpg"); box("PL", 1.3, 0.04, -2.8, [0.7, 0.9, 0.6], color="#c8a050")
-yard("BL", "blocksky.png", "boards.jpg")
-yard("CR", "crawl.png", "dirt.jpg")
-yard("SH", "shopst.png", "shopfl.jpg"); box("SH", 1.4, 0.04, -1.6, [0.6, 0.5, 0.6], color="#ff5a5f")
-yard("SW", "swamp.png", "mud.jpg")
-yard("MN", "mistnight.png", "night.jpg")
-yard("WK", "works.png", "dirt.jpg")
-yard("WS", "workshop.png", "brass.jpg"); box("WS", 2.6, 0.04, -3.0, [1.0, 0.8, 0.6], color="#b48c50")
-yard("RN", "railnight.png", "ballast.jpg"); box("RN", 0, 0.045, -2.6, [14, 0.06, 0.12], color="#8a7a6a"); box("RN", 0, 0.045, -2.1, [14, 0.06, 0.12], color="#8a7a6a")
+yard("HK", "schoolyard.png", "lawn.jpg"); box("HK", 0.45, 0.04, -2.4, [0.5, 0.5, 0.5], color="#ff78be"); box("HK", -4.0, 0.04, -2.4, [0.6, 0.5, 0.5], color="#aaf03c"); tree("HK", -2.8, -4.2, 0.9, "#5aaa5a"); tree("HK", 3.2, -4.4, 1.0, "#64b464")
+yard("TV", "memphis.png", "studio.jpg"); box("TV", -1.2, 0.04, -4.0, [0.6, 0.6, 0.6], color="#aaf03c"); box("TV", 1.4, 0.04, -4.2, [0.5, 0.9, 0.5], color="#ffe650")
+yard("DR", "dorm.png", "dormfl.jpg"); box("DR", 1.6, 0.04, -2.6, [1.3, 0.7, 0.8], color="#7a5a8a"); box("DR", -3.6, 0.04, -3.6, [1.4, 0.5, 0.8], color="#aaf03c")
+yard("HG", "hangar.png", "hangfl.jpg"); crate("HG", -3.4, 0, -3.8); barrel("HG", 3.2, -3.6)
+yard("RT", "rooftop.png", "roof.jpg"); box("RT", 3.2, 0.04, -3.6, [0.8, 1.0, 0.8], color="#b48ca0")
+yard("PO", "poststreet.png", "sidewalk.jpg"); post("PO", -2.6, -3.4, 2.2, "#3a3a50")
+yard("HQ", "glassplaza.png", "plaza.jpg"); box("HQ", -3.6, 0.04, -3.8, [1.2, 0.4, 1.2], color="#9ad2f0")
+yard("FC", "fedcourt.png", "marblefl.jpg")
+yard("FN", "fantasy.png", "cloudfl.jpg"); box("FN", -1.7, 0.04, -2.4, [1.0, 0.46, 0.8], color="#ffffff"); box("FN", 2.6, 0.04, -3.6, [1.0, 0.7, 0.8], color="#fff0fa")
+yard("LV", "livingroom.png", "rug.jpg"); box("LV", -2.7, 0.04, -2.4, [1.6, 0.5, 0.8], color="#b48cdc"); box("LV", 0, 0.04, -3.2, [2.2, 0.3, 0.7], color="#5a4a7a")
 
 # ================================================================== CHARACTERS (cards + background decor carry "_" in the id: not frame-checked; hero props are)
-put("jacksH", "jacks", pos("HK", 0.0, 0.04, -2.6), 0.4); put("hotelH", "hotel", pos("HK", 0.0, 0.44, -2.6), 2.0, face="wave"); put("carq_H", "car", pos("HK", 0.95, 0.04, -4.4), 0.36, face="q")
-put("stepsH", "steps", pos("HK", -3.9, 0.04, -2.2), 1.0); human("guestH", "guest", pos("HK", -2.7, 0.04, -2.0), face="happy", h=1.6)
-put("bedR", "bed", pos("RM", 0.0, 0.04, -2.6), 1.0); put("dinnerR", "dinner", pos("RM", 3.0, 0.04, -2.4), 0.9); put("deskR", "desk", pos("RM", 4.6, 0.04, -2.4), 1.0)
-human("guestR", "guest", pos("RM", -3.4, 0.04, -2.0), face="happy", h=1.6); put("winR", "winframe", pos("RM", -2.45, 0.6, -2.2), 1.0)
-human("senatorP", "senator", pos("PL", 0.0, 0.04, -2.2), face="happy")
-put("blockB", "block", pos("BL", 0.0, 0.04, -3.0), 1.0)
-put("bellC", "bell", pos("CR", -3.4, 1.2, -2.6), 0.9); put("crewC", "crew", pos("CR", 0.0, 0.04, -2.6), 0.6); put("screwC", "screw", pos("CR", 3.4, 0.04, -2.4), 1.3)
-human("crew1C", "crew1", pos("CR", 5.6, 0.04, -2.1), face="happy", h=1.6); human("crew2C", "crew2", pos("CR", 6.6, 0.04, -2.2), face="happy", h=1.6)
-put("shopS", "shop", pos("SH", 0.0, 0.04, -2.6), 1.5)
-put("xsecW", "xsec", pos("SW", 0.0, 0.04, -2.6), 1.2)
-put("germM", "germ", pos("MN", 0.0, 0.5, -2.6), 1.2); put("twentyM", "twenty", pos("MN", 4.0, 0.04, -2.4), 0.9)
-put("pipeK", "pipe", pos("WK", 0.0, 0.04, -2.4), 1.0)
-human("pullmanS", "pullman", pos("WS", -1.0, 0.04, -2.0), face="happy"); put("glassS", "glass", pos("WS", 1.0, 0.04, -2.4), 1.2)
-put("carN", "car", pos("RN", 0.0, 0.04, -2.4), 0.9, face="q")
+put("school_K", "school", pos("HK", 0.0, 0.04, -5.6), 2.6); put("jetK", "jet", pos("HK", 0.0, 1.35, -2.7), 0.8, face="hover"); human("johnK", "john", pos("HK", -0.6, 0.04, -2.3), face="happy", h=1.4)
+put("tagqK", "pricetag", pos("HK", 0.45, 0.54, -2.4), 0.55); put("tag7K", "pricetag", pos("HK", -4.0, 0.54, -2.4), 0.7, face="7m")
+put("jetL", "jet", pos("HK", 4.5, 1.5, -2.7), 0.9, face="hover"); human("pilotK", "pilot", pos("HK", 6.0, 0.04, -2.2), face="happy", h=1.6)
+put("stuffT", "stuff", pos("TV", 0.0, 0.04, -2.8), 1.4); put("canT", "can", pos("TV", 2.6, 0.04, -2.4), 1.1); put("tvT", "tvset", pos("TV", -2.8, 0.04, -2.6), 1.4)
+human("johnD", "john", pos("DR", 0.0, 0.04, -2.2), face="happy", h=1.6); put("calcD", "calc", pos("DR", 1.6, 0.74, -2.6), 0.6); put("dimeD", "dime", pos("DR", -2.6, 0.04, -2.4), 0.8)
+put("jetG", "jet", pos("HG", 0.0, 0.04, -2.8), 1.3); human("johnG", "john", pos("HG", -2.4, 0.04, -2.2), face="sad", h=1.6)
+put("investR", "investors", pos("RT", 0.0, 0.04, -2.6), 0.95)
+put("mailP", "mailbox", pos("PO", 0.0, 0.04, -2.6), 1.3); put("checkP", "check", pos("PO", 2.8, 0.6, -2.4), 0.8)
+put("suitH", "suit", pos("HQ", 0.0, 0.04, -2.6), 1.3); put("canH", "can", pos("HQ", 2.4, 0.04, -2.4), 1.1); put("checkH", "check", pos("HQ", -2.6, 0.7, -2.4), 0.7)
+put("benchF", "bench", pos("FC", 0.0, 0.04, -3.4), 1.4); human("judgeF", "judge", pos("FC", 2.0, 0.04, -2.4), face="happy", h=1.7); human("johnF", "john", pos("FC", -2.0, 0.04, -2.4), face="happy", h=1.6); put("stampF", "stampd", pos("FC", 4.6, 0.04, -2.4), 1.0)
+put("jetN", "jet", pos("FN", 0.6, 1.0, -3.0), 0.9); human("pilotN", "pilot", pos("FN", -1.7, 0.5, -2.4), face="happy", h=1.5)
+put("tvL", "tvset", pos("LV", 0.0, 0.34, -3.2), 1.4, face="series"); human("johnL", "john", pos("LV", -1.4, 0.04, -2.2), face="happy", h=1.6)
 # ================================================================== SHOTS
 SH = {c["id"]: c["height"] for c in chars}
 N_ = [0]; REQ = []; SNAPC = []; FXC = []; LOC = {}
@@ -116,67 +113,68 @@ def blink(s, who, t0, t1, step=0.3):
     while t < t1: act(s, round(t, 3), who, face="b" if k % 2 == 0 else "default"); t += step; k += 1
 
 
-HOOK = dict(anchor=(0.0, 1.45, -2.4), dist=6.8, yaw=4, pitch=6)
-# ---- A six-story hotel rose six feet into the air while its guests stayed inside.
-s = S("0", "HK", zoom=7, **HOOK); act(s, 0.0, "hotelH", face="wave", shake=0.4); tag(s, 0.0, "hookc", 0.33, 0.0, wf=0.6, hf=0.18); act(s, 0.3, "carq_H", shake=0.3); snap(s, rel(s, "rose"), 10)
-s = S("into the air", "HK", (0.0, 1.3, -2.6), 6.6, -6, pitch=2, pitchTo=14); act(s, 0.0, "hotelH", face="default"); go(s, 0.05, "hotelH", pos("HK", 0.0, 0.6, -2.6), 0.8, walk=False)
-s = S("guests stayed", "RM", (0.0, 0.75, -2.6), 4.6, 12, pitch=6, zoom=12, dof=dict(focus="bedR", blur=0.4)); act(s, 0.1, "bedR", shake=0.3)
-# ---- Chicago, 1861. The Tremont House. Inch by inch, for days, the whole hotel climbs.
-s = crane("Chicago 1861", "HK", (0.0, 1.4, -2.5), 7.8, -22, -2, 36, 8); show(s, 0.0, "hotelH", pos("HK", 0.0, 0.44, -2.6), hop=0); hide(s, 0.0, "guestH"); hide(s, 0.0, "stepsH"); T(s, "y1861", at=rel(s, "1861"), dx=-0.26, dy=0.2, wf=0.24, hf=0.24)
-s = S("The Tremont House", "HK", (0.0, 1.9, -2.6), 6.0, 6, pitch=5, zoom=8, dof=dict(focus="hotelH", blur=0.4))
-s = S("Inch by inch", "CR", (3.4, 0.9, -2.4), 4.4, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="screwC", blur=0.5)); act(s, 0.1, "screwC", face="turn", shake=0.4); act(s, 0.6, "screwC", face="default"); T(s, "inch", at=0.05, dy=0.38, wf=0.56)
-s = S("the whole hotel", "HK", (0.0, 1.45, -2.5), 6.2, 10, pitch=5, zoom=-10); show(s, 0.0, "hotelH", pos("HK", 0.0, 0.44, -2.6), hop=0); go(s, 0.1, "hotelH", pos("HK", 0.0, 0.62, -2.6), 1.0, walk=False)
-# ---- Guests keep sleeping, eating, checking in. A U.S. senator is staying there.
-s = S("Guests keep sleeping", "RM", (0.0, 0.8, -2.6), 4.4, -14, pitch=6, yawTo=4, type="macro", dof=dict(focus="bedR", blur=0.5)); act(s, 0.05, "bedR", shake=0.3)
-s = S("eating checking", "RM", (3.8, 0.75, -2.4), 8.6, -10, pitch=6, yawTo=4); act(s, 0.05, "dinnerR", shake=0.4); act(s, rel(s, "checking"), "deskR", shake=0.4)
-s = S("senator is staying", "PL", (0.0, 1.05, -2.2), 4.8, 10, pitch=5, zoom=12, dof=dict(focus="senatorP", blur=0.4)); ft(s, "senatorP", ["happy", "smug"]); T(s, "senat", at=0.05, dy=0.37, wf=0.62)
-# ---- One guest notices the front steps getting steeper. Then the windows creep up past eye level.
-s = crane("One guest notices", "HK", (-3.3, 1.0, -2.1), 6.2, -22, -2, 34, 8); show(s, 0.0, "stepsH", pos("HK", -3.9, 0.04, -2.2), hop=0); show(s, 0.0, "guestH", pos("HK", -2.7, 0.04, -2.0), hop=0); ft(s, "guestH", ["happy", "confused"])
-s = S("getting steeper", "HK", (-3.9, 0.75, -2.2), 3.8, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="stepsH", blur=0.5)); hide(s, 0.0, "guestH"); show(s, 0.0, "stepsH", pos("HK", -3.9, 0.04, -2.2), hop=0); act(s, 0.05, "stepsH", face="steep", shake=0.5); T(s, "steeper", at=rel(s, "steeper"), dy=0.38, wf=0.48); snap(s, rel(s, "steeper"), 8)
-s = S("Then the windows", "RM", (-2.9, 1.15, -2.1), 5.0, -10, pitch=5, zoom=10, dof=dict(focus="guestR", blur=0.4)); ft(s, "guestR", ["confused", "shocked"]); go(s, 0.1, "winR", pos("RM", -2.45, 1.0, -2.2), 1.0, walk=False)
-s = S("past eye level", "RM", (-2.9, 1.3, -2.1), 4.4, 12, pitch=4, pitchTo=12); show(s, 0.0, "winR", pos("RM", -2.45, 1.0, -2.2), hop=0); go(s, 0.05, "winR", pos("RM", -2.45, 1.35, -2.2), 0.8, walk=False); ft(s, "guestR", ["shocked", "nervous"]); T(s, "eye", at=0.1, dy=0.38, wf=0.58)
-# ---- A year earlier, crews did it to half a city block. 320 feet of brick shops. 600 men. 6,000 jackscrews.
-s = crane("A year earlier", "BL", (0.0, 1.2, -3.0), 8.6, 22, 2, 38, 8); T(s, "year", at=0.05, dy=0.34, wf=0.6)
-s = S("half a city", "BL", (0.0, 0.8, -3.0), 8.0, 4, pitch=8, zoom=4, pan=(-8, 0)); act(s, 0.1, "blockB", shake=0.3)
-s = S("320 feet", "BL", (0.0, 0.7, -3.0), 8.2, -12, pitch=6, yawTo=4, dof=dict(focus="blockB", blur=0.4)); T(s, "f320", at=0.05, dy=0.3, wf=0.6)
-s = S("600 men", "CR", (0.0, 0.6, -2.6), 6.4, 8, pitch=5, zoom=12); act(s, 0.05, "crewC", shake=0.4); T(s, "m600", at=0.05, dy=0.32, wf=0.4)
-s = S("6000 jackscrews", "BL", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="600 MEN", items=["6,000 JACKSCREWS"]))
-# ---- On a signal, every man turns his screws one notch. Stores stay open the whole time.
-s = S("On a signal", "CR", (-3.4, 1.6, -2.6), 4.4, 12, pitch=6, yawTo=-6, type="macro", dof=dict(focus="bellC", blur=0.5)); act(s, 0.05, "bellC", shake=0.7)
-s = S("turns his screws", "CR", (6.1, 1.0, -2.15), 5.6, -8, pitch=5, zoom=12, dof=dict(focus="crew1C", blur=0.4))
-for w_ in ("crew1C", "crew2C"): act(s, 0.1, w_, pose=dict(armR=-150), shake=0.3); ft(s, w_, ["happy", "smug"])
-s = S("one notch", "CR", (3.4, 0.9, -2.4), 4.2, 14, pitch=6, yawTo=-4, type="macro", dof=dict(focus="screwC", blur=0.5)); act(s, rel(s, "notch"), "screwC", face="turn", shake=0.6); T(s, "notch", at=rel(s, "notch"), dy=0.38, wf=0.5); snap(s, rel(s, "notch"), 10)
-s = S("stay open the", "SH", (0.0, 0.95, -2.6), 5.6, -8, pitch=5, zoom=12, dof=dict(focus="shopS", blur=0.4)); act(s, 0.1, "shopS", shake=0.4); T(s, "open_", at=rel(s, "open"), dy=0.37, wf=0.62)
-# ---- You see, Chicago was built on a swamp, barely above Lake Michigan. In 1854, cholera killed about one in twenty people.
-s = crane("You see Chicago", "SW", (0.0, 0.9, -2.6), 7.4, -22, -2, 38, 8); act(s, 0.3, "xsecW", shake=0.3)
-s = S("built on a", "SW", (0.0, 0.8, -2.6), 6.2, 8, pitch=5, zoom=10, dof=dict(focus="xsecW", blur=0.4)); T(s, "swampc", at=rel(s, "swamp"), dy=0.36, wf=0.5)
-s = S("barely above Lake", "SW", (0.0, 0.6, -2.6), 5.4, -14, pitch=6, yawTo=4, type="macro", dof=dict(focus="xsecW", blur=0.5)); act(s, rel(s, "Lake"), "xsecW", shake=0.3)
-s = S("In 1854", "MN", (0.0, 1.2, -2.6), 6.0, 6, pitch=14, pitchTo=3, dof=dict(focus="germM", blur=0.4)); act(s, 0.1, "germM", shake=0.4); T(s, "y1854", at=rel(s, "1854"), dx=-0.24, dy=0.24, wf=0.24, hf=0.24)
-s = S("killed about one", "MN", (4.0, 0.8, -2.4), 6.0, -10, pitch=5, zoom=10, dof=dict(focus="twentyM", blur=0.4)); act(s, 0.1, "twentyM", shake=0.3); T(s, "one20", at=rel(s, "one"), dy=0.36, wf=0.4)
-# ---- So the city picked a wild fix. Lay new sewer pipes along the streets, bury them under fresh dirt, and lift downtown to match. Some buildings went up as much as fourteen feet.
-s = crane("So the city", "WK", (0.0, 1.0, -2.4), 7.0, 22, 2, 36, 8); T(s, "wild", at=rel(s, "wild"), dy=0.34, wf=0.5)
-s = S("Lay new sewer", "WK", (0.0, 0.75, -2.4), 5.0, -10, pitch=5, zoom=12, dof=dict(focus="pipeK", blur=0.4)); act(s, 0.1, "pipeK", shake=0.4)
-s = S("bury them under", "WK", (0.0, 0.7, -2.4), 5.6, 12, pitch=18, pitchTo=6); act(s, 0.1, "pipeK", shake=0.3)
-s = S("and lift downtown", "SW", (0.0, 0.8, -2.6), 6.2, 12, pitch=5, yawTo=-4, dof=dict(focus="xsecW", blur=0.4)); act(s, rel(s, "lift"), "xsecW", face="pipes", shake=0.6); snap(s, rel(s, "lift"), 10)
-s = S("Some buildings went", "BL", (0.0, 1.0, -3.0), 8.4, -8, pitch=5, zoom=-10); go(s, 0.1, "blockB", pos("BL", 0.0, 0.3, -3.0), 0.9, walk=False)
-s = S("much as fourteen", "BL", (0.0, 1.0, -3.0), 8.2, 12, pitch=6, yawTo=-4, dof=dict(focus="blockB", blur=0.4)); act(s, rel(s, "fourteen"), "blockB", shake=0.4); T(s, "f14", at=rel(s, "fourteen"), dy=0.32, wf=0.5)
-# ---- The young man behind some of the biggest lifts was George Pullman. His crews raised hotels and a whole city block, without breaking a single pane of glass.
-s = crane("The young man", "WS", (-1.0, 1.0, -2.1), 6.4, -22, -2, 36, 8); show(s, 0.0, "blockB", pos("BL", 0.0, 0.04, -3.0), hop=0); hide(s, 0.0, "glassS"); ft(s, "pullmanS", ["happy", "smug"])
-s = S("was George Pullman", "WS", (-1.0, 1.1, -2.0), 4.6, 10, pitch=5, zoom=12, dof=dict(focus="pullmanS", blur=0.4)); ft(s, "pullmanS", ["smug", "happy"]); T(s, "pullc", at=rel(s, "George"), dy=0.37, wf=0.5)
-s = S("His crews raised", "HK", (0.0, 1.45, -2.5), 7.0, -14, pitch=6, yawTo=4); show(s, 0.0, "hotelH", pos("HK", 0.0, 0.44, -2.6), hop=0); act(s, 0.05, "hotelH", face="wave")
-s = S("and a whole", "BL", (0.0, 0.9, -3.0), 8.0, 6, pitch=8, zoom=4, pan=(8, 0))
-s = S("without breaking a", "WS", (1.0, 0.85, -2.4), 4.2, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="glassS", blur=0.5)); show(s, 0.0, "glassS", pos("WS", 1.0, 0.04, -2.4), hop=0); act(s, 0.1, "glassS", shake=0.3); T(s, "pane", at=rel(s, "pane") - 0.2, dy=0.38, wf=0.62); snap(s, rel(s, "pane"), 8)
-# ---- Then he took that skill, moving heavy buildings full of sleeping people, and put it on wheels. The Pullman sleeping car. A hotel that travels.
-s = S("Then he took", "WS", (-1.0, 1.1, -2.0), 5.2, -10, pitch=14, pitchTo=4); ft(s, "pullmanS", ["confused", "smug"])
-s = S("moving heavy buildings", "HK", (0.0, 1.45, -2.5), 6.6, 8, pitch=5, zoom=-10); act(s, 0.05, "hotelH", face="default"); go(s, 0.1, "hotelH", pos("HK", 0.0, 0.58, -2.6), 0.9, walk=False)
-s = S("full of sleeping", "RM", (0.0, 0.8, -2.6), 4.4, 14, pitch=6, yawTo=-4, type="macro", dof=dict(focus="bedR", blur=0.5)); act(s, 0.05, "bedR", shake=0.3)
-s = crane("and put it", "RN", (0.0, 0.8, -2.4), 7.4, 22, 2, 36, 8); act(s, rel(s, "wheels") - 0.1, "carN", face="default", shake=0.6); T(s, "wheels", at=rel(s, "wheels"), dy=0.34, wf=0.46); snap(s, rel(s, "wheels"), 10)
-s = S("The Pullman sleeping", "RN", (0.0, 0.7, -2.4), 6.0, -8, pitch=5, zoom=12, dof=dict(focus="carN", blur=0.4)); act(s, 0.05, "carN", face="night", shake=0.3)
-s = S("A hotel that", "RN", (0.0, 0.75, -2.4), 6.4, 6, pitch=8, zoom=4, pan=(-8, 0)); act(s, 0.0, "carN", face="night"); T(s, "travels", at=0.1, dy=0.35, wf=0.6)
-# ---- All from a man who made a six-story hotel rise six feet while its guests stayed inside.
-s = S("All from a", "WS", (-1.0, 1.1, -2.0), 4.8, 12, pitch=5, yawTo=-4, dof=dict(focus="pullmanS", blur=0.4)); ft(s, "pullmanS", ["smug", "happy"])
-s = crane("hotel rise", "HK", (0.0, 1.45, -2.4), 8.0, -22, -2, 36, 8); show(s, 0.0, "hotelH", pos("HK", 0.0, 0.44, -2.6), hop=0); act(s, 0.05, "hotelH", face="default")
-s = S("while its guests#2", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); act(s, 0.05, "hotelH", face="wave", shake=0.4); T(s, "hookc", at=0.05, dy=0.33, wf=0.6, hf=0.18)
+HOOK = dict(anchor=(0.0, 1.3, -2.5), dist=6.4, yaw=4, pitch=6)
+# ---- Pepsi put a fighter jet in an ad as a joke. A college student tried to buy it.
+s = S("0", "HK", zoom=8, **HOOK); act(s, 0.0, "jetK", face="hover", shake=0.4); tag(s, 0.0, "hookc", 0.31, 0.0, wf=0.6, hf=0.19); act(s, 0.3, "tagqK", shake=0.4); act(s, 0.1, "johnK", pose=dict(armR=-150))
+ft(s, "johnK", ["shocked", "happy"]); snap(s, rel(s, "joke"), 10)
+s = S("A college student", "DR", (0.0, 1.0, -2.2), 4.4, -10, pitch=5, zoom=12, dof=dict(focus="johnD", blur=0.4)); ft(s, "johnD", ["smug", "happy"]); T(s, "tryc", at=rel(s, "tried"), dy=0.37, wf=0.62)
+# ---- 1996. Pepsi Stuff. Drink Pepsi, collect points, trade them for T-shirts and leather jackets. Then the final shot.
+s = crane("1996", "TV", (0.0, 1.0, -2.8), 7.6, -22, -2, 36, 8); T(s, "y1996", at=0.05, dx=-0.24, dy=0.22, wf=0.26, hf=0.26); snap(s, rel(s, "Stuff"), 10)
+s = S("Drink Pepsi collect", "TV", (2.6, 0.6, -2.4), 4.2, 14, pitch=6, yawTo=-4, type="macro", dof=dict(focus="canT", blur=0.5)); act(s, 0.05, "canT", shake=0.5); act(s, rel(s, "collect"), "canT", shake=0.5)
+s = S("trade them for", "TV", (0.0, 0.8, -2.8), 6.4, 6, pitch=8, zoom=4, pan=(-8, 0)); act(s, 0.4, "stuffT", shake=0.4)
+s = S("Then the final", "TV", (-2.8, 0.75, -2.6), 4.8, -8, pitch=5, zoom=12, dof=dict(focus="tvT", blur=0.4)); act(s, 0.05, "tvT", shake=0.4); T(s, "shotc", at=0.1, dy=0.37, wf=0.56)
+# ---- A teenager lands a Harrier jump jet at his high school. Price: seven million Pepsi Points.
+s = crane("A teenager lands", "HK", (5.2, 1.0, -2.5), 6.6, 22, 2, 34, 8); go(s, 0.05, "jetL", pos("HK", 4.5, 0.06, -2.7), 0.7, walk=False); ft(s, "pilotK", ["happy", "smug"])
+s = S("Harrier jump jet", "HK", (4.5, 0.5, -2.7), 4.4, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="jetL", blur=0.5)); show(s, 0.0, "jetL", pos("HK", 4.5, 0.06, -2.7), hop=0); act(s, 0.05, "jetL", face="default", shake=0.4); T(s, "harrier", at=0.1, dy=0.37, wf=0.5); snap(s, 0.2, 8)
+s = S("Price seven million", "HK", (-4.0, 0.85, -2.4), 4.6, 8, pitch=12, pitchTo=3, dof=dict(focus="tag7K", blur=0.4)); act(s, rel(s, "seven"), "tag7K", shake=0.6)
+s = S("Pepsi Points", "TV", (2.6, 0.6, -2.4), 5.0, -6, pitch=5, zoom=-10); act(s, 0.0, "canT", face="shocked", shake=0.5)
+# ---- Nobody can drink that much Pepsi. But John Leonard, a business student, found the loophole. You could buy extra points. Ten cents each.
+s = S("Nobody can drink", "HQ", (2.4, 0.7, -2.4), 4.4, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="canH", blur=0.5)); act(s, 0.05, "canH", face="shocked", shake=0.4); T(s, "nobody", at=0.1, dy=0.38, wf=0.62)
+s = S("But John Leonard", "DR", (0.0, 1.05, -2.2), 4.6, 8, pitch=5, zoom=12, dof=dict(focus="johnD", blur=0.4)); ft(s, "johnD", ["happy", "smug"]); T(s, "johnc", at=0.05, dy=0.37, wf=0.6)
+s = S("found the loophole", "DR", (1.6, 1.0, -2.6), 4.0, -10, pitch=14, pitchTo=4, dof=dict(focus="calcD", blur=0.4)); act(s, 0.05, "calcD", shake=0.4); T(s, "loop", at=rel(s, "loophole"), dy=0.38, wf=0.5)
+s = crane("You could buy", "DR", (0.6, 1.0, -2.4), 7.0, 22, 2, 34, 8); ft(s, "johnD", ["smug", "happy"])
+s = S("Ten cents each", "DR", (-2.6, 0.45, -2.4), 4.2, 12, pitch=6, yawTo=-6, type="macro", dof=dict(focus="dimeD", blur=0.5)); act(s, 0.05, "dimeD", shake=0.6); T(s, "tenc", at=0.1, dy=0.36, wf=0.5); snap(s, 0.15, 8)
+# ---- Seven million points? Seven hundred thousand dollars. For a military jet worth over thirty million.
+s = S("Seven million points", "DR", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="SEVEN MILLION POINTS?", items=["SEVEN HUNDRED THOUSAND DOLLARS"]))
+s = S("Seven hundred thousand", "DR", (1.6, 0.95, -2.6), 4.2, 8, pitch=8, zoom=12, dof=dict(focus="calcD", blur=0.4)); act(s, 0.0, "calcD", face="sum", shake=0.5)
+s = crane("For a military", "HG", (0.0, 0.9, -2.8), 7.6, -22, -2, 36, 8); hide(s, 0.0, "johnG")
+s = S("worth over thirty", "HG", (0.0, 0.65, -2.8), 5.2, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="jetG", blur=0.4)); act(s, 0.05, "jetG", shake=0.3); T(s, "worth", at=rel(s, "thirty") - 0.1, dy=0.36, wf=0.56); snap(s, rel(s, "thirty"), 8); cfx(s, 0.2, "glint", "jetG", 0.6)
+# ---- So he found five investors. He mailed Pepsi fifteen labels and a check for seven hundred thousand dollars and eight dollars fifty. Some of that was shipping and handling.
+s = crane("So he found", "RT", (0.0, 0.8, -2.6), 7.0, 22, 2, 34, 8); act(s, rel(s, "five"), "investR", shake=0.5); T(s, "five", at=rel(s, "five"), dy=0.34, wf=0.46)
+s = S("He mailed Pepsi", "PO", (0.0, 0.8, -2.6), 4.8, -8, pitch=5, zoom=12, dof=dict(focus="mailP", blur=0.4)); act(s, 0.05, "mailP", face="sent", shake=0.4)
+s = S("and a check", "PO", (2.8, 1.0, -2.4), 4.4, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="checkP", blur=0.5)); act(s, 0.05, "checkP", shake=0.4); snap(s, 0.2, 8)
+s = S("and eight dollars", "PO", (2.8, 1.0, -2.4), 5.6, 6, pitch=5, zoom=-8); act(s, rel(s, "fifty"), "checkP", shake=0.5)
+s = crane("Some of that", "HQ", (-2.6, 1.05, -2.4), 5.0, -22, -2, 34, 8); act(s, 0.3, "checkH", shake=0.4)
+# ---- Pepsi sent the check back. He sued.
+s = S("Pepsi sent the", "PO", (0.0, 0.8, -2.6), 5.0, 8, pitch=5, zoom=-10); act(s, 0.0, "mailP", face="back", shake=0.5)
+s = S("He sued", "HQ", (0.0, 0.8, -2.6), 4.6, -6, pitch=12, pitchTo=3, dof=dict(focus="suitH", blur=0.4)); act(s, 0.05, "suitH", shake=0.7); T(s, "suedc", at=0.1, dy=0.38, wf=0.46); snap(s, 0.2, 10)
+# ---- You see, Pepsi said it was obviously a joke, and in 1999 a federal judge agreed.
+s = S("Pepsi said it", "HQ", (2.4, 0.7, -2.4), 4.4, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="canH", blur=0.5)); show(s, 0.0, "canH", pos("HQ", 2.4, 0.04, -2.4), hop=0); act(s, 0.0, "canH", face="default", shake=0.4); cfx(s, rel(s, "obviously"), "glint", "canH", 0.6)
+s = crane("and in 1999", "FC", (0.0, 1.1, -3.0), 7.8, 22, 2, 36, 8); hide(s, 0.0, "judgeF"); hide(s, 0.0, "johnF"); T(s, "y1999", at=rel(s, "1999"), dx=-0.24, dy=0.22, wf=0.26, hf=0.26)
+s = S("a federal judge", "FC", (0.0, 0.9, -3.4), 5.6, -10, pitch=14, pitchTo=4, dof=dict(focus="benchF", blur=0.4)); act(s, rel(s, "agreed"), "benchF", face="bang", shake=0.7); snap(s, rel(s, "agreed"), 10)
+# ---- Judge Kimba Wood called flying a jet to school an exaggerated adolescent fantasy.
+s = S("Judge Kimba Wood", "FC", (2.0, 1.05, -2.4), 4.6, -8, pitch=5, zoom=12, dof=dict(focus="judgeF", blur=0.4)); show(s, 0.0, "judgeF", pos("FC", 2.0, 0.04, -2.4), hop=0); act(s, 0.0, "benchF", face="default"); ft(s, "judgeF", ["smug", "happy"]); T(s, "kimba", at=0.05, dy=0.37, wf=0.5)
+s = crane("flying a jet", "FN", (0.3, 1.2, -2.8), 7.0, -22, -2, 34, 8); hide(s, 0.0, "pilotN"); go(s, 0.05, "jetN", pos("FN", 0.0, 1.4, -3.0), 0.9, walk=False); cfx(s, 0.2, "speed", "jetN", 0.6)
+s = S("an exaggerated adolescent", "FN", (-0.6, 1.2, -2.6), 7.4, 8, pitch=5, zoom=-10); show(s, 0.0, "pilotN", pos("FN", -1.7, 0.5, -2.4), hop=0.2); ft(s, "pilotN", ["happy", "smug"]); T(s, "fant", at=rel(s, "adolescent"), dy=0.36, wf=0.62); snap(s, rel(s, "adolescent"), 10)
+# ---- No objective person, the court said, could see a real offer. Leonard lost. The appeal failed too.
+s = S("No objective person", "FC", (0.0, 1.0, -2.8), 7.6, 6, pitch=8, zoom=4, pan=(-8, 0)); show(s, 0.0, "johnF", pos("FC", -2.0, 0.04, -2.4), hop=0); ft(s, "judgeF", ["smug", "happy"]); ft(s, "johnF", ["nervous", "confused"])
+s = S("could see a", "HK", (-4.0, 0.85, -2.4), 4.4, -12, pitch=6, yawTo=4, type="macro", dof=dict(focus="tag7K", blur=0.5)); act(s, rel(s, "offer"), "tag7K", shake=0.6)
+s = S("Leonard lost", "FC", (-2.0, 1.0, -2.4), 4.4, 10, pitch=5, zoom=12, dof=dict(focus="johnF", blur=0.4)); ft(s, "johnF", ["sad", "shocked"]); T(s, "lost", at=0.05, dy=0.37, wf=0.5); cfx(s, 0.2, "sweat", "johnF", 0.5)
+s = S("The appeal failed", "FC", (4.6, 0.6, -2.4), 4.4, -12, pitch=6, yawTo=4, type="macro", dof=dict(focus="stampF", blur=0.5)); act(s, rel(s, "failed"), "stampF", shake=0.7); T(s, "appealc", at=rel(s, "failed"), dy=0.38, wf=0.62)
+# ---- But Pepsi still changed the ad. The jet now cost seven hundred million points. And two new words appeared under the price: just kidding.
+s = crane("But Pepsi still", "TV", (-2.8, 0.9, -2.6), 6.0, 22, 2, 34, 8); act(s, rel(s, "changed"), "tvT", shake=0.5); T(s, "newad", at=rel(s, "changed"), dy=0.34, wf=0.62)
+s = S("The jet now", "HG", (0.0, 0.65, -2.8), 5.0, -12, pitch=6, yawTo=4, type="macro", dof=dict(focus="jetG", blur=0.4)); show(s, 0.0, "jetG", pos("HG", 0.0, 0.04, -2.8), hop=0); act(s, 0.05, "jetG", shake=0.4)
+s = S("seven hundred million", "HK", (0.45, 0.85, -2.4), 4.2, -6, pitch=6, zoom=12, dof=dict(focus="tagqK", blur=0.4)); hide(s, 0.0, "johnK"); hide(s, 0.0, "jetK"); act(s, 0.0, "tagqK", face="700m", shake=0.7); snap(s, 0.15, 8)
+s = S("And two new", "HK", (0.45, 0.85, -2.4), 4.8, 4, pitch=14, pitchTo=3); act(s, rel(s, "appeared"), "tagqK", shake=0.4)
+s = S("just kidding", "TV", (2.6, 0.6, -2.4), 4.6, 12, pitch=6, yawTo=-4, dof=dict(focus="canT", blur=0.4)); act(s, 0.0, "canT", face="default", shake=0.5)
+# ---- Leonard never got his jet. He got a Netflix series instead, in 2022.
+s = S("Leonard never got", "HG", (-1.2, 1.0, -2.4), 6.4, -8, pitch=5, zoom=-10); hide(s, 0.02, "jetG"); show(s, 0.0, "johnG", pos("HG", -2.4, 0.04, -2.2), hop=0); ft(s, "johnG", ["sad", "confused"]); T(s, "nojet", at=0.1, dy=0.36, wf=0.46)
+s = crane("He got a", "LV", (-0.6, 1.0, -2.6), 7.0, -22, -2, 34, 8); ft(s, "johnL", ["happy", "smug"]); snap(s, rel(s, "Netflix"), 10)
+s = S("in 2022", "LV", (0.0, 1.05, -3.2), 4.6, 8, pitch=6, zoom=12, dof=dict(focus="tvL", blur=0.4)); act(s, 0.05, "tvL", shake=0.4); T(s, "netc", at=0.05, dy=0.38, wf=0.56)
+# ---- Because nobody told a college student that Pepsi's fighter jet was a joke.
+s = S("Because nobody told", "DR", (0.0, 1.05, -2.2), 5.0, -12, pitch=6, yawTo=4); ft(s, "johnD", ["smug", "happy"])
+s = S("that Pepsi's fighter", "HK", (0.0, 1.85, -2.7), 4.6, -10, pitch=5, yawTo=6, type="macro", dof=dict(focus="jetK", blur=0.4)); act(s, 0.0, "tagqK", face="default"); hide(s, 0.0, "tagqK"); show(s, 0.0, "jetK", pos("HK", 0.0, 1.35, -2.7), hop=0); act(s, 0.05, "jetK", face="hover", shake=0.3); T(s, "jokec", at=0.05, dy=0.38, wf=0.5)
+s = S("was a joke", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); show(s, 0.0, "johnK", pos("HK", -0.6, 0.04, -2.3), hop=0); show(s, 0.0, "tagqK", pos("HK", 0.45, 0.54, -2.4), hop=0); act(s, 0.05, "jetK", face="hover", shake=0.4); act(s, 0.05, "johnK", pose=dict(armR=-150)); T(s, "hookc", at=0.05, dy=0.31, wf=0.6, hf=0.19)
 for s in shots: s.setdefault("frameY", 0.0)
 
 starts = [0.0 if s["start"] == 0 else say(s["_phrase"]) for s in shots]
@@ -224,9 +222,8 @@ for s in shots:
             prev = seq[j % len(seq)]; j += 1; act(s, round(i * 0.55, 3), who, face=prev)
 # ---- atmosphere by set: dust + rays by day, bokeh by night / dawn
 D_ = lambda c=22: dict(count=c, size=1.0, drift=1.0); BK = lambda a=0.3: dict(count=12, size=1.0, alpha=a)
-ATM = dict(HK=dict(bokeh=BK(0.5)), RM=dict(dust=D_(24)), PL=dict(bokeh=BK(0.45)), BL=dict(dust=D_(22), rays=dict(angle=28, intensity=0.6)), CR=dict(dust=D_(30), rays=dict(angle=18, intensity=0.6)),
-           SH=dict(dust=D_(22), rays=dict(angle=30, intensity=0.5)), SW=dict(dust=D_(20), rays=dict(angle=24, intensity=0.5)), MN=dict(bokeh=BK(0.45)), WK=dict(dust=D_(28), rays=dict(angle=22, intensity=0.6)),
-           WS=dict(dust=D_(24), rays=dict(angle=20, intensity=0.7)), RN=dict(bokeh=BK(0.5)))
+ATM = dict(HK=dict(dust=D_(20), rays=dict(angle=28, intensity=0.6)), TV=dict(bokeh=BK(0.5)), DR=dict(bokeh=BK(0.45)), HG=dict(dust=D_(26), rays=dict(angle=22, intensity=0.7)), RT=dict(dust=D_(20), rays=dict(angle=18, intensity=0.6)),
+           PO=dict(dust=D_(20), rays=dict(angle=30, intensity=0.5)), HQ=dict(dust=D_(18), rays=dict(angle=26, intensity=0.6)), FC=dict(dust=D_(22), rays=dict(angle=24, intensity=0.6)), FN=dict(bokeh=BK(0.5)), LV=dict(bokeh=BK(0.5)))
 for s in shots:
     if s.get("type") != "cutaway": s["atmos"] = ATM[LOC[id(s)]]
 
@@ -312,37 +309,36 @@ for (s, at, cid, name, dy, dx, dz, wf, hf, c) in REQ:
     c["height"] = round(h, 3); SH[cid] = c["height"]; card(s, at, cid, dy, dx, dz); RECT[cid] = (s, at, 0.5 + dx - wfr / 2, 0.5 - dy - hfr / 2, 0.5 + dx + wfr / 2, 0.5 - dy + hfr / 2)
 
 # ================================================================== SPEC
-MOOD = dict(HK="gaslight", RM="roseroom", PL="emerald", BL="blockday", CR="crawl", SH="shopnoon", SW="swamp", MN="mistnight", WK="works", WS="workshop", RN="railnight")
-light, cur = [{"t": 0, "mood": "gaslight"}], "gaslight"
+MOOD = dict(HK="school", TV="memphis", DR="dorm", HG="hangar", RT="rooftop", PO="post", HQ="plaza", FC="fedcourt", FN="fantasy", LV="living")
+light, cur = [{"t": 0, "mood": "school"}], "school"
 for k, s in enumerate(shots):
     m = MOOD[LOC[id(s)]]
     if m != cur and s.get("type") != "cutaway": light.append({"t": round(max(0.0, starts[k] - 0.2), 3), "mood": m, "fade": 0.4}); cur = m
 spec = {
     "fps": 30, "audio": {"voice": "audio/voice.mp3", "music": "audio/music.mp3", "musicDb": -11},
     "words": "audio/words.json", "captions": {"wordsPer": 1}, "font": "fonts/Montserrat-ExtraBold.ttf", "contactShadow": 0.6, "seed": 22,
-    "moods": {"gaslight": {"sun": {"azimuth": 220, "elevation": 26, "color": "#ffd8a8", "intensity": 2.7}, "sky": {"top": "#5a3c78", "horizon": "#ffaa5a"}, "fill": {"sky": "#fff0e0", "ground": "#6a4a3a", "intensity": 2.1}},
-              "roseroom": {"sun": {"azimuth": 150, "elevation": 34, "color": "#ffe8d8", "intensity": 2.5}, "sky": {"top": "#c86e82", "horizon": "#f0a0a0"}, "fill": {"sky": "#fff0f0", "ground": "#7a4a4a", "intensity": 1.8}},
-              "emerald": {"sun": {"azimuth": 20, "elevation": 40, "color": "#fff4d8", "intensity": 2.7}, "sky": {"top": "#145a46", "horizon": "#32966e"}, "fill": {"sky": "#f0fff4", "ground": "#3a4a30", "intensity": 2.2}},
-              "blockday": {"sun": {"azimuth": 40, "elevation": 46, "color": "#fffbf0", "intensity": 2.3}, "sky": {"top": "#6eb4f0", "horizon": "#e6f0fa"}, "fill": {"sky": "#f4faff", "ground": "#8a7a6a", "intensity": 1.4}},
-              "crawl": {"sun": {"azimuth": 200, "elevation": 32, "color": "#ffe0b0", "intensity": 2.6}, "sky": {"top": "#6e461e", "horizon": "#c8823c"}, "fill": {"sky": "#fff0e0", "ground": "#5a3a20", "intensity": 2.0}},
-              "shopnoon": {"sun": {"azimuth": 40, "elevation": 48, "color": "#fffbf0", "intensity": 2.3}, "sky": {"top": "#96d2fa", "horizon": "#fff4dc"}, "fill": {"sky": "#fffaf0", "ground": "#9a8a70", "intensity": 1.4}},
-              "swamp": {"sun": {"azimuth": 210, "elevation": 30, "color": "#f0fff0", "intensity": 2.5}, "sky": {"top": "#3c8c96", "horizon": "#bee6d2"}, "fill": {"sky": "#f0fff8", "ground": "#4a6a50", "intensity": 1.7}},
-              "mistnight": {"sun": {"azimuth": 230, "elevation": 30, "color": "#f0fff0", "intensity": 2.7}, "sky": {"top": "#1e3c46", "horizon": "#46786e"}, "fill": {"sky": "#f0fff8", "ground": "#2a3a34", "intensity": 2.3}},
-              "works": {"sun": {"azimuth": 230, "elevation": 18, "color": "#ffd0a8", "intensity": 2.5}, "sky": {"top": "#f0825a", "horizon": "#ffd296"}, "fill": {"sky": "#fff0e8", "ground": "#6a4a3a", "intensity": 1.8}},
-              "workshop": {"sun": {"azimuth": 150, "elevation": 36, "color": "#fff4e0", "intensity": 2.3}, "sky": {"top": "#faecce", "horizon": "#f0d2a0"}, "fill": {"sky": "#fffaf0", "ground": "#9a7a50", "intensity": 1.4}},
-              "railnight": {"sun": {"azimuth": 20, "elevation": 40, "color": "#f0f4ff", "intensity": 2.7}, "sky": {"top": "#0e1846", "horizon": "#285096"}, "fill": {"sky": "#e8f0ff", "ground": "#1e2a50", "intensity": 2.3}}},
+    "moods": {"school": {"sun": {"azimuth": 40, "elevation": 46, "color": "#fffbf0", "intensity": 2.4}, "sky": {"top": "#5ab4ff", "horizon": "#dcf0ff"}, "fill": {"sky": "#f4faff", "ground": "#5a8a5a", "intensity": 1.5}},
+              "memphis": {"sun": {"azimuth": 160, "elevation": 40, "color": "#fff4fa", "intensity": 2.5}, "sky": {"top": "#285ae6", "horizon": "#ff82c8"}, "fill": {"sky": "#fff4fa", "ground": "#8a4a7a", "intensity": 2.0}},
+              "dorm": {"sun": {"azimuth": 150, "elevation": 36, "color": "#fff0e8", "intensity": 2.5}, "sky": {"top": "#7846aa", "horizon": "#be8cdc"}, "fill": {"sky": "#fbf4ff", "ground": "#5a4a6a", "intensity": 2.1}},
+              "hangar": {"sun": {"azimuth": 30, "elevation": 44, "color": "#f4ffff", "intensity": 2.5}, "sky": {"top": "#286478", "horizon": "#82c8c8"}, "fill": {"sky": "#f0ffff", "ground": "#5a6a70", "intensity": 1.9}},
+              "rooftop": {"sun": {"azimuth": 230, "elevation": 20, "color": "#ffe0c8", "intensity": 2.5}, "sky": {"top": "#c896e6", "horizon": "#ffbe96"}, "fill": {"sky": "#fff4f0", "ground": "#7a5a6a", "intensity": 1.8}},
+              "post": {"sun": {"azimuth": 40, "elevation": 50, "color": "#fffbf0", "intensity": 2.3}, "sky": {"top": "#96d2ff", "horizon": "#f0f8ff"}, "fill": {"sky": "#f8fbff", "ground": "#8a8a90", "intensity": 1.4}},
+              "plaza": {"sun": {"azimuth": 50, "elevation": 46, "color": "#f8fcff", "intensity": 2.4}, "sky": {"top": "#3c96f0", "horizon": "#c8ebff"}, "fill": {"sky": "#f4faff", "ground": "#8a8a96", "intensity": 1.5}},
+              "fedcourt": {"sun": {"azimuth": 150, "elevation": 40, "color": "#f4f8ff", "intensity": 2.5}, "sky": {"top": "#5a78aa", "horizon": "#b4c8e6"}, "fill": {"sky": "#f4f8ff", "ground": "#6a7080", "intensity": 1.9}},
+              "fantasy": {"sun": {"azimuth": 160, "elevation": 44, "color": "#fff8fc", "intensity": 2.3}, "sky": {"top": "#ffbee6", "horizon": "#bee6ff"}, "fill": {"sky": "#fffaff", "ground": "#a08aa0", "intensity": 1.5}},
+              "living": {"sun": {"azimuth": 150, "elevation": 34, "color": "#f8f0ff", "intensity": 2.6}, "sky": {"top": "#6e5aa0", "horizon": "#be96c8"}, "fill": {"sky": "#f4f8ff", "ground": "#4a4060", "intensity": 2.3}}},
     "lighting": light, "ground": {"texture": TEX + "pave.jpg", "repeat": [175, 175], "size": 1400},
     "backdrop": {"image": "bg/sky.jpg", "blur": 4}, "ink": {"set": 4},
-    "fxLook": {"ink": "#271925", "accent": "#ff5a5f", "paper": ["#c8a06a", "#ae8650"], "dofPx": 8, "particle": "#fff0d8", "bokehColor": "#ffd8a0", "ray": "#fff4dc", "raySide": -1},
+    "fxLook": {"ink": "#271925", "accent": "#ff2d55", "paper": ["#8cb4ff", "#7aa0eb"], "dofPx": 8, "particle": "#fff8ff", "bokehColor": "#ffb4dc", "ray": "#fff8f0", "raySide": -1},
     "fx": FX, "characters": chars, "props": props, "shots": shots, "end": "audio",
 }
 
 # ---- music + effects synthesised to the word timings: full energy from frame 1
-CUE = dict(year="A year earlier", yousee="You see Chicago", sothecity="So the city", young="The young man",
-           rose="rose six", air="into the air", y1861="1861", tremont="Tremont", inch="Inch by", climbs="climbs", sleeping="sleeping", checking="checking", senator="senator",
-           steeper="steeper", windows="the windows", eye="eye level", half="half a city", f320="320", m600="600 men", k6000="6000", signal="signal", notch="notch", open="open",
-           swamp="swamp", lake="Lake", y1854="1854", twenty="twenty", wild="wild", pipes="sewer", bury="bury", lift="lift downtown", fourteen="fourteen", pullman="George",
-           pane="pane", took="Then he took", wheels="wheels", car="The Pullman", travels="travels", allfrom="All from")
+CUE = dict(nobody="Nobody can drink", yousee="You see Pepsi", butpepsi="But Pepsi still",
+           joke="as a joke", tried="tried", y1996="1996", stuff="Stuff", drink="Drink", trade="trade", final="final shot", lands="lands", harrier="Harrier", price="Price", seven="seven million",
+           john="John Leonard", loophole="loophole", ten="Ten cents", sevenh="Seven hundred", military="military", thirty="thirty", five="five", mailed="mailed", check="and a check", fifty="fifty",
+           shipping="shipping", back="sent the check", sued="sued", y1999="1999", agreed="agreed", kimba="Kimba", flying="flying", fantasy="fantasy", objective="objective", offer="offer",
+           lost="Leonard lost", appeal="appeal", changed="changed", sevenm="seven hundred million", kidding="kidding", never="Leonard never", netflix="Netflix", y2022="2022", because="Because nobody")
 CUE.update({"s%02d" % k: x["_phrase"] for k, x in enumerate(shots) if x["_phrase"] != "0"})
 cues = {k: say(v) for k, v in CUE.items()}; cues["end"] = DURATION
 cp, wav = os.path.join(P, "audio", "cues.json"), os.path.join(P, "audio", "music.wav")
