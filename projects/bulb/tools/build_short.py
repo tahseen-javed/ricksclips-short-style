@@ -56,7 +56,7 @@ yard("CL", "dawn.png", "coralfl.jpg"); box("CL", 0.7, 0.04, -2.8, [0.9, 0.4, 0.8
 yard("WS", "workshop.png", "lemonfl.jpg"); box("WS", 5.6, 0.04, -2.8, [1.0, 0.4, 0.8], color="#8ab090"); box("WS", -5.4, 0.04, -3.6, [1.0, 0.9, 0.7], color="#c8b070")
 
 # ================================================================== CHARACTERS (cards + background decor carry "_" in the id: not frame-checked; hero props are)
-put("bulbH", "bulb", pos("HK", 0.0, 0.54, -2.8), 1.2); put("fireh_", "fireh", pos("HK", -2.4, 0.04, -4.4), 2.3); human("rosa", "rosa", pos("HK", -0.95, 0.04, -2.3), face="happy", h=1.1)
+put("bulbH", "bulb", pos("HK", 0.0, 0.54, -2.8), 1.2); put("fireh", "fireh", pos("HK", -3.7, 0.04, -4.4), 1.8); human("rosa", "rosa", PARK, face="happy", h=1.1)
 put("kilnO", "kiln", pos("OH", 0.0, 0.04, -3.0), 1.9)
 put("warsW", "wars", pos("WW", 0.0, 0.34, -2.8), 1.5)
 put("truckT", "truck", pos("TW", 0.0, 0.04, -2.6), 1.15)
@@ -116,12 +116,12 @@ def STOP(s, face, at=0.0, k=None, shake=None):                 # StopperText: on
     if shake: act(s, at, cid, shake=shake)
     return cid
 # ---- A light bulb has been glowing since 1901. It's still on right now.
-s = S("0", "HK", zoom=9, **HOOK); c = STOP(s, "default", 0.0, k=1.25); hide(s, 0.0, "rosa"); act(s, 0.0, "bulbH", face="shocked", shake=0.3)
+s = S("0", "HK", zoom=9, **HOOK); c = STOP(s, "default", 0.0, k=1.25); act(s, 0.0, "bulbH", face="shocked", shake=0.3)
 for t_, f_ in ((0.08, "off"), (0.14, "default"), (0.22, "off"), (0.28, "default")): act(s, t_, c, face=f_)
 s = S("since 1901", "HK", (0.0, 1.15, -2.8), 4.4, -14, pitch=6, yawTo=4, type="macro", dof=dict(focus="bulbH", blur=0.5)); STOP(s, "default"); act(s, rel(s, "1901"), "bulbH", face="default", shake=0.4); snap(s, rel(s, "1901"), 10)
 s = S("It's still on", "WC", (0.0, 1.3, -2.8), 4.6, 6, pitch=14, pitchTo=3); c = STOP(s, "default"); act(s, 0.1, c, face="esc", pop=1.3, shake=0.3)
 s = crane("Livermore", "HK", (0.0, 1.1, -3.2), 7.4, -24, -4, 38, 8); c = STOP(s, "esc"); act(s, 0.9, c, face="wait", pop=1.3, shake=0.4); show(s, 0.0, "rosa", pos("HK", -0.95, 0.04, -2.3), hop=0); ft(s, "rosa", ["happy", "shocked"])
-s = S("Fire Station", "HK", (-2.4, 1.2, -4.4), 6.4, 8, pitch=6, zoom=11); STOP(s, "wait"); hide(s, 0.0, "rosa"); act(s, rel(s, "6"), "fireh_", shake=0.4); snap(s, rel(s, "6"), 8)
+s = S("Fire Station", "HK", (-3.7, 0.95, -4.4), 7.2, 8, pitch=6, zoom=6); STOP(s, "wait"); hide(s, 0.0, "rosa"); act(s, rel(s, "6"), "fireh", shake=0.4); snap(s, rel(s, "6"), 8)
 # ---- A handmade carbon bulb, made in Ohio in the 1890s. It has burned through two world wars and a move across town.
 s = crane("A handmade", "OH", (0.0, 0.95, -3.0), 5.6, 22, 4, 34, 8); T(s, "handc", at=rel(s, "handmade"), dy=0.37, wf=0.62)
 s = S("Ohio", "OH", (0.2, 1.0, -3.0), 5.9, -10, pitch=5, zoom=-9, pan=(-6, 0), dof=dict(focus="kilnO", blur=0.4)); T(s, "y1890", at=rel(s, "1890s"), dx=-0.24, dy=0.24, wf=0.26, hf=0.26); act(s, rel(s, "1890s"), "kilnO", shake=0.3)
@@ -149,8 +149,8 @@ s = S("almost never switched", "WS", (2.8, 0.85, -2.8), 4.8, -6, pitch=6, zoom=1
 s = crane("machine built", "EL", (0.3, 0.9, -2.8), 5.8, 20, 2, 32, 8); act(s, 0.0, "psuE", face="broken"); ft(s, "dev", ["shocked", "happy"])
 s = S("failed first", "EL", (0.7, 0.85, -2.8), 4.2, -10, pitch=14, pitchTo=4, dof=dict(focus="psuE", blur=0.4)); act(s, 0.05, "psuE", face="broken", shake=0.7); T(s, "failc", at=0.05, dy=0.38, wf=0.62); snap(s, 0.1, 8)
 s = S("The bulb didn't", "HK", (0.0, 1.15, -2.8), 4.4, 6, pitch=6, zoom=13); act(s, 0.0, "bulbH", face="bright", shake=0.4); T(s, "didnt", at=0.05, dy=0.37, wf=0.56)
-s = crane("And tonight", "HK", (0.0, 1.1, -3.2), 7.2, 24, 6, 40, 8); act(s, 0.0, "bulbH", face="bright"); show(s, 0.0, "rosa", pos("HK", -0.95, 0.04, -2.3), hop=0); ft(s, "rosa", ["happy", "shocked"])
-s = S("it has since", "HK", zoom=-5, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); act(s, 0.0, "bulbH", face="default"); act(s, 0.8, "bulbH", face="shocked", shake=0.3); STOP(s, "default", 0.05, k=1); hide(s, 0.0, "rosa")
+s = crane("And tonight", "HK", (0.0, 1.1, -2.8), 5.2, 24, 6, 40, 8); act(s, 0.0, "bulbH", face="bright"); ft(s, "rosa", ["happy", "shocked"])
+s = S("it has since", "HK", zoom=-5, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); act(s, 0.0, "bulbH", face="default"); act(s, 0.8, "bulbH", face="shocked", shake=0.3); STOP(s, "default", 0.05, k=1)
 for s in shots: s.setdefault("frameY", 0.0)
 
 starts = [0.0 if s["start"] == 0 else say(s["_phrase"]) for s in shots]
