@@ -57,7 +57,7 @@ yard("SP", "splitroad.png", "roadfl.jpg"); box("SP", 0.0, 0.04, -2.8, [0.6, 0.3,
 # ================================================================== CHARACTERS (cards + background decor carry "_" in the id: not frame-checked; hero props are)
 put("signH", "stopsign", pos("HK", 0.55, 0.04, -2.9), 1.8); human("enoH", "eno", pos("HK", -0.5, 0.04, -2.4), face="happy", h=1.5); put("carH", "car", pos("HK", 3.6, 0.04, -2.8), 0.75)
 put("jamN", "jam", pos("NY", 0.0, 0.04, -3.4), 1.5); put("carrN", "carriage", pos("NY", 4.6, 0.04, -3.0), 1.2); human("willy", "willy", pos("NY", 4.0, 0.04, -2.3), face="shocked", h=1.0); human("mom", "mom", pos("NY", 5.1, 0.04, -2.35), face="happy", h=1.5)
-human("cop", "cop", pos("NY", -3.6, 0.04, -2.4), face="shocked", h=1.6); put("cal67_", "y1867", pos("NY", -1.6, 2.4, -4.1), 0.8)
+human("cop", "cop", pos("NY", -3.6, 0.04, -2.4), face="shocked", h=1.6)
 put("artW", "article", pos("WR", 0.4, 0.74, -2.8), 1.0); human("enoW", "eno", pos("WR", -0.6, 0.04, -2.3), face="happy", h=1.5)
 put("regsC", "regs", pos("CH", 0.0, 0.34, -2.8), 1.4)
 put("signI", "stopsign", pos("IN", -2.7, 0.04, -2.8), 1.6); put("owI", "oneway", pos("IN", -0.1, 0.04, -2.8), 1.0); put("circI", "circle", pos("IN", 1.6, 0.04, -3.4), 0.8)
@@ -119,7 +119,7 @@ def STOP(s, face, at=0.0, k=None, shake=None):                 # StopperText: on
 s = S("0", "HK", zoom=9, **HOOK); STOP(s, "default", 0.0, k=1.35, shake=0.3); ft(s, "enoH", ["happy", "shocked"]); act(s, 0.0, "signH", shake=0.3); act(s, rel(s, "stop"), "signH", face="wink")
 s = S("never learned", "HK", (3.6, 0.5, -2.8), 3.8, 14, pitch=6, yawTo=2, type="macro", dof=dict(focus="carH", blur=0.5)); c = STOP(s, "default"); act(s, 0.8, c, face="esc", pop=1.3, shake=0.3); act(s, rel(s, "car"), "carH", face="x", shake=0.5); snap(s, rel(s, "car"), 9)
 s = crane("William Phelps", "ST", (-0.4, 1.0, -2.6), 6.6, -24, -4, 36, 8); STOP(s, "esc"); ft(s, "enoS", ["happy", "smug"])
-s = crane("New York 1867", "NY", (0.0, 0.9, -3.2), 7.0, 22, 2, 46, 10); c = STOP(s, "esc"); act(s, 0.4, c, face="wait", pop=1.3, shake=0.4); act(s, rel(s, "1867"), "cal67_", shake=0.4)
+s = crane("New York 1867", "NY", (0.0, 0.9, -3.2), 7.0, 22, 2, 46, 10); c = STOP(s, "esc"); act(s, 0.4, c, face="wait", pop=1.3, shake=0.4)
 s = S("He's nine", "NY", (4.55, 0.85, -2.6), 5.4, -8, pitch=6, zoom=11); c = STOP(s, "wait"); hide(s, 0.6, c); T(s, "age9", at=0.7, dy=0.37, wf=0.4); ft(s, "willy", ["shocked", "nervous"]); ft(s, "mom", ["happy", "nervous"])
 s = S("in a traffic", "NY", (0.0, 0.7, -3.4), 5.6, 10, pitch=44, pitchTo=30, type="macro", dof=dict(focus="jamN", blur=0.4)); act(s, rel(s, "jam"), "jamN", shake=0.6); snap(s, rel(s, "jam"), 9)
 s = S("Not cars", "HK", (3.6, 0.5, -2.8), 4.2, -6, pitch=5, zoom=-10); act(s, 0.0, "carH", face="x", shake=0.4); T(s, "notcars", at=0.05, dy=0.37, wf=0.5)
@@ -159,7 +159,7 @@ for s in shots: s.setdefault("frameY", 0.0)
 starts = [0.0 if s["start"] == 0 else say(s["_phrase"]) for s in shots]
 for k, s in enumerate(shots): s["_dur"] = (starts[k + 1] if k + 1 < len(shots) else DURATION) - starts[k]; s["start"] = round(starts[k], 3)
 for k, s in enumerate(shots[:-1]):                          # same set: the camera flies (dolly glide) into the next shot; new set: dissolve
-    if LOC[id(s)] == LOC[id(shots[k + 1])] and s.get("type") != "cutaway" and shots[k + 1].get("type") != "cutaway" and not shots[k + 1].get("_dis"): s["out"] = "glide"; s["outDur"] = 0.5
+    if LOC[id(s)] == LOC[id(shots[k + 1])] and s.get("type") != "cutaway" and shots[k + 1].get("type") != "cutaway" and not shots[k + 1].get("_dis") and math.dist(s["anchor"], shots[k + 1]["anchor"]) < 1.2: s["out"] = "glide"; s["outDur"] = 0.5   # far jumps dissolve: no half-seen props mid-glide
 for s in shots:                                              # short shots: enough pan that the move is clearly visible (>= 3.6 % of the width)
     if abs(s["zoom"]) * s["_dur"] < 8.5 and abs(s["pan"][0]) * s["_dur"] < 39: s["pan"][0] = round(math.copysign(39 / s["_dur"], s["pan"][0] or 1), 1)
 
