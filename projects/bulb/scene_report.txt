@@ -1,0 +1,48 @@
+music: 39.1 s, warm firehouse swing 118 + 2013 dark pulse 96 + sunrise pop 124
+   autofit S03 distance 7.4 -> 7.8
+   autofit S04 distance 7.2 -> 7.6
+   autofit S05 distance 5.6 -> 7.1
+   autofit S06 distance 5.9 -> 7.0
+   autofit S07 distance 5.0 -> 5.6
+   autofit S08 distance 6.0 -> 8.0
+   autofit S10 distance 4.4 -> 5.2
+   autofit S11 distance 5.8 -> 7.3
+   autofit S14 distance 5.8 -> 8.2
+   autofit S15 distance 4.0 -> 4.5
+   autofit S18 distance 6.3 -> 7.1
+   autofit S20 distance 3.9 -> 4.6
+   autofit S22 distance 3.9 -> 4.6
+   autofit S24 distance 5.8 -> 7.8
+shot  start   dur  phrase
+S00    0.00  1.24  0                          d 6.2
+S01    1.24  1.16  since 1901                 d 4.4  snap
+S02    2.40  1.24  It's still on              d 4.6
+S03    3.64  1.24  Livermore                  d 7.8
+S04    4.88  1.20  Fire Station               d 7.6  snap
+S05    6.08  1.56  A handmade                 d 7.1
+S06    7.64  1.40  Ohio                       d 7.0
+S07    9.04  1.68  It has burned              d 5.6  snap
+S08   10.72  1.20  and a move                 d 8.0
+S09   11.92  1.46  Then May 2013              d 6.2
+S10   13.38  1.96  Its live webcam            d 5.2  snap
+S11   15.34  1.08  After more than            d 7.3
+S12   16.42  1.76  the world's oldest         d 4.0  snap
+S13   18.18  0.90  You see it                 d 4.6
+S14   19.08  1.62  An electrician             d 8.2
+S15   20.70  1.32  a faulty power             d 4.5  snap
+S16   22.02  1.05  The bulb was               d 4.8
+S17   23.07  1.16  About ten hours            d 6.6
+S18   24.23  1.10  it was glowing             d 7.1
+S19   25.33  1.68  Its secret                 d 5.0
+S20   27.01  1.14  Built for sixty            d 4.6  snap
+S21   28.15  1.68  it now gives               d 4.6
+S22   29.83  1.52  A thick filament           d 4.6
+S23   31.35  1.32  almost never switched      d 4.8
+S24   32.67  1.30  machine built              d 7.8
+S25   33.97  0.72  failed first               d 4.2  snap
+S26   34.69  0.78  The bulb didn't            d 4.4
+S27   35.47  1.42  And tonight                d 5.2
+S28   36.89  1.86  it has since               d 5.5
+snaps 8, comic fx 3
+frame check: 0 CUT flags
+wrote short.json: 29 shots, 36 characters, 30 props, voice 38.75 s
