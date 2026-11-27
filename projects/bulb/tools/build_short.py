@@ -46,7 +46,7 @@ def yard(loc, img, floor, w=16, rep=(8, 8)):
     plane(loc, img, 0, -0.2, -6.5, w, round(w * 1100 / 2400, 3)); box(loc, 0, 0, -1, [w, 0.04, 12], texture=floor, repeat=list(rep))
 
 
-yard("HK", "night6.png", "nightfl.jpg"); box("HK", 0.0, 0.04, -2.8, [1.1, 0.5, 0.9], color="#c8463c"); tree("HK", -3.6, -4.6, 0.8, "#2f6a5a"); tree("HK", 3.8, -4.4, 0.9, "#36705e")
+yard("HK", "night6.png", "nightfl.jpg"); box("HK", 0.0, 0.04, -2.8, [1.1, 0.5, 0.9], color="#c8463c"); tree("HK", -6.2, -5.0, 0.8, "#2f6a5a"); tree("HK", 3.8, -4.4, 0.9, "#36705e")
 yard("OH", "glassw.png", "brickfl.jpg"); box("OH", 3.2, 0.04, -3.6, [1.2, 0.8, 0.8], color="#8a4a30")
 yard("WW", "warsky.png", "khakifl.jpg"); box("WW", 0.0, 0.04, -2.8, [1.4, 0.3, 1.0], color="#8a8a50"); tree("WW", -3.4, -4.4, 0.8, "#6a7a40")
 yard("TW", "town.png", "townfl.jpg"); tree("TW", -3.2, -4.0, 0.8, "#7ac0a0"); tree("TW", 3.4, -4.2, 0.9, "#9ad0b0"); box("TW", 0.0, 0.0, -1.6, [6.0, 0.03, 0.9], color="#f0e8f8")
