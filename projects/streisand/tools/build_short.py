@@ -140,7 +140,7 @@ s = S("invasion of privacy", "LW", (3.0, 0.95, -2.8), 4.6, -4, pitch=-2, pitchTo
 # ---- Here's the absurd part. Before the lawsuit, that photo had been downloaded six times. Two of those downloads were her own lawyers.
 s = crane("Here's the absurd", "DL", (0.0, 0.95, -2.8), 5.4, 22, 2, 34, 8); T(s, "absurd", at=0.05, dy=0.38, wf=0.56); cfx(s, 0.3, "question", "scrD", 0.7)
 s = S("Before the lawsuit", "DL", (0.0, 0.95, -2.8), 5.0, -10, pitch=6, zoom=11)
-s = S("downloaded six times", "DL", (0.0, 1.0, -2.8), 3.8, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="scrD", blur=0.5)); act(s, rel(s, "six"), "scrD", shake=0.6); T(s, "six", at=rel(s, "six"), dy=0.38, wf=0.5); snap(s, rel(s, "six"), 9)
+s = S("downloaded six times", "DL", (0.0, 1.0, -2.8), 3.8, 12, pitch=6, zoom=-9, type="macro", dof=dict(focus="scrD", blur=0.5)); act(s, rel(s, "six"), "scrD", shake=0.6); T(s, "six", at=rel(s, "six"), dy=0.38, wf=0.5); snap(s, rel(s, "six"), 9)
 s = S("Two of those", "LW", (0.0, 1.0, -2.4), 4.4, 8, pitch=5, zoom=-10, pan=(6, 0)); ft(s, "lawa", ["nervous", "shocked"]); ft(s, "lawb", ["shocked", "nervous"]); T(s, "twolaw", at=rel(s, "lawyers"), dy=0.38, wf=0.62)
 # ---- You see, a lawsuit is public. And a superstar suing over a secret photo is news. Reporters wrote about it. Readers went looking for it.
 s = crane("You see a", "CT", (0.0, 1.0, -2.6), 6.0, -22, 4, 36, 8); T(s, "public", at=rel(s, "public"), dy=0.38, wf=0.62); ft(s, "judge2", ["happy", "smug"])
@@ -149,7 +149,7 @@ s = crane("news Reporters", "NW", (0.0, 0.9, -2.8), 5.6, 22, 4, 42, 10); T(s, "n
 s = S("Readers went looking", "WB", (0.0, 0.6, -2.6), 4.2, 6, pitch=6, zoom=3, pan=(-14, 0)); act(s, 0.05, "crowdW", hop=0.2, shake=0.3)
 # ---- In the month after the filing, more than four hundred thousand people visited the site. The photo she wanted gone was suddenly the one everyone wanted to see.
 s = crane("In the month", "WB", (3.2, 0.9, -2.8), 5.0, -22, 2, 38, 8)
-s = S("more than four", "WB", (3.2, 1.0, -2.8), 3.8, 10, pitch=6, yawTo=-6, type="macro", dof=dict(focus="scrW", blur=0.5)); act(s, rel(s, "visited"), "scrW", shake=0.6); T(s, "visits", at=rel(s, "four"), dy=0.38, wf=0.56); snap(s, rel(s, "people"), 9)
+s = S("more than four", "WB", (3.2, 1.0, -2.8), 3.9, 10, pitch=6, zoom=12, type="macro", dof=dict(focus="scrW", blur=0.5)); act(s, rel(s, "visited"), "scrW", shake=0.6); T(s, "visits", at=rel(s, "four"), dy=0.38, wf=0.56); snap(s, rel(s, "people"), 9)
 s = S("The photo she", "CL", (2.8, 0.9, -2.8), 4.4, -6, pitch=14, pitchTo=3); act(s, 0.05, "p38C", face="shocked", shake=0.4)
 s = S("suddenly the one", "HK", (3.8, 0.55, -2.6), 4.2, 6, pitch=6, zoom=4, pan=(14, 0)); act(s, 0.05, "crowdH", hop=0.2, shake=0.4); T(s, "everyone", at=rel(s, "everyone"), dy=0.38, wf=0.66)
 # ---- Then the judge threw the case out, and ordered Streisand to pay the photographer's legal fees. She lost the lawsuit, the privacy, and the money.
@@ -161,7 +161,7 @@ s = S("lawsuit the privacy", "CT", (-3.8, 0.8, -2.8), 4.4, -6, pitch=6, zoom=-10
 s = crane("Two years later", "BL", (0.3, 1.0, -2.6), 7.4, -22, 2, 36, 8); T(s, "y2later", at=0.05, dy=0.38, wf=0.56); ft(s, "mike", ["happy", "smug"])
 s = S("Mike Masnick needed", "BL", (-0.7, 1.05, -2.4), 4.4, 8, pitch=6, zoom=12, dof=dict(focus="mike", blur=0.4)); ft(s, "mike", ["smug", "happy"]); T(s, "blogger", at=0.05, dy=0.38, wf=0.6)
 s = S("mistake Trying", "HK", (0.0, 1.0, -3.0), 5.2, -10, pitch=14, pitchTo=4); act(s, rel(s, "hide"), "mansH", face="hide", shake=0.4)
-s = S("making it explode", "HK", (0.0, 1.0, -3.0), 5.6, 12, pitch=6, yawTo=0); act(s, rel(s, "explode"), "mansH", face="famous", shake=0.8); T(s, "explode", at=rel(s, "explode"), dy=0.38, wf=0.66); snap(s, rel(s, "explode"), 10)
+s = S("making it explode", "HK", (0.0, 1.0, -3.0), 5.8, 12, pitch=6, zoom=11); act(s, rel(s, "explode"), "mansH", face="famous", shake=0.8); T(s, "explode", at=rel(s, "explode"), dy=0.38, wf=0.66); snap(s, rel(s, "explode"), 10)
 # ---- He called it the Streisand Effect. Her name became the warning label. Six people had seen that house. Now you're picturing it too. Because hiding her house made it famous.
 s = S("He called it", "BL", (1.0, 0.85, -2.8), 3.7, -12, pitch=6, yawTo=4, type="macro", dof=dict(focus="lapB", blur=0.5)); act(s, rel(s, "Streisand"), "lapB", face="name", shake=0.5); snap(s, rel(s, "Effect"), 8)
 s = S("Her name became", "BL", (3.8, 0.85, -2.8), 4.6, 8, pitch=6, zoom=12); act(s, rel(s, "warning"), "warnB", shake=0.6); T(s, "label", at=rel(s, "warning"), dy=0.38, wf=0.5)
@@ -173,7 +173,7 @@ for s in shots: s.setdefault("frameY", 0.0)
 starts = [0.0 if s["start"] == 0 else say(s["_phrase"]) for s in shots]
 for k, s in enumerate(shots): s["_dur"] = (starts[k + 1] if k + 1 < len(shots) else DURATION) - starts[k]; s["start"] = round(starts[k], 3)
 for k, s in enumerate(shots[:-1]):                          # same set: the camera flies (dolly glide) into the next shot; new set: dissolve
-    if LOC[id(s)] == LOC[id(shots[k + 1])] and s.get("type") != "cutaway" and shots[k + 1].get("type") != "cutaway" and not shots[k + 1].get("_dis"): s["out"] = "glide"; s["outDur"] = 0.5
+    if LOC[id(s)] == LOC[id(shots[k + 1])] and s.get("type") != "cutaway" and shots[k + 1].get("type") != "cutaway" and not shots[k + 1].get("_dis") and math.dist(s["anchor"], shots[k + 1]["anchor"]) < 1.2: s["out"] = "glide"; s["outDur"] = 0.5   # far jumps dissolve: no half-seen props mid-glide
 for s in shots:                                              # short shots: enough pan that the move is clearly visible (>= 3.6 % of the width)
     if abs(s["zoom"]) * s["_dur"] < 8.5 and abs(s["pan"][0]) * s["_dur"] < 39: s["pan"][0] = round(math.copysign(39 / s["_dur"], s["pan"][0] or 1), 1)
 

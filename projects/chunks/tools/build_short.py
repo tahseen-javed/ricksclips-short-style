@@ -116,10 +116,10 @@ def STOP(s, face, at=0.0, k=None, shake=None):                 # StopperText: on
     return cid
 # ---- Five dollars, split two ways, became a 326 million dollar ice cream company.
 s = S("0", "HK", zoom=10, **HOOK); c = STOP(s, "default", 0.0, k=1.3, shake=0.2); act(s, 0.0, "pintH", face="shocked", shake=0.3)
-for k_, t_ in enumerate((0.3, 0.5, 0.7, 0.9, 1.1, 1.25)): act(s, t_, c, face="r%d" % (k_ + 1))
-s = S("became a 326", "HK", (2.7, 0.65, -2.8), 3.6, 14, pitch=6, yawTo=0, type="macro", dof=dict(focus="billH", blur=0.5)); c = STOP(s, "r7"); act(s, 0.1, c, face="r8"); act(s, rel(s, "326"), c, face="r9", pop=1.25, shake=0.3)
+for k_, t_ in enumerate((0.25, 0.45, 0.65, 0.85, 1.05, 1.25)): act(s, t_, c, face="r%d" % (k_ + 1))
+s = S("became a 326", "HK", (2.7, 0.65, -2.8), 3.6, 14, pitch=6, yawTo=0, type="macro", dof=dict(focus="billH", blur=0.5)); c = STOP(s, "r6"); act(s, 0.1, c, face="r7"); act(s, rel(s, "326"), c, face="r8", pop=1.25, shake=0.3)
 act(s, 0.2, "billH", face="split", shake=0.5); snap(s, rel(s, "326"), 9)
-s = crane("dollar ice cream", "HK", (0.0, 1.05, -2.8), 5.6, -24, -4, 36, 8); c = STOP(s, "r9"); act(s, 0.0, c, face="esc", pop=1.3, shake=0.3); act(s, rel(s, "company"), "pintH", face="wink", shake=0.4)
+s = crane("dollar ice cream", "HK", (0.0, 1.05, -2.8), 5.6, -24, -4, 36, 8); c = STOP(s, "r8"); act(s, 0.15, c, face="esc", pop=1.3, shake=0.3); act(s, rel(s, "company"), "pintH", face="wink", shake=0.4)
 s = crane("Ben Cohen and", "KD", (0.0, 0.95, -2.5), 6.0, 22, 2, 34, 8); c = STOP(s, "esc"); act(s, 0.6, c, face="wait", pop=1.3, shake=0.4); ft(s, "ben", ["happy", "shocked"]); ft(s, "jerry", ["shocked", "happy"])
 s = S("are childhood friends", "KD", (0.0, 1.0, -2.4), 4.6, -8, pitch=6, zoom=12); STOP(s, "wait"); ft(s, "ben", ["smug", "happy"]); ft(s, "jerry", ["happy", "smug"])
 s = S("They decide to", "HK", (0.0, 1.1, -2.8), 4.2, 12, pitch=14, pitchTo=3, dof=dict(focus="pintH", blur=0.4)); act(s, rel(s, "ice"), "pintH", face="default", shake=0.5); T(s, "friends", at=0.05, dy=0.37, wf=0.6)
@@ -134,7 +134,7 @@ s = S("Four thousand each", "BK", (0.0, 0.8, -2.8), 5.0, -10, pitch=6, zoom=11);
 s = crane("May 5th", "GS", (0.0, 1.1, -3.2), 7.2, -22, 2, 36, 8); T(s, "y1978", at=rel(s, "1978"), dx=-0.24, dy=0.25, wf=0.26, hf=0.26)
 s = S("Burlington Vermont", "GS", (0.0, 1.0, -3.2), 6.6, 8, pitch=6, zoom=3, pan=(14, 0)); T(s, "burl", at=0.05, dy=0.37, wf=0.6)
 s = S("Their first shop", "GS", (0.0, 1.0, -3.2), 6.4, -6, pitch=6, zoom=12); act(s, rel(s, "opens"), "stationG", shake=0.4); ft(s, "benG", ["happy", "smug"])
-s = S("rundown gas station", "GS", (0.0, 1.05, -3.2), 6.2, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="stationG", blur=0.4)); hide(s, 0.0, "benG"); act(s, 0.1, "stationG", shake=0.5); T(s, "rundown", at=0.1, dy=0.38, wf=0.64); snap(s, rel(s, "gas"), 8)
+s = S("rundown gas station", "GS", (0.0, 1.05, -3.2), 6.0, 10, pitch=6, zoom=-8, type="macro", dof=dict(focus="stationG", blur=0.4)); hide(s, 0.0, "benG"); act(s, 0.1, "stationG", shake=0.5); T(s, "rundown", at=0.1, dy=0.38, wf=0.64); snap(s, rel(s, "gas"), 8)
 # ---- Twenty-two years later, Unilever buys the company for 326 million dollars.
 s = crane("Twentytwo years later", "UN", (0.0, 0.9, -2.8), 5.8, 22, 4, 40, 8); T(s, "y22", at=0.05, dy=0.37, wf=0.54); act(s, rel(s, "Unilever"), "checkU", shake=0.5)
 s = S("for 326", "UN", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="326 MILLION", items=["DOLLARS"]))
@@ -143,12 +143,12 @@ s = S("But the strangest", "UN", (0.0, 0.75, -2.8), 3.8, -10, pitch=14, pitchTo=
 s = S("It's the chunks", "TX", (3.0, 0.55, -2.8), 4.2, 12, pitch=6, yawTo=-2, type="macro", dof=dict(focus="chunksT", blur=0.5)); act(s, rel(s, "chunks"), "chunksT", shake=0.7); snap(s, rel(s, "chunks"), 10)
 # ---- You see, Ben Cohen has anosmia. He has no sense of smell, and very little sense of taste. Regular ice cream flavors blur together for him.
 s = S("Ben Cohen has", "NS", (-2.6, 1.15, -2.4), 4.4, -8, pitch=6, zoom=12, dof=dict(focus="benN", blur=0.4)); ft(s, "benN", ["happy", "shocked"]); T(s, "anos", at=rel(s, "anosmia"), dy=0.38, wf=0.56)
-s = S("He has no", "NS", (0.0, 0.85, -2.8), 3.8, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="noseN", blur=0.5)); act(s, rel(s, "smell"), "noseN", shake=0.5); T(s, "nosmell", at=rel(s, "smell"), dy=0.38, wf=0.62)
+s = S("He has no", "NS", (0.0, 0.85, -2.8), 3.8, 12, pitch=6, zoom=-9, type="macro", dof=dict(focus="noseN", blur=0.5)); act(s, rel(s, "smell"), "noseN", shake=0.5); T(s, "nosmell", at=rel(s, "smell"), dy=0.38, wf=0.62)
 s = S("and very little", "NS", (2.5, 0.85, -2.8), 4.0, -4, pitch=-2, pitchTo=10); act(s, rel(s, "taste"), "tongueN", shake=0.5); T(s, "notaste", at=rel(s, "taste"), dy=0.38, wf=0.62)
 s = S("Regular ice cream", "NS", (5.0, 0.9, -2.8), 4.2, 8, pitch=6, zoom=-10, pan=(-6, 0), dof=dict(focus="blurN", blur=0.4)); act(s, rel(s, "blur"), "blurN", shake=0.6); T(s, "blurc", at=rel(s, "blur"), dy=0.38, wf=0.64); cfx(s, rel(s, "blur"), "question", "blurN", 0.7)
 # ---- So he judged ice cream by the one thing he could always feel. Texture. Big, heavy chunks, packed in so every spoonful has something to bite.
 s = crane("So he judged", "TX", (0.0, 1.0, -2.8), 5.8, -22, 2, 40, 8); act(s, rel(s, "feel"), "spoonT", shake=0.3)
-s = S("feel Texture", "TX", (0.0, 1.15, -2.8), 3.8, 10, pitch=6, yawTo=-6, type="macro", dof=dict(focus="spoonT", blur=0.5)); act(s, rel(s, "Texture"), "spoonT", shake=0.6); T(s, "texture", at=rel(s, "Texture"), dy=0.38, wf=0.56); snap(s, rel(s, "Texture"), 9)
+s = S("feel Texture", "TX", (0.0, 1.15, -2.8), 4.0, 6, pitch=6, zoom=12, type="macro", dof=dict(focus="spoonT", blur=0.5)); act(s, rel(s, "Texture"), "spoonT", shake=0.6); T(s, "texture", at=rel(s, "Texture"), dy=0.38, wf=0.56); snap(s, rel(s, "Texture"), 9)
 s = crane("Big heavy chunks", "TX", (3.0, 0.6, -2.8), 4.8, 24, 4, 50, 14); act(s, rel(s, "heavy"), "chunksT", hop=0.25, shake=0.4)
 s = S("every spoonful", "TX", (0.0, 0.9, -2.8), 4.6, -6, pitch=6, zoom=10, pan=(-6, 0)); T(s, "bite", at=rel(s, "bite"), dy=0.38, wf=0.6); act(s, rel(s, "bite"), "spoonT", shake=0.4)
 # ---- Most companies sold flavor. Ben was selling the one thing he could actually feel. In his words: ice cream, to me, is about texture.
@@ -166,7 +166,7 @@ for s in shots: s.setdefault("frameY", 0.0)
 starts = [0.0 if s["start"] == 0 else say(s["_phrase"]) for s in shots]
 for k, s in enumerate(shots): s["_dur"] = (starts[k + 1] if k + 1 < len(shots) else DURATION) - starts[k]; s["start"] = round(starts[k], 3)
 for k, s in enumerate(shots[:-1]):                          # same set: the camera flies (dolly glide) into the next shot; new set: dissolve
-    if LOC[id(s)] == LOC[id(shots[k + 1])] and s.get("type") != "cutaway" and shots[k + 1].get("type") != "cutaway" and not shots[k + 1].get("_dis"): s["out"] = "glide"; s["outDur"] = 0.5
+    if LOC[id(s)] == LOC[id(shots[k + 1])] and s.get("type") != "cutaway" and shots[k + 1].get("type") != "cutaway" and not shots[k + 1].get("_dis") and math.dist(s["anchor"], shots[k + 1]["anchor"]) < 1.2: s["out"] = "glide"; s["outDur"] = 0.5   # far jumps dissolve: no half-seen props mid-glide
 for s in shots:                                              # short shots: enough pan that the move is clearly visible (>= 3.6 % of the width)
     if abs(s["zoom"]) * s["_dur"] < 8.5 and abs(s["pan"][0]) * s["_dur"] < 39: s["pan"][0] = round(math.copysign(39 / s["_dur"], s["pan"][0] or 1), 1)
 
