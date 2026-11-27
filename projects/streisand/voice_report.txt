@@ -1,0 +1,26 @@
+Collecting en-core-web-sm==3.8.0
+  Downloading en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 109.2 MB/s  0:00:00
+Installing collected packages: en-core-web-sm
+Successfully installed en-core-web-sm-3.8.0
+[38;5;2m✔ Download and installation successful[0m
+You can now load the package via spacy.load('en_core_web_sm')
+am_fenrir @1.28     57.6 s  understood 0.932
+am_fenrir @1.32     55.3 s  understood 0.929
+am_fenrir @1.36     48.1 s  understood 0.913
+chose am_fenrir @1.28 (understood 0.932): tempo 1.000 -> about 57.6 s
+Downloading: "https://download.pytorch.org/torchaudio/models/wav2vec2_fairseq_base_ls960_asr_ls960.pth" to /home/runner/.cache/torch/hub/checkpoints/wav2vec2_fairseq_base_ls960_asr_ls960.pth
+  0%|          | 0.00/360M [00:00<?, ?B/s] 13%|█▎        | 47.0M/360M [00:00<00:00, 491MB/s] 28%|██▊       | 101M/360M [00:00<00:00, 537MB/s]  42%|████▏     | 153M/360M [00:00<00:00, 523MB/s] 56%|█████▋    | 203M/360M [00:00<00:00, 479MB/s] 69%|██████▉   | 249M/360M [00:00<00:00, 427MB/s] 81%|████████  | 291M/360M [00:00<00:00, 400MB/s] 91%|█████████▏| 330M/360M [00:00<00:00, 397MB/s]100%|██████████| 360M/360M [00:00<00:00, 435MB/s]
+aligned 220 words over 58.14 s, mean confidence 0.95, shortest word 0.04 s
+heard: Hiding her house made it famous, Barbara Streisand paid lawyers to bury one photo and the whole internet dug it up. 2003, a photographer named Kenneth Edelman is flying the California coast. He shoots over 12,000 aerial photos to track cliff erosion. One of them, Image 3850, happens to catch a cliff top mansion in Malibu, Streisand's. Her lawyer Sue, $50 million for invasion of privacy, hears the absurd part before the lawsuit that photo had been downloaded six times, two of those downloads were her own lawyers. In the lawsuit is public, and a superstar suing over a secret photo is news, reporters wrote about it, readers went looking for it. In the month after the filing, more than 400,000 people visited the site. The photo she wanted gone was suddenly the one everyone wanted to see. Then the judge threw the case out and ordered Streisand to pay the photographer's legal fees. She lost the lawsuit, the privacy and the money. Two years later, a blogger named Mike Masnick needed a name for this exact mistake, trying to hide something and making it explode. He called it the Streisand Effect, her name became the warning label. Six people had seen that house, now you're picturing it too because hiding her house made it famous.
+intelligibility 0.936 (1.0 = every word understood)
+  replace: said ['barbra'] -> heard ['barbara']
+  replace: said ['adelman'] -> heard ['edelman']
+  replace: said ['twelve', 'thousand'] -> heard ['12', '000']
+  replace: said ['clifftop'] -> heard ['cliff', 'top']
+  replace: said ['lawyers'] -> heard ['lawyer']
+  replace: said ['fifty'] -> heard ['50']
+  delete: said ['dollars'] -> heard []
+  replace: said ["here's"] -> heard ['hears']
+  replace: said ['you', 'see', 'a'] -> heard ['in', 'the']
+  replace: said ['four', 'hundred', 'thousand'] -> heard ['400', '000']
