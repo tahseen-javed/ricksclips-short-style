@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Generate short.json (and the word-cued music) for video 32: the Hollywood sign was never about movies.
+"""Generate short.json (and the word-cued music) for video 35: five dollars, split two ways, became a 326 million dollar ice cream company.
 usage: build_short.py <project folder>
-Seven jazz-age sets 70 units apart: HK peach-magenta sunset hillside with the sign (hook + loop; the "????" tarp over the missing end =
-open loop, resolved when L, A, N, D wave goodbye), PR plum-gold premiere night, SG sage-terracotta lots, DC teal-gold art-deco office,
-NT navy night with glowing bulbs, RU dusty-rose 1940s ruin, BL mint-cream 1949 office. Shots 0.7-2 s, every neighbour a different move;
-the sign, letters and props are the stars, people small companions."""
+Eight Vermont dairy-pop sets 70 units apart: HK sky-blue cow-spot dairy hills (hook + loop: the pint with a face on a cow-spot pedestal and
+the torn $5 bill; the StopperText counter rolls $5 -> $326,000,000), KD peach-lilac playground, PS butter mail room, BK mint vault, GS
+orange-teal 1978 roadside gas station, UN navy-gold corporate skyline, NS lavender senses world, TX cocoa fudge macro world. Shots 0.7-2 s,
+every neighbour a different move. Open loop: WHAT MADE IT? -> it's the chunks (a man with no sense of smell sold texture)."""
 import json, os, sys, subprocess, math
 import scene_base as base
 from scene_base import *
 
-base.X.clear(); base.X.update(HK=0, PR=70, SG=140, DC=210, NT=280, RU=350, BL=420)
+base.X.clear(); base.X.update(HK=0, KD=70, PS=140, BK=210, GS=280, UN=350, NS=420, TX=490)
 HERE = os.path.dirname(os.path.abspath(__file__)); PARK = base.PARK
 ASP = json.load(open(os.path.join(P, "aspect.json")))
 
@@ -45,24 +45,24 @@ def yard(loc, img, floor, w=16, rep=(8, 8)):
     plane(loc, img, 0, -0.2, -6.5, w, round(w * 1100 / 2400, 3)); box(loc, 0, 0, -1, [w, 0.04, 12], texture=floor, repeat=list(rep))
 
 
-yard("HK", "sunset.png", "hillfl.jpg"); box("HK", 0.0, 0.04, -3.3, [2.3, 0.9, 0.7], color="#a08a6a"); box("HK", 5.1, 0.04, -2.75, [1.9, 0.94, 0.5], color="#c89a6a"); tree("HK", -2.6, -4.4, 0.8, "#5a7a5a"); tree("HK", 2.8, -4.6, 0.9, "#64845e")
-yard("PR", "premiere.png", "carpet.jpg"); box("PR", 0.0, 0.04, -2.8, [1.4, 0.3, 1.0], color="#f0c450")
-yard("SG", "sage.png", "sagefl.jpg"); tree("SG", -3.6, -4.2, 0.9, "#7aa070"); tree("SG", 3.4, -4.0, 0.8, "#86aa78")
-yard("DC", "deco.png", "decofl.jpg"); box("DC", 1.1, 0.04, -2.8, [1.4, 0.5, 0.8], color="#2a5a64")
-yard("NT", "nightglow.png", "nightfl.jpg"); box("NT", 0.0, 0.04, -3.5, [3.0, 0.86, 0.6], color="#3a4a6a")
-yard("RU", "ruin.png", "dustfl.jpg"); box("RU", 0.0, 0.04, -3.3, [3.0, 0.76, 0.6], color="#8a7a7a"); barrel("RU", -3.2, -3.6)
-yard("BL", "blinds.png", "officefl.jpg"); box("BL", 0.0, 0.04, -2.7, [1.8, 0.3, 0.8], color="#7a5a40")
+yard("HK", "dairy.png", "grassfl.jpg"); box("HK", 0.0, 0.04, -2.8, [1.3, 0.4, 1.0], color="#f8f8f8"); box("HK", 2.7, 0.04, -2.8, [1.0, 0.3, 0.8], color="#ff8ab0"); tree("HK", -3.8, -4.4, 0.9, "#6ab060")
+yard("KD", "playground.png", "rubberfl.jpg"); tree("KD", 3.6, -4.2, 0.8, "#8ac890")
+yard("PS", "mailroom.png", "butterfl.jpg"); box("PS", 0.0, 0.04, -2.8, [1.3, 0.3, 0.9], color="#b07a40"); box("PS", 2.9, 0.04, -2.8, [1.1, 0.3, 0.8], color="#b07a40")
+yard("BK", "vault.png", "vaultfl.jpg")
+yard("GS", "road78.png", "dustfl.jpg"); tree("GS", -4.2, -4.2, 0.9, "#5a9070")
+yard("UN", "corp.png", "navyfl.jpg"); box("UN", 0.0, 0.04, -2.8, [1.9, 0.36, 0.8], color="#3a4a8a")
+yard("NS", "senses.png", "lavfl.jpg"); box("NS", 0.0, 0.04, -2.8, [1.0, 0.3, 0.8], color="#a08ad0"); box("NS", 2.5, 0.04, -2.8, [1.0, 0.3, 0.8], color="#a08ad0"); box("NS", 5.0, 0.04, -2.8, [1.1, 0.3, 0.8], color="#a08ad0")
+yard("TX", "fudge.png", "cocoafl.jpg")
 
 # ================================================================== CHARACTERS (cards + background decor carry "_" in the id: not frame-checked; hero props are)
-put("signK", "sign", pos("HK", 0.0, 0.94, -3.3), 0.6); human("lineK", "lineman", pos("HK", 0.6, 0.04, -2.3), face="shocked", h=1.05)
-for ch_ in "LAND": put("let%sK" % ch_, "let" + ch_, PARK, 0.85)
-put("hourK", "hourglass", pos("HK", -4.2, 0.04, -2.4), 1.0); put("sciK", "scissors", pos("HK", -7.6, 0.3, -2.4), 0.7)
-put("globeP", "globe", pos("PR", 0.0, 0.34, -2.8), 1.3)
-put("houseS", "house", pos("SG", -0.95, 0.04, -3.0), 0.8); put("lotsS", "lots", pos("SG", 0.9, 0.04, -2.4), 0.7); put("giantS", "giant", pos("SG", 5.4, 0.04, -2.6), 1.4)
-human("chandD", "chandler", pos("DC", -0.8, 0.04, -2.2), face="happy", h=1.6); put("paperD", "paper", pos("DC", 1.1, 0.54, -2.8), 0.95)
-put("signN", "sign", pos("NT", 0.0, 0.9, -3.5), 0.6, face="glow"); put("bulbsN", "bulbs", pos("NT", 3.4, 0.2, -2.4), 0.8); human("lineN", "lineman", pos("NT", -2.6, 0.04, -2.2), face="happy", h=1.5)
-put("signR", "sign", pos("RU", 0.0, 0.8, -3.3), 0.6, face="old"); put("bulbsR", "bulbs", pos("RU", 3.2, 0.04, -2.4), 0.7, face="off")
-put("dealB", "contract", pos("BL", 0.0, 0.34, -2.7), 1.25)
+put("pintH", "pint", pos("HK", 0.0, 0.44, -2.8), 1.35); put("billH", "bill", pos("HK", 2.7, 0.34, -2.8), 0.55)
+human("ben", "ben", pos("KD", -0.5, 0.04, -2.4), face="happy", h=1.55); human("jerry", "jerry", pos("KD", 0.5, 0.04, -2.4), face="happy", h=1.5)
+put("courseP", "course", pos("PS", 0.0, 0.34, -2.8), 1.2); put("billP", "bill", pos("PS", 2.9, 0.34, -2.8), 0.55)
+put("stacksB", "stacks", pos("BK", 0.0, 0.04, -2.8), 1.25)
+put("stationG", "station", pos("GS", 0.0, 0.04, -3.2), 1.9); human("benG", "ben", pos("GS", 2.5, 0.04, -2.4), face="happy", h=1.55)
+put("checkU", "check", pos("UN", 0.0, 0.4, -2.8), 0.85); put("scaleU", "scale", pos("UN", 3.6, 0.04, -2.8), 1.4)
+human("benN", "ben", pos("NS", -2.6, 0.04, -2.4), face="happy", h=1.55); put("noseN", "nose", pos("NS", 0.0, 0.34, -2.8), 1.0); put("tongueN", "tongue", pos("NS", 2.5, 0.34, -2.8), 1.0); put("blurN", "blur", pos("NS", 5.0, 0.34, -2.8), 1.15)
+put("spoonT", "spoon", pos("TX", 0.0, 0.04, -2.8), 1.6); put("chunksT", "chunks", pos("TX", 3.0, 0.04, -2.8), 1.0)
 # ================================================================== SHOTS
 SH = {c["id"]: c["height"] for c in chars}
 N_ = [0]; REQ = []; SNAPC = []; FXC = []; LOC = {}
@@ -78,6 +78,7 @@ def card(s, at, who, dy=0.25, dx=0.0, dz=0.3):
     p_ = [round(ax + w * math.cos(y) + dz * math.sin(y), 3), round(ay + dy * 0.728 * d - SH[who] / 2, 3), round(az - w * math.sin(y) + dz * math.cos(y), 3)]
     if at <= 0.001 and s is shots[0]: next(c for c in chars if c["id"] == who)["pos"] = p_    # HOOK LAW: the hook sign is already up at frame 0
     show(s, at, who, p_, hop=0 if (at <= 0.001 and s is shots[0]) else 0.12)
+    if not who.startswith("stop"): act(s, at, who, pop=1.25 if (at <= 0.001 and s is shots[0]) else 1)     # every card pops in with an ease-out-back overshoot
 
 
 def tag(s, at, name, dy=0.25, dx=0.0, dz=0.3, wf=0.24, hf=0.17, tilt=0):
@@ -107,42 +108,59 @@ def blink(s, who, t0, t1, step=0.3):
     while t < t1: act(s, round(t, 3), who, face="b" if k % 2 == 0 else "default"); t += step; k += 1
 
 
-HOOK = dict(anchor=(0.0, 1.25, -3.0), dist=6.2, yaw=14, pitch=6)
-LAND_P = dict(L=(4.68, 0.98, -2.75), A=(5.52, 0.98, -2.75), N=(4.68, 0.04, -2.2), D=(5.52, 0.04, -2.2))
-# ---- The Hollywood sign was never about movies. It's a billboard for houses, and it was built to come down.
-s = S("0", "HK", zoom=5, **HOOK); act(s, 0.0, "signK", shake=0.4); tag(s, 0.0, "hookc", 0.31, 0.0, wf=0.6, hf=0.19); ft(s, "lineK", ["shocked", "confused"])
-s = S("never about movies", "PR", (0.0, 1.0, -2.8), 4.8, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="globeP", blur=0.5)); act(s, rel(s, "movies"), "globeP", shake=0.5); snap(s, rel(s, "movies"), 10)
-s = S("It's a billboard", "SG", (-0.95, 0.5, -3.0), 4.2, 8, pitch=6, zoom=12, dof=dict(focus="houseS", blur=0.4)); act(s, rel(s, "houses"), "houseS", shake=0.5); T(s, "adc", at=rel(s, "billboard"), dy=0.38, wf=0.62)
-s = S("and it was", "HK", (-4.2, 0.6, -2.4), 4.2, -10, pitch=14, pitchTo=3, dof=dict(focus="hourK", blur=0.4)); act(s, rel(s, "down"), "hourK", shake=0.5); T(s, "down", at=rel(s, "built"), dy=0.38, wf=0.6)
-# ---- Los Angeles, 1923. A group of developers, including the publisher of the Los Angeles Times, is selling hillside lots in a neighborhood called Hollywoodland.
-s = crane("Los Angeles 1923", "SG", (0.0, 0.8, -2.7), 7.6, -22, -2, 36, 8); T(s, "y1923", at=rel(s, "1923"), dx=-0.24, dy=0.22, wf=0.26, hf=0.26)
-s = crane("A group of", "DC", (0.2, 1.0, -2.4), 7.0, 22, 2, 34, 8); ft(s, "chandD", ["happy", "smug"])
-s = S("including the publisher", "DC", (-0.8, 1.05, -2.2), 4.4, -8, pitch=5, zoom=12, dof=dict(focus="chandD", blur=0.4)); ft(s, "chandD", ["smug", "happy"]); cfx(s, 0.2, "glint", "chandD", 0.5)
-s = S("Los Angeles Times", "DC", (1.1, 1.0, -2.8), 4.2, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="paperD", blur=0.5)); act(s, 0.05, "paperD", shake=0.5); T(s, "pubc", at=0.05, dy=0.38, wf=0.6); snap(s, 0.15, 8)
-s = S("is selling hillside", "SG", (0.9, 0.45, -2.4), 4.6, 6, pitch=8, zoom=4, pan=(-8, 0)); act(s, rel(s, "lots"), "lotsS", shake=0.5)
-s = S("a neighborhood called", "SG", (0.0, 0.7, -2.7), 7.6, -10, pitch=5, zoom=-10); T(s, "hlandc", at=rel(s, "Hollywoodland") - 0.2, dy=0.36, wf=0.62)
-# ---- So they write its name on the hill. Thirteen letters, each about forty-five feet tall. Four thousand light bulbs. Twenty-one thousand dollars. Planned life: about a year and a half.
-s = crane("So they write", "HK", (0.0, 1.25, -3.3), 6.6, -22, 8, 36, 8); hide(s, 0.0, "lineK"); act(s, 0.0, "signK", face="land", shake=0.4)
-s = S("Thirteen letters", "HK", (0.0, 1.25, -3.3), 5.4, -12, pitch=5, yawTo=8); act(s, 0.05, "signK", face="land", shake=0.3); T(s, "thirteen", at=0.05, dy=0.36, wf=0.42)
-s = S("each about fortyfive", "SG", (5.4, 0.8, -2.6), 4.8, 4, pitch=-2, pitchTo=10, dof=dict(focus="giantS", blur=0.4)); act(s, 0.05, "giantS", shake=0.3); T(s, "ft45", at=0.1, dy=0.38, wf=0.62); snap(s, 0.2, 8)
-s = S("Four thousand light", "NT", (3.4, 0.6, -2.4), 4.0, 12, pitch=6, yawTo=-6, type="macro", dof=dict(focus="bulbsN", blur=0.5)); act(s, 0.05, "bulbsN", shake=0.5); T(s, "bulbc", at=0.1, dy=0.38, wf=0.56)
-s = S("Twentyone thousand", "NT", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="TWENTY-ONE THOUSAND", items=["DOLLARS"]))
-s = S("Planned life about", "HK", (-4.2, 0.55, -2.4), 4.4, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="hourK", blur=0.5)); act(s, 0.05, "hourK", shake=0.4); T(s, "lifec", at=0.1, dy=0.38, wf=0.56); snap(s, rel(s, "year"), 8)
-# ---- You see, nobody took it down. It just sat there, falling apart. Then in 1949, a deal saved it, with one condition: cut the last four letters. L. A. N. D.
-s = crane("You see nobody", "RU", (0.0, 1.0, -3.0), 6.6, 22, 2, 36, 8); act(s, 0.2, "signR", shake=0.3); T(s, "nobody", at=rel(s, "nobody"), dy=0.35, wf=0.62)
-s = S("It just sat", "RU", (0.0, 1.0, -3.3), 6.4, 6, pitch=8, zoom=4, pan=(8, 0)); act(s, rel(s, "falling"), "signR", shake=0.6); T(s, "apart", at=rel(s, "falling"), dy=0.37, wf=0.5); cfx(s, 0.3, "sweat", "bulbsR", 0.6)
-s = crane("Then in 1949", "BL", (0.0, 1.0, -2.6), 6.6, -22, -2, 34, 8); T(s, "y1949", at=rel(s, "1949"), dx=-0.2, dy=0.33, wf=0.24, hf=0.24)
-s = S("a deal saved", "BL", (0.0, 0.95, -2.7), 4.4, 8, pitch=6, zoom=12, dof=dict(focus="dealB", blur=0.4)); act(s, rel(s, "saved"), "dealB", shake=0.5)
-s = S("one condition", "BL", (0.0, 0.95, -2.7), 4.8, -4, pitch=14, pitchTo=3); act(s, 0.05, "dealB", face="cut", shake=0.6); T(s, "cond", at=0.05, dy=0.38, wf=0.5)
-s = S("cut the last", "HK", (-7.6, 0.55, -2.4), 4.0, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="sciK", blur=0.5)); act(s, rel(s, "cut"), "sciK", shake=0.7); snap(s, rel(s, "cut") + 0.05, 10)
-s = S("L", "HK", (5.1, 0.95, -2.5), 5.2, 6, pitch=6, zoom=6)
-for ch_ in "LAND": show(s, rel(s, ch_.lower()), "let%sK" % ch_, pos("HK", *LAND_P[ch_]))
-# ---- So the most famous movie sign on Earth is a real estate ad with the ending chopped off. And it was never about movies.
-s = S("So the most", "PR", (0.0, 1.0, -2.8), 5.6, 10, pitch=5, zoom=-10); act(s, 0.05, "globeP", shake=0.4); T(s, "famous", at=rel(s, "famous"), dy=0.38, wf=0.5)
-s = S("is a real", "HK", (0.0, 1.25, -3.3), 6.0, -10, pitch=6, yawTo=6); act(s, 0.0, "signK", face="cut", shake=0.4); T(s, "realad", at=rel(s, "real"), dy=0.38, wf=0.56); snap(s, rel(s, "estate"), 8)
-s = S("ending chopped off", "HK", (5.1, 0.95, -2.5), 5.6, -4, pitch=14, pitchTo=3)
-for ch_ in "LAND": act(s, 0.05, "let%sK" % ch_, face="bye", shake=0.6)
-s = S("never about#2", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); show(s, 0.0, "lineK", pos("HK", 0.6, 0.04, -2.3), hop=0); act(s, 0.0, "signK", face="default", shake=0.4); T(s, "hookc", at=0.05, dy=0.31, wf=0.6, hf=0.19)
+HOOK = dict(anchor=(0.0, 1.15, -2.8), dist=5.8, yaw=10, pitch=6)
+def STOP(s, face, at=0.0, k=None, shake=None):                 # StopperText: one counter card, re-placed in every hook shot (no re-pop), escalates by face
+    cid = T(s, "stop", at=at, dy=0.31, wf=0.62, hf=0.24); act(s, at, cid, face=face)
+    if k: act(s, at, cid, pop=k)
+    if shake: act(s, at, cid, shake=shake)
+    return cid
+# ---- Five dollars, split two ways, became a 326 million dollar ice cream company.
+s = S("0", "HK", zoom=10, **HOOK); c = STOP(s, "default", 0.0, k=1.3, shake=0.2); act(s, 0.0, "pintH", face="shocked", shake=0.3)
+for k_, t_ in enumerate((0.3, 0.5, 0.7, 0.9, 1.1, 1.25)): act(s, t_, c, face="r%d" % (k_ + 1))
+s = S("became a 326", "HK", (2.7, 0.65, -2.8), 3.6, 14, pitch=6, yawTo=0, type="macro", dof=dict(focus="billH", blur=0.5)); c = STOP(s, "r7"); act(s, 0.1, c, face="r8"); act(s, rel(s, "326"), c, face="r9", pop=1.25, shake=0.3)
+act(s, 0.2, "billH", face="split", shake=0.5); snap(s, rel(s, "326"), 9)
+s = crane("dollar ice cream", "HK", (0.0, 1.05, -2.8), 5.6, -24, -4, 36, 8); c = STOP(s, "r9"); act(s, 0.0, c, face="esc", pop=1.3, shake=0.3); act(s, rel(s, "company"), "pintH", face="wink", shake=0.4)
+s = crane("Ben Cohen and", "KD", (0.0, 0.95, -2.5), 6.0, 22, 2, 34, 8); c = STOP(s, "esc"); act(s, 0.6, c, face="wait", pop=1.3, shake=0.4); ft(s, "ben", ["happy", "shocked"]); ft(s, "jerry", ["shocked", "happy"])
+s = S("are childhood friends", "KD", (0.0, 1.0, -2.4), 4.6, -8, pitch=6, zoom=12); STOP(s, "wait"); ft(s, "ben", ["smug", "happy"]); ft(s, "jerry", ["happy", "smug"])
+s = S("They decide to", "HK", (0.0, 1.1, -2.8), 4.2, 12, pitch=14, pitchTo=3, dof=dict(focus="pintH", blur=0.4)); act(s, rel(s, "ice"), "pintH", face="default", shake=0.5); T(s, "friends", at=0.05, dy=0.37, wf=0.6)
+# ---- Their training? A five-dollar correspondence course from Penn State. They split the cost.
+s = crane("Their training", "PS", (0.0, 0.9, -2.8), 5.6, -22, 4, 34, 8); act(s, rel(s, "training"), "courseP", shake=0.4); cfx(s, rel(s, "training"), "question", "courseP", 0.6)
+s = S("correspondence course", "PS", (0.0, 1.0, -2.8), 3.8, 10, pitch=6, yawTo=-4, type="macro", dof=dict(focus="courseP", blur=0.5)); act(s, rel(s, "Penn"), "courseP", shake=0.5); snap(s, rel(s, "Penn"), 8)
+s = S("They split the", "PS", (2.9, 0.6, -2.8), 3.6, -6, pitch=5, zoom=-10, dof=dict(focus="billP", blur=0.4)); act(s, rel(s, "split"), "billP", face="split", shake=0.6); T(s, "splitc", at=rel(s, "split"), dy=0.37, wf=0.62)
+# ---- Then they scrape together twelve thousand dollars. Four thousand each, four thousand from a bank.
+s = crane("Then they scrape", "BK", (0.0, 0.9, -2.8), 6.4, 22, -2, 40, 8); T(s, "k12", at=rel(s, "twelve"), dy=0.37, wf=0.56); act(s, rel(s, "twelve"), "stacksB", shake=0.4)
+s = S("Four thousand each", "BK", (0.0, 0.8, -2.8), 5.0, -10, pitch=6, zoom=11); act(s, rel(s, "bank"), "stacksB", shake=0.5); snap(s, rel(s, "bank"), 8)
+# ---- May 5th, 1978. Burlington, Vermont. Their first shop opens inside a run-down gas station.
+s = crane("May 5th", "GS", (0.0, 1.1, -3.2), 7.2, -22, 2, 36, 8); T(s, "y1978", at=rel(s, "1978"), dx=-0.24, dy=0.25, wf=0.26, hf=0.26)
+s = S("Burlington Vermont", "GS", (0.0, 1.0, -3.2), 6.6, 8, pitch=6, zoom=3, pan=(14, 0)); T(s, "burl", at=0.05, dy=0.37, wf=0.6)
+s = S("Their first shop", "GS", (0.0, 1.0, -3.2), 6.4, -6, pitch=6, zoom=12); act(s, rel(s, "opens"), "stationG", shake=0.4); ft(s, "benG", ["happy", "smug"])
+s = S("rundown gas station", "GS", (0.0, 1.05, -3.2), 6.2, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="stationG", blur=0.4)); hide(s, 0.0, "benG"); act(s, 0.1, "stationG", shake=0.5); T(s, "rundown", at=0.1, dy=0.38, wf=0.64); snap(s, rel(s, "gas"), 8)
+# ---- Twenty-two years later, Unilever buys the company for 326 million dollars.
+s = crane("Twentytwo years later", "UN", (0.0, 0.9, -2.8), 5.8, 22, 4, 40, 8); T(s, "y22", at=0.05, dy=0.37, wf=0.54); act(s, rel(s, "Unilever"), "checkU", shake=0.5)
+s = S("for 326", "UN", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="326 MILLION", items=["DOLLARS"]))
+# ---- But the strangest part isn't the money. It's the chunks.
+s = S("But the strangest", "UN", (0.0, 0.75, -2.8), 3.8, -10, pitch=14, pitchTo=3, dof=dict(focus="checkU", blur=0.4)); T(s, "notmoney", at=rel(s, "isn't"), dy=0.38, wf=0.56); act(s, rel(s, "money"), "checkU", shake=0.4)
+s = S("It's the chunks", "TX", (3.0, 0.55, -2.8), 4.2, 12, pitch=6, yawTo=-2, type="macro", dof=dict(focus="chunksT", blur=0.5)); act(s, rel(s, "chunks"), "chunksT", shake=0.7); snap(s, rel(s, "chunks"), 10)
+# ---- You see, Ben Cohen has anosmia. He has no sense of smell, and very little sense of taste. Regular ice cream flavors blur together for him.
+s = S("Ben Cohen has", "NS", (-2.6, 1.15, -2.4), 4.4, -8, pitch=6, zoom=12, dof=dict(focus="benN", blur=0.4)); ft(s, "benN", ["happy", "shocked"]); T(s, "anos", at=rel(s, "anosmia"), dy=0.38, wf=0.56)
+s = S("He has no", "NS", (0.0, 0.85, -2.8), 3.8, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="noseN", blur=0.5)); act(s, rel(s, "smell"), "noseN", shake=0.5); T(s, "nosmell", at=rel(s, "smell"), dy=0.38, wf=0.62)
+s = S("and very little", "NS", (2.5, 0.85, -2.8), 4.0, -4, pitch=-2, pitchTo=10); act(s, rel(s, "taste"), "tongueN", shake=0.5); T(s, "notaste", at=rel(s, "taste"), dy=0.38, wf=0.62)
+s = S("Regular ice cream", "NS", (5.0, 0.9, -2.8), 4.2, 8, pitch=6, zoom=-10, pan=(-6, 0), dof=dict(focus="blurN", blur=0.4)); act(s, rel(s, "blur"), "blurN", shake=0.6); T(s, "blurc", at=rel(s, "blur"), dy=0.38, wf=0.64); cfx(s, rel(s, "blur"), "question", "blurN", 0.7)
+# ---- So he judged ice cream by the one thing he could always feel. Texture. Big, heavy chunks, packed in so every spoonful has something to bite.
+s = crane("So he judged", "TX", (0.0, 1.0, -2.8), 5.8, -22, 2, 40, 8); act(s, rel(s, "feel"), "spoonT", shake=0.3)
+s = S("feel Texture", "TX", (0.0, 1.15, -2.8), 3.8, 10, pitch=6, yawTo=-6, type="macro", dof=dict(focus="spoonT", blur=0.5)); act(s, rel(s, "Texture"), "spoonT", shake=0.6); T(s, "texture", at=rel(s, "Texture"), dy=0.38, wf=0.56); snap(s, rel(s, "Texture"), 9)
+s = crane("Big heavy chunks", "TX", (3.0, 0.6, -2.8), 4.8, 24, 4, 50, 14); act(s, rel(s, "heavy"), "chunksT", hop=0.25, shake=0.4)
+s = S("every spoonful", "TX", (0.0, 0.9, -2.8), 4.6, -6, pitch=6, zoom=10, pan=(-6, 0)); T(s, "bite", at=rel(s, "bite"), dy=0.38, wf=0.6); act(s, rel(s, "bite"), "spoonT", shake=0.4)
+# ---- Most companies sold flavor. Ben was selling the one thing he could actually feel. In his words: ice cream, to me, is about texture.
+s = S("Most companies sold", "UN", (3.6, 0.9, -2.8), 4.4, 12, pitch=14, pitchTo=3, dof=dict(focus="scaleU", blur=0.4)); T(s, "flavorc", at=rel(s, "flavor"), dy=0.38, wf=0.58); act(s, rel(s, "flavor"), "scaleU", shake=0.4)
+s = S("Ben was selling", "GS", (2.5, 1.0, -2.4), 4.0, -14, pitch=6, zoom=11); show(s, 0.0, "benG", pos("GS", 2.5, 0.04, -2.4), hop=0); ft(s, "benG", ["smug", "happy"]); act(s, rel(s, "feel"), "stationG", shake=0.3)
+s = S("In his words", "NS", (-2.6, 1.15, -2.4), 4.6, 10, pitch=6, zoom=-9, pan=(6, 0), dof=dict(focus="benN", blur=0.4)); ft(s, "benN", ["smug", "happy"]); T(s, "quote", at=rel(s, "ice"), dy=0.38, wf=0.66)
+s = S("is about texture", "TX", (0.0, 1.1, -2.8), 4.6, -10, pitch=6, zoom=12); act(s, rel(s, "texture"), "spoonT", shake=0.5)
+# ---- So America's most famous chunky ice cream was shaped by a man who can barely taste it. And it all started with five dollars, split two ways.
+s = crane("So America's most", "HK", (0.0, 1.1, -2.8), 6.2, 24, 4, 36, 8); act(s, rel(s, "famous"), "pintH", face="crown", shake=0.5); T(s, "famous", at=rel(s, "famous"), dy=0.38, wf=0.66); snap(s, rel(s, "chunky"), 8)
+s = S("was shaped by", "NS", (-2.6, 1.15, -2.4), 4.2, -6, pitch=14, pitchTo=3, dof=dict(focus="benN", blur=0.4)); ft(s, "benN", ["happy", "smug"]); T(s, "barely", at=rel(s, "barely"), dy=0.38, wf=0.62)
+s = S("And it all", "PS", (2.9, 0.6, -2.8), 3.6, 10, pitch=6, yawTo=-2); act(s, 0.0, "billP", face="default"); act(s, rel(s, "started"), "billP", shake=0.4)
+s = S("dollars#4", "HK", zoom=-5, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); act(s, 0.0, "pintH", face="default"); act(s, rel(s, "split"), "pintH", face="shocked", shake=0.3); STOP(s, "default", 0.05, k=1)
 for s in shots: s.setdefault("frameY", 0.0)
 
 starts = [0.0 if s["start"] == 0 else say(s["_phrase"]) for s in shots]
@@ -190,8 +208,8 @@ for s in shots:
             prev = seq[j % len(seq)]; j += 1; act(s, round(i * 0.55, 3), who, face=prev)
 # ---- atmosphere by set: dust + rays by day, bokeh by night / dawn
 D_ = lambda c=22: dict(count=c, size=1.0, drift=1.0); BK = lambda a=0.3: dict(count=12, size=1.0, alpha=a)
-ATM = dict(HK=dict(dust=D_(22), rays=dict(angle=24, intensity=0.7)), PR=dict(bokeh=BK(0.55)), SG=dict(dust=D_(22), rays=dict(angle=30, intensity=0.6)), DC=dict(dust=D_(20), rays=dict(angle=20, intensity=0.5)),
-           NT=dict(bokeh=BK(0.5)), RU=dict(dust=D_(30)), BL=dict(dust=D_(22), rays=dict(angle=26, intensity=0.6)))
+ATM = dict(HK=dict(dust=D_(20), rays=dict(angle=26, intensity=0.6)), KD=dict(dust=D_(20), rays=dict(angle=30, intensity=0.6)), PS=dict(dust=D_(24), rays=dict(angle=20, intensity=0.6)), BK=dict(dust=D_(18), rays=dict(angle=24, intensity=0.5)),
+           GS=dict(dust=D_(30), rays=dict(angle=14, intensity=0.8)), UN=dict(bokeh=BK(0.5)), NS=dict(bokeh=BK(0.45)), TX=dict(dust=D_(24), rays=dict(angle=22, intensity=0.6)))
 for s in shots:
     if s.get("type") != "cutaway": s["atmos"] = ATM[LOC[id(s)]]
 
@@ -277,32 +295,33 @@ for (s, at, cid, name, dy, dx, dz, wf, hf, c) in REQ:
     c["height"] = round(h, 3); SH[cid] = c["height"]; card(s, at, cid, dy, dx, dz); RECT[cid] = (s, at, 0.5 + dx - wfr / 2, 0.5 - dy - hfr / 2, 0.5 + dx + wfr / 2, 0.5 - dy + hfr / 2)
 
 # ================================================================== SPEC
-MOOD = dict(HK="sunset", PR="premiere", SG="sage", DC="deco", NT="night23", RU="ruin", BL="blinds")
-light, cur = [{"t": 0, "mood": "sunset"}], "sunset"
+MOOD = dict(HK="dairy", KD="play", PS="butter", BK="vault", GS="road78", UN="corp", NS="senses", TX="fudge")
+light, cur = [{"t": 0, "mood": "dairy"}], "dairy"
 for k, s in enumerate(shots):
     m = MOOD[LOC[id(s)]]
     if m != cur and s.get("type") != "cutaway": light.append({"t": round(max(0.0, starts[k] - 0.2), 3), "mood": m, "fade": 0.4}); cur = m
 spec = {
     "fps": 30, "audio": {"voice": "audio/voice.mp3", "music": "audio/music.mp3", "musicDb": -11},
     "words": "audio/words.json", "captions": {"wordsPer": 1}, "font": "fonts/Montserrat-ExtraBold.ttf", "contactShadow": 0.6, "seed": 22,
-    "moods": {"sunset": {"sun": {"azimuth": 230, "elevation": 20, "color": "#ffdcc0", "intensity": 2.6}, "sky": {"top": "#e6468c", "horizon": "#ffc896"}, "fill": {"sky": "#fff0ec", "ground": "#7a5a5a", "intensity": 1.9}},
-              "premiere": {"sun": {"azimuth": 160, "elevation": 36, "color": "#fff0e8", "intensity": 2.6}, "sky": {"top": "#461e5a", "horizon": "#c85a8c"}, "fill": {"sky": "#fff0f4", "ground": "#6a3a50", "intensity": 2.3}},
-              "sage": {"sun": {"azimuth": 50, "elevation": 40, "color": "#fffbf0", "intensity": 2.4}, "sky": {"top": "#bedcf0", "horizon": "#ffecd2"}, "fill": {"sky": "#fffaf4", "ground": "#7a7a5a", "intensity": 1.5}},
-              "deco": {"sun": {"azimuth": 150, "elevation": 38, "color": "#fff8ec", "intensity": 2.5}, "sky": {"top": "#146e78", "horizon": "#3caaaa"}, "fill": {"sky": "#f0fffc", "ground": "#3a5a60", "intensity": 2.2}},
-              "night23": {"sun": {"azimuth": 20, "elevation": 40, "color": "#eef2ff", "intensity": 2.7}, "sky": {"top": "#141e5a", "horizon": "#465aaa"}, "fill": {"sky": "#eef2ff", "ground": "#2a3460", "intensity": 2.4}},
-              "ruin": {"sun": {"azimuth": 200, "elevation": 30, "color": "#fff0ec", "intensity": 2.4}, "sky": {"top": "#9696aa", "horizon": "#e6b4b4"}, "fill": {"sky": "#fff4f4", "ground": "#7a6a6a", "intensity": 1.8}},
-              "blinds": {"sun": {"azimuth": 140, "elevation": 40, "color": "#fffbf0", "intensity": 2.4}, "sky": {"top": "#aae6d2", "horizon": "#faf6e6"}, "fill": {"sky": "#fafffc", "ground": "#7a6a5a", "intensity": 1.6}}},
+    "moods": {"dairy": {"sun": {"azimuth": 60, "elevation": 40, "color": "#fffcf2", "intensity": 2.5}, "sky": {"top": "#78befa", "horizon": "#e6f8ff"}, "fill": {"sky": "#f8fcff", "ground": "#6a8a5a", "intensity": 1.6}},
+              "play": {"sun": {"azimuth": 120, "elevation": 38, "color": "#fff4ee", "intensity": 2.4}, "sky": {"top": "#c8aafa", "horizon": "#ffdcc8"}, "fill": {"sky": "#fffaf8", "ground": "#8a7080", "intensity": 1.6}},
+              "butter": {"sun": {"azimuth": 150, "elevation": 40, "color": "#fff8e6", "intensity": 2.4}, "sky": {"top": "#ffdc78", "horizon": "#fff6d2"}, "fill": {"sky": "#fffcf0", "ground": "#8a7050", "intensity": 1.5}},
+              "vault": {"sun": {"azimuth": 100, "elevation": 40, "color": "#f4fff8", "intensity": 2.4}, "sky": {"top": "#96e6c8", "horizon": "#e6fff0"}, "fill": {"sky": "#f8fffc", "ground": "#5a7a70", "intensity": 1.6}},
+              "road78": {"sun": {"azimuth": 240, "elevation": 16, "color": "#ffd8a8", "intensity": 2.7}, "sky": {"top": "#3ca0aa", "horizon": "#ffaa5a"}, "fill": {"sky": "#fff2e6", "ground": "#7a6a5a", "intensity": 1.8}},
+              "corp": {"sun": {"azimuth": 160, "elevation": 36, "color": "#fff4e0", "intensity": 2.7}, "sky": {"top": "#1e2864", "horizon": "#786ebe"}, "fill": {"sky": "#f4f2ff", "ground": "#3a3a6a", "intensity": 2.4}},
+              "senses": {"sun": {"azimuth": 80, "elevation": 40, "color": "#fff8ff", "intensity": 2.4}, "sky": {"top": "#aa96f0", "horizon": "#fadcfa"}, "fill": {"sky": "#fcf8ff", "ground": "#7a6a90", "intensity": 1.7}},
+              "fudge": {"sun": {"azimuth": 200, "elevation": 30, "color": "#ffe8d0", "intensity": 2.6}, "sky": {"top": "#6e3c28", "horizon": "#dc9664"}, "fill": {"sky": "#fff4ec", "ground": "#6a4a3a", "intensity": 2.1}}},
     "lighting": light, "ground": {"texture": TEX + "pave.jpg", "repeat": [175, 175], "size": 1400},
     "backdrop": {"image": "bg/sky.jpg", "blur": 4}, "ink": {"set": 4},
-    "fxLook": {"ink": "#271925", "accent": "#f0c450", "paper": ["#e68cb4", "#d278a0"], "dofPx": 8, "particle": "#fff4ec", "bokehColor": "#ffd8b0", "ray": "#fff4e4", "raySide": -1},
+    "fxLook": {"ink": "#271925", "accent": "#ff3d7f", "paper": ["#7cc8f0", "#58aee0"], "dofPx": 8, "particle": "#fff6ee", "bokehColor": "#ffc8dc", "ray": "#fff6e8", "raySide": -1},
     "fx": FX, "characters": chars, "props": props, "shots": shots, "end": "audio",
 }
 
 # ---- music + effects synthesised to the word timings: full energy from frame 1
-CUE = dict(la1923="Los Angeles 1923", yousee="You see nobody", then49="Then in 1949", sothe="So the most",
-           movies="movies", billboard="billboard", down="come down", y1923="1923", group="group", publisher="publisher", times="Times", lots="lots", hland="Hollywoodland", write="write",
-           thirteen="Thirteen", fortyfive="fortyfive", bulbs="light bulbs", dollars="Twentyone", life="Planned", nobody="nobody took", apart="falling", y1949="1949", deal="deal saved",
-           condition="condition", cut="cut the last", l_="L", famous="famous", realestate="real estate", chopped="chopped", never2="never about#2")
+CUE = dict(training="Their training", may5="May 5th", strange="But the strangest", yousee="You see Ben", sojudged="So he judged", soamerica="So America's most",
+           split1="split", c326="326", company="company", ben="Ben Cohen", friends="friends", decide="decide", penn="Penn", split2="split#2", twelve="twelve", bank="bank", y1978="1978",
+           burl="Burlington", opens="opens", gas="gas", y22="Twentytwo", unilever="Unilever", c326b="326#2", money="money", chunks="chunks", anosmia="anosmia", smell="smell", taste="taste",
+           blur="blur", texture="Texture", heavy="heavy", bite="bite", flavor="flavor", feel2="feel#2", words="words", texture2="texture#2", famous="famous", barely="barely", five2="five dollars#2")
 CUE.update({"s%02d" % k: x["_phrase"] for k, x in enumerate(shots) if x["_phrase"] != "0"})
 cues = {k: say(v) for k, v in CUE.items()}; cues["end"] = DURATION
 cp, wav = os.path.join(P, "audio", "cues.json"), os.path.join(P, "audio", "music.wav")
