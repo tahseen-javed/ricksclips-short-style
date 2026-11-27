@@ -1,0 +1,29 @@
+Collecting en-core-web-sm==3.8.0
+  Downloading en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 85.3 MB/s  0:00:00
+Installing collected packages: en-core-web-sm
+Successfully installed en-core-web-sm-3.8.0
+[38;5;2m✔ Download and installation successful[0m
+You can now load the package via spacy.load('en_core_web_sm')
+am_fenrir @1.28     54.6 s  understood 0.896
+am_fenrir @1.32     52.9 s  understood 0.898
+am_fenrir @1.36     45.3 s  understood 0.903
+chose am_fenrir @1.36 (understood 0.903): tempo 1.000 -> about 45.3 s
+Downloading: "https://download.pytorch.org/torchaudio/models/wav2vec2_fairseq_base_ls960_asr_ls960.pth" to /home/runner/.cache/torch/hub/checkpoints/wav2vec2_fairseq_base_ls960_asr_ls960.pth
+  0%|          | 0.00/360M [00:00<?, ?B/s]  4%|▍         | 15.2M/360M [00:00<00:02, 160MB/s] 13%|█▎        | 45.4M/360M [00:00<00:01, 251MB/s] 22%|██▏       | 78.1M/360M [00:00<00:01, 292MB/s] 31%|███       | 111M/360M [00:00<00:00, 313MB/s]  40%|███▉      | 144M/360M [00:00<00:00, 323MB/s] 49%|████▊     | 175M/360M [00:00<00:00, 324MB/s] 58%|█████▊    | 207M/360M [00:00<00:00, 329MB/s] 70%|██████▉   | 251M/360M [00:00<00:00, 370MB/s] 82%|████████▏ | 296M/360M [00:00<00:00, 403MB/s] 95%|█████████▍| 341M/360M [00:01<00:00, 423MB/s]100%|██████████| 360M/360M [00:01<00:00, 361MB/s]
+aligned 193 words over 45.74 s, mean confidence 0.95, shortest word 0.04 s
+heard: $5 split two ways became a $326 million ice cream company. Ben Cohen and Jerry Greenfield are childhood friends. They decide to make ice cream. They're training. A $5 correspondence course from Penn State, they split the cost. Then they scraped together $12,000. $4,000 each, $4,000 from a bank. May 5, 1978, Burlington, Vermont. Their first shop opens inside a rundown gas station. 22 years later, Unilever buys the company for $326 million. But the strangest part isn't the money, it's the chunks. See, Ben Cohen has anosmia. He has no sense of smell and very little sense of taste. Regular ice cream flavors blur together for him. So he judged ice cream by the one thing he could always feel, texture. Big heavy chunks packed in so every spoonful has something to bite. Most companies sold flavor. Ben was selling the one thing he could actually feel. In his words, ice cream to me is about texture. So America's most famous chunky ice cream was shaped by a man who can barely taste it. And it all started with $5 split two ways.
+intelligibility 0.903 (1.0 = every word understood)
+  replace: said ['five', 'dollars'] -> heard ['5']
+  delete: said ['dollar'] -> heard []
+  replace: said ['their'] -> heard ["they're"]
+  replace: said ['five', 'dollar'] -> heard ['5']
+  replace: said ['scrape'] -> heard ['scraped']
+  replace: said ['twelve', 'thousand', 'dollars', 'four', 'thousand'] -> heard ['12', '000', '4', '000']
+  replace: said ['four', 'thousand'] -> heard ['4', '000']
+  replace: said ['5th'] -> heard ['5']
+  replace: said ['run', 'down'] -> heard ['rundown']
+  replace: said ['twenty', 'two'] -> heard ['22']
+  delete: said ['dollars'] -> heard []
+  delete: said ['you'] -> heard []
+  replace: said ['five', 'dollars'] -> heard ['5']
