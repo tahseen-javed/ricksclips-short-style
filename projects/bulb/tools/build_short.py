@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
-"""Generate short.json (and the word-cued music) for video 32: the Hollywood sign was never about movies.
+"""Generate short.json (and the word-cued music) for video 33: the world's oldest light bulb, glowing since 1901.
 usage: build_short.py <project folder>
-Seven jazz-age sets 70 units apart: HK peach-magenta sunset hillside with the sign (hook + loop; the "????" tarp over the missing end =
-open loop, resolved when L, A, N, D wave goodbye), PR plum-gold premiere night, SG sage-terracotta lots, DC teal-gold art-deco office,
-NT navy night with glowing bulbs, RU dusty-rose 1940s ruin, BL mint-cream 1949 office. Shots 0.7-2 s, every neighbour a different move;
-the sign, letters and props are the stars, people small companions."""
+Eight firehouse-nocturne sets 70 units apart: HK midnight-teal Fire Station 6 night (hook + loop: the glowing bulb on a pedestal, the
+StopperText neon sign flickers on), OH amber 1890s glassworks, WW olive-khaki war-years sky, TW mint-lilac toy town, WC violet 2013 webcam
+room, EL cyan x-ray blueprint (power supply + electrician), CL coral dawn clock, WS lemon-mint watt workshop. Shots 0.7-2 s, every neighbour a
+different move; the bulb and props are the stars, people small companions. Open loop: WHAT'S ITS SECRET? -> it barely tries; the machine fails
+first, the bulb glows on and the last shot lands on the hook frame."""
 import json, os, sys, subprocess, math
 import scene_base as base
 from scene_base import *
 
-base.X.clear(); base.X.update(HK=0, PR=70, SG=140, DC=210, NT=280, RU=350, BL=420)
+base.X.clear(); base.X.update(HK=0, OH=70, WW=140, TW=210, WC=280, EL=350, CL=420, WS=490)
 HERE = os.path.dirname(os.path.abspath(__file__)); PARK = base.PARK
 ASP = json.load(open(os.path.join(P, "aspect.json")))
 
@@ -45,24 +46,24 @@ def yard(loc, img, floor, w=16, rep=(8, 8)):
     plane(loc, img, 0, -0.2, -6.5, w, round(w * 1100 / 2400, 3)); box(loc, 0, 0, -1, [w, 0.04, 12], texture=floor, repeat=list(rep))
 
 
-yard("HK", "sunset.png", "hillfl.jpg"); box("HK", 0.0, 0.04, -3.3, [2.3, 0.9, 0.7], color="#a08a6a"); box("HK", 5.1, 0.04, -2.75, [1.9, 0.94, 0.5], color="#c89a6a"); tree("HK", -2.6, -4.4, 0.8, "#5a7a5a"); tree("HK", 2.8, -4.6, 0.9, "#64845e")
-yard("PR", "premiere.png", "carpet.jpg"); box("PR", 0.0, 0.04, -2.8, [1.4, 0.3, 1.0], color="#f0c450")
-yard("SG", "sage.png", "sagefl.jpg"); tree("SG", -3.6, -4.2, 0.9, "#7aa070"); tree("SG", 3.4, -4.0, 0.8, "#86aa78")
-yard("DC", "deco.png", "decofl.jpg"); box("DC", 1.1, 0.04, -2.8, [1.4, 0.5, 0.8], color="#2a5a64")
-yard("NT", "nightglow.png", "nightfl.jpg"); box("NT", 0.0, 0.04, -3.5, [3.0, 0.86, 0.6], color="#3a4a6a")
-yard("RU", "ruin.png", "dustfl.jpg"); box("RU", 0.0, 0.04, -3.3, [3.0, 0.76, 0.6], color="#8a7a7a"); barrel("RU", -3.2, -3.6)
-yard("BL", "blinds.png", "officefl.jpg"); box("BL", 0.0, 0.04, -2.7, [1.8, 0.3, 0.8], color="#7a5a40")
+yard("HK", "night6.png", "nightfl.jpg"); box("HK", 0.0, 0.04, -2.8, [1.1, 0.5, 0.9], color="#c8463c"); tree("HK", -3.6, -4.6, 0.8, "#2f6a5a"); tree("HK", 3.8, -4.4, 0.9, "#36705e")
+yard("OH", "glassw.png", "brickfl.jpg"); box("OH", 3.2, 0.04, -3.6, [1.2, 0.8, 0.8], color="#8a4a30")
+yard("WW", "warsky.png", "khakifl.jpg"); box("WW", 0.0, 0.04, -2.8, [1.4, 0.3, 1.0], color="#8a8a50"); tree("WW", -3.4, -4.4, 0.8, "#6a7a40")
+yard("TW", "town.png", "townfl.jpg"); tree("TW", -3.2, -4.0, 0.8, "#7ac0a0"); tree("TW", 3.4, -4.2, 0.9, "#9ad0b0"); box("TW", 0.0, 0.0, -1.6, [6.0, 0.03, 0.9], color="#f0e8f8")
+yard("WC", "room13.png", "violetfl.jpg"); box("WC", 0.0, 0.04, -2.8, [2.0, 0.66, 0.9], color="#5a3a8a")
+yard("EL", "xray.png", "bluefl.jpg"); box("EL", 3.0, 0.04, -3.6, [1.0, 0.6, 0.8], color="#2a7a9a")
+yard("CL", "dawn.png", "coralfl.jpg"); box("CL", 0.7, 0.04, -2.8, [0.9, 0.4, 0.8], color="#e0806a")
+yard("WS", "workshop.png", "lemonfl.jpg"); box("WS", 5.6, 0.04, -2.8, [1.0, 0.4, 0.8], color="#8ab090"); box("WS", -5.4, 0.04, -3.6, [1.0, 0.9, 0.7], color="#c8b070")
 
 # ================================================================== CHARACTERS (cards + background decor carry "_" in the id: not frame-checked; hero props are)
-put("signK", "sign", pos("HK", 0.0, 0.94, -3.3), 0.6); human("lineK", "lineman", pos("HK", 0.6, 0.04, -2.3), face="shocked", h=1.05)
-for ch_ in "LAND": put("let%sK" % ch_, "let" + ch_, PARK, 0.85)
-put("hourK", "hourglass", pos("HK", -4.2, 0.04, -2.4), 1.0); put("sciK", "scissors", pos("HK", -7.6, 0.3, -2.4), 0.7)
-put("globeP", "globe", pos("PR", 0.0, 0.34, -2.8), 1.3)
-put("houseS", "house", pos("SG", -0.95, 0.04, -3.0), 0.8); put("lotsS", "lots", pos("SG", 0.9, 0.04, -2.4), 0.7); put("giantS", "giant", pos("SG", 5.4, 0.04, -2.6), 1.4)
-human("chandD", "chandler", pos("DC", -0.8, 0.04, -2.2), face="happy", h=1.6); put("paperD", "paper", pos("DC", 1.1, 0.54, -2.8), 0.95)
-put("signN", "sign", pos("NT", 0.0, 0.9, -3.5), 0.6, face="glow"); put("bulbsN", "bulbs", pos("NT", 3.4, 0.2, -2.4), 0.8); human("lineN", "lineman", pos("NT", -2.6, 0.04, -2.2), face="happy", h=1.5)
-put("signR", "sign", pos("RU", 0.0, 0.8, -3.3), 0.6, face="old"); put("bulbsR", "bulbs", pos("RU", 3.2, 0.04, -2.4), 0.7, face="off")
-put("dealB", "contract", pos("BL", 0.0, 0.34, -2.7), 1.25)
+put("bulbH", "bulb", pos("HK", 0.0, 0.54, -2.8), 1.2); put("fireh_", "fireh", pos("HK", -2.4, 0.04, -4.4), 2.3); human("rosa", "rosa", pos("HK", -0.95, 0.04, -2.3), face="happy", h=1.1)
+put("kilnO", "kiln", pos("OH", 0.0, 0.04, -3.0), 1.9)
+put("warsW", "wars", pos("WW", 0.0, 0.34, -2.8), 1.5)
+put("truckT", "truck", pos("TW", 0.0, 0.04, -2.6), 1.15)
+put("camW", "cam", pos("WC", 0.0, 0.7, -2.8), 1.25)
+put("psuE", "psu", pos("EL", 0.7, 0.04, -2.8), 1.3); human("dev", "dev", pos("EL", -0.9, 0.04, -2.4), face="happy", h=1.45)
+put("clockC", "clock", pos("CL", -0.6, 0.04, -2.8), 1.2); put("bulbC", "bulb", pos("CL", 0.7, 0.44, -2.8), 1.0, face="bright")
+put("meterS", "meter", pos("WS", -2.8, 0.04, -2.8), 1.15); put("filS", "fil", pos("WS", 0.0, 0.04, -2.8), 1.45); put("switchS", "switch", pos("WS", 2.8, 0.04, -2.8), 1.45); put("bulbS", "bulb", pos("WS", 5.6, 0.44, -2.8), 1.0, face="sleepy")
 # ================================================================== SHOTS
 SH = {c["id"]: c["height"] for c in chars}
 N_ = [0]; REQ = []; SNAPC = []; FXC = []; LOC = {}
@@ -78,6 +79,7 @@ def card(s, at, who, dy=0.25, dx=0.0, dz=0.3):
     p_ = [round(ax + w * math.cos(y) + dz * math.sin(y), 3), round(ay + dy * 0.728 * d - SH[who] / 2, 3), round(az - w * math.sin(y) + dz * math.cos(y), 3)]
     if at <= 0.001 and s is shots[0]: next(c for c in chars if c["id"] == who)["pos"] = p_    # HOOK LAW: the hook sign is already up at frame 0
     show(s, at, who, p_, hop=0 if (at <= 0.001 and s is shots[0]) else 0.12)
+    if not who.startswith("stop"): act(s, at, who, pop=1.25 if (at <= 0.001 and s is shots[0]) else 1)     # every card pops in with an ease-out-back overshoot
 
 
 def tag(s, at, name, dy=0.25, dx=0.0, dz=0.3, wf=0.24, hf=0.17, tilt=0):
@@ -107,42 +109,48 @@ def blink(s, who, t0, t1, step=0.3):
     while t < t1: act(s, round(t, 3), who, face="b" if k % 2 == 0 else "default"); t += step; k += 1
 
 
-HOOK = dict(anchor=(0.0, 1.25, -3.0), dist=6.2, yaw=14, pitch=6)
-LAND_P = dict(L=(4.68, 0.98, -2.75), A=(5.52, 0.98, -2.75), N=(4.68, 0.04, -2.2), D=(5.52, 0.04, -2.2))
-# ---- The Hollywood sign was never about movies. It's a billboard for houses, and it was built to come down.
-s = S("0", "HK", zoom=5, **HOOK); act(s, 0.0, "signK", shake=0.4); tag(s, 0.0, "hookc", 0.31, 0.0, wf=0.6, hf=0.19); ft(s, "lineK", ["shocked", "confused"])
-s = S("never about movies", "PR", (0.0, 1.0, -2.8), 4.8, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="globeP", blur=0.5)); act(s, rel(s, "movies"), "globeP", shake=0.5); snap(s, rel(s, "movies"), 10)
-s = S("It's a billboard", "SG", (-0.95, 0.5, -3.0), 4.2, 8, pitch=6, zoom=12, dof=dict(focus="houseS", blur=0.4)); act(s, rel(s, "houses"), "houseS", shake=0.5); T(s, "adc", at=rel(s, "billboard"), dy=0.38, wf=0.62)
-s = S("and it was", "HK", (-4.2, 0.6, -2.4), 4.2, -10, pitch=14, pitchTo=3, dof=dict(focus="hourK", blur=0.4)); act(s, rel(s, "down"), "hourK", shake=0.5); T(s, "down", at=rel(s, "built"), dy=0.38, wf=0.6)
-# ---- Los Angeles, 1923. A group of developers, including the publisher of the Los Angeles Times, is selling hillside lots in a neighborhood called Hollywoodland.
-s = crane("Los Angeles 1923", "SG", (0.0, 0.8, -2.7), 7.6, -22, -2, 36, 8); T(s, "y1923", at=rel(s, "1923"), dx=-0.24, dy=0.22, wf=0.26, hf=0.26)
-s = crane("A group of", "DC", (0.2, 1.0, -2.4), 7.0, 22, 2, 34, 8); ft(s, "chandD", ["happy", "smug"])
-s = S("including the publisher", "DC", (-0.8, 1.05, -2.2), 4.4, -8, pitch=5, zoom=12, dof=dict(focus="chandD", blur=0.4)); ft(s, "chandD", ["smug", "happy"]); cfx(s, 0.2, "glint", "chandD", 0.5)
-s = S("Los Angeles Times", "DC", (1.1, 1.0, -2.8), 4.2, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="paperD", blur=0.5)); act(s, 0.05, "paperD", shake=0.5); T(s, "pubc", at=0.05, dy=0.38, wf=0.6); snap(s, 0.15, 8)
-s = S("is selling hillside", "SG", (0.9, 0.45, -2.4), 4.6, 6, pitch=8, zoom=4, pan=(-8, 0)); act(s, rel(s, "lots"), "lotsS", shake=0.5)
-s = S("a neighborhood called", "SG", (0.0, 0.7, -2.7), 7.6, -10, pitch=5, zoom=-10); T(s, "hlandc", at=rel(s, "Hollywoodland") - 0.2, dy=0.36, wf=0.62)
-# ---- So they write its name on the hill. Thirteen letters, each about forty-five feet tall. Four thousand light bulbs. Twenty-one thousand dollars. Planned life: about a year and a half.
-s = crane("So they write", "HK", (0.0, 1.25, -3.3), 6.6, -22, 8, 36, 8); hide(s, 0.0, "lineK"); act(s, 0.0, "signK", face="land", shake=0.4)
-s = S("Thirteen letters", "HK", (0.0, 1.25, -3.3), 5.4, -12, pitch=5, yawTo=8); act(s, 0.05, "signK", face="land", shake=0.3); T(s, "thirteen", at=0.05, dy=0.36, wf=0.42)
-s = S("each about fortyfive", "SG", (5.4, 0.8, -2.6), 4.8, 4, pitch=-2, pitchTo=10, dof=dict(focus="giantS", blur=0.4)); act(s, 0.05, "giantS", shake=0.3); T(s, "ft45", at=0.1, dy=0.38, wf=0.62); snap(s, 0.2, 8)
-s = S("Four thousand light", "NT", (3.4, 0.6, -2.4), 4.0, 12, pitch=6, yawTo=-6, type="macro", dof=dict(focus="bulbsN", blur=0.5)); act(s, 0.05, "bulbsN", shake=0.5); T(s, "bulbc", at=0.1, dy=0.38, wf=0.56)
-s = S("Twentyone thousand", "NT", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="TWENTY-ONE THOUSAND", items=["DOLLARS"]))
-s = S("Planned life about", "HK", (-4.2, 0.55, -2.4), 4.4, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="hourK", blur=0.5)); act(s, 0.05, "hourK", shake=0.4); T(s, "lifec", at=0.1, dy=0.38, wf=0.56); snap(s, rel(s, "year"), 8)
-# ---- You see, nobody took it down. It just sat there, falling apart. Then in 1949, a deal saved it, with one condition: cut the last four letters. L. A. N. D.
-s = crane("You see nobody", "RU", (0.0, 1.0, -3.0), 6.6, 22, 2, 36, 8); act(s, 0.2, "signR", shake=0.3); T(s, "nobody", at=rel(s, "nobody"), dy=0.35, wf=0.62)
-s = S("It just sat", "RU", (0.0, 1.0, -3.3), 6.4, 6, pitch=8, zoom=4, pan=(8, 0)); act(s, rel(s, "falling"), "signR", shake=0.6); T(s, "apart", at=rel(s, "falling"), dy=0.37, wf=0.5); cfx(s, 0.3, "sweat", "bulbsR", 0.6)
-s = crane("Then in 1949", "BL", (0.0, 1.0, -2.6), 6.6, -22, -2, 34, 8); T(s, "y1949", at=rel(s, "1949"), dx=-0.2, dy=0.33, wf=0.24, hf=0.24)
-s = S("a deal saved", "BL", (0.0, 0.95, -2.7), 4.4, 8, pitch=6, zoom=12, dof=dict(focus="dealB", blur=0.4)); act(s, rel(s, "saved"), "dealB", shake=0.5)
-s = S("one condition", "BL", (0.0, 0.95, -2.7), 4.8, -4, pitch=14, pitchTo=3); act(s, 0.05, "dealB", face="cut", shake=0.6); T(s, "cond", at=0.05, dy=0.38, wf=0.5)
-s = S("cut the last", "HK", (-7.6, 0.55, -2.4), 4.0, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="sciK", blur=0.5)); act(s, rel(s, "cut"), "sciK", shake=0.7); snap(s, rel(s, "cut") + 0.05, 10)
-s = S("L", "HK", (5.1, 0.95, -2.5), 5.2, 6, pitch=6, zoom=6)
-for ch_ in "LAND": show(s, rel(s, ch_.lower()), "let%sK" % ch_, pos("HK", *LAND_P[ch_]))
-# ---- So the most famous movie sign on Earth is a real estate ad with the ending chopped off. And it was never about movies.
-s = S("So the most", "PR", (0.0, 1.0, -2.8), 5.6, 10, pitch=5, zoom=-10); act(s, 0.05, "globeP", shake=0.4); T(s, "famous", at=rel(s, "famous"), dy=0.38, wf=0.5)
-s = S("is a real", "HK", (0.0, 1.25, -3.3), 6.0, -10, pitch=6, yawTo=6); act(s, 0.0, "signK", face="cut", shake=0.4); T(s, "realad", at=rel(s, "real"), dy=0.38, wf=0.56); snap(s, rel(s, "estate"), 8)
-s = S("ending chopped off", "HK", (5.1, 0.95, -2.5), 5.6, -4, pitch=14, pitchTo=3)
-for ch_ in "LAND": act(s, 0.05, "let%sK" % ch_, face="bye", shake=0.6)
-s = S("never about#2", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); show(s, 0.0, "lineK", pos("HK", 0.6, 0.04, -2.3), hop=0); act(s, 0.0, "signK", face="default", shake=0.4); T(s, "hookc", at=0.05, dy=0.31, wf=0.6, hf=0.19)
+HOOK = dict(anchor=(0.0, 1.2, -2.8), dist=6.2, yaw=12, pitch=6)
+def STOP(s, face, at=0.0, k=None, shake=None):                 # StopperText: one neon sign card, re-placed in every hook shot (no re-pop), escalates by face
+    cid = T(s, "stop", at=at, dy=0.31, wf=0.62, hf=0.22); act(s, at, cid, face=face)
+    if k: act(s, at, cid, pop=k)
+    if shake: act(s, at, cid, shake=shake)
+    return cid
+# ---- A light bulb has been glowing since 1901. It's still on right now.
+s = S("0", "HK", zoom=9, **HOOK); c = STOP(s, "default", 0.0, k=1.25); hide(s, 0.0, "rosa"); act(s, 0.0, "bulbH", face="shocked", shake=0.3)
+for t_, f_ in ((0.08, "off"), (0.14, "default"), (0.22, "off"), (0.28, "default")): act(s, t_, c, face=f_)
+s = S("since 1901", "HK", (0.0, 1.15, -2.8), 4.4, -14, pitch=6, yawTo=4, type="macro", dof=dict(focus="bulbH", blur=0.5)); STOP(s, "default"); act(s, rel(s, "1901"), "bulbH", face="default", shake=0.4); snap(s, rel(s, "1901"), 10)
+s = S("It's still on", "WC", (0.0, 1.3, -2.8), 4.6, 6, pitch=14, pitchTo=3); c = STOP(s, "default"); act(s, 0.1, c, face="esc", pop=1.3, shake=0.3)
+s = crane("Livermore", "HK", (0.0, 1.1, -3.2), 7.4, -24, -4, 38, 8); c = STOP(s, "esc"); act(s, 0.9, c, face="wait", pop=1.3, shake=0.4); show(s, 0.0, "rosa", pos("HK", -0.95, 0.04, -2.3), hop=0); ft(s, "rosa", ["happy", "shocked"])
+s = S("Fire Station", "HK", (-2.4, 1.2, -4.4), 6.4, 8, pitch=6, zoom=11); STOP(s, "wait"); hide(s, 0.0, "rosa"); act(s, rel(s, "6"), "fireh_", shake=0.4); snap(s, rel(s, "6"), 8)
+# ---- A handmade carbon bulb, made in Ohio in the 1890s. It has burned through two world wars and a move across town.
+s = crane("A handmade", "OH", (0.0, 0.95, -3.0), 5.6, 22, 4, 34, 8); T(s, "handc", at=rel(s, "handmade"), dy=0.37, wf=0.62)
+s = S("Ohio", "OH", (0.2, 1.0, -3.0), 5.9, -10, pitch=5, zoom=-9, pan=(-6, 0), dof=dict(focus="kilnO", blur=0.4)); T(s, "y1890", at=rel(s, "1890s"), dx=-0.24, dy=0.24, wf=0.26, hf=0.26); act(s, rel(s, "1890s"), "kilnO", shake=0.3)
+s = S("It has burned", "WW", (0.0, 1.1, -2.8), 5.0, -16, pitch=6, yawTo=10); act(s, rel(s, "wars"), "warsW", shake=0.5); T(s, "warsc", at=rel(s, "two"), dy=0.37, wf=0.52); snap(s, rel(s, "wars"), 9)
+s = crane("and a move", "TW", (0.0, 0.6, -2.6), 6.0, -20, 6, 46, 10, pan=(-8, 0)); act(s, 0.1, "truckT", to=pos("TW", 0.5, 0.04, -2.6), over=1.0); T(s, "movec", at=rel(s, "move"), dy=0.36, wf=0.6)
+# ---- Then, May 2013. Its live webcam shows darkness. After more than a century, the world's oldest bulb is dead.
+s = crane("Then May 2013", "WC", (0.0, 1.1, -2.8), 6.2, 22, 2, 34, 8); T(s, "y2013", at=rel(s, "2013"), dx=-0.24, dy=0.25, wf=0.26, hf=0.26)
+s = S("Its live webcam", "WC", (0.0, 1.1, -2.8), 4.4, -8, pitch=5, zoom=12, type="macro", dof=dict(focus="camW", blur=0.5)); act(s, rel(s, "darkness"), "camW", face="dark", shake=0.5); snap(s, rel(s, "darkness"), 9); cfx(s, rel(s, "darkness") + 0.1, "question", "camW", 0.7)
+s = S("After more than", "HK", (0.0, 1.1, -3.0), 5.8, 10, pitch=8, zoom=4, pan=(8, 0)); act(s, 0.0, "bulbH", face="dark"); show(s, 0.0, "rosa", pos("HK", -0.95, 0.04, -2.3), hop=0); ft(s, "rosa", ["shocked", "happy"])
+s = S("the world's oldest", "HK", (0.0, 1.15, -2.8), 4.0, -4, pitch=14, pitchTo=3, dof=dict(focus="bulbH", blur=0.5)); act(s, 0.0, "bulbH", face="dark"); hide(s, 0.0, "rosa"); T(s, "deadc", at=rel(s, "dead"), dy=0.37, wf=0.62); snap(s, rel(s, "dead"), 10)
+# ---- You see, it wasn't. An electrician traced the problem to a faulty power supply. The bulb was fine. About ten hours later, it was glowing again.
+s = S("You see it", "HK", (0.0, 1.15, -2.8), 4.6, 14, pitch=5, zoom=-10); act(s, rel(s, "wasn't"), "bulbH", face="wink", shake=0.4); T(s, "wasnt", at=rel(s, "wasn't"), dy=0.37, wf=0.5)
+s = crane("An electrician", "EL", (0.0, 1.0, -2.6), 5.8, -22, -2, 34, 8); ft(s, "dev", ["happy", "shocked"]); act(s, rel(s, "traced"), "dev", to=pos("EL", -0.6, 0.04, -2.4), over=0.6, walk=True)
+s = S("a faulty power", "EL", (0.7, 0.85, -2.8), 4.0, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="psuE", blur=0.5)); act(s, 0.05, "psuE", face="broken", shake=0.6); T(s, "psuc", at=0.1, dy=0.38, wf=0.56); snap(s, 0.2, 8); cfx(s, 0.3, "bang", "psuE", 0.6)
+s = S("The bulb was", "HK", (0.0, 1.15, -2.8), 4.8, -12, pitch=6, zoom=12); act(s, 0.0, "bulbH", face="default", shake=0.3); T(s, "finec", at=rel(s, "fine"), dy=0.37, wf=0.6)
+s = S("About ten hours", "CL", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="ABOUT TEN HOURS", items=["LATER"]))
+s = S("it was glowing", "CL", (0.05, 0.85, -2.8), 6.3, 8, pitch=-2, pitchTo=10, dof=dict(focus="bulbC", blur=0.4)); act(s, rel(s, "again"), "bulbC", shake=0.5); cfx(s, rel(s, "again"), "glint", "bulbC", 0.6)
+# ---- Its secret is that it barely tries. Built for sixty watts, it now gives the light of about four. A thick filament, a dim glow, almost never switched off.
+s = crane("Its secret", "WS", (5.6, 0.95, -2.8), 5.0, 22, 4, 34, 8); T(s, "triesc", at=rel(s, "barely"), dy=0.37, wf=0.56); cfx(s, rel(s, "barely"), "z", "bulbS", 0.9)
+s = S("Built for sixty", "WS", (-2.8, 0.65, -2.8), 3.9, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="meterS", blur=0.5)); act(s, rel(s, "sixty"), "meterS", shake=0.5); snap(s, rel(s, "sixty"), 8)
+s = S("it now gives", "WS", (-2.8, 0.7, -2.8), 4.6, 6, pitch=6, zoom=-9, pan=(6, 0)); act(s, rel(s, "four"), "meterS", face="four", shake=0.5); T(s, "wattc", at=rel(s, "light"), dy=0.37, wf=0.56)
+s = S("A thick filament", "WS", (0.0, 0.85, -2.8), 3.9, 10, pitch=6, yawTo=-6, type="macro", dof=dict(focus="filS", blur=0.5)); T(s, "filc", at=rel(s, "thick"), dy=0.38, wf=0.5); act(s, rel(s, "dim"), "filS", shake=0.3)
+s = S("almost never switched", "WS", (2.8, 0.85, -2.8), 4.8, -6, pitch=6, zoom=12); T(s, "offc", at=0.1, dy=0.37, wf=0.58); act(s, rel(s, "off"), "switchS", shake=0.5)
+# ---- The machine built to keep it alive failed first. The bulb didn't. And tonight, it's still glowing, like it has since 1901.
+s = crane("machine built", "EL", (0.3, 0.9, -2.8), 5.8, 20, 2, 32, 8); act(s, 0.0, "psuE", face="broken"); ft(s, "dev", ["shocked", "happy"])
+s = S("failed first", "EL", (0.7, 0.85, -2.8), 4.2, -10, pitch=14, pitchTo=4, dof=dict(focus="psuE", blur=0.4)); act(s, 0.05, "psuE", face="broken", shake=0.7); T(s, "failc", at=0.05, dy=0.38, wf=0.62); snap(s, 0.1, 8)
+s = S("The bulb didn't", "HK", (0.0, 1.15, -2.8), 4.4, 6, pitch=6, zoom=13); act(s, 0.0, "bulbH", face="bright", shake=0.4); T(s, "didnt", at=0.05, dy=0.37, wf=0.56)
+s = crane("And tonight", "HK", (0.0, 1.1, -3.2), 7.2, 24, 6, 40, 8); act(s, 0.0, "bulbH", face="bright"); show(s, 0.0, "rosa", pos("HK", -0.95, 0.04, -2.3), hop=0); ft(s, "rosa", ["happy", "shocked"])
+s = S("it has since", "HK", zoom=-5, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); act(s, 0.0, "bulbH", face="default"); act(s, 0.8, "bulbH", face="shocked", shake=0.3); STOP(s, "default", 0.05, k=1); hide(s, 0.0, "rosa")
 for s in shots: s.setdefault("frameY", 0.0)
 
 starts = [0.0 if s["start"] == 0 else say(s["_phrase"]) for s in shots]
@@ -190,8 +198,8 @@ for s in shots:
             prev = seq[j % len(seq)]; j += 1; act(s, round(i * 0.55, 3), who, face=prev)
 # ---- atmosphere by set: dust + rays by day, bokeh by night / dawn
 D_ = lambda c=22: dict(count=c, size=1.0, drift=1.0); BK = lambda a=0.3: dict(count=12, size=1.0, alpha=a)
-ATM = dict(HK=dict(dust=D_(22), rays=dict(angle=24, intensity=0.7)), PR=dict(bokeh=BK(0.55)), SG=dict(dust=D_(22), rays=dict(angle=30, intensity=0.6)), DC=dict(dust=D_(20), rays=dict(angle=20, intensity=0.5)),
-           NT=dict(bokeh=BK(0.5)), RU=dict(dust=D_(30)), BL=dict(dust=D_(22), rays=dict(angle=26, intensity=0.6)))
+ATM = dict(HK=dict(bokeh=BK(0.55)), OH=dict(dust=D_(26), rays=dict(angle=24, intensity=0.6)), WW=dict(dust=D_(22), rays=dict(angle=30, intensity=0.6)), TW=dict(dust=D_(20), rays=dict(angle=26, intensity=0.6)),
+           WC=dict(bokeh=BK(0.5)), EL=dict(bokeh=BK(0.4)), CL=dict(dust=D_(22), rays=dict(angle=20, intensity=0.8)), WS=dict(dust=D_(22), rays=dict(angle=28, intensity=0.5)))
 for s in shots:
     if s.get("type") != "cutaway": s["atmos"] = ATM[LOC[id(s)]]
 
@@ -277,32 +285,33 @@ for (s, at, cid, name, dy, dx, dz, wf, hf, c) in REQ:
     c["height"] = round(h, 3); SH[cid] = c["height"]; card(s, at, cid, dy, dx, dz); RECT[cid] = (s, at, 0.5 + dx - wfr / 2, 0.5 - dy - hfr / 2, 0.5 + dx + wfr / 2, 0.5 - dy + hfr / 2)
 
 # ================================================================== SPEC
-MOOD = dict(HK="sunset", PR="premiere", SG="sage", DC="deco", NT="night23", RU="ruin", BL="blinds")
-light, cur = [{"t": 0, "mood": "sunset"}], "sunset"
+MOOD = dict(HK="nite", OH="glass", WW="khaki", TW="toytown", WC="room", EL="xray", CL="dawn", WS="shop")
+light, cur = [{"t": 0, "mood": "nite"}], "nite"
 for k, s in enumerate(shots):
     m = MOOD[LOC[id(s)]]
     if m != cur and s.get("type") != "cutaway": light.append({"t": round(max(0.0, starts[k] - 0.2), 3), "mood": m, "fade": 0.4}); cur = m
 spec = {
     "fps": 30, "audio": {"voice": "audio/voice.mp3", "music": "audio/music.mp3", "musicDb": -11},
     "words": "audio/words.json", "captions": {"wordsPer": 1}, "font": "fonts/Montserrat-ExtraBold.ttf", "contactShadow": 0.6, "seed": 22,
-    "moods": {"sunset": {"sun": {"azimuth": 230, "elevation": 20, "color": "#ffdcc0", "intensity": 2.6}, "sky": {"top": "#e6468c", "horizon": "#ffc896"}, "fill": {"sky": "#fff0ec", "ground": "#7a5a5a", "intensity": 1.9}},
-              "premiere": {"sun": {"azimuth": 160, "elevation": 36, "color": "#fff0e8", "intensity": 2.6}, "sky": {"top": "#461e5a", "horizon": "#c85a8c"}, "fill": {"sky": "#fff0f4", "ground": "#6a3a50", "intensity": 2.3}},
-              "sage": {"sun": {"azimuth": 50, "elevation": 40, "color": "#fffbf0", "intensity": 2.4}, "sky": {"top": "#bedcf0", "horizon": "#ffecd2"}, "fill": {"sky": "#fffaf4", "ground": "#7a7a5a", "intensity": 1.5}},
-              "deco": {"sun": {"azimuth": 150, "elevation": 38, "color": "#fff8ec", "intensity": 2.5}, "sky": {"top": "#146e78", "horizon": "#3caaaa"}, "fill": {"sky": "#f0fffc", "ground": "#3a5a60", "intensity": 2.2}},
-              "night23": {"sun": {"azimuth": 20, "elevation": 40, "color": "#eef2ff", "intensity": 2.7}, "sky": {"top": "#141e5a", "horizon": "#465aaa"}, "fill": {"sky": "#eef2ff", "ground": "#2a3460", "intensity": 2.4}},
-              "ruin": {"sun": {"azimuth": 200, "elevation": 30, "color": "#fff0ec", "intensity": 2.4}, "sky": {"top": "#9696aa", "horizon": "#e6b4b4"}, "fill": {"sky": "#fff4f4", "ground": "#7a6a6a", "intensity": 1.8}},
-              "blinds": {"sun": {"azimuth": 140, "elevation": 40, "color": "#fffbf0", "intensity": 2.4}, "sky": {"top": "#aae6d2", "horizon": "#faf6e6"}, "fill": {"sky": "#fafffc", "ground": "#7a6a5a", "intensity": 1.6}}},
+    "moods": {"nite": {"sun": {"azimuth": 210, "elevation": 34, "color": "#ffe6c0", "intensity": 2.7}, "sky": {"top": "#145a6e", "horizon": "#3c9aa0"}, "fill": {"sky": "#eefaff", "ground": "#2a5060", "intensity": 2.3}},
+              "glass": {"sun": {"azimuth": 120, "elevation": 30, "color": "#ffd8a0", "intensity": 2.6}, "sky": {"top": "#963c28", "horizon": "#ffb45a"}, "fill": {"sky": "#fff2e6", "ground": "#7a4a3a", "intensity": 2.0}},
+              "khaki": {"sun": {"azimuth": 60, "elevation": 38, "color": "#fff6e0", "intensity": 2.4}, "sky": {"top": "#96a06e", "horizon": "#f0dcaa"}, "fill": {"sky": "#fffaf0", "ground": "#7a7050", "intensity": 1.6}},
+              "toytown": {"sun": {"azimuth": 40, "elevation": 44, "color": "#fffaf4", "intensity": 2.4}, "sky": {"top": "#c8b4fa", "horizon": "#dcfaeb"}, "fill": {"sky": "#fafaff", "ground": "#7a8a80", "intensity": 1.5}},
+              "room": {"sun": {"azimuth": 160, "elevation": 36, "color": "#f4eaff", "intensity": 2.6}, "sky": {"top": "#5a3296", "horizon": "#aa6ed2"}, "fill": {"sky": "#f6f0ff", "ground": "#4a3a6a", "intensity": 2.3}},
+              "xray": {"sun": {"azimuth": 140, "elevation": 40, "color": "#eefcff", "intensity": 2.5}, "sky": {"top": "#146e96", "horizon": "#3cbed2"}, "fill": {"sky": "#f0fcff", "ground": "#2a5a70", "intensity": 2.2}},
+              "dawn": {"sun": {"azimuth": 200, "elevation": 18, "color": "#ffe0c8", "intensity": 2.6}, "sky": {"top": "#ff8278", "horizon": "#ffdcaa"}, "fill": {"sky": "#fff4f0", "ground": "#8a5a50", "intensity": 1.8}},
+              "shop": {"sun": {"azimuth": 70, "elevation": 40, "color": "#fffcec", "intensity": 2.4}, "sky": {"top": "#e6f08c", "horizon": "#b4f0d2"}, "fill": {"sky": "#fbfff4", "ground": "#7a8a6a", "intensity": 1.6}}},
     "lighting": light, "ground": {"texture": TEX + "pave.jpg", "repeat": [175, 175], "size": 1400},
     "backdrop": {"image": "bg/sky.jpg", "blur": 4}, "ink": {"set": 4},
-    "fxLook": {"ink": "#271925", "accent": "#f0c450", "paper": ["#e68cb4", "#d278a0"], "dofPx": 8, "particle": "#fff4ec", "bokehColor": "#ffd8b0", "ray": "#fff4e4", "raySide": -1},
+    "fxLook": {"ink": "#271925", "accent": "#ff8c1a", "paper": ["#5ab4c8", "#3c96aa"], "dofPx": 8, "particle": "#fff2dc", "bokehColor": "#ffc878", "ray": "#fff4dc", "raySide": -1},
     "fx": FX, "characters": chars, "props": props, "shots": shots, "end": "audio",
 }
 
 # ---- music + effects synthesised to the word timings: full energy from frame 1
-CUE = dict(la1923="Los Angeles 1923", yousee="You see nobody", then49="Then in 1949", sothe="So the most",
-           movies="movies", billboard="billboard", down="come down", y1923="1923", group="group", publisher="publisher", times="Times", lots="lots", hland="Hollywoodland", write="write",
-           thirteen="Thirteen", fortyfive="fortyfive", bulbs="light bulbs", dollars="Twentyone", life="Planned", nobody="nobody took", apart="falling", y1949="1949", deal="deal saved",
-           condition="condition", cut="cut the last", l_="L", famous="famous", realestate="real estate", chopped="chopped", never2="never about#2")
+CUE = dict(thenmay="Then May 2013", yousee="You see it", tonight="And tonight",
+           y1901="1901", still="still on", liv="Livermore", station="Station", hand="handmade", ohio="Ohio", y1890="1890s", wars="wars", move="move", y2013="2013", dark="darkness",
+           dead="dead", wasnt="wasn't", elec="electrician", faulty="faulty", fine="fine", ten="ten hours", again="again", secret="secret", sixty="sixty", four="four", thick="thick",
+           never="never switched", machine="machine", failed="failed", didnt="didn't", y1901b="1901#2")
 CUE.update({"s%02d" % k: x["_phrase"] for k, x in enumerate(shots) if x["_phrase"] != "0"})
 cues = {k: say(v) for k, v in CUE.items()}; cues["end"] = DURATION
 cp, wav = os.path.join(P, "audio", "cues.json"), os.path.join(P, "audio", "music.wav")

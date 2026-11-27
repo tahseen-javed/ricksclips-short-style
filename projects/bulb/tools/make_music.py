@@ -145,6 +145,9 @@ XPROG = dict(charleston=[(36, (64, 67, 72)), (45, (64, 67, 73)), (38, (65, 69, 7
              nightjazz=[(38, (65, 69, 72)), (43, (65, 71, 74)), (36, (64, 67, 71)), (45, (64, 67, 72))],    # Dm7 G7 Cmaj7 Am7
              dustwaltz=[(45, (64, 69, 72)), (40, (64, 68, 71)), (45, (64, 69, 72)), (38, (65, 69, 74))],    # Am E Am Dm
              bigband=[(41, (65, 69, 72)), (38, (65, 69, 74)), (36, (64, 67, 72)), (43, (67, 71, 74))])      # F Dm C G
+XPROG = dict(bulbswing=[(41, (65, 69, 72)), (38, (65, 69, 74)), (43, (65, 67, 71)), (36, (64, 67, 72))],     # F Dm G7 C
+             darkpulse=[(45, (60, 64, 69)), (41, (60, 65, 69)), (43, (62, 67, 71)), (40, (59, 64, 67))],     # Am F G Em
+             sunpop=[(36, (64, 67, 72)), (43, (62, 67, 71)), (45, (64, 69, 72)), (41, (65, 69, 72))])        # C G Am F
 CAJ = [(43, (67, 71, 74)), (48, (67, 72, 76)), (50, (66, 69, 74)), (43, (67, 71, 74))]          # G C D G
 STORM = [(38, (62, 65, 69)), (34, (62, 65, 70)), (36, (60, 64, 67)), (33, (61, 64, 69))]        # Dm Bb C A
 MINE = [(45, (69, 72, 76)), (41, (69, 72, 77)), (38, (65, 69, 74)), (40, (68, 71, 76))]         # Am F Dm E
@@ -333,6 +336,24 @@ def section(t0, t1, kind, bpm):
                 if e % 2 == 0: put(bed, hat(), u, 0.03)
                 if e in (3, 7, 14): [put(bed, pluck(midi(n_ + 12), bt * 0.35), u, 0.05) for n_ in ch]
                 if e == 0: put(bed, pluck(midi(root - 12), bt * 1.5), u, 0.3)
+            elif kind == 'bulbswing':                         # warm firehouse swing: walking bass, brushed hats, vibraphone-like bell chords, fire bell
+                if e % 4 == 0: put(bed, pluck(midi(root - 12 + [0, 4, 7, 9][e // 4]), bt * 0.9), u, 0.27)
+                if e % 4 == 2: put(bed, hat(), u, 0.035)
+                if e in (4, 12): put(bed, snare(), u, 0.06)
+                if e in (0, 6, 10): [put(bed, bell(midi(n_ + 12), 0.5), u, 0.022) for n_ in ch]
+                if e == 0 and bar % 4 == 3: put(bed, bell(midi(96), 0.8), u, 0.03)
+            elif kind == 'darkpulse':                         # 2013 darkness: low heartbeat pulse, sparse glassy bells, soft pad
+                if e in (0, 3): put(bed, kick(), u, 0.36)
+                if e == 0: put(bed, pad(midi(ch[0] - 12), bt * 4), u, 0.06)
+                if e in (6, 14): put(bed, bell(midi(ch[(bar + e) % 3] + 12), 0.7), u, 0.03)
+                if e % 2 == 1: put(bed, tick(), u, 0.03)
+            elif kind == 'sunpop':                            # bright sunrise pop: four-on-the-floor kick, offbeat plucks, claps, sparkle bells
+                if e % 4 == 0: put(bed, kick(), u, 0.4)
+                if e % 4 == 2: [put(bed, pluck(midi(n_ + 12), bt * 0.2), u, 0.035) for n_ in ch]
+                if e in (4, 12): put(bed, clap(), u, 0.14)
+                if e % 2 == 0: put(bed, hat(), u, 0.025)
+                if e == 0: put(bed, pluck(midi(root - 12), bt * 2), u, 0.3)
+                if e in (3, 11) and bar % 2: put(bed, bell(midi(ch[2] + 24), 0.3), u, 0.03)
             else:                                             # funk reveal: slap bass, clav chords, 16th hats, kick/snare
                 if e in (0, 7, 8): put(bed, kick(), u, 0.65)
                 if e in (4, 12): put(bed, snare(), u, 0.4)
@@ -343,23 +364,21 @@ def section(t0, t1, kind, bpm):
 
 
 # ---------------------------------------------------------------- the score
-section(0, C['la1923'], 'charleston', 126)
-section(C['la1923'], C['yousee'], 'nightjazz', 112)
-section(C['yousee'], C['then49'], 'dustwaltz', 96)
-section(C['then49'], C['end'], 'bigband', 132)
+section(0, C['thenmay'], 'bulbswing', 118)
+section(C['thenmay'], C['yousee'], 'darkpulse', 96)
+section(C['yousee'], C['end'], 'sunpop', 124)
 
 # ---------------------------------------------------------------- effects: a light whoosh on every scene change, hits on the words
 for k in sorted(x for x in C if x.startswith('s') and x[1:].isdigit()): put(fx, whoosh(0.45, 500, 3200), C[k] - 0.18, 0.13); put(fx, stampfx(), C[k] + 0.12, 0.16)
-put(fx, boom(), 0.0, 0.4); put(fx, crash(), 0.0, 0.25); put(fx, stampfx(), 0.02, 0.3); put(fx, boing(), C['movies'], 0.16); put(fx, kaching(), C['billboard'], 0.16); put(fx, whoosh(0.8, 200, 900), C['down'], 0.16)
-put(fx, flip(), C['y1923'], 0.24); put(fx, bell(midi(84), 0.5), C['group'], 0.12); put(fx, bell(midi(88), 0.6), C['publisher'], 0.12); put(fx, flip(), C['times'], 0.22); put(fx, kaching(), C['lots'], 0.16)
-put(fx, bell(midi(91), 0.8), C['hland'], 0.14); put(fx, riser(0.7), C['write'], 0.14); put(fx, stampfx(), C['thirteen'], 0.22); put(fx, riser(0.6), C['fortyfive'] - 0.3, 0.14); put(fx, bell(midi(96), 0.6), C['bulbs'], 0.14)
-put(fx, kaching(), C['dollars'] + 0.5, 0.18); put(fx, boing(), C['life'], 0.14); put(fx, groan(0.7), C['nobody'], 0.08); put(fx, crash(), C['apart'] + 0.3, 0.16); put(fx, flip(), C['y1949'], 0.24)
-put(fx, gavel(), C['deal'] + 0.3, 0.26); put(fx, stampfx(), C['condition'], 0.22); put(fx, crash(), C['cut'], 0.2)
-for dt_ in (0.0, 0.14, 0.3, 0.4): put(fx, boing(), C['l_'] + dt_, 0.14)
-fanfare(C['famous']); put(fx, kaching(), C['realestate'], 0.16); put(fx, crash(), C['chopped'], 0.2); put(fx, riser(1.0), C['end'] - 1.1, 0.2); put(fx, crash(), C['end'] - 0.15, 0.25)
+put(fx, boom(), 0.0, 0.4); put(fx, stampfx(), 0.02, 0.3); [put(fx, tick(), t_, 0.3) for t_ in (0.08, 0.14, 0.22, 0.28)]; put(fx, bell(midi(96), 0.8), C['y1901'], 0.14); put(fx, stampfx(), C['still'] + 0.1, 0.24)
+put(fx, riser(0.6), C['liv'] + 0.3, 0.12); put(fx, stampfx(), C['liv'] + 0.9, 0.24); put(fx, bell(midi(91), 0.8), C['station'], 0.16); put(fx, flip(), C['hand'], 0.2); put(fx, flip(), C['y1890'], 0.24); put(fx, boom(), C['wars'], 0.18)
+put(fx, whoosh(0.8, 300, 1500), C['move'], 0.16); put(fx, flip(), C['y2013'], 0.24); put(fx, groan(0.7), C['dark'], 0.08); put(fx, crash(), C['dead'], 0.16); put(fx, boing(), C['wasnt'], 0.18)
+put(fx, bell(midi(88), 0.5), C['elec'], 0.1); put(fx, crash(), C['faulty'], 0.18); put(fx, kaching(), C['fine'], 0.14); put(fx, riser(0.8), C['ten'], 0.12); put(fx, bell(midi(96), 0.8), C['again'], 0.16)
+put(fx, bell(midi(84), 0.6), C['secret'], 0.12); put(fx, stampfx(), C['sixty'], 0.22); put(fx, boing(), C['four'], 0.16); put(fx, bell(midi(91), 0.6), C['thick'], 0.12); put(fx, stampfx(), C['never'], 0.2)
+put(fx, groan(0.6), C['machine'], 0.08); put(fx, crash(), C['failed'], 0.2); put(fx, kaching(), C['didnt'], 0.16); fanfare(C['tonight']); put(fx, riser(1.0), C['end'] - 1.1, 0.2); put(fx, boom(), C['end'] - 0.12, 0.3)
 
 mix = bed * 1.35 + fx * 0.85
 mix = np.tanh(mix / max(1e-6, np.abs(mix).max()) * 2.2) * 0.89
 st = np.stack([mix, np.roll(mix, int(SR * 0.008)) * 0.96], 1)
 sf.write(OUT, st.astype(np.float32), SR)
-print("music: %.1f s, 1920s charleston 126 + moonlit cool jazz 112 + dusty music-box waltz 96 + 1949 big-band swing 132" % LEN)
+print("music: %.1f s, warm firehouse swing 118 + 2013 dark pulse 96 + sunrise pop 124" % LEN)

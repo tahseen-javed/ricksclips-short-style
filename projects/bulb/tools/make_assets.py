@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Assets for video 32: the Hollywood sign was never about movies - a 1923 billboard for the Hollywoodland housing tract (13 letters ~45 ft
-tall, 4,000 bulbs, $21,000, planned life ~1.5 years); nobody took it down, it fell apart, and a 1949 deal saved it on one condition: cut the
-last four letters, L-A-N-D. Jazz-age hillside world (new palette): peach-magenta sunset hillside with the sign (hook + loop; a "????" tarp over
-the last four letters = open loop, resolved as L-A-N-D), teal-gold art-deco developers' office, sage-terracotta morning lots, navy night with
-glowing bulbs, dusty-rose slate 1940s ruin, mint-cream 1949 office with blinds, plum-gold premiere night. Cute cast (new): the publisher
-(fedora, navy art-deco suit, mustache, glasses) and a 1923 bulb lineman (plaid newsboy cap, striped knit sweater). The letters L, A, N, D
-are cute characters of their own. usage: make_assets.py <project> <font>"""
+"""Assets for video 33: the world's oldest light bulb (Livermore Fire Station 6, glowing since 1901, handmade carbon bulb from Ohio in the
+1890s, two world wars and a move across town; May 2013 the webcam went dark, but a faulty power supply was to blame; ten hours later it
+glowed again; built for 60 W, now gives about 4; the machine failed first). Firehouse-nocturne world (new palette): midnight-teal fire
+station night (hook + loop), amber 1890s Ohio glassworks, olive-khaki war-years sky, mint-lilac toy town, violet 2013 webcam room, cyan
+x-ray blueprint, coral ten-hours dawn, lemon-mint watt workshop. Accent filament orange #ff8c1a. Cute cast (new, companions only): Fire
+Captain Rosa (red fire helmet with a 6 shield, tan turnout coat) and electrician Dev (orange bolt cap, teal coverall, tool belt). The bulb
+with a face is the star. usage: make_assets.py <project> <font>"""
 import os, math
 import numpy as np
 from PIL import Image
@@ -13,189 +13,184 @@ import assets_base as B
 import gimli_assets as G
 import catseyes_assets as CE
 import mco_assets as M
-from v29_assets import *
+from v33_assets import *
 
 ROOT = B.ROOT
-TEAL, GOLDC, PEACH, MAG, SAGE, TERRA, CRM, NAVY, PLUM = (30, 150, 150, 255), (240, 196, 80, 255), (255, 190, 150, 255), (230, 70, 140, 255), (150, 190, 140, 255), (210, 110, 80, 255), (252, 246, 232, 255), (30, 40, 90, 255), (90, 40, 100, 255)
+TEALN, AMB, OLV, MNT, LIL, VIO, CYN, CORL, LEM, FRED, CRM, ORG = (20, 90, 110, 255), (255, 170, 60, 255), (150, 150, 80, 255), (150, 230, 200, 255), (200, 170, 240, 255), (110, 60, 170, 255), (60, 200, 230, 255), (255, 120, 110, 255), (250, 240, 110, 255), (220, 50, 50, 255), (252, 246, 232, 255), (255, 140, 26, 255)
 LA.NEW.update({
-    'chandler': dict(sk=0, style='slick', hair=(120, 110, 110, 255), suit=(40, 50, 100, 255), shade=(30, 38, 80, 255), body='deco', acc=(230, 70, 140, 255), xhat='fedora', hatc=(150, 120, 90, 255), stache=(120, 110, 110, 255), glasses=1),
-    'lineman': dict(sk=1, style='spiky', hair=(60, 40, 30, 255), suit=(240, 236, 220, 255), shade=(214, 208, 190, 255), body='knit49', acc=(30, 150, 150, 255), xhat='newsboy', hatc=(200, 120, 80, 255), freckles=1),
+    'rosa': dict(sk=2, style='curly', hair=(60, 30, 30, 255), suit=(214, 170, 90, 255), shade=(186, 142, 70, 255), body='turnout', acc=FRED, xhat='firehelm', hatc=FRED, num='6'),
+    'dev': dict(sk=1, style='side', hair=(30, 30, 40, 255), suit=(40, 150, 160, 255), shade=(30, 120, 130, 255), body='coverall', acc=ORG, xhat='boltcap', hatc=ORG, freckles=1),
 })
-LET = 'HOLLYWOODLAND'
 
 
-def gloss(d, x, y, w, h): d.ellipse(x, y, w, h, fill=(255, 255, 255, 120))
+def bulb(face='default'):                                    # the Centennial bulb: pear glass, thick looped filament, brass base, a face
+    lit = face not in ('dark',); W_, H_ = 1000, 1300; im = Image.new('RGBA', (W_, H_), (0, 0, 0, 0))
+    if lit: CE.glow(im, 500, 520, 470 if face == 'bright' else 400, (255, 190, 80, 170 if face != 'sleepy' else 110), 70)
+    d = Draw(W_, H_); glass = (255, 236, 170, 235) if lit else (190, 196, 210, 235)
+    d.dot(500, 500, 330, glass); d.poly([(260, 700), (740, 700), (640, 960), (360, 960)], fill=glass); d.ellipse(500, 500, 330, 330, outline=LINE, width=16)
+    d.stroke([(250, 720), (360, 960)], LINE, 16); d.stroke([(750, 720), (640, 960)], LINE, 16)
+    fc = (255, 120, 30, 255) if lit else (110, 100, 100, 255); d.stroke([(440, 960), (440, 760), (400, 690), (500, 640), (600, 690), (560, 760), (560, 960)], fc, 24)
+    for y in (980, 1050, 1120): d.rrect(350, y, 650, y + 64, 26, fill=(210, 170, 90, 255), outline=LINE, width=10)
+    d.chord(500, 1190, 90, 70, 0, 180, fill=(80, 60, 50, 255), outline=LINE, width=10); d.ellipse(380, 360, 60, 110, fill=(255, 255, 255, 150))
+    eyes5(d, 500, 430, 1.35, {'default': 'happy', 'bright': 'happy', 'dark': 'sad'}.get(face, face))
+    if face == 'bright': [d.stroke([(500 + 380 * math.cos(a), 500 + 380 * math.sin(a)), (500 + 460 * math.cos(a), 500 + 460 * math.sin(a))], YEL, 16) for a in np.linspace(3.4, 6.0, 5)]
+    if face == 'sleepy': [d.text(780 + k * 70, 200 - k * 70, 'z', 70 + k * 20, WT, stroke=5, stroke_fill=LINE) for k in range(3)]
+    im.alpha_composite(d.out()); return im
 
 
-def neon3(a, b, c, w=900, h=560):
-    d = Draw(w, h); d.rrect(10, 10, w - 10, h - 10, 44, fill=(40, 20, 60, 255), outline=LINE, width=16); d.rrect(34, 34, w - 34, h - 34, 30, outline=GOLDC, width=8)
-    d.text(w / 2, h * 0.2, a, LA.fit(a, 96, w - 160), (120, 230, 220, 255), stroke=6, stroke_fill=LINE)
-    for k, (t, col) in enumerate(((b, YEL), (c, (255, 130, 180, 255)))): d.text(w / 2, h * (0.47 + 0.27 * k), t, LA.fit(t, 140, w - 110), col, stroke=7, stroke_fill=LINE)
+def firehouse():                                             # Fire Station 6: red brick, arched doors, a glowing bulb in the window, cute face
+    d = Draw(1500, 1200); d.rect(150, 330, 1350, 1160, (200, 70, 60, 255)); d.rrect(150, 330, 1350, 1160, 2, outline=LINE, width=14)
+    for y in range(380, 1150, 70): d.stroke([(150, y), (1350, y)], (170, 56, 50, 255), 5)
+    d.poly([(110, 340), (750, 120), (1390, 340)], fill=(90, 60, 70, 255), outline=LINE, width=14); d.rrect(380, 190, 1120, 330, 26, fill=CRM, outline=LINE, width=12); d.text(750, 262, 'FIRE STATION 6', 66, FRED)
+    for x in (260, 800): d.chord(x + 220, 1160, 200, 300, 180, 360, fill=(240, 226, 200, 255), outline=LINE, width=12); [d.stroke([(x + 40 + k * 90, 900), (x + 40 + k * 90, 1160)], (200, 186, 160, 255), 6) for k in range(5)]
+    d.dot(750, 560, 120, (255, 200, 90, 255)); d.ellipse(750, 560, 120, 120, outline=LINE, width=10); d.dot(750, 560, 40, (255, 250, 200, 255)); eyes(d, 750, 760, 0.6, 'happy'); return d.out()
+
+
+def kiln():                                                  # 1890s Ohio glassworks: brick furnace with an orange mouth, a blowpipe with a baby bulb
+    im = Image.new('RGBA', (1400, 1200), (0, 0, 0, 0)); CE.glow(im, 600, 760, 260, (255, 150, 40, 170), 50); d = Draw(1400, 1200)
+    d.chord(600, 1150, 460, 720, 180, 360, fill=(170, 90, 60, 255), outline=LINE, width=14); d.rect(560, 120, 640, 450, (140, 80, 60, 255)); d.chord(600, 900, 180, 160, 180, 360, fill=(255, 170, 50, 255), outline=LINE, width=12)
+    d.stroke([(700, 820), (1280, 560)], (120, 120, 130, 255), 18); d.dot(1240, 560, 90, (255, 236, 170, 230)); d.ellipse(1240, 560, 90, 90, outline=LINE, width=10); eyes(d, 1240, 560, 0.35, 'happy')
+    eyes(d, 600, 640, 0.6, 'happy'); im.alpha_composite(d.out()); return im
+
+
+def wars():                                                  # two world wars, cute: a brave globe in a tin helmet, two toy biplanes circling, x2 medal
+    d = Draw(1300, 1200); d.dot(650, 680, 420, (90, 170, 240, 255)); [d.ellipse(650 + dx, 680 + dy, rx, ry, fill=(130, 190, 110, 255)) for dx, dy, rx, ry in ((-140, -100, 140, 100), (160, 60, 120, 150), (-40, 220, 110, 60))]
+    d.ellipse(650, 680, 420, 420, outline=LINE, width=14); d.chord(650, 330, 300, 120, 180, 360, fill=OLV, outline=LINE, width=12); eyes(d, 650, 700, 0.8, 'shocked')
+    for x, y, c in ((180, 230, CORL), (1080, 300, YEL)): d.rrect(x - 110, y - 22, x + 110, y + 22, 18, fill=c, outline=LINE, width=8); d.rrect(x - 30, y - 70, x + 30, y + 70, 12, fill=c, outline=LINE, width=8); d.dot(x + 120, y, 16, LINE)
+    d.dot(1100, 1000, 120, AMB); d.ellipse(1100, 1000, 120, 120, outline=LINE, width=10); d.text(1100, 1000, 'x2', 110, WT, stroke=6, stroke_fill=LINE); return d.out()
+
+
+def truck():                                                 # the move across town: a cute fire truck carrying the bulb on a velvet cushion
+    im = Image.new('RGBA', (1600, 1000), (0, 0, 0, 0)); CE.glow(im, 820, 300, 200, (255, 200, 90, 150), 40); d = Draw(1600, 1000)
+    d.rrect(120, 420, 1480, 820, 60, fill=FRED, outline=LINE, width=14); d.rrect(1080, 300, 1440, 600, 40, fill=FRED, outline=LINE, width=14); d.rrect(1140, 340, 1400, 500, 20, fill=(170, 220, 250, 255), outline=LINE, width=10)
+    d.stroke([(160, 400), (1000, 360)], (230, 230, 230, 255), 16); [d.stroke([(160 + k * 120, 400 - k * 5), (160 + k * 120, 440)], (230, 230, 230, 255), 10) for k in range(8)]
+    d.rrect(620, 340, 1020, 440, 40, fill=(150, 40, 90, 255), outline=LINE, width=10); d.dot(820, 250, 110, (255, 236, 170, 240)); d.ellipse(820, 250, 110, 110, outline=LINE, width=10); d.rrect(780, 350, 860, 380, 8, fill=(210, 170, 90, 255))
+    eyes(d, 820, 250, 0.4, 'happy'); [d.dot(x, 840, 110, (50, 50, 60, 255)) for x in (380, 1220)]; [d.dot(x, 840, 50, (200, 200, 210, 255)) for x in (380, 1220)]; eyes(d, 600, 620, 0.6, 'happy'); return d.out()
+
+
+def cam(mode='live'):                                        # the 2013 live webcam and its monitor (live: the glowing bulb; dark: black screen and a "?")
+    d = Draw(1400, 1200); d.rrect(100, 120, 1300, 860, 40, fill=(60, 60, 80, 255), outline=LINE, width=16); d.rrect(150, 170, 1250, 810, 24, fill=(20, 22, 34, 255) if mode == 'dark' else (40, 60, 90, 255))
+    if mode == 'live': d.dot(700, 450, 170, (255, 220, 120, 255)); d.dot(700, 450, 70, (255, 250, 220, 255))
+    else: d.text(700, 490, '?', 300, (120, 110, 150, 255), stroke=8, stroke_fill=LINE)
+    d.rrect(190, 210, 420, 290, 20, fill=(230, 40, 60, 255) if mode == 'live' else (80, 80, 90, 255)); d.text(305, 252, 'LIVE', 60, WT); d.rect(620, 860, 780, 1000, (60, 60, 80, 255)); d.rrect(460, 990, 940, 1060, 20, fill=(60, 60, 80, 255), outline=LINE, width=10)
+    d.dot(1180, 1000, 90, (230, 230, 240, 255)); d.ellipse(1180, 1000, 90, 90, outline=LINE, width=10); d.dot(1180, 1000, 40, (40, 60, 120, 255)); eyes(d, 700, 940, 0.35, 'happy' if mode == 'live' else 'shocked'); return d.out()
+
+
+def psu(mode='ok'):                                          # the power supply box (broken: dizzy eyes, smoke puff, sparks - cute, no damage)
+    d = Draw(1200, 1100); d.rrect(200, 320, 1000, 980, 50, fill=(150, 160, 180, 255), outline=LINE, width=16); [d.rect(280, y, 520, y + 20, (110, 120, 140, 255)) for y in range(420, 640, 50)]
+    d.stroke([(1000, 700), (1120, 700), (1140, 900)], LINE, 18); d.rrect(640, 400, 920, 520, 20, fill=(40, 40, 60, 255)); d.text(780, 460, '~', 90, (120, 255, 160, 255) if mode == 'ok' else (255, 90, 90, 255))
+    eyes5(d, 600, 760, 0.8, 'happy' if mode == 'ok' else 'dizzy')
+    if mode == 'broken':
+        for x, y, r in ((420, 220, 90), (560, 160, 110), (720, 220, 90)): d.dot(x, y, r, (200, 200, 210, 230))
+        for x, y in ((180, 300), (1040, 280), (1080, 520)): d.text(x, y, '*', 120, YEL, stroke=5, stroke_fill=LINE)
     return d.out()
 
 
-def sign(mode='land'):                                       # the hillside sign (hook: LAND under a ???? tarp; glow: bulbs lit; old: crooked, H fallen; cut: LAND gone)
-    d = Draw(2400, 760); d.chord(1200, 760, 1250, 380, 180, 360, fill=(150, 130, 90, 255) if mode != 'glow' else (60, 70, 90, 255), outline=LINE, width=12)
-    for k, ch in enumerate(LET):
-        x = 110 + k * 168; gone = mode == 'cut' and k >= 9
-        if gone: d.stroke([(x - 40, 560), (x + 40, 560)], (120, 100, 70, 255), 10); continue
-        if mode == 'hook' and k >= 9: continue
-        tilt = (k * 37 % 5 - 2) * 12 if mode == 'old' else 0; y = 200 + (90 if (mode == 'old' and k == 0) else 0)
-        col = (255, 250, 236, 255) if mode != 'old' else (226, 214, 196, 255)
-        d.rect(x - 4, y + 180, x + 4, 600, (120, 100, 80, 255)); d.text(x + tilt * 0.3, y + 80, ch, 220, col, stroke=10, stroke_fill=LINE)
-        if mode == 'glow': [d.dot(x - 40 + i * 26, y - 20, 9, (255, 240, 150, 255)) for i in range(4)]
-    if mode == 'hook': d.rrect(1590, 110, 2340, 470, 40, fill=(120, 80, 200, 255), outline=LINE, width=14); d.text(1965, 290, '????', 200, YEL, stroke=10, stroke_fill=LINE)
-    if mode == 'old': [d.arc(300 + k * 520, 120, 60, 40, 200, 340, (200, 200, 210, 255), 6) for k in range(4)]
-    return d.out()
+def clock():                                                 # alarm clock with a glowing 10-hour arc
+    d = Draw(1100, 1200); [d.dot(x, 200, 110, (255, 214, 60, 255)) for x in (270, 830)]; [d.ellipse(x, 200, 110, 110, outline=LINE, width=12) for x in (270, 830)]
+    d.dot(550, 640, 420, (255, 250, 240, 255)); d.ellipse(550, 640, 420, 420, outline=CORL, width=40); d.ellipse(550, 640, 440, 440, outline=LINE, width=12)
+    d.arc(550, 640, 330, 330, -90, 210, (255, 140, 26, 230), 60); d.stroke([(550, 640), (550, 380)], LINE, 22); d.stroke([(550, 640), (380, 700)], LINE, 26); d.dot(550, 640, 26, LINE)
+    eyes(d, 550, 820, 0.55, 'happy'); [d.dot(x, 1100, 50, LINE) for x in (300, 800)]; return d.out()
 
 
-def letter(ch, face='happy'):                                # one cute giant letter with a face (L, A, N or D)
-    d = Draw(900, 1100); d.text(450, 520, ch, 900, (255, 250, 236, 255), stroke=26, stroke_fill=LINE); gloss(d, 300, 200, 70, 30)
-    eyes(d, 450 if ch != 'L' else 320, 560, 0.8, face); d.rect(300, 1040, 600, 1090, (150, 120, 90, 255)); return d.out()
+def meter(mode='60'):                                        # watt gauge: needle at 60 (built for) or near 4 (now), cute face
+    d = Draw(1300, 1000); d.chord(650, 760, 560, 560, 180, 360, fill=CRM, outline=LINE, width=16); d.rect(90, 760, 1210, 900, (60, 70, 90, 255)); d.rrect(90, 740, 1210, 920, 30, outline=LINE, width=14)
+    for k in range(7): a = math.radians(180 + k * 30); d.stroke([(650 + 470 * math.cos(a), 760 + 470 * math.sin(a)), (650 + 530 * math.cos(a), 760 + 530 * math.sin(a))], LINE, 12); d.text(650 + 400 * math.cos(a), 760 + 400 * math.sin(a), str(k * 10), 60, LINE)
+    a = math.radians(180 + (180 if mode == '60' else 12)); col = FRED if mode == '60' else (40, 170, 110, 255); d.stroke([(650, 760), (650 + 440 * math.cos(a), 760 + 440 * math.sin(a))], col, 26); d.dot(650, 760, 44, LINE)
+    d.text(650, 600, '60 W' if mode == '60' else '4 W', 130, col, stroke=7, stroke_fill=LINE); eyes(d, 650, 830, 0.4, 'shocked' if mode == '60' else 'happy'); return d.out()
 
 
-def house():                                                 # Spanish-style hillside cottage with a red tile roof and a happy door face
-    d = Draw(1300, 1100); d.rect(160, 420, 1140, 1060, (250, 236, 210, 255)); d.rrect(160, 420, 1140, 1060, 2, outline=LINE, width=12)
-    d.poly([(100, 440), (650, 160), (1200, 440)], fill=TERRA, outline=LINE, width=12); [d.arc(200 + k * 120, 440, 60, 40, 180, 360, (170, 80, 60, 255), 6) for k in range(9)]
-    d.chord(650, 1060, 140, 240, 180, 360, fill=(120, 80, 60, 255), outline=LINE, width=10); [win(d, x, 560, x + 170, 760, (170, 220, 250, 255)) for x in (260, 870)]; eyes(d, 650, 720, 0.6, 'happy'); return d.out()
+def fil():                                                   # macro: the thick carbon filament glowing inside the glass
+    im = Image.new('RGBA', (1300, 1300), (0, 0, 0, 0)); CE.glow(im, 650, 650, 560, (255, 170, 60, 160), 90); d = Draw(1300, 1300)
+    d.dot(650, 650, 600, (255, 230, 170, 120)); d.ellipse(650, 650, 600, 600, outline=(255, 250, 230, 200), width=20)
+    pts = [(420, 1250), (420, 760)] + [(650 + 260 * math.cos(t), 540 + 200 * math.sin(t)) for t in np.linspace(math.pi * 0.9, math.pi * 2.1, 18)] + [(880, 760), (880, 1250)]
+    d.stroke(pts, (255, 120, 30, 255), 70); d.stroke(pts, (255, 220, 120, 255), 26); eyes5(d, 650, 860, 0.7, 'sleepy'); return d.out()
 
 
-def lots():                                                  # hillside lots: stakes, LOTS FOR SALE sign, SOLD flags
-    d = Draw(1800, 1000); d.chord(900, 1000, 900, 560, 180, 360, fill=SAGE, outline=LINE, width=12)
-    for k in range(5): x, y = 300 + k * 300, 700 - (2 - abs(k - 2)) * 90; d.stroke([(x - 120, y + 60), (x + 120, y + 60)], WT, 6); d.rect(x - 6, y - 60, x + 6, y + 60, (140, 100, 60, 255)); d.poly([(x + 6, y - 60), (x + 90, y - 40), (x + 6, y - 20)], fill=MAG if k % 2 else GOLDC)
-    d.rrect(600, 160, 1200, 380, 20, fill=CRM, outline=LINE, width=10); d.text(900, 230, 'LOTS', 90, TERRA); d.text(900, 320, 'FOR SALE', 70, TEAL); d.rect(890, 380, 910, 560, (140, 100, 60, 255)); return d.out()
-
-
-def paper():                                                 # 1923 newspaper: big ad for hillside lots, a happy face in the masthead
-    d = Draw(1100, 1300); d.rrect(80, 60, 1020, 1240, 20, fill=(246, 240, 226, 255), outline=LINE, width=14); d.text(550, 170, 'THE TIMES', 120, LINE); d.stroke([(120, 250), (980, 250)], LINE, 8)
-    d.rrect(140, 300, 960, 760, 20, fill=PEACH, outline=LINE, width=10); d.text(550, 420, 'HOLLYWOODLAND', 90, NAVY); d.text(550, 560, 'LOTS FOR SALE!', 80, MAG); d.chord(550, 740, 300, 90, 180, 360, fill=SAGE)
-    [d.stroke([(140, y), (960, y)], (200, 190, 170, 255), 12) for y in range(830, 1180, 60)]; eyes(d, 860, 170, 0.35, 'happy'); return d.out()
-
-
-def giant():                                                 # one 45-ft letter H with a tiny worker on a ladder and a 45 FT arrow
-    d = Draw(1300, 1300); d.text(560, 640, 'H', 1200, (255, 250, 236, 255), stroke=26, stroke_fill=LINE); eyes(d, 560, 640, 0.7, 'happy')
-    d.stroke([(1120, 120), (1120, 1220)], MAG, 14); d.poly([(1090, 140), (1150, 140), (1120, 80)], fill=MAG); d.poly([(1090, 1200), (1150, 1200), (1120, 1260)], fill=MAG); d.text(1200, 660, '45', 90, MAG, stroke=5, stroke_fill=LINE)
-    d.stroke([(880, 1250), (960, 900)], (150, 100, 60, 255), 10); d.dot(940, 880, 36, (255, 222, 196, 255)); d.ellipse(940, 880, 36, 36, outline=LINE, width=6); d.chord(940, 868, 40, 30, 180, 360, fill=(200, 120, 80, 255)); return d.out()
-
-
-def bulbs(mode='on'):                                        # cluster of light bulbs with faces (on: glowing)
-    d = Draw(1400, 1000)
-    for k, (x, y) in enumerate(((300, 400), (700, 300), (1100, 400), (500, 680), (900, 680))):
-        on = mode == 'on'; d.dot(x, y, 150, (255, 246, 170, 255) if on else (220, 230, 240, 255)); d.ellipse(x, y, 150, 150, outline=LINE, width=12); d.rrect(x - 60, y + 140, x + 60, y + 230, 14, fill=(170, 170, 186, 255), outline=LINE, width=8)
-        eyes(d, x, y, 0.5, 'happy' if on else 'sad'); gloss(d, x - 60, y - 70, 40, 20)
-        if on: [d.stroke([(x + 170 * math.cos(a), y + 170 * math.sin(a)), (x + 220 * math.cos(a), y + 220 * math.sin(a))], YEL, 10) for a in (3.6, 4.7, 5.8)]
-    return d.out()
-
-
-def hourglass():                                             # planned life: hourglass with 1.5 YEARS, a worried face
-    d = Draw(900, 1200); d.rrect(140, 60, 760, 140, 20, fill=(150, 100, 60, 255), outline=LINE, width=10); d.rrect(140, 1060, 760, 1140, 20, fill=(150, 100, 60, 255), outline=LINE, width=10)
-    d.poly([(200, 140), (700, 140), (470, 600), (700, 1060), (200, 1060), (430, 600)], fill=(220, 240, 250, 255), outline=LINE, width=12); d.poly([(300, 240), (600, 240), (450, 520)], fill=GOLDC); d.poly([(450, 760), (620, 1050), (280, 1050)], fill=GOLDC)
-    eyes(d, 450, 360, 0.45, 'shocked'); return d.out()
-
-
-def contract(mode='default'):                                # 1949 deal: contract with handshake seal (cut: big red scissors line through LAND)
-    d = Draw(1200, 1300); d.rrect(120, 60, 1080, 1240, 20, fill=CRM, outline=LINE, width=14); d.text(600, 180, 'THE DEAL', 110, NAVY); [d.stroke([(200, y), (1000, y)], (210, 200, 180, 255), 10) for y in range(300, 560, 60)]
-    d.rrect(200, 620, 1000, 860, 20, fill=(255, 236, 236, 255), outline=MAG, width=10); d.text(600, 690, 'CONDITION:', 60, MAG); d.text(600, 790, 'CUT "LAND"', 90, (200, 40, 70, 255))
-    d.dot(850, 1060, 110, GOLDC); d.ellipse(850, 1060, 110, 110, outline=LINE, width=10); eyes(d, 400, 1060, 0.6, 'happy')
-    if mode == 'cut': d.stroke([(160, 900), (1040, 560)], (230, 50, 80, 255), 30)
-    return d.out()
-
-
-def scissors():                                              # giant scissors with a face chopping a LAND ribbon
-    d = Draw(1500, 900); d.rrect(60, 600, 1440, 760, 40, fill=MAG, outline=LINE, width=12); d.text(1100, 680, 'LAND', 100, WT, stroke=5, stroke_fill=LINE)
-    d.poly([(400, 420), (1000, 640), (980, 690), (380, 480)], fill=(200, 204, 214, 255), outline=LINE, width=10); d.poly([(400, 520), (1000, 650), (980, 610), (380, 460)], fill=(220, 224, 234, 255), outline=LINE, width=10)
-    for y in (380, 580): d.ellipse(260, y, 120, 80, outline=TERRA, width=34)
-    eyes(d, 700, 520, 0.5, 'happy'); return d.out()
-
-
-def globe():                                                 # Earth with the HOLLYWOOD sign on top and orbiting stars + a film reel
-    d = Draw(1300, 1300); d.dot(650, 700, 480, (90, 170, 240, 255)); [d.ellipse(650 + dx, 700 + dy, rx, ry, fill=(120, 200, 120, 255)) for dx, dy, rx, ry in ((-160, -120, 150, 110), (180, 60, 130, 160), (-60, 240, 120, 70))]
-    d.ellipse(650, 700, 480, 480, outline=LINE, width=14); gloss(d, 480, 420, 120, 50); eyes(d, 650, 760, 0.9, 'happy')
-    d.rrect(330, 140, 970, 290, 20, fill=CRM, outline=LINE, width=10); d.text(650, 215, 'HOLLYWOOD', 100, NAVY); [d.text(x, y, '*', 120, YEL, stroke=5, stroke_fill=LINE) for x, y in ((150, 300), (1150, 380), (1120, 1100), (180, 1080))]
-    return d.out()
+def switch():                                                # giant wall switch stuck on ON with crossed tape
+    d = Draw(900, 1300); d.rrect(100, 80, 800, 1220, 60, fill=CRM, outline=LINE, width=16); d.rrect(330, 300, 570, 1000, 50, fill=(220, 214, 200, 255), outline=LINE, width=12)
+    d.rrect(350, 320, 550, 640, 40, fill=(255, 140, 26, 255), outline=LINE, width=10); d.text(450, 480, 'ON', 110, WT, stroke=6, stroke_fill=LINE)
+    for y in (290, 690): d.stroke([(200, y), (700, y + 20)], (240, 220, 160, 235), 70)
+    eyes(d, 450, 840, 0.5, 'happy'); return d.out()
 
 
 # ------------------------------------------------------------------ set pictures (no text on them)
-def sunset(path):                                            # peach-magenta sunset over the Hollywood hills, palms, searchlight beams
-    im = sky((230, 90, 150), (255, 200, 150), 1.0); d = Draw(W2, H2); [d.poly([(x, 940), (x + 60, 0), (x + 140, 0)], fill=(255, 240, 210, 50)) for x in (300, 1900)]
-    hills(d, 620, (170, 100, 130, 255), 120, 2); hills(d, 760, (120, 90, 110, 255), 70, 3, 0.8)
-    for x in (200, 700, 1800, 2250): d.stroke([(x, 940), (x + 20, 560)], (90, 60, 50, 255), 16); [d.ellipse(x + 20 + 80 * math.cos(a), 560 + 40 * math.sin(a), 70, 18, fill=(60, 110, 70, 255)) for a in np.linspace(0, 6.28, 7)]
-    fl(d, (150, 110, 100, 255)); im.alpha_composite(d.out()); glow(im, 1200, 640, 600, (255, 200, 150, 110), 140); im.convert('RGB').save(path)
+def night6(path):                                            # midnight-teal night over Livermore: stars, moon, rooftops with warm windows, a hose tower
+    im = M.sky((20, 70, 100), (60, 150, 160), 1.0); d = Draw(W2, H2); M.stars(d, 120, 560, 7); d.dot(1950, 190, 90, (255, 246, 210, 255))
+    for k in range(12): x = k * 210; h = 180 + (k * 53) % 140; d.rect(x, 900 - h, x + 180, 940, (30, 60, 80, 255)); [d.rect(x + 30 + j * 60, 900 - h + 40, x + 60 + j * 60, 900 - h + 80, (255, 200, 110, 255)) for j in range(2)]
+    d.rect(300, 300, 400, 940, (150, 50, 50, 255)); fl(d, (40, 80, 90, 255)); im.alpha_composite(d.out()); CE.glow(im, 1950, 190, 220, (255, 240, 200, 90), 60); im.convert('RGB').save(path)
 
 
-def deco(path):                                              # teal-gold art-deco office: sunburst panels, tall windows, gold trim
-    im = sky((20, 110, 120), (60, 170, 170), 1.0); d = Draw(W2, H2)
-    for x in range(200, W2, 500): [d.poly([(x, 900), (x - 180 + k * 60, 200), (x - 150 + k * 60, 200)], fill=(240, 196, 80, 120)) for k in range(7)]
-    for x in (700, 1700): d.rrect(x - 150, 150, x + 150, 700, 20, fill=(200, 236, 236, 255), outline=GOLDC, width=16)
-    d.rect(0, 860, W2, 900, GOLDC); fl(d, (60, 80, 90, 255)); im.alpha_composite(d.out()); im.convert('RGB').save(path)
+def glassw(path):                                            # amber 1890s glassworks: brick arches, glowing furnace mouths, chimneys
+    im = M.sky((150, 70, 40), (255, 180, 90), 1.0); d = Draw(W2, H2); [d.rect(x, 100, x + 90, 600, (120, 60, 40, 255)) for x in (300, 1900)]
+    for x in range(0, W2, 480): d.chord(x + 240, 940, 200, 380, 180, 360, fill=(110, 50, 40, 255)); d.chord(x + 240, 940, 100, 140, 180, 360, fill=(255, 170, 60, 255))
+    fl(d, (130, 70, 50, 255)); im.alpha_composite(d.out()); [CE.glow(im, x + 240, 880, 160, (255, 170, 60, 110), 40) for x in range(0, W2, 480)]; im.convert('RGB').save(path)
 
 
-def sage(path):                                              # sage-terracotta morning hills: tiny houses, winding road, eucalyptus
-    im = sky((190, 220, 240), (255, 236, 210), 1.0); d = Draw(W2, H2); hills(d, 600, (170, 200, 150, 255), 110, 2); hills(d, 760, (150, 180, 130, 255), 60, 3, 1.1)
-    for k in range(9): x, y = 150 + k * 260, 640 + (k % 3) * 60; d.rect(x, y, x + 90, y + 60, CRM); d.poly([(x - 10, y), (x + 45, y - 40), (x + 100, y)], fill=TERRA)
-    d.stroke([(0, 900), (600, 820), (1200, 880), (1800, 800), (W2, 860)], (230, 210, 180, 255), 24); fl(d, (170, 150, 110, 255)); im.alpha_composite(d.out()); im.convert('RGB').save(path)
+def warsky(path):                                            # olive-khaki war-years sky: puffy sepia clouds, bunting, far hills
+    im = M.sky((150, 160, 110), (240, 220, 170), 1.0); d = Draw(W2, H2)
+    for x, y in ((300, 200), (1200, 140), (2000, 240)): [d.dot(x + k * 110, y + (k % 2) * 30, 90, (250, 240, 220, 230)) for k in range(4)]
+    hills(d, 760, (120, 130, 80, 255), 70, 3); d.stroke([(0, 360), (600, 420), (1200, 360), (1800, 420), (W2, 360)], LINE, 6)
+    for k in range(24): x = k * 100 + 20; y = 380 + 30 * math.sin(k * 0.52); d.poly([(x, y), (x + 60, y), (x + 30, y + 60)], fill=(CORL, YEL, (120, 200, 230, 255))[k % 3])
+    fl(d, (150, 140, 100, 255)); im.alpha_composite(d.out()); im.convert('RGB').save(path)
 
 
-def nightglow(path):                                         # navy 1923 night: stars, moon, twinkling city lights below the hill
-    im = sky((20, 30, 90), (70, 90, 170), 1.0); d = Draw(W2, H2); stars(d, 120, 600, 13); d.dot(2000, 200, 80, (255, 246, 210, 255))
-    hills(d, 760, (40, 50, 100, 255), 70, 3); r = np.random.RandomState(2); [d.dot(r.randint(0, W2), r.randint(800, 930), 6, (255, 220, 140, 255)) for _ in range(120)]
-    fl(d, (60, 70, 110, 255)); im.alpha_composite(d.out()); glow(im, 2000, 200, 200, (255, 240, 200, 100), 60); im.convert('RGB').save(path)
+def town(path):                                              # mint-lilac toy town: pastel hills, little houses, a winding road
+    im = M.sky((200, 180, 250), (220, 250, 235), 1.0); d = Draw(W2, H2); hills(d, 600, (170, 230, 200, 255), 100, 2); hills(d, 760, (150, 210, 180, 255), 60, 3, 1.1)
+    for k in range(10): x, y = 120 + k * 230, 660 + (k % 3) * 50; d.rect(x, y, x + 100, y + 70, (255, 246, 236, 255)); d.poly([(x - 10, y), (x + 50, y - 50), (x + 110, y)], fill=(LIL, CORL, (120, 200, 230, 255))[k % 3])
+    d.stroke([(0, 900), (700, 820), (1400, 900), (W2, 820)], (240, 230, 250, 255), 26); fl(d, (170, 190, 170, 255)); im.alpha_composite(d.out()); im.convert('RGB').save(path)
 
 
-def ruin(path):                                              # dusty-rose slate 1940s: overcast, dry brush, tumbleweeds, broken fence
-    im = sky((150, 150, 170), (230, 180, 180), 1.0); d = Draw(W2, H2); hills(d, 680, (170, 140, 140, 255), 90, 2)
-    for x, y in ((300, 160), (1400, 120), (2000, 200)): [d.dot(x + k * 120, y + (k % 2) * 30, 100, (200, 196, 210, 240)) for k in range(4)]
-    for x in (400, 1500, 2100): d.ellipse(x, 880, 70, 60, outline=(150, 110, 80, 255), width=10)
-    for x in range(100, W2, 260): d.rect(x, 780, x + 12, 900, (120, 100, 90, 255))
-    fl(d, (170, 140, 130, 255)); im.alpha_composite(d.out()); im.convert('RGB').save(path)
+def room13(path):                                            # violet 2013 room: shelves, a window with the city, a blue screen glow
+    im = M.sky((90, 50, 150), (170, 110, 210), 1.0); d = Draw(W2, H2); d.rrect(1500, 150, 2150, 650, 20, fill=(40, 40, 110, 255), outline=(220, 190, 250, 255), width=16)
+    M.stars(d, 30, 600, 5); [d.rect(x, 260, x + 300, 280, (200, 160, 230, 255)) for x in (200, 650)]; [d.rect(x + 20 * k, 200, x + 20 * k + 14, 260, (CORL, YEL, CYN)[k % 3]) for x in (220, 680) for k in range(8)]
+    fl(d, (90, 70, 130, 255)); im.alpha_composite(d.out()); CE.glow(im, 1200, 600, 400, (120, 160, 255, 70), 80); im.convert('RGB').save(path)
 
 
-def blinds(path):                                            # mint-cream 1949 office: venetian blind light stripes, desk lamp, filing cabinets
-    im = sky((170, 230, 210), (250, 246, 230), 1.0); d = Draw(W2, H2); d.rrect(800, 120, 1600, 620, 20, fill=(255, 250, 230, 255), outline=(120, 150, 140, 255), width=20)
-    [d.rect(820, y, 1580, y + 18, (150, 180, 170, 255)) for y in range(150, 610, 50)]; [d.rect(x, 560, x + 220, 940, (120, 160, 150, 255)) for x in (150, 2000)]
-    fl(d, (140, 120, 100, 255)); im.alpha_composite(d.out()); im.convert('RGB').save(path)
+def xray(path):                                              # cyan x-ray blueprint: grid, circuit traces with dots
+    im = M.sky((20, 110, 150), (60, 190, 210), 1.0); d = Draw(W2, H2); [d.stroke([(x, 0), (x, H2)], (150, 230, 250, 90), 3) for x in range(0, W2, 80)]; [d.stroke([(0, y), (W2, y)], (150, 230, 250, 90), 3) for y in range(0, H2, 80)]
+    for k in range(9): y = 120 + k * 90; d.stroke([(0, y), (500 + k * 60, y), (560 + k * 60, y + 60), (W2, y + 60)], (200, 250, 255, 150), 6); d.dot(500 + k * 60, y, 12, YEL)
+    fl(d, (30, 100, 130, 255)); im.alpha_composite(d.out()); im.convert('RGB').save(path)
 
 
-def premiere(path):                                          # plum-gold premiere night: crossing searchlights, star sparkles, velvet ropes
-    im = sky((70, 30, 90), (200, 90, 140), 1.0); d = Draw(W2, H2)
-    for x0, x1 in ((300, 900), (2100, 1400), (900, 300), (1500, 2200)): d.poly([(x0, 940), (x1 - 80, 0), (x1 + 80, 0)], fill=(255, 240, 200, 60))
-    r = np.random.RandomState(6); [d.text(r.randint(0, W2), r.randint(40, 700), '*', 60, (255, 230, 150, 255)) for _ in range(26)]
-    for x in range(100, W2, 300): d.rect(x, 760, x + 16, 900, GOLDC); d.dot(x + 8, 750, 18, GOLDC)
-    d.stroke([(100, 790), (400, 840), (700, 790), (1000, 840), (1300, 790), (1600, 840), (1900, 790), (2200, 840)], (200, 40, 70, 255), 14)
-    fl(d, (160, 50, 70, 255)); im.alpha_composite(d.out()); im.convert('RGB').save(path)
+def dawn(path):                                              # coral ten-hours dawn: sun rising behind soft hills, pink clouds
+    im = M.sky((255, 130, 120), (255, 220, 170), 1.0); d = Draw(W2, H2); d.dot(1200, 700, 240, (255, 240, 180, 255))
+    for x, y in ((400, 220), (1700, 180)): [d.dot(x + k * 110, y + (k % 2) * 30, 80, (255, 200, 210, 230)) for k in range(4)]
+    hills(d, 700, (240, 140, 130, 255), 80, 2); fl(d, (200, 120, 110, 255)); im.alpha_composite(d.out()); CE.glow(im, 1200, 700, 400, (255, 230, 160, 110), 80); im.convert('RGB').save(path)
+
+
+def workshop(path):                                          # lemon-mint watt workshop: pegboard, tool shapes, shelf with jars
+    im = M.sky((230, 240, 140), (180, 240, 210), 1.0); d = Draw(W2, H2); d.rrect(300, 120, 2100, 760, 20, fill=(220, 200, 150, 255), outline=(150, 130, 90, 255), width=14)
+    for x in range(360, 2080, 70):
+        for y in range(170, 740, 70): d.dot(x, y, 8, (170, 150, 100, 255))
+    for x, c in ((600, CORL), (1000, (120, 200, 230, 255)), (1500, VIO), (1850, ORG)): d.rrect(x - 40, 260, x + 40, 560, 20, fill=c, outline=LINE, width=8)
+    fl(d, (150, 170, 130, 255)); im.alpha_composite(d.out()); im.convert('RGB').save(path)
 
 
 if __name__ == '__main__':
     for sub in ('puppets', 'textures', 'bg', 'props', 'models', 'audio'): os.makedirs(os.path.join(ROOT, sub), exist_ok=True)
-    items = build_cast4(('chandler', 'lineman'))
-    multi = dict(sign={'default': sign('hook'), 'land': sign('land'), 'glow': sign('glow'), 'old': sign('old'), 'cut': sign('cut')},
-                 letL={'default': letter('L'), 'bye': letter('L', 'shocked')}, letA={'default': letter('A'), 'bye': letter('A', 'shocked')}, letN={'default': letter('N'), 'bye': letter('N', 'shocked')}, letD={'default': letter('D'), 'bye': letter('D', 'shocked')},
-                 house={'default': house()}, lots={'default': lots()}, paper={'default': paper()}, giant={'default': giant()}, bulbs={'default': bulbs(), 'off': bulbs('off')},
-                 hourglass={'default': hourglass()}, contract={'default': contract(), 'cut': contract('cut')}, scissors={'default': scissors()}, globe={'default': globe()})
+    items = build_cast5(('rosa', 'dev'))
+    SP = dict(face=ORG, side=(170, 70, 10, 255), plate=(20, 40, 60, 255), rim=(60, 220, 230, 255), h=470)
+    multi = dict(bulb={'default': bulb(), 'dark': bulb('dark'), 'shocked': bulb('shocked'), 'sleepy': bulb('sleepy'), 'bright': bulb('bright'), 'wink': bulb('wink')},
+                 stop={'default': stopper(['ON SINCE 1901'], **SP), 'off': stopper(['ON SINCE 1901'], lit=False, **SP), 'esc': stopper(['ON SINCE 1901', 'NEVER DIED?!'], **SP),
+                       'wait': stopper(["WHAT'S ITS", 'SECRET?'], **SP)},
+                 fireh={'default': firehouse()}, kiln={'default': kiln()}, wars={'default': wars()}, truck={'default': truck()}, cam={'default': cam(), 'dark': cam('dark')},
+                 psu={'default': psu(), 'broken': psu('broken')}, clock={'default': clock()}, meter={'default': meter(), 'four': meter('4')}, fil={'default': fil()}, switch={'default': switch()})
     for nm, faces in multi.items(): G.build_card(nm, faces); items += [(nm + ' ' + k, im) for k, im in faces.items()]
-    PU, TQ, RB = (100, 40, 120, 255), (20, 120, 120, 255), (190, 50, 80, 255)
-    cards = dict(hookc=neon3('THE HOLLYWOOD SIGN', 'WAS NEVER ABOUT', 'MOVIES!'),
-                 adc=stamp('A BILLBOARD FOR HOUSES!', 1000, RB, 100, -3),
-                 down=stamp('BUILT TO COME DOWN', 960, PU, 110, 3),
-                 y1923=M.cal('L.A.', '1923', TQ),
-                 pubc=P_('PUBLISHER OF THE', 'L.A. TIMES', NAVY, 900, 100, 150, YEL),
-                 hlandc=P_('A NEIGHBORHOOD', 'HOLLYWOODLAND', TQ, 960, 100, 130, YEL),
-                 thirteen=M.bigneon('13', 'LETTERS', 640, YEL, (120, 230, 220, 255)),
-                 ft45=M.bigneon('EACH ABOUT', '45 FEET TALL', 860, YEL, (255, 130, 180, 255)),
-                 bulbc=M.bigneon('4,000', 'LIGHT BULBS', 760, YEL, GOLDC),
-                 lifec=P_('PLANNED LIFE', '1.5 YEARS', RB, 820, 120, 170, YEL),
-                 nobody=stamp('NOBODY TOOK IT DOWN', 980, PU, 105, -3),
-                 apart=stamp('FALLING APART...', 820, (120, 110, 130, 255), 120, 3),
-                 y1949=M.cal('THE DEAL', '1949', RB),
-                 cond=stamp('ONE CONDITION', 820, MAG, 125, -3),
-                 famous=P_('MOST FAMOUS', 'MOVIE SIGN', PU, 820, 130, 160, YEL),
-                 realad=M.bigneon('A REAL', 'ESTATE AD!', 760, YEL, (255, 130, 180, 255)))
+    TQ, RB, PU = (20, 120, 130, 255), (200, 40, 50, 255), (100, 50, 150, 255)
+    cards = dict(livc=P_('LIVERMORE,', 'CALIFORNIA', TQ, 900, 110, 120, YEL), y1890=M.cal('OHIO', '1890s', (210, 110, 40, 255)), handc=stamp('HANDMADE CARBON BULB', 980, (180, 80, 40, 255), 96, -3),
+                 warsc=M.bigneon('TWO WORLD', 'WARS', 760, YEL, CORL), movec=stamp('A MOVE ACROSS TOWN', 960, PU, 100, 3), y2013=M.cal('MAY', '2013', VIO),
+                 deadc=stamp('OLDEST BULB: DEAD?!', 960, RB, 104, -3), wasnt=stamp("IT WASN'T!", 760, (30, 150, 110, 255), 130, 3), psuc=P_('FAULTY', 'POWER SUPPLY', RB, 900, 110, 120, YEL),
+                 finec=stamp('THE BULB WAS FINE', 940, (30, 150, 110, 255), 104, -3), triesc=stamp('IT BARELY TRIES', 900, ORG, 110, 3), wattc=M.bigneon('BUILT: 60 W', 'NOW: ABOUT 4', 820, YEL, (120, 255, 160, 255)),
+                 filc=P_('THICK', 'FILAMENT', (180, 80, 30, 255), 760, 120, 130, YEL), offc=stamp('ALMOST NEVER OFF', 900, TQ, 108, -3), failc=stamp('THE MACHINE FAILED FIRST', 1000, RB, 96, 3),
+                 didnt=stamp("THE BULB DIDN'T!", 900, (30, 150, 110, 255), 112, -3))
     cards_out(ROOT, cards, multi, items)
     T = lambda n: os.path.join(ROOT, 'textures', n)
-    M.sandtex(T('hillfl.jpg'), (170, 130, 110), (156, 118, 100)); CE.tiles(T('decofl.jpg'), (40, 90, 100), (34, 80, 90)); M.sandtex(T('sagefl.jpg'), (170, 170, 120), (156, 156, 108)); M.sandtex(T('nightfl.jpg'), (70, 80, 120), (62, 72, 110))
-    M.sandtex(T('dustfl.jpg'), (180, 150, 140), (166, 138, 128)); CE.tiles(T('officefl.jpg'), (160, 140, 110), (146, 128, 100)); CE.tiles(T('carpet.jpg'), (190, 60, 90), (176, 52, 80)); CE.tiles(T('pave.jpg'), (120, 100, 90), (106, 88, 78)); B.tex_wood(T('wood.jpg'))
+    M.sandtex(T('nightfl.jpg'), (50, 90, 100), (44, 80, 90)); CE.tiles(T('brickfl.jpg'), (150, 80, 60), (136, 70, 52)); M.sandtex(T('khakifl.jpg'), (160, 150, 110), (146, 136, 98)); M.sandtex(T('townfl.jpg'), (180, 210, 190), (166, 196, 176))
+    CE.tiles(T('violetfl.jpg'), (120, 90, 160), (108, 80, 146)); CE.tiles(T('bluefl.jpg'), (50, 130, 160), (44, 118, 146)); M.sandtex(T('coralfl.jpg'), (220, 140, 120), (206, 128, 110)); CE.tiles(T('lemonfl.jpg'), (190, 200, 140), (176, 186, 128))
+    CE.tiles(T('pave.jpg'), (60, 90, 100), (52, 80, 90)); B.tex_wood(T('wood.jpg'))
     G.sky(os.path.join(ROOT, 'bg', 'sky.jpg')); Pp = lambda n: os.path.join(ROOT, 'props', n)
-    SETS = dict(sunset=sunset, deco=deco, sage=sage, nightglow=nightglow, ruin=ruin, blinds=blinds, premiere=premiere)
+    SETS = dict(night6=night6, glassw=glassw, warsky=warsky, town=town, room13=room13, xray=xray, dawn=dawn, workshop=workshop)
     for n, f in SETS.items(): f(Pp(n + '.png')); items.append((n, Image.open(Pp(n + '.png'))))
     B.sheet(items, os.path.join(ROOT, 'assets_preview.jpg'))
     print('assets written to', ROOT, '-', len(items), 'items')
