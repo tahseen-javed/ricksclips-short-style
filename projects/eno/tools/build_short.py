@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Generate short.json (and the word-cued music) for video 32: the Hollywood sign was never about movies.
+"""Generate short.json (and the word-cued music) for video 34: the man who invented the stop sign never learned to drive.
 usage: build_short.py <project folder>
-Seven jazz-age sets 70 units apart: HK peach-magenta sunset hillside with the sign (hook + loop; the "????" tarp over the missing end =
-open loop, resolved when L, A, N, D wave goodbye), PR plum-gold premiere night, SG sage-terracotta lots, DC teal-gold art-deco office,
-NT navy night with glowing bulbs, RU dusty-rose 1940s ruin, BL mint-cream 1949 office. Shots 0.7-2 s, every neighbour a different move;
-the sign, letters and props are the stars, people small companions."""
+Eight gilded-traffic sets 70 units apart: HK cobalt-pink dusk crossroads (hook + loop: Eno the horseman, his horse and a giant STOP sign;
+StopperText sticker slaps on), NY foggy amber-teal 1867 Broadway (the jam, William age nine, his mother, the policeman), WR mint study,
+CH cream-gold marble hall, IN candy-pastel toy roads, FD lilac campus, ST golden-hour stable, SP sky-blue split road (carriage -> car).
+Shots 0.7-2 s, every neighbour a different move; the signs and props are the stars. Open loop: HOW?! (a non-driver) -> he was a horseman."""
 import json, os, sys, subprocess, math
 import scene_base as base
 from scene_base import *
 
-base.X.clear(); base.X.update(HK=0, PR=70, SG=140, DC=210, NT=280, RU=350, BL=420)
+base.X.clear(); base.X.update(HK=0, NY=70, WR=140, CH=210, IN=280, FD=350, ST=420, SP=490)
 HERE = os.path.dirname(os.path.abspath(__file__)); PARK = base.PARK
 ASP = json.load(open(os.path.join(P, "aspect.json")))
 
@@ -45,24 +45,25 @@ def yard(loc, img, floor, w=16, rep=(8, 8)):
     plane(loc, img, 0, -0.2, -6.5, w, round(w * 1100 / 2400, 3)); box(loc, 0, 0, -1, [w, 0.04, 12], texture=floor, repeat=list(rep))
 
 
-yard("HK", "sunset.png", "hillfl.jpg"); box("HK", 0.0, 0.04, -3.3, [2.3, 0.9, 0.7], color="#a08a6a"); box("HK", 5.1, 0.04, -2.75, [1.9, 0.94, 0.5], color="#c89a6a"); tree("HK", -2.6, -4.4, 0.8, "#5a7a5a"); tree("HK", 2.8, -4.6, 0.9, "#64845e")
-yard("PR", "premiere.png", "carpet.jpg"); box("PR", 0.0, 0.04, -2.8, [1.4, 0.3, 1.0], color="#f0c450")
-yard("SG", "sage.png", "sagefl.jpg"); tree("SG", -3.6, -4.2, 0.9, "#7aa070"); tree("SG", 3.4, -4.0, 0.8, "#86aa78")
-yard("DC", "deco.png", "decofl.jpg"); box("DC", 1.1, 0.04, -2.8, [1.4, 0.5, 0.8], color="#2a5a64")
-yard("NT", "nightglow.png", "nightfl.jpg"); box("NT", 0.0, 0.04, -3.5, [3.0, 0.86, 0.6], color="#3a4a6a")
-yard("RU", "ruin.png", "dustfl.jpg"); box("RU", 0.0, 0.04, -3.3, [3.0, 0.76, 0.6], color="#8a7a7a"); barrel("RU", -3.2, -3.6)
-yard("BL", "blinds.png", "officefl.jpg"); box("BL", 0.0, 0.04, -2.7, [1.8, 0.3, 0.8], color="#7a5a40")
+yard("HK", "dusk.png", "asphalt.jpg"); box("HK", 0.0, 0.0, -1.7, [7.0, 0.03, 0.5], color="#f4f0e8"); tree("HK", -3.8, -4.6, 0.8, "#4a6aa0"); tree("HK", 4.4, -4.4, 0.9, "#5a78aa")
+yard("NY", "broadway.png", "cobble2.jpg"); post("NY", -1.6, -4.2, 2.4, "#3a2a2a")
+yard("WR", "study.png", "mintfl.jpg"); box("WR", 0.0, 0.04, -2.8, [2.0, 0.7, 0.9], color="#8a5a3a")
+yard("CH", "marble.png", "marblefl.jpg"); box("CH", 0.0, 0.04, -2.8, [1.3, 0.3, 0.9], color="#c8a050")
+yard("IN", "candy.png", "candyfl.jpg"); tree("IN", -4.6, -4.2, 0.8, "#ff8ab0"); tree("IN", 4.8, -4.4, 0.8, "#8ad0ff")
+yard("FD", "campus.png", "lilacfl.jpg"); box("FD", -2.2, 0.04, -2.8, [1.0, 0.3, 0.8], color="#7a6aa0")
+yard("ST", "stable.png", "hayfl.jpg"); box("ST", 3.4, 0.04, -2.8, [1.0, 0.3, 0.8], color="#a07040"); crate("ST", -3.4, 0.04, -3.6, 0.7)
+yard("SP", "splitroad.png", "roadfl.jpg"); box("SP", 0.0, 0.04, -2.8, [0.6, 0.3, 0.6], color="#7a7a90")
 
 # ================================================================== CHARACTERS (cards + background decor carry "_" in the id: not frame-checked; hero props are)
-put("signK", "sign", pos("HK", 0.0, 0.94, -3.3), 0.6); human("lineK", "lineman", pos("HK", 0.6, 0.04, -2.3), face="shocked", h=1.05)
-for ch_ in "LAND": put("let%sK" % ch_, "let" + ch_, PARK, 0.85)
-put("hourK", "hourglass", pos("HK", -4.2, 0.04, -2.4), 1.0); put("sciK", "scissors", pos("HK", -7.6, 0.3, -2.4), 0.7)
-put("globeP", "globe", pos("PR", 0.0, 0.34, -2.8), 1.3)
-put("houseS", "house", pos("SG", -0.95, 0.04, -3.0), 0.8); put("lotsS", "lots", pos("SG", 0.9, 0.04, -2.4), 0.7); put("giantS", "giant", pos("SG", 5.4, 0.04, -2.6), 1.4)
-human("chandD", "chandler", pos("DC", -0.8, 0.04, -2.2), face="happy", h=1.6); put("paperD", "paper", pos("DC", 1.1, 0.54, -2.8), 0.95)
-put("signN", "sign", pos("NT", 0.0, 0.9, -3.5), 0.6, face="glow"); put("bulbsN", "bulbs", pos("NT", 3.4, 0.2, -2.4), 0.8); human("lineN", "lineman", pos("NT", -2.6, 0.04, -2.2), face="happy", h=1.5)
-put("signR", "sign", pos("RU", 0.0, 0.8, -3.3), 0.6, face="old"); put("bulbsR", "bulbs", pos("RU", 3.2, 0.04, -2.4), 0.7, face="off")
-put("dealB", "contract", pos("BL", 0.0, 0.34, -2.7), 1.25)
+put("signH", "stopsign", pos("HK", 0.55, 0.04, -2.9), 1.8); human("enoH", "eno", pos("HK", -0.5, 0.04, -2.4), face="happy", h=1.5); put("carH", "car", pos("HK", 3.6, 0.04, -2.8), 0.75)
+put("jamN", "jam", pos("NY", 0.0, 0.04, -3.4), 1.5); put("carrN", "carriage", pos("NY", 4.6, 0.04, -3.0), 1.2); human("willy", "willy", pos("NY", 4.0, 0.04, -2.3), face="shocked", h=1.0); human("mom", "mom", pos("NY", 5.1, 0.04, -2.35), face="happy", h=1.5)
+human("cop", "cop", pos("NY", -3.6, 0.04, -2.4), face="shocked", h=1.6); put("cal67_", "y1867", pos("NY", -1.6, 2.4, -4.1), 0.8)
+put("artW", "article", pos("WR", 0.4, 0.74, -2.8), 1.0); human("enoW", "eno", pos("WR", -0.6, 0.04, -2.3), face="happy", h=1.5)
+put("regsC", "regs", pos("CH", 0.0, 0.34, -2.8), 1.4)
+put("signI", "stopsign", pos("IN", -2.7, 0.04, -2.8), 1.6); put("owI", "oneway", pos("IN", -0.1, 0.04, -2.8), 1.0); put("circI", "circle", pos("IN", 1.6, 0.04, -3.4), 0.8)
+put("trophF", "trophy", pos("FD", -2.2, 0.34, -2.8), 1.15); human("enoF", "eno", pos("FD", -3.3, 0.04, -2.4), face="happy", h=1.5); put("foundF", "found", pos("FD", 1.6, 0.04, -3.4), 1.9)
+human("enoS", "eno", pos("ST", 0.2, 0.04, -2.4), face="happy", h=1.5); put("horseS", "horse", pos("ST", -1.0, 0.04, -2.9), 1.2); put("wheelS", "wheel", pos("ST", 3.4, 0.34, -2.8), 1.15)
+put("carrP", "carriage", pos("SP", -1.5, 0.04, -2.8), 0.95); put("carP", "car", pos("SP", 1.5, 0.04, -2.8), 0.75); put("regsP", "regs", pos("SP", 0.0, 0.34, -2.8), 0.75)
 # ================================================================== SHOTS
 SH = {c["id"]: c["height"] for c in chars}
 N_ = [0]; REQ = []; SNAPC = []; FXC = []; LOC = {}
@@ -78,6 +79,7 @@ def card(s, at, who, dy=0.25, dx=0.0, dz=0.3):
     p_ = [round(ax + w * math.cos(y) + dz * math.sin(y), 3), round(ay + dy * 0.728 * d - SH[who] / 2, 3), round(az - w * math.sin(y) + dz * math.cos(y), 3)]
     if at <= 0.001 and s is shots[0]: next(c for c in chars if c["id"] == who)["pos"] = p_    # HOOK LAW: the hook sign is already up at frame 0
     show(s, at, who, p_, hop=0 if (at <= 0.001 and s is shots[0]) else 0.12)
+    if not who.startswith("stop"): act(s, at, who, pop=1.25 if (at <= 0.001 and s is shots[0]) else 1)     # every card pops in with an ease-out-back overshoot
 
 
 def tag(s, at, name, dy=0.25, dx=0.0, dz=0.3, wf=0.24, hf=0.17, tilt=0):
@@ -107,42 +109,51 @@ def blink(s, who, t0, t1, step=0.3):
     while t < t1: act(s, round(t, 3), who, face="b" if k % 2 == 0 else "default"); t += step; k += 1
 
 
-HOOK = dict(anchor=(0.0, 1.25, -3.0), dist=6.2, yaw=14, pitch=6)
-LAND_P = dict(L=(4.68, 0.98, -2.75), A=(5.52, 0.98, -2.75), N=(4.68, 0.04, -2.2), D=(5.52, 0.04, -2.2))
-# ---- The Hollywood sign was never about movies. It's a billboard for houses, and it was built to come down.
-s = S("0", "HK", zoom=5, **HOOK); act(s, 0.0, "signK", shake=0.4); tag(s, 0.0, "hookc", 0.31, 0.0, wf=0.6, hf=0.19); ft(s, "lineK", ["shocked", "confused"])
-s = S("never about movies", "PR", (0.0, 1.0, -2.8), 4.8, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="globeP", blur=0.5)); act(s, rel(s, "movies"), "globeP", shake=0.5); snap(s, rel(s, "movies"), 10)
-s = S("It's a billboard", "SG", (-0.95, 0.5, -3.0), 4.2, 8, pitch=6, zoom=12, dof=dict(focus="houseS", blur=0.4)); act(s, rel(s, "houses"), "houseS", shake=0.5); T(s, "adc", at=rel(s, "billboard"), dy=0.38, wf=0.62)
-s = S("and it was", "HK", (-4.2, 0.6, -2.4), 4.2, -10, pitch=14, pitchTo=3, dof=dict(focus="hourK", blur=0.4)); act(s, rel(s, "down"), "hourK", shake=0.5); T(s, "down", at=rel(s, "built"), dy=0.38, wf=0.6)
-# ---- Los Angeles, 1923. A group of developers, including the publisher of the Los Angeles Times, is selling hillside lots in a neighborhood called Hollywoodland.
-s = crane("Los Angeles 1923", "SG", (0.0, 0.8, -2.7), 7.6, -22, -2, 36, 8); T(s, "y1923", at=rel(s, "1923"), dx=-0.24, dy=0.22, wf=0.26, hf=0.26)
-s = crane("A group of", "DC", (0.2, 1.0, -2.4), 7.0, 22, 2, 34, 8); ft(s, "chandD", ["happy", "smug"])
-s = S("including the publisher", "DC", (-0.8, 1.05, -2.2), 4.4, -8, pitch=5, zoom=12, dof=dict(focus="chandD", blur=0.4)); ft(s, "chandD", ["smug", "happy"]); cfx(s, 0.2, "glint", "chandD", 0.5)
-s = S("Los Angeles Times", "DC", (1.1, 1.0, -2.8), 4.2, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="paperD", blur=0.5)); act(s, 0.05, "paperD", shake=0.5); T(s, "pubc", at=0.05, dy=0.38, wf=0.6); snap(s, 0.15, 8)
-s = S("is selling hillside", "SG", (0.9, 0.45, -2.4), 4.6, 6, pitch=8, zoom=4, pan=(-8, 0)); act(s, rel(s, "lots"), "lotsS", shake=0.5)
-s = S("a neighborhood called", "SG", (0.0, 0.7, -2.7), 7.6, -10, pitch=5, zoom=-10); T(s, "hlandc", at=rel(s, "Hollywoodland") - 0.2, dy=0.36, wf=0.62)
-# ---- So they write its name on the hill. Thirteen letters, each about forty-five feet tall. Four thousand light bulbs. Twenty-one thousand dollars. Planned life: about a year and a half.
-s = crane("So they write", "HK", (0.0, 1.25, -3.3), 6.6, -22, 8, 36, 8); hide(s, 0.0, "lineK"); act(s, 0.0, "signK", face="land", shake=0.4)
-s = S("Thirteen letters", "HK", (0.0, 1.25, -3.3), 5.4, -12, pitch=5, yawTo=8); act(s, 0.05, "signK", face="land", shake=0.3); T(s, "thirteen", at=0.05, dy=0.36, wf=0.42)
-s = S("each about fortyfive", "SG", (5.4, 0.8, -2.6), 4.8, 4, pitch=-2, pitchTo=10, dof=dict(focus="giantS", blur=0.4)); act(s, 0.05, "giantS", shake=0.3); T(s, "ft45", at=0.1, dy=0.38, wf=0.62); snap(s, 0.2, 8)
-s = S("Four thousand light", "NT", (3.4, 0.6, -2.4), 4.0, 12, pitch=6, yawTo=-6, type="macro", dof=dict(focus="bulbsN", blur=0.5)); act(s, 0.05, "bulbsN", shake=0.5); T(s, "bulbc", at=0.1, dy=0.38, wf=0.56)
-s = S("Twentyone thousand", "NT", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="TWENTY-ONE THOUSAND", items=["DOLLARS"]))
-s = S("Planned life about", "HK", (-4.2, 0.55, -2.4), 4.4, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="hourK", blur=0.5)); act(s, 0.05, "hourK", shake=0.4); T(s, "lifec", at=0.1, dy=0.38, wf=0.56); snap(s, rel(s, "year"), 8)
-# ---- You see, nobody took it down. It just sat there, falling apart. Then in 1949, a deal saved it, with one condition: cut the last four letters. L. A. N. D.
-s = crane("You see nobody", "RU", (0.0, 1.0, -3.0), 6.6, 22, 2, 36, 8); act(s, 0.2, "signR", shake=0.3); T(s, "nobody", at=rel(s, "nobody"), dy=0.35, wf=0.62)
-s = S("It just sat", "RU", (0.0, 1.0, -3.3), 6.4, 6, pitch=8, zoom=4, pan=(8, 0)); act(s, rel(s, "falling"), "signR", shake=0.6); T(s, "apart", at=rel(s, "falling"), dy=0.37, wf=0.5); cfx(s, 0.3, "sweat", "bulbsR", 0.6)
-s = crane("Then in 1949", "BL", (0.0, 1.0, -2.6), 6.6, -22, -2, 34, 8); T(s, "y1949", at=rel(s, "1949"), dx=-0.2, dy=0.33, wf=0.24, hf=0.24)
-s = S("a deal saved", "BL", (0.0, 0.95, -2.7), 4.4, 8, pitch=6, zoom=12, dof=dict(focus="dealB", blur=0.4)); act(s, rel(s, "saved"), "dealB", shake=0.5)
-s = S("one condition", "BL", (0.0, 0.95, -2.7), 4.8, -4, pitch=14, pitchTo=3); act(s, 0.05, "dealB", face="cut", shake=0.6); T(s, "cond", at=0.05, dy=0.38, wf=0.5)
-s = S("cut the last", "HK", (-7.6, 0.55, -2.4), 4.0, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="sciK", blur=0.5)); act(s, rel(s, "cut"), "sciK", shake=0.7); snap(s, rel(s, "cut") + 0.05, 10)
-s = S("L", "HK", (5.1, 0.95, -2.5), 5.2, 6, pitch=6, zoom=6)
-for ch_ in "LAND": show(s, rel(s, ch_.lower()), "let%sK" % ch_, pos("HK", *LAND_P[ch_]))
-# ---- So the most famous movie sign on Earth is a real estate ad with the ending chopped off. And it was never about movies.
-s = S("So the most", "PR", (0.0, 1.0, -2.8), 5.6, 10, pitch=5, zoom=-10); act(s, 0.05, "globeP", shake=0.4); T(s, "famous", at=rel(s, "famous"), dy=0.38, wf=0.5)
-s = S("is a real", "HK", (0.0, 1.25, -3.3), 6.0, -10, pitch=6, yawTo=6); act(s, 0.0, "signK", face="cut", shake=0.4); T(s, "realad", at=rel(s, "real"), dy=0.38, wf=0.56); snap(s, rel(s, "estate"), 8)
-s = S("ending chopped off", "HK", (5.1, 0.95, -2.5), 5.6, -4, pitch=14, pitchTo=3)
-for ch_ in "LAND": act(s, 0.05, "let%sK" % ch_, face="bye", shake=0.6)
-s = S("never about#2", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); show(s, 0.0, "lineK", pos("HK", 0.6, 0.04, -2.3), hop=0); act(s, 0.0, "signK", face="default", shake=0.4); T(s, "hookc", at=0.05, dy=0.31, wf=0.6, hf=0.19)
+HOOK = dict(anchor=(0.15, 1.1, -2.9), dist=6.6, yaw=-10, pitch=6)
+def STOP(s, face, at=0.0, k=None, shake=None):                 # StopperText: one sticker card, re-placed in every hook shot (no re-pop), escalates by face
+    cid = T(s, "stop", at=at, dy=0.31, wf=0.62, hf=0.24); act(s, at, cid, face=face)
+    if k: act(s, at, cid, pop=k)
+    if shake: act(s, at, cid, shake=shake)
+    return cid
+# ---- The man who invented the stop sign never learned to drive a car.
+s = S("0", "HK", zoom=9, **HOOK); STOP(s, "default", 0.0, k=1.35, shake=0.3); ft(s, "enoH", ["happy", "shocked"]); act(s, 0.0, "signH", shake=0.3); act(s, rel(s, "stop"), "signH", face="wink")
+s = S("never learned", "HK", (3.6, 0.5, -2.8), 3.8, 14, pitch=6, yawTo=2, type="macro", dof=dict(focus="carH", blur=0.5)); c = STOP(s, "default"); act(s, 0.8, c, face="esc", pop=1.3, shake=0.3); act(s, rel(s, "car"), "carH", face="x", shake=0.5); snap(s, rel(s, "car"), 9)
+s = crane("William Phelps", "ST", (-0.4, 1.0, -2.6), 6.6, -24, -4, 36, 8); STOP(s, "esc"); ft(s, "enoS", ["happy", "smug"])
+s = crane("New York 1867", "NY", (0.0, 0.9, -3.2), 7.0, 22, 2, 46, 10); c = STOP(s, "esc"); act(s, 0.4, c, face="wait", pop=1.3, shake=0.4); act(s, rel(s, "1867"), "cal67_", shake=0.4)
+s = S("He's nine", "NY", (4.55, 0.85, -2.6), 5.4, -8, pitch=6, zoom=11); c = STOP(s, "wait"); hide(s, 0.6, c); T(s, "age9", at=0.7, dy=0.37, wf=0.4); ft(s, "willy", ["shocked", "nervous"]); ft(s, "mom", ["happy", "nervous"])
+s = S("in a traffic", "NY", (0.0, 0.7, -3.4), 5.6, 10, pitch=44, pitchTo=30, type="macro", dof=dict(focus="jamN", blur=0.4)); act(s, rel(s, "jam"), "jamN", shake=0.6); snap(s, rel(s, "jam"), 9)
+s = S("Not cars", "HK", (3.6, 0.5, -2.8), 4.2, -6, pitch=5, zoom=-10); act(s, 0.0, "carH", face="x", shake=0.4); T(s, "notcars", at=0.05, dy=0.37, wf=0.5)
+s = S("dozen horses", "NY", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="ABOUT A DOZEN", items=["HORSES AND CARRIAGES"]))
+# ---- And nobody, not the drivers, not the police, knows how to untangle it. He never forgets it. In 1900, he writes an article demanding real traffic rules.
+s = S("And nobody", "NY", (0.0, 0.8, -3.4), 6.0, -14, pitch=12, zoom=5, pan=(8, 0)); act(s, 0.1, "jamN", shake=0.4); cfx(s, 0.3, "question", "jamN", 0.8)
+s = S("not the police", "NY", (-3.6, 1.0, -2.4), 4.6, 12, pitch=6, yawTo=-2, dof=dict(focus="cop", blur=0.4)); ft(s, "cop", ["shocked", "confused"]); T(s, "nobody", at=rel(s, "knows"), dy=0.38, wf=0.62); snap(s, rel(s, "police"), 7)
+s = S("He never forgets", "NY", (4.0, 0.75, -2.3), 4.0, 6, pitch=14, pitchTo=3, dof=dict(focus="willy", blur=0.4)); hide(s, 0.0, "mom"); hide(s, 0.0, "carrN"); ft(s, "willy", ["nervous", "smug"]); T(s, "y1900", at=rel(s, "1900"), dx=-0.24, dy=0.24, wf=0.26, hf=0.26)
+s = crane("he writes an", "WR", (0.0, 1.05, -2.6), 5.8, 22, 4, 34, 8); ft(s, "enoW", ["happy", "smug"])
+s = S("real traffic rules", "WR", (0.4, 1.2, -2.8), 3.8, -12, pitch=6, yawTo=4, type="macro", dof=dict(focus="artW", blur=0.5)); act(s, 0.05, "artW", shake=0.4); hide(s, 0.0, "enoW"); T(s, "rulesc", at=rel(s, "rules"), dy=0.38, wf=0.62); snap(s, rel(s, "rules"), 8)
+# ---- It leads to New York's first written traffic regulations. Then he keeps going. The stop sign. One-way streets. Traffic circles.
+s = crane("It leads to", "CH", (0.0, 1.0, -2.8), 5.4, -22, 2, 36, 8); act(s, rel(s, "leads"), "regsC", shake=0.4)
+s = S("written traffic regulations", "CH", (0.0, 1.05, -2.8), 4.2, 8, pitch=6, zoom=12, dof=dict(focus="regsC", blur=0.4)); T(s, "firstc", at=0.05, dy=0.38, wf=0.66)
+s = crane("Then he keeps", "IN", (1.75, 0.3, -3.4), 4.4, 20, 2, 56, 22); act(s, 0.2, "circI", shake=0.3)
+s = S("The stop sign#2", "IN", (-2.7, 1.0, -2.8), 4.0, -8, pitch=6, zoom=14); act(s, 0.05, "signI", face="wink", shake=0.5); snap(s, 0.15, 8)
+s = S("Oneway streets", "IN", (0.75, 0.55, -3.0), 7.8, 8, pitch=26, yawTo=-6, pitchTo=14); act(s, 0.05, "owI", shake=0.5); act(s, rel(s, "circles"), "circI", shake=0.5)
+# ---- They call him the father of traffic safety. His foundation, started in 1921, still studies transportation today.
+s = S("They call him", "FD", (-2.7, 1.0, -2.6), 4.8, 10, pitch=5, zoom=-9, pan=(-6, 0)); ft(s, "enoF", ["happy", "smug"]); T(s, "father", at=rel(s, "father"), dy=0.37, wf=0.6); act(s, rel(s, "safety"), "trophF", shake=0.4)
+s = crane("His foundation", "FD", (1.6, 1.1, -3.4), 6.6, -20, 4, 34, 8); T(s, "y1921", at=rel(s, "1921"), dx=-0.25, dy=0.25, wf=0.26, hf=0.26); act(s, rel(s, "1921"), "foundF", shake=0.4); snap(s, rel(s, "1921"), 8)
+s = S("still studies", "FD", (1.6, 1.0, -3.4), 5.6, 6, pitch=14, pitchTo=4); T(s, "today", at=rel(s, "studies"), dy=0.38, wf=0.62)
+# ---- You see, Eno didn't need a steering wheel to see the problem. He was a horseman. His rules were written for carriages, and they worked so well that cars simply inherited them.
+s = S("You see Eno", "ST", (0.2, 1.1, -2.4), 4.6, -10, pitch=6, zoom=12, dof=dict(focus="enoS", blur=0.4)); ft(s, "enoS", ["smug", "happy"]); hide(s, 0.0, "horseS")
+s = S("steering wheel", "ST", (3.4, 0.9, -2.8), 3.8, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="wheelS", blur=0.5)); act(s, rel(s, "wheel") + 0.1, "wheelS", face="x", shake=0.6); snap(s, rel(s, "wheel"), 8)
+s = crane("He was a", "ST", (-0.4, 0.9, -2.6), 6.0, 22, -2, 34, 8); T(s, "horsem", at=rel(s, "horseman"), dy=0.37, wf=0.56); show(s, 0.0, "horseS", pos("ST", -1.0, 0.04, -2.9), hop=0); act(s, rel(s, "horseman"), "horseS", shake=0.4); ft(s, "enoS", ["happy", "smug"])
+s = S("His rules were", "SP", (-1.5, 0.6, -2.8), 4.4, -8, pitch=6, zoom=11); act(s, 0.1, "carrP", shake=0.3); T(s, "carri", at=rel(s, "carriages"), dy=0.37, wf=0.64)
+s = S("and they worked", "SP", (0.0, 0.6, -2.8), 3.0, 4, pitch=6, zoom=12); act(s, 0.1, "regsP", shake=0.4)
+s = S("cars simply inherited", "SP", (1.5, 0.5, -2.8), 3.8, -12, pitch=6, yawTo=4, type="macro", dof=dict(focus="carP", blur=0.5)); act(s, rel(s, "inherited"), "carP", shake=0.5); T(s, "inherit", at=0.1, dy=0.38, wf=0.58); snap(s, rel(s, "inherited"), 8)
+# ---- So every driver who stops at a stop sign is obeying a man who never drove. A man who started fixing traffic at nine years old, stuck behind a dozen horses.
+s = crane("So every driver", "HK", (3.6, 0.5, -2.8), 4.8, 24, 4, 44, 10); act(s, rel(s, "stops"), "carH", face="default", shake=0.3)
+s = S("at a stop", "HK", (0.55, 1.5, -2.9), 4.2, 8, pitch=6, zoom=13, dof=dict(focus="signH", blur=0.4)); act(s, 0.1, "signH", face="default", shake=0.4); hide(s, 0.0, "enoH")
+s = S("a man who never", "HK", (-0.55, 0.95, -2.4), 4.4, -12, pitch=14, pitchTo=3, dof=dict(focus="enoH", blur=0.4)); show(s, 0.0, "enoH", pos("HK", -0.5, 0.04, -2.4), hop=0); hide(s, 0.0, "signH"); ft(s, "enoH", ["smug", "happy"]); T(s, "neverd", at=rel(s, "drove"), dy=0.38, wf=0.6)
+s = S("A man who started", "NY", (4.0, 0.75, -2.3), 4.2, 10, pitch=6, zoom=-9, pan=(6, 0), dof=dict(focus="willy", blur=0.4)); ft(s, "willy", ["smug", "happy"]); T(s, "nineyo", at=rel(s, "nine"), dy=0.38, wf=0.6)
+s = crane("nine years old#2", "NY", (0.0, 0.8, -3.4), 6.0, -20, 4, 46, 26); act(s, 0.1, "jamN", shake=0.4)
+s = S("dozen horses#2", "HK", zoom=-5, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); show(s, 0.0, "signH", pos("HK", 0.55, 0.04, -2.9), hop=0); act(s, 0.0, "signH", face="default"); act(s, 0.6, "signH", face="wink", shake=0.3); ft(s, "enoH", ["happy", "shocked"]); STOP(s, "default", 0.05, k=1)
 for s in shots: s.setdefault("frameY", 0.0)
 
 starts = [0.0 if s["start"] == 0 else say(s["_phrase"]) for s in shots]
@@ -190,8 +201,8 @@ for s in shots:
             prev = seq[j % len(seq)]; j += 1; act(s, round(i * 0.55, 3), who, face=prev)
 # ---- atmosphere by set: dust + rays by day, bokeh by night / dawn
 D_ = lambda c=22: dict(count=c, size=1.0, drift=1.0); BK = lambda a=0.3: dict(count=12, size=1.0, alpha=a)
-ATM = dict(HK=dict(dust=D_(22), rays=dict(angle=24, intensity=0.7)), PR=dict(bokeh=BK(0.55)), SG=dict(dust=D_(22), rays=dict(angle=30, intensity=0.6)), DC=dict(dust=D_(20), rays=dict(angle=20, intensity=0.5)),
-           NT=dict(bokeh=BK(0.5)), RU=dict(dust=D_(30)), BL=dict(dust=D_(22), rays=dict(angle=26, intensity=0.6)))
+ATM = dict(HK=dict(bokeh=BK(0.5)), NY=dict(dust=D_(28), rays=dict(angle=22, intensity=0.6)), WR=dict(dust=D_(20), rays=dict(angle=26, intensity=0.6)), CH=dict(dust=D_(20), rays=dict(angle=18, intensity=0.7)),
+           IN=dict(dust=D_(18), rays=dict(angle=30, intensity=0.5)), FD=dict(dust=D_(20), rays=dict(angle=24, intensity=0.6)), ST=dict(dust=D_(30), rays=dict(angle=16, intensity=0.8)), SP=dict(dust=D_(20), rays=dict(angle=28, intensity=0.5)))
 for s in shots:
     if s.get("type") != "cutaway": s["atmos"] = ATM[LOC[id(s)]]
 
@@ -277,32 +288,33 @@ for (s, at, cid, name, dy, dx, dz, wf, hf, c) in REQ:
     c["height"] = round(h, 3); SH[cid] = c["height"]; card(s, at, cid, dy, dx, dz); RECT[cid] = (s, at, 0.5 + dx - wfr / 2, 0.5 - dy - hfr / 2, 0.5 + dx + wfr / 2, 0.5 - dy + hfr / 2)
 
 # ================================================================== SPEC
-MOOD = dict(HK="sunset", PR="premiere", SG="sage", DC="deco", NT="night23", RU="ruin", BL="blinds")
-light, cur = [{"t": 0, "mood": "sunset"}], "sunset"
+MOOD = dict(HK="cobalt", NY="fog67", WR="mint", CH="marble", IN="candy", FD="lilac", ST="golden", SP="split")
+light, cur = [{"t": 0, "mood": "cobalt"}], "cobalt"
 for k, s in enumerate(shots):
     m = MOOD[LOC[id(s)]]
     if m != cur and s.get("type") != "cutaway": light.append({"t": round(max(0.0, starts[k] - 0.2), 3), "mood": m, "fade": 0.4}); cur = m
 spec = {
     "fps": 30, "audio": {"voice": "audio/voice.mp3", "music": "audio/music.mp3", "musicDb": -11},
     "words": "audio/words.json", "captions": {"wordsPer": 1}, "font": "fonts/Montserrat-ExtraBold.ttf", "contactShadow": 0.6, "seed": 22,
-    "moods": {"sunset": {"sun": {"azimuth": 230, "elevation": 20, "color": "#ffdcc0", "intensity": 2.6}, "sky": {"top": "#e6468c", "horizon": "#ffc896"}, "fill": {"sky": "#fff0ec", "ground": "#7a5a5a", "intensity": 1.9}},
-              "premiere": {"sun": {"azimuth": 160, "elevation": 36, "color": "#fff0e8", "intensity": 2.6}, "sky": {"top": "#461e5a", "horizon": "#c85a8c"}, "fill": {"sky": "#fff0f4", "ground": "#6a3a50", "intensity": 2.3}},
-              "sage": {"sun": {"azimuth": 50, "elevation": 40, "color": "#fffbf0", "intensity": 2.4}, "sky": {"top": "#bedcf0", "horizon": "#ffecd2"}, "fill": {"sky": "#fffaf4", "ground": "#7a7a5a", "intensity": 1.5}},
-              "deco": {"sun": {"azimuth": 150, "elevation": 38, "color": "#fff8ec", "intensity": 2.5}, "sky": {"top": "#146e78", "horizon": "#3caaaa"}, "fill": {"sky": "#f0fffc", "ground": "#3a5a60", "intensity": 2.2}},
-              "night23": {"sun": {"azimuth": 20, "elevation": 40, "color": "#eef2ff", "intensity": 2.7}, "sky": {"top": "#141e5a", "horizon": "#465aaa"}, "fill": {"sky": "#eef2ff", "ground": "#2a3460", "intensity": 2.4}},
-              "ruin": {"sun": {"azimuth": 200, "elevation": 30, "color": "#fff0ec", "intensity": 2.4}, "sky": {"top": "#9696aa", "horizon": "#e6b4b4"}, "fill": {"sky": "#fff4f4", "ground": "#7a6a6a", "intensity": 1.8}},
-              "blinds": {"sun": {"azimuth": 140, "elevation": 40, "color": "#fffbf0", "intensity": 2.4}, "sky": {"top": "#aae6d2", "horizon": "#faf6e6"}, "fill": {"sky": "#fafffc", "ground": "#7a6a5a", "intensity": 1.6}}},
+    "moods": {"cobalt": {"sun": {"azimuth": 220, "elevation": 26, "color": "#ffe0e8", "intensity": 2.7}, "sky": {"top": "#283caa", "horizon": "#ff96be"}, "fill": {"sky": "#f4f2ff", "ground": "#4a4a7a", "intensity": 2.2}},
+              "fog67": {"sun": {"azimuth": 120, "elevation": 30, "color": "#ffe6c0", "intensity": 2.5}, "sky": {"top": "#3c7882", "horizon": "#f0be82"}, "fill": {"sky": "#fff6ea", "ground": "#6a5a4a", "intensity": 1.9}},
+              "mint": {"sun": {"azimuth": 60, "elevation": 40, "color": "#fffcf4", "intensity": 2.4}, "sky": {"top": "#96dcc8", "horizon": "#f0faf0"}, "fill": {"sky": "#fafffc", "ground": "#6a7a6a", "intensity": 1.6}},
+              "marble": {"sun": {"azimuth": 150, "elevation": 42, "color": "#fff8e8", "intensity": 2.4}, "sky": {"top": "#f0dcb4", "horizon": "#fff8e6"}, "fill": {"sky": "#fffaf0", "ground": "#8a7a5a", "intensity": 1.5}},
+              "candy": {"sun": {"azimuth": 40, "elevation": 44, "color": "#fffaf8", "intensity": 2.4}, "sky": {"top": "#ffbedc", "horizon": "#bef0ff"}, "fill": {"sky": "#fffaff", "ground": "#8a7a90", "intensity": 1.5}},
+              "lilac": {"sun": {"azimuth": 100, "elevation": 38, "color": "#fff6fa", "intensity": 2.4}, "sky": {"top": "#aa96e6", "horizon": "#fae6f5"}, "fill": {"sky": "#fbf8ff", "ground": "#7a6a8a", "intensity": 1.6}},
+              "golden": {"sun": {"azimuth": 230, "elevation": 16, "color": "#ffd8a0", "intensity": 2.7}, "sky": {"top": "#ffaa5a", "horizon": "#ffe6aa"}, "fill": {"sky": "#fff4e6", "ground": "#8a6a4a", "intensity": 1.7}},
+              "split": {"sun": {"azimuth": 60, "elevation": 40, "color": "#fffcf4", "intensity": 2.4}, "sky": {"top": "#78befa", "horizon": "#e6f6ff"}, "fill": {"sky": "#f8fcff", "ground": "#6a7a7a", "intensity": 1.6}}},
     "lighting": light, "ground": {"texture": TEX + "pave.jpg", "repeat": [175, 175], "size": 1400},
     "backdrop": {"image": "bg/sky.jpg", "blur": 4}, "ink": {"set": 4},
-    "fxLook": {"ink": "#271925", "accent": "#f0c450", "paper": ["#e68cb4", "#d278a0"], "dofPx": 8, "particle": "#fff4ec", "bokehColor": "#ffd8b0", "ray": "#fff4e4", "raySide": -1},
+    "fxLook": {"ink": "#271925", "accent": "#e8173c", "paper": ["#f08aa0", "#d86a84"], "dofPx": 8, "particle": "#fff4ec", "bokehColor": "#ffb4c8", "ray": "#fff4e4", "raySide": -1},
     "fx": FX, "characters": chars, "props": props, "shots": shots, "end": "audio",
 }
 
 # ---- music + effects synthesised to the word timings: full energy from frame 1
-CUE = dict(la1923="Los Angeles 1923", yousee="You see nobody", then49="Then in 1949", sothe="So the most",
-           movies="movies", billboard="billboard", down="come down", y1923="1923", group="group", publisher="publisher", times="Times", lots="lots", hland="Hollywoodland", write="write",
-           thirteen="Thirteen", fortyfive="fortyfive", bulbs="light bulbs", dollars="Twentyone", life="Planned", nobody="nobody took", apart="falling", y1949="1949", deal="deal saved",
-           condition="condition", cut="cut the last", l_="L", famous="famous", realestate="real estate", chopped="chopped", never2="never about#2")
+CUE = dict(nobody="And nobody", writes="he writes an", yousee="You see Eno", soevery="So every driver",
+           stop1="stop sign", car="car", william="William", y1867="1867", nine="nine", jam="jam", notcars="Not cars", dozen="dozen horses", police="police", forgets="forgets", y1900="1900",
+           rules="rules", regs="regulations", keeps="keeps going", stop2="The stop sign#2", oneway="Oneway", circles="circles", father="father", y1921="1921", today="today",
+           wheel="wheel", horseman="horseman", carriages="carriages#2", inherited="inherited", stops="stops", stop3="stop sign#3", drove="drove", nine2="nine#2", dozen2="dozen horses#2")
 CUE.update({"s%02d" % k: x["_phrase"] for k, x in enumerate(shots) if x["_phrase"] != "0"})
 cues = {k: say(v) for k, v in CUE.items()}; cues["end"] = DURATION
 cp, wav = os.path.join(P, "audio", "cues.json"), os.path.join(P, "audio", "music.wav")

@@ -97,7 +97,8 @@ def fitf(txt, size, maxw, font=None):
 def word3d(d, cx, cy, txt, size, face, side, depth=16, glossy=True, font=None):
     """one line of extruded letters: dark side layers stepping down-right, a thick outline, then a glossy top half"""
     f = font or SFONT
-    for k in range(depth, 0, -2): d.text(cx + k * 0.5, cy + k, txt, size, side, font=f, stroke=9, stroke_fill=LINE)
+    d.text(cx + depth * 0.5, cy + depth, txt, size, side, font=f, stroke=9, stroke_fill=LINE)
+    for k in range(depth - 2, 0, -2): d.text(cx + k * 0.5, cy + k, txt, size, side, font=f)
     d.text(cx, cy, txt, size, face, font=f, stroke=9, stroke_fill=LINE)
     if glossy:
         hl = Draw(d.w, d.h); hl.text(cx, cy, txt, size, (255, 255, 255, 120), font=f); m = Draw(d.w, d.h); m.rect(0, cy - size * 0.6, d.w, cy - size * 0.08, WHITE); d.clip(hl, m)
@@ -109,7 +110,7 @@ def stopper(lines, face, side, plate, rim, w=1000, h=None, tilt=0, lit=True, ext
     d.rrect(36, 36, w - 36, h - 48, 36, outline=rim, width=8); d.ellipse(w * 0.3, 46, w * 0.22, 12, fill=(255, 255, 255, 70))
     n = len(lines)
     for k, ln in enumerate(lines):
-        sz = fitf(ln, 190 if n == 1 else 160, w - 120); cy = (h - 22) * ((k + 1) / (n + 1)) + (8 if n == 2 and k == 0 else -8 if n == 2 else 0)
+        sz = fitf(ln, 190 if n == 1 else 140, w - 130); cy = (h - 22) * (0.5 if n == 1 else (0.3, 0.7)[k])
         if lit: word3d(d, w / 2, cy, ln, sz, face, side)
         else: d.text(w / 2, cy, ln, sz, (120, 112, 132, 255), font=SFONT, stroke=6, stroke_fill=dk(plate, 0.7))
     if extra: extra(d, w, h)
