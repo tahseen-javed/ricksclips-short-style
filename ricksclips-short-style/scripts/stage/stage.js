@@ -145,7 +145,7 @@ function makeCharacter(c, rig, actions) {
   const bodyW = rig.layers.body.box[2] * upp; blob.scale.set(bodyW * 1.9, bodyW * 0.8, 1);
 
   // channels
-  const pose = {}, keys = { armL: [], armR: [], legL: [], legR: [], head: [], body: [] }, faceKeys = [], posKeys = [], flips = [], hops = [], shakes = [];
+  const pose = {}, keys = { armL: [], armR: [], legL: [], legR: [], head: [], body: [] }, faceKeys = [], posKeys = [], flips = [], hops = [], shakes = [], pops = [];
   for (const a of actions) {
     const ease = a.ease ?? 0.3;
     for (const ch of Object.keys(a.pose || {})) if (keys[ch]) keys[ch].push({ t: a.t, v: a.pose[ch], ease });
@@ -154,6 +154,7 @@ function makeCharacter(c, rig, actions) {
     if (a.flip !== undefined) flips.push({ t: a.t, v: !!a.flip });
     if (a.hop) hops.push({ t: a.t, h: a.hop });
     if (a.shake) shakes.push({ t: a.t, d: a.shake });
+    if (a.pop) pops.push({ t: a.t, k: a.pop });             // scale pop-in with ease-out-back overshoot (k 1 = from 0, k > 1 = slam down from k x)
   }
   for (const ch of Object.keys(keys)) pose[ch] = makeChannel((c.pose && c.pose[ch]) || 0, keys[ch]);
   faceKeys.sort((a, b) => a.t - b.t); posKeys.sort((a, b) => a.t - b.t);
@@ -167,7 +168,8 @@ function makeCharacter(c, rig, actions) {
     let flip = !!c.flip; for (const f of flips) { if (t >= f.t) flip = f.v; }
     let hop = 0; for (const hp of hops) { const u = (t - hp.t) / 0.36; if (u > 0 && u < 1) hop = Math.max(hop, 4 * u * (1 - u) * hp.h); }
     let shake = 0; for (const sh of shakes) { if (t >= sh.t && t < sh.t + sh.d) shake = 1; }
-    return { p, walking, face, faceT, flip, hop, shake };
+    let pop = 1; for (const pp of pops) { const u = (t - pp.t) / 0.34; if (u >= 0 && u < 1) { const c1 = 2.2, v = u - 1, e = 1 + (c1 + 1) * v * v * v + c1 * v * v; pop = pp.k > 1 ? pp.k + (1 - pp.k) * e : Math.max(0.001, e); } }
+    return { p, walking, face, faceT, flip, hop, shake, pop };
   };
 
   const draw = (t) => {
@@ -209,7 +211,7 @@ function makeCharacter(c, rig, actions) {
     tex.needsUpdate = true;
     const bob = walk * Math.abs(wph) * 0.02 * (c.height || 1.8), jx = st.shake * 0.012 * (c.height || 1.8) * Math.sin(t * 80);
     mesh.position.set(st.p[0] + jx, st.p[1] + st.hop + bob, st.p[2]);
-    mesh.scale.x = st.flip ? -1 : 1;
+    mesh.scale.set((st.flip ? -1 : 1) * st.pop, st.pop, st.pop);
     blob.position.set(st.p[0], st.p[1] + 0.012, st.p[2]);
     blob.material.opacity = (S.contactShadow ?? 0.55) * (1 - clamp(st.hop * 1.5, 0, 0.7));
   };
