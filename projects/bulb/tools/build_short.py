@@ -156,7 +156,7 @@ for s in shots: s.setdefault("frameY", 0.0)
 starts = [0.0 if s["start"] == 0 else say(s["_phrase"]) for s in shots]
 for k, s in enumerate(shots): s["_dur"] = (starts[k + 1] if k + 1 < len(shots) else DURATION) - starts[k]; s["start"] = round(starts[k], 3)
 for k, s in enumerate(shots[:-1]):                          # same set: the camera flies (dolly glide) into the next shot; new set: dissolve
-    if LOC[id(s)] == LOC[id(shots[k + 1])] and s.get("type") != "cutaway" and shots[k + 1].get("type") != "cutaway" and not shots[k + 1].get("_dis"): s["out"] = "glide"; s["outDur"] = 0.5
+    if LOC[id(s)] == LOC[id(shots[k + 1])] and s.get("type") != "cutaway" and shots[k + 1].get("type") != "cutaway" and not shots[k + 1].get("_dis") and math.dist(s["anchor"], shots[k + 1]["anchor"]) < 1.2: s["out"] = "glide"; s["outDur"] = 0.5   # far jumps dissolve: no half-seen props mid-glide
 for s in shots:                                              # short shots: enough pan that the move is clearly visible (>= 3.6 % of the width)
     if abs(s["zoom"]) * s["_dur"] < 8.5 and abs(s["pan"][0]) * s["_dur"] < 39: s["pan"][0] = round(math.copysign(39 / s["_dur"], s["pan"][0] or 1), 1)
 
