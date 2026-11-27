@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Generate short.json (and the word-cued music) for video 32: the Hollywood sign was never about movies.
+"""Generate short.json (and the word-cued music) for video 36: the Streisand Effect - hiding her house made it famous.
 usage: build_short.py <project folder>
-Seven jazz-age sets 70 units apart: HK peach-magenta sunset hillside with the sign (hook + loop; the "????" tarp over the missing end =
-open loop, resolved when L, A, N, D wave goodbye), PR plum-gold premiere night, SG sage-terracotta lots, DC teal-gold art-deco office,
-NT navy night with glowing bulbs, RU dusty-rose 1940s ruin, BL mint-cream 1949 office. Shots 0.7-2 s, every neighbour a different move;
-the sign, letters and props are the stars, people small companions."""
+Nine Malibu-sunset + internet-neon sets 70 units apart: HK coral-teal sunset cliff with the mansion (hook + loop: curtain over the house,
+StopperText TOP SECRET bar peels away), PL sky-blue aerial coast (plane + photographer), CL teal photo lab, LW burgundy law office, DL violet
+pixel computer room, NW halftone newsroom, WB neon web world, CT oak courtroom, BL amber-lilac blogger loft. Shots 0.7-2 s, every neighbour a
+different move; the celebrity is never drawn, the mansion with a face is the star. Open loop: WHAT WENT WRONG?! -> it got a name."""
 import json, os, sys, subprocess, math
 import scene_base as base
 from scene_base import *
 
-base.X.clear(); base.X.update(HK=0, PR=70, SG=140, DC=210, NT=280, RU=350, BL=420)
+base.X.clear(); base.X.update(HK=0, PL=70, CL=140, LW=210, DL=280, NW=350, WB=420, CT=490, BL=560)
 HERE = os.path.dirname(os.path.abspath(__file__)); PARK = base.PARK
 ASP = json.load(open(os.path.join(P, "aspect.json")))
 
@@ -45,24 +45,26 @@ def yard(loc, img, floor, w=16, rep=(8, 8)):
     plane(loc, img, 0, -0.2, -6.5, w, round(w * 1100 / 2400, 3)); box(loc, 0, 0, -1, [w, 0.04, 12], texture=floor, repeat=list(rep))
 
 
-yard("HK", "sunset.png", "hillfl.jpg"); box("HK", 0.0, 0.04, -3.3, [2.3, 0.9, 0.7], color="#a08a6a"); box("HK", 5.1, 0.04, -2.75, [1.9, 0.94, 0.5], color="#c89a6a"); tree("HK", -2.6, -4.4, 0.8, "#5a7a5a"); tree("HK", 2.8, -4.6, 0.9, "#64845e")
-yard("PR", "premiere.png", "carpet.jpg"); box("PR", 0.0, 0.04, -2.8, [1.4, 0.3, 1.0], color="#f0c450")
-yard("SG", "sage.png", "sagefl.jpg"); tree("SG", -3.6, -4.2, 0.9, "#7aa070"); tree("SG", 3.4, -4.0, 0.8, "#86aa78")
-yard("DC", "deco.png", "decofl.jpg"); box("DC", 1.1, 0.04, -2.8, [1.4, 0.5, 0.8], color="#2a5a64")
-yard("NT", "nightglow.png", "nightfl.jpg"); box("NT", 0.0, 0.04, -3.5, [3.0, 0.86, 0.6], color="#3a4a6a")
-yard("RU", "ruin.png", "dustfl.jpg"); box("RU", 0.0, 0.04, -3.3, [3.0, 0.76, 0.6], color="#8a7a7a"); barrel("RU", -3.2, -3.6)
-yard("BL", "blinds.png", "officefl.jpg"); box("BL", 0.0, 0.04, -2.7, [1.8, 0.3, 0.8], color="#7a5a40")
+yard("HK", "malibu.png", "sandfl.jpg"); tree("HK", -4.2, -4.4, 0.9, "#3a8a6a")
+yard("PL", "aerial.png", "cloudfl.jpg")
+yard("CL", "lab.png", "labfl.jpg"); box("CL", 2.8, 0.04, -2.8, [1.2, 0.3, 0.8], color="#2a7a80")
+yard("LW", "office.png", "burgfl.jpg")
+yard("DL", "pixel.png", "pixfl.jpg"); box("DL", 0.0, 0.04, -2.8, [1.5, 0.3, 0.9], color="#5a3a9a")
+yard("NW", "newsroom.png", "newsfl.jpg")
+yard("WB", "web.png", "webfl.jpg"); box("WB", 3.2, 0.04, -2.8, [1.5, 0.3, 0.9], color="#5a2a8a")
+yard("CT", "court.png", "oakfl.jpg"); box("CT", 0.9, 0.04, -2.8, [1.1, 0.3, 0.8], color="#8a5a30")
+yard("BL", "loft.png", "loftfl.jpg"); box("BL", 1.0, 0.04, -2.8, [1.2, 0.3, 0.8], color="#7a5a6a")
 
 # ================================================================== CHARACTERS (cards + background decor carry "_" in the id: not frame-checked; hero props are)
-put("signK", "sign", pos("HK", 0.0, 0.94, -3.3), 0.6); human("lineK", "lineman", pos("HK", 0.6, 0.04, -2.3), face="shocked", h=1.05)
-for ch_ in "LAND": put("let%sK" % ch_, "let" + ch_, PARK, 0.85)
-put("hourK", "hourglass", pos("HK", -4.2, 0.04, -2.4), 1.0); put("sciK", "scissors", pos("HK", -7.6, 0.3, -2.4), 0.7)
-put("globeP", "globe", pos("PR", 0.0, 0.34, -2.8), 1.3)
-put("houseS", "house", pos("SG", -0.95, 0.04, -3.0), 0.8); put("lotsS", "lots", pos("SG", 0.9, 0.04, -2.4), 0.7); put("giantS", "giant", pos("SG", 5.4, 0.04, -2.6), 1.4)
-human("chandD", "chandler", pos("DC", -0.8, 0.04, -2.2), face="happy", h=1.6); put("paperD", "paper", pos("DC", 1.1, 0.54, -2.8), 0.95)
-put("signN", "sign", pos("NT", 0.0, 0.9, -3.5), 0.6, face="glow"); put("bulbsN", "bulbs", pos("NT", 3.4, 0.2, -2.4), 0.8); human("lineN", "lineman", pos("NT", -2.6, 0.04, -2.2), face="happy", h=1.5)
-put("signR", "sign", pos("RU", 0.0, 0.8, -3.3), 0.6, face="old"); put("bulbsR", "bulbs", pos("RU", 3.2, 0.04, -2.4), 0.7, face="off")
-put("dealB", "contract", pos("BL", 0.0, 0.34, -2.7), 1.25)
+put("mansH", "mansion", pos("HK", 0.0, 0.04, -3.0), 1.6, face="hide"); put("crowdH", "crowd", pos("HK", 3.8, 0.04, -2.6), 0.8)
+put("planeP", "plane", pos("PL", 0.8, 1.0, -3.0), 0.9); human("ken", "kenneth", pos("PL", -1.4, 0.04, -2.4), face="happy", h=1.5)
+put("photosC", "photos", pos("CL", 0.0, 0.04, -2.8), 1.1); put("p38C", "p3850", pos("CL", 2.8, 0.34, -2.8), 1.1)
+human("lawa", "lawa", pos("LW", -0.5, 0.04, -2.4), face="happy", h=1.55); human("lawb", "lawb", pos("LW", 0.5, 0.04, -2.4), face="happy", h=1.5); put("scrollL", "scroll", pos("LW", 3.0, 0.04, -2.8), 1.5); put("shovL", "shovel", pos("LW", -3.2, 0.04, -2.8), 1.0)
+put("scrD", "screen", pos("DL", 0.0, 0.34, -2.8), 1.2)
+put("paperN", "paper", pos("NW", 0.0, 0.04, -2.8), 1.5)
+put("crowdW", "crowd", pos("WB", 0.0, 0.04, -2.6), 0.9); put("scrW", "screen", pos("WB", 3.2, 0.34, -2.8), 1.2, face="big")
+human("judge2", "judge2", pos("CT", -0.6, 0.04, -2.4), face="happy", h=1.6); put("caseC", "casef", pos("CT", 0.9, 0.34, -2.8), 0.9); put("feesC", "fees", pos("CT", 3.6, 0.04, -2.8), 1.4); put("lostC", "lost", pos("CT", -3.8, 0.04, -2.8), 1.3)
+human("mike", "mike", pos("BL", -0.7, 0.04, -2.4), face="happy", h=1.5); put("lapB", "laptop", pos("BL", 1.0, 0.34, -2.8), 0.9); put("warnB", "warn", pos("BL", 3.8, 0.04, -2.8), 1.4)
 # ================================================================== SHOTS
 SH = {c["id"]: c["height"] for c in chars}
 N_ = [0]; REQ = []; SNAPC = []; FXC = []; LOC = {}
@@ -78,6 +80,7 @@ def card(s, at, who, dy=0.25, dx=0.0, dz=0.3):
     p_ = [round(ax + w * math.cos(y) + dz * math.sin(y), 3), round(ay + dy * 0.728 * d - SH[who] / 2, 3), round(az - w * math.sin(y) + dz * math.cos(y), 3)]
     if at <= 0.001 and s is shots[0]: next(c for c in chars if c["id"] == who)["pos"] = p_    # HOOK LAW: the hook sign is already up at frame 0
     show(s, at, who, p_, hop=0 if (at <= 0.001 and s is shots[0]) else 0.12)
+    if not who.startswith("stop"): act(s, at, who, pop=1.25 if (at <= 0.001 and s is shots[0]) else 1)     # every card pops in with an ease-out-back overshoot
 
 
 def tag(s, at, name, dy=0.25, dx=0.0, dz=0.3, wf=0.24, hf=0.17, tilt=0):
@@ -107,42 +110,64 @@ def blink(s, who, t0, t1, step=0.3):
     while t < t1: act(s, round(t, 3), who, face="b" if k % 2 == 0 else "default"); t += step; k += 1
 
 
-HOOK = dict(anchor=(0.0, 1.25, -3.0), dist=6.2, yaw=14, pitch=6)
-LAND_P = dict(L=(4.68, 0.98, -2.75), A=(5.52, 0.98, -2.75), N=(4.68, 0.04, -2.2), D=(5.52, 0.04, -2.2))
-# ---- The Hollywood sign was never about movies. It's a billboard for houses, and it was built to come down.
-s = S("0", "HK", zoom=5, **HOOK); act(s, 0.0, "signK", shake=0.4); tag(s, 0.0, "hookc", 0.31, 0.0, wf=0.6, hf=0.19); ft(s, "lineK", ["shocked", "confused"])
-s = S("never about movies", "PR", (0.0, 1.0, -2.8), 4.8, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="globeP", blur=0.5)); act(s, rel(s, "movies"), "globeP", shake=0.5); snap(s, rel(s, "movies"), 10)
-s = S("It's a billboard", "SG", (-0.95, 0.5, -3.0), 4.2, 8, pitch=6, zoom=12, dof=dict(focus="houseS", blur=0.4)); act(s, rel(s, "houses"), "houseS", shake=0.5); T(s, "adc", at=rel(s, "billboard"), dy=0.38, wf=0.62)
-s = S("and it was", "HK", (-4.2, 0.6, -2.4), 4.2, -10, pitch=14, pitchTo=3, dof=dict(focus="hourK", blur=0.4)); act(s, rel(s, "down"), "hourK", shake=0.5); T(s, "down", at=rel(s, "built"), dy=0.38, wf=0.6)
-# ---- Los Angeles, 1923. A group of developers, including the publisher of the Los Angeles Times, is selling hillside lots in a neighborhood called Hollywoodland.
-s = crane("Los Angeles 1923", "SG", (0.0, 0.8, -2.7), 7.6, -22, -2, 36, 8); T(s, "y1923", at=rel(s, "1923"), dx=-0.24, dy=0.22, wf=0.26, hf=0.26)
-s = crane("A group of", "DC", (0.2, 1.0, -2.4), 7.0, 22, 2, 34, 8); ft(s, "chandD", ["happy", "smug"])
-s = S("including the publisher", "DC", (-0.8, 1.05, -2.2), 4.4, -8, pitch=5, zoom=12, dof=dict(focus="chandD", blur=0.4)); ft(s, "chandD", ["smug", "happy"]); cfx(s, 0.2, "glint", "chandD", 0.5)
-s = S("Los Angeles Times", "DC", (1.1, 1.0, -2.8), 4.2, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="paperD", blur=0.5)); act(s, 0.05, "paperD", shake=0.5); T(s, "pubc", at=0.05, dy=0.38, wf=0.6); snap(s, 0.15, 8)
-s = S("is selling hillside", "SG", (0.9, 0.45, -2.4), 4.6, 6, pitch=8, zoom=4, pan=(-8, 0)); act(s, rel(s, "lots"), "lotsS", shake=0.5)
-s = S("a neighborhood called", "SG", (0.0, 0.7, -2.7), 7.6, -10, pitch=5, zoom=-10); T(s, "hlandc", at=rel(s, "Hollywoodland") - 0.2, dy=0.36, wf=0.62)
-# ---- So they write its name on the hill. Thirteen letters, each about forty-five feet tall. Four thousand light bulbs. Twenty-one thousand dollars. Planned life: about a year and a half.
-s = crane("So they write", "HK", (0.0, 1.25, -3.3), 6.6, -22, 8, 36, 8); hide(s, 0.0, "lineK"); act(s, 0.0, "signK", face="land", shake=0.4)
-s = S("Thirteen letters", "HK", (0.0, 1.25, -3.3), 5.4, -12, pitch=5, yawTo=8); act(s, 0.05, "signK", face="land", shake=0.3); T(s, "thirteen", at=0.05, dy=0.36, wf=0.42)
-s = S("each about fortyfive", "SG", (5.4, 0.8, -2.6), 4.8, 4, pitch=-2, pitchTo=10, dof=dict(focus="giantS", blur=0.4)); act(s, 0.05, "giantS", shake=0.3); T(s, "ft45", at=0.1, dy=0.38, wf=0.62); snap(s, 0.2, 8)
-s = S("Four thousand light", "NT", (3.4, 0.6, -2.4), 4.0, 12, pitch=6, yawTo=-6, type="macro", dof=dict(focus="bulbsN", blur=0.5)); act(s, 0.05, "bulbsN", shake=0.5); T(s, "bulbc", at=0.1, dy=0.38, wf=0.56)
-s = S("Twentyone thousand", "NT", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="TWENTY-ONE THOUSAND", items=["DOLLARS"]))
-s = S("Planned life about", "HK", (-4.2, 0.55, -2.4), 4.4, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="hourK", blur=0.5)); act(s, 0.05, "hourK", shake=0.4); T(s, "lifec", at=0.1, dy=0.38, wf=0.56); snap(s, rel(s, "year"), 8)
-# ---- You see, nobody took it down. It just sat there, falling apart. Then in 1949, a deal saved it, with one condition: cut the last four letters. L. A. N. D.
-s = crane("You see nobody", "RU", (0.0, 1.0, -3.0), 6.6, 22, 2, 36, 8); act(s, 0.2, "signR", shake=0.3); T(s, "nobody", at=rel(s, "nobody"), dy=0.35, wf=0.62)
-s = S("It just sat", "RU", (0.0, 1.0, -3.3), 6.4, 6, pitch=8, zoom=4, pan=(8, 0)); act(s, rel(s, "falling"), "signR", shake=0.6); T(s, "apart", at=rel(s, "falling"), dy=0.37, wf=0.5); cfx(s, 0.3, "sweat", "bulbsR", 0.6)
-s = crane("Then in 1949", "BL", (0.0, 1.0, -2.6), 6.6, -22, -2, 34, 8); T(s, "y1949", at=rel(s, "1949"), dx=-0.2, dy=0.33, wf=0.24, hf=0.24)
-s = S("a deal saved", "BL", (0.0, 0.95, -2.7), 4.4, 8, pitch=6, zoom=12, dof=dict(focus="dealB", blur=0.4)); act(s, rel(s, "saved"), "dealB", shake=0.5)
-s = S("one condition", "BL", (0.0, 0.95, -2.7), 4.8, -4, pitch=14, pitchTo=3); act(s, 0.05, "dealB", face="cut", shake=0.6); T(s, "cond", at=0.05, dy=0.38, wf=0.5)
-s = S("cut the last", "HK", (-7.6, 0.55, -2.4), 4.0, -12, pitch=6, yawTo=6, type="macro", dof=dict(focus="sciK", blur=0.5)); act(s, rel(s, "cut"), "sciK", shake=0.7); snap(s, rel(s, "cut") + 0.05, 10)
-s = S("L", "HK", (5.1, 0.95, -2.5), 5.2, 6, pitch=6, zoom=6)
-for ch_ in "LAND": show(s, rel(s, ch_.lower()), "let%sK" % ch_, pos("HK", *LAND_P[ch_]))
-# ---- So the most famous movie sign on Earth is a real estate ad with the ending chopped off. And it was never about movies.
-s = S("So the most", "PR", (0.0, 1.0, -2.8), 5.6, 10, pitch=5, zoom=-10); act(s, 0.05, "globeP", shake=0.4); T(s, "famous", at=rel(s, "famous"), dy=0.38, wf=0.5)
-s = S("is a real", "HK", (0.0, 1.25, -3.3), 6.0, -10, pitch=6, yawTo=6); act(s, 0.0, "signK", face="cut", shake=0.4); T(s, "realad", at=rel(s, "real"), dy=0.38, wf=0.56); snap(s, rel(s, "estate"), 8)
-s = S("ending chopped off", "HK", (5.1, 0.95, -2.5), 5.6, -4, pitch=14, pitchTo=3)
-for ch_ in "LAND": act(s, 0.05, "let%sK" % ch_, face="bye", shake=0.6)
-s = S("never about#2", "HK", zoom=-4, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); show(s, 0.0, "lineK", pos("HK", 0.6, 0.04, -2.3), hop=0); act(s, 0.0, "signK", face="default", shake=0.4); T(s, "hookc", at=0.05, dy=0.31, wf=0.6, hf=0.19)
+HOOK = dict(anchor=(0.0, 1.05, -3.0), dist=6.4, yaw=8, pitch=6)
+def STOP(s, face, at=0.0, k=None, shake=None):                 # StopperText: one redacted card, re-placed in every hook shot (no re-pop), escalates by face
+    cid = T(s, "stop", at=at, dy=0.31, wf=0.62, hf=0.24); act(s, at, cid, face=face)
+    if k: act(s, at, cid, pop=k)
+    if shake: act(s, at, cid, shake=shake)
+    return cid
+# ---- Hiding her house made it famous. Barbra Streisand paid lawyers to bury one photo, and the whole internet dug it up.
+s = S("0", "HK", zoom=10, **HOOK); c = STOP(s, "p0", 0.0, k=1.3, shake=0.2)
+for t_, f_ in ((0.13, "p1"), (0.26, "p2"), (0.38, "default")): act(s, t_, c, face=f_)
+act(s, 0.0, "mansH", face="hide", shake=0.3); act(s, rel(s, "famous"), "mansH", face="famous", shake=0.5)
+s = crane("Barbra Streisand", "LW", (0.0, 1.0, -2.4), 5.4, 22, 2, 34, 8); c = STOP(s, "default"); act(s, 0.9, c, face="esc", pop=1.3, shake=0.3); ft(s, "lawa", ["smug", "happy"]); ft(s, "lawb", ["happy", "smug"])
+s = S("to bury one", "LW", (-3.2, 0.6, -2.8), 3.9, 12, pitch=6, yawTo=-2, type="macro", dof=dict(focus="shovL", blur=0.5)); STOP(s, "esc"); act(s, rel(s, "bury"), "shovL", shake=0.5)
+s = crane("and the whole", "WB", (0.0, 0.6, -2.6), 5.4, -22, 4, 44, 12); c = STOP(s, "esc"); act(s, 0.1, c, face="wait", pop=1.3, shake=0.4); act(s, rel(s, "dug"), "crowdW", hop=0.15, shake=0.4)
+s = crane("2003", "PL", (0.8, 1.3, -3.0), 5.4, 24, 6, 30, 6); c = STOP(s, "wait"); hide(s, 0.0, "ken"); hide(s, 0.3, c); T(s, "y2003", at=0.35, dx=-0.24, dy=0.25, wf=0.26, hf=0.26)
+# ---- 2003. A photographer named Kenneth Adelman is flying the California coast. He shoots over twelve thousand aerial photos to track cliff erosion.
+s = S("A photographer named", "PL", (-1.4, 1.05, -2.4), 4.4, -8, pitch=6, zoom=12, dof=dict(focus="ken", blur=0.4)); show(s, 0.0, "ken", pos("PL", -1.4, 0.04, -2.4), hop=0); ft(s, "ken", ["happy", "smug"]); T(s, "kenc", at=rel(s, "Kenneth"), dy=0.38, wf=0.66)
+s = S("is flying the", "PL", (0.8, 1.35, -3.0), 5.6, 6, pitch=4, zoom=3, pan=(-6, 0)); hide(s, 0.0, "ken"); act(s, 0.05, "planeP", hop=0.12, shake=0.3); T(s, "coast", at=rel(s, "California"), dy=0.38, wf=0.62)
+s = S("He shoots over", "PL", (0.0, 1.8, -2.4), 6.6, 0, zoom=6, pan=(-3, 0), type="cutaway", long=True, diagram=dict(kind="counter", title="OVER TWELVE THOUSAND", items=["AERIAL PHOTOS"]))
+s = crane("aerial photos to", "CL", (0.0, 0.7, -2.8), 5.0, 22, -2, 40, 8); act(s, rel(s, "erosion"), "photosC", shake=0.4)
+s = S("One of them", "CL", (2.8, 0.9, -2.8), 3.8, -12, pitch=6, yawTo=4, type="macro", dof=dict(focus="p38C", blur=0.5)); act(s, rel(s, "3850"), "p38C", shake=0.5); snap(s, rel(s, "3850"), 9)
+# ---- One of them, image 3850, happens to catch a clifftop mansion in Malibu. Streisand's.
+s = crane("happens to catch", "HK", (0.0, 0.9, -3.0), 5.6, -20, 4, 52, 16); act(s, 0.0, "mansH", face="default")
+s = S("in Malibu", "HK", (0.0, 1.0, -3.0), 4.8, 10, pitch=6, zoom=12); act(s, 0.0, "mansH", face="default"); T(s, "malibu", at=0.05, dy=0.38, wf=0.62); act(s, rel(s, "Streisand's"), "mansH", face="shocked", shake=0.5); snap(s, rel(s, "Streisand's"), 9)
+# ---- Her lawyers sue. Fifty million dollars, for invasion of privacy.
+s = S("Her lawyers sue", "LW", (0.0, 1.0, -2.4), 4.6, -6, pitch=14, pitchTo=4); ft(s, "lawa", ["shouting", "smug"]); ft(s, "lawb", ["smug", "shouting"]); T(s, "sue", at=0.05, dy=0.38, wf=0.56)
+s = S("Fifty million", "LW", (3.0, 1.05, -2.8), 3.9, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="scrollL", blur=0.5)); act(s, 0.05, "scrollL", shake=0.5); snap(s, 0.2, 9)
+s = S("invasion of privacy", "LW", (3.0, 0.95, -2.8), 4.6, -4, pitch=-2, pitchTo=10); T(s, "privacy", at=0.05, dy=0.38, wf=0.62)
+# ---- Here's the absurd part. Before the lawsuit, that photo had been downloaded six times. Two of those downloads were her own lawyers.
+s = crane("Here's the absurd", "DL", (0.0, 0.95, -2.8), 5.4, 22, 2, 34, 8); T(s, "absurd", at=0.05, dy=0.38, wf=0.56); cfx(s, 0.3, "question", "scrD", 0.7)
+s = S("Before the lawsuit", "DL", (0.0, 0.95, -2.8), 5.0, -10, pitch=6, zoom=11)
+s = S("downloaded six times", "DL", (0.0, 1.0, -2.8), 3.8, 12, pitch=6, yawTo=-4, type="macro", dof=dict(focus="scrD", blur=0.5)); act(s, rel(s, "six"), "scrD", shake=0.6); T(s, "six", at=rel(s, "six"), dy=0.38, wf=0.5); snap(s, rel(s, "six"), 9)
+s = S("Two of those", "LW", (0.0, 1.0, -2.4), 4.4, 8, pitch=5, zoom=-10, pan=(6, 0)); ft(s, "lawa", ["nervous", "shocked"]); ft(s, "lawb", ["shocked", "nervous"]); T(s, "twolaw", at=rel(s, "lawyers"), dy=0.38, wf=0.62)
+# ---- You see, a lawsuit is public. And a superstar suing over a secret photo is news. Reporters wrote about it. Readers went looking for it.
+s = crane("You see a", "CT", (0.0, 1.0, -2.6), 6.0, -22, 4, 36, 8); T(s, "public", at=rel(s, "public"), dy=0.38, wf=0.62); ft(s, "judge2", ["happy", "smug"])
+s = S("And a superstar", "NW", (0.0, 1.0, -2.8), 3.9, -12, pitch=6, yawTo=4, type="macro", dof=dict(focus="paperN", blur=0.5)); act(s, rel(s, "secret"), "paperN", shake=0.4)
+s = crane("news Reporters", "NW", (0.0, 0.9, -2.8), 5.6, 22, 4, 42, 10); T(s, "news", at=0.05, dy=0.38, wf=0.5); act(s, 0.1, "paperN", shake=0.5); snap(s, 0.1, 8)
+s = S("Readers went looking", "WB", (0.0, 0.6, -2.6), 4.2, 6, pitch=6, zoom=3, pan=(-14, 0)); act(s, 0.05, "crowdW", hop=0.2, shake=0.3)
+# ---- In the month after the filing, more than four hundred thousand people visited the site. The photo she wanted gone was suddenly the one everyone wanted to see.
+s = crane("In the month", "WB", (3.2, 0.9, -2.8), 5.0, -22, 2, 38, 8)
+s = S("more than four", "WB", (3.2, 1.0, -2.8), 3.8, 10, pitch=6, yawTo=-6, type="macro", dof=dict(focus="scrW", blur=0.5)); act(s, rel(s, "visited"), "scrW", shake=0.6); T(s, "visits", at=rel(s, "four"), dy=0.38, wf=0.56); snap(s, rel(s, "people"), 9)
+s = S("The photo she", "CL", (2.8, 0.9, -2.8), 4.4, -6, pitch=14, pitchTo=3); act(s, 0.05, "p38C", face="shocked", shake=0.4)
+s = S("suddenly the one", "HK", (3.8, 0.55, -2.6), 4.2, 6, pitch=6, zoom=4, pan=(14, 0)); act(s, 0.05, "crowdH", hop=0.2, shake=0.4); T(s, "everyone", at=rel(s, "everyone"), dy=0.38, wf=0.66)
+# ---- Then the judge threw the case out, and ordered Streisand to pay the photographer's legal fees. She lost the lawsuit, the privacy, and the money.
+s = S("Then the judge", "CT", (0.15, 1.0, -2.6), 6.8, 12, pitch=6, zoom=7, dof=dict(focus="caseC", blur=0.4)); ft(s, "judge2", ["shouting", "smug"]); act(s, rel(s, "threw"), "caseC", shake=0.7); T(s, "thrown", at=rel(s, "threw"), dy=0.38, wf=0.56); snap(s, rel(s, "threw"), 9)
+s = S("ordered Streisand to", "CT", (3.6, 0.85, -2.8), 4.6, -8, pitch=-2, pitchTo=10); act(s, rel(s, "pay"), "feesC", shake=0.5)
+s = S("legal fees She", "CT", (3.6, 0.85, -2.8), 3.9, 10, pitch=6, yawTo=-4, type="macro", dof=dict(focus="feesC", blur=0.5)); act(s, 0.05, "feesC", shake=0.5)
+s = S("lawsuit the privacy", "CT", (-3.8, 0.8, -2.8), 4.4, -6, pitch=6, zoom=-10, pan=(-6, 0)); act(s, rel(s, "money"), "lostC", shake=0.6)
+# ---- Two years later, a blogger named Mike Masnick needed a name for this exact mistake. Trying to hide something, and making it explode.
+s = crane("Two years later", "BL", (0.3, 1.0, -2.6), 7.4, -22, 2, 36, 8); T(s, "y2later", at=0.05, dy=0.38, wf=0.56); ft(s, "mike", ["happy", "smug"])
+s = S("Mike Masnick needed", "BL", (-0.7, 1.05, -2.4), 4.4, 8, pitch=6, zoom=12, dof=dict(focus="mike", blur=0.4)); ft(s, "mike", ["smug", "happy"]); T(s, "blogger", at=0.05, dy=0.38, wf=0.6)
+s = S("mistake Trying", "HK", (0.0, 1.0, -3.0), 5.2, -10, pitch=14, pitchTo=4); act(s, rel(s, "hide"), "mansH", face="hide", shake=0.4)
+s = S("making it explode", "HK", (0.0, 1.0, -3.0), 5.6, 12, pitch=6, yawTo=0); act(s, rel(s, "explode"), "mansH", face="famous", shake=0.8); T(s, "explode", at=rel(s, "explode"), dy=0.38, wf=0.66); snap(s, rel(s, "explode"), 10)
+# ---- He called it the Streisand Effect. Her name became the warning label. Six people had seen that house. Now you're picturing it too. Because hiding her house made it famous.
+s = S("He called it", "BL", (1.0, 0.85, -2.8), 3.7, -12, pitch=6, yawTo=4, type="macro", dof=dict(focus="lapB", blur=0.5)); act(s, rel(s, "Streisand"), "lapB", face="name", shake=0.5); snap(s, rel(s, "Effect"), 8)
+s = S("Her name became", "BL", (3.8, 0.85, -2.8), 4.6, 8, pitch=6, zoom=12); act(s, rel(s, "warning"), "warnB", shake=0.6); T(s, "label", at=rel(s, "warning"), dy=0.38, wf=0.5)
+s = S("Six people had", "DL", (0.0, 0.95, -2.8), 4.2, -8, pitch=5, zoom=-10, pan=(6, 0)); act(s, 0.05, "scrD", shake=0.4); T(s, "sixppl", at=0.1, dy=0.38, wf=0.66)
+s = crane("Now you're picturing", "HK", (0.0, 1.0, -3.0), 6.0, 24, 6, 38, 8); act(s, 0.0, "mansH", face="famous"); T(s, "picture", at=0.05, dy=0.38, wf=0.66)
+s = S("hiding her#2", "HK", zoom=-5, pan=(0, 0), **HOOK); s.pop("out"); s.pop("outDur"); act(s, 0.0, "mansH", face="hide"); act(s, rel(s, "famous"), "mansH", face="famous", shake=0.5); c = STOP(s, "default", 0.05, k=1)
 for s in shots: s.setdefault("frameY", 0.0)
 
 starts = [0.0 if s["start"] == 0 else say(s["_phrase"]) for s in shots]
@@ -190,8 +215,8 @@ for s in shots:
             prev = seq[j % len(seq)]; j += 1; act(s, round(i * 0.55, 3), who, face=prev)
 # ---- atmosphere by set: dust + rays by day, bokeh by night / dawn
 D_ = lambda c=22: dict(count=c, size=1.0, drift=1.0); BK = lambda a=0.3: dict(count=12, size=1.0, alpha=a)
-ATM = dict(HK=dict(dust=D_(22), rays=dict(angle=24, intensity=0.7)), PR=dict(bokeh=BK(0.55)), SG=dict(dust=D_(22), rays=dict(angle=30, intensity=0.6)), DC=dict(dust=D_(20), rays=dict(angle=20, intensity=0.5)),
-           NT=dict(bokeh=BK(0.5)), RU=dict(dust=D_(30)), BL=dict(dust=D_(22), rays=dict(angle=26, intensity=0.6)))
+ATM = dict(HK=dict(dust=D_(24), rays=dict(angle=14, intensity=0.8)), PL=dict(dust=D_(16), rays=dict(angle=30, intensity=0.6)), CL=dict(bokeh=BK(0.45)), LW=dict(dust=D_(22), rays=dict(angle=22, intensity=0.5)),
+           DL=dict(bokeh=BK(0.5)), NW=dict(dust=D_(26), rays=dict(angle=26, intensity=0.6)), WB=dict(bokeh=BK(0.55)), CT=dict(dust=D_(26), rays=dict(angle=18, intensity=0.8)), BL=dict(bokeh=BK(0.5)))
 for s in shots:
     if s.get("type") != "cutaway": s["atmos"] = ATM[LOC[id(s)]]
 
@@ -277,32 +302,35 @@ for (s, at, cid, name, dy, dx, dz, wf, hf, c) in REQ:
     c["height"] = round(h, 3); SH[cid] = c["height"]; card(s, at, cid, dy, dx, dz); RECT[cid] = (s, at, 0.5 + dx - wfr / 2, 0.5 - dy - hfr / 2, 0.5 + dx + wfr / 2, 0.5 - dy + hfr / 2)
 
 # ================================================================== SPEC
-MOOD = dict(HK="sunset", PR="premiere", SG="sage", DC="deco", NT="night23", RU="ruin", BL="blinds")
-light, cur = [{"t": 0, "mood": "sunset"}], "sunset"
+MOOD = dict(HK="malibu", PL="aerial", CL="lab", LW="office", DL="pixel", NW="news", WB="web", CT="court", BL="loft")
+light, cur = [{"t": 0, "mood": "malibu"}], "malibu"
 for k, s in enumerate(shots):
     m = MOOD[LOC[id(s)]]
     if m != cur and s.get("type") != "cutaway": light.append({"t": round(max(0.0, starts[k] - 0.2), 3), "mood": m, "fade": 0.4}); cur = m
 spec = {
     "fps": 30, "audio": {"voice": "audio/voice.mp3", "music": "audio/music.mp3", "musicDb": -11},
     "words": "audio/words.json", "captions": {"wordsPer": 1}, "font": "fonts/Montserrat-ExtraBold.ttf", "contactShadow": 0.6, "seed": 22,
-    "moods": {"sunset": {"sun": {"azimuth": 230, "elevation": 20, "color": "#ffdcc0", "intensity": 2.6}, "sky": {"top": "#e6468c", "horizon": "#ffc896"}, "fill": {"sky": "#fff0ec", "ground": "#7a5a5a", "intensity": 1.9}},
-              "premiere": {"sun": {"azimuth": 160, "elevation": 36, "color": "#fff0e8", "intensity": 2.6}, "sky": {"top": "#461e5a", "horizon": "#c85a8c"}, "fill": {"sky": "#fff0f4", "ground": "#6a3a50", "intensity": 2.3}},
-              "sage": {"sun": {"azimuth": 50, "elevation": 40, "color": "#fffbf0", "intensity": 2.4}, "sky": {"top": "#bedcf0", "horizon": "#ffecd2"}, "fill": {"sky": "#fffaf4", "ground": "#7a7a5a", "intensity": 1.5}},
-              "deco": {"sun": {"azimuth": 150, "elevation": 38, "color": "#fff8ec", "intensity": 2.5}, "sky": {"top": "#146e78", "horizon": "#3caaaa"}, "fill": {"sky": "#f0fffc", "ground": "#3a5a60", "intensity": 2.2}},
-              "night23": {"sun": {"azimuth": 20, "elevation": 40, "color": "#eef2ff", "intensity": 2.7}, "sky": {"top": "#141e5a", "horizon": "#465aaa"}, "fill": {"sky": "#eef2ff", "ground": "#2a3460", "intensity": 2.4}},
-              "ruin": {"sun": {"azimuth": 200, "elevation": 30, "color": "#fff0ec", "intensity": 2.4}, "sky": {"top": "#9696aa", "horizon": "#e6b4b4"}, "fill": {"sky": "#fff4f4", "ground": "#7a6a6a", "intensity": 1.8}},
-              "blinds": {"sun": {"azimuth": 140, "elevation": 40, "color": "#fffbf0", "intensity": 2.4}, "sky": {"top": "#aae6d2", "horizon": "#faf6e6"}, "fill": {"sky": "#fafffc", "ground": "#7a6a5a", "intensity": 1.6}}},
+    "moods": {"malibu": {"sun": {"azimuth": 240, "elevation": 18, "color": "#ffdcc0", "intensity": 2.7}, "sky": {"top": "#2896aa", "horizon": "#ff9678"}, "fill": {"sky": "#fff2ee", "ground": "#7a5a50", "intensity": 1.9}},
+              "aerial": {"sun": {"azimuth": 60, "elevation": 44, "color": "#fffcf6", "intensity": 2.4}, "sky": {"top": "#64b4fa", "horizon": "#dcf0ff"}, "fill": {"sky": "#f8fcff", "ground": "#6a7a8a", "intensity": 1.6}},
+              "lab": {"sun": {"azimuth": 140, "elevation": 36, "color": "#eefcff", "intensity": 2.6}, "sky": {"top": "#146e78", "horizon": "#3caaaa"}, "fill": {"sky": "#f0fffc", "ground": "#2a5a60", "intensity": 2.3}},
+              "office": {"sun": {"azimuth": 160, "elevation": 36, "color": "#fff0e4", "intensity": 2.6}, "sky": {"top": "#781e3c", "horizon": "#c85a64"}, "fill": {"sky": "#fff4f2", "ground": "#6a3a40", "intensity": 2.2}},
+              "pixel": {"sun": {"azimuth": 150, "elevation": 38, "color": "#f4eeff", "intensity": 2.6}, "sky": {"top": "#46288c", "horizon": "#965ad2"}, "fill": {"sky": "#f6f2ff", "ground": "#4a3a70", "intensity": 2.3}},
+              "news": {"sun": {"azimuth": 80, "elevation": 40, "color": "#fffcec", "intensity": 2.4}, "sky": {"top": "#ffd23c", "horizon": "#fff0aa"}, "fill": {"sky": "#fffcf0", "ground": "#8a7a50", "intensity": 1.5}},
+              "web": {"sun": {"azimuth": 170, "elevation": 36, "color": "#f8eeff", "intensity": 2.7}, "sky": {"top": "#28145a", "horizon": "#c832a0"}, "fill": {"sky": "#fbf2ff", "ground": "#4a2a6a", "intensity": 2.4}},
+              "court": {"sun": {"azimuth": 210, "elevation": 26, "color": "#ffe8cc", "intensity": 2.6}, "sky": {"top": "#b47846", "horizon": "#f0c896"}, "fill": {"sky": "#fff6ee", "ground": "#7a5a3a", "intensity": 1.8}},
+              "loft": {"sun": {"azimuth": 130, "elevation": 34, "color": "#fff0e8", "intensity": 2.6}, "sky": {"top": "#5a3c8c", "horizon": "#dc96a0"}, "fill": {"sky": "#fff4f6", "ground": "#5a4a5a", "intensity": 2.2}}},
     "lighting": light, "ground": {"texture": TEX + "pave.jpg", "repeat": [175, 175], "size": 1400},
     "backdrop": {"image": "bg/sky.jpg", "blur": 4}, "ink": {"set": 4},
-    "fxLook": {"ink": "#271925", "accent": "#f0c450", "paper": ["#e68cb4", "#d278a0"], "dofPx": 8, "particle": "#fff4ec", "bokehColor": "#ffd8b0", "ray": "#fff4e4", "raySide": -1},
+    "fxLook": {"ink": "#271925", "accent": "#ffd000", "paper": ["#b89ae0", "#9a78cc"], "dofPx": 8, "particle": "#fff6e8", "bokehColor": "#ffb4dc", "ray": "#fff4e4", "raySide": -1},
     "fx": FX, "characters": chars, "props": props, "shots": shots, "end": "audio",
 }
 
 # ---- music + effects synthesised to the word timings: full energy from frame 1
-CUE = dict(la1923="Los Angeles 1923", yousee="You see nobody", then49="Then in 1949", sothe="So the most",
-           movies="movies", billboard="billboard", down="come down", y1923="1923", group="group", publisher="publisher", times="Times", lots="lots", hland="Hollywoodland", write="write",
-           thirteen="Thirteen", fortyfive="fortyfive", bulbs="light bulbs", dollars="Twentyone", life="Planned", nobody="nobody took", apart="falling", y1949="1949", deal="deal saved",
-           condition="condition", cut="cut the last", l_="L", famous="famous", realestate="real estate", chopped="chopped", never2="never about#2")
+CUE = dict(y2003="2003", her="Her lawyers sue", yousee="You see a", twoyears="Two years later",
+           famous="famous", barbra="Barbra", bury="bury", dug="dug", photographer="photographer", kenneth="Kenneth", california="California", twelve="twelve", erosion="erosion", i3850="3850",
+           mansion="mansion", malibu="Malibu", streis="Streisand's", fifty="Fifty", privacy="privacy", absurd="absurd", six="six", lawyers3="lawyers#3", public="public", news="news",
+           reporters="Reporters", readers="Readers", four="four", everyone="everyone", judge="judge", threw="threw", fees="fees", lost="lost", money="money", blogger="blogger",
+           mistake="mistake", explode="explode", effect="Effect", warning="warning", six2="Six#2", picturing="picturing", famous2="famous#2")
 CUE.update({"s%02d" % k: x["_phrase"] for k, x in enumerate(shots) if x["_phrase"] != "0"})
 cues = {k: say(v) for k, v in CUE.items()}; cues["end"] = DURATION
 cp, wav = os.path.join(P, "audio", "cues.json"), os.path.join(P, "audio", "music.wav")

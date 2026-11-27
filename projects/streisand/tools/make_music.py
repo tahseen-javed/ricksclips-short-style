@@ -145,6 +145,10 @@ XPROG = dict(charleston=[(36, (64, 67, 72)), (45, (64, 67, 73)), (38, (65, 69, 7
              nightjazz=[(38, (65, 69, 72)), (43, (65, 71, 74)), (36, (64, 67, 71)), (45, (64, 67, 72))],    # Dm7 G7 Cmaj7 Am7
              dustwaltz=[(45, (64, 69, 72)), (40, (64, 68, 71)), (45, (64, 69, 72)), (38, (65, 69, 74))],    # Am E Am Dm
              bigband=[(41, (65, 69, 72)), (38, (65, 69, 74)), (36, (64, 67, 72)), (43, (67, 71, 74))])      # F Dm C G
+XPROG = dict(yachtpop=[(41, (65, 69, 72)), (40, (64, 67, 71)), (38, (62, 65, 69)), (43, (62, 67, 71))],       # Fmaj7 Em7 Dm7 G
+             noirwalk=[(38, (62, 65, 69)), (40, (64, 67, 70)), (45, (64, 67, 73)), (38, (62, 65, 69))],      # Dm Em7b5 A7 Dm
+             glitchnet=[(45, (64, 69, 72)), (41, (65, 69, 72)), (36, (64, 67, 72)), (43, (62, 67, 71))],     # Am F C G
+             lofi=[(41, (64, 69, 72)), (40, (62, 67, 71)), (38, (60, 65, 69)), (36, (59, 64, 67))])          # Fmaj7 Em7 Dm7 Cmaj7
 CAJ = [(43, (67, 71, 74)), (48, (67, 72, 76)), (50, (66, 69, 74)), (43, (67, 71, 74))]          # G C D G
 STORM = [(38, (62, 65, 69)), (34, (62, 65, 70)), (36, (60, 64, 67)), (33, (61, 64, 69))]        # Dm Bb C A
 MINE = [(45, (69, 72, 76)), (41, (69, 72, 77)), (38, (65, 69, 74)), (40, (68, 71, 76))]         # Am F Dm E
@@ -333,6 +337,28 @@ def section(t0, t1, kind, bpm):
                 if e % 2 == 0: put(bed, hat(), u, 0.03)
                 if e in (3, 7, 14): [put(bed, pluck(midi(n_ + 12), bt * 0.35), u, 0.05) for n_ in ch]
                 if e == 0: put(bed, pluck(midi(root - 12), bt * 1.5), u, 0.3)
+            elif kind == 'yachtpop':                          # Malibu yacht pop: soft four-floor kick, smooth bass, rhodes-like bell chords, shaker
+                if e % 4 == 0: put(bed, kick(), u, 0.34)
+                if e in (0, 7, 10): put(bed, pluck(midi(root - 12), bt * 0.6), u, 0.28)
+                if e in (2, 10): [put(bed, bell(midi(n_ + 12), 0.4), u, 0.02) for n_ in ch]
+                if e % 2 == 1: put(bed, hat(), u, 0.02)
+                if e in (4, 12): put(bed, clap(), u, 0.1)
+            elif kind == 'noirwalk':                          # legal noir: walking bass, brushed snare, minor bells
+                if e % 4 == 0: put(bed, pluck(midi(root - 12 + [0, 3, 7, 10][e // 4]), bt * 0.9), u, 0.28)
+                if e % 4 == 2: put(bed, hat(), u, 0.03)
+                if e in (4, 12): put(bed, snare(), u, 0.06)
+                if e == 6 and bar % 2 == 0: put(bed, bell(midi(ch[2] + 12), 0.7), u, 0.035)
+            elif kind == 'glitchnet':                         # internet glitch electro: punchy kick, stuttered hats, arpeggio plucks
+                if e in (0, 6, 8, 11): put(bed, kick(), u, 0.42)
+                if e in (4, 12): put(bed, clap(), u, 0.14)
+                put(bed, hat(), u, 0.02 if e % 2 else 0.035)
+                put(bed, pluck(midi(ch[e % 3] + 12 + (12 if e % 8 == 7 else 0)), bt * 0.2), u, 0.03)
+            elif kind == 'lofi':                              # blogger lo-fi: lazy kick-snare, soft chord pad, vinyl ticks
+                if e in (0, 10): put(bed, kick(), u, 0.34)
+                if e in (4, 12): put(bed, snare(), u, 0.07)
+                if e == 0: put(bed, pad(midi(ch[0]), bt * 4), u, 0.06)
+                if e in (3, 9): put(bed, bell(midi(ch[(e + bar) % 3] + 12), 0.5), u, 0.03)
+                if e % 2 == 0: put(bed, tick(), u, 0.02)
             else:                                             # funk reveal: slap bass, clav chords, 16th hats, kick/snare
                 if e in (0, 7, 8): put(bed, kick(), u, 0.65)
                 if e in (4, 12): put(bed, snare(), u, 0.4)
@@ -343,23 +369,26 @@ def section(t0, t1, kind, bpm):
 
 
 # ---------------------------------------------------------------- the score
-section(0, C['la1923'], 'charleston', 126)
-section(C['la1923'], C['yousee'], 'nightjazz', 112)
-section(C['yousee'], C['then49'], 'dustwaltz', 96)
-section(C['then49'], C['end'], 'bigband', 132)
+section(0, C['y2003'], 'glitchnet', 124)
+section(C['y2003'], C['her'], 'yachtpop', 112)
+section(C['her'], C['yousee'], 'noirwalk', 104)
+section(C['yousee'], C['twoyears'], 'glitchnet', 128)
+section(C['twoyears'], C['end'], 'lofi', 90)
 
 # ---------------------------------------------------------------- effects: a light whoosh on every scene change, hits on the words
 for k in sorted(x for x in C if x.startswith('s') and x[1:].isdigit()): put(fx, whoosh(0.45, 500, 3200), C[k] - 0.18, 0.13); put(fx, stampfx(), C[k] + 0.12, 0.16)
-put(fx, boom(), 0.0, 0.4); put(fx, crash(), 0.0, 0.25); put(fx, stampfx(), 0.02, 0.3); put(fx, boing(), C['movies'], 0.16); put(fx, kaching(), C['billboard'], 0.16); put(fx, whoosh(0.8, 200, 900), C['down'], 0.16)
-put(fx, flip(), C['y1923'], 0.24); put(fx, bell(midi(84), 0.5), C['group'], 0.12); put(fx, bell(midi(88), 0.6), C['publisher'], 0.12); put(fx, flip(), C['times'], 0.22); put(fx, kaching(), C['lots'], 0.16)
-put(fx, bell(midi(91), 0.8), C['hland'], 0.14); put(fx, riser(0.7), C['write'], 0.14); put(fx, stampfx(), C['thirteen'], 0.22); put(fx, riser(0.6), C['fortyfive'] - 0.3, 0.14); put(fx, bell(midi(96), 0.6), C['bulbs'], 0.14)
-put(fx, kaching(), C['dollars'] + 0.5, 0.18); put(fx, boing(), C['life'], 0.14); put(fx, groan(0.7), C['nobody'], 0.08); put(fx, crash(), C['apart'] + 0.3, 0.16); put(fx, flip(), C['y1949'], 0.24)
-put(fx, gavel(), C['deal'] + 0.3, 0.26); put(fx, stampfx(), C['condition'], 0.22); put(fx, crash(), C['cut'], 0.2)
-for dt_ in (0.0, 0.14, 0.3, 0.4): put(fx, boing(), C['l_'] + dt_, 0.14)
-fanfare(C['famous']); put(fx, kaching(), C['realestate'], 0.16); put(fx, crash(), C['chopped'], 0.2); put(fx, riser(1.0), C['end'] - 1.1, 0.2); put(fx, crash(), C['end'] - 0.15, 0.25)
+put(fx, boom(), 0.0, 0.4); put(fx, stampfx(), 0.02, 0.3); [put(fx, flip(), t_, 0.3) for t_ in (0.13, 0.26, 0.38)]; put(fx, crash(), C['famous'], 0.18); put(fx, gavel(), C['barbra'] + 0.9, 0.2)
+put(fx, flip(), C['bury'], 0.2); put(fx, boom(), C['dug'], 0.18); put(fx, flip(), C['y2003'], 0.24); put(fx, stampfx(), C['photographer'], 0.16); put(fx, bell(midi(88), 0.5), C['kenneth'], 0.12)
+put(fx, whoosh(0.9, 300, 1400), C['california'], 0.16); put(fx, riser(0.6), C['twelve'] - 0.3, 0.12); put(fx, stampfx(), C['erosion'], 0.16); put(fx, stampfx(), C['i3850'], 0.26); put(fx, bell(midi(91), 0.6), C['mansion'], 0.12)
+put(fx, kaching(), C['malibu'], 0.12); put(fx, crash(), C['streis'], 0.2); put(fx, gavel(), C['her'] + 0.4, 0.22); put(fx, kaching(), C['fifty'], 0.2); put(fx, stampfx(), C['privacy'], 0.2); put(fx, boing(), C['absurd'], 0.16)
+put(fx, stampfx(), C['six'], 0.26); put(fx, boing(), C['lawyers3'], 0.2); put(fx, bell(midi(84), 0.6), C['public'], 0.12); put(fx, stampfx(), C['news'], 0.24); [put(fx, flip(), C['reporters'] + d_, 0.16) for d_ in (0, 0.1, 0.2)]
+put(fx, whoosh(0.7, 300, 1800), C['readers'], 0.16); put(fx, riser(0.8), C['four'] - 0.4, 0.14); put(fx, kaching(), C['four'] + 0.7, 0.18); put(fx, boom(), C['everyone'], 0.18); put(fx, gavel(), C['threw'], 0.28)
+put(fx, kaching(), C['fees'], 0.16); [put(fx, stampfx(), C['lost'] + d_, 0.18) for d_ in (0.5, 1.0, 1.6)]; put(fx, riser(0.8), C['blogger'], 0.12); put(fx, boing(), C['mistake'], 0.14); put(fx, boom(), C['explode'], 0.3); put(fx, crash(), C['explode'], 0.2)
+put(fx, stampfx(), C['effect'], 0.28); fanfare(C['effect'] + 0.2); put(fx, stampfx(), C['warning'], 0.24); put(fx, bell(midi(96), 0.6), C['six2'], 0.12); put(fx, bell(midi(91), 0.7), C['picturing'], 0.12)
+put(fx, crash(), C['famous2'], 0.2); put(fx, riser(1.0), C['end'] - 1.1, 0.2); put(fx, boom(), C['end'] - 0.12, 0.3)
 
 mix = bed * 1.35 + fx * 0.85
 mix = np.tanh(mix / max(1e-6, np.abs(mix).max()) * 2.2) * 0.89
 st = np.stack([mix, np.roll(mix, int(SR * 0.008)) * 0.96], 1)
 sf.write(OUT, st.astype(np.float32), SR)
-print("music: %.1f s, 1920s charleston 126 + moonlit cool jazz 112 + dusty music-box waltz 96 + 1949 big-band swing 132" % LEN)
+print("music: %.1f s, internet glitch electro 124 + Malibu yacht pop 112 + legal noir walk 104 + glitch 128 + blogger lo-fi 90" % LEN)
